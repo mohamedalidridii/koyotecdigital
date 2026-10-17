@@ -4,4 +4,4 @@ Disallow: /work
 Disallow: /directors
 Disallow: /film
 
-Sitemap: https://koyotec.digital/sitemap.xml
+Sitemap: https://www.koyotec.digital/sitemap.xml

@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://koyotec.digital/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://koyotec.digital/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://koyotec.digital/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://koyotec.digital/"/>
+    <loc>https://www.koyotec.digital/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/"/>
   </url>
   <url>
-    <loc>https://koyotec.digital/en/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://koyotec.digital/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://koyotec.digital/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://koyotec.digital/"/>
+    <loc>https://www.koyotec.digital/en/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/"/>
   </url>
   <url>
-    <loc>https://koyotec.digital/services</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://koyotec.digital/services"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://koyotec.digital/en/services"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://koyotec.digital/services"/>
+    <loc>https://www.koyotec.digital/services</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/services"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/services"/>
   </url>
   <url>
-    <loc>https://koyotec.digital/en/services</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://koyotec.digital/services"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://koyotec.digital/en/services"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://koyotec.digital/services"/>
+    <loc>https://www.koyotec.digital/en/services</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/services"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/services"/>
   </url>
   <url>
-    <loc>https://koyotec.digital/contact</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://koyotec.digital/contact"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://koyotec.digital/en/contact"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://koyotec.digital/contact"/>
+    <loc>https://www.koyotec.digital/contact</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/contact"/>
   </url>
   <url>
-    <loc>https://koyotec.digital/en/contact</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://koyotec.digital/contact"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://koyotec.digital/en/contact"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://koyotec.digital/contact"/>
+    <loc>https://www.koyotec.digital/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/contact"/>
   </url>
 </urlset>
