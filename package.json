@@ -6,7 +6,10 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "host": "vite --host"
+    "host": "vite --host",
+    "cms": "node cms/server.mjs",
+    "cms:password": "node cms/server.mjs --set-password",
+    "generate": "node cms/generate.mjs"
   },
   "repository": {
     "type": "git",

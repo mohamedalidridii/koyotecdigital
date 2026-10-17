@@ -1,0 +1,150 @@
+/* blog: index and article pages */
+.blog {
+  width: 100%;
+  min-height: 100svh;
+  padding: 10rem 0 6rem;
+}
+
+.blog .blog-head {
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
+}
+
+.blog .blog-head p.kicker {
+  color: var(--tone-300);
+  margin-bottom: 1.5rem;
+}
+
+.blog .blog-head h1 {
+  font-size: 6rem;
+  line-height: 0.9;
+}
+
+.blog .blog-head .lead {
+  margin-top: 2rem;
+  max-width: 44rem;
+  font-size: 1.25rem;
+  text-transform: none;
+}
+
+.blog .blog-list {
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.blog .blog-card {
+  display: block;
+  padding: 2rem 0;
+  border-top: 1px solid var(--tone-200);
+  color: var(--tone-100);
+}
+
+.blog .blog-card:last-child {
+  border-bottom: 1px solid var(--tone-200);
+}
+
+.blog .blog-card h2 {
+  font-size: 2.75rem;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.blog .blog-card p {
+  max-width: 44rem;
+  text-transform: none;
+}
+
+.blog .blog-card:hover h2 {
+  color: var(--tone-500);
+}
+
+.blog .blog-card .meta {
+  color: var(--tone-300);
+  margin-bottom: 0.75rem;
+}
+
+.blog .article {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.blog .article .crumbs {
+  color: var(--tone-300);
+  margin-bottom: 2rem;
+}
+
+.blog .article .crumbs a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.blog .article h1 {
+  font-size: 4.5rem;
+  line-height: 0.95;
+  margin-bottom: 1.5rem;
+}
+
+.blog .article .meta {
+  color: var(--tone-300);
+  margin-bottom: 3rem;
+}
+
+.blog .article h2 {
+  font-size: 2.5rem;
+  line-height: 1;
+  margin: 3rem 0 1rem;
+}
+
+.blog .article p,
+.blog .article li {
+  font-size: 1.2rem;
+  line-height: 1.55;
+  text-transform: none;
+  margin-bottom: 1.25rem;
+}
+
+.blog .article ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.blog .article a {
+  color: var(--tone-500);
+  text-decoration: underline;
+}
+
+.blog .article .cta {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--tone-200);
+}
+
+@media (max-width: 1000px) {
+  .blog {
+    padding-top: 7rem;
+  }
+
+  .blog .blog-head h1 {
+    font-size: 3rem;
+  }
+
+  .blog .blog-card h2 {
+    font-size: 1.75rem;
+  }
+
+  .blog .article h1 {
+    font-size: 2.5rem;
+  }
+
+  .blog .article h2 {
+    font-size: 1.75rem;
+  }
+
+  .blog .article p,
+  .blog .article li {
+    font-size: 1.05rem;
+  }
+}

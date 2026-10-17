@@ -146,3 +146,8 @@ vite.config.ts.timestamp-*
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# CMS secrets and backups (never commit)
+cms/.auth.json
+cms/backups/
+*.tmp

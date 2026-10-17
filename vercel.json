@@ -33,6 +33,22 @@
     {
       "source": "/film",
       "destination": "/film.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog/index.html"
+    },
+    {
+      "source": "/en/blog",
+      "destination": "/en/blog/index.html"
+    },
+    {
+      "source": "/blog/:slug",
+      "destination": "/blog/:slug.html"
+    },
+    {
+      "source": "/en/blog/:slug",
+      "destination": "/en/blog/:slug.html"
     }
   ],
   "redirects": [
