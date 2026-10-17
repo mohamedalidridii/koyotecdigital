@@ -22,6 +22,8 @@ const LABELS = {
   services_kicker: "Petit titre des services", services_h: "Titre de la section services", services_lead: "Phrase sous le titre des services",
   cards: "Cartes de services", cards_more: "Texte « en savoir plus »", why_h: "Titre « pourquoi nous »", points: "Trois points forts",
   faq_h: "Titre de la FAQ", faq: "Questions / réponses", cta_sub: "Phrase du bandeau final", cta_btn: "Bouton du bandeau final",
+  hero_meta: "Lignes sous le grand nom (une par élément)", scroll_hint: "Texte « défiler »", services_outline: "Titre services : mot en contour", services_bold: "Titre services : mot en gras",
+  why_kicker: "Petite étiquette « pourquoi nous »", popup_title: "Texte de la carte flottante", popup_btn: "Bouton de la carte flottante", cta_giant: "Gros texte du bandeau final",
   nav_cta: "Bouton « devis » du menu", footer_pages: "Titre colonne pages (pied de page)", footer_contact: "Titre colonne contact", footer_follow: "Titre colonne réseaux",
 };
 const TUPLE = { cards: ["Titre", "Description"], points: ["Titre", "Description"], faq: ["Question", "Réponse"], blocks: ["Titre", "Texte"], process: ["Étape", "Description"], sections: ["Titre de section", "Texte (ligne vide = nouveau paragraphe ; « - » en début de ligne = liste)"] };

@@ -42,8 +42,16 @@
       "sub": "Nous concevons votre site internet, votre logo et votre identité visuelle, du design à la mise en ligne. Devis gratuit.",
       "cta_primary": "Demander un devis gratuit",
       "cta_secondary": "Voir nos services",
-      "services_kicker": "Ce que nous faisons",
-      "services_h": "Nos services",
+      "hero_meta": [
+        "Agence digitale · Web & branding",
+        "Tunis, Tunisie"
+      ],
+      "scroll_hint": "Défiler",
+      "popup_title": "Un projet web ou de branding ?",
+      "popup_btn": "Devis gratuit",
+      "services_kicker": "Services",
+      "services_outline": "Ce que",
+      "services_bold": "nous faisons",
       "services_lead": "Tout ce qu'il faut pour une présence en ligne professionnelle, réuni dans une seule agence.",
       "cards": [
         [
@@ -73,6 +81,7 @@
       ],
       "cards_more": "En savoir plus",
       "why_h": "Pourquoi choisir KOYOTEC",
+      "why_kicker": "Pourquoi nous",
       "lead": "KOYOTEC est une agence digitale basée à Tunis. Nous créons des [[sites web]] rapides et sur mesure, des [[identités visuelles]] mémorables et des stratégies digitales qui attirent de vrais clients.",
       "about": [
         "Que vous lanciez votre entreprise ou que vous souhaitiez moderniser votre présence en ligne, nous prenons en charge l'ensemble du projet : logo, charte graphique, design de l'interface, développement et mise en ligne.",
@@ -137,6 +146,7 @@
       ],
       "cta_h": "Parlons de votre projet",
       "cta_sub": "Devis gratuit sous 24 h.",
+      "cta_giant": "Parlons-en →",
       "cta_btn": "Demander un devis gratuit",
       "foot_copy": "Parlons de votre projet web."
     },
@@ -242,8 +252,16 @@
       "sub": "We design your website, logo and brand identity, from first sketch to launch. Free quote.",
       "cta_primary": "Get a free quote",
       "cta_secondary": "See our services",
-      "services_kicker": "What we do",
-      "services_h": "Our services",
+      "hero_meta": [
+        "Digital agency · Web & branding",
+        "Tunis, Tunisia"
+      ],
+      "scroll_hint": "Scroll",
+      "popup_title": "A web or branding project?",
+      "popup_btn": "Free quote",
+      "services_kicker": "Services",
+      "services_outline": "What",
+      "services_bold": "we do",
       "services_lead": "Everything you need for a professional online presence, from a single agency.",
       "cards": [
         [
@@ -273,6 +291,7 @@
       ],
       "cards_more": "Learn more",
       "why_h": "Why choose KOYOTEC",
+      "why_kicker": "Why us",
       "lead": "KOYOTEC is a digital agency based in Tunis. We build fast, custom [[websites]], memorable [[brand identities]] and digital strategies that bring in real customers.",
       "about": [
         "Whether you are launching a business or modernizing your online presence, we handle the whole project: logo, brand guidelines, interface design, development and launch.",
@@ -337,6 +356,7 @@
       ],
       "cta_h": "Let's talk about your project",
       "cta_sub": "Free quote within 24 hours.",
+      "cta_giant": "Let's talk →",
       "cta_btn": "Get a free quote",
       "foot_copy": "Let's talk about your web project."
     },

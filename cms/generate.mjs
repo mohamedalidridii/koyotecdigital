@@ -149,7 +149,7 @@ ${cssBlock}
     });
   }
 
-  function nav(lang, page, switchTo) {
+  function nav(lang, page, switchTo, onHero = false) {
     const ui = site[lang].ui; const i = idx(lang);
     const other = lang === "fr" ? "en" : "fr";
     const keys = ["home", "services", "blog", "contact"];
@@ -162,7 +162,7 @@ ${cssBlock}
       .join("\n");
     return `  <div class="transition"><div class="transition-overlay"></div></div>
 
-  <nav class="site-nav">
+  <nav class="site-nav${onHero ? " on-hero" : ""}">
     <div class="container">
       <div class="logo"><div class="logo-container"><a href="${PATHS.home[i]}" aria-label="${esc(G.name)}"><span></span>${esc(G.name)}.</a></div></div>
       <ul class="nav-links">${links}<li><a class="lang" href="${esc(sw)}" hreflang="${other}" lang="${other}">${other.toUpperCase()}</a></li></ul>
@@ -213,6 +213,7 @@ ${items}
           <a href="${esc(G.youtube)}" target="_blank" rel="noopener noreferrer">YouTube</a>
         </div>
       </div>
+      <p class="giant-name" aria-hidden="true">${esc(G.name)}.</p>
       <div class="bottom"><p>${esc(ui.based)}</p><p>&copy; ${esc(G.year)} ${esc(G.name)}. ${esc(ui.rights)}</p></div>
     </div>
   </footer>`;
@@ -221,7 +222,6 @@ ${items}
   const ps = (arr) => arr.map((x) => `<p>${esc(x)}</p>`).join("");
   const siteCss = (...extra) => css("css/transition.css", "css/menu.css", "css/site.css", ...extra);
 
-  const stepsHtml = (arr) => arr.map(([a, b]) => `<div class="step"><h3>${esc(a)}</h3><p>${esc(b)}</p></div>`).join("\n        ");
   const ctaBand = (lang, h, sub, btn) => `  <section class="cta-band" id="contact-cta">
     <div class="wrap">
       <h2>${esc(h)}</h2>
@@ -233,22 +233,28 @@ ${items}
     </div>
   </section>`;
 
+  const stripNum = (t) => String(t).replace(/^\d+\.\s*/, "");
+  const stepsHtml = (arr) => arr.map(([a, b], n) => `<div class="step"><span class="numeral" aria-hidden="true">0${n + 1}</span><h3>${esc(stripNum(a))}</h3><p>${esc(b)}</p></div>`).join("\n        ");
+
   function home(lang) {
     const h = site[lang].home; const i = idx(lang);
-    const cards = h.cards.map(([a, b]) => `        <a class="card-s" href="${PATHS.services[i]}"><h3>${esc(a)}</h3><p>${esc(b)}</p><span class="more">${esc(h.cards_more)} →</span></a>`).join("\n");
+    const rows = h.cards.map(([a, b], n) => `        <li><a class="svc-row" href="${PATHS.services[i]}"><span class="num mono">(0${n + 1})</span><span class="name">${esc(a)}</span><span class="desc">${esc(b)}</span><span class="go" aria-hidden="true">→</span></a></li>`).join("\n");
     const points = h.points.map(([a, b]) => `        <div class="point"><h3>${esc(a)}</h3><p>${esc(b)}</p></div>`).join("\n");
     const faq = h.faq.map(([q, a]) => `        <details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("\n");
+    const words = h.cards.map(([a]) => `<span>${esc(a)}</span><i aria-hidden="true">✦</i>`).join("");
     return `${pageHead(lang, "home", siteCss())}
 
 <body>
-${nav(lang, "home")}
+${nav(lang, "home", undefined, true)}
 
   <main>
-  <section class="hero-clear">
+  <section class="hero-clear hero-big">
     <video autoplay muted loop playsinline preload="metadata" aria-hidden="true">
       <source src="/hero/hero-footage.mp4" type="video/mp4" />
     </video>
     <div class="wrap">
+      <p class="wordmark" aria-hidden="true">${esc(G.name)}</p>
+      <p class="hero-meta mono">${h.hero_meta.map((m) => `<span>${esc(m)}</span>`).join("")}</p>
       <span class="eyebrow">${esc(h.eyebrow)}</span>
       <h1>${esc(h.h1)}</h1>
       <p class="sub">${esc(h.sub)}</p>
@@ -257,24 +263,28 @@ ${nav(lang, "home")}
         <a class="btn-ghost" href="${PATHS.services[i]}">${esc(h.cta_secondary)}</a>
       </div>
     </div>
+    <p class="scroll-hint mono" aria-hidden="true">[ ${esc(h.scroll_hint)} ]</p>
   </section>
+
+  <div class="marquee" aria-hidden="true"><div class="track"><div class="group">${words}</div><div class="group">${words}</div></div></div>
 
   <section class="sec" id="services">
     <div class="wrap">
-      <span class="eyebrow">${esc(h.services_kicker)}</span>
-      <h2>${esc(h.services_h)}</h2>
+      <span class="tag mono">[ ${esc(h.services_kicker)} ]</span>
+      <h2 class="mix"><span class="outline">${esc(h.services_outline)}</span> <span class="solid">${esc(h.services_bold)}</span></h2>
       <p class="lead">${esc(h.services_lead)}</p>
-      <div class="cards">
-${cards}
-      </div>
+      <ol class="svc-list">
+${rows}
+      </ol>
     </div>
   </section>
 
   <section class="sec dark" id="why">
     <div class="wrap">
-      <h2>${esc(h.why_h)}</h2>
-      <p class="lead">${inline(h.lead)}</p>
-      <div class="body-copy">${ps(h.about)}</div>
+      <span class="tag mono">[ ${esc(h.why_kicker)} ]</span>
+      <h2 class="visually-hidden">${esc(h.why_h)}</h2>
+      <p class="statement">${inline(h.lead)}</p>
+      <div class="body-copy centered">${ps(h.about)}</div>
       <div class="points">
 ${points}
       </div>
@@ -299,12 +309,28 @@ ${faq}
     </div>
   </section>
 
-${ctaBand(lang, h.cta_h, h.cta_sub, h.cta_btn)}
+  <section class="cta-band" id="contact-cta">
+    <div class="wrap">
+      <h2>${esc(h.cta_h)}</h2>
+      <p>${esc(h.cta_sub)}</p>
+      <a class="giant-cta" href="${PATHS.contact[i]}">${esc(h.cta_giant)}</a>
+      <div class="btn-row">
+        <a class="btn-cta" href="${PATHS.contact[i]}">${esc(h.cta_btn)}</a>
+        <a class="btn-ghost" href="tel:${esc(G.phone)}">${esc(G.phoneDisplay)}</a>
+      </div>
+    </div>
+  </section>
   </main>
+
+  <aside class="float-cta" aria-label="${esc(h.popup_title)}">
+    <button class="close" type="button" aria-label="Close">×</button>
+    <p class="mono">${esc(h.popup_title)}</p>
+    <a class="btn-cta" href="${PATHS.contact[i]}">${esc(h.popup_btn)}</a>
+  </aside>
 
 ${footer(lang)}
 
-${scripts("lenis-scroll", "transition", "menu", "hover")}
+${scripts("lenis-scroll", "transition", "menu", "hover", "animations")}
 </body>
 </html>
 `;
@@ -350,7 +376,7 @@ ${ctaBand(lang, s.cta_h, "", s.cta)}
 
 ${footer(lang)}
 
-${scripts("lenis-scroll", "transition", "menu", "hover")}
+${scripts("lenis-scroll", "transition", "menu", "hover", "animations")}
 </body>
 </html>
 `;
@@ -428,7 +454,7 @@ ${cards}
 
 ${footer(lang)}
 
-${scripts("lenis-scroll", "transition", "menu", "hover")}
+${scripts("lenis-scroll", "transition", "menu", "hover", "animations")}
 </body>
 </html>
 `;
@@ -482,7 +508,7 @@ ${body}
 
 ${footer(lang)}
 
-${scripts("lenis-scroll", "transition", "menu", "hover")}
+${scripts("lenis-scroll", "transition", "menu", "hover", "animations")}
 </body>
 </html>
 `;

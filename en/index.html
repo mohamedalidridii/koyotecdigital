@@ -31,7 +31,7 @@
 <body>
   <div class="transition"><div class="transition-overlay"></div></div>
 
-  <nav class="site-nav">
+  <nav class="site-nav on-hero">
     <div class="container">
       <div class="logo"><div class="logo-container"><a href="/en/" aria-label="KOYOTEC"><span></span>KOYOTEC.</a></div></div>
       <ul class="nav-links"><li><a href="/en/" class="active">Home</a></li><li><a href="/en/services">Services</a></li><li><a href="/en/blog">Blog</a></li><li><a href="/en/contact">Contact</a></li><li><a class="lang" href="/" hreflang="fr" lang="fr">FR</a></li></ul>
@@ -60,11 +60,13 @@
   </div>
 
   <main>
-  <section class="hero-clear">
+  <section class="hero-clear hero-big">
     <video autoplay muted loop playsinline preload="metadata" aria-hidden="true">
       <source src="/hero/hero-footage.mp4" type="video/mp4" />
     </video>
     <div class="wrap">
+      <p class="wordmark" aria-hidden="true">KOYOTEC</p>
+      <p class="hero-meta mono"><span>Digital agency · Web &amp; branding</span><span>Tunis, Tunisia</span></p>
       <span class="eyebrow">KOYOTEC · Digital agency in Tunis</span>
       <h1>Web design and branding agency in Tunis</h1>
       <p class="sub">We design your website, logo and brand identity, from first sketch to launch. Free quote.</p>
@@ -73,29 +75,33 @@
         <a class="btn-ghost" href="/en/services">See our services</a>
       </div>
     </div>
+    <p class="scroll-hint mono" aria-hidden="true">[ Scroll ]</p>
   </section>
+
+  <div class="marquee" aria-hidden="true"><div class="track"><div class="group"><span>Website design &amp; development</span><i aria-hidden="true">✦</i><span>Brand identity &amp; logo</span><i aria-hidden="true">✦</i><span>SEO</span><i aria-hidden="true">✦</i><span>UI/UX design</span><i aria-hidden="true">✦</i><span>Online store</span><i aria-hidden="true">✦</i><span>Digital strategy</span><i aria-hidden="true">✦</i></div><div class="group"><span>Website design &amp; development</span><i aria-hidden="true">✦</i><span>Brand identity &amp; logo</span><i aria-hidden="true">✦</i><span>SEO</span><i aria-hidden="true">✦</i><span>UI/UX design</span><i aria-hidden="true">✦</i><span>Online store</span><i aria-hidden="true">✦</i><span>Digital strategy</span><i aria-hidden="true">✦</i></div></div></div>
 
   <section class="sec" id="services">
     <div class="wrap">
-      <span class="eyebrow">What we do</span>
-      <h2>Our services</h2>
+      <span class="tag mono">[ Services ]</span>
+      <h2 class="mix"><span class="outline">What</span> <span class="solid">we do</span></h2>
       <p class="lead">Everything you need for a professional online presence, from a single agency.</p>
-      <div class="cards">
-        <a class="card-s" href="/en/services"><h3>Website design &amp; development</h3><p>Custom showcase and business websites, fast and mobile-friendly.</p><span class="more">Learn more →</span></a>
-        <a class="card-s" href="/en/services"><h3>Brand identity &amp; logo</h3><p>A consistent logo, colors, typography and brand guidelines.</p><span class="more">Learn more →</span></a>
-        <a class="card-s" href="/en/services"><h3>SEO</h3><p>Structure, content and speed optimized to show up on Google.</p><span class="more">Learn more →</span></a>
-        <a class="card-s" href="/en/services"><h3>UI/UX design</h3><p>Clear interfaces that guide visitors to take action.</p><span class="more">Learn more →</span></a>
-        <a class="card-s" href="/en/services"><h3>Online store</h3><p>Sell your products online with a store that is easy to manage.</p><span class="more">Learn more →</span></a>
-        <a class="card-s" href="/en/services"><h3>Digital strategy</h3><p>A clear plan to bring in customers consistently.</p><span class="more">Learn more →</span></a>
-      </div>
+      <ol class="svc-list">
+        <li><a class="svc-row" href="/en/services"><span class="num mono">(01)</span><span class="name">Website design &amp; development</span><span class="desc">Custom showcase and business websites, fast and mobile-friendly.</span><span class="go" aria-hidden="true">→</span></a></li>
+        <li><a class="svc-row" href="/en/services"><span class="num mono">(02)</span><span class="name">Brand identity &amp; logo</span><span class="desc">A consistent logo, colors, typography and brand guidelines.</span><span class="go" aria-hidden="true">→</span></a></li>
+        <li><a class="svc-row" href="/en/services"><span class="num mono">(03)</span><span class="name">SEO</span><span class="desc">Structure, content and speed optimized to show up on Google.</span><span class="go" aria-hidden="true">→</span></a></li>
+        <li><a class="svc-row" href="/en/services"><span class="num mono">(04)</span><span class="name">UI/UX design</span><span class="desc">Clear interfaces that guide visitors to take action.</span><span class="go" aria-hidden="true">→</span></a></li>
+        <li><a class="svc-row" href="/en/services"><span class="num mono">(05)</span><span class="name">Online store</span><span class="desc">Sell your products online with a store that is easy to manage.</span><span class="go" aria-hidden="true">→</span></a></li>
+        <li><a class="svc-row" href="/en/services"><span class="num mono">(06)</span><span class="name">Digital strategy</span><span class="desc">A clear plan to bring in customers consistently.</span><span class="go" aria-hidden="true">→</span></a></li>
+      </ol>
     </div>
   </section>
 
   <section class="sec dark" id="why">
     <div class="wrap">
-      <h2>Why choose KOYOTEC</h2>
-      <p class="lead">KOYOTEC is a digital agency based in Tunis. We build fast, custom <span class="highlight">websites</span>, memorable <span class="highlight">brand identities</span> and digital strategies that bring in real customers.</p>
-      <div class="body-copy"><p>Whether you are launching a business or modernizing your online presence, we handle the whole project: logo, brand guidelines, interface design, development and launch.</p><p>Every site we deliver is built for Google from day one: clear structure, fast pages, polished mobile experience and content optimized for search engines (SEO).</p><p>Our team works from Ennasr, Tunis, with Tunisian and international companies, in French, Arabic and English.</p></div>
+      <span class="tag mono">[ Why us ]</span>
+      <h2 class="visually-hidden">Why choose KOYOTEC</h2>
+      <p class="statement">KOYOTEC is a digital agency based in Tunis. We build fast, custom <span class="highlight">websites</span>, memorable <span class="highlight">brand identities</span> and digital strategies that bring in real customers.</p>
+      <div class="body-copy centered"><p>Whether you are launching a business or modernizing your online presence, we handle the whole project: logo, brand guidelines, interface design, development and launch.</p><p>Every site we deliver is built for Google from day one: clear structure, fast pages, polished mobile experience and content optimized for search engines (SEO).</p><p>Our team works from Ennasr, Tunis, with Tunisian and international companies, in French, Arabic and English.</p></div>
       <div class="points">
         <div class="point"><h3>Custom-made</h3><p>Every project starts from your business and your customers, not from a generic template.</p></div>
         <div class="point"><h3>Built for Google</h3><p>Structure, tags, speed and mobile version handled from day one.</p></div>
@@ -108,10 +114,10 @@
     <div class="wrap">
       <h2>How we work</h2>
       <div class="steps">
-        <div class="step"><h3>1. Listen</h3><p>We analyze your business, customers and goals.</p></div>
-        <div class="step"><h3>2. Design</h3><p>Identity, mockups and user journeys validated with you.</p></div>
-        <div class="step"><h3>3. Build</h3><p>Development, performance, technical SEO and testing.</p></div>
-        <div class="step"><h3>4. Launch</h3><p>Go live, monitoring and support.</p></div>
+        <div class="step"><span class="numeral" aria-hidden="true">01</span><h3>Listen</h3><p>We analyze your business, customers and goals.</p></div>
+        <div class="step"><span class="numeral" aria-hidden="true">02</span><h3>Design</h3><p>Identity, mockups and user journeys validated with you.</p></div>
+        <div class="step"><span class="numeral" aria-hidden="true">03</span><h3>Build</h3><p>Development, performance, technical SEO and testing.</p></div>
+        <div class="step"><span class="numeral" aria-hidden="true">04</span><h3>Launch</h3><p>Go live, monitoring and support.</p></div>
       </div>
     </div>
   </section>
@@ -133,6 +139,7 @@
     <div class="wrap">
       <h2>Let's talk about your project</h2>
       <p>Free quote within 24 hours.</p>
+      <a class="giant-cta" href="/en/contact">Let's talk →</a>
       <div class="btn-row">
         <a class="btn-cta" href="/en/contact">Get a free quote</a>
         <a class="btn-ghost" href="tel:+21652405699">+216 52 405 699</a>
@@ -140,6 +147,12 @@
     </div>
   </section>
   </main>
+
+  <aside class="float-cta" aria-label="A web or branding project?">
+    <button class="close" type="button" aria-label="Close">×</button>
+    <p class="mono">A web or branding project?</p>
+    <a class="btn-cta" href="/en/contact">Free quote</a>
+  </aside>
 
   <footer class="site-footer">
     <div class="wrap">
@@ -164,6 +177,7 @@
           <a href="https://www.youtube.com/@medaly.dridiy" target="_blank" rel="noopener noreferrer">YouTube</a>
         </div>
       </div>
+      <p class="giant-name" aria-hidden="true">KOYOTEC.</p>
       <div class="bottom"><p>Based in Ennasr, Tunis, Tunisia</p><p>&copy; 2026 KOYOTEC. All rights reserved</p></div>
     </div>
   </footer>
@@ -172,5 +186,6 @@
   <script type="module" src="/scripts/transition.js"></script>
   <script type="module" src="/scripts/menu.js"></script>
   <script type="module" src="/scripts/hover.js"></script>
+  <script type="module" src="/scripts/animations.js"></script>
 </body>
 </html>
