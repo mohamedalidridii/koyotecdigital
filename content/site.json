@@ -25,78 +25,126 @@
       },
       "menu": "Menu",
       "drop": "Contactez-nous",
-      "start": "Démarrer un projet",
       "other_lang": "English",
-      "email_ph": "Votre e-mail",
       "touch": "Nous écrire",
       "based": "Basés à Ennasr, Tunis, Tunisie",
-      "rights": "Tous droits réservés"
+      "rights": "Tous droits réservés",
+      "nav_cta": "Devis gratuit",
+      "footer_pages": "Pages",
+      "footer_contact": "Contact",
+      "footer_follow": "Suivez-nous"
     },
     "home": {
       "title": "Agence Web & Branding à Tunis | Création de Site Internet – KOYOTEC",
       "desc": "KOYOTEC, agence digitale à Tunis : création de sites web sur mesure, identité visuelle et branding, stratégie digitale. Demandez un devis gratuit.",
-      "hero": "Agence web et branding à Tunis",
+      "eyebrow": "KOYOTEC · Agence digitale à Tunis",
       "h1": "Création de site web et branding à Tunis",
-      "callout": [
-        "Nous concevons.",
-        "Nous codons.",
-        "Nous faisons grandir votre marque."
+      "sub": "Nous concevons votre site internet, votre logo et votre identité visuelle, du design à la mise en ligne. Devis gratuit.",
+      "cta_primary": "Demander un devis gratuit",
+      "cta_secondary": "Voir nos services",
+      "services_kicker": "Ce que nous faisons",
+      "services_h": "Nos services",
+      "services_lead": "Tout ce qu'il faut pour une présence en ligne professionnelle, réuni dans une seule agence.",
+      "cards": [
+        [
+          "Création de site web",
+          "Sites vitrines et sites d'entreprise sur mesure, rapides et adaptés au mobile."
+        ],
+        [
+          "Identité visuelle & logo",
+          "Logo, couleurs, typographie et charte graphique cohérents."
+        ],
+        [
+          "Référencement SEO",
+          "Structure, contenu et vitesse optimisés pour apparaître sur Google."
+        ],
+        [
+          "Design UI/UX",
+          "Des interfaces claires qui guident vos visiteurs vers l'action."
+        ],
+        [
+          "Boutique en ligne",
+          "Vendez vos produits en ligne avec une boutique simple à gérer."
+        ],
+        [
+          "Stratégie digitale",
+          "Un plan clair pour attirer des clients de façon régulière."
+        ]
       ],
-      "pix": "Le digital qui vous ressemble",
+      "cards_more": "En savoir plus",
+      "why_h": "Pourquoi choisir KOYOTEC",
       "lead": "KOYOTEC est une agence digitale basée à Tunis. Nous créons des [[sites web]] rapides et sur mesure, des [[identités visuelles]] mémorables et des stratégies digitales qui attirent de vrais clients.",
       "about": [
         "Que vous lanciez votre entreprise ou que vous souhaitiez moderniser votre présence en ligne, nous prenons en charge l'ensemble du projet : logo, charte graphique, design de l'interface, développement et mise en ligne.",
         "Chaque site que nous livrons est pensé pour Google dès le départ : structure claire, pages rapides, version mobile soignée et contenus optimisés pour le référencement naturel (SEO).",
         "Notre équipe travaille depuis Ennasr, à Tunis, avec des entreprises tunisiennes et internationales, en français, en arabe et en anglais."
       ],
-      "about_cta": "Découvrir nos services",
-      "banner": "Un site web qui travaille pour votre entreprise.",
-      "tags": [
-        "Site web",
-        "Branding",
-        "SEO",
-        "Design",
-        "Stratégie"
+      "points": [
+        [
+          "Sur mesure",
+          "Chaque projet part de votre activité et de vos clients, pas d'un modèle générique."
+        ],
+        [
+          "Pensé pour Google",
+          "Structure, balises, vitesse et version mobile soignées dès le départ."
+        ],
+        [
+          "Un seul interlocuteur",
+          "Logo, design, développement et mise en ligne : nous prenons tout en charge."
+        ]
       ],
-      "banner_copy": "Un bon site ne se contente pas d'être beau. Il se charge vite, se trouve sur Google, rassure vos visiteurs et les transforme en clients. Nous réunissons design, développement et référencement pour donner à votre marque une présence en ligne durable.",
-      "spot": "Nos réalisations",
-      "spot_cta": "Voir nos services",
-      "split": [
-        "Design",
-        "Code",
-        "Marque",
-        "SEO",
-        "Résultats"
+      "process_h": "Comment nous travaillons",
+      "process": [
+        [
+          "1. Écoute",
+          "Nous analysons votre activité, vos clients et vos objectifs."
+        ],
+        [
+          "2. Design",
+          "Identité, maquettes et parcours utilisateur validés avec vous."
+        ],
+        [
+          "3. Développement",
+          "Intégration, performance, SEO technique et tests."
+        ],
+        [
+          "4. Lancement",
+          "Mise en ligne, suivi et accompagnement."
+        ]
       ],
-      "svc_kicker": "Ce que nous faisons",
-      "svc_h": "Nos services",
-      "svc_items": [
-        "Création de site web",
-        "Identité visuelle & logo",
-        "Référencement SEO",
-        "Design UI/UX",
-        "Boutique en ligne",
-        "Stratégie digitale"
+      "faq_h": "Questions fréquentes",
+      "faq": [
+        [
+          "Combien coûte la création d'un site web ?",
+          "Le prix dépend du type de site, du nombre de pages et des fonctionnalités. Décrivez-nous votre projet : nous vous envoyons un devis gratuit."
+        ],
+        [
+          "Combien de temps faut-il pour créer un site ?",
+          "Cela dépend de la taille du projet et de la rapidité de validation des contenus. Nous indiquons un calendrier précis dans le devis."
+        ],
+        [
+          "Mon site apparaîtra-t-il sur Google ?",
+          "Nous construisons toutes les bases du référencement naturel : structure, balises, vitesse, version mobile. Personne ne peut garantir une position précise, mais un site bien conçu a bien plus de chances d'être trouvé."
+        ],
+        [
+          "Travaillez-vous en arabe et en anglais ?",
+          "Oui, nous pouvons réaliser votre site en français, en arabe et en anglais."
+        ],
+        [
+          "Comment démarrer ?",
+          "Écrivez-nous ou appelez-nous. Nous discutons de vos objectifs, puis nous vous envoyons une proposition gratuite."
+        ]
       ],
+      "cta_h": "Parlons de votre projet",
+      "cta_sub": "Devis gratuit sous 24 h.",
+      "cta_btn": "Demander un devis gratuit",
       "foot_copy": "Parlons de votre projet web."
     },
     "services": {
       "title": "Services : Création de Site Web, Branding & SEO à Tunis – KOYOTEC",
       "desc": "Création de site internet sur mesure, identité visuelle, logo, design UI/UX et référencement SEO à Tunis. Découvrez les services de l'agence KOYOTEC.",
       "h1": "Nos services web et branding à Tunis",
-      "hero_foot": "Web · Branding · SEO",
-      "hero_cta": "Nos prestations",
-      "svc_foot": "Ce que nous créons",
-      "svc_foot2": "Nos services",
-      "team": "Une équipe, un seul objectif",
-      "split": [
-        "Design",
-        "Code",
-        "Marque",
-        "SEO",
-        "Résultats"
-      ],
-      "kicker": "Nos prestations",
+      "sub": "Du logo au site web : tout ce qu'il faut pour une présence en ligne professionnelle.",
       "h2": "Agence digitale à Tunis : du logo au site web",
       "blocks": [
         [
@@ -177,78 +225,126 @@
       },
       "menu": "Menu",
       "drop": "Drop a line",
-      "start": "Start a project",
       "other_lang": "Français",
-      "email_ph": "Your email",
       "touch": "Get in touch",
       "based": "Based in Ennasr, Tunis, Tunisia",
-      "rights": "All rights reserved"
+      "rights": "All rights reserved",
+      "nav_cta": "Free quote",
+      "footer_pages": "Pages",
+      "footer_contact": "Contact",
+      "footer_follow": "Follow us"
     },
     "home": {
       "title": "Web Design & Branding Agency in Tunis, Tunisia – KOYOTEC",
       "desc": "KOYOTEC is a digital agency in Tunis, Tunisia: custom website design and development, brand identity, logo design and digital strategy. Get a free quote.",
-      "hero": "Web design and branding agency in Tunis",
+      "eyebrow": "KOYOTEC · Digital agency in Tunis",
       "h1": "Web design and branding agency in Tunis",
-      "callout": [
-        "We design.",
-        "We build.",
-        "We grow your brand."
+      "sub": "We design your website, logo and brand identity, from first sketch to launch. Free quote.",
+      "cta_primary": "Get a free quote",
+      "cta_secondary": "See our services",
+      "services_kicker": "What we do",
+      "services_h": "Our services",
+      "services_lead": "Everything you need for a professional online presence, from a single agency.",
+      "cards": [
+        [
+          "Website design & development",
+          "Custom showcase and business websites, fast and mobile-friendly."
+        ],
+        [
+          "Brand identity & logo",
+          "A consistent logo, colors, typography and brand guidelines."
+        ],
+        [
+          "SEO",
+          "Structure, content and speed optimized to show up on Google."
+        ],
+        [
+          "UI/UX design",
+          "Clear interfaces that guide visitors to take action."
+        ],
+        [
+          "Online store",
+          "Sell your products online with a store that is easy to manage."
+        ],
+        [
+          "Digital strategy",
+          "A clear plan to bring in customers consistently."
+        ]
       ],
-      "pix": "Digital that fits you",
+      "cards_more": "Learn more",
+      "why_h": "Why choose KOYOTEC",
       "lead": "KOYOTEC is a digital agency based in Tunis. We build fast, custom [[websites]], memorable [[brand identities]] and digital strategies that bring in real customers.",
       "about": [
         "Whether you are launching a business or modernizing your online presence, we handle the whole project: logo, brand guidelines, interface design, development and launch.",
         "Every site we deliver is built for Google from day one: clear structure, fast pages, polished mobile experience and content optimized for search engines (SEO).",
         "Our team works from Ennasr, Tunis, with Tunisian and international companies, in French, Arabic and English."
       ],
-      "about_cta": "Discover our services",
-      "banner": "A website that works for your business.",
-      "tags": [
-        "Website",
-        "Branding",
-        "SEO",
-        "Design",
-        "Strategy"
+      "points": [
+        [
+          "Custom-made",
+          "Every project starts from your business and your customers, not from a generic template."
+        ],
+        [
+          "Built for Google",
+          "Structure, tags, speed and mobile version handled from day one."
+        ],
+        [
+          "One point of contact",
+          "Logo, design, development and launch: we take care of everything."
+        ]
       ],
-      "banner_copy": "A good website is not just beautiful. It loads fast, ranks on Google, reassures visitors and turns them into customers. We combine design, development and SEO to give your brand a lasting online presence.",
-      "spot": "Selected frames",
-      "spot_cta": "View our services",
-      "split": [
-        "Design",
-        "Code",
-        "Brand",
-        "SEO",
-        "Results"
+      "process_h": "How we work",
+      "process": [
+        [
+          "1. Listen",
+          "We analyze your business, customers and goals."
+        ],
+        [
+          "2. Design",
+          "Identity, mockups and user journeys validated with you."
+        ],
+        [
+          "3. Build",
+          "Development, performance, technical SEO and testing."
+        ],
+        [
+          "4. Launch",
+          "Go live, monitoring and support."
+        ]
       ],
-      "svc_kicker": "What we do",
-      "svc_h": "Our services",
-      "svc_items": [
-        "Website design & development",
-        "Brand identity & logo",
-        "SEO",
-        "UI/UX design",
-        "Online store",
-        "Digital strategy"
+      "faq_h": "Frequently asked questions",
+      "faq": [
+        [
+          "How much does a website cost?",
+          "The price depends on the type of site, the number of pages and the features. Describe your project and we will send you a free quote."
+        ],
+        [
+          "How long does it take to build a website?",
+          "It depends on the size of the project and how quickly content is approved. We give a precise schedule in the quote."
+        ],
+        [
+          "Will my site show up on Google?",
+          "We build all the SEO foundations: structure, tags, speed, mobile version. Nobody can guarantee a specific position, but a well-built site is much more likely to be found."
+        ],
+        [
+          "Do you work in Arabic and English?",
+          "Yes, we can build your site in French, Arabic and English."
+        ],
+        [
+          "How do I get started?",
+          "Write to us or call us. We discuss your goals, then send you a free proposal."
+        ]
       ],
+      "cta_h": "Let's talk about your project",
+      "cta_sub": "Free quote within 24 hours.",
+      "cta_btn": "Get a free quote",
       "foot_copy": "Let's talk about your web project."
     },
     "services": {
       "title": "Services: Web Design, Branding & SEO in Tunis – KOYOTEC",
       "desc": "Custom website development, brand identity, logo design, UI/UX and SEO in Tunis, Tunisia. Explore the services of the KOYOTEC digital agency.",
       "h1": "Our web design and branding services in Tunis",
-      "hero_foot": "Web · Branding · SEO",
-      "hero_cta": "Our services",
-      "svc_foot": "What we create",
-      "svc_foot2": "Our services",
-      "team": "One team, one goal",
-      "split": [
-        "Design",
-        "Code",
-        "Brand",
-        "SEO",
-        "Results"
-      ],
-      "kicker": "Our services",
+      "sub": "From logo to website: everything you need for a professional online presence.",
       "h2": "Digital agency in Tunis: from logo to website",
       "blocks": [
         [

@@ -18,8 +18,13 @@ const LABELS = {
   instagram: "Lien Instagram", youtube: "Lien YouTube", locality: "Ville / quartier", country: "Code pays", latitude: "Latitude", longitude: "Longitude", year: "Année du copyright",
   ogImage: "Image de partage (chemin, ex. /home/banner.jpg)", slug: "Adresse de l'article (slug : minuscules, chiffres, tirets)", date: "Date de publication", intro: "Introduction (en gras)",
   sections: "Sections de l'article",
+  eyebrow: "Petite ligne au-dessus du titre", sub: "Phrase sous le titre", cta_primary: "Bouton principal (devis)", cta_secondary: "Bouton secondaire",
+  services_kicker: "Petit titre des services", services_h: "Titre de la section services", services_lead: "Phrase sous le titre des services",
+  cards: "Cartes de services", cards_more: "Texte « en savoir plus »", why_h: "Titre « pourquoi nous »", points: "Trois points forts",
+  faq_h: "Titre de la FAQ", faq: "Questions / réponses", cta_sub: "Phrase du bandeau final", cta_btn: "Bouton du bandeau final",
+  nav_cta: "Bouton « devis » du menu", footer_pages: "Titre colonne pages (pied de page)", footer_contact: "Titre colonne contact", footer_follow: "Titre colonne réseaux",
 };
-const TUPLE = { blocks: ["Titre", "Texte"], process: ["Étape", "Description"], sections: ["Titre de section", "Texte (ligne vide = nouveau paragraphe ; « - » en début de ligne = liste)"] };
+const TUPLE = { cards: ["Titre", "Description"], points: ["Titre", "Description"], faq: ["Question", "Réponse"], blocks: ["Titre", "Texte"], process: ["Étape", "Description"], sections: ["Titre de section", "Texte (ligne vide = nouveau paragraphe ; « - » en début de ligne = liste)"] };
 const PAGE_NAMES = { home: "Accueil", services: "Services", contact: "Contact", blog: "Page Blog", ui: "Menus et libellés" };
 const label = (k) => LABELS[k] || k;
 

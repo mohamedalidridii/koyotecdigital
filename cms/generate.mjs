@@ -84,7 +84,7 @@ export function generate(root = ROOT, content = loadContent(root), { write = tru
       areaServed: [{ "@type": "Country", name: "Tunisia" }],
       knowsLanguage: ["fr", "ar", "en"],
       sameAs: [G.instagram, G.youtube],
-      makesOffer: t.home.svc_items.map((n) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: n } })),
+      makesOffer: t.home.cards.map(([n]) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: n } })),
     };
   }
 
@@ -118,6 +118,15 @@ ${cssBlock}
   function pageHead(lang, page, cssBlock) {
     const p = site[lang][page];
     let ld = org(lang);
+    if (page === "home") {
+      ld = {
+        "@context": "https://schema.org",
+        "@graph": [ld, {
+          "@type": "FAQPage",
+          mainEntity: p.faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
+        }],
+      };
+    }
     if (page === "services") {
       const ui = site[lang].ui;
       ld = {
@@ -141,17 +150,23 @@ ${cssBlock}
   }
 
   function nav(lang, page, switchTo) {
-    const ui = site[lang].ui;
+    const ui = site[lang].ui; const i = idx(lang);
     const other = lang === "fr" ? "en" : "fr";
-    const items = ["home", "services", "blog", "contact"]
-      .map((k) => `      <div class="nav-item${k === page ? " active" : ""}"><a href="${PATHS[k][idx(lang)]}">${esc(ui.nav[k])}</a></div>`)
-      .join("\n");
+    const keys = ["home", "services", "blog", "contact"];
     const sw = switchTo || PATHS[page][idx(other)];
+    const links = keys
+      .map((k) => `<li><a href="${PATHS[k][i]}"${k === page ? ' class="active"' : ""}>${esc(ui.nav[k])}</a></li>`)
+      .join("");
+    const items = keys
+      .map((k) => `      <div class="nav-item${k === page ? " active" : ""}"><a href="${PATHS[k][i]}">${esc(ui.nav[k])}</a></div>`)
+      .join("\n");
     return `  <div class="transition"><div class="transition-overlay"></div></div>
 
-  <nav>
+  <nav class="site-nav">
     <div class="container">
-      <div class="logo"><div class="logo-container"><a href="${PATHS.home[idx(lang)]}" aria-label="${esc(G.name)}"><span></span>${esc(G.name)}.</a></div></div>
+      <div class="logo"><div class="logo-container"><a href="${PATHS.home[i]}" aria-label="${esc(G.name)}"><span></span>${esc(G.name)}.</a></div></div>
+      <ul class="nav-links">${links}<li><a class="lang" href="${esc(sw)}" hreflang="${other}" lang="${other}">${other.toUpperCase()}</a></li></ul>
+      <a class="btn-cta" href="${PATHS.contact[i]}">${esc(ui.nav_cta)}</a>
       <div class="menu-toggle-btn"><div class="menu-toggle-btn-wrapper"><p>${esc(ui.menu)}</p></div></div>
     </div>
   </nav>
@@ -167,7 +182,7 @@ ${items}
           <a href="${esc(G.instagram)}" target="_blank" rel="noopener noreferrer">Instagram</a>
           <a href="${esc(G.youtube)}" target="_blank" rel="noopener noreferrer">YouTube</a>
         </div>
-        <div class="nav-footer-item"><a href="${PATHS.contact[idx(lang)]}">[ &nbsp;${esc(ui.drop)}&nbsp; ]</a></div>
+        <div class="nav-footer-item"><a href="${PATHS.contact[i]}">[ &nbsp;${esc(ui.drop)}&nbsp; ]</a></div>
       </div>
     </div>
   </div>`;
@@ -175,134 +190,121 @@ ${items}
 
   function footer(lang) {
     const t = site[lang]; const ui = t.ui; const i = idx(lang);
-    return `  <footer>
-    <div class="footer-row form">
-      <div class="container">
-        <div class="footer-name"><h3>${esc(G.name)}.</h3><h3>Digital Agency</h3></div>
-        <div class="footer-form-copy"><p>${esc(t.home.foot_copy)}</p></div>
-        <div class="footer-input"><input type="email" placeholder="${esc(ui.email_ph)}" aria-label="${esc(ui.email_ph)}" /></div>
-        <div class="footer-submit-btn"><a href="${PATHS.contact[i]}" class="scramble-hover">[ &nbsp;${esc(ui.start)}&nbsp; ]</a></div>
-      </div>
-    </div>
-    <div class="footer-row meta">
-      <div class="container">
-        <div class="footer-meta-row">
-          <div class="meta-info"><p>${esc(ui.touch)}</p><a href="mailto:${esc(G.email)}">${esc(G.email)}</a><a href="tel:${esc(G.phone)}">${esc(G.phoneDisplay)}</a></div>
-          <div class="meta-info">
-            <a href="${esc(G.youtube)}" target="_blank" rel="noopener noreferrer" class="scramble-hover">YouTube</a>
-            <a href="${esc(G.instagram)}" target="_blank" rel="noopener noreferrer" class="scramble-hover">Instagram</a>
-          </div>
-          <div class="meta-info">
-            <a href="${PATHS.home[i]}" class="scramble-hover">${esc(ui.nav.home)}</a>
-            <a href="${PATHS.services[i]}" class="scramble-hover">${esc(ui.nav.services)}</a>
-            <a href="${PATHS.blog[i]}" class="scramble-hover">${esc(ui.nav.blog)}</a>
-            <a href="${PATHS.contact[i]}" class="scramble-hover">${esc(ui.nav.contact)}</a>
-          </div>
+    return `  <footer class="site-footer">
+    <div class="wrap">
+      <div class="cols">
+        <div>
+          <p class="brand">${esc(G.name)}.</p>
+          <p class="tag">${esc(t.home.foot_copy)}</p>
         </div>
-        <div class="footer-meta-row"><p>${esc(ui.based)}</p><p>&copy; ${esc(G.year)} ${esc(G.name)}. ${esc(ui.rights)}</p></div>
+        <div>
+          <h4>${esc(ui.footer_pages)}</h4>
+          <a href="${PATHS.home[i]}">${esc(ui.nav.home)}</a>
+          <a href="${PATHS.services[i]}">${esc(ui.nav.services)}</a>
+          <a href="${PATHS.blog[i]}">${esc(ui.nav.blog)}</a>
+          <a href="${PATHS.contact[i]}">${esc(ui.nav.contact)}</a>
+        </div>
+        <div>
+          <h4>${esc(ui.footer_contact)}</h4>
+          <a href="mailto:${esc(G.email)}">${esc(G.email)}</a>
+          <a href="tel:${esc(G.phone)}">${esc(G.phoneDisplay)}</a>
+          <h4 style="margin-top:1.2rem">${esc(ui.footer_follow)}</h4>
+          <a href="${esc(G.instagram)}" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="${esc(G.youtube)}" target="_blank" rel="noopener noreferrer">YouTube</a>
+        </div>
       </div>
+      <div class="bottom"><p>${esc(ui.based)}</p><p>&copy; ${esc(G.year)} ${esc(G.name)}. ${esc(ui.rights)}</p></div>
     </div>
   </footer>`;
   }
 
-  const spans = (arr) => arr.map((x) => `<span>${esc(x)}</span>`).join("");
   const ps = (arr) => arr.map((x) => `<p>${esc(x)}</p>`).join("");
+  const siteCss = (...extra) => css("css/transition.css", "css/menu.css", "css/site.css", ...extra);
+
+  const stepsHtml = (arr) => arr.map(([a, b]) => `<div class="step"><h3>${esc(a)}</h3><p>${esc(b)}</p></div>`).join("\n        ");
+  const ctaBand = (lang, h, sub, btn) => `  <section class="cta-band" id="contact-cta">
+    <div class="wrap">
+      <h2>${esc(h)}</h2>
+      <p>${esc(sub)}</p>
+      <div class="btn-row">
+        <a class="btn-cta" href="${PATHS.contact[idx(lang)]}">${esc(btn)}</a>
+        <a class="btn-ghost" href="tel:${esc(G.phone)}">${esc(G.phoneDisplay)}</a>
+      </div>
+    </div>
+  </section>`;
 
   function home(lang) {
-    const t = site[lang]; const h = t.home; const i = idx(lang);
-    const cs = css("css/preloader.css", "css/transition.css", "css/menu.css", "css/home.css", "css/pixelated-video.css",
-      "css/pixelated-text.css", "css/spotlight.css", "css/split-element.css", "css/footer.css");
-    const gridItems = (arr) => arr.map((n) => `          <div class="grid-item"><p>${esc(n)}</p></div>`).join("\n");
-    const rows = `        <div class="grid-row">\n${gridItems(h.svc_items.slice(0, 3))}\n        </div>\n        <div class="grid-row">\n${gridItems(h.svc_items.slice(3))}\n        </div>`;
-    const imgs = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-      .map((trio) => `      <div class="grid-row">${trio.map((n) => `<div class="img"><img src="/spotlight/spotlight-${n}.jpg" alt="" loading="lazy" /></div>`).join("")}</div>\n`)
-      .join("");
-    return `${pageHead(lang, "home", cs)}
+    const h = site[lang].home; const i = idx(lang);
+    const cards = h.cards.map(([a, b]) => `        <a class="card-s" href="${PATHS.services[i]}"><h3>${esc(a)}</h3><p>${esc(b)}</p><span class="more">${esc(h.cards_more)} →</span></a>`).join("\n");
+    const points = h.points.map(([a, b]) => `        <div class="point"><h3>${esc(a)}</h3><p>${esc(b)}</p></div>`).join("\n");
+    const faq = h.faq.map(([q, a]) => `        <details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("\n");
+    return `${pageHead(lang, "home", siteCss())}
 
 <body>
-  <div class="overlay">
-    <div class="projects"><div class="projects-header"><p>Service</p><p>${lang === "fr" ? "Ville" : "City"}</p></div></div>
-    <div class="loader"><h2 class="logo-line-1">${esc(G.name)}.</h2><h2 class="logo-line-2">Digital Agency</h2></div>
-    <div class="locations"><div class="locations-header"><p>${lang === "fr" ? "Lieu" : "Location"}</p></div></div>
-  </div>
-
-  <div class="image-grid">
-${imgs}  </div>
-
 ${nav(lang, "home")}
 
   <main>
-  <section class="hero">
-    <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+  <section class="hero-clear">
+    <video autoplay muted loop playsinline preload="metadata" aria-hidden="true">
       <source src="/hero/hero-footage.mp4" type="video/mp4" />
     </video>
-    <div class="hero-content">
-      <div class="hero-header"><div class="container"><h1>${esc(h.h1)}</h1></div></div>
-      <div class="hero-footer">
-        <div class="container">
-          <p><span>Ennasr</span> <span>/</span> <span>Tunis</span></p>
-          <p>[ &nbsp;Scroll&nbsp; ]</p>
-        </div>
+    <div class="wrap">
+      <span class="eyebrow">${esc(h.eyebrow)}</span>
+      <h1>${esc(h.h1)}</h1>
+      <p class="sub">${esc(h.sub)}</p>
+      <div class="btn-row">
+        <a class="btn-cta" href="${PATHS.contact[i]}">${esc(h.cta_primary)}</a>
+        <a class="btn-ghost" href="${PATHS.services[i]}">${esc(h.cta_secondary)}</a>
       </div>
     </div>
   </section>
 
-  <section class="about-callout">
-    <div class="container"><div class="about-callout-copy">${ps(h.callout.slice(0, 2))}</div></div>
-  </section>
-
-  <section class="pixelated-text about-header"><h2 class="The-art-of-becoming">${esc(h.pix)}</h2></section>
-
-  <section class="about-copy">
-    <div class="container">
-      <h3>${inline(h.lead)}</h3>
-      <div class="about-copy-info">
-        ${ps(h.about)}
-        <a href="${PATHS.services[i]}" class="scramble-hover">[ &nbsp;${esc(h.about_cta)}&nbsp; ]</a>
+  <section class="sec" id="services">
+    <div class="wrap">
+      <span class="eyebrow">${esc(h.services_kicker)}</span>
+      <h2>${esc(h.services_h)}</h2>
+      <p class="lead">${esc(h.services_lead)}</p>
+      <div class="cards">
+${cards}
       </div>
     </div>
   </section>
 
-  <section class="banner">
-    <div class="banner-img" data-parallax="true" data-parallax-speed="0.2">
-      <img src="/home/banner.jpg" alt="${esc(h.hero)}" loading="lazy" />
-    </div>
-    <div class="banner-content">
-      <div class="container">
-        <div class="banner-header"><h2>${esc(h.banner)}</h2></div>
-        <div class="banner-tags">${ps(h.tags)}</div>
-        <div class="banner-copy"><p>${esc(h.banner_copy)}</p></div>
+  <section class="sec dark" id="why">
+    <div class="wrap">
+      <h2>${esc(h.why_h)}</h2>
+      <p class="lead">${inline(h.lead)}</p>
+      <div class="body-copy">${ps(h.about)}</div>
+      <div class="points">
+${points}
       </div>
     </div>
   </section>
 
-  <section class="spotlight">
-    <div class="spotlight-container"><div class="spotlight-gallery"></div></div>
-    <div class="spotlight-footer">
-      <div class="container"><p>${esc(h.spot)}</p><a href="${PATHS.services[i]}" class="scramble-hover">[ &nbsp;${esc(h.spot_cta)}&nbsp; ]</a></div>
-    </div>
-  </section>
-
-  <section class="split-element">
-    <div class="split-img split-top"><img src="/home/form.svg" alt="" /></div>
-    <div class="split-img split-bottom"><img src="/home/form.svg" alt="" /></div>
-    <div class="split-copy"><div class="container"><p>${spans(h.split)}</p></div></div>
-  </section>
-
-  <section class="clients">
-    <div class="container">
-      <div class="clients-header"><p>[ &nbsp;${esc(h.svc_kicker)}&nbsp; ]</p><h2>${esc(h.svc_h)}</h2></div>
-      <div class="grid">
-${rows}
+  <section class="sec" id="process">
+    <div class="wrap">
+      <h2>${esc(h.process_h)}</h2>
+      <div class="steps">
+        ${stepsHtml(h.process)}
       </div>
-      <div class="highlight"></div>
     </div>
   </section>
+
+  <section class="sec dark" id="faq">
+    <div class="wrap">
+      <h2>${esc(h.faq_h)}</h2>
+      <div class="faq">
+${faq}
+      </div>
+    </div>
+  </section>
+
+${ctaBand(lang, h.cta_h, h.cta_sub, h.cta_btn)}
   </main>
 
 ${footer(lang)}
 
-${scripts("lenis-scroll", "preloader", "transition", "menu", "hover", "pixelated-video", "pixelated-text", "parallax", "spotlight", "split-element", "clients")}
+${scripts("lenis-scroll", "transition", "menu", "hover")}
 </body>
 </html>
 `;
@@ -310,55 +312,45 @@ ${scripts("lenis-scroll", "preloader", "transition", "menu", "hover", "pixelated
 
   function services(lang) {
     const s = site[lang].services; const i = idx(lang);
-    const cs = css("css/transition.css", "css/menu.css", "css/culture.css", "css/services.css", "css/split-element.css", "css/footer.css");
-    const blocks = s.blocks.map(([a, b]) => `          <h3>${esc(a)}</h3>\n          <p>${esc(b)}</p>`).join("\n");
-    const proc = s.process.map(([a, b]) => `          <h3>${esc(a)}</h3>\n          <p>${esc(b)}</p>`).join("\n");
-    return `${pageHead(lang, "services", cs)}
+    const blocks = s.blocks.map(([a, b]) => `        <div class="card-s"><h3>${esc(a)}</h3><p>${esc(b)}</p></div>`).join("\n");
+    return `${pageHead(lang, "services", siteCss())}
 
 <body>
 ${nav(lang, "services")}
 
   <main>
-  <section class="culture-hero">
-    <div class="culture-hero-img"><img src="/culture/hero.jpg" alt="${esc(s.h1)}" /></div>
-    <div class="culture-hero-header"><div class="container"><h1>${esc(s.h1)}</h1></div></div>
-    <div class="culture-hero-footer"><div class="container"><p>${esc(s.hero_foot)}</p><p>[ &nbsp;${esc(s.hero_cta)}&nbsp; ]</p></div></div>
-  </section>
-
-  <section class="services">
-    <div class="services-container">
-      <div class="services-list"></div>
-      <div class="services-indicator"><span>[ Explore ]</span></div>
+  <section class="page-hero">
+    <div class="wrap">
+      <h1>${esc(s.h1)}</h1>
+      <p class="sub">${esc(s.sub)}</p>
+      <div class="btn-row"><a class="btn-cta" href="${PATHS.contact[i]}">${esc(s.cta)}</a></div>
     </div>
-    <div class="services-footer"><div class="container"><p>${esc(s.svc_foot)}</p><p>[ &nbsp;${esc(s.svc_foot2)}&nbsp; ]</p></div></div>
   </section>
 
-  <section class="team"><div class="team-header"><h2>${esc(s.team)}</h2></div></section>
-
-  <section class="split-element">
-    <div class="container">
-      <div class="split-img split-top"><img src="/home/form.svg" alt="" /></div>
-      <div class="split-img split-bottom"><img src="/home/form.svg" alt="" /></div>
-    </div>
-    <div class="split-copy"><div class="container"><p>${spans(s.split)}</p></div></div>
-  </section>
-
-  <section class="culture-about">
-    <div class="container">
-      <div class="culture-header"><p>[ &nbsp;${esc(s.kicker)}&nbsp; ]</p><h2>${esc(s.h2)}</h2></div>
-      <div class="culture-about-copy">
+  <section class="sec" style="padding-top:2rem">
+    <div class="wrap">
+      <h2>${esc(s.h2)}</h2>
+      <div class="cards" style="grid-template-columns:repeat(2,1fr)">
 ${blocks}
-          <h3>${esc(s.process_h)}</h3>
-${proc}
-          <p><a href="${PATHS.contact[i]}" class="scramble-hover">[ &nbsp;${esc(s.cta)}&nbsp; ]</a></p>
       </div>
     </div>
   </section>
+
+  <section class="sec dark">
+    <div class="wrap">
+      <h2>${esc(s.process_h)}</h2>
+      <div class="steps">
+        ${stepsHtml(s.process)}
+      </div>
+    </div>
+  </section>
+
+${ctaBand(lang, s.cta_h, "", s.cta)}
   </main>
 
 ${footer(lang)}
 
-${scripts("lenis-scroll", "transition", "menu", "hover", "culture", "services", "split-element")}
+${scripts("lenis-scroll", "transition", "menu", "hover")}
 </body>
 </html>
 `;
@@ -366,7 +358,7 @@ ${scripts("lenis-scroll", "transition", "menu", "hover", "culture", "services", 
 
   function contact(lang) {
     const c = site[lang].contact;
-    const cs = css("css/transition.css", "css/menu.css", "css/pixelated-video.css", "css/contact.css");
+    const cs = css("css/transition.css", "css/menu.css", "css/site.css", "css/pixelated-video.css", "css/contact.css");
     return `${pageHead(lang, "contact", cs)}
 
 <body>
@@ -403,7 +395,7 @@ ${scripts("lenis-scroll", "transition", "menu", "pixelated-video", "contact")}
 `;
   }
 
-  const blogCss = css("css/transition.css", "css/menu.css", "css/blog.css", "css/footer.css");
+  const blogCss = css("css/transition.css", "css/menu.css", "css/site.css", "css/blog.css");
 
   function blogIndex(lang) {
     const b = site[lang].blog; const i = idx(lang);

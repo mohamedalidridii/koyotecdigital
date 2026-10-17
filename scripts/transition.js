@@ -36,24 +36,16 @@ function closeMenuIfOpen() {
 
 function isSamePage(href) {
   if (!href || href === "#" || href === "") return true;
-  const currentPath = window.location.pathname;
-  if (href === currentPath) return true;
+  if (href.startsWith("#")) return true;
 
-  if (
-    (currentPath === "/" || currentPath === "/index.html") &&
-    (href === "/" ||
-      href === "/index.html" ||
-      href === "index.html" ||
-      href === "./index.html")
-  ) {
-    return true;
+  // compare normalized pathnames so /services and /en/services are different pages
+  const normalize = (p) => p.replace(/\/index\.html$/, "/").replace(/\.html$/, "").replace(/(.)\/$/, "$1") || "/";
+  try {
+    const target = new URL(href, window.location.href);
+    return normalize(target.pathname) === normalize(window.location.pathname);
+  } catch {
+    return false;
   }
-
-  const currentFileName = currentPath.split("/").pop() || "index.html";
-  const hrefFileName = href.split("/").pop();
-  if (currentFileName === hrefFileName) return true;
-
-  return false;
 }
 
 // main execution
