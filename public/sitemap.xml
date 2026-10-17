@@ -25,6 +25,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/services"/>
   </url>
   <url>
+    <loc>https://www.koyotec.digital/blog</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/blog"/>
+  </url>
+  <url>
+    <loc>https://www.koyotec.digital/en/blog</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/blog"/>
+  </url>
+  <url>
     <loc>https://www.koyotec.digital/contact</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/contact"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/contact"/>
@@ -35,5 +47,47 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/contact"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/contact"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/contact"/>
+  </url>
+  <url>
+    <loc>https://www.koyotec.digital/blog/cout-creation-site-web-tunisie</loc>
+    <lastmod>2026-10-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/blog/cout-creation-site-web-tunisie"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/blog/website-design-cost-tunisia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/blog/cout-creation-site-web-tunisie"/>
+  </url>
+  <url>
+    <loc>https://www.koyotec.digital/en/blog/website-design-cost-tunisia</loc>
+    <lastmod>2026-10-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/blog/cout-creation-site-web-tunisie"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/blog/website-design-cost-tunisia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/blog/cout-creation-site-web-tunisie"/>
+  </url>
+  <url>
+    <loc>https://www.koyotec.digital/blog/seo-tunis-apparaitre-sur-google</loc>
+    <lastmod>2026-10-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/blog/seo-tunis-apparaitre-sur-google"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/blog/seo-tunis-rank-on-google"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/blog/seo-tunis-apparaitre-sur-google"/>
+  </url>
+  <url>
+    <loc>https://www.koyotec.digital/en/blog/seo-tunis-rank-on-google</loc>
+    <lastmod>2026-10-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/blog/seo-tunis-apparaitre-sur-google"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/blog/seo-tunis-rank-on-google"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/blog/seo-tunis-apparaitre-sur-google"/>
+  </url>
+  <url>
+    <loc>https://www.koyotec.digital/blog/logo-identite-visuelle-entreprise</loc>
+    <lastmod>2026-10-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/blog/logo-identite-visuelle-entreprise"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/blog/logo-brand-identity-guide"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/blog/logo-identite-visuelle-entreprise"/>
+  </url>
+  <url>
+    <loc>https://www.koyotec.digital/en/blog/logo-brand-identity-guide</loc>
+    <lastmod>2026-10-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/blog/logo-identite-visuelle-entreprise"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/blog/logo-brand-identity-guide"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/blog/logo-identite-visuelle-entreprise"/>
   </url>
 </urlset>

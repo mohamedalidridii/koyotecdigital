@@ -1,0 +1,322 @@
+{
+  "global": {
+    "domain": "https://www.koyotec.digital",
+    "name": "KOYOTEC",
+    "tagline": "KOYOTEC Digital Agency",
+    "email": "contact@koyotec.digital",
+    "phone": "+21652405699",
+    "phoneDisplay": "+216 52 405 699",
+    "instagram": "https://www.instagram.com/koyotec.digital/",
+    "youtube": "https://www.youtube.com/@medaly.dridiy",
+    "locality": "Ennasr, Tunis",
+    "country": "TN",
+    "latitude": "36.8065",
+    "longitude": "10.1818",
+    "year": "2026",
+    "ogImage": "/home/banner.jpg"
+  },
+  "fr": {
+    "ui": {
+      "nav": {
+        "home": "Accueil",
+        "services": "Services",
+        "blog": "Blog",
+        "contact": "Contact"
+      },
+      "menu": "Menu",
+      "drop": "Contactez-nous",
+      "start": "Démarrer un projet",
+      "other_lang": "English",
+      "email_ph": "Votre e-mail",
+      "touch": "Nous écrire",
+      "based": "Basés à Ennasr, Tunis, Tunisie",
+      "rights": "Tous droits réservés"
+    },
+    "home": {
+      "title": "Agence Web & Branding à Tunis | Création de Site Internet – KOYOTEC",
+      "desc": "KOYOTEC, agence digitale à Tunis : création de sites web sur mesure, identité visuelle et branding, stratégie digitale. Demandez un devis gratuit.",
+      "hero": "Agence web et branding à Tunis",
+      "h1": "Création de site web et branding à Tunis",
+      "callout": [
+        "Nous concevons.",
+        "Nous codons.",
+        "Nous faisons grandir votre marque."
+      ],
+      "pix": "Le digital qui vous ressemble",
+      "lead": "KOYOTEC est une agence digitale basée à Tunis. Nous créons des [[sites web]] rapides et sur mesure, des [[identités visuelles]] mémorables et des stratégies digitales qui attirent de vrais clients.",
+      "about": [
+        "Que vous lanciez votre entreprise ou que vous souhaitiez moderniser votre présence en ligne, nous prenons en charge l'ensemble du projet : logo, charte graphique, design de l'interface, développement et mise en ligne.",
+        "Chaque site que nous livrons est pensé pour Google dès le départ : structure claire, pages rapides, version mobile soignée et contenus optimisés pour le référencement naturel (SEO).",
+        "Notre équipe travaille depuis Ennasr, à Tunis, avec des entreprises tunisiennes et internationales, en français, en arabe et en anglais."
+      ],
+      "about_cta": "Découvrir nos services",
+      "banner": "Un site web qui travaille pour votre entreprise.",
+      "tags": [
+        "Site web",
+        "Branding",
+        "SEO",
+        "Design",
+        "Stratégie"
+      ],
+      "banner_copy": "Un bon site ne se contente pas d'être beau. Il se charge vite, se trouve sur Google, rassure vos visiteurs et les transforme en clients. Nous réunissons design, développement et référencement pour donner à votre marque une présence en ligne durable.",
+      "spot": "Nos réalisations",
+      "spot_cta": "Voir nos services",
+      "split": [
+        "Design",
+        "Code",
+        "Marque",
+        "SEO",
+        "Résultats"
+      ],
+      "svc_kicker": "Ce que nous faisons",
+      "svc_h": "Nos services",
+      "svc_items": [
+        "Création de site web",
+        "Identité visuelle & logo",
+        "Référencement SEO",
+        "Design UI/UX",
+        "Boutique en ligne",
+        "Stratégie digitale"
+      ],
+      "foot_copy": "Parlons de votre projet web."
+    },
+    "services": {
+      "title": "Services : Création de Site Web, Branding & SEO à Tunis – KOYOTEC",
+      "desc": "Création de site internet sur mesure, identité visuelle, logo, design UI/UX et référencement SEO à Tunis. Découvrez les services de l'agence KOYOTEC.",
+      "h1": "Nos services web et branding à Tunis",
+      "hero_foot": "Web · Branding · SEO",
+      "hero_cta": "Nos prestations",
+      "svc_foot": "Ce que nous créons",
+      "svc_foot2": "Nos services",
+      "team": "Une équipe, un seul objectif",
+      "split": [
+        "Design",
+        "Code",
+        "Marque",
+        "SEO",
+        "Résultats"
+      ],
+      "kicker": "Nos prestations",
+      "h2": "Agence digitale à Tunis : du logo au site web",
+      "blocks": [
+        [
+          "Création de site web sur mesure à Tunis",
+          "Nous développons des sites vitrines, des sites d'entreprise et des plateformes web adaptés à votre activité. Chaque site est responsive (mobile, tablette, ordinateur), rapide à charger et simple à administrer. Nous utilisons des technologies modernes pour garantir performance et sécurité."
+        ],
+        [
+          "Branding et identité visuelle",
+          "Logo, palette de couleurs, typographie, charte graphique : nous construisons une identité cohérente qui distingue votre entreprise de la concurrence et inspire confiance, en ligne comme sur vos supports imprimés."
+        ],
+        [
+          "Référencement naturel (SEO)",
+          "Pour apparaître sur la première page de Google, nous optimisons la structure technique, les balises, la vitesse et le contenu de votre site. Nous travaillons vos mots-clés en français, en arabe et en anglais selon votre audience."
+        ],
+        [
+          "Design UI/UX",
+          "Nous dessinons des interfaces claires et agréables qui guident vos visiteurs vers l'action : demander un devis, appeler, acheter ou prendre rendez-vous."
+        ],
+        [
+          "Boutique en ligne et stratégie digitale",
+          "Vous voulez vendre en ligne ? Nous concevons votre boutique e-commerce et définissons avec vous la stratégie digitale qui vous apporte des clients de façon régulière."
+        ]
+      ],
+      "process_h": "Notre méthode en 4 étapes",
+      "process": [
+        [
+          "1. Écoute",
+          "Nous analysons votre activité, vos clients et vos objectifs."
+        ],
+        [
+          "2. Design",
+          "Identité, maquettes et parcours utilisateur validés avec vous."
+        ],
+        [
+          "3. Développement",
+          "Intégration, performance, SEO technique et tests."
+        ],
+        [
+          "4. Lancement",
+          "Mise en ligne, suivi et accompagnement."
+        ]
+      ],
+      "cta_h": "Un projet de site web ou de branding à Tunis ?",
+      "cta": "Demander un devis gratuit"
+    },
+    "contact": {
+      "title": "Contact & Devis Gratuit | Agence Web à Tunis – KOYOTEC",
+      "desc": "Contactez KOYOTEC, agence web et branding à Ennasr, Tunis. Téléphone +216 52 405 699, e-mail inquiry@koyotec.digital. Devis gratuit sous 24 h.",
+      "h1": "Contactez l'agence KOYOTEC à Tunis",
+      "addr": [
+        "Ennasr, Tunis",
+        "Tunisie",
+        "36.8065 / 10.1818"
+      ],
+      "drop": "Écrivez-nous",
+      "love": "Devis gratuit sous 24 h"
+    },
+    "blog": {
+      "title": "Blog : Conseils Site Web, SEO & Branding à Tunis – KOYOTEC",
+      "desc": "Guides pratiques sur la création de site web, le référencement SEO et le branding en Tunisie, par l'agence digitale KOYOTEC à Tunis.",
+      "h1": "Blog : site web, SEO et branding",
+      "lead": "Des guides pratiques pour les entreprises tunisiennes qui veulent une présence en ligne efficace.",
+      "kicker": "Conseils",
+      "read": "Lire l'article",
+      "by": "Par KOYOTEC",
+      "home": "Accueil",
+      "cta_h": "Un projet web ou de branding à Tunis ?",
+      "cta": "Demander un devis gratuit"
+    }
+  },
+  "en": {
+    "ui": {
+      "nav": {
+        "home": "Home",
+        "services": "Services",
+        "blog": "Blog",
+        "contact": "Contact"
+      },
+      "menu": "Menu",
+      "drop": "Drop a line",
+      "start": "Start a project",
+      "other_lang": "Français",
+      "email_ph": "Your email",
+      "touch": "Get in touch",
+      "based": "Based in Ennasr, Tunis, Tunisia",
+      "rights": "All rights reserved"
+    },
+    "home": {
+      "title": "Web Design & Branding Agency in Tunis, Tunisia – KOYOTEC",
+      "desc": "KOYOTEC is a digital agency in Tunis, Tunisia: custom website design and development, brand identity, logo design and digital strategy. Get a free quote.",
+      "hero": "Web design and branding agency in Tunis",
+      "h1": "Web design and branding agency in Tunis",
+      "callout": [
+        "We design.",
+        "We build.",
+        "We grow your brand."
+      ],
+      "pix": "Digital that fits you",
+      "lead": "KOYOTEC is a digital agency based in Tunis. We build fast, custom [[websites]], memorable [[brand identities]] and digital strategies that bring in real customers.",
+      "about": [
+        "Whether you are launching a business or modernizing your online presence, we handle the whole project: logo, brand guidelines, interface design, development and launch.",
+        "Every site we deliver is built for Google from day one: clear structure, fast pages, polished mobile experience and content optimized for search engines (SEO).",
+        "Our team works from Ennasr, Tunis, with Tunisian and international companies, in French, Arabic and English."
+      ],
+      "about_cta": "Discover our services",
+      "banner": "A website that works for your business.",
+      "tags": [
+        "Website",
+        "Branding",
+        "SEO",
+        "Design",
+        "Strategy"
+      ],
+      "banner_copy": "A good website is not just beautiful. It loads fast, ranks on Google, reassures visitors and turns them into customers. We combine design, development and SEO to give your brand a lasting online presence.",
+      "spot": "Selected frames",
+      "spot_cta": "View our services",
+      "split": [
+        "Design",
+        "Code",
+        "Brand",
+        "SEO",
+        "Results"
+      ],
+      "svc_kicker": "What we do",
+      "svc_h": "Our services",
+      "svc_items": [
+        "Website design & development",
+        "Brand identity & logo",
+        "SEO",
+        "UI/UX design",
+        "Online store",
+        "Digital strategy"
+      ],
+      "foot_copy": "Let's talk about your web project."
+    },
+    "services": {
+      "title": "Services: Web Design, Branding & SEO in Tunis – KOYOTEC",
+      "desc": "Custom website development, brand identity, logo design, UI/UX and SEO in Tunis, Tunisia. Explore the services of the KOYOTEC digital agency.",
+      "h1": "Our web design and branding services in Tunis",
+      "hero_foot": "Web · Branding · SEO",
+      "hero_cta": "Our services",
+      "svc_foot": "What we create",
+      "svc_foot2": "Our services",
+      "team": "One team, one goal",
+      "split": [
+        "Design",
+        "Code",
+        "Brand",
+        "SEO",
+        "Results"
+      ],
+      "kicker": "Our services",
+      "h2": "Digital agency in Tunis: from logo to website",
+      "blocks": [
+        [
+          "Custom website design and development in Tunis",
+          "We build showcase sites, company websites and web platforms tailored to your business. Every site is responsive (mobile, tablet, desktop), fast to load and easy to manage, built with modern technology for performance and security."
+        ],
+        [
+          "Branding and visual identity",
+          "Logo, color palette, typography, brand guidelines: we build a consistent identity that sets your company apart from competitors and builds trust, online and in print."
+        ],
+        [
+          "Search engine optimization (SEO)",
+          "To reach the first page of Google, we optimize your site's technical structure, tags, speed and content. We work on keywords in French, Arabic and English depending on your audience."
+        ],
+        [
+          "UI/UX design",
+          "We design clear, pleasant interfaces that guide visitors to take action: request a quote, call, buy or book an appointment."
+        ],
+        [
+          "Online store and digital strategy",
+          "Want to sell online? We design your e-commerce store and define with you the digital strategy that brings in customers consistently."
+        ]
+      ],
+      "process_h": "Our 4-step process",
+      "process": [
+        [
+          "1. Listen",
+          "We analyze your business, customers and goals."
+        ],
+        [
+          "2. Design",
+          "Identity, mockups and user journeys validated with you."
+        ],
+        [
+          "3. Build",
+          "Development, performance, technical SEO and testing."
+        ],
+        [
+          "4. Launch",
+          "Go live, monitoring and support."
+        ]
+      ],
+      "cta_h": "A web or branding project in Tunis?",
+      "cta": "Get a free quote"
+    },
+    "contact": {
+      "title": "Contact & Free Quote | Web Agency in Tunis – KOYOTEC",
+      "desc": "Contact KOYOTEC, web design and branding agency in Ennasr, Tunis. Phone +216 52 405 699, email inquiry@koyotec.digital. Free quote within 24 hours.",
+      "h1": "Contact the KOYOTEC agency in Tunis",
+      "addr": [
+        "Ennasr, Tunis",
+        "Tunisia",
+        "36.8065 / 10.1818"
+      ],
+      "drop": "Drop a line",
+      "love": "Free quote within 24 hours"
+    },
+    "blog": {
+      "title": "Blog: Web Design, SEO & Branding Tips from Tunis – KOYOTEC",
+      "desc": "Practical guides on website design, SEO and branding in Tunisia from the KOYOTEC digital agency in Tunis.",
+      "h1": "Blog: web design, SEO and branding",
+      "lead": "Practical guides for Tunisian businesses that want an effective online presence.",
+      "kicker": "Insights",
+      "read": "Read the article",
+      "by": "By KOYOTEC",
+      "home": "Home",
+      "cta_h": "A web or branding project in Tunis?",
+      "cta": "Get a free quote"
+    }
+  }
+}
