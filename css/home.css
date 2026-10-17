@@ -229,3 +229,23 @@
     border-bottom: 1px solid var(--tone-400);
   }
 }
+/* home: seo headings keep the original visual scale */
+.hero .hero-header h1 {
+  font-size: 7rem;
+  color: inherit;
+  line-height: 0.9;
+}
+
+.clients .clients-header h2 {
+  font-size: 5rem;
+}
+
+@media (max-width: 1000px) {
+  .hero .hero-header h1 {
+    font-size: 3.5rem;
+  }
+
+  .clients .clients-header h2 {
+    font-size: 2rem;
+  }
+}

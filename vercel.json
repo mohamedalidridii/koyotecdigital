@@ -2,10 +2,55 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/work", "destination": "/work.html" },
-    { "source": "/culture", "destination": "/culture.html" },
-    { "source": "/directors", "destination": "/directors.html" },
-    { "source": "/contact", "destination": "/contact.html" },
-    { "source": "/film", "destination": "/film.html" }
+    {
+      "source": "/services",
+      "destination": "/services.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/en",
+      "destination": "/en/index.html"
+    },
+    {
+      "source": "/en/services",
+      "destination": "/en/services.html"
+    },
+    {
+      "source": "/en/contact",
+      "destination": "/en/contact.html"
+    },
+    {
+      "source": "/work",
+      "destination": "/work.html"
+    },
+    {
+      "source": "/directors",
+      "destination": "/directors.html"
+    },
+    {
+      "source": "/film",
+      "destination": "/film.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/culture",
+      "destination": "/services",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)\\.(mp4|jpg|png|svg|woff2)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
   ]
 }

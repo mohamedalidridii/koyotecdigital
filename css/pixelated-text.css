@@ -10,7 +10,8 @@
   text-align: center;
 }
 
-.pixelated-text h1 {
+.pixelated-text h1,
+.pixelated-text h2 {
   position: relative;
   z-index: 1;
   width: 100%;

@@ -33,7 +33,8 @@
   gap: 0;
 }
 
-.loader h1 {
+.loader h1,
+.loader h2 {
   font-size: 2rem;
   line-height: 0.9;
   text-align: center;
@@ -114,7 +115,8 @@
 }
 
 @media (max-width: 1000px) {
-  .loader h1 {
+  .loader h1,
+.loader h2 {
     font-size: 1.5rem;
   }
 

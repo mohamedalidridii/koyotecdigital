@@ -39,16 +39,6 @@
   color: var(--tone-400);
 }
 
-.contact-col-copy h4:last-child {
-  pointer-events: none;
-}
-
-.contact-col-copy h4:last-child * {
-  pointer-events: none;
-  color: inherit !important;
-  text-decoration: none !important;
-}
-
 a[href^="tel:"] {
   pointer-events: none !important;
   color: var(--tone-400) !important;
@@ -62,5 +52,23 @@ a[href^="tel:"] {
 @media (max-width: 1000px) {
   .contact-copy .contact-copy-main {
     width: 100%;
+  }
+}
+
+.contact-copy .contact-copy-main h1.contact-header {
+  font-size: 3rem;
+  color: var(--tone-500);
+  line-height: 0.9;
+}
+
+.contact-col-copy a {
+  color: inherit;
+  text-decoration: underline;
+  font-size: inherit;
+}
+
+@media (max-width: 1000px) {
+  .contact-copy .contact-copy-main h1.contact-header {
+    font-size: 2rem;
   }
 }

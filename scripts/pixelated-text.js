@@ -4,7 +4,7 @@ import html2canvas from "html2canvas";
 class PixelatedTextEffect {
   constructor() {
     this.textContainer = document.querySelector(".pixelated-text");
-    this.textElement = document.querySelector(".pixelated-text h1");
+    this.textElement = document.querySelector(".pixelated-text h1, .pixelated-text h2");
 
     if (!this.textContainer || !this.textElement) return;
 

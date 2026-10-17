@@ -7,7 +7,10 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, "index.html"),
         work: resolve(__dirname, "work.html"),
-        culture: resolve(__dirname, "culture.html"),
+        services: resolve(__dirname, "services.html"),
+        enHome: resolve(__dirname, "en/index.html"),
+        enServices: resolve(__dirname, "en/services.html"),
+        enContact: resolve(__dirname, "en/contact.html"),
         directors: resolve(__dirname, "directors.html"),
         contact: resolve(__dirname, "contact.html"),
         film: resolve(__dirname, "film.html"),

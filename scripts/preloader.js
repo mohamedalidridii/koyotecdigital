@@ -5,89 +5,17 @@ import { lenis } from "./lenis-scroll.js";
 gsap.registerPlugin(CustomEase);
 CustomEase.create("hop", "0.9, 0, 0.1, 1");
 
-// project data array
-const projectsData = [
-  {
-    name: "Lunar Eclipse",
-    director: "Amelia Crawford",
-    location: "Toronto, ON",
-  },
-  {
-    name: "Visitor Quarters",
-    director: "Marcus Reynolds",
-    location: "Vancouver Studio, BC",
-  },
-  {
-    name: "Celestial",
-    director: "Nina Liu // Weston",
-    location: "Austin, TX",
-  },
-  {
-    name: "Streamwave Original",
-    director: "Dylan Pierce",
-    location: "Sunset Studios - Miami",
-  },
-  {
-    name: "Viewfinder",
-    director: "Javier // Rodriguez",
-    location: "BLANK Studios - Chicago",
-  },
-  {
-    name: "Rhythm Collective",
-    director: "Sophia // Chen",
-    location: "London, UK",
-  },
-  {
-    name: "Urban Odyssey",
-    director: "Leo Thompson",
-    location: "Pioneer Studios - Seattle",
-  },
-  {
-    name: "Prism No. 1",
-    director: "Taylor // McKnight",
-    location: "Private Estate - Sedona",
-  },
-  {
-    name: "Vision Quest",
-    director: "Spencer // Hudson",
-    location: "Elevation - Denver",
-  },
-  {
-    name: "Wavelength",
-    director: "Kai Nakamura",
-    location: "San Francisco, CA",
-  },
-  {
-    name: "Desert Horizon",
-    director: "Olivia",
-    location: "New Mexico",
-  },
-  {
-    name: "Spectrum",
-    director: "Ellis // Moss",
-    location: "Harmony Studio - Montreal",
-  },
-  {
-    name: "Vision Quest II",
-    director: "Hudson // Wright",
-    location: "Elevation Studios - Denver",
-  },
-  {
-    name: "Auteur",
-    director: "Leo Thompson",
-    location: "Berlin, DE",
-  },
-  {
-    name: "Capsule X Design",
-    director: "Sophia // Chen",
-    location: "Neon House - Brooklyn",
-  },
-  {
-    name: "Pulse",
-    director: "Callum // Winters",
-    location: "Echo Pavilion - Portland",
-  },
-];
+// preloader list: services and city, localized from <html lang>
+const isFr = document.documentElement.lang === "fr";
+const serviceNames = isFr
+  ? ["Création de site web", "Identité visuelle", "Logo & charte graphique", "Design UI/UX", "Référencement SEO", "Boutique en ligne", "Stratégie digitale", "Maintenance web", "Site vitrine", "Application web"]
+  : ["Website design", "Brand identity", "Logo & guidelines", "UI/UX design", "SEO", "Online store", "Digital strategy", "Web maintenance", "Showcase site", "Web application"];
+const cityNames = ["Ennasr", "Tunis", "Ariana", "La Marsa", "Sousse", "Sfax", "Nabeul", "Bizerte", "Monastir", "Djerba"];
+const projectsData = serviceNames.map((name, i) => ({
+  name,
+  director: "KOYOTEC.",
+  location: `${cityNames[i]}, TN`,
+}));
 
 // image sources for rotation
 const allImageSources = Array.from(
