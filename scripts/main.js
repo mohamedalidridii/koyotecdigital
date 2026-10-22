@@ -8,18 +8,18 @@ import { initCursor, magnetic } from "./core/cursor.js";
 import { initNav } from "./core/nav.js";
 import { runPreloader } from "./core/preloader.js";
 import { initRouter } from "./core/router.js";
-import { autoSplits } from "./core/reveal.js";
-import { homeHero, pageHero } from "./sections/hero.js";
-import { marquee, manifesto, services, processStack } from "./sections/home.js";
-import { faq, cta, floatCta, footer, contactForm, blog, serviceBlocks } from "./sections/common.js";
+import { autoSplits, drawLines } from "./core/reveal.js";
+import { homeHero, pageHero } from "./sections/intro.js";
+import { serviceHover, statement, rows } from "./sections/home.js";
+import { faq, cta, footer, contactForm, article } from "./sections/common.js";
 
 // motion modules per Barba namespace (nav, form and FAQ run everywhere, even with reduced motion)
 const PAGES = {
-  home: [homeHero, marquee, manifesto, services, processStack, cta, floatCta],
-  services: [pageHero, serviceBlocks, processStack, cta],
+  home: [homeHero, serviceHover, statement, rows, cta],
+  services: [pageHero, rows, cta],
   contact: [pageHero],
-  blog: [pageHero, blog],
-  article: [pageHero, blog],
+  blog: [pageHero, rows],
+  article: [pageHero, article],
 };
 
 let ctx = null;
@@ -27,7 +27,6 @@ let cleanups = [];
 
 function mount(container, { ready = Promise.resolve() } = {}) {
   const ns = container.dataset.barbaNamespace;
-  document.body.dataset.theme = container.dataset.theme || "dark";
   scroll.add(container);
 
   ctx = gsap.context(() => {
@@ -35,15 +34,28 @@ function mount(container, { ready = Promise.resolve() } = {}) {
     if (!reduced) {
       cleanups.push(magnetic(container));
       (PAGES[ns] || [pageHero]).forEach((fn) => cleanups.push(fn(container, { ready })));
-      autoSplits(container);
-      footer(container);
     }
-    bindScenes($("[data-gl]", container).filter((el) => !el.closest(".services-track")));
-    if (reduced) bindScenes($(".services-track [data-gl]", container));
+    bindScenes($("[data-gl]", container));
   }, container);
 
   sceneAtViewport(container);
   ScrollTrigger.refresh();
+
+  // below-the-fold reveals are not visible yet: prepare them once the main thread is idle
+  if (!reduced) {
+    const owner = ctx;
+    const later = () => {
+      if (ctx !== owner) return; // the page was already left
+      owner.add(() => {
+        autoSplits(container);
+        drawLines(container);
+        footer(container);
+      });
+      ScrollTrigger.refresh();
+    };
+    if ("requestIdleCallback" in window) requestIdleCallback(later, { timeout: 900 });
+    else setTimeout(later, 200);
+  }
 }
 
 function unmount(container) {

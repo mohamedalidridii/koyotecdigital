@@ -1,6 +1,5 @@
-uniform vec3 uBone;
-uniform vec3 uEmber;
-uniform vec3 uMoon;
+// Ink stipple on paper: hard-edged dots, darker and bigger where a howl ring passes.
+uniform vec3 uInk;
 uniform float uAlpha;
 
 varying float vAlpha;
@@ -11,10 +10,7 @@ void main() {
   vec2 c = gl_PointCoord - 0.5;
   float r = length(c);
   if (r > 0.5) discard;
-  float disc = smoothstep(0.5, 0.0, r);
-  disc *= disc;
-
-  vec3 col = mix(uBone, uMoon, vMoon * 0.7);
-  col = mix(col, uEmber, vEmber);
-  gl_FragColor = vec4(col, disc * vAlpha * uAlpha * (0.75 + vEmber * 0.6));
+  float dot = smoothstep(0.5, 0.36, r);
+  float a = dot * vAlpha * uAlpha * (0.42 + vEmber * 0.5) * (1.0 - vMoon * 0.45);
+  gl_FragColor = vec4(uInk, a);
 }

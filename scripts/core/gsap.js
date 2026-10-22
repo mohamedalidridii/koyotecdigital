@@ -3,9 +3,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 import { CustomEase } from "gsap/CustomEase";
-import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 
-gsap.registerPlugin(ScrollTrigger, SplitText, CustomEase, ScrambleTextPlugin);
+gsap.registerPlugin(ScrollTrigger, SplitText, CustomEase);
 
 // "koy": long, soft landing used almost everywhere; "koy.io": symmetric for wipes and curtains
 CustomEase.create("koy", "0.16,1,0.3,1");

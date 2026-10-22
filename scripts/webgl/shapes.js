@@ -2,6 +2,8 @@
 // shape is just a few canvas calls. All object shapes are centred on the origin, ~3.2 units wide.
 
 const TAU = Math.PI * 2;
+// the KOYOTEC mark (see public/koyotec-logo.svg)
+const LOGO_PATHS = ["M220.5 10C175.75 9.25 132.75 31 92 90.25L19.66 206", "M79 1.5V72.5M80 112V206", "M142.1 106L233.1 206", "M1 104H246"];
 const SIZE = 384;
 
 // draw(ctx, s) paints in white on a SIZE x SIZE canvas; returns n points with a little depth
@@ -71,21 +73,21 @@ const DRAW = {
     ctx.fill();
   },
 
-  // the brand glyph: a K inside a signal ring
+  // the brand: the KOYOTEC mark itself (same paths as the logo SVG, 250 x 195 units)
   glyph(ctx, s) {
-    ctx.lineWidth = 4;
+    const k = (s * 0.86) / 250;
+    ctx.save();
+    ctx.translate((s - 250 * k) / 2, (s - 195 * k) / 2);
+    ctx.scale(k, k);
     ctx.beginPath();
-    ctx.arc(s / 2, s / 2, s * 0.42, 0, TAU);
-    ctx.stroke();
-    ctx.setLineDash([2, 14]);
-    ctx.beginPath();
-    ctx.arc(s / 2, s / 2, s * 0.47, 0, TAU);
-    ctx.stroke();
-    ctx.setLineDash([]);
-    ctx.font = `600 ${s * 0.56}px "Clash Display", "Arial Black", sans-serif`;
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillText("K", s * 0.51, s * 0.53);
+    ctx.rect(0, 0, 250, 194.5);
+    ctx.clip();
+    ctx.lineCap = "butt";
+    ctx.lineJoin = "miter";
+    ctx.lineWidth = 18;
+    for (const d of LOGO_PATHS) ctx.stroke(new Path2D(d));
+    ctx.restore();
+    ctx.fillRect((s - 250 * k) / 2 + 232 * k, (s - 195 * k) / 2 + 2 * k, 18 * k, 18 * k);
   },
 
   // SEO: a rising signal with bars and an arrow

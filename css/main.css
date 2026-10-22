@@ -1,5 +1,4 @@
 /* Single stylesheet for every page, so client-side page transitions never wait on CSS. */
-@import "@fontsource-variable/jetbrains-mono/wght.css";
 @import "./tokens.css";
 @import "./base.css";
 @import "./nav.css";

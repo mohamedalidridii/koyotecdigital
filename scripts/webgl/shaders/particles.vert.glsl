@@ -12,7 +12,8 @@ uniform float uTime;
 uniform float uMorph;
 uniform float uChaos;
 uniform float uScatter;
-uniform float uSpin;
+uniform float uFromSpin;
+uniform float uToSpin;
 uniform float uSize;
 uniform float uPixelRatio;
 uniform float uFlow;
@@ -48,8 +49,8 @@ float dune(vec2 xz) {
   return ridge * (0.25 + swell * 0.75) * 1.15 + ripple;
 }
 
-vec3 place(vec3 p, float terrain, vec4 xform) {
-  vec3 obj = rotY(p * xform.w, uSpin) + xform.xyz;
+vec3 place(vec3 p, float terrain, vec4 xform, float spin) {
+  vec3 obj = rotY(p * xform.w, spin) + xform.xyz;
   vec3 ground = vec3(p.x, -1.35 + dune(p.xz), p.z);
   return mix(obj, ground, terrain);
 }
@@ -60,8 +61,8 @@ void main() {
   float m = clamp((uMorph - delay) / (1.0 - 0.55), 0.0, 1.0);
   m = m * m * (3.0 - 2.0 * m);
 
-  vec3 a = place(aFrom, uFromTerrain, uFromXform);
-  vec3 b = place(aTo, uToTerrain, uToXform);
+  vec3 a = place(aFrom, uFromTerrain, uFromXform, uFromSpin);
+  vec3 b = place(aTo, uToTerrain, uToXform, uToSpin);
   vec3 p = mix(a, b, m);
 
   // turbulence peaks mid-flight, plus a calm idle breath
@@ -99,7 +100,7 @@ void main() {
 
   float depth = -mv.z;
   float sizeJitter = 0.55 + aRand.w * 0.9;
-  gl_PointSize = uSize * uPixelRatio * sizeJitter * (1.0 + glow * 1.4) / depth;
+  gl_PointSize = uSize * uPixelRatio * sizeJitter * (1.0 + glow * 0.5) / depth;
 
   // fade far terrain into the night and points too close to the lens
   float far = smoothstep(26.0, 9.0, depth);

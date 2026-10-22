@@ -1,6 +1,6 @@
 // Reusable text and block reveals. Content is never hidden by CSS: every hidden state is set
 // here, right before its animation, so a script failure leaves the page readable.
-import { gsap, SplitText } from "./gsap.js";
+import { gsap, ScrollTrigger, SplitText } from "./gsap.js";
 import { $ } from "./env.js";
 
 // split a heading into masked lines that slide up when it enters the viewport
@@ -41,11 +41,23 @@ export function revealChars(el, { delay = 0, stagger = 0.04, start = "top 90%", 
   });
 }
 
-// every [data-split] in the scope that is not driven by a dedicated section animation
+// every [data-split] in the scope that is not driven by a page intro
 export function autoSplits(scope) {
   $("[data-split]", scope)
-    .filter((el) => !el.closest(".hero"))
+    .filter((el) => !el.closest(".hero, .page-hero, .article-head"))
     .forEach((el) => revealLines(el));
+}
+
+// hairlines draw from the left as they enter the viewport
+export function drawLines(scope) {
+  const lines = $("[data-line]", scope).filter((el) => !el.closest(".hero, .page-hero, .article-head"));
+  if (!lines.length) return;
+  gsap.set(lines, { "--line": 0 });
+  ScrollTrigger.batch(lines, {
+    start: "top 94%",
+    once: true,
+    onEnter: (batch) => gsap.to(batch, { "--line": 1, duration: 1.6, ease: "koy.io", stagger: 0.06 }),
+  });
 }
 
 // fade/slide groups of elements in as they enter the viewport

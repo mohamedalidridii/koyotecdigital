@@ -1,5 +1,4 @@
-// Sections shared by several pages: FAQ, final call to action, floating card, footer,
-// contact form and the blog.
+// Sections shared by several pages: FAQ, final call to action, footer, contact form, article.
 import { gsap, ScrollTrigger, SplitText } from "../core/gsap.js";
 import { $ } from "../core/env.js";
 import { batchReveal } from "../core/reveal.js";
@@ -30,77 +29,41 @@ export function faq(scope) {
     summary.addEventListener("click", click);
     off.push(() => summary.removeEventListener("click", click));
   });
-  batchReveal($(".faq-list details", scope), { y: 30, stagger: 0.06 });
   return () => off.forEach((fn) => fn());
 }
 
-// giant call to action: letters rise one by one, then lean with the pointer
+// giant call to action: letters rise one by one
 export function cta(scope) {
-  const link = scope.querySelector(".cta-giant");
-  if (!link) return;
-  const split = SplitText.create(link, { type: "chars", charsClass: "gc" });
-  gsap.from(split.chars, {
-    yPercent: 120,
-    rotate: 8,
-    duration: 1.2,
-    stagger: 0.035,
-    scrollTrigger: { trigger: link, start: "top 88%", once: true },
-  });
-}
-
-// floating quote card: slides in after a while, dismissible for the session
-export function floatCta(scope) {
-  const card = scope.querySelector(".float-cta");
-  if (!card) return;
-  let dismissed = false;
-  try {
-    dismissed = sessionStorage.getItem("floatCtaClosed") === "1";
-  } catch {
-    /* storage blocked */
-  }
-  if (dismissed) {
-    card.remove();
-    return;
-  }
-  gsap.to(card, { y: 0, duration: 1, delay: 4, ease: "koy" });
-  card.querySelector(".float-close").addEventListener("click", () => {
-    try {
-      sessionStorage.setItem("floatCtaClosed", "1");
-    } catch {
-      /* storage blocked */
-    }
-    gsap.to(card, { y: "160%", duration: 0.6, ease: "koy.io", onComplete: () => card.remove() });
-  });
-  // step aside while the final call to action and footer are on screen
-  ScrollTrigger.create({
-    trigger: scope.querySelector(".cta") || scope.querySelector(".footer"),
-    start: "top 85%",
-    end: () => ScrollTrigger.maxScroll(window) + 200,
-    onToggle: (self) => gsap.to(card, { autoAlpha: self.isActive ? 0 : 1, duration: 0.3 }),
-  });
-}
-
-// footer rises from below the page; the giant name settles letter by letter
-export function footer(scope) {
-  const foot = scope.querySelector(".footer");
-  if (!foot) return;
-  gsap.from(foot.querySelector(".footer-inner"), {
-    yPercent: -30,
-    ease: "none",
-    scrollTrigger: { trigger: foot, start: "top bottom", end: "bottom bottom", scrub: true },
-  });
-  const word = foot.querySelector(".footer-word");
+  const word = scope.querySelector(".cta-word");
+  if (!word) return;
   SplitText.create(word, {
     type: "chars",
+    charsClass: "gc",
     mask: "chars",
     onSplit(self) {
       return gsap.from(self.chars, {
-        yPercent: 100,
-        stagger: 0.05,
-        ease: "none",
-        scrollTrigger: { trigger: foot, start: "top 70%", end: "bottom bottom", scrub: 0.6 },
+        yPercent: 110,
+        duration: 1.3,
+        stagger: 0.04,
+        scrollTrigger: { trigger: word, start: "top 88%", once: true },
       });
     },
+  });
+  batchReveal($(".cta-kicker, .cta-links", scope), { y: 20 });
+}
+
+// footer: columns fade up, the address lockup rises line by line
+export function footer(scope) {
+  const foot = scope.querySelector(".footer");
+  if (!foot) return;
+  batchReveal($(".footer-cols > div", foot), { y: 30, stagger: 0.08 });
+  const lines = $(".al-line", foot);
+  gsap.from(lines, {
+    yPercent: 60,
+    autoAlpha: 0,
+    duration: 1.3,
+    stagger: 0.1,
+    scrollTrigger: { trigger: foot.querySelector(".address-lockup"), start: "top 90%", once: true },
   });
 }
 
@@ -124,25 +87,12 @@ export function contactForm(scope) {
   return () => form.removeEventListener("submit", submit);
 }
 
-// blog list reveals and the article reading bar
-export function blog(scope) {
-  batchReveal($(".blog-card", scope), { y: 60, stagger: 0.1 });
+// article: body blocks rise in, the reading bar follows progress
+export function article(scope) {
   batchReveal($(".article-body > *, .article-cta", scope), { y: 30, stagger: 0.03, start: "top 92%" });
   const bar = scope.querySelector(".read-progress");
-  const article = scope.querySelector(".article");
-  if (bar && article) {
-    gsap.to(bar, { scaleX: 1, ease: "none", scrollTrigger: { trigger: article, start: "top top", end: "bottom bottom", scrub: 0.3 } });
+  const body = scope.querySelector(".article");
+  if (bar && body) {
+    gsap.to(bar, { scaleX: 1, ease: "none", scrollTrigger: { trigger: body, start: "top top", end: "bottom bottom", scrub: 0.3 } });
   }
-}
-
-// services page blocks
-export function serviceBlocks(scope) {
-  $(".svc-block", scope).forEach((block) => {
-    gsap.from(block.querySelector(".svc-block-copy > p:last-child"), {
-      autoAlpha: 0,
-      y: 40,
-      duration: 1.1,
-      scrollTrigger: { trigger: block, start: "top 70%", once: true },
-    });
-  });
 }

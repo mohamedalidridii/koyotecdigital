@@ -20,12 +20,14 @@
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" href="/site-icon.png" />
-    <meta name="theme-color" content="#0a0a0d" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/site-icon.png" type="image/png" sizes="512x512" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#f3f1ec" />
     <meta name="author" content="KOYOTEC" />
-    <script>(function(d){var e=d.documentElement;e.classList.replace("no-js","js");try{if(sessionStorage.getItem("ky-visited"))e.classList.add("is-visited")}catch(_){}if(matchMedia("(prefers-reduced-motion: reduce)").matches)e.classList.add("is-reduced")})(document)</script>
-    <link rel="preload" href="/fonts/clash-display-600.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/general-sans-400.woff2" as="font" type="font/woff2" crossorigin />
+    <script>(function(d){var e=d.documentElement;e.classList.replace("no-js","js");if(matchMedia("(prefers-reduced-motion: reduce)").matches)e.classList.add("is-reduced")})(document)</script>
+    <link rel="preload" href="/fonts/instrument-serif-400.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/geist-variable.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/css/main.css" />
     <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","LocalBusiness"],"@id":"https://www.koyotec.digital/#organization","name":"KOYOTEC","alternateName":"KOYOTEC Digital Agency","description":"KOYOTEC is a digital agency in Tunis, Tunisia: custom website design and development, brand identity, logo design and digital strategy. Get a free quote.","url":"https://www.koyotec.digital/","logo":"https://www.koyotec.digital/site-icon.png","image":"https://www.koyotec.digital/og/koyotec.jpg","email":"contact@koyotec.digital","telephone":"+21652405699","priceRange":"$$","address":{"@type":"PostalAddress","addressLocality":"Ennasr, Tunis","addressCountry":"TN"},"geo":{"@type":"GeoCoordinates","latitude":36.8065,"longitude":10.1818},"areaServed":[{"@type":"Country","name":"Tunisia"}],"knowsLanguage":["fr","ar","en"],"sameAs":["https://www.instagram.com/koyotec.digital/","https://www.youtube.com/@medaly.dridiy"],"makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Website design \u0026 development"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Brand identity \u0026 logo"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"SEO"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"UI/UX design"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Online store"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Digital strategy"}}]},{"@type":"WebSite","@id":"https://www.koyotec.digital/#website","name":"KOYOTEC","url":"https://www.koyotec.digital/en/","inLanguage":"en","publisher":{"@id":"https://www.koyotec.digital/#organization"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does a website cost?","acceptedAnswer":{"@type":"Answer","text":"The price depends on the type of site, the number of pages and the features. Describe your project and we will send you a free quote."}},{"@type":"Question","name":"How long does it take to build a website?","acceptedAnswer":{"@type":"Answer","text":"It depends on the size of the project and how quickly content is approved. We give a precise schedule in the quote."}},{"@type":"Question","name":"Will my site show up on Google?","acceptedAnswer":{"@type":"Answer","text":"We build all the SEO foundations: structure, tags, speed, mobile version. Nobody can guarantee a specific position, but a well-built site is much more likely to be found."}},{"@type":"Question","name":"Do you work in Arabic and English?","acceptedAnswer":{"@type":"Answer","text":"Yes, we can build your site in French, Arabic and English."}},{"@type":"Question","name":"How do I get started?","acceptedAnswer":{"@type":"Answer","text":"Write to us or call us. We discuss your goals, then send you a free proposal."}}]}]}</script>
   </head>
@@ -35,22 +37,22 @@
   <canvas class="gl" id="gl" aria-hidden="true"></canvas>
   <div class="gl-fallback" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
-  <div class="cursor" aria-hidden="true"><span class="cursor-ring"></span><span class="cursor-label"></span></div>
+  <div class="cursor" aria-hidden="true"><span class="cursor-dot"></span><span class="cursor-label"></span></div>
   <div class="curtain" aria-hidden="true"><div class="curtain-panel"></div><p class="curtain-label"></p></div>
   <div class="preloader" aria-hidden="true">
-    <p class="pl-coords mono">36.8065° N — 10.1818° E</p>
-    <p class="pl-word">KOYOTEC</p>
-    <p class="pl-count mono"><span>000</span></p>
+    <p class="pl-top"><span>KOYOTEC&reg;</span><span>36.8065 / 10.1818</span></p>
+    <div class="pl-mark"><svg class="logo-mark" viewBox="0 0 250 195" aria-hidden="true" focusable="false"><defs><clipPath id="kb-pl"><rect width="250" height="194.5"/></clipPath></defs><g class="logo-strokes" clip-path="url(#kb-pl)"><path pathLength="1" d="M220.5 10C175.75 9.25 132.75 31 92 90.25L19.66 206"/><path pathLength="1" d="M79 1.5V72.5M80 112V206"/><path pathLength="1" d="M142.1 106L233.1 206"/><path class="logo-bar" pathLength="1" d="M1 104H246"/></g><rect class="logo-dot" x="232" y="2" width="18" height="18"/></svg></div>
+    <p class="pl-bottom"><span>Tunis</span><span class="pl-count">000</span></p>
   </div>
   <div data-barba="wrapper">
-  <div class="page" data-barba="container" data-barba-namespace="home" data-theme="dark">
+  <div class="page" data-barba="container" data-barba-namespace="home">
     <header class="site-nav">
-      <a class="brand" href="/en/" aria-label="KOYOTEC — Home"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">KOYOTEC</span></a>
-      <nav class="nav-main" aria-label="Menu"><ul class="nav-links"><li><a href="/en/" aria-current="page" data-scramble>Home</a></li><li><a href="/en/services" data-scramble>Services</a></li><li><a href="/en/blog" data-scramble>Blog</a></li><li><a href="/en/contact" data-scramble>Contact</a></li></ul></nav>
+      <a class="brand" href="/en/" aria-label="KOYOTEC — Home"><svg class="logo-mark" viewBox="0 0 250 195" aria-hidden="true" focusable="false"><defs><clipPath id="kb-nav"><rect width="250" height="194.5"/></clipPath></defs><g class="logo-strokes" clip-path="url(#kb-nav)"><path pathLength="1" d="M220.5 10C175.75 9.25 132.75 31 92 90.25L19.66 206"/><path pathLength="1" d="M79 1.5V72.5M80 112V206"/><path pathLength="1" d="M142.1 106L233.1 206"/><path class="logo-bar" pathLength="1" d="M1 104H246"/></g><rect class="logo-dot" x="232" y="2" width="18" height="18"/></svg><span class="brand-name">KOYOTEC<sup>&reg;</sup></span></a>
+      <nav class="nav-main" aria-label="Menu"><ul class="nav-links"><li><a href="/en/" aria-current="page">Home</a>,</li> <li><a href="/en/services">Services</a>,</li> <li><a href="/en/blog">Blog</a>,</li> <li><a href="/en/contact">Contact</a></li></ul></nav>
       <div class="nav-right">
-        <a class="lang mono" href="/" hreflang="fr" lang="fr" data-scramble>FR</a>
-        <a class="btn btn-ember" href="/en/contact" data-magnetic data-size="sm"><span class="btn-label" data-text="Free quote">Free quote</span></a>
-        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-btn-label mono" data-open="Menu" data-close="Close">Menu</span><span class="menu-btn-lines" aria-hidden="true"><i></i><i></i></span></button>
+        <a class="lang" href="/" hreflang="fr" lang="fr">FR</a>
+        <a class="nav-cta" href="/en/contact">Free quote</a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-btn-label" data-open="Menu" data-close="Close">Menu</span></button>
       </div>
     </header>
 
@@ -58,13 +60,13 @@
       <div class="menu-bg" aria-hidden="true"></div>
       <nav class="menu-inner" aria-label="Menu">
         <ol class="menu-list">
-        <li><a href="/en/" aria-current="page"><span class="menu-idx mono">01</span><span class="menu-name">Home</span></a></li>
-        <li><a href="/en/services"><span class="menu-idx mono">02</span><span class="menu-name">Services</span></a></li>
-        <li><a href="/en/blog"><span class="menu-idx mono">03</span><span class="menu-name">Blog</span></a></li>
-        <li><a href="/en/contact"><span class="menu-idx mono">04</span><span class="menu-name">Contact</span></a></li>
+        <li><a href="/en/" aria-current="page"><span class="menu-idx">(01)</span><span class="menu-name">Home</span></a></li>
+        <li><a href="/en/services"><span class="menu-idx">(02)</span><span class="menu-name">Services</span></a></li>
+        <li><a href="/en/blog"><span class="menu-idx">(03)</span><span class="menu-name">Blog</span></a></li>
+        <li><a href="/en/contact"><span class="menu-idx">(04)</span><span class="menu-name">Contact</span></a></li>
         </ol>
       </nav>
-      <div class="menu-foot mono">
+      <div class="menu-foot">
         <a href="mailto:contact@koyotec.digital">contact@koyotec.digital</a>
         <a href="tel:+21652405699">+216 52 405 699</a>
         <a href="https://www.instagram.com/koyotec.digital/" target="_blank" rel="noopener noreferrer">Instagram</a>
@@ -75,201 +77,129 @@
 
     <main id="main">
       <section class="hero" data-gl="dunes" data-cursor="Click">
-        <div class="hero-top shell mono">
-          <p class="hero-meta"><span>Digital agency · Web &amp; branding</span><span>Tunis, Tunisia</span></p>
-          <p class="hero-coords" aria-hidden="true">36.8065° N / 10.1818° E</p>
+        <div class="hero-float shell" aria-hidden="true">
+          <p class="float-a" data-scroll data-scroll-speed="0.15">Digital agency · Web &amp; branding</p>
+          <p class="float-b" data-scroll data-scroll-speed="0.3">Tunis, Tunisia</p>
+          <p class="float-c" data-scroll data-scroll-speed="0.08">36.8065° N<br />10.1818° E</p>
         </div>
-        <div class="hero-body shell">
-          <p class="eyebrow mono">KOYOTEC · Digital agency in Tunis</p>
-          <h1 class="hero-title" data-split>Web design and branding agency in Tunis</h1>
+        <div class="hero-foot shell">
+          <div class="lockup">
+            <p class="lockup-brand"><span class="stamp" aria-hidden="true"><span>Web</span><span>Brand<br />SEO</span></span> <span>KOYOTEC<sup>&reg;</sup></span></p>
+            <h1 class="lockup-h1" data-split>Web design and branding&nbsp;<svg class="g g-star" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M20 2v36M2 20h36M7.3 7.3l25.4 25.4M32.7 7.3 7.3 32.7"/></svg> agency in Tunis&nbsp;<svg class="g g-moon" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="17"/><path class="fill" d="M20 3a17 17 0 0 1 0 34 11 17 0 0 0 0-34z"/></svg></h1>
+          </div>
           <div class="hero-aside">
             <p class="hero-sub">We design your website, logo and brand identity, from first sketch to launch. Free quote.</p>
-            <div class="btn-row">
-              <a class="btn btn-ember" href="/en/contact" data-magnetic><span class="btn-label" data-text="Get a free quote">Get a free quote</span></a>
-              <a class="btn btn-ghost" href="/en/services" data-magnetic><span class="btn-label" data-text="See our services">See our services</span></a>
+            <div class="hero-links">
+              <a class="tlink" href="/en/contact"><span class="tlink-label">Get a free quote</span><span class="tlink-arrow" aria-hidden="true">→</span></a>
+              <a class="tlink" href="/en/services"><span class="tlink-label">See our services</span><span class="tlink-arrow" aria-hidden="true">→</span></a>
             </div>
           </div>
         </div>
-        <p class="hero-word" aria-hidden="true">KOYOTEC</p>
-        <div class="scroll-cue mono" aria-hidden="true"><span>Scroll</span><i></i></div>
+        <p class="scroll-cue" aria-hidden="true">Scroll ↓</p>
       </section>
 
-      <div class="marquee" aria-hidden="true"><div class="marquee-track"><div class="marquee-group"><span>Website design &amp; development</span><i aria-hidden="true">✦</i><span>Brand identity &amp; logo</span><i aria-hidden="true">✦</i><span>SEO</span><i aria-hidden="true">✦</i><span>UI/UX design</span><i aria-hidden="true">✦</i><span>Online store</span><i aria-hidden="true">✦</i><span>Digital strategy</span><i aria-hidden="true">✦</i></div><div class="marquee-group"><span>Website design &amp; development</span><i aria-hidden="true">✦</i><span>Brand identity &amp; logo</span><i aria-hidden="true">✦</i><span>SEO</span><i aria-hidden="true">✦</i><span>UI/UX design</span><i aria-hidden="true">✦</i><span>Online store</span><i aria-hidden="true">✦</i><span>Digital strategy</span><i aria-hidden="true">✦</i></div></div></div>
-
-      <section class="manifesto" id="why" data-gl="dunes" data-gl-dim="0.35">
+      <section class="services-home" id="services" data-gl="constellation" data-gl-dim="0.22">
         <div class="shell">
-          <p class="kicker mono"><span>(01)</span> Why us</p>
+          <div class="label-row" data-line><span>Services (06)</span><span class="label-lead">Everything you need for a professional online presence, from a single agency.</span></div>
+          <h2 class="visually-hidden">What we do</h2>
+          <ol class="svc-list">
+            <li data-line><a class="svc-row" href="/en/services" data-shape="browser" data-cursor="View"><span class="svc-num">01</span><span class="svc-name">Website design &amp; development</span><span class="svc-desc">Custom showcase and business websites, fast and mobile-friendly.</span></a></li>
+            <li data-line><a class="svc-row" href="/en/services" data-shape="glyph" data-cursor="View"><span class="svc-num">02</span><span class="svc-name">Brand identity &amp; logo</span><span class="svc-desc">A consistent logo, colors, typography and brand guidelines.</span></a></li>
+            <li data-line><a class="svc-row" href="/en/services" data-shape="signal" data-cursor="View"><span class="svc-num">03</span><span class="svc-name">SEO</span><span class="svc-desc">Structure, content and speed optimized to show up on Google.</span></a></li>
+            <li data-line><a class="svc-row" href="/en/services" data-shape="grid" data-cursor="View"><span class="svc-num">04</span><span class="svc-name">UI/UX design</span><span class="svc-desc">Clear interfaces that guide visitors to take action.</span></a></li>
+            <li data-line><a class="svc-row" href="/en/services" data-shape="bag" data-cursor="View"><span class="svc-num">05</span><span class="svc-name">Online store</span><span class="svc-desc">Sell your products online with a store that is easy to manage.</span></a></li>
+            <li data-line><a class="svc-row" href="/en/services" data-shape="compass" data-cursor="View"><span class="svc-num">06</span><span class="svc-name">Digital strategy</span><span class="svc-desc">A clear plan to bring in customers consistently.</span></a></li>
+          </ol>
+          <p class="svc-more"><a class="tlink" href="/en/services"><span class="tlink-label">Learn more</span><span class="tlink-arrow" aria-hidden="true">→</span></a></p>
+        </div>
+      </section>
+
+      <section class="statement" id="why" data-gl="dunes" data-gl-dim="0.3">
+        <div class="shell">
           <h2 class="visually-hidden">Why choose KOYOTEC</h2>
-          <p class="manifesto-text" data-words>KOYOTEC is a digital agency based in Tunis. We build fast, custom <span class="highlight">websites</span>, memorable <span class="highlight">brand identities</span> and digital strategies that bring in real customers.</p>
-          <div class="manifesto-cols" data-scroll data-scroll-speed="0.06"><p>Whether you are launching a business or modernizing your online presence, we handle the whole project: logo, brand guidelines, interface design, development and launch.</p><p>Every site we deliver is built for Google from day one: clear structure, fast pages, polished mobile experience and content optimized for search engines (SEO).</p><p>Our team works from Ennasr, Tunis, with Tunisian and international companies, in French, Arabic and English.</p></div>
+          <p class="statement-text" data-words><span class="stamp" aria-hidden="true"><span>KYT</span><span>Why us</span></span> KOYOTEC is a digital agency based in Tunis. We build fast, custom <span class="highlight">websites</span>, memorable <span class="highlight">brand identities</span> and digital strategies that bring in real customers. <svg class="g g-howl" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M2 20c3-9 6-9 9 0s6 9 9 0 6-9 9 0 6 9 9 0"/></svg></p>
+          <div class="statement-foot">
+            <div class="statement-copy"><p>Whether you are launching a business or modernizing your online presence, we handle the whole project: logo, brand guidelines, interface design, development and launch.</p><p>Every site we deliver is built for Google from day one: clear structure, fast pages, polished mobile experience and content optimized for search engines (SEO).</p><p>Our team works from Ennasr, Tunis, with Tunisian and international companies, in French, Arabic and English.</p></div>
+            <ul class="link-list">
+              <li data-line><a class="tlink" href="/en/services"><span class="tlink-label">Services</span><span class="tlink-arrow" aria-hidden="true">→</span></a></li>
+              <li data-line><a class="tlink" href="/en/contact"><span class="tlink-label">Contact</span><span class="tlink-arrow" aria-hidden="true">→</span></a></li>
+            </ul>
+          </div>
           <ol class="pillars">
-            <li><span class="mono">01</span><h3>Custom-made</h3><p>Every project starts from your business and your customers, not from a generic template.</p></li>
-            <li><span class="mono">02</span><h3>Built for Google</h3><p>Structure, tags, speed and mobile version handled from day one.</p></li>
-            <li><span class="mono">03</span><h3>One point of contact</h3><p>Logo, design, development and launch: we take care of everything.</p></li>
+            <li data-line><span class="pillar-num">(01)</span><h3>Custom-made</h3><p>Every project starts from your business and your customers, not from a generic template.</p></li>
+            <li data-line><span class="pillar-num">(02)</span><h3>Built for Google</h3><p>Structure, tags, speed and mobile version handled from day one.</p></li>
+            <li data-line><span class="pillar-num">(03)</span><h3>One point of contact</h3><p>Logo, design, development and launch: we take care of everything.</p></li>
           </ol>
         </div>
       </section>
 
-      <section class="services" id="services">
-        <div class="services-pin">
-          <div class="services-track">
-            <div class="svc-intro panel" data-gl="constellation" data-gl-dim="0.6">
-              <p class="kicker mono"><span>(02)</span> Services</p>
-              <h2 class="mix"><span class="outline">What</span> <span class="solid">we do</span></h2>
-              <p class="lead">Everything you need for a professional online presence, from a single agency.</p>
-              <p class="svc-hint mono" aria-hidden="true">Scroll <span>→</span></p>
-            </div>
-            <article class="svc-panel panel" data-gl="browser">
-              <span class="svc-num" aria-hidden="true">01</span>
-              <div class="svc-copy">
-                <p class="mono svc-of">(01 / 06)</p>
-                <h3 class="svc-name">Website design &amp; development</h3>
-                <p class="svc-desc">Custom showcase and business websites, fast and mobile-friendly.</p>
-                <a class="link-arrow mono" href="/en/services" data-cursor="View">Learn more <span aria-hidden="true">→</span></a>
-              </div>
-            </article>
-            <article class="svc-panel panel" data-gl="glyph">
-              <span class="svc-num" aria-hidden="true">02</span>
-              <div class="svc-copy">
-                <p class="mono svc-of">(02 / 06)</p>
-                <h3 class="svc-name">Brand identity &amp; logo</h3>
-                <p class="svc-desc">A consistent logo, colors, typography and brand guidelines.</p>
-                <a class="link-arrow mono" href="/en/services" data-cursor="View">Learn more <span aria-hidden="true">→</span></a>
-              </div>
-            </article>
-            <article class="svc-panel panel" data-gl="signal">
-              <span class="svc-num" aria-hidden="true">03</span>
-              <div class="svc-copy">
-                <p class="mono svc-of">(03 / 06)</p>
-                <h3 class="svc-name">SEO</h3>
-                <p class="svc-desc">Structure, content and speed optimized to show up on Google.</p>
-                <a class="link-arrow mono" href="/en/services" data-cursor="View">Learn more <span aria-hidden="true">→</span></a>
-              </div>
-            </article>
-            <article class="svc-panel panel" data-gl="grid">
-              <span class="svc-num" aria-hidden="true">04</span>
-              <div class="svc-copy">
-                <p class="mono svc-of">(04 / 06)</p>
-                <h3 class="svc-name">UI/UX design</h3>
-                <p class="svc-desc">Clear interfaces that guide visitors to take action.</p>
-                <a class="link-arrow mono" href="/en/services" data-cursor="View">Learn more <span aria-hidden="true">→</span></a>
-              </div>
-            </article>
-            <article class="svc-panel panel" data-gl="bag">
-              <span class="svc-num" aria-hidden="true">05</span>
-              <div class="svc-copy">
-                <p class="mono svc-of">(05 / 06)</p>
-                <h3 class="svc-name">Online store</h3>
-                <p class="svc-desc">Sell your products online with a store that is easy to manage.</p>
-                <a class="link-arrow mono" href="/en/services" data-cursor="View">Learn more <span aria-hidden="true">→</span></a>
-              </div>
-            </article>
-            <article class="svc-panel panel" data-gl="compass">
-              <span class="svc-num" aria-hidden="true">06</span>
-              <div class="svc-copy">
-                <p class="mono svc-of">(06 / 06)</p>
-                <h3 class="svc-name">Digital strategy</h3>
-                <p class="svc-desc">A clear plan to bring in customers consistently.</p>
-                <a class="link-arrow mono" href="/en/services" data-cursor="View">Learn more <span aria-hidden="true">→</span></a>
-              </div>
-            </article>
-          </div>
-          <div class="services-progress" aria-hidden="true"><i></i></div>
-        </div>
-      </section>
-
-      <section class="process" id="process" data-gl="constellation" data-gl-dim="0.45">
+      <section class="table-sec" id="process" data-gl="constellation" data-gl-dim="0.5">
         <div class="shell">
-          <p class="kicker mono"><span>(03)</span></p>
-          <h2 class="section-title" data-split>How we work</h2>
-          <ol class="stack">
-          <li class="stack-card" style="--i:0">
-            <span class="stack-num" aria-hidden="true">01</span>
-            <div class="stack-copy"><h3>Listen</h3><p>We analyze your business, customers and goals.</p></div>
-            <span class="stack-of mono" aria-hidden="true">01 / 04</span>
-          </li>
-          <li class="stack-card" style="--i:1">
-            <span class="stack-num" aria-hidden="true">02</span>
-            <div class="stack-copy"><h3>Design</h3><p>Identity, mockups and user journeys validated with you.</p></div>
-            <span class="stack-of mono" aria-hidden="true">02 / 04</span>
-          </li>
-          <li class="stack-card" style="--i:2">
-            <span class="stack-num" aria-hidden="true">03</span>
-            <div class="stack-copy"><h3>Build</h3><p>Development, performance, technical SEO and testing.</p></div>
-            <span class="stack-of mono" aria-hidden="true">03 / 04</span>
-          </li>
-          <li class="stack-card" style="--i:3">
-            <span class="stack-num" aria-hidden="true">04</span>
-            <div class="stack-copy"><h3>Launch</h3><p>Go live, monitoring and support.</p></div>
-            <span class="stack-of mono" aria-hidden="true">04 / 04</span>
-          </li>
+          <div class="sec-head" data-line><h2 class="sec-title" id="process-h" data-split>How we work</h2><span class="sec-count" aria-hidden="true">(04)</span></div>
+          <ol class="rows">
+            <li class="row" data-line><span class="row-num">01</span><h3 class="row-title">Listen</h3><p class="row-text">We analyze your business, customers and goals.</p></li>
+            <li class="row" data-line><span class="row-num">02</span><h3 class="row-title">Design</h3><p class="row-text">Identity, mockups and user journeys validated with you.</p></li>
+            <li class="row" data-line><span class="row-num">03</span><h3 class="row-title">Build</h3><p class="row-text">Development, performance, technical SEO and testing.</p></li>
+            <li class="row" data-line><span class="row-num">04</span><h3 class="row-title">Launch</h3><p class="row-text">Go live, monitoring and support.</p></li>
           </ol>
         </div>
       </section>
 
-      <section class="faq" id="faq" data-gl="constellation" data-gl-dim="0.25">
-        <div class="shell faq-grid">
-          <div class="faq-head">
-            <p class="kicker mono"><span>(04)</span> FAQ</p>
-            <h2 class="section-title" data-split>Frequently asked questions</h2>
-          </div>
+      <section class="table-sec faq" id="faq" data-gl="constellation" data-gl-dim="0.3">
+        <div class="shell">
+          <div class="sec-head" data-line><h2 class="sec-title" id="faq-h" data-split>Frequently asked questions</h2><span class="sec-count" aria-hidden="true">(05)</span></div>
           <div class="faq-list">
-            <details><summary><span>How much does a website cost?</span><i aria-hidden="true"></i></summary><div class="faq-a"><p>The price depends on the type of site, the number of pages and the features. Describe your project and we will send you a free quote.</p></div></details>
-            <details><summary><span>How long does it take to build a website?</span><i aria-hidden="true"></i></summary><div class="faq-a"><p>It depends on the size of the project and how quickly content is approved. We give a precise schedule in the quote.</p></div></details>
-            <details><summary><span>Will my site show up on Google?</span><i aria-hidden="true"></i></summary><div class="faq-a"><p>We build all the SEO foundations: structure, tags, speed, mobile version. Nobody can guarantee a specific position, but a well-built site is much more likely to be found.</p></div></details>
-            <details><summary><span>Do you work in Arabic and English?</span><i aria-hidden="true"></i></summary><div class="faq-a"><p>Yes, we can build your site in French, Arabic and English.</p></div></details>
-            <details><summary><span>How do I get started?</span><i aria-hidden="true"></i></summary><div class="faq-a"><p>Write to us or call us. We discuss your goals, then send you a free proposal.</p></div></details>
+            <details data-line><summary><span class="row-num">01</span><span class="faq-q">How much does a website cost?</span><i aria-hidden="true"></i></summary><div class="faq-a"><p>The price depends on the type of site, the number of pages and the features. Describe your project and we will send you a free quote.</p></div></details>
+            <details data-line><summary><span class="row-num">02</span><span class="faq-q">How long does it take to build a website?</span><i aria-hidden="true"></i></summary><div class="faq-a"><p>It depends on the size of the project and how quickly content is approved. We give a precise schedule in the quote.</p></div></details>
+            <details data-line><summary><span class="row-num">03</span><span class="faq-q">Will my site show up on Google?</span><i aria-hidden="true"></i></summary><div class="faq-a"><p>We build all the SEO foundations: structure, tags, speed, mobile version. Nobody can guarantee a specific position, but a well-built site is much more likely to be found.</p></div></details>
+            <details data-line><summary><span class="row-num">04</span><span class="faq-q">Do you work in Arabic and English?</span><i aria-hidden="true"></i></summary><div class="faq-a"><p>Yes, we can build your site in French, Arabic and English.</p></div></details>
+            <details data-line><summary><span class="row-num">05</span><span class="faq-q">How do I get started?</span><i aria-hidden="true"></i></summary><div class="faq-a"><p>Write to us or call us. We discuss your goals, then send you a free proposal.</p></div></details>
           </div>
         </div>
       </section>
 
-      <section class="cta" id="contact-cta" data-gl="orbit" data-gl-dim="0.75">
+      <section class="cta" id="contact-cta" data-gl="orbit" data-gl-dim="0.45">
         <div class="shell">
-          <p class="kicker mono">Free quote within 24 hours.</p>
-          <h2 class="cta-h" data-split>Let's talk about your project</h2>
-          <a class="cta-giant" href="/en/contact" data-cursor="Write">Let's talk →</a>
-          <div class="btn-row">
-            <a class="btn btn-ember" href="/en/contact" data-magnetic><span class="btn-label" data-text="Get a free quote">Get a free quote</span></a>
-            <a class="btn btn-ghost" href="tel:+21652405699" data-magnetic><span class="btn-label" data-text="+216 52 405 699">+216 52 405 699</span></a>
+          <p class="cta-kicker">Free quote within 24 hours.</p>
+          <a class="cta-giant" href="/en/contact" data-cursor="Write"><span class="cta-word">Let's talk →</span></a>
+          <div class="cta-links">
+            <a class="tlink" href="/en/contact"><span class="tlink-label">Get a free quote</span><span class="tlink-arrow" aria-hidden="true">→</span></a>
+            <a class="tlink" href="tel:+21652405699"><span class="tlink-label">+216 52 405 699</span><span class="tlink-arrow" aria-hidden="true">→</span></a>
           </div>
+          <h2 class="visually-hidden">Let's talk about your project</h2>
         </div>
       </section>
-
-      <aside class="float-cta" aria-label="A web or branding project?">
-        <button class="float-close" type="button" aria-label="Close">×</button>
-        <p class="mono">A web or branding project?</p>
-        <a class="btn btn-ember" href="/en/contact" data-magnetic data-size="sm"><span class="btn-label" data-text="Free quote">Free quote</span></a>
-      </aside>
     </main>
 
     <footer class="footer">
-      <div class="footer-inner shell">
-        <div class="footer-top">
-          <p class="footer-lead">Let's talk about your web project.</p>
-          <a class="footer-mail" href="mailto:contact@koyotec.digital" data-cursor="Write">contact@koyotec.digital</a>
-        </div>
+      <div class="shell">
         <div class="footer-cols">
           <div>
-            <h2 class="footer-h mono">Pages</h2>
+            <h2 class="footer-h">Pages</h2>
             <a href="/en/">Home</a>
             <a href="/en/services">Services</a>
             <a href="/en/blog">Blog</a>
             <a href="/en/contact">Contact</a>
           </div>
           <div>
-            <h2 class="footer-h mono">Contact</h2>
-            <a href="mailto:contact@koyotec.digital">contact@koyotec.digital</a>
-            <a href="tel:+21652405699">+216 52 405 699</a>
-            <p>Ennasr, Tunis</p>
-          </div>
-          <div>
-            <h2 class="footer-h mono">Follow us</h2>
+            <h2 class="footer-h">Follow us</h2>
             <a href="https://www.instagram.com/koyotec.digital/" target="_blank" rel="noopener noreferrer">Instagram</a>
             <a href="https://www.youtube.com/@medaly.dridiy" target="_blank" rel="noopener noreferrer">YouTube</a>
           </div>
+          <div>
+            <h2 class="footer-h">Let's talk about your web project.</h2>
+            <a href="/en/contact">Free quote →</a>
+          </div>
         </div>
-        <p class="footer-word" aria-hidden="true">KOYOTEC</p>
-        <div class="footer-bottom mono"><p>Based in Ennasr, Tunis, Tunisia</p><p>&copy; 2026 KOYOTEC. All rights reserved</p></div>
+        <div class="footer-sign">
+          <p class="address-lockup">
+          <span class="al-line"><svg class="g g-pin" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M20 2 38 20 20 38 2 20z"/><circle class="fill" cx="20" cy="20" r="3.5"/></svg> Ennasr, Tunis <span class="coords" aria-hidden="true"><span>36.8065</span><span>10.1818</span></span> <svg class="g g-swap" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M4 14h30l-7-7M36 26H6l7 7"/></svg> Tunisia</span>
+          <a class="al-line" href="tel:+21652405699">Contact <span class="stamp" aria-hidden="true"><span>+216</span><span>52<br />405 699</span></span><span class="visually-hidden">+216 52 405 699</span></a>
+          <a class="al-line" href="mailto:contact@koyotec.digital">contact<svg class="g g-loop" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M6 26c0-12 10-16 18-12s8 16-2 16H10l5-5m-5 5 5 5"/></svg><span class="visually-hidden">@</span>koyotec.digital</a>
+        </p>
+          <svg class="logo-mark footer-mark" viewBox="0 0 250 195" aria-hidden="true" focusable="false"><defs><clipPath id="kb-ft"><rect width="250" height="194.5"/></clipPath></defs><g class="logo-strokes" clip-path="url(#kb-ft)"><path pathLength="1" d="M220.5 10C175.75 9.25 132.75 31 92 90.25L19.66 206"/><path pathLength="1" d="M79 1.5V72.5M80 112V206"/><path pathLength="1" d="M142.1 106L233.1 206"/><path class="logo-bar" pathLength="1" d="M1 104H246"/></g><rect class="logo-dot" x="232" y="2" width="18" height="18"/></svg>
+        </div>
+        <div class="footer-bottom"><p>Based in Ennasr, Tunis, Tunisia</p><p>&copy;2026 KOYOTEC. All rights reserved</p></div>
       </div>
     </footer>
   </div>

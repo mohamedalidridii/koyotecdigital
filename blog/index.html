@@ -20,12 +20,14 @@
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" href="/site-icon.png" />
-    <meta name="theme-color" content="#0a0a0d" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/site-icon.png" type="image/png" sizes="512x512" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#f3f1ec" />
     <meta name="author" content="KOYOTEC" />
-    <script>(function(d){var e=d.documentElement;e.classList.replace("no-js","js");try{if(sessionStorage.getItem("ky-visited"))e.classList.add("is-visited")}catch(_){}if(matchMedia("(prefers-reduced-motion: reduce)").matches)e.classList.add("is-reduced")})(document)</script>
-    <link rel="preload" href="/fonts/clash-display-600.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/general-sans-400.woff2" as="font" type="font/woff2" crossorigin />
+    <script>(function(d){var e=d.documentElement;e.classList.replace("no-js","js");if(matchMedia("(prefers-reduced-motion: reduce)").matches)e.classList.add("is-reduced")})(document)</script>
+    <link rel="preload" href="/fonts/instrument-serif-400.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/geist-variable.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/css/main.css" />
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Blog : site web, SEO et branding","url":"https://www.koyotec.digital/blog","publisher":{"@id":"https://www.koyotec.digital/#organization"},"inLanguage":"fr","blogPost":[{"@type":"BlogPosting","headline":"Combien coûte la création d'un site web en Tunisie ?","url":"https://www.koyotec.digital/blog/cout-creation-site-web-tunisie","datePublished":"2026-10-17"},{"@type":"BlogPosting","headline":"SEO à Tunis : comment apparaître sur Google","url":"https://www.koyotec.digital/blog/seo-tunis-apparaitre-sur-google","datePublished":"2026-10-17"},{"@type":"BlogPosting","headline":"Logo et identité visuelle : pourquoi c'est essentiel pour votre entreprise","url":"https://www.koyotec.digital/blog/logo-identite-visuelle-entreprise","datePublished":"2026-10-17"}]}</script>
   </head>
@@ -35,22 +37,22 @@
   <canvas class="gl" id="gl" aria-hidden="true"></canvas>
   <div class="gl-fallback" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
-  <div class="cursor" aria-hidden="true"><span class="cursor-ring"></span><span class="cursor-label"></span></div>
+  <div class="cursor" aria-hidden="true"><span class="cursor-dot"></span><span class="cursor-label"></span></div>
   <div class="curtain" aria-hidden="true"><div class="curtain-panel"></div><p class="curtain-label"></p></div>
   <div class="preloader" aria-hidden="true">
-    <p class="pl-coords mono">36.8065° N — 10.1818° E</p>
-    <p class="pl-word">KOYOTEC</p>
-    <p class="pl-count mono"><span>000</span></p>
+    <p class="pl-top"><span>KOYOTEC&reg;</span><span>36.8065 / 10.1818</span></p>
+    <div class="pl-mark"><svg class="logo-mark" viewBox="0 0 250 195" aria-hidden="true" focusable="false"><defs><clipPath id="kb-pl"><rect width="250" height="194.5"/></clipPath></defs><g class="logo-strokes" clip-path="url(#kb-pl)"><path pathLength="1" d="M220.5 10C175.75 9.25 132.75 31 92 90.25L19.66 206"/><path pathLength="1" d="M79 1.5V72.5M80 112V206"/><path pathLength="1" d="M142.1 106L233.1 206"/><path class="logo-bar" pathLength="1" d="M1 104H246"/></g><rect class="logo-dot" x="232" y="2" width="18" height="18"/></svg></div>
+    <p class="pl-bottom"><span>Tunis</span><span class="pl-count">000</span></p>
   </div>
   <div data-barba="wrapper">
-  <div class="page" data-barba="container" data-barba-namespace="blog" data-theme="light">
+  <div class="page" data-barba="container" data-barba-namespace="blog">
     <header class="site-nav">
-      <a class="brand" href="/" aria-label="KOYOTEC — Accueil"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">KOYOTEC</span></a>
-      <nav class="nav-main" aria-label="Menu"><ul class="nav-links"><li><a href="/" data-scramble>Accueil</a></li><li><a href="/services" data-scramble>Services</a></li><li><a href="/blog" aria-current="page" data-scramble>Blog</a></li><li><a href="/contact" data-scramble>Contact</a></li></ul></nav>
+      <a class="brand" href="/" aria-label="KOYOTEC — Accueil"><svg class="logo-mark" viewBox="0 0 250 195" aria-hidden="true" focusable="false"><defs><clipPath id="kb-nav"><rect width="250" height="194.5"/></clipPath></defs><g class="logo-strokes" clip-path="url(#kb-nav)"><path pathLength="1" d="M220.5 10C175.75 9.25 132.75 31 92 90.25L19.66 206"/><path pathLength="1" d="M79 1.5V72.5M80 112V206"/><path pathLength="1" d="M142.1 106L233.1 206"/><path class="logo-bar" pathLength="1" d="M1 104H246"/></g><rect class="logo-dot" x="232" y="2" width="18" height="18"/></svg><span class="brand-name">KOYOTEC<sup>&reg;</sup></span></a>
+      <nav class="nav-main" aria-label="Menu"><ul class="nav-links"><li><a href="/">Accueil</a>,</li> <li><a href="/services">Services</a>,</li> <li><a href="/blog" aria-current="page">Blog</a>,</li> <li><a href="/contact">Contact</a></li></ul></nav>
       <div class="nav-right">
-        <a class="lang mono" href="/en/blog" hreflang="en" lang="en" data-scramble>EN</a>
-        <a class="btn btn-ember" href="/contact" data-magnetic data-size="sm"><span class="btn-label" data-text="Devis gratuit">Devis gratuit</span></a>
-        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-btn-label mono" data-open="Menu" data-close="Fermer">Menu</span><span class="menu-btn-lines" aria-hidden="true"><i></i><i></i></span></button>
+        <a class="lang" href="/en/blog" hreflang="en" lang="en">EN</a>
+        <a class="nav-cta" href="/contact">Devis gratuit</a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-btn-label" data-open="Menu" data-close="Fermer">Menu</span></button>
       </div>
     </header>
 
@@ -58,13 +60,13 @@
       <div class="menu-bg" aria-hidden="true"></div>
       <nav class="menu-inner" aria-label="Menu">
         <ol class="menu-list">
-        <li><a href="/"><span class="menu-idx mono">01</span><span class="menu-name">Accueil</span></a></li>
-        <li><a href="/services"><span class="menu-idx mono">02</span><span class="menu-name">Services</span></a></li>
-        <li><a href="/blog" aria-current="page"><span class="menu-idx mono">03</span><span class="menu-name">Blog</span></a></li>
-        <li><a href="/contact"><span class="menu-idx mono">04</span><span class="menu-name">Contact</span></a></li>
+        <li><a href="/"><span class="menu-idx">(01)</span><span class="menu-name">Accueil</span></a></li>
+        <li><a href="/services"><span class="menu-idx">(02)</span><span class="menu-name">Services</span></a></li>
+        <li><a href="/blog" aria-current="page"><span class="menu-idx">(03)</span><span class="menu-name">Blog</span></a></li>
+        <li><a href="/contact"><span class="menu-idx">(04)</span><span class="menu-name">Contact</span></a></li>
         </ol>
       </nav>
-      <div class="menu-foot mono">
+      <div class="menu-foot">
         <a href="mailto:contact@koyotec.digital">contact@koyotec.digital</a>
         <a href="tel:+21652405699">+216 52 405 699</a>
         <a href="https://www.instagram.com/koyotec.digital/" target="_blank" rel="noopener noreferrer">Instagram</a>
@@ -74,66 +76,66 @@
     </div>
 
     <main id="main">
-      <section class="blog-head" data-gl="off">
+      <section class="page-hero blog-head" data-gl="off">
         <div class="shell">
-          <p class="kicker mono"><span>(✦)</span> Conseils</p>
-          <h1 class="page-title" data-split>Blog : site web, SEO et branding</h1>
-          <p class="lead">Des guides pratiques pour les entreprises tunisiennes qui veulent une présence en ligne efficace.</p>
+          <p class="lockup-brand"><span class="stamp" aria-hidden="true"><span>Blog</span><span>Conseils</span></span> <span>Par KOYOTEC</span></p>
+          <h1 class="lockup-h1 page-title" data-split>Blog : site web,&nbsp;<svg class="g g-star" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M20 2v36M2 20h36M7.3 7.3l25.4 25.4M32.7 7.3 7.3 32.7"/></svg> SEO et branding&nbsp;<svg class="g g-moon" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="17"/><path class="fill" d="M20 3a17 17 0 0 1 0 34 11 17 0 0 0 0-34z"/></svg></h1>
+          <div class="page-hero-foot" data-line><p class="hero-sub">Des guides pratiques pour les entreprises tunisiennes qui veulent une présence en ligne efficace.</p><span class="sec-count" aria-hidden="true">(03)</span></div>
         </div>
       </section>
-      <section class="blog-list shell" aria-label="Blog : site web, SEO et branding">
-          <a class="blog-card" href="/blog/cout-creation-site-web-tunisie" data-cursor="Lire">
-            <span class="blog-card-num mono" aria-hidden="true">01</span>
-            <p class="meta mono">2026-10-17 · Par KOYOTEC</p>
-            <h2>Combien coûte la création d'un site web en Tunisie ?</h2>
-            <p class="blog-card-desc">Les facteurs qui font varier le prix d'un site internet en Tunisie : type de site, design, fonctionnalités, SEO. Guide pour préparer votre budget et votre devis.</p>
-            <span class="blog-card-go mono">Lire l'article <span aria-hidden="true">→</span></span>
-          </a>
-          <a class="blog-card" href="/blog/seo-tunis-apparaitre-sur-google" data-cursor="Lire">
-            <span class="blog-card-num mono" aria-hidden="true">02</span>
-            <p class="meta mono">2026-10-17 · Par KOYOTEC</p>
-            <h2>SEO à Tunis : comment apparaître sur Google</h2>
-            <p class="blog-card-desc">Les bases du référencement naturel pour une entreprise à Tunis : mots-clés, contenu, Google Business Profile, vitesse et liens. Guide pratique étape par étape.</p>
-            <span class="blog-card-go mono">Lire l'article <span aria-hidden="true">→</span></span>
-          </a>
-          <a class="blog-card" href="/blog/logo-identite-visuelle-entreprise" data-cursor="Lire">
-            <span class="blog-card-num mono" aria-hidden="true">03</span>
-            <p class="meta mono">2026-10-17 · Par KOYOTEC</p>
-            <h2>Logo et identité visuelle : pourquoi c'est essentiel pour votre entreprise</h2>
-            <p class="blog-card-desc">Logo, couleurs, typographie, charte graphique : ce que comprend une identité visuelle et pourquoi elle aide votre entreprise à se démarquer et à inspirer confiance.</p>
-            <span class="blog-card-go mono">Lire l'article <span aria-hidden="true">→</span></span>
-          </a>
+      <section class="shell blog-list" aria-label="Blog : site web, SEO et branding">
+        <ol class="post-rows">
+          <li data-line><a class="post-row" href="/blog/cout-creation-site-web-tunisie" data-cursor="Lire">
+            <span class="post-num">01</span>
+            <span class="post-title">Combien coûte la création d'un site web en Tunisie ?</span>
+            <span class="post-desc">Les facteurs qui font varier le prix d'un site internet en Tunisie : type de site, design, fonctionnalités, SEO. Guide pour préparer votre budget et votre devis.</span>
+            <span class="post-meta"><time datetime="2026-10-17">2026-10-17</time> · Lire l'article →</span>
+          </a></li>
+          <li data-line><a class="post-row" href="/blog/seo-tunis-apparaitre-sur-google" data-cursor="Lire">
+            <span class="post-num">02</span>
+            <span class="post-title">SEO à Tunis : comment apparaître sur Google</span>
+            <span class="post-desc">Les bases du référencement naturel pour une entreprise à Tunis : mots-clés, contenu, Google Business Profile, vitesse et liens. Guide pratique étape par étape.</span>
+            <span class="post-meta"><time datetime="2026-10-17">2026-10-17</time> · Lire l'article →</span>
+          </a></li>
+          <li data-line><a class="post-row" href="/blog/logo-identite-visuelle-entreprise" data-cursor="Lire">
+            <span class="post-num">03</span>
+            <span class="post-title">Logo et identité visuelle : pourquoi c'est essentiel pour votre entreprise</span>
+            <span class="post-desc">Logo, couleurs, typographie, charte graphique : ce que comprend une identité visuelle et pourquoi elle aide votre entreprise à se démarquer et à inspirer confiance.</span>
+            <span class="post-meta"><time datetime="2026-10-17">2026-10-17</time> · Lire l'article →</span>
+          </a></li>
+        </ol>
       </section>
     </main>
 
     <footer class="footer">
-      <div class="footer-inner shell">
-        <div class="footer-top">
-          <p class="footer-lead">Parlons de votre projet web.</p>
-          <a class="footer-mail" href="mailto:contact@koyotec.digital" data-cursor="Écrire">contact@koyotec.digital</a>
-        </div>
+      <div class="shell">
         <div class="footer-cols">
           <div>
-            <h2 class="footer-h mono">Pages</h2>
+            <h2 class="footer-h">Pages</h2>
             <a href="/">Accueil</a>
             <a href="/services">Services</a>
             <a href="/blog">Blog</a>
             <a href="/contact">Contact</a>
           </div>
           <div>
-            <h2 class="footer-h mono">Contact</h2>
-            <a href="mailto:contact@koyotec.digital">contact@koyotec.digital</a>
-            <a href="tel:+21652405699">+216 52 405 699</a>
-            <p>Ennasr, Tunis</p>
-          </div>
-          <div>
-            <h2 class="footer-h mono">Suivez-nous</h2>
+            <h2 class="footer-h">Suivez-nous</h2>
             <a href="https://www.instagram.com/koyotec.digital/" target="_blank" rel="noopener noreferrer">Instagram</a>
             <a href="https://www.youtube.com/@medaly.dridiy" target="_blank" rel="noopener noreferrer">YouTube</a>
           </div>
+          <div>
+            <h2 class="footer-h">Parlons de votre projet web.</h2>
+            <a href="/contact">Devis gratuit →</a>
+          </div>
         </div>
-        <p class="footer-word" aria-hidden="true">KOYOTEC</p>
-        <div class="footer-bottom mono"><p>Basés à Ennasr, Tunis, Tunisie</p><p>&copy; 2026 KOYOTEC. Tous droits réservés</p></div>
+        <div class="footer-sign">
+          <p class="address-lockup">
+          <span class="al-line"><svg class="g g-pin" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M20 2 38 20 20 38 2 20z"/><circle class="fill" cx="20" cy="20" r="3.5"/></svg> Ennasr, Tunis <span class="coords" aria-hidden="true"><span>36.8065</span><span>10.1818</span></span> <svg class="g g-swap" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M4 14h30l-7-7M36 26H6l7 7"/></svg> Tunisie</span>
+          <a class="al-line" href="tel:+21652405699">Contact <span class="stamp" aria-hidden="true"><span>+216</span><span>52<br />405 699</span></span><span class="visually-hidden">+216 52 405 699</span></a>
+          <a class="al-line" href="mailto:contact@koyotec.digital">contact<svg class="g g-loop" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M6 26c0-12 10-16 18-12s8 16-2 16H10l5-5m-5 5 5 5"/></svg><span class="visually-hidden">@</span>koyotec.digital</a>
+        </p>
+          <svg class="logo-mark footer-mark" viewBox="0 0 250 195" aria-hidden="true" focusable="false"><defs><clipPath id="kb-ft"><rect width="250" height="194.5"/></clipPath></defs><g class="logo-strokes" clip-path="url(#kb-ft)"><path pathLength="1" d="M220.5 10C175.75 9.25 132.75 31 92 90.25L19.66 206"/><path pathLength="1" d="M79 1.5V72.5M80 112V206"/><path pathLength="1" d="M142.1 106L233.1 206"/><path class="logo-bar" pathLength="1" d="M1 104H246"/></g><rect class="logo-dot" x="232" y="2" width="18" height="18"/></svg>
+        </div>
+        <div class="footer-bottom"><p>Basés à Ennasr, Tunis, Tunisie</p><p>&copy;2026 KOYOTEC. Tous droits réservés</p></div>
       </div>
     </footer>
   </div>

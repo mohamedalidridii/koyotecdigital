@@ -1,84 +1,61 @@
-/* Design tokens — "Night Signal": a desert at night, the coyote's howl as the signal. */
+/* Design tokens — paper and ink. One narrow display serif used very large, one quiet grotesk used small. */
 @font-face {
-  font-family: "Clash Display";
-  src: url("/fonts/clash-display-500.woff2") format("woff2");
-  font-weight: 500;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Clash Display";
-  src: url("/fonts/clash-display-600.woff2") format("woff2");
-  font-weight: 600;
-  font-display: swap;
-}
-@font-face {
-  font-family: "General Sans";
-  src: url("/fonts/general-sans-400.woff2") format("woff2");
+  font-family: "Instrument Serif";
+  src: url("/fonts/instrument-serif-400.woff2") format("woff2");
   font-weight: 400;
+  font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "General Sans";
-  src: url("/fonts/general-sans-500.woff2") format("woff2");
-  font-weight: 500;
+  font-family: "Instrument Serif";
+  src: url("/fonts/instrument-serif-400-italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/geist-variable.woff2") format("woff2");
+  font-weight: 100 900;
   font-display: swap;
 }
 /* metric-matched fallbacks keep layout shift near zero while the web fonts swap in */
 @font-face {
-  font-family: "Clash Fallback";
-  src: local("Arial Narrow"), local("Arial");
-  size-adjust: 92%;
-  ascent-override: 98%;
-  descent-override: 24%;
+  font-family: "Serif Fallback";
+  src: local("Times New Roman"), local("Times");
+  size-adjust: 88%;
+  ascent-override: 102%;
+  descent-override: 26%;
 }
 @font-face {
-  font-family: "General Fallback";
+  font-family: "Sans Fallback";
   src: local("Arial");
-  size-adjust: 98%;
-  ascent-override: 96%;
+  size-adjust: 102%;
+  ascent-override: 94%;
   descent-override: 24%;
 }
 
 :root {
-  --night: #0a0a0d;
-  --night-2: #121217;
-  --bone: #ece4d6;
-  --ember: #ff4d1a;
-  --moon: #9fb4ff;
-  --muted: #6e6a63;
+  --paper: #f3f1ec;
+  --paper-2: #e8e5de;
+  --ink: #0d0d0d;
+  --ink-dim: #5f5d58;
+  --line: rgba(13, 13, 13, 0.18);
+  --brand-red: #ff0000; /* only ever used for the square in the logo */
 
-  /* themeable roles (swapped by [data-theme="light"]) */
-  --bg: var(--night);
-  --fg: var(--bone);
-  --fg-dim: rgba(236, 228, 214, 0.62);
-  --fg-faint: rgba(236, 228, 214, 0.14);
-  --glass: rgba(18, 18, 23, 0.68);
-  --accent-ink: var(--ember); /* ember for small text; darkened on light backgrounds for contrast */
+  --f-serif: "Instrument Serif", "Serif Fallback", serif;
+  --f-sans: "Geist", "Sans Fallback", sans-serif;
 
-  --f-display: "Clash Display", "Clash Fallback", sans-serif;
-  --f-text: "General Sans", "General Fallback", sans-serif;
-  --f-mono: "JetBrains Mono Variable", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --fs-small: 0.875rem;
+  --fs-body: 1rem;
+  --fs-lead: clamp(1.05rem, 0.95rem + 0.4vw, 1.3rem);
+  --fs-display: clamp(3.2rem, 8.6vw, 11rem);
+  --fs-title: clamp(2.6rem, 6vw, 7rem);
+  --fs-row: clamp(2.6rem, 7.4vw, 9rem);
+  --fs-statement: clamp(2rem, 4.3vw, 4.8rem);
 
-  --fs-word: clamp(4.5rem, 19.6vw, 24rem);
-  --fs-h1: clamp(2.6rem, 6.2vw, 6.8rem);
-  --fs-h2: clamp(2.2rem, 5vw, 5.4rem);
-  --fs-h3: clamp(1.6rem, 2.6vw, 2.6rem);
-  --fs-lead: clamp(1.15rem, 1rem + 0.6vw, 1.5rem);
-  --fs-body: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
-  --fs-mono: 0.75rem;
-
-  --gutter: clamp(1rem, 4vw, 3.5rem);
-  --nav-h: 5rem;
-  --radius: 1.25rem;
+  --gutter: clamp(1rem, 2.2vw, 2rem);
+  --nav-h: 3.75rem;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
-}
-
-[data-theme="light"] {
-  --bg: var(--bone);
-  --fg: var(--night);
-  --fg-dim: rgba(10, 10, 13, 0.64);
-  --fg-faint: rgba(10, 10, 13, 0.14);
-  --glass: rgba(236, 228, 214, 0.72);
-  --accent-ink: #b32a00;
 }

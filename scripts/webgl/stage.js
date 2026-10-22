@@ -1,7 +1,6 @@
 // The persistent WebGL stage: one particle system that lives behind every page and morphs
 // between scenes (dunes, service icons, galaxy, orbit). Loaded lazily after first paint.
 import {
-  AdditiveBlending,
   BufferAttribute,
   BufferGeometry,
   Mesh,
@@ -28,9 +27,7 @@ import moonFrag from "./shaders/moon.frag.glsl?raw";
 
 const PULSES = 6;
 const SPIN_3D = new Set(["orbit", "constellation"]);
-const BONE = new Color("#ece4d6");
-const EMBER = new Color("#ff4d1a");
-const MOON = new Color("#9fb4ff");
+const INK = new Color("#0d0d0d");
 
 // where each object sits on screen: [x, y, z, scale]; text lives on the left on desktop
 function layout(name, small) {
@@ -43,9 +40,9 @@ function quality() {
   const small = Math.min(window.innerWidth, window.innerHeight) < 700 || window.matchMedia("(pointer: coarse)").matches;
   const mem = navigator.deviceMemory || 4;
   const cores = navigator.hardwareConcurrency || 4;
-  if (small) return { count: 32000, dpr: Math.min(window.devicePixelRatio, 1.5), size: 30 };
-  if (mem >= 8 && cores >= 8) return { count: 110000, dpr: Math.min(window.devicePixelRatio, 1.75), size: 26 };
-  return { count: 70000, dpr: Math.min(window.devicePixelRatio, 1.5), size: 30 };
+  if (small) return { count: 30000, dpr: Math.min(window.devicePixelRatio, 1.5), size: 22 };
+  if (mem >= 8 && cores >= 8) return { count: 90000, dpr: Math.min(window.devicePixelRatio, 1.75), size: 18 };
+  return { count: 60000, dpr: Math.min(window.devicePixelRatio, 1.5), size: 20 };
 }
 
 export function createStage(canvas, { reduced = false } = {}) {
@@ -84,7 +81,8 @@ export function createStage(canvas, { reduced = false } = {}) {
     uMorph: { value: 1 },
     uChaos: { value: 0 },
     uScatter: { value: 0 },
-    uSpin: { value: 0 },
+    uFromSpin: { value: 0 },
+    uToSpin: { value: 0 },
     uSize: { value: q.size },
     uPixelRatio: { value: renderer.getPixelRatio() },
     uFlow: { value: reduced ? 0 : 0.55 },
@@ -96,9 +94,7 @@ export function createStage(canvas, { reduced = false } = {}) {
     uMouseForce: { value: 0 },
     uPulsePos: { value: Array.from({ length: PULSES }, () => new Vector3()) },
     uPulseData: { value: Array.from({ length: PULSES }, () => new Vector2(-10, 0)) },
-    uBone: { value: BONE },
-    uEmber: { value: EMBER },
-    uMoon: { value: MOON },
+    uInk: { value: INK },
     uAlpha: { value: 0 },
   };
 
@@ -108,14 +104,13 @@ export function createStage(canvas, { reduced = false } = {}) {
     fragmentShader: particlesFrag,
     transparent: true,
     depthWrite: false,
-    blending: AdditiveBlending,
   });
   const points = new Points(geometry, material);
   points.frustumCulled = false;
   scene.add(points);
 
   // ---------- moon ----------
-  const moonU = { uMoon: { value: MOON }, uBone: { value: BONE }, uAlpha: { value: 0 }, uTime: u.uTime };
+  const moonU = { uInk: { value: INK }, uAlpha: { value: 0 }, uTime: u.uTime };
   const moon = new Mesh(
     new PlaneGeometry(9, 9),
     new ShaderMaterial({
@@ -128,7 +123,7 @@ export function createStage(canvas, { reduced = false } = {}) {
   );
   moon.renderOrder = -1;
   scene.add(moon);
-  const placeMoon = () => (small ? moon.position.set(3.6, 7, -16) : moon.position.set(2.1, 4.1, -16));
+  const placeMoon = () => (small ? moon.position.set(1.3, 3.4, -16) : moon.position.set(4.4, 4.6, -16));
   placeMoon();
 
   // ---------- morphing ----------
@@ -218,10 +213,24 @@ export function createStage(canvas, { reduced = false } = {}) {
     pulseIndex = (pulseIndex + 1) % PULSES;
   }
 
+  // ---------- hover focus ----------
+  let following = false;
+  const followAt = new Vector3();
+  function focus(name) {
+    const fresh = !following;
+    following = true;
+    morphTo(name, { duration: 1.2 });
+    // start at the pointer rather than flying in from the section layout
+    if (fresh && project(pointer.x, pointer.y, hit)) u.uToXform.value.set(hit.x + (small ? 0 : 1.15), hit.y - 0.1, 0.4, 0.48);
+  }
+  function unfocus() {
+    following = false;
+  }
+
   // ---------- visibility ----------
   function setAlpha(value, duration = 1.2) {
     alphaTarget = value;
-    gsap.to(u.uAlpha, { value: value * dim, duration, ease: "power2.out", overwrite: true });
+    gsap.to(u.uAlpha, { value: value * dim * (small ? 0.65 : 1), duration, ease: "power2.out", overwrite: true });
   }
   function setDim(value) {
     dim = value;
@@ -234,7 +243,6 @@ export function createStage(canvas, { reduced = false } = {}) {
   // ---------- loop ----------
   let velocity = 0;
   let stir = 0;
-  let spin = 0;
   let frames = 0;
   let slow = 0;
   let downgraded = false;
@@ -269,12 +277,22 @@ export function createStage(canvas, { reduced = false } = {}) {
       u.uMouseForce.value += (1 - u.uMouseForce.value) * 0.05;
     }
 
-    // 3D shapes turn slowly; flat icons sway so they never go edge-on
+    // hover focus: the current shape shrinks and trails just beside the pointer
+    if (following && project(pointer.x, pointer.y, hit)) {
+      followAt.set(hit.x + (small ? 0 : 1.15), hit.y - 0.1, 0.4);
+      const xf = u.uToXform.value;
+      xf.x += (followAt.x - xf.x) * 0.09;
+      xf.y += (followAt.y - xf.y) * 0.09;
+      xf.z += (followAt.z - xf.z) * 0.09;
+      xf.w += (0.48 - xf.w) * 0.09;
+    }
+
+    // 3D shapes turn slowly; flat icons only sway, so they never go edge-on or mirrored
     const t = u.uTime.value;
-    let target = SPIN_3D.has(toName) ? t * 0.14 : Math.sin(t * 0.35) * 0.32 + pointer.sx * 0.35;
-    target -= Math.round((target - spin) / (Math.PI * 2)) * Math.PI * 2;
-    spin += (target - spin) * 0.04;
-    u.uSpin.value = spin;
+    const turn = t * 0.14;
+    const sway = Math.sin(t * 0.35) * 0.3 + pointer.sx * 0.35;
+    u.uFromSpin.value = SPIN_3D.has(fromName) ? turn : sway;
+    u.uToSpin.value = SPIN_3D.has(toName) ? turn : sway;
 
     // fast scrolling stirs the particles
     stir += (Math.min(Math.abs(velocity) / 90, 0.35) - stir) * 0.06;
@@ -306,6 +324,8 @@ export function createStage(canvas, { reduced = false } = {}) {
 
   return {
     morphTo,
+    focus,
+    unfocus,
     pulse,
     setPointer,
     setAlpha,

@@ -1,6 +1,6 @@
-// Top bar (hide on scroll down, glass once scrolled), full-screen menu and scrambled hover labels.
+// Top bar (hide on scroll down, frosted once scrolled) and the full-screen menu.
 import { gsap, ScrollTrigger } from "./gsap.js";
-import { $, fine, reduced } from "./env.js";
+import { $, reduced } from "./env.js";
 import { scroll } from "./scroll.js";
 
 export function initNav(scope) {
@@ -36,7 +36,7 @@ export function initNav(scope) {
     const tl = gsap
       .timeline({ paused: true, defaults: { ease: "koy" } })
       .set(menu, { visibility: "visible" })
-      .fromTo(bg, { clipPath: "circle(0% at calc(100% - 3rem) 2.5rem)" }, { clipPath: "circle(150% at calc(100% - 3rem) 2.5rem)", duration: 1.1, ease: "koy.io" }, 0)
+      .fromTo(bg, { clipPath: "inset(0 0 100% 0)" }, { clipPath: "inset(0 0 0% 0)", duration: 1, ease: "koy.io" }, 0)
       .fromTo(links, { yPercent: 110 }, { yPercent: 0, duration: 1, stagger: 0.06 }, 0.35)
       .fromTo(foot, { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.6, stagger: 0.04 }, 0.6);
 
@@ -91,16 +91,6 @@ export function initNav(scope) {
         document.documentElement.classList.remove("menu-open");
         scroll.unlock();
       }
-    });
-  }
-
-  // ---------- scrambled hover labels ----------
-  if (fine && !reduced) {
-    $("[data-scramble]", scope).forEach((el) => {
-      const text = el.textContent;
-      const enter = () => gsap.to(el, { duration: 0.6, scrambleText: { text, chars: "upperCase", speed: 0.6 }, overwrite: true });
-      el.addEventListener("pointerenter", enter);
-      off.push(() => el.removeEventListener("pointerenter", enter));
     });
   }
 

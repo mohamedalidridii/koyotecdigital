@@ -21,8 +21,25 @@ const call = (method, ...args) => {
   }
 };
 
+let scene = null; // the scene the scroll position asks for; hover focus returns to it
+let focused = null; // while a hover preview is up, scroll scenes are remembered but not applied
+
 export const gl = {
   shape: (name, opts) => call("morphTo", name, opts),
+  // hover previews: gather the particles into a shape beside the pointer, then let go
+  focus(name) {
+    if (!stage) return;
+    focused = name;
+    stage.setDim(1);
+    stage.setAlpha(1, 0.6);
+    stage.focus(name);
+  },
+  blur() {
+    if (!stage || !focused) return;
+    focused = null;
+    stage.unfocus();
+    if (scene) applyScene(scene);
+  },
   alpha: (v, d) => call("setAlpha", v, d),
   dim: (v) => call("setDim", v),
   pulse: (x, y, s) => call("pulse", x, y, s),
@@ -132,6 +149,8 @@ export function bindScenes(els, { containerAnimation } = {}) {
 }
 
 export function applyScene(el, opts) {
+  scene = el;
+  if (focused) return;
   const name = el.dataset.gl;
   if (name === "off") {
     gl.alpha(0, 0.8);
