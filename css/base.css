@@ -363,8 +363,9 @@ em,
   background: var(--paper);
 }
 
-/* preloader: on every full page load (client-side navigations use the curtain instead);
-   a CSS failsafe removes it if scripts never run */
+/* preloader: on every full page load (client-side navigations use the curtain instead).
+   An ink screen painted by the SVG through a mask, so the paper-coloured K can become a window onto the page.
+   A CSS failsafe removes it if scripts never run. */
 .preloader {
   display: none;
 }
@@ -372,27 +373,111 @@ em,
   position: fixed;
   inset: 0;
   z-index: 120;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  padding: 1rem var(--gutter);
-  background: var(--paper);
-  color: var(--ink);
+  display: block;
+  color: var(--paper);
   animation: failsafe 0s 6s forwards;
+}
+.pl-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.pl-paper {
+  fill: var(--ink);
+}
+.pl-strokes {
+  fill: none;
+  stroke-width: 18;
+}
+.pl-ink .pl-strokes {
+  stroke: var(--paper);
+}
+.pl-strokes .logo-bar {
+  stroke-width: 17;
+}
+.pl-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 0;
+  height: 0;
+  background: var(--brand-red);
+  transform-origin: 0 0;
 }
 .pl-top,
 .pl-bottom {
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
   display: flex;
   justify-content: space-between;
 }
-.pl-mark {
-  align-self: center;
-  justify-self: center;
+.pl-top {
+  top: 1rem;
 }
-.pl-mark .logo-mark {
-  width: clamp(9rem, 22vw, 22rem);
+.pl-bottom {
+  bottom: 0.75rem;
+  align-items: flex-end;
+  gap: 1rem;
 }
-.pl-count {
-  font-variant-numeric: tabular-nums;
+/* odometer: each digit is a 0-9 strip behind a one-digit window */
+.pl-odo {
+  display: flex;
+  font-family: var(--f-serif);
+  font-size: clamp(5rem, 16vw, 16rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.odo-col {
+  display: block;
+  height: 1em;
+  overflow: hidden;
+}
+.odo-strip {
+  display: flex;
+  flex-direction: column;
+}
+.odo-strip span {
+  display: block;
+  width: 0.5em;
+  height: 1em;
+  text-align: center;
+}
+.odo-pct {
+  align-self: flex-start;
+  margin: 0.25em 0 0 0.1em;
+  font-family: var(--f-sans);
+  font-size: 0.12em;
+}
+.pl-words {
+  height: 1.25em;
+  overflow: hidden;
+  margin-bottom: 0.4em;
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: clamp(1.4rem, 2.4vw, 2.4rem);
+  line-height: 1.25;
+  text-align: right;
+}
+.pl-words-strip {
+  display: block;
+}
+.pl-words-strip span {
+  display: block;
+  height: 1.25em;
+  white-space: nowrap;
+}
+@media (max-width: 600px) {
+  .pl-bottom {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+  .pl-words {
+    text-align: left;
+  }
 }
 @keyframes failsafe {
   to {

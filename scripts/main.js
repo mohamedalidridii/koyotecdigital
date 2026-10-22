@@ -6,7 +6,7 @@ import { initScroll, scroll } from "./core/scroll.js";
 import { bootGL, bindScenes, resetScenes, sceneAtViewport } from "./core/gl.js";
 import { initCursor, magnetic } from "./core/cursor.js";
 import { initNav } from "./core/nav.js";
-import { runPreloader } from "./core/preloader.js";
+import { runPreloader, preloaderDone } from "./core/preloader.js";
 import { initRouter } from "./core/router.js";
 import { autoSplits, drawLines } from "./core/reveal.js";
 import { homeHero, pageHero } from "./sections/intro.js";
@@ -53,8 +53,11 @@ function mount(container, { ready = Promise.resolve() } = {}) {
       });
       ScrollTrigger.refresh();
     };
-    if ("requestIdleCallback" in window) requestIdleCallback(later, { timeout: 900 });
-    else setTimeout(later, 200);
+    // and never during the preloader, whose animation must not stutter
+    preloaderDone.then(() => {
+      if ("requestIdleCallback" in window) requestIdleCallback(later, { timeout: 900 });
+      else setTimeout(later, 200);
+    });
   }
 }
 
@@ -69,7 +72,7 @@ function unmount(container) {
 
 function start() {
   initScroll();
-  bootGL();
+  bootGL({ after: preloaderDone });
   initCursor();
   const container = document.querySelector('[data-barba="container"]');
   mount(container, { ready: runPreloader() });

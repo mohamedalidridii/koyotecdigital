@@ -83,8 +83,10 @@ export function generate(root = ROOT, content = loadContent(root), { write = tru
   };
   // the KOYOTEC mark, traced from public/koyotec.png. Strokes use currentColor; the square stays brand red.
   // pathLength=1 lets the preloader draw it stroke by stroke. `id` keeps clip ids unique per instance.
+  const LOGO_D = ["M220.5 10C175.75 9.25 132.75 31 92 90.25L19.66 206", "M79 1.5V72.5M80 112V206", "M142.1 106L233.1 206", "M1 104H246"];
+  const logoPaths = () => LOGO_D.map((d, i) => `<path${i === 3 ? ' class="logo-bar"' : ""} pathLength="1" d="${d}"/>`).join("");
   const logo = (id, cls = "") =>
-    `<svg class="logo-mark${cls ? " " + cls : ""}" viewBox="0 0 250 195" aria-hidden="true" focusable="false"><defs><clipPath id="kb-${id}"><rect width="250" height="194.5"/></clipPath></defs><g class="logo-strokes" clip-path="url(#kb-${id})"><path pathLength="1" d="M220.5 10C175.75 9.25 132.75 31 92 90.25L19.66 206"/><path pathLength="1" d="M79 1.5V72.5M80 112V206"/><path pathLength="1" d="M142.1 106L233.1 206"/><path class="logo-bar" pathLength="1" d="M1 104H246"/></g><rect class="logo-dot" x="232" y="2" width="18" height="18"/></svg>`;
+    `<svg class="logo-mark${cls ? " " + cls : ""}" viewBox="0 0 250 195" aria-hidden="true" focusable="false"><defs><clipPath id="kb-${id}"><rect width="250" height="194.5"/></clipPath></defs><g class="logo-strokes" clip-path="url(#kb-${id})">${logoPaths()}</g><rect class="logo-dot" x="232" y="2" width="18" height="18"/></svg>`;
 
   // boxed stacked labels, like a stamp, also decorative
   const stamp = (a, b, c) =>
@@ -201,9 +203,23 @@ ${altFr ? `    <link rel="alternate" hreflang="fr" href="${esc(SITE + altFr)}" /
   <div class="cursor" aria-hidden="true"><span class="cursor-dot"></span><span class="cursor-label"></span></div>
   <div class="curtain" aria-hidden="true"><div class="curtain-panel"></div><p class="curtain-label"></p></div>
   <div class="preloader" aria-hidden="true">
+    <svg class="pl-svg" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <clipPath id="pl-clip"><rect width="250" height="194.5"/></clipPath>
+        <mask id="pl-hole" maskUnits="userSpaceOnUse">
+          <rect class="pl-fill" fill="#fff"/>
+          <g class="pl-cut" opacity="0"><g class="pl-strokes" clip-path="url(#pl-clip)" stroke="#000">${logoPaths()}</g></g>
+        </mask>
+      </defs>
+      <rect class="pl-paper pl-fill" mask="url(#pl-hole)"/>
+      <g class="pl-ink"><g class="pl-strokes" clip-path="url(#pl-clip)">${logoPaths()}</g></g>
+    </svg>
+    <span class="pl-dot"></span>
     <p class="pl-top"><span>${esc(G.name)}&reg;</span><span>${esc(G.latitude)} / ${esc(G.longitude)}</span></p>
-    <div class="pl-mark">${logo("pl")}</div>
-    <p class="pl-bottom"><span>Tunis</span><span class="pl-count">000</span></p>
+    <div class="pl-bottom">
+      <p class="pl-odo">${[0, 1, 2].map((c) => `<span class="odo-col"><span class="odo-strip">${[...Array(c === 2 ? 11 : 10).keys()].map((d) => `<span>${d % 10}</span>`).join("")}</span></span>`).join("")}<span class="odo-pct">%</span></p>
+      <p class="pl-words"><span class="pl-words-strip">${site[lang].home.cards.map(([n]) => `<span>${esc(n)}</span>`).join("")}</span></p>
+    </div>
   </div>`;
   }
 

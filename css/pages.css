@@ -355,10 +355,13 @@ a.al-line:hover {
 .footer-cols > div {
   display: grid;
   align-content: start;
-  gap: 0.15rem;
+  gap: 0;
 }
 .footer-cols a {
+  display: inline-flex;
+  align-items: center;
   width: fit-content;
+  min-height: 1.6rem; /* comfortable tap target */
 }
 .footer-cols a:hover {
   font-family: var(--f-serif);

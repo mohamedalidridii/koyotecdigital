@@ -7,6 +7,7 @@ import { scroll } from "./scroll.js";
 let stage = null;
 let load = null;
 let disabled = false;
+let gate = Promise.resolve(); // heavy WebGL setup waits for this (the preloader) so the intro never stutters
 const queue = [];
 const call = (method, ...args) => {
   if (stage) return stage[method](...args);
@@ -16,8 +17,10 @@ const call = (method, ...args) => {
   if (method === "morphTo" && load) {
     const go = load;
     load = null;
-    if ("requestIdleCallback" in window) requestIdleCallback(go, { timeout: 1200 });
-    else setTimeout(go, 300);
+    gate.then(() => {
+      if ("requestIdleCallback" in window) requestIdleCallback(go, { timeout: 1200 });
+      else setTimeout(go, 300);
+    });
   }
 };
 
@@ -61,7 +64,8 @@ function supported() {
   }
 }
 
-export function bootGL() {
+export function bootGL({ after } = {}) {
+  if (after) gate = after;
   const canvas = document.getElementById("gl");
   if (!canvas || !supported()) {
     disabled = true;
