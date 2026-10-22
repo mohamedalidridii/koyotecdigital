@@ -56,6 +56,21 @@
       "source": "/culture",
       "destination": "/services",
       "permanent": true
+    },
+    {
+      "source": "/work",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/film",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/directors",
+      "destination": "/",
+      "permanent": true
     }
   ],
   "headers": [

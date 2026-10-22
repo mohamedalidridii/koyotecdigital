@@ -16,7 +16,7 @@ const LABELS = {
   based: "Texte de localisation", rights: "Mention droits réservés", nav: "Noms du menu", services: "Services", blog: "Blog", contact: "Contact",
   domain: "Adresse du site (https://…)", name: "Nom de l'entreprise", tagline: "Nom complet", email: "E-mail", phone: "Téléphone (format +21652405699)", phoneDisplay: "Téléphone affiché",
   instagram: "Lien Instagram", youtube: "Lien YouTube", locality: "Ville / quartier", country: "Code pays", latitude: "Latitude", longitude: "Longitude", year: "Année du copyright",
-  ogImage: "Image de partage (chemin, ex. /home/banner.jpg)", slug: "Adresse de l'article (slug : minuscules, chiffres, tirets)", date: "Date de publication", intro: "Introduction (en gras)",
+  ogImage: "Image de partage (chemin, ex. /og/koyotec.jpg)", slug: "Adresse de l'article (slug : minuscules, chiffres, tirets)", date: "Date de publication", intro: "Introduction (en gras)",
   sections: "Sections de l'article",
   eyebrow: "Petite ligne au-dessus du titre", sub: "Phrase sous le titre", cta_primary: "Bouton principal (devis)", cta_secondary: "Bouton secondaire",
   services_kicker: "Petit titre des services", services_h: "Titre de la section services", services_lead: "Phrase sous le titre des services",
@@ -24,6 +24,8 @@ const LABELS = {
   faq_h: "Titre de la FAQ", faq: "Questions / réponses", cta_sub: "Phrase du bandeau final", cta_btn: "Bouton du bandeau final",
   hero_meta: "Lignes sous le grand nom (une par élément)", scroll_hint: "Texte « défiler »", services_outline: "Titre services : mot en contour", services_bold: "Titre services : mot en gras",
   why_kicker: "Petite étiquette « pourquoi nous »", popup_title: "Texte de la carte flottante", popup_btn: "Bouton de la carte flottante", cta_giant: "Gros texte du bandeau final",
+  close: "Libellé « fermer »", form_h: "Titre du formulaire", f_name: "Champ nom", f_email: "Champ e-mail", f_type: "Choix des besoins",
+  f_msg: "Champ message", f_send: "Bouton d'envoi", f_note: "Note sous le bouton", f_done: "Message après l'envoi",
   nav_cta: "Bouton « devis » du menu", footer_pages: "Titre colonne pages (pied de page)", footer_contact: "Titre colonne contact", footer_follow: "Titre colonne réseaux",
 };
 const TUPLE = { cards: ["Titre", "Description"], points: ["Titre", "Description"], faq: ["Question", "Réponse"], blocks: ["Titre", "Texte"], process: ["Étape", "Description"], sections: ["Titre de section", "Texte (ligne vide = nouveau paragraphe ; « - » en début de ligne = liste)"] };

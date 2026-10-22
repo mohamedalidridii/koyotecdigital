@@ -1,0 +1,450 @@
+/* Reset, type, buttons and the persistent chrome (WebGL stage, grain, cursor, preloader, curtain). */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--f-text);
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+  transition: background-color 0.8s var(--ease-out), color 0.8s var(--ease-out);
+}
+
+/* Locomotive / Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+::selection {
+  background: var(--ember);
+  color: var(--night);
+}
+
+img,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--f-display);
+  font-weight: 600;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ember);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.mono {
+  font-family: var(--f-mono);
+  font-size: var(--fs-mono);
+  font-weight: 450;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+.shell {
+  width: 100%;
+  max-width: 1680px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 200;
+  padding: 0.75rem 1.25rem;
+  background: var(--ember);
+  color: var(--night);
+  border-radius: 999px;
+  transform: translateY(-200%);
+}
+.skip-link:focus {
+  transform: none;
+}
+
+.kicker {
+  display: flex;
+  gap: 0.75rem;
+  color: var(--fg-dim);
+  margin-bottom: 2rem;
+}
+.kicker span {
+  color: var(--accent-ink);
+}
+
+.section-title {
+  font-size: var(--fs-h2);
+}
+
+.lead {
+  font-size: var(--fs-lead);
+  color: var(--fg-dim);
+  max-width: 36ch;
+}
+
+/* masked lines produced by SplitText */
+.split-line {
+  padding-bottom: 0.06em;
+}
+
+/* ---------- buttons ---------- */
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.4rem;
+  padding: 0 1.8rem;
+  border-radius: 999px;
+  overflow: hidden;
+  font-family: var(--f-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  isolation: isolate;
+  transition: color 0.5s var(--ease-out);
+}
+.btn[data-size="sm"] {
+  height: 2.6rem;
+  padding: 0 1.2rem;
+  font-size: 0.7rem;
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  transform: translateY(101%);
+  transition: transform 0.6s var(--ease-out);
+}
+.btn-label {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  line-height: 1.4;
+}
+.btn-label::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 100%;
+}
+.btn-label,
+.btn-label::after {
+  transition: transform 0.6s var(--ease-out);
+}
+.btn:hover .btn-label {
+  transform: translateY(-100%);
+}
+
+.btn-ember {
+  background: var(--ember);
+  color: var(--night);
+}
+.btn-ember::before {
+  background: var(--fg);
+}
+.btn-ember:hover {
+  color: var(--bg);
+}
+
+.btn-ghost {
+  border: 1px solid var(--fg-faint);
+  color: var(--fg);
+}
+.btn-ghost::before {
+  background: var(--fg);
+}
+.btn-ghost:hover {
+  color: var(--bg);
+}
+.btn:hover::before {
+  transform: none;
+}
+
+.link-arrow {
+  display: inline-flex;
+  gap: 0.6rem;
+  align-items: center;
+  padding-bottom: 0.3rem;
+  background: linear-gradient(currentColor, currentColor) left bottom / 100% 1px no-repeat;
+  transition: background-size 0.6s var(--ease-out);
+}
+.link-arrow span {
+  transition: transform 0.6s var(--ease-out);
+}
+.link-arrow:hover {
+  background-size: 0% 1px;
+  background-position: right bottom;
+}
+.link-arrow:hover span {
+  transform: translateX(0.4rem);
+}
+
+/* ---------- persistent chrome ---------- */
+.gl,
+.gl-fallback {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+.gl {
+  opacity: 0;
+  transition: opacity 1.2s var(--ease-out);
+}
+.gl.is-live {
+  opacity: 1;
+}
+
+/* shown when WebGL is unavailable: a moonlit dune horizon */
+.gl-fallback {
+  display: none;
+  background:
+    radial-gradient(circle at 78% 22%, rgba(159, 180, 255, 0.35) 0, rgba(159, 180, 255, 0.08) 7%, transparent 18%),
+    radial-gradient(120% 60% at 30% 110%, rgba(255, 77, 26, 0.18), transparent 60%),
+    linear-gradient(to bottom, #0a0a0d 40%, #16141a 100%);
+}
+.no-webgl .gl-fallback {
+  display: block;
+}
+[data-theme="light"] ~ .gl-fallback,
+body[data-theme="light"] .gl-fallback {
+  opacity: 0;
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+}
+
+.grain {
+  position: fixed;
+  inset: -50%;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 0.9s steps(6) infinite;
+}
+@keyframes grain {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-6%, 4%); }
+  40% { transform: translate(4%, -7%); }
+  60% { transform: translate(-3%, 8%); }
+  80% { transform: translate(7%, -2%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* cursor: a ring that becomes a labelled pill over interactive things (fine pointers only) */
+.cursor {
+  display: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .js .cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 150;
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+    mix-blend-mode: difference;
+  }
+}
+.cursor-ring {
+  grid-area: 1 / 1;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin: -1.125rem 0 0 -1.125rem;
+  border: 1px solid var(--bone);
+  border-radius: 999px;
+  transition: width 0.5s var(--ease-out), height 0.5s var(--ease-out), margin 0.5s var(--ease-out), background-color 0.5s var(--ease-out);
+}
+.cursor-label {
+  grid-area: 1 / 1;
+  margin: -0.5rem 0 0 0;
+  font-family: var(--f-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--night);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.cursor.has-label .cursor-ring {
+  width: 5.5rem;
+  height: 5.5rem;
+  margin: -2.75rem 0 0 -2.75rem;
+  background: var(--bone);
+}
+.cursor.has-label .cursor-label {
+  opacity: 1;
+}
+.cursor.is-link .cursor-ring {
+  width: 4rem;
+  height: 4rem;
+  margin: -2rem 0 0 -2rem;
+}
+.cursor.is-hidden {
+  opacity: 0;
+}
+
+/* preloader: first visit only; a CSS failsafe removes it if scripts never run */
+.preloader {
+  display: none;
+}
+.js:not(.is-visited):not(.is-reduced) .preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 1.5rem var(--gutter);
+  background: var(--night);
+  color: var(--bone);
+  animation: failsafe 0s 6s forwards;
+}
+.pl-word {
+  align-self: center;
+  overflow: hidden;
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: var(--fs-word);
+  line-height: 0.82;
+  letter-spacing: -0.04em;
+  text-align: center;
+}
+.pl-count {
+  justify-self: end;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: var(--ember);
+}
+.pl-coords {
+  color: var(--fg-dim);
+}
+@keyframes failsafe {
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+/* page transition curtain; it also hides the first paint on repeat visits until the intro runs */
+.curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 110;
+  pointer-events: none;
+  display: grid;
+  place-items: center;
+}
+.curtain-panel {
+  position: absolute;
+  inset: 0;
+  background: var(--ember);
+  clip-path: inset(100% 0 0 0);
+}
+.js.is-visited:not(.is-reduced) .curtain-panel {
+  clip-path: inset(0 0 0 0);
+  animation: failsafe 0s 4s forwards;
+}
+.curtain-label {
+  position: relative;
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: clamp(2.5rem, 8vw, 8rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--night);
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .grain {
+    animation: none;
+  }
+}

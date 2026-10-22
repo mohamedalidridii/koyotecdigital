@@ -1,0 +1,216 @@
+/* Top bar and full-screen menu. */
+.site-nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  height: var(--nav-h);
+  padding-inline: var(--gutter);
+  color: var(--fg);
+  transition: background-color 0.5s, backdrop-filter 0.5s, color 0.5s;
+}
+.site-nav.is-scrolled {
+  background: color-mix(in srgb, var(--bg) 55%, transparent);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+.menu-open .site-nav {
+  background: transparent;
+  backdrop-filter: none;
+  color: var(--bone);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: 1.35rem;
+  letter-spacing: -0.01em;
+}
+.brand-mark {
+  position: relative;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: var(--ember);
+}
+.brand-mark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid var(--ember);
+  animation: signal 2.4s var(--ease-out) infinite;
+}
+@keyframes signal {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(3.2); opacity: 0; }
+}
+
+.nav-main {
+  margin-left: auto;
+}
+.nav-links {
+  display: flex;
+  gap: 2.25rem;
+  list-style: none;
+  font-family: var(--f-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.nav-links a {
+  position: relative;
+  padding-block: 0.4rem;
+}
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.6s var(--ease-out);
+}
+.nav-links a:hover::after,
+.nav-links a[aria-current="page"]::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.nav-links a[aria-current="page"]::before {
+  content: "";
+  position: absolute;
+  left: -0.85rem;
+  top: 50%;
+  width: 0.35rem;
+  height: 0.35rem;
+  margin-top: -0.175rem;
+  border-radius: 50%;
+  background: var(--ember);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+.lang {
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+.lang:hover {
+  opacity: 1;
+}
+
+.menu-btn {
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+  height: 2.6rem;
+  padding: 0 0.25rem;
+}
+.menu-btn-lines {
+  display: grid;
+  gap: 0.35rem;
+  width: 1.6rem;
+}
+.menu-btn-lines i {
+  display: block;
+  height: 1.5px;
+  background: currentColor;
+  transition: transform 0.6s var(--ease-out);
+}
+.menu-btn[aria-expanded="true"] .menu-btn-lines i:first-child {
+  transform: translateY(0.24rem) rotate(45deg);
+}
+.menu-btn[aria-expanded="true"] .menu-btn-lines i:last-child {
+  transform: translateY(-0.24rem) rotate(-45deg);
+}
+
+@media (max-width: 960px) {
+  .nav-main {
+    display: none;
+  }
+  .nav-right {
+    margin-left: auto;
+  }
+  .menu-btn {
+    display: inline-flex;
+  }
+}
+@media (max-width: 560px) {
+  .nav-right .btn,
+  .nav-right .lang {
+    display: none;
+  }
+}
+
+/* full-screen menu */
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 75;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  padding: calc(var(--nav-h) + 2rem) var(--gutter) 2rem;
+  color: var(--bone);
+  visibility: hidden;
+}
+.menu.is-open {
+  visibility: visible;
+}
+.menu-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--night);
+  clip-path: circle(0% at calc(100% - 3rem) 2.5rem);
+}
+.menu-inner {
+  align-self: center;
+}
+.menu-list {
+  list-style: none;
+}
+.menu-list li {
+  overflow: hidden;
+  border-bottom: 1px solid rgba(236, 228, 214, 0.12);
+}
+.menu-list a {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  padding-block: 0.4rem;
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: clamp(3rem, 11vw, 7rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  transition: color 0.4s, transform 0.6s var(--ease-out);
+}
+.menu-list a:hover,
+.menu-list a[aria-current="page"] {
+  color: var(--ember);
+}
+.menu-list a:hover {
+  transform: translateX(1rem);
+}
+.menu-idx {
+  color: var(--fg-dim);
+}
+.menu-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  color: rgba(236, 228, 214, 0.7);
+}
+.menu-foot a:hover {
+  color: var(--ember);
+}

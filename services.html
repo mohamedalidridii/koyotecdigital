@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="no-js">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,127 +16,204 @@
     <meta property="og:description" content="Création de site internet sur mesure, identité visuelle, logo, design UI/UX et référencement SEO à Tunis. Découvrez les services de l'agence KOYOTEC." />
     <meta property="og:url" content="https://www.koyotec.digital/services" />
     <meta property="og:locale" content="fr_TN" />
-    <meta property="og:image" content="https://www.koyotec.digital/home/banner.jpg" />
+    <meta property="og:image" content="https://www.koyotec.digital/og/koyotec.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/site-icon.png" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#0a0a0d" />
     <meta name="author" content="KOYOTEC" />
-    <link rel="stylesheet" href="/globals.css" />
-    <link rel="stylesheet" href="/css/transition.css" />
-    <link rel="stylesheet" href="/css/menu.css" />
-    <link rel="stylesheet" href="/css/site.css" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@context":"https://schema.org","@type":["ProfessionalService","LocalBusiness"],"@id":"https://www.koyotec.digital/#organization","name":"KOYOTEC","alternateName":"KOYOTEC Digital Agency","description":"KOYOTEC, agence digitale à Tunis : création de sites web sur mesure, identité visuelle et branding, stratégie digitale. Demandez un devis gratuit.","url":"https://www.koyotec.digital/","logo":"https://www.koyotec.digital/site-icon.png","image":"https://www.koyotec.digital/home/banner.jpg","email":"contact@koyotec.digital","telephone":"+21652405699","priceRange":"$$","address":{"@type":"PostalAddress","addressLocality":"Ennasr, Tunis","addressCountry":"TN"},"geo":{"@type":"GeoCoordinates","latitude":36.8065,"longitude":10.1818},"areaServed":[{"@type":"Country","name":"Tunisia"}],"knowsLanguage":["fr","ar","en"],"sameAs":["https://www.instagram.com/koyotec.digital/","https://www.youtube.com/@medaly.dridiy"],"makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Création de site web"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Identité visuelle \u0026 logo"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Référencement SEO"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Design UI/UX"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Boutique en ligne"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Stratégie digitale"}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.koyotec.digital/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://www.koyotec.digital/services"}]}]}</script>
+    <script>(function(d){var e=d.documentElement;e.classList.replace("no-js","js");try{if(sessionStorage.getItem("ky-visited"))e.classList.add("is-visited")}catch(_){}if(matchMedia("(prefers-reduced-motion: reduce)").matches)e.classList.add("is-reduced")})(document)</script>
+    <link rel="preload" href="/fonts/clash-display-600.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/general-sans-400.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/css/main.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","LocalBusiness"],"@id":"https://www.koyotec.digital/#organization","name":"KOYOTEC","alternateName":"KOYOTEC Digital Agency","description":"KOYOTEC, agence digitale à Tunis : création de sites web sur mesure, identité visuelle et branding, stratégie digitale. Demandez un devis gratuit.","url":"https://www.koyotec.digital/","logo":"https://www.koyotec.digital/site-icon.png","image":"https://www.koyotec.digital/og/koyotec.jpg","email":"contact@koyotec.digital","telephone":"+21652405699","priceRange":"$$","address":{"@type":"PostalAddress","addressLocality":"Ennasr, Tunis","addressCountry":"TN"},"geo":{"@type":"GeoCoordinates","latitude":36.8065,"longitude":10.1818},"areaServed":[{"@type":"Country","name":"Tunisia"}],"knowsLanguage":["fr","ar","en"],"sameAs":["https://www.instagram.com/koyotec.digital/","https://www.youtube.com/@medaly.dridiy"],"makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Création de site web"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Identité visuelle \u0026 logo"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Référencement SEO"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Design UI/UX"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Boutique en ligne"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Stratégie digitale"}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.koyotec.digital/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://www.koyotec.digital/services"}]}]}</script>
   </head>
 
 <body>
-  <div class="transition"><div class="transition-overlay"></div></div>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <canvas class="gl" id="gl" aria-hidden="true"></canvas>
+  <div class="gl-fallback" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"><span class="cursor-ring"></span><span class="cursor-label"></span></div>
+  <div class="curtain" aria-hidden="true"><div class="curtain-panel"></div><p class="curtain-label"></p></div>
+  <div class="preloader" aria-hidden="true">
+    <p class="pl-coords mono">36.8065° N — 10.1818° E</p>
+    <p class="pl-word">KOYOTEC</p>
+    <p class="pl-count mono"><span>000</span></p>
+  </div>
+  <div data-barba="wrapper">
+  <div class="page" data-barba="container" data-barba-namespace="services" data-theme="dark">
+    <header class="site-nav">
+      <a class="brand" href="/" aria-label="KOYOTEC — Accueil"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">KOYOTEC</span></a>
+      <nav class="nav-main" aria-label="Menu"><ul class="nav-links"><li><a href="/" data-scramble>Accueil</a></li><li><a href="/services" aria-current="page" data-scramble>Services</a></li><li><a href="/blog" data-scramble>Blog</a></li><li><a href="/contact" data-scramble>Contact</a></li></ul></nav>
+      <div class="nav-right">
+        <a class="lang mono" href="/en/services" hreflang="en" lang="en" data-scramble>EN</a>
+        <a class="btn btn-ember" href="/contact" data-magnetic data-size="sm"><span class="btn-label" data-text="Devis gratuit">Devis gratuit</span></a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-btn-label mono" data-open="Menu" data-close="Fermer">Menu</span><span class="menu-btn-lines" aria-hidden="true"><i></i><i></i></span></button>
+      </div>
+    </header>
 
-  <nav class="site-nav">
-    <div class="container">
-      <div class="logo"><div class="logo-container"><a href="/" aria-label="KOYOTEC"><span></span>KOYOTEC.</a></div></div>
-      <ul class="nav-links"><li><a href="/">Accueil</a></li><li><a href="/services" class="active">Services</a></li><li><a href="/blog">Blog</a></li><li><a href="/contact">Contact</a></li><li><a class="lang" href="/en/services" hreflang="en" lang="en">EN</a></li></ul>
-      <a class="btn-cta" href="/contact">Devis gratuit</a>
-      <div class="menu-toggle-btn"><div class="menu-toggle-btn-wrapper"><p>Menu</p></div></div>
-    </div>
-  </nav>
-
-  <div class="nav-overlay">
-    <div class="nav-items">
-      <div class="nav-item"><a href="/">Accueil</a></div>
-      <div class="nav-item active"><a href="/services">Services</a></div>
-      <div class="nav-item"><a href="/blog">Blog</a></div>
-      <div class="nav-item"><a href="/contact">Contact</a></div>
-      <div class="nav-item"><a href="/en/services" hreflang="en" lang="en">English</a></div>
-    </div>
-    <div class="nav-footer">
-      <div class="container">
-        <div class="nav-footer-item">
-          <a href="https://www.instagram.com/koyotec.digital/" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a href="https://www.youtube.com/@medaly.dridiy" target="_blank" rel="noopener noreferrer">YouTube</a>
-        </div>
-        <div class="nav-footer-item"><a href="/contact">[ &nbsp;Contactez-nous&nbsp; ]</a></div>
+    <div class="menu" id="menu" inert>
+      <div class="menu-bg" aria-hidden="true"></div>
+      <nav class="menu-inner" aria-label="Menu">
+        <ol class="menu-list">
+        <li><a href="/"><span class="menu-idx mono">01</span><span class="menu-name">Accueil</span></a></li>
+        <li><a href="/services" aria-current="page"><span class="menu-idx mono">02</span><span class="menu-name">Services</span></a></li>
+        <li><a href="/blog"><span class="menu-idx mono">03</span><span class="menu-name">Blog</span></a></li>
+        <li><a href="/contact"><span class="menu-idx mono">04</span><span class="menu-name">Contact</span></a></li>
+        </ol>
+      </nav>
+      <div class="menu-foot mono">
+        <a href="mailto:contact@koyotec.digital">contact@koyotec.digital</a>
+        <a href="tel:+21652405699">+216 52 405 699</a>
+        <a href="https://www.instagram.com/koyotec.digital/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.youtube.com/@medaly.dridiy" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a href="/en/services" hreflang="en" lang="en">English</a>
       </div>
     </div>
+
+    <main id="main">
+      <section class="page-hero" data-gl="constellation" data-gl-dim="0.6">
+        <div class="shell">
+          <p class="kicker mono"><span>(00)</span> Services</p>
+          <h1 class="page-title" data-split>Nos services web et branding à Tunis</h1>
+          <div class="page-hero-foot">
+            <p class="hero-sub">Du logo au site web : tout ce qu'il faut pour une présence en ligne professionnelle.</p>
+            <a class="btn btn-ember" href="/contact" data-magnetic><span class="btn-label" data-text="Demander un devis gratuit">Demander un devis gratuit</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="svc-detail" aria-labelledby="svc-h">
+        <div class="shell"><h2 class="section-title" id="svc-h" data-split>Agence digitale à Tunis : du logo au site web</h2></div>
+        <article class="svc-block" data-gl="browser">
+          <div class="shell svc-block-grid">
+            <span class="svc-block-num" aria-hidden="true" data-scroll data-scroll-speed="0.12">01</span>
+            <div class="svc-block-copy">
+              <p class="mono svc-of">(01 / 05)</p>
+              <h3 data-split>Création de site web sur mesure à Tunis</h3>
+              <p>Nous développons des sites vitrines, des sites d'entreprise et des plateformes web adaptés à votre activité. Chaque site est responsive (mobile, tablette, ordinateur), rapide à charger et simple à administrer. Nous utilisons des technologies modernes pour garantir performance et sécurité.</p>
+            </div>
+          </div>
+        </article>
+        <article class="svc-block" data-gl="glyph">
+          <div class="shell svc-block-grid">
+            <span class="svc-block-num" aria-hidden="true" data-scroll data-scroll-speed="0.12">02</span>
+            <div class="svc-block-copy">
+              <p class="mono svc-of">(02 / 05)</p>
+              <h3 data-split>Branding et identité visuelle</h3>
+              <p>Logo, palette de couleurs, typographie, charte graphique : nous construisons une identité cohérente qui distingue votre entreprise de la concurrence et inspire confiance, en ligne comme sur vos supports imprimés.</p>
+            </div>
+          </div>
+        </article>
+        <article class="svc-block" data-gl="signal">
+          <div class="shell svc-block-grid">
+            <span class="svc-block-num" aria-hidden="true" data-scroll data-scroll-speed="0.12">03</span>
+            <div class="svc-block-copy">
+              <p class="mono svc-of">(03 / 05)</p>
+              <h3 data-split>Référencement naturel (SEO)</h3>
+              <p>Pour apparaître sur la première page de Google, nous optimisons la structure technique, les balises, la vitesse et le contenu de votre site. Nous travaillons vos mots-clés en français, en arabe et en anglais selon votre audience.</p>
+            </div>
+          </div>
+        </article>
+        <article class="svc-block" data-gl="grid">
+          <div class="shell svc-block-grid">
+            <span class="svc-block-num" aria-hidden="true" data-scroll data-scroll-speed="0.12">04</span>
+            <div class="svc-block-copy">
+              <p class="mono svc-of">(04 / 05)</p>
+              <h3 data-split>Design UI/UX</h3>
+              <p>Nous dessinons des interfaces claires et agréables qui guident vos visiteurs vers l'action : demander un devis, appeler, acheter ou prendre rendez-vous.</p>
+            </div>
+          </div>
+        </article>
+        <article class="svc-block" data-gl="bag">
+          <div class="shell svc-block-grid">
+            <span class="svc-block-num" aria-hidden="true" data-scroll data-scroll-speed="0.12">05</span>
+            <div class="svc-block-copy">
+              <p class="mono svc-of">(05 / 05)</p>
+              <h3 data-split>Boutique en ligne et stratégie digitale</h3>
+              <p>Vous voulez vendre en ligne ? Nous concevons votre boutique e-commerce et définissons avec vous la stratégie digitale qui vous apporte des clients de façon régulière.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="process" id="process" data-gl="constellation" data-gl-dim="0.45">
+        <div class="shell">
+          <p class="kicker mono"><span>(07)</span></p>
+          <h2 class="section-title" data-split>Notre méthode en 4 étapes</h2>
+          <ol class="stack">
+          <li class="stack-card" style="--i:0">
+            <span class="stack-num" aria-hidden="true">01</span>
+            <div class="stack-copy"><h3>Écoute</h3><p>Nous analysons votre activité, vos clients et vos objectifs.</p></div>
+            <span class="stack-of mono" aria-hidden="true">01 / 04</span>
+          </li>
+          <li class="stack-card" style="--i:1">
+            <span class="stack-num" aria-hidden="true">02</span>
+            <div class="stack-copy"><h3>Design</h3><p>Identité, maquettes et parcours utilisateur validés avec vous.</p></div>
+            <span class="stack-of mono" aria-hidden="true">02 / 04</span>
+          </li>
+          <li class="stack-card" style="--i:2">
+            <span class="stack-num" aria-hidden="true">03</span>
+            <div class="stack-copy"><h3>Développement</h3><p>Intégration, performance, SEO technique et tests.</p></div>
+            <span class="stack-of mono" aria-hidden="true">03 / 04</span>
+          </li>
+          <li class="stack-card" style="--i:3">
+            <span class="stack-num" aria-hidden="true">04</span>
+            <div class="stack-copy"><h3>Lancement</h3><p>Mise en ligne, suivi et accompagnement.</p></div>
+            <span class="stack-of mono" aria-hidden="true">04 / 04</span>
+          </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="cta" id="contact-cta" data-gl="orbit" data-gl-dim="0.75">
+        <div class="shell">
+          
+          <h2 class="cta-h" data-split>Un projet de site web ou de branding à Tunis ?</h2>
+          
+          <div class="btn-row">
+            <a class="btn btn-ember" href="/contact" data-magnetic><span class="btn-label" data-text="Demander un devis gratuit">Demander un devis gratuit</span></a>
+            <a class="btn btn-ghost" href="tel:+21652405699" data-magnetic><span class="btn-label" data-text="+216 52 405 699">+216 52 405 699</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner shell">
+        <div class="footer-top">
+          <p class="footer-lead">Parlons de votre projet web.</p>
+          <a class="footer-mail" href="mailto:contact@koyotec.digital" data-cursor="Écrire">contact@koyotec.digital</a>
+        </div>
+        <div class="footer-cols">
+          <div>
+            <h2 class="footer-h mono">Pages</h2>
+            <a href="/">Accueil</a>
+            <a href="/services">Services</a>
+            <a href="/blog">Blog</a>
+            <a href="/contact">Contact</a>
+          </div>
+          <div>
+            <h2 class="footer-h mono">Contact</h2>
+            <a href="mailto:contact@koyotec.digital">contact@koyotec.digital</a>
+            <a href="tel:+21652405699">+216 52 405 699</a>
+            <p>Ennasr, Tunis</p>
+          </div>
+          <div>
+            <h2 class="footer-h mono">Suivez-nous</h2>
+            <a href="https://www.instagram.com/koyotec.digital/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.youtube.com/@medaly.dridiy" target="_blank" rel="noopener noreferrer">YouTube</a>
+          </div>
+        </div>
+        <p class="footer-word" aria-hidden="true">KOYOTEC</p>
+        <div class="footer-bottom mono"><p>Basés à Ennasr, Tunis, Tunisie</p><p>&copy; 2026 KOYOTEC. Tous droits réservés</p></div>
+      </div>
+    </footer>
+  </div>
   </div>
 
-  <main>
-  <section class="page-hero">
-    <div class="wrap">
-      <h1>Nos services web et branding à Tunis</h1>
-      <p class="sub">Du logo au site web : tout ce qu'il faut pour une présence en ligne professionnelle.</p>
-      <div class="btn-row"><a class="btn-cta" href="/contact">Demander un devis gratuit</a></div>
-    </div>
-  </section>
-
-  <section class="sec" style="padding-top:2rem">
-    <div class="wrap">
-      <h2>Agence digitale à Tunis : du logo au site web</h2>
-      <div class="cards" style="grid-template-columns:repeat(2,1fr)">
-        <div class="card-s"><h3>Création de site web sur mesure à Tunis</h3><p>Nous développons des sites vitrines, des sites d'entreprise et des plateformes web adaptés à votre activité. Chaque site est responsive (mobile, tablette, ordinateur), rapide à charger et simple à administrer. Nous utilisons des technologies modernes pour garantir performance et sécurité.</p></div>
-        <div class="card-s"><h3>Branding et identité visuelle</h3><p>Logo, palette de couleurs, typographie, charte graphique : nous construisons une identité cohérente qui distingue votre entreprise de la concurrence et inspire confiance, en ligne comme sur vos supports imprimés.</p></div>
-        <div class="card-s"><h3>Référencement naturel (SEO)</h3><p>Pour apparaître sur la première page de Google, nous optimisons la structure technique, les balises, la vitesse et le contenu de votre site. Nous travaillons vos mots-clés en français, en arabe et en anglais selon votre audience.</p></div>
-        <div class="card-s"><h3>Design UI/UX</h3><p>Nous dessinons des interfaces claires et agréables qui guident vos visiteurs vers l'action : demander un devis, appeler, acheter ou prendre rendez-vous.</p></div>
-        <div class="card-s"><h3>Boutique en ligne et stratégie digitale</h3><p>Vous voulez vendre en ligne ? Nous concevons votre boutique e-commerce et définissons avec vous la stratégie digitale qui vous apporte des clients de façon régulière.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec dark">
-    <div class="wrap">
-      <h2>Notre méthode en 4 étapes</h2>
-      <div class="steps">
-        <div class="step"><span class="numeral" aria-hidden="true">01</span><h3>Écoute</h3><p>Nous analysons votre activité, vos clients et vos objectifs.</p></div>
-        <div class="step"><span class="numeral" aria-hidden="true">02</span><h3>Design</h3><p>Identité, maquettes et parcours utilisateur validés avec vous.</p></div>
-        <div class="step"><span class="numeral" aria-hidden="true">03</span><h3>Développement</h3><p>Intégration, performance, SEO technique et tests.</p></div>
-        <div class="step"><span class="numeral" aria-hidden="true">04</span><h3>Lancement</h3><p>Mise en ligne, suivi et accompagnement.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-band" id="contact-cta">
-    <div class="wrap">
-      <h2>Un projet de site web ou de branding à Tunis ?</h2>
-      <p></p>
-      <div class="btn-row">
-        <a class="btn-cta" href="/contact">Demander un devis gratuit</a>
-        <a class="btn-ghost" href="tel:+21652405699">+216 52 405 699</a>
-      </div>
-    </div>
-  </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="wrap">
-      <div class="cols">
-        <div>
-          <p class="brand">KOYOTEC.</p>
-          <p class="tag">Parlons de votre projet web.</p>
-        </div>
-        <div>
-          <h4>Pages</h4>
-          <a href="/">Accueil</a>
-          <a href="/services">Services</a>
-          <a href="/blog">Blog</a>
-          <a href="/contact">Contact</a>
-        </div>
-        <div>
-          <h4>Contact</h4>
-          <a href="mailto:contact@koyotec.digital">contact@koyotec.digital</a>
-          <a href="tel:+21652405699">+216 52 405 699</a>
-          <h4 style="margin-top:1.2rem">Suivez-nous</h4>
-          <a href="https://www.instagram.com/koyotec.digital/" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a href="https://www.youtube.com/@medaly.dridiy" target="_blank" rel="noopener noreferrer">YouTube</a>
-        </div>
-      </div>
-      <p class="giant-name" aria-hidden="true">KOYOTEC.</p>
-      <div class="bottom"><p>Basés à Ennasr, Tunis, Tunisie</p><p>&copy; 2026 KOYOTEC. Tous droits réservés</p></div>
-    </div>
-  </footer>
-
-  <script type="module" src="/scripts/lenis-scroll.js"></script>
-  <script type="module" src="/scripts/transition.js"></script>
-  <script type="module" src="/scripts/menu.js"></script>
-  <script type="module" src="/scripts/hover.js"></script>
-  <script type="module" src="/scripts/animations.js"></script>
+  <script type="module" src="/scripts/main.js"></script>
 </body>
 </html>

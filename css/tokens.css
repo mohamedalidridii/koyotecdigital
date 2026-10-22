@@ -1,0 +1,84 @@
+/* Design tokens — "Night Signal": a desert at night, the coyote's howl as the signal. */
+@font-face {
+  font-family: "Clash Display";
+  src: url("/fonts/clash-display-500.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Clash Display";
+  src: url("/fonts/clash-display-600.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "General Sans";
+  src: url("/fonts/general-sans-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "General Sans";
+  src: url("/fonts/general-sans-500.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+/* metric-matched fallbacks keep layout shift near zero while the web fonts swap in */
+@font-face {
+  font-family: "Clash Fallback";
+  src: local("Arial Narrow"), local("Arial");
+  size-adjust: 92%;
+  ascent-override: 98%;
+  descent-override: 24%;
+}
+@font-face {
+  font-family: "General Fallback";
+  src: local("Arial");
+  size-adjust: 98%;
+  ascent-override: 96%;
+  descent-override: 24%;
+}
+
+:root {
+  --night: #0a0a0d;
+  --night-2: #121217;
+  --bone: #ece4d6;
+  --ember: #ff4d1a;
+  --moon: #9fb4ff;
+  --muted: #6e6a63;
+
+  /* themeable roles (swapped by [data-theme="light"]) */
+  --bg: var(--night);
+  --fg: var(--bone);
+  --fg-dim: rgba(236, 228, 214, 0.62);
+  --fg-faint: rgba(236, 228, 214, 0.14);
+  --glass: rgba(18, 18, 23, 0.68);
+  --accent-ink: var(--ember); /* ember for small text; darkened on light backgrounds for contrast */
+
+  --f-display: "Clash Display", "Clash Fallback", sans-serif;
+  --f-text: "General Sans", "General Fallback", sans-serif;
+  --f-mono: "JetBrains Mono Variable", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --fs-word: clamp(4.5rem, 19.6vw, 24rem);
+  --fs-h1: clamp(2.6rem, 6.2vw, 6.8rem);
+  --fs-h2: clamp(2.2rem, 5vw, 5.4rem);
+  --fs-h3: clamp(1.6rem, 2.6vw, 2.6rem);
+  --fs-lead: clamp(1.15rem, 1rem + 0.6vw, 1.5rem);
+  --fs-body: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --fs-mono: 0.75rem;
+
+  --gutter: clamp(1rem, 4vw, 3.5rem);
+  --nav-h: 5rem;
+  --radius: 1.25rem;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+[data-theme="light"] {
+  --bg: var(--bone);
+  --fg: var(--night);
+  --fg-dim: rgba(10, 10, 13, 0.64);
+  --fg-faint: rgba(10, 10, 13, 0.14);
+  --glass: rgba(236, 228, 214, 0.72);
+  --accent-ink: #b32a00;
+}

@@ -13,7 +13,7 @@
     "latitude": "36.8065",
     "longitude": "10.1818",
     "year": "2026",
-    "ogImage": "/home/banner.jpg"
+    "ogImage": "/og/koyotec.jpg"
   },
   "fr": {
     "ui": {
@@ -32,7 +32,8 @@
       "nav_cta": "Devis gratuit",
       "footer_pages": "Pages",
       "footer_contact": "Contact",
-      "footer_follow": "Suivez-nous"
+      "footer_follow": "Suivez-nous",
+      "close": "Fermer"
     },
     "home": {
       "title": "Agence Web & Branding à Tunis | Création de Site Internet – KOYOTEC",
@@ -210,7 +211,15 @@
         "36.8065 / 10.1818"
       ],
       "drop": "Écrivez-nous",
-      "love": "Devis gratuit sous 24 h"
+      "love": "Devis gratuit sous 24 h",
+      "form_h": "Parlez-nous de votre projet",
+      "f_name": "Votre nom",
+      "f_email": "Votre e-mail",
+      "f_type": "Ce dont vous avez besoin",
+      "f_msg": "Votre projet en quelques lignes",
+      "f_send": "Envoyer la demande",
+      "f_note": "Réponse et devis gratuit sous 24 h",
+      "f_done": "Votre messagerie s'ouvre avec la demande prête à envoyer."
     },
     "blog": {
       "title": "Blog : Conseils Site Web, SEO & Branding à Tunis – KOYOTEC",
@@ -242,7 +251,8 @@
       "nav_cta": "Free quote",
       "footer_pages": "Pages",
       "footer_contact": "Contact",
-      "footer_follow": "Follow us"
+      "footer_follow": "Follow us",
+      "close": "Close"
     },
     "home": {
       "title": "Web Design & Branding Agency in Tunis, Tunisia – KOYOTEC",
@@ -420,7 +430,15 @@
         "36.8065 / 10.1818"
       ],
       "drop": "Drop a line",
-      "love": "Free quote within 24 hours"
+      "love": "Free quote within 24 hours",
+      "form_h": "Tell us about your project",
+      "f_name": "Your name",
+      "f_email": "Your email",
+      "f_type": "What you need",
+      "f_msg": "Your project in a few lines",
+      "f_send": "Send request",
+      "f_note": "Reply and free quote within 24 hours",
+      "f_done": "Your email app opens with the request ready to send."
     },
     "blog": {
       "title": "Blog: Web Design, SEO & Branding Tips from Tunis – KOYOTEC",
