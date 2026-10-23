@@ -1,5 +1,5 @@
 // Maison Aurèle — Haute Couture Printemps-Été 2027 « Fil d'or ».
-// Fictional pieces written around the Unsplash photos in public/aurele.
+// Pieces written around the Unsplash photos in public/aurele.
 const p = (name) => `/aurele/pieces/${name}.jpg`;
 const d = (name) => `/aurele/details/${name}.jpg`;
 

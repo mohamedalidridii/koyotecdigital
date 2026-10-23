@@ -1,4 +1,4 @@
-// Brand-level settings for the fictional Maison Aurèle template.
+// Brand-level settings for Maison Aurèle.
 export const site = {
   name: "Maison Aurèle",
   founder: "Maison Aurèle",
