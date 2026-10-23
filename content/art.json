@@ -88,10 +88,10 @@
     "featured": true
   },
   {
-    "slug": "ironfang-games",
+    "slug": "ghoula-games",
     "framework": "next",
     "source": "CGMWTMAY2026/CGMWTMAY2026/deadlock-studios",
-    "client": "Ironfang Games",
+    "client": "Ghoula Games",
     "kind": "entreprise",
     "year": "2026",
     "accent": "#d7ff3a",
@@ -193,20 +193,20 @@
     "featured": true
   },
   {
-    "slug": "halo-orbital-lab",
+    "slug": "ciel-de-douz",
     "framework": "vite",
     "source": "CGMWTNOV2025 (2)/CGMWTNOV2025/orbit-matter",
-    "client": "Halo Orbital Lab",
+    "client": "Ciel de Douz",
     "kind": "entreprise",
     "year": "2025",
     "accent": "#8fb3ff",
     "fr": {
-      "sector": "Recherche spatiale",
-      "line": "Une expédition scientifique racontée en apesanteur."
+      "sector": "Astrotourisme",
+      "line": "Des nuits à la belle étoile, racontées comme une expédition."
     },
     "en": {
-      "sector": "Space research",
-      "line": "A science expedition, told in zero gravity."
+      "sector": "Astro-tourism",
+      "line": "Desert stargazing nights, told like an expedition."
     },
     "featured": true
   },
@@ -501,20 +501,20 @@
     }
   },
   {
-    "slug": "medina-lab",
+    "slug": "dar-zitouna",
     "framework": "next",
     "source": "CODE(9)/codegrid-grid-shutter-page-transition",
-    "client": "Médina Lab",
+    "client": "Dar Zitouna",
     "kind": "entreprise",
     "year": "2026",
     "accent": "#f0e442",
     "fr": {
-      "sector": "Laboratoire d'innovation",
-      "line": "Chaque page s'ouvre comme un volet de la médina."
+      "sector": "Maison d'hôtes",
+      "line": "Chaque page s'ouvre comme une porte de la médina."
     },
     "en": {
-      "sector": "Innovation lab",
-      "line": "Every page opens like a medina shutter."
+      "sector": "Guesthouse",
+      "line": "Every page opens like a door in the medina."
     }
   }
 ]

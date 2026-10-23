@@ -1,0 +1,4 @@
+:HL["/art-de-la-difference/dar-zitouna/_next/static/media/26d0ba92e140f0dc-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/art-de-la-difference/dar-zitouna/_next/static/media/e6099e249fd938cc-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/art-de-la-difference/dar-zitouna/_next/static/css/8e43feb4c58736f2.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"chambres","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"qseSQaznKAq1Ww6LNHNlw"}

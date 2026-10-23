@@ -1,0 +1,5 @@
+:HL["/art-de-la-difference/ghoula-games/_next/static/css/a674aea5422192e5.css","style"]
+:HL["/art-de-la-difference/ghoula-games/_next/static/css/2a93d044f53c7d58.css","style"]
+:HL["/art-de-la-difference/ghoula-games/_next/static/css/eba2a21ed08a416b.css","style"]
+:HL["/art-de-la-difference/ghoula-games/_next/static/css/5777d64fff56cb15.css","style"]
+0:{"buildId":"tdVVjNl4t3r6fH4C5Qnwp","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"connect","paramType":null,"paramKey":"connect","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

@@ -1,8 +1,0 @@
-:HL["/art-de-la-difference/ironfang-games/_next/static/css/a674aea5422192e5.css","style"]
-:HL["/art-de-la-difference/ironfang-games/_next/static/css/7bb55aa4d2568e0e.css","style"]
-:HL["/art-de-la-difference/ironfang-games/_next/static/css/eba2a21ed08a416b.css","style"]
-:HL["/art-de-la-difference/ironfang-games/_next/static/css/98bcdcb4d70bc932.css","style"]
-:HL["/art-de-la-difference/ironfang-games/_next/static/css/2f7449fe21abb497.css","style"]
-:HL["/art-de-la-difference/ironfang-games/_next/static/css/90dd45a9efdac120.css","style"]
-:HL["/art-de-la-difference/ironfang-games/_next/static/css/3a33cc9ec1e1fe89.css","style"]
-0:{"buildId":"vKOyEj3sMDP2NTfzC5df5","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

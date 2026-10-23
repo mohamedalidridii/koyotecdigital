@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[4932,["483","static/chunks/824b3319-2eebd2f15c54a74c.js","318","static/chunks/318-312abe9e4608cd26.js","961","static/chunks/961-6b1223f7e3648d02.js","359","static/chunks/359-67384fce4d2cb797.js","484","static/chunks/484-8364843ffae02700.js","177","static/chunks/app/layout-bdc2e54aed5a873b.js"],"default"]
+3:I[1138,[],""]
+4:I[4608,[],""]
+:HL["/art-de-la-difference/ghoula-games/_next/static/css/a674aea5422192e5.css","style"]
+0:{"buildId":"tdVVjNl4t3r6fH4C5Qnwp","rsc":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/art-de-la-difference/ghoula-games/_next/static/css/a674aea5422192e5.css","precedence":"next"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":["$","$L2",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","template":["$","$L4",null,{}]}]}]}]}]]}],"loading":null,"isPartial":false}

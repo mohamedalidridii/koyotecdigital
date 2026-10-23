@@ -1,0 +1,9 @@
+:HL["/art-de-la-difference/ghoula-games/_next/static/css/a674aea5422192e5.css","style"]
+:HL["/art-de-la-difference/ghoula-games/_next/static/css/e88215a630c13f93.css","style"]
+:HL["/art-de-la-difference/ghoula-games/_next/static/css/eba2a21ed08a416b.css","style"]
+:HL["/art-de-la-difference/ghoula-games/_next/static/css/2f7449fe21abb497.css","style"]
+:HL["/art-de-la-difference/ghoula-games/brief/brief-img-1.jpg","image"]
+:HL["/art-de-la-difference/ghoula-games/brief/brief-img-2.jpg","image"]
+:HL["/art-de-la-difference/ghoula-games/brief/brief-img-3.jpg","image"]
+:HL["/art-de-la-difference/ghoula-games/brief/brief-img-4.jpg","image"]
+0:{"buildId":"tdVVjNl4t3r6fH4C5Qnwp","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"brief","paramType":null,"paramKey":"brief","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
