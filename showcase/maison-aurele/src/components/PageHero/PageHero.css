@@ -1,0 +1,48 @@
+.page-hero {
+  position: relative;
+  padding-top: clamp(8rem, 16vh, 11rem);
+  background: var(--ivory);
+  color: var(--ink);
+}
+
+.page-hero.dark {
+  background: var(--ink);
+  color: var(--ivory);
+}
+
+.ph-head {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.ph-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.ph-title {
+  max-width: 14ch;
+  font-size: clamp(3.5rem, 9.5vw, 11.5rem);
+}
+
+.ph-intro {
+  max-width: 40rem;
+  align-self: flex-end;
+}
+
+.page-hero.dark .ph-intro {
+  color: rgba(243, 236, 224, 0.78);
+}
+
+.ph-media {
+  width: 100%;
+  height: 92svh;
+}
+
+.ph-media img {
+  height: 116%;
+  margin-top: -8%;
+}

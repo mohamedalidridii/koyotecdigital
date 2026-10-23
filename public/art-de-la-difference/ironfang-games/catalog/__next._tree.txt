@@ -1,0 +1,3 @@
+:HL["/art-de-la-difference/ironfang-games/_next/static/css/a674aea5422192e5.css","style"]
+:HL["/art-de-la-difference/ironfang-games/_next/static/css/35725a871e0cf221.css","style"]
+0:{"buildId":"vKOyEj3sMDP2NTfzC5df5","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"catalog","paramType":null,"paramKey":"catalog","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

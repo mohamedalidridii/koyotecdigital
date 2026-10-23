@@ -1,0 +1,4 @@
+:HL["/art-de-la-difference/ferrana-mines/_next/static/css/01d1b3702e8683b8.css","style"]
+:HL["/art-de-la-difference/ferrana-mines/_next/static/css/f2229af201de560b.css","style"]
+:HL["/art-de-la-difference/ferrana-mines/_next/static/css/0d09a9f23424f835.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"wKphGL2VWTMri8c5BSPM8"}

@@ -1,0 +1,10 @@
+:HL["/art-de-la-difference/studio-kif-kif/_next/static/media/0e96d314a90a6138-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/art-de-la-difference/studio-kif-kif/_next/static/media/4f11357dfbf1285b-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/art-de-la-difference/studio-kif-kif/_next/static/media/b7ea2ab4a8ad1f81-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/art-de-la-difference/studio-kif-kif/_next/static/media/cedc0d4e6b719cc0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/art-de-la-difference/studio-kif-kif/_next/static/media/d7df244fe7b07b95-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/art-de-la-difference/studio-kif-kif/_next/static/css/4f0cb0952b6fbdd0.css","style"]
+:HL["/art-de-la-difference/studio-kif-kif/_next/static/css/a6d1c73bb8e1d380.css","style"]
+:HL["/art-de-la-difference/studio-kif-kif/_next/static/css/39fa2e03cbde1932.css","style"]
+:HL["/art-de-la-difference/studio-kif-kif/_next/static/css/cc082fe92983f639.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"onyLH50QSr65iKXTkNBmm"}

@@ -1,0 +1,9 @@
+1:"$Sreact.fragment"
+2:I[5033,["481","static/chunks/62117cf0-b686ae1ea3975b57.js","915","static/chunks/915-9984b188732dc0d1.js","48","static/chunks/48-9433b21bd9d0d39d.js","810","static/chunks/810-6bbe814415c49518.js","177","static/chunks/app/layout-557afbeeb63d838d.js"],"default"]
+3:I[2762,[],""]
+4:I[4776,[],""]
+:HL["/art-de-la-difference/table-yasmina/_next/static/css/3077ce6e59a679e4.css","style"]
+:HL["/art-de-la-difference/table-yasmina/_next/static/css/65ad551f45eb8489.css","style"]
+:HL["/art-de-la-difference/table-yasmina/_next/static/css/385c1da49adf7e9c.css","style"]
+:HL["/art-de-la-difference/table-yasmina/_next/static/css/1794d9dfde2317f9.css","style"]
+0:{"buildId":"4w-01Z3tz34MPFKEhHk3s","rsc":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/art-de-la-difference/table-yasmina/_next/static/css/3077ce6e59a679e4.css","precedence":"next"}],["$","link","1",{"rel":"stylesheet","href":"/art-de-la-difference/table-yasmina/_next/static/css/65ad551f45eb8489.css","precedence":"next"}],["$","link","2",{"rel":"stylesheet","href":"/art-de-la-difference/table-yasmina/_next/static/css/385c1da49adf7e9c.css","precedence":"next"}],["$","link","3",{"rel":"stylesheet","href":"/art-de-la-difference/table-yasmina/_next/static/css/1794d9dfde2317f9.css","precedence":"next"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"className":"__variable_58e70e __variable_55585f","children":["$","$L2",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","template":["$","$L4",null,{}]}]}]}]}]]}],"loading":null,"isPartial":false}

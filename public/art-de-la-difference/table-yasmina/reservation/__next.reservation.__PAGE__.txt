@@ -1,0 +1,11 @@
+1:"$Sreact.fragment"
+2:I[827,[],"ClientPageRoot"]
+3:I[9031,["481","static/chunks/62117cf0-b686ae1ea3975b57.js","964","static/chunks/97cf09e6-a98a45ad8e093660.js","915","static/chunks/915-9984b188732dc0d1.js","48","static/chunks/48-9433b21bd9d0d39d.js","639","static/chunks/app/reservation/page-97cef1fbac985103.js"],"default"]
+6:I[7763,[],"OutletBoundary"]
+7:"$Sreact.suspense"
+:HL["/art-de-la-difference/table-yasmina/_next/static/css/725164e9673f43b5.css","style"]
+:HL["/art-de-la-difference/table-yasmina/_next/static/css/dcb764c4e08d1da5.css","style"]
+0:{"buildId":"4w-01Z3tz34MPFKEhHk3s","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","link","0",{"rel":"stylesheet","href":"/art-de-la-difference/table-yasmina/_next/static/css/725164e9673f43b5.css","precedence":"next"}],["$","link","1",{"rel":"stylesheet","href":"/art-de-la-difference/table-yasmina/_next/static/css/dcb764c4e08d1da5.css","precedence":"next"}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
+4:{}
+5:"$0:rsc:props:children:0:props:serverProvidedParams:params"
+8:null

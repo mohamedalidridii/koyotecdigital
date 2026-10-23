@@ -1,0 +1,12 @@
+1:"$Sreact.fragment"
+2:I[5407,[],"ClientPageRoot"]
+3:I[8497,["979","static/chunks/374395a0-f8756f5fea2be629.js","705","static/chunks/4b9d473a-49a70faadd3386dc.js","616","static/chunks/616-44275c8813c653fd.js","19","static/chunks/19-5dca72ea1086992c.js","220","static/chunks/app/about/page-3bd046e029c43d9b.js"],"default"]
+6:I[9783,[],"OutletBoundary"]
+7:"$Sreact.suspense"
+:HL["/art-de-la-difference/studio-kif-kif/_next/static/css/cc082fe92983f639.css","style"]
+:HL["/art-de-la-difference/studio-kif-kif/_next/static/css/a6d1c73bb8e1d380.css","style"]
+:HL["/art-de-la-difference/studio-kif-kif/_next/static/css/39fa2e03cbde1932.css","style"]
+0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","link","0",{"rel":"stylesheet","href":"/art-de-la-difference/studio-kif-kif/_next/static/css/cc082fe92983f639.css","precedence":"next"}],["$","link","1",{"rel":"stylesheet","href":"/art-de-la-difference/studio-kif-kif/_next/static/css/a6d1c73bb8e1d380.css","precedence":"next"}],["$","link","2",{"rel":"stylesheet","href":"/art-de-la-difference/studio-kif-kif/_next/static/css/39fa2e03cbde1932.css","precedence":"next"}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"onyLH50QSr65iKXTkNBmm"}
+4:{}
+5:"$0:rsc:props:children:0:props:serverProvidedParams:params"
+8:null

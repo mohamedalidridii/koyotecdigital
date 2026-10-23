@@ -1,0 +1,9 @@
+.line,
+.word {
+  display: inline-block;
+  will-change: transform;
+}
+
+.wrapper {
+  display: contents;
+}

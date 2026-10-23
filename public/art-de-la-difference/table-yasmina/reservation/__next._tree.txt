@@ -1,0 +1,11 @@
+:HL["/art-de-la-difference/table-yasmina/_next/static/media/0e96d314a90a6138-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/art-de-la-difference/table-yasmina/_next/static/media/4f11357dfbf1285b-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/art-de-la-difference/table-yasmina/_next/static/media/b7ea2ab4a8ad1f81-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/art-de-la-difference/table-yasmina/_next/static/media/d7df244fe7b07b95-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/art-de-la-difference/table-yasmina/_next/static/css/3077ce6e59a679e4.css","style"]
+:HL["/art-de-la-difference/table-yasmina/_next/static/css/65ad551f45eb8489.css","style"]
+:HL["/art-de-la-difference/table-yasmina/_next/static/css/385c1da49adf7e9c.css","style"]
+:HL["/art-de-la-difference/table-yasmina/_next/static/css/1794d9dfde2317f9.css","style"]
+:HL["/art-de-la-difference/table-yasmina/_next/static/css/725164e9673f43b5.css","style"]
+:HL["/art-de-la-difference/table-yasmina/_next/static/css/dcb764c4e08d1da5.css","style"]
+0:{"buildId":"4w-01Z3tz34MPFKEhHk3s","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"reservation","paramType":null,"paramKey":"reservation","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

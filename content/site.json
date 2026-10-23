@@ -21,6 +21,7 @@
         "home": "Accueil",
         "services": "Services",
         "blog": "Blog",
+        "art": "L’art de la différence",
         "contact": "Contact"
       },
       "menu": "Menu",
@@ -149,7 +150,13 @@
       "cta_sub": "Devis gratuit sous 24 h.",
       "cta_giant": "Parlons-en →",
       "cta_btn": "Demander un devis gratuit",
-      "foot_copy": "Parlons de votre projet web."
+      "foot_copy": "Parlons de votre projet web.",
+      "art_kicker": "Concepts",
+      "art_h": "L’art de la",
+      "art_word": "différence",
+      "art_lead": "Trente marques imaginées, trente identités qui ne se ressemblent pas. Le même point de départ, des fins toutes différentes.",
+      "art_cta": "Entrer dans l’exposition",
+      "art_count": "pièces"
     },
     "services": {
       "title": "Services : Création de Site Web, Branding & SEO à Tunis – KOYOTEC",
@@ -232,6 +239,31 @@
       "home": "Accueil",
       "cta_h": "Un projet web ou de branding à Tunis ?",
       "cta": "Demander un devis gratuit"
+    },
+    "art": {
+      "title": "L’art de la différence : concepts web & identités – KOYOTEC",
+      "desc": "30 concepts de sites web imaginés par KOYOTEC pour des entreprises et des marques personnelles fictives : chaque projet a sa propre voix, son propre mouvement.",
+      "kicker": "Concepts",
+      "h1": "L’art de la différence",
+      "word": "différence",
+      "lead": "Trente marques, trente voix. Aucune ne ressemble à la suivante : c’est exactement le but. Explorez chaque concept en direct.",
+      "count_a": "pièces",
+      "count_b": "identités",
+      "note": "Concepts & études réalisés par KOYOTEC — les marques présentées sont fictives.",
+      "all": "Tous",
+      "business": "Entreprises",
+      "personal": "Personal branding",
+      "kind_entreprise": "Entreprise",
+      "kind_personal": "Personal branding",
+      "scroll": "Faites défiler l’exposition",
+      "enter": "Entrer",
+      "open": "Ouvrir dans un nouvel onglet",
+      "close": "Fermer",
+      "prev": "Précédent",
+      "next": "Suivant",
+      "piece": "Pièce",
+      "cta_h": "Votre marque mérite sa propre différence.",
+      "cta": "Demander un devis gratuit"
     }
   },
   "en": {
@@ -240,6 +272,7 @@
         "home": "Home",
         "services": "Services",
         "blog": "Blog",
+        "art": "The art of difference",
         "contact": "Contact"
       },
       "menu": "Menu",
@@ -368,7 +401,13 @@
       "cta_sub": "Free quote within 24 hours.",
       "cta_giant": "Let's talk →",
       "cta_btn": "Get a free quote",
-      "foot_copy": "Let's talk about your web project."
+      "foot_copy": "Let's talk about your web project.",
+      "art_kicker": "Concepts",
+      "art_h": "The art of",
+      "art_word": "difference",
+      "art_lead": "Thirty imagined brands, thirty identities that look nothing alike. The same starting point, completely different endings.",
+      "art_cta": "Enter the exhibition",
+      "art_count": "pieces"
     },
     "services": {
       "title": "Services: Web Design, Branding & SEO in Tunis – KOYOTEC",
@@ -450,6 +489,31 @@
       "by": "By KOYOTEC",
       "home": "Home",
       "cta_h": "A web or branding project in Tunis?",
+      "cta": "Get a free quote"
+    },
+    "art": {
+      "title": "The art of difference: web concepts & identities – KOYOTEC",
+      "desc": "30 website concepts designed by KOYOTEC for fictional businesses and personal brands: every project has its own voice and its own motion.",
+      "kicker": "Concepts",
+      "h1": "The art of difference",
+      "word": "difference",
+      "lead": "Thirty brands, thirty voices. None looks like the next one, and that is the point. Explore every concept live.",
+      "count_a": "pieces",
+      "count_b": "identities",
+      "note": "Concepts & studies by KOYOTEC. The brands shown are fictional.",
+      "all": "All",
+      "business": "Businesses",
+      "personal": "Personal branding",
+      "kind_entreprise": "Business",
+      "kind_personal": "Personal branding",
+      "scroll": "Scroll through the exhibition",
+      "enter": "Enter",
+      "open": "Open in a new tab",
+      "close": "Close",
+      "prev": "Previous",
+      "next": "Next",
+      "piece": "Piece",
+      "cta_h": "Your brand deserves its own difference.",
       "cta": "Get a free quote"
     }
   }

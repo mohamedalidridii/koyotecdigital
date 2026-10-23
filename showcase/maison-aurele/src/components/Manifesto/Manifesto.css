@@ -1,0 +1,54 @@
+.manifesto {
+  position: relative;
+  padding: clamp(7rem, 16vw, 14rem) 0;
+  background: var(--ivory);
+}
+
+.manifesto-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.manifesto-emblem {
+  width: 2.6rem;
+  height: 3.1rem;
+  color: var(--gold);
+}
+
+.manifesto-text {
+  max-width: 22ch;
+  font-size: clamp(2.4rem, 5.6vw, 6.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.mf-word {
+  display: inline;
+}
+
+.mf-img {
+  display: inline-block;
+  width: 0;
+  height: 0.78em;
+  margin: 0 0.12em;
+  vertical-align: -0.05em;
+  border-radius: 100px;
+}
+
+/* Image keeps its final width while the pill opens around it */
+.mf-img img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2em;
+  max-width: none;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 767px) {
+  .manifesto-text {
+    max-width: none;
+  }
+}

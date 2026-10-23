@@ -1,0 +1,338 @@
+@font-face {
+  font-family: "neue-montreal";
+  src: url("/fonts/neue-montreal/neue-montreal-light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "neue-montreal";
+  src: url("/fonts/neue-montreal/neue-montreal-book.ttf") format("truetype");
+  font-weight: 350;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "neue-montreal";
+  src: url("/fonts/neue-montreal/neue-montreal-regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "neue-montreal";
+  src: url("/fonts/neue-montreal/neue-montreal-medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "neue-montreal";
+  src: url("/fonts/neue-montreal/neue-montreal-bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "gt-america-mono";
+  src: url("/fonts/gt-america-mono/gt-america-mono-light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "gt-america-mono";
+  src: url("/fonts/gt-america-mono/gt-america-mono-regular.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-amber-yellow: #ffc32a;
+  --color-surface-black: #080808;
+  --color-medium-grey: #242424;
+  --color-mid-grey: #999999;
+  --color-pure-black: #000000;
+  --color-pure-white: #ffffff;
+  --color-warm-off-white: #fdfdf9;
+  --color-dark-charcoal: #171717;
+  --color-primary: var(--color-amber-yellow);
+  --color-text: var(--color-amber-yellow);
+  --color-background: var(--color-surface-black);
+
+  --radius-sm: 7px;
+  --radius-md: 15px;
+  --radius-lg: 27px;
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 30px;
+  --space-2xl: 36px;
+  --space-3xl: 48px;
+  --space-4xl: 64px;
+  --space-section: 100px;
+  --space-column: 128px;
+  --space-pane: 200px;
+  --space-content-max: 428px;
+  --space-wide-col: 756px;
+
+  --container-max: 2000px;
+  --container-pad: var(--space-4xl);
+  --cols: 12;
+  --cols-gap: var(--space-xl);
+
+  --ease-power1-in-out: cubic-bezier(0.37, 0, 0.63, 1);
+  --ease-power2-out: cubic-bezier(0.8, 0, 0.2, 1);
+  --ease-power3-out: cubic-bezier(0.76, -0.18, 0.38, 1);
+  --ease-power4-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-power4-in-out: cubic-bezier(0.87, 0, 0.13, 1);
+  --ease-hop: cubic-bezier(0.75, 0, 0.1, 1);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+html,
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: "neue-montreal", sans-serif;
+  font-weight: 400;
+  font-size: clamp(0.9rem, 0.2vw + 0.9rem, 1rem);
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "neue-montreal", sans-serif;
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1.1;
+  letter-spacing: -2%;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw + 1rem, 3.5rem);
+  letter-spacing: -2%;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3vw + 0.85rem, 2.5rem);
+  letter-spacing: -2%;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 1.5vw + 0.85rem, 1.75rem);
+  letter-spacing: -2%;
+}
+
+h4 {
+  font-size: clamp(1.25rem, 1vw + 0.85rem, 1.45rem);
+  letter-spacing: -1%;
+}
+
+h5 {
+  font-size: clamp(1rem, 0.5vw + 0.9rem, 1.25rem);
+  letter-spacing: -1%;
+}
+
+h6 {
+  font-size: clamp(0.9rem, 0.2vw + 0.9rem, 1rem);
+  letter-spacing: -1%;
+}
+
+p {
+  font-family: "neue-montreal", sans-serif;
+  font-size: clamp(1rem, 0.2vw + 0.9rem, 1.25rem);
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1.35;
+  letter-spacing: -0.25%;
+}
+
+a {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: var(--color-primary);
+  line-height: 1.35;
+  text-decoration: none;
+  letter-spacing: 0;
+}
+
+.mono {
+  font-family: "gt-america-mono", monospace;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.mono-sm {
+  font-family: "gt-america-mono", monospace;
+  font-weight: 400;
+  font-size: clamp(0.7rem, 0.2vw + 0.35rem, 0.8rem);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding: 2.75rem;
+}
+
+.cols {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  gap: var(--cols-gap);
+}
+
+.col-1 {
+  grid-column: span 1;
+}
+
+.col-2 {
+  grid-column: span 2;
+}
+
+.col-3 {
+  grid-column: span 3;
+}
+
+.col-4 {
+  grid-column: span 4;
+}
+
+.col-5 {
+  grid-column: span 5;
+}
+
+.col-6 {
+  grid-column: span 6;
+}
+
+.col-7 {
+  grid-column: span 7;
+}
+
+.col-8 {
+  grid-column: span 8;
+}
+
+.col-9 {
+  grid-column: span 9;
+}
+
+.col-10 {
+  grid-column: span 10;
+}
+
+.col-11 {
+  grid-column: span 11;
+}
+
+.col-12 {
+  grid-column: span 12;
+}
+
+html.debug-layout .cols > * {
+  border: 1px solid var(--color-amber-yellow);
+}
+
+@media (max-width: 1000px) {
+  .cols {
+    grid-template-columns: 1fr;
+  }
+
+  .col-1,
+  .col-2,
+  .col-3,
+  .col-4,
+  .col-5,
+  .col-6,
+  .col-7,
+  .col-8,
+  .col-9,
+  .col-10,
+  .col-11,
+  .col-12 {
+    grid-column: span 1;
+  }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none !important;
+}
+
+::view-transition-group(root) {
+  z-index: auto !important;
+}
+
+::view-transition-image-pair(root) {
+  isolation: isolate;
+  will-change: clip-path;
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 10000;
+  animation: none !important;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+  animation: none !important;
+}
+
+.revealer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100svh;
+  transform: scaleY(0);
+  transform-origin: center top;
+  background-color: var(--color-amber-yellow);
+  pointer-events: none;
+  z-index: 40;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    padding: 2rem;
+  }
+}

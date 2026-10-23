@@ -1,0 +1,101 @@
+.impactClock {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  background: var(--color-dark-charcoal);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.impactClockInner {
+  width: 100%;
+  max-width: var(--container-max);
+  padding: 2.75rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-3xl);
+}
+
+.copy {
+  max-width: 18ch;
+  text-align: left;
+}
+
+.copyLeft {
+  margin-top: 40%;
+}
+
+.copyRight {
+  justify-self: end;
+}
+
+.copyTopLeft {
+  position: absolute;
+  left: 30%;
+  top: 2.75rem;
+}
+
+.copyBottomLeft {
+  position: absolute;
+  left: 20%;
+  bottom: 2.75rem;
+}
+
+.dial {
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+.hand {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: var(--thickness);
+  height: var(--length);
+  margin-left: calc(var(--thickness) / -2);
+  transform-origin: center bottom;
+  background: var(--color-amber-yellow);
+  will-change: transform;
+}
+
+.hub {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-left: -0.375rem;
+  margin-bottom: -0.375rem;
+  border-radius: 50%;
+  background: var(--color-amber-yellow);
+  z-index: 1;
+  will-change: transform;
+}
+
+@media (max-width: 1000px) {
+  .impactClockInner {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: var(--space-4xl);
+  }
+
+  .copy,
+  .copyLeft,
+  .copyRight,
+  .copyTopLeft,
+  .copyBottomLeft {
+    max-width: 28ch;
+    justify-self: center;
+    text-align: center;
+    margin-top: 0;
+  }
+
+  .copyTopLeft,
+  .copyBottomLeft {
+    position: static;
+  }
+}

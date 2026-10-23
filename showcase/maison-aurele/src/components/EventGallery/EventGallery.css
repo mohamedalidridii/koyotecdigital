@@ -1,0 +1,129 @@
+/* ---------- Parallax columns ---------- */
+
+.eg-columns {
+  position: relative;
+  padding: 12vh 0;
+  overflow: hidden;
+  background: var(--ivory);
+}
+
+.eg-columns-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(0.75rem, 1.6vw, 1.5rem);
+}
+
+.eg-col {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.75rem, 1.6vw, 1.5rem);
+}
+
+.eg-col:nth-child(2) {
+  margin-top: 18vh;
+}
+
+.eg-img {
+  aspect-ratio: 2 / 3;
+}
+
+.eg-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: min(42rem, 86vw);
+  padding: clamp(1.75rem, 3vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  text-align: center;
+  align-items: center;
+  background: rgba(243, 236, 224, 0.92);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--line);
+  z-index: 2;
+}
+
+.eg-caption h3 {
+  font-size: clamp(1.6rem, 2.6vw, 2.75rem);
+  line-height: 1.15;
+}
+
+/* ---------- Ribbon ---------- */
+
+.eg-ribbon {
+  padding: clamp(5rem, 10vw, 8rem) 0;
+  background: var(--ink);
+  color: var(--ivory);
+  overflow: hidden;
+}
+
+.eg-ribbon .label {
+  display: block;
+  margin-bottom: 2.5rem;
+}
+
+.eg-ribbon-track {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  padding-right: 1rem;
+}
+
+.eg-ribbon-img {
+  width: clamp(11rem, 16vw, 18rem);
+  aspect-ratio: 2 / 3;
+  filter: grayscale(0.6);
+  transition: filter 0.6s, transform 0.8s var(--ease-out);
+}
+
+.eg-ribbon-img:hover {
+  filter: grayscale(0);
+  transform: translateY(-1rem);
+}
+
+/* ---------- Stats ---------- */
+
+.eg-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gutter);
+  padding-top: clamp(3rem, 6vw, 5rem);
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.eg-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+
+.eg-stat-value {
+  font-family: var(--font-italiana), serif;
+  font-size: clamp(3rem, 7vw, 7.5rem);
+  line-height: 1;
+  color: var(--gold);
+}
+
+@media (max-width: 767px) {
+  .eg-columns-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .eg-col:nth-child(3) {
+    display: none;
+  }
+
+  .eg-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+.event-credit {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  opacity: 0.6;
+}

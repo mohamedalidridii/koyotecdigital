@@ -1,0 +1,13 @@
+1:"$Sreact.fragment"
+2:I[5407,[],"ClientPageRoot"]
+3:I[3389,["979","static/chunks/374395a0-f8756f5fea2be629.js","616","static/chunks/616-44275c8813c653fd.js","19","static/chunks/19-5dca72ea1086992c.js","246","static/chunks/app/work/page-b4e5a03cac9f0c17.js"],"default"]
+6:I[9783,[],"OutletBoundary"]
+7:"$Sreact.suspense"
+:HL["/art-de-la-difference/studio-kif-kif/_next/static/css/af4ec0f63a57b70b.css","style"]
+:HL["/art-de-la-difference/studio-kif-kif/_next/static/css/39fa2e03cbde1932.css","style"]
+:HL["/art-de-la-difference/studio-kif-kif/_next/static/css/cc082fe92983f639.css","style"]
+:HL["/art-de-la-difference/studio-kif-kif/_next/static/css/a6d1c73bb8e1d380.css","style"]
+0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","link","0",{"rel":"stylesheet","href":"/art-de-la-difference/studio-kif-kif/_next/static/css/af4ec0f63a57b70b.css","precedence":"next"}],["$","link","1",{"rel":"stylesheet","href":"/art-de-la-difference/studio-kif-kif/_next/static/css/39fa2e03cbde1932.css","precedence":"next"}],["$","link","2",{"rel":"stylesheet","href":"/art-de-la-difference/studio-kif-kif/_next/static/css/cc082fe92983f639.css","precedence":"next"}],["$","link","3",{"rel":"stylesheet","href":"/art-de-la-difference/studio-kif-kif/_next/static/css/a6d1c73bb8e1d380.css","precedence":"next"}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"onyLH50QSr65iKXTkNBmm"}
+4:{}
+5:"$0:rsc:props:children:0:props:serverProvidedParams:params"
+8:null

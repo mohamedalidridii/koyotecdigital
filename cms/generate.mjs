@@ -10,6 +10,7 @@ export const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const PATHS = {
   home: ["/", "/en/"],
   services: ["/services", "/en/services"],
+  art: ["/art-de-la-difference", "/en/art-of-difference"],
   blog: ["/blog", "/en/blog"],
   contact: ["/contact", "/en/contact"],
 };
@@ -48,11 +49,12 @@ const ldJson = (obj) =>
 export function loadContent(root = ROOT) {
   const site = JSON.parse(readFileSync(join(root, "content/site.json"), "utf8"));
   const blog = JSON.parse(readFileSync(join(root, "content/blog.json"), "utf8"));
-  return { site, blog };
+  const art = JSON.parse(readFileSync(join(root, "content/art.json"), "utf8"));
+  return { site, blog, art };
 }
 
 export function generate(root = ROOT, content = loadContent(root), { write = true } = {}) {
-  const { site, blog } = content;
+  const { site, blog, art = loadContent(root).art } = content;
   const G = site.global;
   const SITE = G.domain.replace(/\/$/, "");
   const url = (page, lang) => SITE + PATHS[page][idx(lang)];
@@ -63,8 +65,8 @@ export function generate(root = ROOT, content = loadContent(root), { write = tru
   const SHAPES = ["browser", "glyph", "signal", "grid", "bag", "compass"];
   // decorative cursor labels (aria-hidden, so they stay out of the CMS)
   const CURSOR = {
-    fr: { howl: "Cliquez", view: "Voir", read: "Lire", write: "Écrire" },
-    en: { howl: "Click", view: "View", read: "Read", write: "Write" },
+    fr: { howl: "Cliquez", view: "Voir", read: "Lire", write: "Écrire", enter: "Entrer" },
+    en: { howl: "Click", view: "View", read: "Read", write: "Write", enter: "Enter" },
   };
   const SKIP = { fr: "Aller au contenu", en: "Skip to content" };
   const pad = (n) => String(n).padStart(2, "0");
@@ -134,9 +136,9 @@ export function generate(root = ROOT, content = loadContent(root), { write = tru
     itemListElement: items.map(([name, item], n) => ({ "@type": "ListItem", position: n + 1, name, item })),
   });
 
-  function headTag({ lang, title, desc, canon, altFr, altEn, ld, ogType = "website" }) {
+  function headTag({ lang, title, desc, canon, altFr, altEn, ld, ogType = "website", theme = "#f3f1ec", htmlClass = "" }) {
     return `<!DOCTYPE html>
-<html lang="${lang}" class="no-js">
+<html lang="${lang}" class="no-js${htmlClass ? " " + htmlClass : ""}">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -158,7 +160,7 @@ ${altFr ? `    <link rel="alternate" hreflang="fr" href="${esc(SITE + altFr)}" /
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/site-icon.png" type="image/png" sizes="512x512" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <meta name="theme-color" content="#f3f1ec" />
+    <meta name="theme-color" content="${theme}" />
     <meta name="author" content="${esc(G.name)}" />
     <script>(function(d){var e=d.documentElement;e.classList.replace("no-js","js");if(matchMedia("(prefers-reduced-motion: reduce)").matches)e.classList.add("is-reduced")})(document)</script>
     <link rel="preload" href="/fonts/instrument-serif-400.woff2" as="font" type="font/woff2" crossorigin />
@@ -226,7 +228,7 @@ ${altFr ? `    <link rel="alternate" hreflang="fr" href="${esc(SITE + altFr)}" /
   function nav(lang, page, switchTo) {
     const ui = site[lang].ui; const i = idx(lang);
     const other = lang === "fr" ? "en" : "fr";
-    const keys = ["home", "services", "blog", "contact"];
+    const keys = ["home", "services", "art", "blog", "contact"];
     const sw = switchTo || PATHS[page][idx(other)];
     const cur = (k) => (k === page ? ' aria-current="page"' : "");
     const links = keys
@@ -283,6 +285,7 @@ ${items}
             <h2 class="footer-h">${esc(ui.footer_pages)}</h2>
             <a href="${PATHS.home[i]}">${esc(ui.nav.home)}</a>
             <a href="${PATHS.services[i]}">${esc(ui.nav.services)}</a>
+            <a href="${PATHS.art[i]}">${esc(ui.nav.art)}</a>
             <a href="${PATHS.blog[i]}">${esc(ui.nav.blog)}</a>
             <a href="${PATHS.contact[i]}">${esc(ui.nav.contact)}</a>
           </div>
@@ -366,6 +369,37 @@ ${items.map(([a, b], n) => `            <li data-line><a class="svc-row" href="$
           </ol>
           ${more ? `<p class="svc-more">${link(href, more)}</p>` : ""}`;
 
+  // home teaser for the showcase: a stack of identical-looking pieces that bursts into thirty different identities
+  function artTeaser(lang) {
+    const h = site[lang].home; const i = idx(lang); const c = CURSOR[lang];
+    const featured = art.filter((p) => p.featured);
+    const letters = [...h.art_word].map((ch) => `<span class="art-l">${esc(ch)}</span>`).join("");
+    const chips = featured.map((p) => {
+      const prev = `/art/previews/${p.slug}`;
+      return `            <a class="art-chip" href="${PATHS.art[i]}" style="--accent:${esc(p.accent)}" data-cursor="${c.enter}">
+              <img src="${prev}.webp" alt="${esc(`${p.client}, ${p[lang].sector}`)}" width="1440" height="900" loading="lazy" decoding="async" />
+              <video muted loop playsinline preload="none" aria-hidden="true" data-webm="${prev}.webm" data-mp4="${prev}.mp4"></video>
+              <span class="art-chip-name">${esc(p.client)}</span>
+            </a>`;
+    }).join("\n");
+    const names = art.map((p) => `<span>${esc(p.client)}</span><i>✳</i>`).join("");
+    return `      <section class="art-teaser" id="art" data-gl="constellation" data-gl-dim="0.35">
+        <div class="art-teaser-in shell">
+          <p class="art-teaser-kicker">${stamp(h.art_kicker, pad(art.length))} <a href="${PATHS.art[i]}">${esc(site[lang].ui.nav.art)}</a></p>
+          <h2 class="art-teaser-title"><span class="art-teaser-a">${esc(h.art_h)}</span> <span class="art-word" aria-label="${esc(h.art_word)}"><span aria-hidden="true">${letters}</span></span></h2>
+          <div class="art-stack">
+${chips}
+          </div>
+          <div class="art-teaser-foot">
+            <p class="art-teaser-count" aria-hidden="true"><span class="art-teaser-n">01</span><i>/${pad(art.length)}</i> ${esc(h.art_count)}</p>
+            <p class="art-teaser-lead">${esc(h.art_lead)}</p>
+            <a class="art-teaser-cta" href="${PATHS.art[i]}" data-cursor="${c.enter}"><span class="cta-word">${esc(h.art_cta)}</span> ${GLYPH.arrow}</a>
+          </div>
+        </div>
+        <div class="art-marquee" aria-hidden="true"><div class="art-marquee-track">${names}${names}</div></div>
+      </section>`;
+  }
+
   function home(lang) {
     const h = site[lang].home; const i = idx(lang); const c = CURSOR[lang];
     const pillars = h.points.map(([a, b], n) => `            <li data-line><span class="pillar-num">(${pad(n + 1)})</span><h3>${esc(a)}</h3><p>${esc(b)}</p></li>`).join("\n");
@@ -399,6 +433,8 @@ ${items.map(([a, b], n) => `            <li data-line><a class="svc-row" href="$
 ${serviceList(lang, h.cards, PATHS.services[i], h.cards.length, h.cards_more)}
         </div>
       </section>
+
+${artTeaser(lang)}
 
       <section class="statement" id="why" data-gl="dunes" data-gl-dim="0.3">
         <div class="shell">
@@ -495,6 +531,81 @@ ${ctaSection(lang, { h: s.cta_h, button: s.cta })}`;
     return page({ head: pageHead(lang, "contact"), lang, ns: "contact", pageKey: "contact", main });
   }
 
+  // the exhibition: every showcase piece as a framed card that opens its live concept in a viewer
+  function artPage(lang) {
+    const a = site[lang].art; const i = idx(lang); const c = CURSOR[lang];
+    const n = pad(art.length);
+    const pieces = art.map((p, k) => {
+      const t = p[lang];
+      const href = `/art-de-la-difference/${p.slug}/`;
+      const prev = `/art/previews/${p.slug}`;
+      return `            <li class="art-piece" data-kind="${esc(p.kind)}" style="--accent:${esc(p.accent)}">
+              <a class="art-card" href="${href}" target="_blank" rel="noopener" data-barba-prevent data-slug="${esc(p.slug)}" data-cursor="${c.enter}">
+                <span class="art-frame">
+                  <img class="art-poster" src="${prev}.webp" alt="${esc(`${a.piece} ${pad(k + 1)} : ${p.client}, ${t.sector}`)}" width="1440" height="900" loading="lazy" decoding="async" />
+                  <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="${prev}.webm" data-mp4="${prev}.mp4"></video>
+                </span>
+                <span class="art-meta"><span class="art-num">${esc(a.piece)} ${pad(k + 1)}<i>/${n}</i></span><span class="art-kind">${esc(a["kind_" + p.kind])}</span></span>
+                <span class="art-client">${esc(p.client)}</span>
+                <span class="art-sector">${esc(t.sector)} · ${esc(p.year)}</span>
+                <span class="art-line">${esc(t.line)}</span>
+              </a>
+            </li>`;
+    }).join("\n");
+    const filters = [["all", a.all], ["entreprise", a.business], ["personal", a.personal]]
+      .map(([k, label], j) => `<button class="art-filter" type="button" data-filter="${k}" aria-pressed="${j === 0}">${esc(label)} <sup>${pad(k === "all" ? art.length : art.filter((p) => p.kind === k).length)}</sup></button>`)
+      .join("");
+    const letters = [...a.word].map((ch) => `<span class="art-l">${esc(ch)}</span>`).join("");
+    const ld = graph(
+      org(lang),
+      {
+        "@type": "CollectionPage", name: a.h1, description: a.desc, url: url("art", lang), inLanguage: lang,
+        hasPart: art.map((p) => ({ "@type": "CreativeWork", name: `${p.client} — ${p[lang].sector}`, url: SITE + `/art-de-la-difference/${p.slug}/`, creator: { "@id": SITE + "/#organization" } })),
+      },
+      crumbs([site[lang].ui.nav.home, url("home", lang)], [a.h1, url("art", lang)]),
+    );
+    const main = `      <section class="art-hero" data-gl="off">
+        <div class="shell">
+          <p class="lockup-brand art-brand">${stamp(a.kicker, n)} <span>${esc(a.note)}</span></p>
+          <h1 class="art-title"><span class="art-title-a">${esc(a.h1.slice(0, a.h1.lastIndexOf(" ")))}</span> <span class="art-word" aria-label="${esc(a.word)}"><span aria-hidden="true">${letters}</span></span></h1>
+          <div class="art-hero-foot" data-line>
+            <p class="hero-sub">${esc(a.lead)}</p>
+            <p class="art-count" aria-hidden="true"><span>${n}</span> ${esc(a.count_a)} <i>/</i> <span>${n}</span> ${esc(a.count_b)}</p>
+          </div>
+        </div>
+        <p class="scroll-cue art-cue" aria-hidden="true">${esc(a.scroll)} →</p>
+      </section>
+
+      <section class="art-expo" aria-label="${esc(a.h1)}" data-gl="off">
+        <div class="art-bar shell">
+          <div class="art-filters" role="group" aria-label="${esc(a.kicker)}">${filters}</div>
+          <p class="art-progress" aria-hidden="true"><span class="art-progress-n">01</span> / ${n}</p>
+        </div>
+        <div class="art-stage">
+          <ol class="art-track">
+${pieces}
+          </ol>
+        </div>
+      </section>
+
+      <dialog class="art-viewer" aria-label="${esc(a.h1)}" data-label-piece="${esc(a.piece)}">
+        <div class="art-viewer-bar">
+          <p class="art-viewer-title"><span class="art-viewer-num"></span> <span class="art-viewer-client"></span> <span class="art-viewer-sector"></span></p>
+          <div class="art-viewer-actions">
+            <button type="button" class="art-viewer-btn" data-step="-1" aria-label="${esc(a.prev)}">←</button>
+            <button type="button" class="art-viewer-btn" data-step="1" aria-label="${esc(a.next)}">→</button>
+            <a class="art-viewer-btn art-viewer-open" href="#" target="_blank" rel="noopener" data-barba-prevent>${esc(a.open)} ↗</a>
+            <button type="button" class="art-viewer-btn art-viewer-close">${esc(a.close)} ✕</button>
+          </div>
+        </div>
+        <div class="art-viewer-screen"><iframe title="${esc(a.h1)}" loading="lazy" referrerpolicy="same-origin"></iframe></div>
+      </dialog>
+
+${ctaSection(lang, { h: a.cta_h, button: a.cta })}`;
+    const head = headTag({ lang, title: a.title, desc: a.desc, canon: PATHS.art[i], altFr: PATHS.art[0], altEn: PATHS.art[1], ld, theme: "#0d0d0d", htmlClass: "is-art" });
+    return page({ head, lang, ns: "art", pageKey: "art", main });
+  }
+
   function blogIndex(lang) {
     const b = site[lang].blog; const i = idx(lang);
     const list = blog[lang];
@@ -564,7 +675,7 @@ ${body}
 
   function sitemap() {
     const entries = [];
-    for (const page of ["home", "services", "blog", "contact"]) {
+    for (const page of ["home", "services", "art", "blog", "contact"]) {
       entries.push({ fr: PATHS[page][0], en: PATHS[page][1] });
     }
     const seen = new Set();
@@ -598,6 +709,7 @@ ${body}
     "index.html": home("fr"), "en/index.html": home("en"),
     "services.html": services("fr"), "en/services.html": services("en"),
     "contact.html": contact("fr"), "en/contact.html": contact("en"),
+    "art-de-la-difference.html": artPage("fr"), "en/art-of-difference.html": artPage("en"),
     "blog/index.html": blogIndex("fr"), "en/blog/index.html": blogIndex("en"),
     "public/sitemap.xml": sitemap(),
   };

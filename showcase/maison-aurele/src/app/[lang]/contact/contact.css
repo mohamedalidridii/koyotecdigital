@@ -1,0 +1,48 @@
+.contact {
+  padding: 0 0 clamp(6rem, 12vw, 10rem);
+  background: var(--ivory);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: clamp(3rem, 8vw, 10rem);
+  align-items: start;
+  border-top: 1px solid var(--line);
+  padding-top: clamp(3rem, 6vw, 5rem);
+}
+
+.contact-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.contact-media {
+  aspect-ratio: 4 / 5;
+  max-width: 28rem;
+}
+
+.contact-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.contact-block a {
+  font-family: var(--font-cormorant), serif;
+  font-size: clamp(1.3rem, 1.8vw, 1.8rem);
+}
+
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}

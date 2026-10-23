@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[2768,["979","static/chunks/374395a0-f8756f5fea2be629.js","705","static/chunks/4b9d473a-49a70faadd3386dc.js","845","static/chunks/c5df8eaf-c342bbccb7d62c0f.js","616","static/chunks/616-44275c8813c653fd.js","19","static/chunks/19-5dca72ea1086992c.js","442","static/chunks/442-ed3eea7bbabd3f3e.js","898","static/chunks/898-3e072debb2437ac2.js","177","static/chunks/app/layout-565ff5cf0513af81.js"],"default"]
+3:I[6686,[],""]
+4:I[3508,[],""]
+:HL["/art-de-la-difference/studio-kif-kif/_next/static/css/4f0cb0952b6fbdd0.css","style"]
+0:{"rsc":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/art-de-la-difference/studio-kif-kif/_next/static/css/4f0cb0952b6fbdd0.css","precedence":"next"}]],["$","html",null,{"lang":"en","className":"__variable_b57234 __variable_6b6b86 __variable_71eb3c","children":["$","body",null,{"children":["$","$L2",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","template":["$","$L4",null,{}]}]}]}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"onyLH50QSr65iKXTkNBmm"}

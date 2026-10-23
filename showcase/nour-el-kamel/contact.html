@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | Nour El Kamel</title>
+    <meta
+      name="description"
+      content="Get in touch with Nour El Kamel for collaborations, speaking invitations or consulting."
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <div class="cursor" aria-hidden="true"><span class="cursor-label">View</span></div>
+
+    <nav>
+      <div class="nav-item">
+        <a href="/about.html">About</a>
+        <a href="/#work">Work</a>
+        <a href="/speaking.html">Speaking</a>
+      </div>
+      <div class="nav-item">
+        <a href="/" class="wordmark">NK</a>
+      </div>
+      <div class="nav-item">
+        <a href="/contact.html">Contact</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">
+          Menu
+        </button>
+      </div>
+    </nav>
+
+    <div class="menu" id="menu" aria-hidden="true" inert>
+      <ul class="menu-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/#work">Work</a></li>
+        <li><a href="/speaking.html">Speaking</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <p class="menu-footer">Nour El Kamel · Tunis</p>
+    </div>
+
+    <div id="smooth-wrapper">
+    <div id="smooth-content">
+    <main>
+      <section class="section page-hero" data-bg="light">
+        <p class="section-label">Contact</p>
+        <h1 class="page-title">Let's create lasting impact together.</h1>
+        <p class="page-intro">For collaborations, speaking invitations or consulting, send a message and I'll get back to you.</p>
+      </section>
+
+      <section class="section" data-bg="light">
+        <div class="contact-grid">
+          
+          <form class="form" action="https://formspree.io/f/YOUR_ID" method="POST">
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" autocomplete="name" required />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="organisation">Organisation</label>
+                <input id="organisation" name="organisation" type="text" autocomplete="organization" />
+              </div>
+              <div class="field">
+                <label for="topic">Topic</label>
+                <select id="topic" name="topic">
+                  <option>Collaboration</option>
+                  <option>Speaking invitation</option>
+                  <option>Consulting</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button class="btn" type="submit">Send message →</button>
+            <p class="form-status" role="status"></p>
+          </form>
+          <aside class="contact-aside">
+            <p class="section-label">Elsewhere</p>
+            <div class="contact-links">
+              
+              <a href="mailto:hello@example.com">hello@example.com</a>
+              <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a>
+            </div>
+            <div class="split">
+              <h3>Based in</h3>
+              <div class="prose"><p>Tunis, Tunisia. Working across North Africa and the Middle East.</p></div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section next" data-bg="dark">
+        <p class="section-label">Next</p>
+        <a class="next-link" href="/about.html">About Nour →</a>
+        <footer class="site-footer">
+          <p>Nour El Kamel &copy; 2026</p>
+          <p>Tunis, Tunisia</p>
+        </footer>
+      </section>
+    </main>
+    </div>
+    </div>
+
+    <script type="module" src="/page.js"></script>
+  </body>
+</html>

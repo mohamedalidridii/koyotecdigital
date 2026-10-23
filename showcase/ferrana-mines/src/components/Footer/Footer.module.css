@@ -1,0 +1,124 @@
+.navSection {
+  width: 100%;
+  background: var(--color-dark-charcoal);
+  color: var(--color-text);
+  border-top: 1px solid var(--color-medium-grey);
+}
+
+.navInner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-content-max);
+}
+
+.navTop {
+  display: grid;
+  grid-template-columns: 42% 1fr;
+  align-items: start;
+  column-gap: 0;
+}
+
+.navLogoWrap {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.navLogo {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+
+.navBrand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.navLinks {
+  max-width: none;
+}
+
+.navRow,
+.navBrandName {
+  overflow: hidden;
+}
+
+.navRow a,
+.navMeta a {
+  display: inline;
+}
+
+.navRow a {
+  color: inherit;
+  text-decoration: none;
+  line-height: 1.1;
+}
+
+.navSlash {
+  color: inherit;
+}
+
+.navFooter {
+  display: grid;
+  grid-template-columns: 42% 1fr;
+  align-items: end;
+  column-gap: 0;
+}
+
+.navBack,
+.navCopy,
+.navMeta {
+  font-size: clamp(1rem, 0.2vw + 0.9rem, 1.25rem);
+  line-height: 1.35;
+  letter-spacing: -0.25%;
+}
+
+.navBack {
+  color: inherit;
+  width: fit-content;
+}
+
+.navFooterTrail {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-xl);
+}
+
+.navMeta {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.navMeta a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (max-width: 1000px) {
+  .navInner {
+    padding-block: var(--space-4xl);
+    gap: 16rem;
+  }
+
+  .navTop,
+  .navFooter {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .navFooterTrail {
+    align-items: flex-end;
+    gap: var(--space-md);
+  }
+
+  .navMeta {
+    text-align: left;
+    white-space: normal;
+  }
+
+  .navFooter .navBack {
+    display: none;
+  }
+}

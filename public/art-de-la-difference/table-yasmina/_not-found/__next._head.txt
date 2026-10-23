@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[7763,[],"ViewportBoundary"]
+3:I[7763,[],"MetadataBoundary"]
+4:"$Sreact.suspense"
+5:I[4842,[],"IconMark"]
+0:{"buildId":"4w-01Z3tz34MPFKEhHk3s","rsc":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Table Yasmina | KOYOTEC"}],["$","meta","1",{"name":"description","content":"Concept by KOYOTEC"}],["$","link","2",{"rel":"icon","href":"/art-de-la-difference/table-yasmina/favicon.ico?c8709ea0d7931d00","type":"image/x-icon","sizes":"16x16"}],["$","$L5","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"loading":null,"isPartial":false}

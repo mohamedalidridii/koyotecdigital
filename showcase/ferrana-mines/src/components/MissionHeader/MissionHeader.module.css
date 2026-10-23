@@ -1,0 +1,42 @@
+.section {
+  width: 100%;
+  background: var(--color-dark-charcoal);
+  color: var(--color-text);
+}
+
+.inner {
+  padding-block: 8.25rem 2.75rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.75rem;
+  align-items: start;
+}
+
+.heading {
+  max-width: 14ch;
+}
+
+.description {
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 2.75rem;
+}
+
+@media (max-width: 1000px) {
+  .row {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .heading {
+    max-width: none;
+  }
+
+  .description {
+    max-width: 42ch;
+  }
+}

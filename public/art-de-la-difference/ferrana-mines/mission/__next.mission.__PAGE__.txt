@@ -1,0 +1,12 @@
+1:"$Sreact.fragment"
+2:I[820,[],"ClientPageRoot"]
+3:I[1690,["44","static/chunks/e86284bf-1c7b10de8a5fa557.js","650","static/chunks/94bcc6ec-a3902e502acebe7f.js","511","static/chunks/547efec9-c009a1c04219f3ef.js","980","static/chunks/be31bb80-a47ff9a6eb621533.js","995","static/chunks/995-d8eb855665b121d1.js","587","static/chunks/587-5847b0ec643d636e.js","680","static/chunks/680-5f9c76dac5c9b19b.js","959","static/chunks/app/mission/page-8fac14f119254ae3.js"],"default"]
+6:I[9840,[],"OutletBoundary"]
+7:"$Sreact.suspense"
+:HL["/art-de-la-difference/ferrana-mines/_next/static/css/9c20244388b10367.css","style"]
+:HL["/art-de-la-difference/ferrana-mines/_next/static/css/660b662de75f2842.css","style"]
+:HL["/art-de-la-difference/ferrana-mines/_next/static/css/4efdb69587bb1f19.css","style"]
+0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","link","0",{"rel":"stylesheet","href":"/art-de-la-difference/ferrana-mines/_next/static/css/9c20244388b10367.css","precedence":"next"}],["$","link","1",{"rel":"stylesheet","href":"/art-de-la-difference/ferrana-mines/_next/static/css/660b662de75f2842.css","precedence":"next"}],["$","link","2",{"rel":"stylesheet","href":"/art-de-la-difference/ferrana-mines/_next/static/css/4efdb69587bb1f19.css","precedence":"next"}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"wKphGL2VWTMri8c5BSPM8"}
+4:{}
+5:"$0:rsc:props:children:0:props:serverProvidedParams:params"
+8:null

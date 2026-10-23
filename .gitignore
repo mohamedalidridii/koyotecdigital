@@ -151,3 +151,14 @@ Thumbs.db
 cms/.auth.json
 cms/backups/
 *.tmp
+
+# showcase pieces: dependencies (often symlinked to the original templates) and build output
+showcase/*/node_modules
+showcase/*/.next
+showcase/*/out
+showcase/*/dist
+showcase/*/.static-out
+showcase/**/.DS_Store
+# built showcase pieces are deployed as is: never drop their bundles (e.g. _next/static/chunks/next/dist)
+!public/art-de-la-difference/**/dist/
+!public/art-de-la-difference/**/out/

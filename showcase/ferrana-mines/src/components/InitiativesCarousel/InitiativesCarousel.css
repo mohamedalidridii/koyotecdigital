@@ -1,0 +1,362 @@
+.initiatives-carousel {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.initiatives-carousel .slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.initiatives-carousel .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.initiatives-carousel .slide img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform;
+}
+
+.initiatives-carousel .slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+
+.initiatives-carousel .timeline {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 110%;
+  z-index: 2;
+  display: flex;
+}
+
+.initiatives-carousel .timeline h3 {
+  color: var(--color-text);
+  cursor: pointer;
+  padding: 0.25rem 0;
+}
+
+.initiatives-carousel .timeline h3.timeline-dummy {
+  cursor: default;
+  pointer-events: none;
+  color: transparent;
+  user-select: none;
+}
+
+.initiatives-carousel .timeline h3.timeline-year {
+  overflow: hidden;
+}
+
+.initiatives-carousel .timeline h3 sup {
+  position: relative;
+  top: -8px;
+  left: 4px;
+  font-size: 0.65rem;
+}
+
+.initiatives-carousel .year-copy {
+  display: inline-block;
+  will-change: transform;
+}
+
+.initiatives-carousel .timeline-mobile {
+  display: none;
+}
+
+.initiatives-carousel .year-digits {
+  display: grid;
+}
+
+.initiatives-carousel .year-clip {
+  grid-area: 1 / 1;
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.initiatives-carousel .year-label {
+  display: block;
+  will-change: transform;
+}
+
+.initiatives-carousel .year-label h3 {
+  color: var(--color-text);
+}
+
+.initiatives-carousel .year-label h3 sup {
+  position: relative;
+  top: -8px;
+  left: 4px;
+  font-size: 0.65rem;
+}
+
+.initiatives-carousel .slider-footer {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 2.75rem 2.75rem 2.75rem;
+  pointer-events: none;
+}
+
+.initiatives-carousel .slider-footer-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.initiatives-carousel .slider-footer-center {
+  position: absolute;
+  left: 50%;
+  bottom: 2.75rem;
+  width: 18ch;
+  transform: translateX(-50%);
+  pointer-events: auto;
+}
+
+.initiatives-carousel .slider-footer-right {
+  display: flex;
+  align-items: flex-end;
+}
+
+.initiatives-carousel .slider-index {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35em;
+  color: var(--color-text);
+}
+
+.initiatives-carousel .progress-bar {
+  flex-shrink: 0;
+}
+
+.initiatives-carousel .slider-title {
+  width: 100%;
+  color: var(--color-text);
+}
+
+.initiatives-carousel .title-digits {
+  display: grid;
+  width: 100%;
+}
+
+.initiatives-carousel .title-clip {
+  grid-area: 1 / 1;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  pointer-events: none;
+}
+
+.initiatives-carousel .title-clip-active {
+  pointer-events: auto;
+}
+
+.initiatives-carousel .title-label {
+  display: block;
+  position: relative;
+  width: 100%;
+  will-change: transform;
+}
+
+.initiatives-carousel .title-label a,
+.initiatives-carousel .title-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35em;
+  width: 100%;
+  color: inherit;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
+  pointer-events: auto;
+}
+
+.initiatives-carousel .title-link-text {
+  display: inline-block;
+}
+
+.initiatives-carousel .title-link-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1em;
+  will-change: transform;
+}
+
+.initiatives-carousel .progress-track {
+  display: grid;
+  width: clamp(10rem, 22vw, 16rem);
+  height: 2px;
+  background: rgba(255, 195, 42, 0.2);
+  transform-origin: left center;
+  will-change: transform;
+}
+
+.initiatives-carousel .progress-layer {
+  grid-area: 1 / 1;
+  display: block;
+  overflow: hidden;
+}
+
+.initiatives-carousel .progress-fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--color-amber-yellow);
+  transform: scaleX(0);
+  will-change: transform;
+}
+
+.initiatives-carousel .index-digits {
+  display: grid;
+}
+
+.initiatives-carousel .index-clip {
+  grid-area: 1 / 1;
+  display: block;
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.initiatives-carousel .index-label {
+  display: block;
+  position: relative;
+  will-change: transform;
+}
+
+.initiatives-carousel .index-total {
+  color: inherit;
+}
+
+.initiatives-carousel .slider-preview-container {
+  width: clamp(3rem, 15vw, 12rem);
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  will-change: clip-path;
+}
+
+.initiatives-carousel .slider-preview {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.initiatives-carousel .preview-slide {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  will-change: clip-path;
+}
+
+.initiatives-carousel .preview-slide img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform;
+}
+
+@media (max-width: 1000px) {
+  .initiatives-carousel .timeline {
+    display: none;
+  }
+
+  .initiatives-carousel .timeline-mobile {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: max-content;
+    max-width: calc(100% - 2.5rem);
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    pointer-events: none;
+    text-align: center;
+  }
+
+  .initiatives-carousel .year-digits {
+    justify-items: center;
+  }
+
+  .initiatives-carousel .year-label h3 {
+    font-size: clamp(1.75rem, 12vw, 2.5rem);
+    white-space: nowrap;
+    text-align: center;
+    padding: 0rem 2rem;
+  }
+
+  .initiatives-carousel .year-label h3 sup {
+    top: -12px;
+    left: 4px;
+    font-size: 0.55rem;
+  }
+
+  .initiatives-carousel .slider-footer {
+    padding: 2rem;
+    gap: 1rem;
+  }
+
+  .initiatives-carousel .slider-footer-left {
+    display: none;
+  }
+
+  .initiatives-carousel .slider-footer-center {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    width: auto;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .initiatives-carousel .slider-title .title-label a,
+  .initiatives-carousel .slider-title .title-link {
+    justify-content: flex-start;
+    text-align: left;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .initiatives-carousel .slider-footer-right {
+    flex-shrink: 0;
+  }
+
+  .initiatives-carousel .slider-preview-container {
+    width: clamp(4rem, 20vw, 7.5rem);
+  }
+}

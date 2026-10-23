@@ -1,0 +1,138 @@
+.section {
+  position: relative;
+  width: 100%;
+  height: var(--minimap-scroll, 600vh);
+  background: var(--color-dark-charcoal);
+  color: var(--color-text);
+}
+
+.viewport {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.siteInfo {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 2.75rem;
+  z-index: 2;
+  max-width: 24ch;
+}
+
+.imgPreview {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 32%;
+  aspect-ratio: 5 / 7;
+  height: auto;
+  max-height: 72vh;
+  max-width: 90vw;
+  overflow: hidden;
+}
+
+.imgPreview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.minimap {
+  position: absolute;
+  top: 50%;
+  right: 8em;
+  width: 80px;
+  z-index: 2;
+}
+
+.indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  border: 1px solid var(--color-text);
+  z-index: 2;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.items {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  will-change: transform;
+}
+
+.item {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  padding: 5px;
+  cursor: pointer;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 1000px) {
+  .siteInfo {
+    top: 17.5svh;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    text-align: center;
+    max-width: 20ch;
+  }
+
+  .imgPreview {
+    width: 56%;
+    max-height: 42svh;
+  }
+
+  .minimap {
+    top: auto;
+    right: 0;
+    bottom: 5em;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    transform: none;
+    overflow: hidden;
+  }
+
+  .indicator {
+    top: 0;
+    left: 50%;
+    width: 60px;
+    height: 100%;
+    transform: translateX(-50%);
+  }
+
+  .items {
+    flex-direction: row;
+    width: max-content;
+    height: 100%;
+  }
+
+  .item {
+    width: 60px;
+    height: 100%;
+    padding: 5px;
+  }
+}

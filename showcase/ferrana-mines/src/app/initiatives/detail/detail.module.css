@@ -1,0 +1,135 @@
+.detailsHero {
+  width: 100%;
+  height: 150svh;
+  background: var(--color-dark-charcoal);
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+}
+
+.detailsHeroInner {
+  flex: 0.5;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 2.75rem;
+}
+
+.detailsHeroCols {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  width: 100%;
+}
+
+.detailsHeroLead {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.detailsHeroTitle {
+  color: inherit;
+}
+
+.detailsHeroMeta {
+  display: flex;
+  align-items: flex-end;
+  gap: 3.5rem;
+}
+
+.metaItem {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.metaValue {
+  color: inherit;
+}
+
+.detailsHeroMedia {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.detailsInfo {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  background: var(--color-dark-charcoal);
+  color: var(--color-text);
+}
+
+.detailsInfoBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.detailsInfoBg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+}
+
+.detailsInfoInner {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-block: var(--space-section);
+}
+
+.detailsInfoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.75rem;
+  width: 100%;
+}
+
+.detailsInfoContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  max-width: 40ch;
+}
+
+@media (max-width: 1000px) {
+  .detailsHeroInner {
+    padding-bottom: var(--space-3xl);
+  }
+
+  .detailsHeroCols {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3xl);
+  }
+
+  .detailsHeroMeta {
+    align-items: flex-start;
+    gap: var(--space-3xl);
+  }
+
+  .detailsInfoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .detailsInfoSpacer {
+    display: none;
+  }
+
+  .detailsInfoContent {
+    max-width: none;
+  }
+}

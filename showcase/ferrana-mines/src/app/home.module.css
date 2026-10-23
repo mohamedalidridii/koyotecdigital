@@ -1,0 +1,106 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+}
+
+.heroBg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}
+
+.heroBg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+}
+
+.heroCols {
+  height: 100%;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.heroTagline {
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+  min-width: 0;
+  padding-top: var(--space-pane);
+}
+
+.heroTagline h1 {
+  max-width: 80%;
+  font-size: clamp(2rem, 8vw, 5rem);
+}
+
+.heroAside {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  height: 100%;
+  padding-top: var(--space-pane);
+}
+
+.asideTop {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3xl);
+  width: 100%;
+  max-width: 22ch;
+}
+
+.asideBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-xl);
+  width: 100%;
+}
+
+@media (max-width: 1000px) {
+  .heroCols {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .heroTagline {
+    align-items: flex-start;
+    height: auto;
+    padding-top: 15svh;
+  }
+
+  .heroTagline h1 {
+    max-width: none;
+    font-size: 2rem;
+  }
+
+  .heroAside {
+    gap: 6rem;
+    height: auto;
+  }
+
+  .asideTop {
+    max-width: 32ch;
+    gap: 2rem;
+  }
+}

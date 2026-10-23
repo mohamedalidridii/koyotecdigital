@@ -1,0 +1,520 @@
+[
+  {
+    "slug": "maison-aurele",
+    "framework": "next",
+    "source": "CGMWTDEC2025/CGMWTDEC2025/nrmlss",
+    "client": "Maison Aurèle",
+    "kind": "entreprise",
+    "year": "2025",
+    "accent": "#c9a45c",
+    "fr": {
+      "sector": "Haute couture",
+      "line": "Une maison de couture racontée fil d'or par fil d'or."
+    },
+    "en": {
+      "sector": "Haute couture",
+      "line": "A couture house told one golden thread at a time."
+    },
+    "featured": true
+  },
+  {
+    "slug": "atelier-terrah",
+    "framework": "next",
+    "source": "CGMWTAUGUST2025/CGMWTAUGUST2025/terrene",
+    "client": "Atelier Terrah",
+    "kind": "entreprise",
+    "year": "2025",
+    "accent": "#b08a63",
+    "fr": {
+      "sector": "Architecture d'intérieur",
+      "line": "Des espaces simples, pensés pour durer."
+    },
+    "en": {
+      "sector": "Interior design",
+      "line": "Simple spaces, built to last."
+    }
+  },
+  {
+    "slug": "nour-el-kamel",
+    "framework": "vite",
+    "source": "CODEGROD/codegrid-realevate-landing-page",
+    "client": "Nour El Kamel",
+    "kind": "personal",
+    "year": "2026",
+    "accent": "#e4572e",
+    "fr": {
+      "sector": "Speaker & média",
+      "line": "Une voix, des histoires, un impact social."
+    },
+    "en": {
+      "sector": "Speaker & media",
+      "line": "One voice, many stories, real social impact."
+    },
+    "featured": true
+  },
+  {
+    "slug": "ferrana-mines",
+    "framework": "next",
+    "source": "CGMWTAUGUST2026/CGMWTAUGUST2026/oreana",
+    "client": "Ferrana Mines",
+    "kind": "entreprise",
+    "year": "2026",
+    "accent": "#d36b2c",
+    "fr": {
+      "sector": "Mines & métaux",
+      "line": "L'industrie lourde avec la précision d'une maison d'édition."
+    },
+    "en": {
+      "sector": "Mining & metals",
+      "line": "Heavy industry with the poise of a publisher."
+    }
+  },
+  {
+    "slug": "selma-haddad",
+    "framework": "vite",
+    "source": "CodeGrid/codegrid-studiodialect-image-gallery",
+    "client": "Dr. Selma Haddad",
+    "kind": "personal",
+    "year": "2026",
+    "accent": "#7fa65a",
+    "fr": {
+      "sector": "Diététicienne",
+      "line": "La nutrition présentée comme un art de vivre."
+    },
+    "en": {
+      "sector": "Dietitian",
+      "line": "Nutrition presented as a way of living."
+    },
+    "featured": true
+  },
+  {
+    "slug": "ironfang-games",
+    "framework": "next",
+    "source": "CGMWTMAY2026/CGMWTMAY2026/deadlock-studios",
+    "client": "Ironfang Games",
+    "kind": "entreprise",
+    "year": "2026",
+    "accent": "#d7ff3a",
+    "fr": {
+      "sector": "Studio de jeux vidéo",
+      "line": "Un collectif de jeu au code de conduite verrouillé."
+    },
+    "en": {
+      "sector": "Game studio",
+      "line": "A game collective with a locked-in code."
+    },
+    "featured": true
+  },
+  {
+    "slug": "adam-rekik",
+    "framework": "static",
+    "source": "CGMWTJULY2024/CGMWTJULY2024/Source Code/damien-tsarantos",
+    "client": "Adam Rekik",
+    "kind": "personal",
+    "year": "2024",
+    "accent": "#f2f2f2",
+    "fr": {
+      "sector": "Designer indépendant",
+      "line": "Un portfolio qui se lit comme une affiche."
+    },
+    "en": {
+      "sector": "Independent designer",
+      "line": "A portfolio that reads like a poster."
+    }
+  },
+  {
+    "slug": "table-yasmina",
+    "framework": "next",
+    "source": "CGMWTFEB2026/CGMWTFEB2026/salle-blanche",
+    "client": "Table Yasmina",
+    "kind": "entreprise",
+    "year": "2026",
+    "accent": "#e9e1d3",
+    "fr": {
+      "sector": "Restaurant",
+      "line": "Une table blanche, un menu de saison, le silence en plus."
+    },
+    "en": {
+      "sector": "Restaurant",
+      "line": "A white table, a seasonal menu, and some quiet."
+    },
+    "featured": true
+  },
+  {
+    "slug": "sable-noir-films",
+    "framework": "vite",
+    "source": "CGMWTSEPT2025 (2)/CGMWTSEPT2025/negative-films",
+    "client": "Sable Noir Films",
+    "kind": "entreprise",
+    "year": "2025",
+    "accent": "#ff3b1f",
+    "fr": {
+      "sector": "Production audiovisuelle",
+      "line": "Une maison de production qui montre plutôt qu'elle ne dit."
+    },
+    "en": {
+      "sector": "Film production",
+      "line": "A production house that shows rather than tells."
+    }
+  },
+  {
+    "slug": "yasmine-belkadi",
+    "framework": "vite",
+    "source": "nutritionist/codegrid-studiodialect-image-gallery",
+    "client": "Yasmine Belkadi",
+    "kind": "personal",
+    "year": "2026",
+    "accent": "#e8a33d",
+    "fr": {
+      "sector": "Nutritionniste",
+      "line": "Un cabinet de nutrition clinique, chaleureux et clair."
+    },
+    "en": {
+      "sector": "Nutritionist",
+      "line": "A clinical nutrition practice, warm and clear."
+    }
+  },
+  {
+    "slug": "studio-kif-kif",
+    "framework": "next",
+    "source": "CGMWTJULY2026/CGMWTJULY2026/blunt-main",
+    "client": "Studio Kif-Kif",
+    "kind": "entreprise",
+    "year": "2026",
+    "accent": "#ff5c8a",
+    "fr": {
+      "sector": "Studio d'illustration",
+      "line": "Petite équipe, grandes images."
+    },
+    "en": {
+      "sector": "Illustration studio",
+      "line": "Small crew, loud output."
+    },
+    "featured": true
+  },
+  {
+    "slug": "halo-orbital-lab",
+    "framework": "vite",
+    "source": "CGMWTNOV2025 (2)/CGMWTNOV2025/orbit-matter",
+    "client": "Halo Orbital Lab",
+    "kind": "entreprise",
+    "year": "2025",
+    "accent": "#8fb3ff",
+    "fr": {
+      "sector": "Recherche spatiale",
+      "line": "Une expédition scientifique racontée en apesanteur."
+    },
+    "en": {
+      "sector": "Space research",
+      "line": "A science expedition, told in zero gravity."
+    },
+    "featured": true
+  },
+  {
+    "slug": "ines-morel",
+    "framework": "vite",
+    "source": "CGMWTMAY2024/CGMWTMAY2024/Source Code /alejandro-ortiz",
+    "client": "Inès Morel",
+    "kind": "personal",
+    "year": "2024",
+    "accent": "#ffd23f",
+    "fr": {
+      "sector": "Directrice artistique",
+      "line": "Une signature visuelle, une seule page, aucun compromis."
+    },
+    "en": {
+      "sector": "Art director",
+      "line": "One visual signature, one page, no compromise."
+    }
+  },
+  {
+    "slug": "bruit-poli",
+    "framework": "next",
+    "source": "CGMWTOCT2025/polite-chaos",
+    "client": "Studio Bruit Poli",
+    "kind": "entreprise",
+    "year": "2025",
+    "accent": "#9c7bff",
+    "fr": {
+      "sector": "Studio créatif",
+      "line": "Du chaos maîtrisé, mis en mouvement."
+    },
+    "en": {
+      "sector": "Creative studio",
+      "line": "Controlled chaos, set in motion."
+    }
+  },
+  {
+    "slug": "sakina-studio",
+    "framework": "next",
+    "source": "CGMWTJUNE2025/CGMWTJUNE2025/Source Code/wu-wei",
+    "client": "Sakina Studio",
+    "kind": "entreprise",
+    "year": "2025",
+    "accent": "#c2c8b4",
+    "fr": {
+      "sector": "Studio digital",
+      "line": "Faire moins, mais mieux, et sans effort apparent."
+    },
+    "en": {
+      "sector": "Digital studio",
+      "line": "Doing less, better, with no visible effort."
+    }
+  },
+  {
+    "slug": "karim-souissi",
+    "framework": "static",
+    "source": "CGMWTAUGUST2023/CGMWTAUGUST2023/Source Code/Brutalist Portfolio",
+    "client": "Karim Souissi",
+    "kind": "personal",
+    "year": "2023",
+    "accent": "#ff2a00",
+    "fr": {
+      "sector": "Designer graphique",
+      "line": "Un portfolio brut, sans décor, tout en caractère."
+    },
+    "en": {
+      "sector": "Graphic designer",
+      "line": "A raw portfolio, no decoration, all character."
+    }
+  },
+  {
+    "slug": "nur-objects",
+    "framework": "next",
+    "source": "CGMWTAPR2025/CGMWTAPR2025/Source Code/format-archive",
+    "client": "Nūr Objects",
+    "kind": "entreprise",
+    "year": "2025",
+    "accent": "#d9d4c7",
+    "fr": {
+      "sector": "Boutique d'objets",
+      "line": "Une boutique en ligne pensée comme une archive."
+    },
+    "en": {
+      "sector": "Object store",
+      "line": "An online store designed as an archive."
+    }
+  },
+  {
+    "slug": "zero-douze",
+    "framework": "static",
+    "source": "MWTSEPTEMBER2023/MWTSEPTEMBER2023/Source Code",
+    "client": "Studio Zéro Douze",
+    "kind": "entreprise",
+    "year": "2023",
+    "accent": "#00d1b2",
+    "fr": {
+      "sector": "Agence créative",
+      "line": "Une agence qui part de zéro à chaque projet."
+    },
+    "en": {
+      "sector": "Creative agency",
+      "line": "An agency that starts from zero every time."
+    }
+  },
+  {
+    "slug": "ombre-et-lumiere",
+    "framework": "vite",
+    "source": "CODE(10)/codegrid-realevate-landing-page",
+    "client": "Ombre & Lumière",
+    "kind": "entreprise",
+    "year": "2026",
+    "accent": "#f5e6c8",
+    "fr": {
+      "sector": "Collectif photo",
+      "line": "Une archive vivante de visages, de lieux et d'instants."
+    },
+    "en": {
+      "sector": "Photo collective",
+      "line": "A living archive of faces, places and moments."
+    }
+  },
+  {
+    "slug": "acier-carthage",
+    "framework": "vite",
+    "source": "CODE(2)/codegrid-steelworks-landing-page-reveal",
+    "client": "Acier Carthage",
+    "kind": "entreprise",
+    "year": "2026",
+    "accent": "#a3a9b0",
+    "fr": {
+      "sector": "Design industriel",
+      "line": "Des objets qui portent le poids de leur conviction."
+    },
+    "en": {
+      "sector": "Industrial design",
+      "line": "Objects that carry the weight of their conviction."
+    }
+  },
+  {
+    "slug": "maison-zephyr",
+    "framework": "vite",
+    "source": "CODE(6)/codegrid-outfit-landing-page-reveal",
+    "client": "Maison Zéphyr",
+    "kind": "entreprise",
+    "year": "2026",
+    "accent": "#e0d6c2",
+    "fr": {
+      "sector": "Mode",
+      "line": "Une collection qui se dévoile pièce après pièce."
+    },
+    "en": {
+      "sector": "Fashion",
+      "line": "A collection revealed piece by piece."
+    }
+  },
+  {
+    "slug": "rivage-immobilier",
+    "framework": "vite",
+    "source": "CODE(7)/codegrid-fameestate-scroll-animation",
+    "client": "Rivage Immobilier",
+    "kind": "entreprise",
+    "year": "2026",
+    "accent": "#c6a77a",
+    "fr": {
+      "sector": "Immobilier de prestige",
+      "line": "Le luxe de l'espace, raconté au défilement."
+    },
+    "en": {
+      "sector": "Luxury real estate",
+      "line": "The luxury of space, told through scroll."
+    }
+  },
+  {
+    "slug": "leila-gharbi",
+    "framework": "next",
+    "source": "CODE(4)/codegrid-ingamana-scroll-animation-nextjs",
+    "client": "Leïla Gharbi",
+    "kind": "personal",
+    "year": "2026",
+    "accent": "#e3c9a8",
+    "fr": {
+      "sector": "Architecte",
+      "line": "Une architecte, une entrée en matière cinématographique."
+    },
+    "en": {
+      "sector": "Architect",
+      "line": "An architect, a cinematic way in."
+    }
+  },
+  {
+    "slug": "dix-sept-collective",
+    "framework": "vite",
+    "source": "CODE(5)/codegrid-seventeenagency-scroll-animation",
+    "client": "Dix-Sept Collective",
+    "kind": "entreprise",
+    "year": "2026",
+    "accent": "#ff4d00",
+    "fr": {
+      "sector": "Collectif créatif",
+      "line": "Dix-sept esprits, un seul défilement."
+    },
+    "en": {
+      "sector": "Creative collective",
+      "line": "Seventeen minds, one scroll."
+    }
+  },
+  {
+    "slug": "forme-nouvelle",
+    "framework": "vite",
+    "source": "CODE(11)/codegrid-studiodialect-image-gallery",
+    "client": "Forme Nouvelle",
+    "kind": "entreprise",
+    "year": "2026",
+    "accent": "#bfc6ff",
+    "fr": {
+      "sector": "Galerie d'art",
+      "line": "Entre structure et désordre, de nouvelles formes émergent."
+    },
+    "en": {
+      "sector": "Art gallery",
+      "line": "Between structure and disorder, new forms emerge."
+    },
+    "featured": true
+  },
+  {
+    "slug": "sami-mabrouk",
+    "framework": "vite",
+    "source": "CODE/codegrid-circular-image-gallery",
+    "client": "Sami Mabrouk",
+    "kind": "personal",
+    "year": "2026",
+    "accent": "#ffffff",
+    "fr": {
+      "sector": "Photographe",
+      "line": "Un photographe dont le travail tourne en boucle."
+    },
+    "en": {
+      "sector": "Photographer",
+      "line": "A photographer whose work comes full circle."
+    }
+  },
+  {
+    "slug": "perpetua-sneakers",
+    "framework": "vite",
+    "source": "CODE(1)/codegrid-detroit-paris-infinite-slider",
+    "client": "Perpetua Sneakers",
+    "kind": "entreprise",
+    "year": "2026",
+    "accent": "#ff3d3d",
+    "fr": {
+      "sector": "Streetwear",
+      "line": "Un mouvement perpétuel, en paires limitées."
+    },
+    "en": {
+      "sector": "Streetwear",
+      "line": "Perpetual motion, in limited pairs."
+    }
+  },
+  {
+    "slug": "escale-voyages",
+    "framework": "vite",
+    "source": "CODE(3)/codegrid-voku-image-slider",
+    "client": "Escale Voyages",
+    "kind": "entreprise",
+    "year": "2026",
+    "accent": "#4fc3d9",
+    "fr": {
+      "sector": "Agence de voyage",
+      "line": "Chaque destination glisse vers la suivante."
+    },
+    "en": {
+      "sector": "Travel agency",
+      "line": "Every destination slides into the next."
+    }
+  },
+  {
+    "slug": "glacier-bambalouni",
+    "framework": "vite",
+    "source": "CODE(8)/codegrid-larevoltosa-scroll-animation",
+    "client": "Glacier Bambalouni",
+    "kind": "entreprise",
+    "year": "2026",
+    "accent": "#ff8ac2",
+    "fr": {
+      "sector": "Glacier artisanal",
+      "line": "Attention : le défilement peut provoquer de la joie."
+    },
+    "en": {
+      "sector": "Ice cream maker",
+      "line": "Warning: scrolling may cause joy."
+    }
+  },
+  {
+    "slug": "medina-lab",
+    "framework": "next",
+    "source": "CODE(9)/codegrid-grid-shutter-page-transition",
+    "client": "Médina Lab",
+    "kind": "entreprise",
+    "year": "2026",
+    "accent": "#f0e442",
+    "fr": {
+      "sector": "Laboratoire d'innovation",
+      "line": "Chaque page s'ouvre comme un volet de la médina."
+    },
+    "en": {
+      "sector": "Innovation lab",
+      "line": "Every page opens like a medina shutter."
+    }
+  }
+]

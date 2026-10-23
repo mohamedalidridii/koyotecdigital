@@ -1,0 +1,168 @@
+.impactHero {
+  width: 100%;
+  height: 140svh;
+  background: var(--color-dark-charcoal);
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+}
+
+.impactHeroInner {
+  flex: 0.5;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 3rem;
+}
+
+.impactHeroCols {
+  align-items: end;
+  width: 100%;
+}
+
+.impactHeroMedia {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.impactInfo {
+  width: 100%;
+  background: var(--color-dark-charcoal);
+  color: var(--color-text);
+  border-top: 1px solid var(--color-medium-grey);
+}
+
+.impactInfoInner {
+  padding-block: var(--space-4xl);
+}
+
+.impactInfoHeader {
+  position: relative;
+  align-items: start;
+  padding-bottom: 14rem;
+}
+
+.impactInfoHeader::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  transform: translateX(-50%);
+  background-color: var(--color-medium-grey);
+}
+
+.impactInfoHeader h2 {
+  transform: translateY(-0.5rem);
+  max-width: 14ch;
+}
+
+.impactInfoLabels {
+  display: flex;
+  flex-direction: column;
+}
+
+.impactInfoLink {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.impactInfoIntro {
+  align-items: start;
+  padding-block: var(--space-4xl);
+}
+
+.impactInfoIntro h2 {
+  max-width: 35ch;
+}
+
+.impactInfoMedia {
+  position: relative;
+  aspect-ratio: 5/7;
+  overflow: hidden;
+}
+
+.impactInfoStat {
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
+  padding-inline: var(--space-lg);
+  border-left: 1px solid var(--color-medium-grey);
+}
+
+.impactOutro {
+  width: 100%;
+  height: 100svh;
+  background: var(--color-dark-charcoal);
+  color: var(--color-text);
+}
+
+.impactOutroInner {
+  height: 100%;
+  padding-block: var(--space-pane);
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.impactOutroInner h2 {
+  max-width: 22ch;
+}
+
+@media (max-width: 1000px) {
+  .impactHeroInner {
+    padding-bottom: var(--space-3xl);
+  }
+
+  .impactHeroSpacer {
+    display: none;
+  }
+
+  .impactInfo {
+    padding: 4rem 0;
+  }
+
+  .impactInfoInner {
+    padding-block: var(--space-section);
+  }
+
+  .impactInfoHeader {
+    gap: var(--space-3xl);
+    padding-bottom: var(--space-3xl);
+  }
+
+  .impactInfoLink {
+    justify-content: flex-start;
+  }
+
+  .impactInfoIntro {
+    gap: var(--space-3xl);
+    padding-block: var(--space-3xl);
+  }
+
+  .impactInfoStat {
+    border-left: none;
+    border-top: 1px solid var(--color-medium-grey);
+    padding-inline: 0;
+    padding-block: 0;
+    padding-top: 2rem;
+  }
+
+  .impactInfoStat:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .impactOutroInner {
+    padding-block: var(--space-section);
+  }
+
+  .impactOutroInner h2 {
+    max-width: none;
+  }
+}

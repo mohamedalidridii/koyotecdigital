@@ -12,15 +12,19 @@ import { autoSplits, drawLines } from "./core/reveal.js";
 import { homeHero, pageHero } from "./sections/intro.js";
 import { serviceHover, statement, rows } from "./sections/home.js";
 import { faq, cta, footer, contactForm, article } from "./sections/common.js";
+import { artTheme, artHero, artExpo, artViewer, artTeaser, staticLetters } from "./sections/art.js";
 
 // motion modules per Barba namespace (nav, form and FAQ run everywhere, even with reduced motion)
 const PAGES = {
-  home: [homeHero, serviceHover, statement, rows, cta],
+  home: [homeHero, serviceHover, artTeaser, statement, rows, cta],
   services: [pageHero, rows, cta],
   contact: [pageHero],
   blog: [pageHero, rows],
   article: [pageHero, article],
+  art: [artHero, artExpo, cta],
 };
+// per-page systems that run even with reduced motion
+const ALWAYS = { home: [staticLetters], art: [artTheme, artViewer, staticLetters] };
 
 let ctx = null;
 let cleanups = [];
@@ -30,7 +34,7 @@ function mount(container, { ready = Promise.resolve() } = {}) {
   scroll.add(container);
 
   ctx = gsap.context(() => {
-    cleanups = [initNav(container), faq(container), contactForm(container)];
+    cleanups = [initNav(container), faq(container), contactForm(container), ...(ALWAYS[ns] || []).map((fn) => fn(container))];
     if (!reduced) {
       cleanups.push(magnetic(container));
       (PAGES[ns] || [pageHero]).forEach((fn) => cleanups.push(fn(container, { ready })));

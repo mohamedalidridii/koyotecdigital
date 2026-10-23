@@ -20,7 +20,9 @@ function cleanUrls() {
       const target = [`${clean}.html`, `${clean}/index.html`].find((f) =>
         existsSync(resolve(__dirname, "." + f))
       );
-      if (target) req.url = target + (query ? `?${query}` : "");
+      // showcase pieces are static sites living in public/ (public/art-de-la-difference/<slug>/index.html)
+      const piece = !target && existsSync(resolve(__dirname, "public" + clean, "index.html")) && `${clean}/index.html`;
+      if (target || piece) req.url = (target || piece) + (query ? `?${query}` : "");
     }
     next();
   };

@@ -1,0 +1,1 @@
+import{s as c}from"./menu-0y6MUi63.js";import"./pixelated-video-CrjLsdfs.js";import"./three.module-BWGOs_70.js";document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll(".contact-copy h4, .contact-copy-footer p").forEach((t,o)=>{if(t.textContent.trim()){const e=.75+o*.1;c(t,e,{duration:.1,charDelay:50,stagger:25,skipChars:0,maxIterations:5})}})});

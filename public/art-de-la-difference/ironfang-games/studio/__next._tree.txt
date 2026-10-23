@@ -1,0 +1,7 @@
+:HL["/art-de-la-difference/ironfang-games/_next/static/css/a674aea5422192e5.css","style"]
+:HL["/art-de-la-difference/ironfang-games/_next/static/css/4f0bcf0fe7202f5a.css","style"]
+:HL["/art-de-la-difference/ironfang-games/_next/static/css/2f7449fe21abb497.css","style"]
+:HL["/art-de-la-difference/ironfang-games/_next/static/css/4a7b9210c4d3503b.css","style"]
+:HL["/art-de-la-difference/ironfang-games/_next/static/css/eba2a21ed08a416b.css","style"]
+:HL["/art-de-la-difference/ironfang-games/_next/static/css/3a33cc9ec1e1fe89.css","style"]
+0:{"buildId":"vKOyEj3sMDP2NTfzC5df5","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"studio","paramType":null,"paramKey":"studio","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

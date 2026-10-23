@@ -1,0 +1,47 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  line-height: 0;
+}
+
+.brand svg {
+  width: 28px;
+  height: 28px;
+}
+
+.toggle {
+  position: relative;
+  display: grid;
+  background: none;
+  border: 0;
+  padding: 0;
+  color: inherit;
+  cursor: pointer;
+}
+
+.toggleClip {
+  grid-area: 1 / 1;
+  display: block;
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.toggleLabel {
+  display: block;
+  position: relative;
+  will-change: transform;
+}

@@ -38,7 +38,7 @@ export function initRouter({ mount, unmount }) {
         name: "night-curtain",
         async leave({ current, trigger }) {
           // the destination's name rides on the curtain
-          const named = trigger instanceof Element && trigger.querySelector(".menu-name, .svc-name, .post-title, .tlink-label, .cta-word");
+          const named = trigger instanceof Element && trigger.querySelector(".menu-name, .svc-name, .post-title, .art-chip-name, .tlink-label, .cta-word");
           const text = named ? named.textContent : trigger instanceof Element ? trigger.textContent : "";
           label.textContent = text.replace(/[→↗]/g, "").replace(/\s+/g, " ").trim().slice(0, 32);
           labelSplit?.revert();

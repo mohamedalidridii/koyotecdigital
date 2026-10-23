@@ -1,0 +1,2 @@
+import"./common-CD7csilR.js";var e=`contact@yasmine-nutrition.tn`,t=document.querySelector(`#rdv-form`);t.addEventListener(`submit`,n=>{n.preventDefault();let r=new FormData(t),i=`Demande de rendez-vous — ${r.get(`motif`)}`,a=[`Nom : ${r.get(`nom`)}`,`Téléphone : ${r.get(`tel`)}`,`Motif : ${r.get(`motif`)}`,``,r.get(`message`)].join(`
+`);location.href=`mailto:${e}?subject=${encodeURIComponent(i)}&body=${encodeURIComponent(a)}`});

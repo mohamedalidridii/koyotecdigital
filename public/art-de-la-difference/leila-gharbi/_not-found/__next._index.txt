@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[4992,[],""]
+3:I[4678,[],""]
+:HL["/art-de-la-difference/leila-gharbi/_next/static/css/8db0cbee38f5b422.css","style"]
+0:{"buildId":"9SJYW47ILnrEh3oBvY4Qd","rsc":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/art-de-la-difference/leila-gharbi/_next/static/css/8db0cbee38f5b422.css","precedence":"next"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]}]}]]}],"loading":null,"isPartial":false}

@@ -1,0 +1,75 @@
+.missionHero {
+  width: 100%;
+  height: 150svh;
+  background: var(--color-dark-charcoal);
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+}
+
+.missionHeroInner {
+  flex: 0.75;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 3rem;
+}
+
+.missionHeroCols {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  align-items: end;
+  gap: var(--space-3xl);
+  width: 100%;
+}
+
+.missionHeroCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.missionHeroCopy h2 {
+  max-width: 28ch;
+}
+
+.missionHeroMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-xl);
+}
+
+.missionHeroMedia {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+@media (max-width: 1000px) {
+  .missionHero {
+    height: 175svh;
+  }
+
+  .missionHeroInner {
+    padding-top: 16rem;
+    padding-bottom: var(--space-3xl);
+  }
+
+  .missionHeroCols {
+    grid-template-columns: 1fr;
+    gap: var(--space-3xl);
+  }
+
+  .missionHeroCopy {
+    gap: var(--space-3xl);
+  }
+
+  .missionHeroMeta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

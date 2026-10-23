@@ -1,0 +1,98 @@
+.section {
+  width: 100%;
+  background: var(--color-dark-charcoal);
+  color: var(--color-text);
+}
+
+.inner {
+  padding-block: var(--space-section);
+}
+
+.label {
+  margin: 0 0 var(--space-3xl);
+  color: var(--color-amber-yellow);
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.75rem;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.heroCard {
+  width: 100%;
+  min-height: 48vh;
+  aspect-ratio: 16 / 6;
+}
+
+.bottomRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.75rem;
+}
+
+.statCard {
+  aspect-ratio: 4 / 5;
+  min-height: 0;
+}
+
+.media {
+  position: absolute;
+  inset: 0;
+}
+
+.media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+}
+
+.cardInner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100%;
+  padding: var(--space-3xl);
+}
+
+.cardLabel,
+.cardValue {
+  color: inherit;
+}
+
+.accent {
+  background: var(--color-amber-yellow);
+  color: var(--color-surface-black);
+}
+
+.imageCard {
+  color: var(--color-text);
+}
+
+@media (max-width: 1000px) {
+  .heroCard {
+    min-height: 40vh;
+    aspect-ratio: 16 / 10;
+  }
+
+  .cardInner {
+    padding: 1.375rem;
+    position: absolute;
+  }
+
+  .bottomRow {
+    grid-template-columns: 1fr;
+  }
+}

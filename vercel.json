@@ -23,6 +23,14 @@
       "destination": "/en/contact.html"
     },
     {
+      "source": "/art-de-la-difference",
+      "destination": "/art-de-la-difference.html"
+    },
+    {
+      "source": "/en/art-of-difference",
+      "destination": "/en/art-of-difference.html"
+    },
+    {
       "source": "/work",
       "destination": "/work.html"
     },

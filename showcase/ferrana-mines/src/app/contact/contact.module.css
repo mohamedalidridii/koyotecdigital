@@ -1,0 +1,316 @@
+.contactHero {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.contactHeroBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.contactHeroContent {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5rem;
+  padding: 6rem 2.75rem;
+  color: var(--color-primary);
+}
+
+.contactHero a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.intro,
+.detailRow,
+.closing {
+  max-width: 50rem;
+  width: 100%;
+  margin-inline: auto;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.intro p:last-child {
+  text-indent: 4rem;
+}
+
+.intro p,
+.closing {
+  overflow: hidden;
+}
+
+.intro .line a,
+.closing .line a {
+  display: inline;
+}
+
+.detailRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.contactCol,
+.careersCol {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contactStack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.inquiry {
+  display: flex;
+  flex-direction: column;
+}
+
+.closing {
+  text-indent: 4rem;
+}
+
+.contactCallout {
+  width: 100%;
+  background: var(--color-dark-charcoal);
+  color: var(--color-text);
+}
+
+.calloutInner {
+  padding: 8rem 2.75rem;
+}
+
+.calloutInner h2 {
+  max-width: 20ch;
+}
+
+.calloutPerson {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: var(--space-3xl);
+}
+
+.calloutLogoWrap {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.calloutLogo {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: block;
+}
+
+.calloutMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.infoSection {
+  width: 100%;
+  background: var(--color-dark-charcoal);
+  color: var(--color-text);
+  border-top: 1px solid var(--color-medium-grey);
+}
+
+.infoInner {
+  padding: 4rem 2.75rem;
+}
+
+.infoCols {
+  align-items: start;
+}
+
+.infoCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.infoLabel {
+  margin: 0 0 var(--space-md);
+}
+
+.infoBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.infoBlock + .infoBlock {
+  margin-top: 4rem;
+}
+
+.infoSubLabel {
+  color: var(--color-mid-grey);
+}
+
+.infoSection a {
+  color: inherit;
+}
+
+.insightSection {
+  width: 100%;
+  background: var(--color-dark-charcoal);
+  color: var(--color-text);
+  border-top: 1px solid var(--color-medium-grey);
+}
+
+.insightCols {
+  align-items: stretch;
+}
+
+.insightAside {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.insightLabel {
+  color: var(--color-mid-grey);
+}
+
+.insightAll {
+  color: inherit;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.insightCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-lg);
+}
+
+.insightTag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  background: var(--color-medium-grey);
+  color: var(--color-mid-grey);
+}
+
+.insightCopy h2 {
+  max-width: 16ch;
+}
+
+.insightMedia {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.insightMediaFrame {
+  position: relative;
+  width: 100%;
+  max-width: 22rem;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+@media (max-width: 1000px) {
+  .contactHero {
+    height: auto;
+    min-height: 120svh;
+  }
+
+  .contactHeroContent {
+    justify-content: flex-start;
+    gap: 3.5rem;
+    padding: 10rem 2rem 4rem;
+  }
+
+  .intro,
+  .detailRow,
+  .closing {
+    max-width: none;
+    margin-inline: 0;
+  }
+
+  .intro p:last-child,
+  .closing {
+    text-indent: 0;
+  }
+
+  .detailRow {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 3.5rem;
+  }
+
+  .contactCol,
+  .careersCol,
+  .contactStack {
+    gap: 1.25rem;
+  }
+
+  .calloutInner {
+    padding: 8rem 2rem;
+  }
+
+  .infoInner {
+    padding: 4rem 2rem;
+  }
+
+  .contactCallout,
+  .infoSection,
+  .insightSection {
+    padding: 2rem 0;
+  }
+
+  .calloutInner {
+    padding-block: var(--space-4xl);
+  }
+
+  .calloutInner h1 {
+    max-width: none;
+  }
+
+  .infoSpacer {
+    display: none;
+  }
+
+  .infoInner,
+  .insightInner {
+    padding-block: var(--space-4xl);
+  }
+
+  .insightAside {
+    gap: var(--space-3xl);
+  }
+
+  .insightMedia {
+    justify-content: flex-start;
+  }
+
+  .insightMediaFrame {
+    max-width: none;
+  }
+
+  .insightAside a,
+  .insightCopy p {
+    display: none;
+  }
+}
