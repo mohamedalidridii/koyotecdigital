@@ -73,8 +73,9 @@ export function contactForm(scope) {
   if (!form) return;
   const done = form.querySelector(".form-done");
   const btn = form.querySelector(".send");
-  const say = (text) => {
+  const say = (text, failed = false) => {
     done.textContent = text;
+    done.classList.toggle("is-error", failed);
     gsap.fromTo(done, { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.8 });
   };
   const submit = async (e) => {
@@ -105,7 +106,7 @@ export function contactForm(scope) {
       const types = payload.type.join(", ");
       const subject = `${payload.subject} — ${payload.name}`;
       const body = `${payload.message}\n\n${types ? `→ ${types}\n` : ""}${payload.name} · ${payload.email}`;
-      say(form.dataset.error);
+      say(form.dataset.error, true);
       window.location.href = `mailto:${form.dataset.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     } finally {
       btn.disabled = false;

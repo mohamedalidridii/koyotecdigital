@@ -126,39 +126,64 @@ a.al-line:hover {
 }
 .field {
   display: grid;
-  gap: 0.2rem;
-  padding: 0.9rem 0 0.4rem;
+  gap: 0.3rem;
+  padding: 0.9rem 0.5rem 0.4rem;
+  transition: background-color 0.3s;
+}
+.field:focus-within {
+  background: rgba(13, 13, 13, 0.035);
 }
 .field > span,
 .chips legend {
-  color: var(--ink-dim);
+  color: var(--ink);
+  font-family: var(--f-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.field:has(:required) > span::after {
+  content: " *";
 }
 .field input,
 .field textarea {
   width: 100%;
-  padding: 0.2rem 0 0.4rem;
+  padding: 0.2rem 0 0.45rem;
   border: 0;
   background: transparent;
   font-family: var(--f-serif);
-  font-size: clamp(1.5rem, 2vw, 2rem);
-  line-height: 1.15;
+  font-size: clamp(1.15rem, 1.1rem + 0.4vw, 1.4rem);
+  line-height: 1.4;
   resize: vertical;
   outline: none;
 }
+.field textarea {
+  min-height: 7rem;
+}
+.contact-form .field::after {
+  opacity: 0.5;
+  transition: opacity 0.3s, height 0.3s, background-color 0.3s;
+}
 .field:focus-within::after {
+  height: 2px;
+  opacity: 1;
+}
+.field:has(:user-invalid)::after {
+  height: 2px;
+  background: #8a1c1c;
   opacity: 1;
 }
 .chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
-  padding: 0.9rem 0 1.1rem;
+  gap: 0.5rem;
+  padding: 0.9rem 0.5rem 1.1rem;
   border: 0;
 }
 .chips legend {
   float: left;
   width: 100%;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.7rem;
 }
 .chip input {
   position: absolute;
@@ -166,11 +191,15 @@ a.al-line:hover {
 }
 .chip span {
   display: inline-block;
-  padding: 0.35rem 0.8rem;
-  border: 1px solid var(--line);
+  padding: 0.55rem 1rem;
+  border: 1px solid rgba(13, 13, 13, 0.4);
   border-radius: 999px;
+  font-size: 0.9375rem;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+.chip:hover span {
+  border-color: var(--ink);
 }
 .chip input:checked + span {
   background: var(--ink);
@@ -178,7 +207,7 @@ a.al-line:hover {
   color: var(--paper);
 }
 .chip input:focus-visible + span {
-  outline: 1px solid var(--ink);
+  outline: 2px solid var(--ink);
   outline-offset: 3px;
 }
 .form-foot {
@@ -186,23 +215,39 @@ a.al-line:hover {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 1rem 1.5rem;
   margin-top: 2rem;
+  padding-inline: 0.5rem;
 }
 .send {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
+  padding: 0.9rem 1.6rem;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
   font-family: var(--f-serif);
-  font-size: clamp(2.2rem, 3.4vw, 3.6rem);
+  font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.6rem);
   line-height: 1;
+  transition: background-color 0.3s, color 0.3s, opacity 0.3s;
 }
-.send:hover {
+.send:hover,
+.send:focus-visible {
+  background: var(--ink);
+  color: var(--paper);
   font-style: italic;
 }
+.send:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+.send:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
 .send .g {
-  width: 0.5em;
-  height: 0.5em;
+  width: 0.7em;
+  height: 0.7em;
   transition: transform 0.6s var(--ease-out);
 }
 .send:hover .g {
@@ -210,7 +255,17 @@ a.al-line:hover {
 }
 .form-note,
 .form-done {
-  color: var(--ink-dim);
+  color: var(--ink);
+  font-size: 0.9375rem;
+}
+.form-done {
+  margin: 1.25rem 0.5rem 0;
+  padding: 0.6rem 0 0.6rem 1rem;
+  border-left: 2px solid var(--ink);
+}
+.form-done.is-error {
+  border-left-color: #8a1c1c;
+  color: #8a1c1c;
 }
 .form-done:empty {
   display: none;
@@ -218,6 +273,18 @@ a.al-line:hover {
 @media (max-width: 900px) {
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .form-h {
+    font-size: 1.9rem;
+  }
+  .form-foot {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .send {
+    justify-content: center;
   }
 }
 
