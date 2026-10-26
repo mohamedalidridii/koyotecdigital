@@ -141,7 +141,7 @@
       ]
     },
     {
-      "source": "/art-de-la-difference/:path+",
+      "source": "/art-de-la-difference/(.+)",
       "headers": [
         {
           "key": "X-Robots-Tag",
