@@ -27,6 +27,30 @@
       "destination": "/en/web-design-tunisia.html"
     },
     {
+      "source": "/creation-logo-identite-visuelle",
+      "destination": "/creation-logo-identite-visuelle.html"
+    },
+    {
+      "source": "/referencement-seo-tunis",
+      "destination": "/referencement-seo-tunis.html"
+    },
+    {
+      "source": "/creation-site-e-commerce-tunisie",
+      "destination": "/creation-site-e-commerce-tunisie.html"
+    },
+    {
+      "source": "/en/logo-brand-identity-design",
+      "destination": "/en/logo-brand-identity-design.html"
+    },
+    {
+      "source": "/en/seo-agency-tunisia",
+      "destination": "/en/seo-agency-tunisia.html"
+    },
+    {
+      "source": "/en/ecommerce-website-tunisia",
+      "destination": "/en/ecommerce-website-tunisia.html"
+    },
+    {
       "source": "/art-de-la-difference",
       "destination": "/art-de-la-difference.html"
     },
@@ -98,12 +122,12 @@
       "permanent": true
     },
     {
-      "source": "/:page(services|contact|art-de-la-difference|creation-site-web-tunis).html",
+      "source": "/:page(services|contact|art-de-la-difference|creation-site-web-tunis|creation-logo-identite-visuelle|referencement-seo-tunis|creation-site-e-commerce-tunisie).html",
       "destination": "/:page",
       "permanent": true
     },
     {
-      "source": "/en/:page(services|contact|art-of-difference|web-design-tunisia).html",
+      "source": "/en/:page(services|contact|art-of-difference|web-design-tunisia|logo-brand-identity-design|seo-agency-tunisia|ecommerce-website-tunisia).html",
       "destination": "/en/:page",
       "permanent": true
     },

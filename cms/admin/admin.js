@@ -31,7 +31,7 @@ const LABELS = {
   nav_cta: "Bouton « devis » du menu", footer_pages: "Titre colonne pages (pied de page)", footer_contact: "Titre colonne contact", footer_follow: "Titre colonne réseaux",
 };
 const TUPLE = { cards: ["Titre", "Description"], points: ["Titre", "Description"], faq: ["Question", "Réponse"], blocks: ["Titre", "Texte"], process: ["Étape", "Description"], sections: ["Titre de section", "Texte (ligne vide = nouveau paragraphe ; « - » en début de ligne = liste)"] };
-const PAGE_NAMES = { home: "Accueil", services: "Services", lp_web: "Page « Création site web »", contact: "Contact", blog: "Page Blog", ui: "Menus et libellés" };
+const PAGE_NAMES = { home: "Accueil", services: "Services", lp_web: "Page « Création site web »", lp_branding: "Page « Logo et identité »", lp_seo: "Page « SEO »", lp_ecommerce: "Page « E-commerce »", contact: "Contact", blog: "Page Blog", ui: "Menus et libellés" };
 const label = (k) => LABELS[k] || k;
 
 function h(tag, attrs = {}, ...kids) {

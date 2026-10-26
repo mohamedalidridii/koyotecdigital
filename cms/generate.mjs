@@ -9,9 +9,12 @@ export const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 // Service landing pages, one search intent each. The key is also the content key in site.json.
 export const LANDINGS = {
   lp_web: ["/creation-site-web-tunis", "/en/web-design-tunisia"],
+  lp_branding: ["/creation-logo-identite-visuelle", "/en/logo-brand-identity-design"],
+  lp_seo: ["/referencement-seo-tunis", "/en/seo-agency-tunisia"],
+  lp_ecommerce: ["/creation-site-e-commerce-tunisie", "/en/ecommerce-website-tunisia"],
 };
 // landing page of each service, in the order of home.cards / services.blocks (null: no page of its own)
-const SERVICE_LANDING = ["lp_web", null, null, null, null, null];
+const SERVICE_LANDING = ["lp_web", "lp_branding", "lp_seo", null, "lp_ecommerce", null];
 
 // Fixed route table. URLs are not editable from the CMS on purpose.
 const PATHS = {

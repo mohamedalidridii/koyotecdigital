@@ -37,6 +37,42 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/creation-site-web-tunis"/>
   </url>
   <url>
+    <loc>https://www.koyotec.digital/creation-logo-identite-visuelle</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/creation-logo-identite-visuelle"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/logo-brand-identity-design"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/creation-logo-identite-visuelle"/>
+  </url>
+  <url>
+    <loc>https://www.koyotec.digital/en/logo-brand-identity-design</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/creation-logo-identite-visuelle"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/logo-brand-identity-design"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/creation-logo-identite-visuelle"/>
+  </url>
+  <url>
+    <loc>https://www.koyotec.digital/referencement-seo-tunis</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/referencement-seo-tunis"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/seo-agency-tunisia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/referencement-seo-tunis"/>
+  </url>
+  <url>
+    <loc>https://www.koyotec.digital/en/seo-agency-tunisia</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/referencement-seo-tunis"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/seo-agency-tunisia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/referencement-seo-tunis"/>
+  </url>
+  <url>
+    <loc>https://www.koyotec.digital/creation-site-e-commerce-tunisie</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/creation-site-e-commerce-tunisie"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/ecommerce-website-tunisia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/creation-site-e-commerce-tunisie"/>
+  </url>
+  <url>
+    <loc>https://www.koyotec.digital/en/ecommerce-website-tunisia</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/creation-site-e-commerce-tunisie"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/ecommerce-website-tunisia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/creation-site-e-commerce-tunisie"/>
+  </url>
+  <url>
     <loc>https://www.koyotec.digital/art-de-la-difference</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/art-de-la-difference"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/art-of-difference"/>
