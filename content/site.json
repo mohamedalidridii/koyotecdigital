@@ -240,13 +240,14 @@
       "cta": "Demander un devis gratuit"
     },
     "contact": {
-      "title": "Contact & Devis Gratuit | Agence Web à Tunis – KOYOTEC",
-      "desc": "Contactez KOYOTEC, agence web et branding à Ennasr, Tunis. Téléphone +216 52 405 699, e-mail contact@koyotec.digital. Devis gratuit sous 24 h.",
-      "h1": "Contactez l'agence KOYOTEC à Tunis",
+      "title": "Devis Création Site Web Gratuit à Tunis | Contact – KOYOTEC",
+      "desc": "Demandez votre devis gratuit pour un site web, un logo, le SEO ou une boutique en ligne à Tunis. Réponse sous 24 h. KOYOTEC, Ennasr : +216 52 405 699.",
+      "h1": "Demandez votre devis de site web à Tunis",
+      "sub": "Site vitrine, boutique en ligne, logo ou référencement : décrivez votre projet en deux minutes, nous vous répondons avec un devis gratuit et détaillé sous 24 h.",
       "addr": [
         "Ennasr, Tunis",
         "Tunisie",
-        "36.8065 / 10.1818"
+        "36.8652 / 10.1714"
       ],
       "drop": "Écrivez-nous",
       "love": "Devis gratuit sous 24 h",
@@ -262,7 +263,49 @@
       "f_note": "Réponse et devis gratuit sous 24 h",
       "f_done": "Merci, votre message est bien parti. Nous vous répondons sous 24 h.",
       "f_error": "L'envoi a échoué : votre messagerie s'ouvre avec la demande prête à envoyer.",
-      "f_sending": "Envoi en cours…"
+      "f_sending": "Envoi en cours…",
+      "process_h": "Comment se passe votre devis",
+      "process": [
+        [
+          "1. Votre demande",
+          "Remplissez le formulaire ou appelez-nous : quelques lignes sur votre projet suffisent."
+        ],
+        [
+          "2. Échange",
+          "Nous revenons vers vous pour préciser vos objectifs, vos délais et les fonctionnalités utiles."
+        ],
+        [
+          "3. Devis détaillé",
+          "Vous recevez un devis gratuit, ligne par ligne, sans engagement."
+        ],
+        [
+          "4. Lancement",
+          "Après validation, nous planifions ensemble les étapes et le calendrier du projet."
+        ]
+      ],
+      "faq_h": "Questions fréquentes sur le devis",
+      "faq": [
+        [
+          "Le devis est-il vraiment gratuit ?",
+          "Oui. Le devis est gratuit et sans engagement : vous décidez ensuite, à votre rythme."
+        ],
+        [
+          "Quelles informations dois-je préparer ?",
+          "Votre activité, le type de site souhaité (vitrine, e-commerce, plateforme), les fonctionnalités importantes, quelques sites que vous aimez et votre délai idéal. Un cahier des charges complet n'est pas nécessaire : nous le construisons avec vous."
+        ],
+        [
+          "En combien de temps vais-je recevoir le devis ?",
+          "Nous répondons à chaque demande sous 24 h. Pour un projet complexe, nous pouvons d'abord vous proposer un court échange pour bien comprendre votre besoin."
+        ],
+        [
+          "Peut-on se rencontrer avant le devis ?",
+          "Oui. Nous pouvons nous voir à Ennasr, Tunis, ou échanger par téléphone ou en visioconférence si vous êtes ailleurs en Tunisie ou à l'étranger."
+        ],
+        [
+          "Combien coûte un site web ?",
+          "Le prix dépend du nombre de pages, du design sur mesure, des fonctionnalités, des langues et des contenus à rédiger. Le devis détaille chaque poste ; notre guide sur le coût d'un site web en Tunisie, sur le blog, vous aide aussi à préparer votre budget."
+        ]
+      ]
     },
     "blog": {
       "title": "Blog : Conseils Site Web, SEO & Branding à Tunis – KOYOTEC",
@@ -919,13 +962,14 @@
       "cta": "Get a free quote"
     },
     "contact": {
-      "title": "Contact & Free Quote | Web Agency in Tunis – KOYOTEC",
-      "desc": "Contact KOYOTEC, web design and branding agency in Ennasr, Tunis. Phone +216 52 405 699, email contact@koyotec.digital. Free quote within 24 hours.",
-      "h1": "Contact the KOYOTEC agency in Tunis",
+      "title": "Free Website Design Quote in Tunis | Contact – KOYOTEC",
+      "desc": "Request a free quote for a website, logo, SEO or online store in Tunis, Tunisia. Reply within 24 hours. KOYOTEC, Ennasr: +216 52 405 699.",
+      "h1": "Get a quote for your website in Tunis",
+      "sub": "Showcase site, online store, logo or SEO: describe your project in two minutes and we reply with a free, detailed quote within 24 hours.",
       "addr": [
         "Ennasr, Tunis",
         "Tunisia",
-        "36.8065 / 10.1818"
+        "36.8652 / 10.1714"
       ],
       "drop": "Drop a line",
       "love": "Free quote within 24 hours",
@@ -941,7 +985,49 @@
       "f_note": "Reply and free quote within 24 hours",
       "f_done": "Thank you, your message has been sent. We reply within 24 hours.",
       "f_error": "Sending failed: your email app opens with the request ready to send.",
-      "f_sending": "Sending…"
+      "f_sending": "Sending…",
+      "process_h": "How your quote works",
+      "process": [
+        [
+          "1. Your request",
+          "Fill in the form or call us: a few lines about your project are enough."
+        ],
+        [
+          "2. Conversation",
+          "We get back to you to clarify your goals, timing and the features you need."
+        ],
+        [
+          "3. Detailed quote",
+          "You receive a free, itemised quote with no commitment."
+        ],
+        [
+          "4. Kick-off",
+          "Once approved, we plan the project steps and schedule together."
+        ]
+      ],
+      "faq_h": "Quote FAQ",
+      "faq": [
+        [
+          "Is the quote really free?",
+          "Yes. The quote is free and comes with no commitment: you decide afterwards, at your own pace."
+        ],
+        [
+          "What information should I prepare?",
+          "Your business, the kind of site you want (showcase, e-commerce, platform), key features, a few websites you like and your ideal timing. You don't need a full specification: we build it with you."
+        ],
+        [
+          "How soon will I receive the quote?",
+          "We reply to every request within 24 hours. For a complex project, we may first suggest a short call to understand your needs."
+        ],
+        [
+          "Can we meet before the quote?",
+          "Yes. We can meet in Ennasr, Tunis, or talk by phone or video call if you are elsewhere in Tunisia or abroad."
+        ],
+        [
+          "How much does a website cost?",
+          "The price depends on the number of pages, custom design, features, languages and copy to write. The quote itemises each part; our guide to website costs in Tunisia, on the blog, also helps you plan your budget."
+        ]
+      ]
     },
     "blog": {
       "title": "Blog: Web Design, SEO & Branding Tips from Tunis – KOYOTEC",

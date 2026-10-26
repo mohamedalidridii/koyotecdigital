@@ -199,7 +199,7 @@ ${altFr ? `    <link rel="alternate" hreflang="fr" href="${esc(SITE + altFr)}" /
         faqLd(p.faq),
       );
     } else if (page === "contact") {
-      ld = graph(org(lang), { "@type": "ContactPage", name: p.h1, url: url(page, lang), about: { "@id": SITE + "/#organization" } }, crumbs(home, [ui.nav[page], url(page, lang)]));
+      ld = graph(org(lang), { "@type": "ContactPage", name: p.h1, url: url(page, lang), about: { "@id": SITE + "/#organization" } }, faqLd(p.faq), crumbs(home, [ui.nav[page], url(page, lang)]));
     } else {
       ld = graph(org(lang), crumbs(home, [ui.nav[page], url(page, lang)]));
     }
@@ -371,6 +371,14 @@ ${steps.map(([a, b], n) => `            <li class="row" data-line><span class="r
       </section>`;
 
   const faqRows = (items) => items.map(([q, a], n) => `            <details data-line><summary><span class="row-num">${pad(n + 1)}</span><span class="faq-q">${esc(q)}</span><i aria-hidden="true"></i></summary><div class="faq-a"><p>${esc(a)}</p></div></details>`).join("\n");
+  const faqSection = (h, items) => `      <section class="table-sec faq" id="faq" data-gl="constellation" data-gl-dim="0.3">
+        <div class="shell">
+          ${sectionHead(h, items.length, "faq-h")}
+          <div class="faq-list">
+${faqRows(items)}
+          </div>
+        </div>
+      </section>`;
   const faqLd = (items) => ({ "@type": "FAQPage", mainEntity: items.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) });
 
   const ctaSection = (lang, { kicker, h, giant, button }) => {
@@ -451,7 +459,6 @@ ${chips}
   function home(lang) {
     const h = site[lang].home; const i = idx(lang); const c = CURSOR[lang];
     const pillars = h.points.map(([a, b], n) => `            <li data-line><span class="pillar-num">(${pad(n + 1)})</span><h3>${esc(a)}</h3><p>${esc(b)}</p></li>`).join("\n");
-    const faq = faqRows(h.faq);
     const main = `      <section class="hero" data-gl="dunes" data-cursor="${c.howl}">
         <div class="hero-float shell" aria-hidden="true">
           <p class="float-a" data-scroll data-scroll-speed="0.15">${esc(h.hero_meta[0] || "")}</p>
@@ -505,14 +512,7 @@ ${pillars}
 
 ${processSection(lang, h.process_h, h.process)}
 
-      <section class="table-sec faq" id="faq" data-gl="constellation" data-gl-dim="0.3">
-        <div class="shell">
-          ${sectionHead(h.faq_h, h.faq.length, "faq-h")}
-          <div class="faq-list">
-${faq}
-          </div>
-        </div>
-      </section>
+${faqSection(h.faq_h, h.faq)}
 
 ${ctaSection(lang, { kicker: h.cta_sub, h: h.cta_h, giant: h.cta_giant, button: h.cta_btn })}`;
     return page({ head: pageHead(lang, "home"), lang, ns: "home", pageKey: "home", main });
@@ -603,14 +603,7 @@ ${examples}
         </div>
       </section>
 
-      <section class="table-sec faq" id="faq" data-gl="constellation" data-gl-dim="0.3">
-        <div class="shell">
-          ${sectionHead(l.faq_h, l.faq.length, "faq-h")}
-          <div class="faq-list">
-${faqRows(l.faq)}
-          </div>
-        </div>
-      </section>
+${faqSection(l.faq_h, l.faq)}
 
       <section class="table-sec" id="related" aria-labelledby="related-h">
         <div class="shell">
@@ -635,6 +628,7 @@ ${ctaSection(lang, { h: l.cta_h, button: l.cta })}`;
         <div class="shell">
           <p class="lockup-brand">${stamp("Hello", c.drop)} <span>${esc(c.love)}</span></p>
           <h1 class="lockup-h1 page-title" data-split>${midGlyphs(c.h1, GLYPH.howl, GLYPH.pin)}</h1>
+          <div class="page-hero-foot" data-line><p class="hero-sub">${esc(c.sub)}</p></div>
         </div>
       </section>
       <section class="contact-body">
@@ -658,7 +652,11 @@ ${ctaSection(lang, { h: l.cta_h, button: l.cta })}`;
             <p class="form-done" role="status" aria-live="polite"></p>
           </form>
         </div>
-      </section>`;
+      </section>
+
+${processSection(lang, c.process_h, c.process)}
+
+${faqSection(c.faq_h, c.faq)}`;
     return page({ head: pageHead(lang, "contact"), lang, ns: "contact", pageKey: "contact", main });
   }
 

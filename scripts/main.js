@@ -18,7 +18,7 @@ import { artTheme, artHero, artExpo, artViewer, artTeaser, staticLetters } from 
 const PAGES = {
   home: [homeHero, serviceHover, artTeaser, statement, rows, cta],
   services: [pageHero, rows, cta],
-  contact: [pageHero],
+  contact: [pageHero, rows],
   blog: [pageHero, rows],
   article: [pageHero, article],
   art: [artHero, artExpo, cta],
