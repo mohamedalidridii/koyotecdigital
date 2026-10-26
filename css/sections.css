@@ -420,8 +420,12 @@
 .cta-giant:hover {
   font-style: italic;
 }
-.cta-giant .gc {
+.cta-giant .gc,
+.cta-giant .gw {
   display: inline-block;
+}
+.cta-giant .gw {
+  white-space: nowrap;
 }
 .cta-links {
   display: flex;

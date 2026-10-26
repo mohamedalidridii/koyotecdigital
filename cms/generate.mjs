@@ -6,8 +6,16 @@ import { fileURLToPath } from "node:url";
 
 export const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
+// Service landing pages, one search intent each. The key is also the content key in site.json.
+export const LANDINGS = {
+  lp_web: ["/creation-site-web-tunis", "/en/web-design-tunisia"],
+};
+// landing page of each service, in the order of home.cards / services.blocks (null: no page of its own)
+const SERVICE_LANDING = ["lp_web", null, null, null, null, null];
+
 // Fixed route table. URLs are not editable from the CMS on purpose.
 const PATHS = {
+  ...LANDINGS,
   home: ["/", "/en/"],
   services: ["/services", "/en/services"],
   art: ["/art-de-la-difference", "/en/art-of-difference"],
@@ -184,7 +192,7 @@ ${altFr ? `    <link rel="alternate" hreflang="fr" href="${esc(SITE + altFr)}" /
       ld = graph(
         org(lang),
         { "@type": "WebSite", "@id": SITE + "/#website", name: G.name, url: url("home", lang), inLanguage: lang, publisher: { "@id": SITE + "/#organization" } },
-        { "@type": "FAQPage", mainEntity: p.faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) },
+        faqLd(p.faq),
       );
     } else if (page === "contact") {
       ld = graph(org(lang), { "@type": "ContactPage", name: p.h1, url: url(page, lang), about: { "@id": SITE + "/#organization" } }, crumbs(home, [ui.nav[page], url(page, lang)]));
@@ -296,6 +304,10 @@ ${items}
             <a href="${PATHS.contact[i]}">${esc(ui.nav.contact)}</a>
           </div>
           <div>
+            <h2 class="footer-h">${esc(ui.nav.services)}</h2>
+${Object.keys(LANDINGS).filter((k) => t[k]).map((k) => `            <a href="${PATHS[k][i]}">${esc(t[k].label)}</a>`).join("\n")}
+          </div>
+          <div>
             <h2 class="footer-h">${esc(ui.footer_follow)}</h2>
             <a href="${esc(G.instagram)}" target="_blank" rel="noopener noreferrer">Instagram</a>
             <a href="${esc(G.youtube)}" target="_blank" rel="noopener noreferrer">YouTube</a>
@@ -354,6 +366,9 @@ ${steps.map(([a, b], n) => `            <li class="row" data-line><span class="r
         </div>
       </section>`;
 
+  const faqRows = (items) => items.map(([q, a], n) => `            <details data-line><summary><span class="row-num">${pad(n + 1)}</span><span class="faq-q">${esc(q)}</span><i aria-hidden="true"></i></summary><div class="faq-a"><p>${esc(a)}</p></div></details>`).join("\n");
+  const faqLd = (items) => ({ "@type": "FAQPage", mainEntity: items.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) });
+
   const ctaSection = (lang, { kicker, h, giant, button }) => {
     const i = idx(lang);
     return `      <section class="cta" id="contact-cta" data-gl="orbit" data-gl-dim="0.45">
@@ -369,9 +384,15 @@ ${steps.map(([a, b], n) => `            <li class="row" data-line><span class="r
       </section>`;
   };
 
+  // the service's own landing page when it has one, else the given fallback
+  const serviceHref = (lang, n, fallback) => {
+    const k = SERVICE_LANDING[n];
+    return k && site[lang][k] ? PATHS[k][idx(lang)] : fallback;
+  };
+
   // the signature list: big serif names on hairlines; hovering one gathers the particles into its shape
   const serviceList = (lang, items, href, count, more) => `          <ol class="svc-list">
-${items.map(([a, b], n) => `            <li data-line><a class="svc-row" href="${href}" data-shape="${SHAPES[n % SHAPES.length]}" data-cursor="${CURSOR[lang].view}"><span class="svc-num">${pad(n + 1)}</span><span class="svc-name">${esc(a)}</span><span class="svc-desc">${esc(b)}</span></a></li>`).join("\n")}
+${items.map(([a, b], n) => `            <li data-line><a class="svc-row" href="${serviceHref(lang, n, href)}" data-shape="${SHAPES[n % SHAPES.length]}" data-cursor="${CURSOR[lang].view}"><span class="svc-num">${pad(n + 1)}</span><span class="svc-name">${esc(a)}</span><span class="svc-desc">${esc(b)}</span></a></li>`).join("\n")}
           </ol>
           ${more ? `<p class="svc-more">${link(href, more)}</p>` : ""}`;
 
@@ -426,7 +447,7 @@ ${chips}
   function home(lang) {
     const h = site[lang].home; const i = idx(lang); const c = CURSOR[lang];
     const pillars = h.points.map(([a, b], n) => `            <li data-line><span class="pillar-num">(${pad(n + 1)})</span><h3>${esc(a)}</h3><p>${esc(b)}</p></li>`).join("\n");
-    const faq = h.faq.map(([q, a], n) => `            <details data-line><summary><span class="row-num">${pad(n + 1)}</span><span class="faq-q">${esc(q)}</span><i aria-hidden="true"></i></summary><div class="faq-a"><p>${esc(a)}</p></div></details>`).join("\n");
+    const faq = faqRows(h.faq);
     const main = `      <section class="hero" data-gl="dunes" data-cursor="${c.howl}">
         <div class="hero-float shell" aria-hidden="true">
           <p class="float-a" data-scroll data-scroll-speed="0.15">${esc(h.hero_meta[0] || "")}</p>
@@ -495,11 +516,14 @@ ${ctaSection(lang, { kicker: h.cta_sub, h: h.cta_h, giant: h.cta_giant, button: 
 
   function services(lang) {
     const s = site[lang].services; const i = idx(lang);
-    const blocks = s.blocks.map(([a, b], n) => `          <article class="svc-block" data-line data-gl="${SHAPES[n % SHAPES.length]}" data-gl-dim="0.9">
+    const blocks = s.blocks.map(([a, b], n) => {
+      const own = serviceHref(lang, n, null);
+      return `          <article class="svc-block" data-line data-gl="${SHAPES[n % SHAPES.length]}" data-gl-dim="0.9">
             <span class="svc-block-num">(${pad(n + 1)})</span>
             <h3 class="svc-block-title" data-split>${esc(a)}</h3>
-            <p class="svc-block-text">${esc(b)}</p>
-          </article>`).join("\n");
+            <div class="svc-block-text"><p>${esc(b)}</p>${own ? `<p class="svc-block-more">${link(own, site[lang].home.cards_more)}</p>` : ""}</div>
+          </article>`;
+    }).join("\n");
     const main = `      <section class="page-hero" data-gl="constellation" data-gl-dim="0.5">
         <div class="shell">
           <p class="lockup-brand">${stamp("Web", "Brand", "SEO")} <span>${esc(site[lang].ui.nav.services)}</span></p>
@@ -522,6 +546,80 @@ ${processSection(lang, s.process_h, s.process)}
 
 ${ctaSection(lang, { h: s.cta_h, button: s.cta })}`;
     return page({ head: pageHead(lang, "services"), lang, ns: "services", pageKey: "services", main });
+  }
+
+  // service landing page: one search intent, long-form copy, method, concept examples, FAQ
+  function landing(lang, key) {
+    const l = site[lang][key]; const ui = site[lang].ui; const i = idx(lang); const c = CURSOR[lang];
+    const own = PATHS[key][i];
+    const body = l.sections.map(([h, t]) => `          <h2>${esc(h)}</h2>\n          ${bodyHtml(t)}`).join("\n");
+    const pieces = l.examples.map((slug) => art.find((p) => p.slug === slug)).filter(Boolean);
+    const examples = pieces.map((p, n) => `            <li data-line><a class="svc-row" href="/art-de-la-difference/${p.slug}/" target="_blank" rel="noopener" data-barba-prevent data-cursor="${c.enter}"><span class="svc-num">${pad(n + 1)}</span><span class="svc-name">${esc(p.client)}</span><span class="svc-desc">${esc(p[lang].sector)} · ${esc(p[lang].line)}</span></a></li>`).join("\n");
+    const others = Object.keys(LANDINGS).filter((k) => k !== key && site[lang][k]).map((k) => [PATHS[k][i], site[lang][k].label]);
+    const posts = l.posts.map((id) => blog[lang].find((a) => a.id === id)).filter(Boolean).map((a) => [artPath(lang, a), a.title]);
+    const related = [...others, ...posts, [PATHS.services[i], ui.nav.services], [PATHS.art[i], ui.nav.art]]
+      .map(([href, label]) => `              <li data-line>${link(href, label)}</li>`).join("\n");
+    const ld = graph(
+      org(lang),
+      {
+        "@type": "Service", name: l.h1, serviceType: l.label, description: l.desc, url: SITE + own, inLanguage: lang,
+        provider: { "@id": SITE + "/#organization" }, areaServed: [{ "@type": "Country", name: "Tunisia" }],
+      },
+      faqLd(l.faq),
+      crumbs([ui.nav.home, url("home", lang)], [ui.nav.services, url("services", lang)], [l.label, SITE + own]),
+    );
+    const main = `      <section class="page-hero" data-gl="constellation" data-gl-dim="0.5">
+        <div class="shell">
+          <p class="lockup-brand">${stamp("Web", "Brand", "SEO")} <span>${esc(l.label)}</span></p>
+          <h1 class="lockup-h1 page-title" data-split>${midGlyphs(l.h1, GLYPH.star, GLYPH.pin)}</h1>
+          <div class="page-hero-foot" data-line>
+            <p class="hero-sub">${esc(l.sub)}</p>
+            ${link(PATHS.contact[i], l.cta)}
+          </div>
+        </div>
+      </section>
+
+      <section class="landing-copy" data-gl="off">
+        <div class="article-body">
+          <p class="article-intro">${esc(l.intro)}</p>
+${body}
+        </div>
+      </section>
+
+${processSection(lang, l.process_h, l.process)}
+
+      <section class="services-home" id="examples" data-gl="constellation" data-gl-dim="0.22">
+        <div class="shell">
+          ${sectionHead(l.examples_h, pieces.length, "examples-h")}
+          <p class="hero-sub" data-line>${esc(l.examples_lead)}</p>
+          <ol class="svc-list">
+${examples}
+          </ol>
+          <p class="svc-more">${link(PATHS.art[i], ui.nav.art)}</p>
+        </div>
+      </section>
+
+      <section class="table-sec faq" id="faq" data-gl="constellation" data-gl-dim="0.3">
+        <div class="shell">
+          ${sectionHead(l.faq_h, l.faq.length, "faq-h")}
+          <div class="faq-list">
+${faqRows(l.faq)}
+          </div>
+        </div>
+      </section>
+
+      <section class="table-sec" id="related" aria-labelledby="related-h">
+        <div class="shell">
+          ${sectionHead(l.related_h, others.length + posts.length + 2, "related-h")}
+          <ul class="link-list">
+${related}
+          </ul>
+        </div>
+      </section>
+
+${ctaSection(lang, { h: l.cta_h, button: l.cta })}`;
+    const head = headTag({ lang, title: l.title, desc: l.desc, canon: own, altFr: PATHS[key][0], altEn: PATHS[key][1], ld });
+    return page({ head, lang, ns: "services", pageKey: "services", switchTo: PATHS[key][idx(lang === "fr" ? "en" : "fr")], main });
   }
 
   function contact(lang) {
@@ -665,6 +763,10 @@ ${rows}
     return page({ head, lang, ns: "blog", pageKey: "blog", main });
   }
 
+  // landing pages that list this article among their related posts
+  const landingsFor = (lang, a) =>
+    Object.keys(LANDINGS).filter((k) => site[lang][k]?.posts.includes(a.id)).map((k) => [PATHS[k][idx(lang)], site[lang][k].label]);
+
   function article(lang, a) {
     const t = site[lang]; const b = t.blog; const i = idx(lang);
     const sib = partner(lang, a);
@@ -695,7 +797,7 @@ ${body}
         </div>
         <aside class="article-cta shell">
           <h2>${esc(b.cta_h)}</h2>
-          <div class="cta-links">${link(PATHS.contact[i], b.cta)} ${link(PATHS.services[i], t.ui.nav.services)}</div>
+          <div class="cta-links">${link(PATHS.contact[i], b.cta)} ${landingsFor(lang, a).map(([href, label]) => link(href, label)).join(" ") || link(PATHS.services[i], t.ui.nav.services)}</div>
         </aside>
       </article>`;
     const head = headTag({ lang, title: `${a.title} – ${G.name}`, desc: a.desc, canon: own, altFr, altEn, ld, ogType: "article" });
@@ -704,7 +806,7 @@ ${body}
 
   function sitemap() {
     const entries = [];
-    for (const page of ["home", "services", "art", "blog", "contact"]) {
+    for (const page of ["home", "services", ...Object.keys(LANDINGS).filter((k) => site.fr[k] && site.en[k]), "art", "blog", "contact"]) {
       entries.push({ fr: PATHS[page][0], en: PATHS[page][1] });
     }
     for (const r of ENGINEERING_ROUTES) {
@@ -746,6 +848,9 @@ ${body}
     "public/sitemap.xml": sitemap(),
   };
   for (const lang of LANGS) {
+    for (const k of Object.keys(LANDINGS)) {
+      if (site[lang][k]) files[PATHS[k][idx(lang)].slice(1) + ".html"] = landing(lang, k);
+    }
     for (const a of blog[lang]) {
       files[`${lang === "fr" ? "blog" : "en/blog"}/${a.slug}.html`] = article(lang, a);
     }

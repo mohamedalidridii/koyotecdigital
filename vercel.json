@@ -19,6 +19,14 @@
       "destination": "/en/contact.html"
     },
     {
+      "source": "/creation-site-web-tunis",
+      "destination": "/creation-site-web-tunis.html"
+    },
+    {
+      "source": "/en/web-design-tunisia",
+      "destination": "/en/web-design-tunisia.html"
+    },
+    {
       "source": "/art-de-la-difference",
       "destination": "/art-de-la-difference.html"
     },
@@ -90,12 +98,12 @@
       "permanent": true
     },
     {
-      "source": "/:page(services|contact|art-de-la-difference).html",
+      "source": "/:page(services|contact|art-de-la-difference|creation-site-web-tunis).html",
       "destination": "/:page",
       "permanent": true
     },
     {
-      "source": "/en/:page(services|contact|art-of-difference).html",
+      "source": "/en/:page(services|contact|art-of-difference|web-design-tunisia).html",
       "destination": "/en/:page",
       "permanent": true
     },

@@ -37,7 +37,9 @@ export function cta(scope) {
   const word = scope.querySelector(".cta-word");
   if (!word) return;
   SplitText.create(word, {
-    type: "chars",
+    // words wrap the letters so long headings break between words, not inside them
+    type: "words,chars",
+    wordsClass: "gw",
     charsClass: "gc",
     mask: "chars",
     onSplit(self) {

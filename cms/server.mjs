@@ -16,7 +16,7 @@ import {
 } from "node:fs";
 import { join, extname, resolve, sep, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { generate, loadContent, ROOT } from "./generate.mjs";
+import { generate, loadContent, ROOT, LANDINGS } from "./generate.mjs";
 
 const run = promisify(execFile);
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -31,7 +31,7 @@ const PUBLIC = join(ROOT, "public");
 const SESSION_TTL = 2 * 60 * 60 * 1000;
 const IMG_EXT = { ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "image/png", ".webp": "image/webp", ".gif": "image/gif", ".svg": "image/svg+xml" };
 const UPLOAD_EXT = new Set([".jpg", ".jpeg", ".png", ".webp", ".gif"]); // no SVG uploads: can embed scripts
-const MANAGED_ALL = ["content", "index.html", "services.html", "contact.html", "art-de-la-difference.html", "en", "blog", "public/sitemap.xml", "public/uploads"];
+const MANAGED_ALL = ["content", "index.html", "services.html", "contact.html", "art-de-la-difference.html", ...Object.values(LANDINGS).map(([fr]) => fr.slice(1) + ".html"), "en", "blog", "public/sitemap.xml", "public/uploads"];
 const managed = () => MANAGED_ALL.filter((p) => existsSync(join(ROOT, p)));
 
 // ---------- password ----------

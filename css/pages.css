@@ -71,6 +71,20 @@
     grid-column: 2;
   }
 }
+.svc-block-more {
+  margin-top: 1.2rem;
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+/* ---------- service landing pages ---------- */
+.landing-copy {
+  padding-block: clamp(4rem, 12vh, 8rem);
+}
+#examples .hero-sub {
+  max-width: 48ch;
+  padding-block: 1.5rem 2.5rem;
+}
 
 /* ---------- address lockup (footer, contact) ---------- */
 .address-lockup {
@@ -429,7 +443,7 @@ a.al-line:hover {
 }
 .footer-cols {
   display: grid;
-  grid-template-columns: 1fr 1fr 2fr;
+  grid-template-columns: 1fr 1fr 1fr 2fr;
   gap: 2rem var(--gutter);
   margin-bottom: clamp(4rem, 12vh, 9rem);
 }

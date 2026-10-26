@@ -299,6 +299,107 @@
       "piece": "Pièce",
       "cta_h": "Votre marque mérite sa propre différence.",
       "cta": "Demander un devis gratuit"
+    },
+    "lp_web": {
+      "title": "Création de Site Web à Tunis | Site sur Mesure – KOYOTEC",
+      "desc": "Agence de création de site web à Tunis : sites vitrines, sites d'entreprise et plateformes sur mesure, rapides, responsives et optimisés pour Google. Devis gratuit.",
+      "label": "Création de site web",
+      "h1": "Création de site web sur mesure à Tunis",
+      "sub": "Des sites vitrines et des sites d'entreprise conçus pour votre activité : rapides, lisibles sur mobile et pensés pour être trouvés sur Google.",
+      "cta": "Demander un devis gratuit",
+      "intro": "Un site web n'est pas une brochure en ligne. C'est souvent le premier contact entre votre entreprise et un client qui vous cherche sur Google. KOYOTEC, agence web à Ennasr, Tunis, conçoit et développe des sites internet sur mesure pour les entreprises, les commerces et les indépendants en Tunisie.",
+      "sections": [
+        [
+          "Quel site web pour votre entreprise ?",
+          "Chaque projet commence par une question simple : que doit faire votre site ? Selon la réponse, nous construisons :\n\n- un site vitrine de quelques pages pour présenter votre activité, vos services et vos coordonnées ;\n- un site d'entreprise plus complet, avec des pages par service, des références, un blog et des formulaires ;\n- un site personnel ou portfolio pour un indépendant, un consultant ou un créatif ;\n- une plateforme web avec des fonctions sur mesure : réservation, espace client, catalogue, prise de rendez-vous ;\n- une boutique en ligne pour vendre vos produits en Tunisie et à l'étranger.\n\nNous ne partons pas d'un thème acheté que l'on recolore. La structure, le design et le contenu sont dessinés pour votre activité et pour vos clients."
+        ],
+        [
+          "Un site rapide, responsive et facile à gérer",
+          "La majorité des visites viennent d'un téléphone. Chaque site que nous livrons s'adapte au mobile, à la tablette et à l'ordinateur, et il est optimisé pour se charger vite, même sur une connexion 4G moyenne.\n\nUn site lent perd des visiteurs avant même qu'ils aient vu votre offre, et Google le classe moins bien. Nous travaillons donc le poids des images, le chargement des polices, le code et l'hébergement pour obtenir de bons scores Core Web Vitals.\n\nUne fois en ligne, vous devez pouvoir modifier vos textes, vos photos et vos actualités sans dépendre d'un développeur. Nous mettons en place une interface d'administration simple et nous vous formons à son utilisation."
+        ],
+        [
+          "Pensé pour Google dès le départ",
+          "Un beau site que personne ne trouve ne sert pas à grand-chose. Le référencement naturel (SEO) fait partie de la création, pas d'une option ajoutée à la fin :\n\n- une page par service et par intention de recherche, avec des titres et des descriptions rédigés pour Google ;\n- des adresses de pages propres, un plan du site et des balises canoniques ;\n- des données structurées pour votre entreprise, vos services et vos questions fréquentes ;\n- des versions en français, en anglais et en arabe si votre clientèle le demande, avec les balises hreflang correctes ;\n- une configuration Google Search Console et Google Business Profile pour suivre vos résultats.\n\nNous rédigeons ou retravaillons vos textes avec vous pour qu'ils répondent aux questions que se posent vraiment vos clients."
+        ],
+        [
+          "Design et identité : un site qui vous ressemble",
+          "Votre site doit être reconnaissable au premier coup d'œil. Si vous avez déjà un logo et une charte graphique, nous les prolongeons sur le web. Sinon, nous pouvons créer votre identité visuelle en même temps que le site, pour que tout soit cohérent : logo, couleurs, typographies, photos et ton.\n\nLe design sert un objectif précis : amener le visiteur à vous appeler, à demander un devis, à réserver ou à acheter. Chaque page est construite autour de cette action."
+        ],
+        [
+          "Combien coûte un site web en Tunisie ?",
+          "Le prix dépend surtout du nombre de pages, du niveau de design sur mesure, des fonctionnalités (réservation, paiement, espace client), du nombre de langues et de la part de contenu à rédiger. Un site vitrine simple et une plateforme avec paiement en ligne n'ont pas du tout le même budget.\n\nAprès un premier échange, nous vous envoyons un devis détaillé et gratuit, ligne par ligne, pour que vous sachiez exactement ce que vous payez. Pour préparer votre budget, consultez aussi notre guide sur le coût de la création d'un site web en Tunisie, sur notre blog."
+        ],
+        [
+          "Après la mise en ligne",
+          "Un site vit. Nous restons disponibles après le lancement pour les mises à jour, les nouvelles pages, la sécurité et le suivi des performances. Nous pouvons aussi vous accompagner sur le référencement dans la durée : analyse des positions, nouveaux contenus et amélioration continue des pages qui convertissent."
+        ]
+      ],
+      "process_h": "Comment se déroule la création de votre site",
+      "process": [
+        [
+          "1. Brief",
+          "Un appel ou un rendez-vous à Tunis pour comprendre votre activité, vos clients, vos concurrents et vos objectifs."
+        ],
+        [
+          "2. Structure et contenu",
+          "Arborescence, pages, mots-clés et textes : nous définissons ce que chaque page doit dire et à quelle recherche elle répond."
+        ],
+        [
+          "3. Maquettes",
+          "Le design de la page d'accueil et des pages clés, sur mobile et sur ordinateur, ajusté avec vous jusqu'à validation."
+        ],
+        [
+          "4. Développement",
+          "Intégration, animations, formulaires, administration, optimisation de la vitesse et SEO technique, puis tests sur plusieurs appareils."
+        ],
+        [
+          "5. Mise en ligne et suivi",
+          "Nom de domaine, hébergement, Search Console, formation à l'administration, puis accompagnement après le lancement."
+        ]
+      ],
+      "examples_h": "Exemples de concepts de sites",
+      "examples_lead": "Quelques concepts tirés de L'art de la différence, notre série de 30 sites imaginés pour des entreprises et des marques personnelles. Chacun a sa propre voix.",
+      "examples": [
+        "table-yasmina",
+        "rivage-immobilier",
+        "dar-zitouna",
+        "atelier-terrah",
+        "escale-voyages",
+        "glacier-bambalouni"
+      ],
+      "faq_h": "Questions fréquentes sur la création de site web",
+      "faq": [
+        [
+          "Combien de temps faut-il pour créer un site web ?",
+          "Cela dépend surtout du nombre de pages, des fonctionnalités et de la rapidité de validation des contenus. Nous vous donnons un planning précis avec le devis, étape par étape, et nous le tenons à jour pendant le projet."
+        ],
+        [
+          "Est-ce que je pourrai modifier mon site moi-même ?",
+          "Oui. Nous mettons en place une interface d'administration simple pour modifier vos textes, vos images et vos actualités, et nous vous formons à son utilisation à la livraison."
+        ],
+        [
+          "Mon site sera-t-il bien référencé sur Google ?",
+          "Le site est construit selon les bonnes pratiques SEO : structure, balises, vitesse, données structurées et contenus pensés pour vos mots-clés. Le positionnement dépend aussi de la concurrence et du travail mené dans la durée ; nous pouvons vous accompagner sur ce suivi."
+        ],
+        [
+          "Vous occupez-vous du nom de domaine et de l'hébergement ?",
+          "Nous vous conseillons sur le nom de domaine (.tn, .com ou autre) et sur l'hébergement adapté à votre site, et nous nous chargeons de la mise en ligne. Le domaine reste à votre nom."
+        ],
+        [
+          "Pouvez-vous refaire un site existant ?",
+          "Oui. Nous analysons votre site actuel, gardons ce qui fonctionne, et mettons en place des redirections propres pour ne pas perdre votre référencement pendant la refonte."
+        ],
+        [
+          "Travaillez-vous uniquement à Tunis ?",
+          "Nous sommes basés à Ennasr, Tunis, et nous travaillons avec des clients dans toute la Tunisie et à l'étranger. La plupart des échanges peuvent se faire à distance."
+        ]
+      ],
+      "related_h": "Pour aller plus loin",
+      "posts": [
+        "article-1",
+        "article-2"
+      ],
+      "cta_h": "Parlons de votre futur site web"
     }
   },
   "en": {
@@ -584,6 +685,107 @@
       "piece": "Piece",
       "cta_h": "Your brand deserves its own difference.",
       "cta": "Get a free quote"
+    },
+    "lp_web": {
+      "title": "Web Design in Tunisia | Custom Websites in Tunis – KOYOTEC",
+      "desc": "Web design and development agency in Tunis, Tunisia: custom business websites, portfolios and web platforms that are fast, mobile-friendly and built to rank on Google.",
+      "label": "Website design",
+      "h1": "Custom web design and development in Tunisia",
+      "sub": "Business websites built around what you do: fast, easy to read on a phone and designed to be found on Google.",
+      "cta": "Get a free quote",
+      "intro": "A website is not an online brochure. It is often the first contact between your business and a customer searching on Google. KOYOTEC is a web agency in Ennasr, Tunis, designing and building custom websites for companies, shops and freelancers in Tunisia and abroad.",
+      "sections": [
+        [
+          "Which website does your business need?",
+          "Every project starts with one question: what should your website do? Depending on the answer, we build:\n\n- a showcase website of a few pages presenting your business, services and contact details;\n- a fuller company website with a page per service, references, a blog and forms;\n- a personal website or portfolio for a freelancer, consultant or creative;\n- a web platform with custom features: booking, client area, catalogue, appointments;\n- an online store to sell in Tunisia and abroad.\n\nWe don't start from a bought theme with new colours. The structure, design and content are drawn for your business and your customers."
+        ],
+        [
+          "Fast, responsive and easy to manage",
+          "Most visits come from a phone. Every website we deliver adapts to mobile, tablet and desktop, and is optimized to load quickly, even on an average 4G connection.\n\nA slow website loses visitors before they see your offer, and Google ranks it lower. So we work on image weight, font loading, code and hosting to reach good Core Web Vitals scores.\n\nOnce live, you should be able to edit your text, photos and news without waiting for a developer. We set up a simple admin interface and show you how to use it."
+        ],
+        [
+          "Built for Google from day one",
+          "A beautiful website that nobody finds is not much use. Search engine optimization (SEO) is part of the build, not an add-on at the end:\n\n- one page per service and per search intent, with titles and descriptions written for Google;\n- clean page URLs, a sitemap and canonical tags;\n- structured data for your business, services and FAQs;\n- French, English and Arabic versions if your customers need them, with correct hreflang tags;\n- Google Search Console and Google Business Profile set up so you can track results.\n\nWe write or rework your copy with you so it answers the questions your customers actually ask."
+        ],
+        [
+          "Design and identity: a website that looks like you",
+          "Your website should be recognisable at a glance. If you already have a logo and brand guidelines, we carry them onto the web. If not, we can create your visual identity alongside the website so everything fits together: logo, colours, typefaces, photography and tone.\n\nThe design serves one goal: getting the visitor to call you, ask for a quote, book or buy. Every page is built around that action."
+        ],
+        [
+          "How much does a website cost in Tunisia?",
+          "The price depends mostly on the number of pages, the level of custom design, the features (booking, payment, client area), the number of languages and how much copy needs writing. A simple showcase site and a platform with online payment have very different budgets.\n\nAfter a first conversation, we send you a free, itemised quote so you know exactly what you are paying for. To plan your budget, also read our guide to website design costs in Tunisia on the blog."
+        ],
+        [
+          "After launch",
+          "A website keeps evolving. We stay available after launch for updates, new pages, security and performance monitoring. We can also support your SEO over time: ranking analysis, new content and continuous improvement of the pages that convert."
+        ]
+      ],
+      "process_h": "How we build your website",
+      "process": [
+        [
+          "1. Brief",
+          "A call or a meeting in Tunis to understand your business, customers, competitors and goals."
+        ],
+        [
+          "2. Structure and content",
+          "Site map, pages, keywords and copy: we define what each page says and which search it answers."
+        ],
+        [
+          "3. Mock-ups",
+          "Design of the home page and key pages, on mobile and desktop, refined with you until approved."
+        ],
+        [
+          "4. Development",
+          "Build, motion, forms, admin, speed optimization and technical SEO, then testing on several devices."
+        ],
+        [
+          "5. Launch and follow-up",
+          "Domain, hosting, Search Console, admin training, then support after launch."
+        ]
+      ],
+      "examples_h": "Website concept examples",
+      "examples_lead": "A few concepts from The Art of Difference, our series of 30 websites imagined for businesses and personal brands. Each one has its own voice.",
+      "examples": [
+        "table-yasmina",
+        "rivage-immobilier",
+        "dar-zitouna",
+        "atelier-terrah",
+        "escale-voyages",
+        "glacier-bambalouni"
+      ],
+      "faq_h": "Website design FAQ",
+      "faq": [
+        [
+          "How long does it take to build a website?",
+          "It depends mostly on the number of pages, the features and how quickly content is approved. We give you a detailed schedule with the quote, step by step, and keep it updated during the project."
+        ],
+        [
+          "Will I be able to edit my website myself?",
+          "Yes. We set up a simple admin interface to edit your text, images and news, and we train you on it at handover."
+        ],
+        [
+          "Will my website rank on Google?",
+          "The website is built to SEO best practice: structure, tags, speed, structured data and content written for your keywords. Rankings also depend on competition and ongoing work; we can support you with that follow-up."
+        ],
+        [
+          "Do you handle the domain name and hosting?",
+          "We advise you on the domain name (.tn, .com or other) and the right hosting for your site, and we take care of the launch. The domain stays in your name."
+        ],
+        [
+          "Can you redesign an existing website?",
+          "Yes. We review your current site, keep what works and set up clean redirects so you don't lose your search rankings during the redesign."
+        ],
+        [
+          "Do you only work in Tunis?",
+          "We are based in Ennasr, Tunis, and work with clients across Tunisia and abroad. Most of the collaboration can happen remotely."
+        ]
+      ],
+      "related_h": "Read next",
+      "posts": [
+        "article-1",
+        "article-2"
+      ],
+      "cta_h": "Let's talk about your new website"
     }
   }
 }
