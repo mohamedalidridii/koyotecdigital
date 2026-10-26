@@ -1,0 +1,50 @@
+.button {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 88px;
+  padding: 12px 14px;
+  text-decoration: none;
+}
+
+.label {
+  line-height: 1.2;
+}
+
+.word {
+  line-height: inherit;
+  text-shadow: 0 calc(-1 * var(--shift, 1.2em)) 0 currentColor;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+.arrow {
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .word {
+    text-shadow: none;
+  }
+}
+
+.primary {
+  background-color: var(--base-300);
+  color: var(--base-100);
+}
+
+.secondary {
+  background-color: var(--base-400);
+  color: var(--base-100);
+}
+
+.light {
+  background-color: var(--base-100);
+  color: var(--base-400);
+}
+
+.dark {
+  background-color: var(--base-500);
+  color: var(--base-100);
+}

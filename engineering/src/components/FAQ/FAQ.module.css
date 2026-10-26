@@ -1,0 +1,162 @@
+.faq {
+  position: relative;
+  width: 100%;
+  background-color: var(--base-200);
+  color: var(--base-500);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+}
+
+:global(.container).inner {
+  padding-block: 12rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 44rem;
+  text-align: center;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bullet {
+  width: 0.5rem;
+  height: 0.5rem;
+  flex-shrink: 0;
+  background-color: var(--base-300);
+}
+
+.list {
+  width: min(75%, 56rem);
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.row {
+  display: flex;
+  align-items: flex-start;
+}
+
+.questionSlot {
+  justify-content: flex-start;
+}
+
+.answerSlot {
+  justify-content: flex-end;
+}
+
+.message {
+  position: relative;
+  overflow: hidden;
+  max-width: 70%;
+  padding: 1.5rem 2rem;
+  border-radius: 0;
+}
+
+.question {
+  align-self: flex-start;
+  background-color: var(--base-100);
+  color: var(--base-500);
+}
+
+.answer {
+  align-self: flex-start;
+  background-color: var(--base-300);
+  color: var(--base-100);
+}
+
+.content {
+  width: max-content;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.content p {
+  opacity: 0;
+}
+
+.typing {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  pointer-events: none;
+}
+
+.typing span {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background-color: var(--base-500);
+  animation: typing-pulse 1s infinite ease-in-out;
+}
+
+.answer .typing span {
+  background-color: var(--base-100);
+}
+
+.typing span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing-pulse {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.25rem);
+  }
+}
+
+@media (max-width: 1000px) {
+  .inner {
+    gap: 3rem;
+  }
+
+  :global(.container).inner {
+    padding-block: 10rem;
+  }
+
+  .list {
+    width: 100%;
+  }
+
+  .message {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  :global(.container).inner {
+    padding-block: 8rem;
+  }
+}

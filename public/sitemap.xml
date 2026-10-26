@@ -61,6 +61,78 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/contact"/>
   </url>
   <url>
+    <loc>https://www.koyotec.digital/engineering/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/engineering/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/engineering/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/engineering/"/>
+  </url>
+  <url>
+    <loc>https://www.koyotec.digital/engineering/en/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/engineering/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/engineering/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/engineering/"/>
+  </url>
+  <url>
+    <loc>https://www.koyotec.digital/engineering/expertise/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/engineering/expertise/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/engineering/en/expertise/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/engineering/expertise/"/>
+  </url>
+  <url>
+    <loc>https://www.koyotec.digital/engineering/en/expertise/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/engineering/expertise/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/engineering/en/expertise/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/engineering/expertise/"/>
+  </url>
+  <url>
+    <loc>https://www.koyotec.digital/engineering/work/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/engineering/work/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/engineering/en/work/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/engineering/work/"/>
+  </url>
+  <url>
+    <loc>https://www.koyotec.digital/engineering/en/work/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/engineering/work/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/engineering/en/work/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/engineering/work/"/>
+  </url>
+  <url>
+    <loc>https://www.koyotec.digital/engineering/studio/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/engineering/studio/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/engineering/en/studio/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/engineering/studio/"/>
+  </url>
+  <url>
+    <loc>https://www.koyotec.digital/engineering/en/studio/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/engineering/studio/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/engineering/en/studio/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/engineering/studio/"/>
+  </url>
+  <url>
+    <loc>https://www.koyotec.digital/engineering/engagements/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/engineering/engagements/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/engineering/en/engagements/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/engineering/engagements/"/>
+  </url>
+  <url>
+    <loc>https://www.koyotec.digital/engineering/en/engagements/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/engineering/engagements/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/engineering/en/engagements/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/engineering/engagements/"/>
+  </url>
+  <url>
+    <loc>https://www.koyotec.digital/engineering/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/engineering/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/engineering/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/engineering/contact/"/>
+  </url>
+  <url>
+    <loc>https://www.koyotec.digital/engineering/en/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/engineering/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/engineering/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/engineering/contact/"/>
+  </url>
+  <url>
     <loc>https://www.koyotec.digital/blog/cout-creation-site-web-tunisie</loc>
     <lastmod>2026-10-17</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/blog/cout-creation-site-web-tunisie"/>

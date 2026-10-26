@@ -1,0 +1,39 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: var(--base-300);
+  clip-path: polygon(0% 46.5%, 0% 46.5%, 0% 53.5%, 0% 53.5%);
+  will-change: clip-path;
+  pointer-events: auto;
+}
+
+.progressBar {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 25vw;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transform: translateY(-50%);
+  color: var(--base-100);
+  will-change: width, opacity;
+}
+
+.progressBar p {
+  font-size: 1.125rem;
+}
+
+@media (max-width: 900px) {
+  .progressBar {
+    justify-content: flex-end;
+  }
+
+  .progressBar p:first-child {
+    display: none;
+  }
+}

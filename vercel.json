@@ -79,6 +79,16 @@
       "source": "/directors",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/engineering",
+      "destination": "/engineering/",
+      "permanent": true
+    },
+    {
+      "source": "/engineering/:path(en|expertise|work|studio|engagements|contact|en/expertise|en/work|en/studio|en/engagements|en/contact)",
+      "destination": "/engineering/:path/",
+      "permanent": true
     }
   ],
   "headers": [

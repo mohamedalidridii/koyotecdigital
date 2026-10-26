@@ -1,0 +1,109 @@
+.hero {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  transform-origin: center center;
+}
+
+.hero[data-hero-intro] {
+  opacity: 0;
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.heroTitle {
+  width: min-content;
+  color: var(--base-500);
+}
+
+.heroCtas {
+  display: flex;
+  gap: 0.75rem;
+  overflow: hidden;
+}
+
+.heroCtas > * {
+  transform: translateY(300px);
+}
+
+.ctaPrimary {
+  width: 300px;
+}
+
+.ctaSecondary {
+  width: 195px;
+}
+
+.about {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  background-color: var(--base-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aboutCols {
+  display: flex;
+  width: 100%;
+}
+
+.aboutCol {
+  flex: 1;
+}
+
+.aboutCopy {
+  flex: 3;
+}
+
+@media (max-width: 768px) {
+  .heroHeader {
+    display: none;
+  }
+
+  .heroTitle {
+    width: 100%;
+  }
+
+  .heroContent {
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: stretch;
+    gap: 2rem;
+  }
+
+  .heroCtas {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .ctaPrimary,
+  .ctaSecondary {
+    flex: 1;
+    width: auto;
+  }
+
+  .aboutCols {
+    flex-direction: column;
+  }
+
+  .aboutCol {
+    display: none;
+  }
+}

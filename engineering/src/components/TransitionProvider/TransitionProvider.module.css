@@ -1,0 +1,29 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  width: 100%;
+  height: 100svh;
+  background-color: var(--base-300);
+  clip-path: var(--clip, polygon(0% 50%, 0% 50%, 0% 50%, 0% 50%));
+  pointer-events: none;
+  visibility: hidden;
+  will-change: clip-path;
+}
+
+.title {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 1rem 1.25rem;
+  transform: translateY(-50%);
+  color: var(--base-100);
+  font-size: 1.125rem;
+  text-align: center;
+}
+
+.word {
+  will-change: transform;
+}

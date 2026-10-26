@@ -1,0 +1,32 @@
+.firmIntro {
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--base-200);
+  color: var(--base-500);
+}
+
+.inner {
+  flex: 1;
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10rem;
+}
+
+.block {
+  width: 100%;
+}
+
+.heading {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .inner {
+    padding-block: 4rem;
+  }
+}

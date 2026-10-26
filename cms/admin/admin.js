@@ -13,7 +13,7 @@ const LABELS = {
   process_h: "Titre de la méthode", process: "Étapes de la méthode", cta_h: "Titre de l'appel à l'action", cta: "Bouton d'appel à l'action", addr: "Adresse (une ligne par élément)",
   drop: "Texte « écrivez-nous »", love: "Message de bas de page", lead_: "", read: "Libellé « lire »", by: "Signature", home: "Libellé « Accueil »",
   menu: "Bouton menu", start: "Bouton « démarrer »", other_lang: "Libellé du changement de langue", email_ph: "Texte du champ e-mail", touch: "Texte « nous écrire »",
-  based: "Texte de localisation", rights: "Mention droits réservés", nav: "Noms du menu", services: "Services", blog: "Blog", contact: "Contact",
+  based: "Texte de localisation", rights: "Mention droits réservés", nav: "Noms du menu", services: "Services", blog: "Blog", contact: "Contact", engineering: "Ingénierie (section et lien du menu)",
   domain: "Adresse du site (https://…)", name: "Nom de l'entreprise", tagline: "Nom complet", email: "E-mail", phone: "Téléphone (format +21652405699)", phoneDisplay: "Téléphone affiché",
   instagram: "Lien Instagram", youtube: "Lien YouTube", locality: "Ville / quartier", country: "Code pays", latitude: "Latitude", longitude: "Longitude", year: "Année du copyright",
   ogImage: "Image de partage (chemin, ex. /og/koyotec.jpg)", slug: "Adresse de l'article (slug : minuscules, chiffres, tirets)", date: "Date de publication", intro: "Introduction (en gras)",

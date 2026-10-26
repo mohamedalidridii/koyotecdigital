@@ -62,7 +62,7 @@
   <div class="page" data-barba="container" data-barba-namespace="home">
     <header class="site-nav">
       <a class="brand" href="/" aria-label="KOYOTEC — Accueil"><svg class="logo-mark" viewBox="0 0 250 195" aria-hidden="true" focusable="false"><defs><clipPath id="kb-nav"><rect width="250" height="194.5"/></clipPath></defs><g class="logo-strokes" clip-path="url(#kb-nav)"><path pathLength="1" d="M220.5 10C175.75 9.25 132.75 31 92 90.25L19.66 206"/><path pathLength="1" d="M79 1.5V72.5M80 112V206"/><path pathLength="1" d="M142.1 106L233.1 206"/><path class="logo-bar" pathLength="1" d="M1 104H246"/></g><rect class="logo-dot" x="232" y="2" width="18" height="18"/></svg><span class="brand-name">KOYOTEC<sup>&reg;</sup></span></a>
-      <nav class="nav-main" aria-label="Menu"><ul class="nav-links"><li><a href="/" aria-current="page">Accueil</a>,</li> <li><a href="/services">Services</a>,</li> <li><a href="/art-de-la-difference" class="nav-art"><i class="nav-art-dot" aria-hidden="true"></i>L’art de la différence</a>,</li> <li><a href="/blog">Blog</a>,</li> <li><a href="/contact">Contact</a></li></ul></nav>
+      <nav class="nav-main" aria-label="Menu"><ul class="nav-links"><li><a href="/" aria-current="page">Accueil</a>,</li> <li><a href="/services">Services</a>,</li> <li><a href="/engineering/" data-barba-prevent>Ingénierie</a>,</li> <li><a href="/art-de-la-difference" class="nav-art"><i class="nav-art-dot" aria-hidden="true"></i>L’art de la différence</a>,</li> <li><a href="/blog">Blog</a>,</li> <li><a href="/contact">Contact</a></li></ul></nav>
       <div class="nav-right">
         <a class="lang" href="/en/" hreflang="en" lang="en">EN</a>
         <a class="nav-cta" href="/contact">Devis gratuit</a>
@@ -76,9 +76,10 @@
         <ol class="menu-list">
         <li><a href="/" aria-current="page"><span class="menu-idx">(01)</span><span class="menu-name">Accueil</span></a></li>
         <li><a href="/services"><span class="menu-idx">(02)</span><span class="menu-name">Services</span></a></li>
-        <li><a href="/art-de-la-difference" class="nav-art"><span class="menu-idx">(03)</span><span class="menu-name">L’art de la différence</span><i class="nav-art-dot" aria-hidden="true"></i></a></li>
-        <li><a href="/blog"><span class="menu-idx">(04)</span><span class="menu-name">Blog</span></a></li>
-        <li><a href="/contact"><span class="menu-idx">(05)</span><span class="menu-name">Contact</span></a></li>
+        <li><a href="/engineering/" data-barba-prevent><span class="menu-idx">(03)</span><span class="menu-name">Ingénierie</span></a></li>
+        <li><a href="/art-de-la-difference" class="nav-art"><span class="menu-idx">(04)</span><span class="menu-name">L’art de la différence</span><i class="nav-art-dot" aria-hidden="true"></i></a></li>
+        <li><a href="/blog"><span class="menu-idx">(05)</span><span class="menu-name">Blog</span></a></li>
+        <li><a href="/contact"><span class="menu-idx">(06)</span><span class="menu-name">Contact</span></a></li>
         </ol>
       </nav>
       <div class="menu-foot">
@@ -126,6 +127,21 @@
             <li data-line><a class="svc-row" href="/services" data-shape="compass" data-cursor="Voir"><span class="svc-num">06</span><span class="svc-name">Stratégie digitale</span><span class="svc-desc">Un plan clair pour attirer des clients de façon régulière.</span></a></li>
           </ol>
           <p class="svc-more"><a class="tlink" href="/services"><span class="tlink-label">En savoir plus</span><span class="tlink-arrow" aria-hidden="true">→</span></a></p>
+        </div>
+      </section>
+
+      <section class="services-home eng-teaser" id="engineering" data-gl="constellation" data-gl-dim="0.22">
+        <div class="shell">
+          <div class="label-row" data-line><span>Koyotec Engineering (05)</span><span class="label-lead">Notre pôle technique conçoit, déploie et sécurise les systèmes qui font tourner votre entreprise.</span></div>
+          <h2 class="eng-teaser-title" data-split>L’ingénierie derrière le site</h2>
+          <ol class="svc-list">
+            <li data-line><a class="svc-row" href="/engineering/expertise/" data-barba-prevent data-shape="signal" data-cursor="Entrer"><span class="svc-num">01</span><span class="svc-name">Intelligence artificielle</span><span class="svc-desc">Assistants LLM et RAG sur vos documents, automatisation et modèles de prédiction.</span></a></li>
+            <li data-line><a class="svc-row" href="/engineering/expertise/" data-barba-prevent data-shape="grid" data-cursor="Entrer"><span class="svc-num">02</span><span class="svc-name">Cloud</span><span class="svc-desc">Migration et architectures AWS, Azure ou GCP, coûts maîtrisés.</span></a></li>
+            <li data-line><a class="svc-row" href="/engineering/expertise/" data-barba-prevent data-shape="bag" data-cursor="Entrer"><span class="svc-num">03</span><span class="svc-name">DevOps</span><span class="svc-desc">CI/CD, Kubernetes, infrastructure as code et supervision.</span></a></li>
+            <li data-line><a class="svc-row" href="/engineering/expertise/" data-barba-prevent data-shape="compass" data-cursor="Entrer"><span class="svc-num">04</span><span class="svc-name">Cybersécurité</span><span class="svc-desc">Audits, tests d’intrusion, durcissement et gestion des accès.</span></a></li>
+            <li data-line><a class="svc-row" href="/engineering/expertise/" data-barba-prevent data-shape="browser" data-cursor="Entrer"><span class="svc-num">05</span><span class="svc-name">Business intelligence</span><span class="svc-desc">Entrepôt de données, ETL et tableaux de bord Power BI ou Metabase.</span></a></li>
+          </ol>
+          <p class="svc-more"><a class="tlink" href="/engineering/" data-barba-prevent><span class="tlink-label">Découvrir Koyotec Engineering</span><span class="tlink-arrow" aria-hidden="true">→</span></a></p>
         </div>
       </section>
 
@@ -248,6 +264,7 @@
             <h2 class="footer-h">Pages</h2>
             <a href="/">Accueil</a>
             <a href="/services">Services</a>
+            <a href="/engineering/" data-barba-prevent>Ingénierie</a>
             <a href="/art-de-la-difference">L’art de la différence</a>
             <a href="/blog">Blog</a>
             <a href="/contact">Contact</a>

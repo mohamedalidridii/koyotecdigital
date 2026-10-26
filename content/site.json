@@ -21,6 +21,7 @@
       "nav": {
         "home": "Accueil",
         "services": "Services",
+        "engineering": "Ingénierie",
         "blog": "Blog",
         "art": "L’art de la différence",
         "contact": "Contact"
@@ -83,6 +84,34 @@
         ]
       ],
       "cards_more": "En savoir plus",
+      "engineering": {
+        "kicker": "Koyotec Engineering",
+        "lead": "Notre pôle technique conçoit, déploie et sécurise les systèmes qui font tourner votre entreprise.",
+        "title": "L’ingénierie derrière le site",
+        "items": [
+          [
+            "Intelligence artificielle",
+            "Assistants LLM et RAG sur vos documents, automatisation et modèles de prédiction."
+          ],
+          [
+            "Cloud",
+            "Migration et architectures AWS, Azure ou GCP, coûts maîtrisés."
+          ],
+          [
+            "DevOps",
+            "CI/CD, Kubernetes, infrastructure as code et supervision."
+          ],
+          [
+            "Cybersécurité",
+            "Audits, tests d’intrusion, durcissement et gestion des accès."
+          ],
+          [
+            "Business intelligence",
+            "Entrepôt de données, ETL et tableaux de bord Power BI ou Metabase."
+          ]
+        ],
+        "cta": "Découvrir Koyotec Engineering"
+      },
       "why_h": "Pourquoi choisir KOYOTEC",
       "why_kicker": "Pourquoi nous",
       "lead": "KOYOTEC est une agence digitale basée à Tunis. Nous créons des [[sites web]] rapides et sur mesure, des [[identités visuelles]] mémorables et des stratégies digitales qui attirent de vrais clients.",
@@ -277,6 +306,7 @@
       "nav": {
         "home": "Home",
         "services": "Services",
+        "engineering": "Engineering",
         "blog": "Blog",
         "art": "The art of difference",
         "contact": "Contact"
@@ -339,6 +369,34 @@
         ]
       ],
       "cards_more": "Learn more",
+      "engineering": {
+        "kicker": "Koyotec Engineering",
+        "lead": "Our technical arm designs, ships and secures the systems your business runs on.",
+        "title": "The engineering behind the website",
+        "items": [
+          [
+            "Artificial intelligence",
+            "LLM assistants and RAG over your documents, automation and predictive models."
+          ],
+          [
+            "Cloud",
+            "Migration and AWS, Azure or GCP architectures, with costs under control."
+          ],
+          [
+            "DevOps",
+            "CI/CD, Kubernetes, infrastructure as code and monitoring."
+          ],
+          [
+            "Cybersecurity",
+            "Audits, penetration tests, hardening and access management."
+          ],
+          [
+            "Business intelligence",
+            "Data warehouses, ETL and Power BI or Metabase dashboards."
+          ]
+        ],
+        "cta": "Discover Koyotec Engineering"
+      },
       "why_h": "Why choose KOYOTEC",
       "why_kicker": "Why us",
       "lead": "KOYOTEC is a digital agency based in Tunis. We build fast, custom [[websites]], memorable [[brand identities]] and digital strategies that bring in real customers.",

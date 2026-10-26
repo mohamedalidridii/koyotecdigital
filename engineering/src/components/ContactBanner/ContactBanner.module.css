@@ -1,0 +1,87 @@
+.contactBanner {
+  position: relative;
+  width: 100%;
+  height: 150svh;
+  overflow: hidden;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.panel {
+  width: 100%;
+  max-width: 44rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4rem;
+  padding: 5.5rem 4rem;
+  background-color: var(--base-300);
+  color: var(--base-100);
+  clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.intro p {
+  max-width: 22em;
+  opacity: 0.8;
+  line-height: 1.55;
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem 3rem;
+  width: 100%;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.group p.mono {
+  opacity: 0.8;
+}
+
+.panel a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .panel {
+    gap: 2.75rem;
+    padding: 4rem 1.75rem;
+  }
+
+  .meta {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}

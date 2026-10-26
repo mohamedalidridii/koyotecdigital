@@ -12,7 +12,8 @@
     "generate": "node cms/generate.mjs",
     "showcase": "node scripts/showcase/build.mjs",
     "showcase:optimize": "node scripts/showcase/optimize.mjs",
-    "showcase:capture": "node scripts/showcase/capture.mjs"
+    "showcase:capture": "node scripts/showcase/capture.mjs",
+    "engineering": "node scripts/engineering/build.mjs"
   },
   "repository": {
     "type": "git",

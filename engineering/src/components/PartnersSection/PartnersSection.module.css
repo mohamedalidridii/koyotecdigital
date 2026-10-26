@@ -1,0 +1,35 @@
+.partnersSection {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--base-200);
+  color: var(--base-500);
+  padding: 8rem 0 4rem 0;
+}
+
+.cols {
+  display: flex;
+  width: 100%;
+  padding-block: 8rem 4rem;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.copy {
+  flex: 3;
+}
+
+@media (max-width: 768px) {
+  .cols {
+    flex-direction: column;
+    padding-block: 4rem 2.5rem;
+  }
+
+  .spacer {
+    display: none;
+  }
+}

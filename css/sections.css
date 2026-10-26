@@ -193,6 +193,21 @@
   font-size: 1rem;
 }
 
+/* engineering teaser: the services list again, under an italic serif line */
+.eng-teaser {
+  padding-top: clamp(3rem, 10vh, 7rem);
+}
+.eng-teaser-title {
+  padding-block: clamp(1.5rem, 5vh, 3.5rem);
+  font-family: var(--f-serif);
+  font-size: clamp(2rem, 5vw, 5.5rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--ink-dim);
+}
+
 /* ---------- statement ---------- */
 .statement {
   padding-block: clamp(5rem, 16vh, 12rem);

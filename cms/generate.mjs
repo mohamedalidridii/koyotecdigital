@@ -11,12 +11,17 @@ const PATHS = {
   home: ["/", "/en/"],
   services: ["/services", "/en/services"],
   art: ["/art-de-la-difference", "/en/art-of-difference"],
+  // the engineering section is a separate Next app (engineering/), built into public/engineering
+  engineering: ["/engineering/", "/engineering/en/"],
   blog: ["/blog", "/en/blog"],
   contact: ["/contact", "/en/contact"],
 };
 const LANGS = ["fr", "en"];
 const LOCALE = { fr: "fr_TN", en: "en_US" };
 const idx = (lang) => (lang === "fr" ? 0 : 1);
+// routes outside the barba-driven pages: links to them must load the page for real
+const ENGINEERING_ROUTES = ["", "expertise", "work", "studio", "engagements", "contact"];
+const full = (k) => (k === "engineering" ? " data-barba-prevent" : "");
 
 // ---------- escaping and light markup ----------
 const esc = (s) =>
@@ -228,14 +233,14 @@ ${altFr ? `    <link rel="alternate" hreflang="fr" href="${esc(SITE + altFr)}" /
   function nav(lang, page, switchTo) {
     const ui = site[lang].ui; const i = idx(lang);
     const other = lang === "fr" ? "en" : "fr";
-    const keys = ["home", "services", "art", "blog", "contact"];
+    const keys = ["home", "services", "engineering", "art", "blog", "contact"];
     const sw = switchTo || PATHS[page][idx(other)];
     const cur = (k) => (k === page ? ' aria-current="page"' : "");
     const links = keys
-      .map((k, n) => `<li><a href="${PATHS[k][i]}"${k === "art" ? ' class="nav-art"' : ""}${cur(k)}>${k === "art" ? '<i class="nav-art-dot" aria-hidden="true"></i>' : ""}${esc(ui.nav[k])}</a>${n < keys.length - 1 ? "," : ""}</li>`)
+      .map((k, n) => `<li><a href="${PATHS[k][i]}"${k === "art" ? ' class="nav-art"' : ""}${full(k)}${cur(k)}>${k === "art" ? '<i class="nav-art-dot" aria-hidden="true"></i>' : ""}${esc(ui.nav[k])}</a>${n < keys.length - 1 ? "," : ""}</li>`)
       .join(" ");
     const items = keys
-      .map((k, n) => `        <li><a href="${PATHS[k][i]}"${k === "art" ? ' class="nav-art"' : ""}${cur(k)}><span class="menu-idx">(${pad(n + 1)})</span><span class="menu-name">${esc(ui.nav[k])}</span>${k === "art" ? '<i class="nav-art-dot" aria-hidden="true"></i>' : ""}</a></li>`)
+      .map((k, n) => `        <li><a href="${PATHS[k][i]}"${k === "art" ? ' class="nav-art"' : ""}${full(k)}${cur(k)}><span class="menu-idx">(${pad(n + 1)})</span><span class="menu-name">${esc(ui.nav[k])}</span>${k === "art" ? '<i class="nav-art-dot" aria-hidden="true"></i>' : ""}</a></li>`)
       .join("\n");
     return `    <header class="site-nav">
       <a class="brand" href="${PATHS.home[i]}" aria-label="${esc(G.name)} — ${esc(ui.nav.home)}">${logo("nav")}<span class="brand-name">${esc(G.name)}<sup>&reg;</sup></span></a>
@@ -285,6 +290,7 @@ ${items}
             <h2 class="footer-h">${esc(ui.footer_pages)}</h2>
             <a href="${PATHS.home[i]}">${esc(ui.nav.home)}</a>
             <a href="${PATHS.services[i]}">${esc(ui.nav.services)}</a>
+            <a href="${PATHS.engineering[i]}" data-barba-prevent>${esc(ui.nav.engineering)}</a>
             <a href="${PATHS.art[i]}">${esc(ui.nav.art)}</a>
             <a href="${PATHS.blog[i]}">${esc(ui.nav.blog)}</a>
             <a href="${PATHS.contact[i]}">${esc(ui.nav.contact)}</a>
@@ -369,6 +375,23 @@ ${items.map(([a, b], n) => `            <li data-line><a class="svc-row" href="$
           </ol>
           ${more ? `<p class="svc-more">${link(href, more)}</p>` : ""}`;
 
+  // home teaser for the engineering section: the services list again, one row per discipline
+  function engineeringTeaser(lang) {
+    const e = site[lang].home.engineering; const i = idx(lang);
+    const href = PATHS.engineering[i];
+    const rows = e.items.map(([a, b], n) => `            <li data-line><a class="svc-row" href="${href}expertise/" data-barba-prevent data-shape="${SHAPES[(n + 2) % SHAPES.length]}" data-cursor="${CURSOR[lang].enter}"><span class="svc-num">${pad(n + 1)}</span><span class="svc-name">${esc(a)}</span><span class="svc-desc">${esc(b)}</span></a></li>`).join("\n");
+    return `      <section class="services-home eng-teaser" id="engineering" data-gl="constellation" data-gl-dim="0.22">
+        <div class="shell">
+          <div class="label-row" data-line><span>${esc(e.kicker)} (${pad(e.items.length)})</span><span class="label-lead">${esc(e.lead)}</span></div>
+          <h2 class="eng-teaser-title" data-split>${esc(e.title)}</h2>
+          <ol class="svc-list">
+${rows}
+          </ol>
+          <p class="svc-more">${link(href, e.cta, " data-barba-prevent")}</p>
+        </div>
+      </section>`;
+  }
+
   // home teaser for the showcase: a stack of identical-looking pieces that bursts into thirty different identities
   function artTeaser(lang) {
     const h = site[lang].home; const i = idx(lang); const c = CURSOR[lang];
@@ -433,6 +456,8 @@ ${chips}
 ${serviceList(lang, h.cards, PATHS.services[i], h.cards.length, h.cards_more)}
         </div>
       </section>
+
+${engineeringTeaser(lang)}
 
 ${artTeaser(lang)}
 
@@ -681,6 +706,9 @@ ${body}
     const entries = [];
     for (const page of ["home", "services", "art", "blog", "contact"]) {
       entries.push({ fr: PATHS[page][0], en: PATHS[page][1] });
+    }
+    for (const r of ENGINEERING_ROUTES) {
+      entries.push({ fr: PATHS.engineering[0] + (r && `${r}/`), en: PATHS.engineering[1] + (r && `${r}/`) });
     }
     const seen = new Set();
     for (const lang of LANGS) {

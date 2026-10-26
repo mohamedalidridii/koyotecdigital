@@ -1,0 +1,26 @@
+.line-mask,
+.word-mask,
+.char-mask {
+  padding-bottom: 0.2em;
+  margin-bottom: -0.2em;
+}
+
+.line,
+.word,
+.char {
+  will-change: transform, opacity;
+}
+
+.wrapper {
+  display: contents;
+}
+
+:global([data-copy="slide"]:not(.copy-slide-ready)),
+:global([data-copy="flicker"]:not(.copy-flicker-ready)) {
+  visibility: hidden;
+}
+
+.wrapper:global([data-copy="slide"]:not(.copy-slide-ready)) > *,
+.wrapper:global([data-copy="flicker"]:not(.copy-flicker-ready)) > * {
+  visibility: hidden;
+}

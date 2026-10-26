@@ -1,0 +1,263 @@
+.menu {
+  --gap: 1.5rem;
+  --w: min(480px, calc(100vw - 1.5rem));
+  --bar-h: 132px;
+  --pad: 1.15rem;
+  --col1: 46px;
+  --col-gap: 1.75rem;
+  --dash: 1px dashed var(--base-200);
+
+  position: fixed;
+  top: var(--gap);
+  left: var(--gap);
+  width: var(--w);
+  z-index: 1000;
+  transition: transform 0.4s ease;
+}
+
+.menu[data-nav-intro] {
+  transform: translateY(-250px);
+  transition: none;
+}
+
+.hidden {
+  transform: translateY(calc(-100% - var(--gap)));
+  pointer-events: none;
+}
+
+.bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: stretch;
+  height: var(--bar-h);
+  background-color: var(--base-100);
+  color: var(--base-500);
+}
+
+.brandGroup {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--col-gap);
+  padding: var(--pad);
+}
+
+.logo {
+  display: block;
+  width: var(--col1);
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.logo svg {
+  width: 100%;
+  height: auto;
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  color: var(--base-500);
+}
+
+.divider {
+  align-self: stretch;
+  border-left: var(--dash);
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  width: 120px;
+  background: none;
+  border: none;
+  color: var(--base-500);
+  cursor: pointer;
+}
+
+.toggleIcon {
+  position: relative;
+  width: 30px;
+  height: 10px;
+}
+
+.toggleIcon span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transition: transform 0.4s ease, top 0.3s ease;
+}
+
+.toggleIcon span:first-child {
+  top: 0;
+}
+
+.toggleIcon span:last-child {
+  top: 8px;
+}
+
+.menu[data-open="true"] .toggleIcon span:first-child {
+  top: 4px;
+  transform: rotate(45deg);
+}
+
+.menu[data-open="true"] .toggleIcon span:last-child {
+  top: 4px;
+  transform: rotate(-45deg);
+}
+
+.panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: calc(100svh - 2 * var(--gap));
+  padding-top: var(--bar-h);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--base-100);
+  color: var(--base-500);
+  overflow: hidden;
+  clip-path: inset(0 0 100% 0);
+  pointer-events: none;
+  will-change: clip-path;
+}
+
+.menu[data-open="true"] .panel {
+  pointer-events: auto;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.navItem {
+  display: grid;
+  grid-template-columns: var(--col1) 1fr auto;
+  align-items: center;
+  gap: var(--col-gap);
+  padding: 1.05rem var(--pad);
+  border-top: var(--dash);
+  text-decoration: none;
+  color: inherit;
+}
+
+.split {
+  display: block;
+  will-change: transform;
+}
+
+.split div {
+  will-change: transform;
+}
+
+.reveal {
+  will-change: transform, opacity;
+}
+
+.index {
+  color: var(--base-500);
+}
+
+.label {
+  margin: 0;
+  font-size: 1.7rem;
+  color: var(--base-500);
+}
+
+.word {
+  line-height: inherit;
+  text-shadow: 0 calc(-1 * var(--shift, 1.2em)) 0 currentColor;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+.extra {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--col-gap);
+  margin-top: auto;
+  padding: var(--pad);
+  border-top: var(--dash);
+}
+
+.extra a {
+  color: var(--base-500);
+  text-decoration: none;
+}
+
+.extra a:hover {
+  color: var(--base-300);
+}
+
+.extra + .contact {
+  margin-top: 0;
+}
+
+.contact {
+  display: grid;
+  grid-template-columns: var(--col1) 1fr 120px;
+  align-items: stretch;
+  column-gap: var(--col-gap);
+  min-height: 150px;
+  margin-top: auto;
+  padding-left: var(--pad);
+  background-color: var(--base-300);
+  color: var(--base-100);
+  text-decoration: none;
+}
+
+.contactIndex {
+  padding-top: var(--pad);
+  color: var(--base-100);
+}
+
+.contactBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-block: var(--pad);
+}
+
+.contactTitle {
+  margin: 0;
+  font-size: 1.7rem;
+  color: var(--base-100);
+}
+
+.contactCode {
+  opacity: 0.85;
+}
+
+.contactArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: var(--dash);
+  font-size: 1.5rem;
+}
+
+.contactArrow .reveal {
+  display: flex;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    --w: calc(100vw - 2 * var(--gap));
+  }
+
+  .word {
+    text-shadow: none;
+  }
+}

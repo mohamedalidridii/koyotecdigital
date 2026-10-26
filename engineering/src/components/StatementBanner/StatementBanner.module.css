@@ -1,0 +1,34 @@
+.statementBanner {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  max-width: 8em;
+  color: var(--base-500);
+}
+
+.copy {
+  align-self: flex-end;
+  max-width: 8em;
+  color: var(--base-500);
+}
+
+.multiline {
+  max-width: none;
+}

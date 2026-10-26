@@ -162,3 +162,7 @@ showcase/**/.DS_Store
 # built showcase pieces are deployed as is: never drop their bundles (e.g. _next/static/chunks/next/dist)
 !public/art-de-la-difference/**/dist/
 !public/art-de-la-difference/**/out/
+
+# built engineering section is deployed as is
+!public/engineering/**/dist/
+!public/engineering/**/out/

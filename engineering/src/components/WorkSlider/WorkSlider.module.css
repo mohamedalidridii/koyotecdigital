@@ -1,0 +1,137 @@
+.page {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background-color: var(--base-200);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.revealed {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.chrome {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.list {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  contain: layout paint;
+  will-change: transform;
+}
+
+.media {
+  position: absolute;
+  inset: 0;
+  transform: scale(1.5);
+  will-change: transform;
+}
+
+.minimap {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  width: 75%;
+  height: calc(250px + 2.25rem);
+  padding: 1.25rem;
+  overflow: hidden;
+  background-color: var(--base-100);
+  color: var(--base-500);
+  transform: translate(-50%, -50%);
+  clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+}
+
+.minimapInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.preview {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 35%;
+  height: 100%;
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+}
+
+.previewItem {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  contain: layout paint;
+  will-change: transform;
+}
+
+.infoList {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.info {
+  position: absolute;
+  width: 100%;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  will-change: transform;
+}
+
+.infoRow {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+}
+
+.line-mask {
+  padding-bottom: 0.2em;
+  margin-bottom: -0.2em;
+}
+
+.line {
+  will-change: transform;
+}
+
+@media (max-width: 1000px) {
+  .preview {
+    left: auto;
+    right: 0;
+    transform: translate(0, -50%);
+  }
+
+  .infoRow {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .page {
+    touch-action: none;
+  }
+
+  .preview {
+    display: none;
+  }
+}
