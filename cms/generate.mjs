@@ -141,7 +141,8 @@ export function generate(root = ROOT, content = loadContent(root), { write = tru
       geo: { "@type": "GeoCoordinates", latitude: Number(G.latitude), longitude: Number(G.longitude) },
       areaServed: [{ "@type": "Country", name: "Tunisia" }],
       knowsLanguage: ["fr", "ar", "en"],
-      sameAs: [G.instagram, G.youtube],
+      hasMap: G.maps,
+      sameAs: [G.instagram, G.youtube, G.maps],
       makesOffer: t.home.cards.map(([n]) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: n } })),
     };
   }
@@ -640,7 +641,7 @@ ${ctaSection(lang, { h: l.cta_h, button: l.cta })}`;
         <div class="shell contact-grid">
           <div class="contact-info">
             ${addressLockup(lang, "address")}
-            <p class="contact-social"><a href="${esc(G.instagram)}" target="_blank" rel="noopener noreferrer">Instagram</a>, <a href="${esc(G.youtube)}" target="_blank" rel="noopener noreferrer">YouTube</a></p>
+            <p class="contact-social"><a href="${esc(G.instagram)}" target="_blank" rel="noopener noreferrer">Instagram</a>, <a href="${esc(G.youtube)}" target="_blank" rel="noopener noreferrer">YouTube</a>, <a href="${esc(G.maps)}" target="_blank" rel="noopener noreferrer">Google Maps</a></p>
           </div>
           <form class="contact-form" action="${esc(G.formEndpoint)}" method="post" data-endpoint="${esc(G.formEndpoint)}" data-lang="${lang}" data-email="${esc(G.email)}" data-done="${esc(c.f_done)}" data-error="${esc(c.f_error)}" data-sending="${esc(c.f_sending)}">
             <h2 class="form-h">${esc(c.form_h)}</h2>

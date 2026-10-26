@@ -96,7 +96,7 @@ function validateSite(next) {
   shapeCheck(next, cur);
   const g = next.global;
   if (!isHttps(g.domain)) throw new Error("global.domain doit être une URL https://");
-  if (!isHttps(g.instagram) || !isHttps(g.youtube)) throw new Error("Les liens Instagram/YouTube doivent commencer par https://");
+  if (!isHttps(g.instagram) || !isHttps(g.youtube) || !isHttps(g.maps)) throw new Error("Les liens Instagram/YouTube/Google Maps doivent commencer par https://");
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(g.email)) throw new Error("E-mail invalide");
   if (!/^\+\d{8,15}$/.test(g.phone)) throw new Error("Téléphone : format international sans espaces, ex. +21652405699");
   if (!Number.isFinite(Number(g.latitude)) || !Number.isFinite(Number(g.longitude))) throw new Error("Latitude/longitude invalides");
