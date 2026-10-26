@@ -69,66 +69,64 @@
   font-size: 1.15em;
   line-height: 1;
 }
-/* the art-of-difference link: a pill with a slowly drifting gradient ring and a pulsing dot */
+/* the art-of-difference link: a hairline pill in the serif italic, ink only, with a quietly pulsing dot */
 .nav-art {
-  --art-grad: linear-gradient(110deg, #ff7a45, #7a5cff, #1fb8a6, #ff7a45);
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.3rem 0.85rem;
+  padding: 0.3rem 0.9rem 0.34rem;
+  border: 1px solid currentColor;
   border-radius: 999px;
-  isolation: isolate;
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: 1.15em;
+  line-height: 1;
+  transition: background-color 0.4s var(--ease-out), color 0.4s var(--ease-out);
 }
-.nav-art::before {
+.nav-art-dot {
+  position: relative;
+  flex: none;
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+.nav-art-dot::after {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: -1;
-  padding: 1.5px;
-  border-radius: inherit;
-  background: var(--art-grad) 0 0 / 300% 100%;
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
-  animation: art-shift 6s linear infinite;
-}
-.nav-art-dot {
-  flex: none;
-  width: 0.45rem;
-  height: 0.45rem;
+  border: 1px solid currentColor;
   border-radius: 50%;
-  background: var(--art-grad) 0 0 / 300% 100%;
-  animation: art-shift 6s linear infinite, art-pulse 2s ease-in-out infinite;
+  animation: art-ping 2.6s var(--ease-out) infinite;
 }
 .nav-links a.nav-art:hover,
 .nav-links a.nav-art[aria-current="page"] {
-  font-family: inherit;
-  font-style: italic;
-  font-size: inherit;
+  font-family: var(--f-serif);
+  font-size: 1.15em;
 }
-.nav-art:hover::before {
-  animation-duration: 2s;
+.nav-links a.nav-art:hover {
+  background: var(--ink);
+  color: var(--paper);
 }
-@keyframes art-shift {
-  to {
-    background-position: 300% 0;
-  }
+.nav-links a.nav-art[aria-current="page"] {
+  background: var(--ink);
+  color: var(--paper);
 }
-@keyframes art-pulse {
-  0%,
-  100% {
+@keyframes art-ping {
+  0% {
+    opacity: 0.7;
     transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(122, 92, 255, 0.5);
   }
-  50% {
-    transform: scale(1.25);
-    box-shadow: 0 0 0 0.35rem rgba(122, 92, 255, 0);
+  80%,
+  100% {
+    opacity: 0;
+    transform: scale(3);
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .nav-art::before,
-  .nav-art-dot {
+  .nav-art-dot::after {
     animation: none;
+    opacity: 0;
   }
 }
 .nav-right {
@@ -214,18 +212,26 @@
 .menu-list a[aria-current="page"] {
   font-style: italic;
 }
-/* in the full-screen menu the link keeps its big type: just the dot, no ring */
+/* in the full-screen menu the link keeps its big type: just the dot, no pill */
 .menu-list a.nav-art {
   padding: 0;
+  border: 0;
   border-radius: 0;
+  background: none;
+  font-size: clamp(3.4rem, 15vw, 9rem);
+  font-style: normal;
 }
-.menu-list a.nav-art::before {
+.menu-list a.nav-art:hover,
+.menu-list a.nav-art[aria-current="page"] {
+  font-style: italic;
+}
+.menu-list .nav-art-dot::after {
   display: none;
 }
 .menu-list .nav-art-dot {
   align-self: center;
-  width: clamp(0.7rem, 2vw, 1.2rem);
-  height: clamp(0.7rem, 2vw, 1.2rem);
+  width: clamp(0.6rem, 1.8vw, 1rem);
+  height: clamp(0.6rem, 1.8vw, 1rem);
 }
 .menu-idx {
   font-family: var(--f-sans);
