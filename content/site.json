@@ -4,6 +4,7 @@
     "name": "KOYOTEC",
     "tagline": "KOYOTEC Digital Agency",
     "email": "contact@koyotec.digital",
+    "formEndpoint": "https://api.koyotec.digital/contact",
     "phone": "+21652405699",
     "phoneDisplay": "+216 52 405 699",
     "instagram": "https://www.instagram.com/koyotec.digital/",
@@ -210,7 +211,7 @@
     },
     "contact": {
       "title": "Contact & Devis Gratuit | Agence Web à Tunis – KOYOTEC",
-      "desc": "Contactez KOYOTEC, agence web et branding à Ennasr, Tunis. Téléphone +216 52 405 699, e-mail inquiry@koyotec.digital. Devis gratuit sous 24 h.",
+      "desc": "Contactez KOYOTEC, agence web et branding à Ennasr, Tunis. Téléphone +216 52 405 699, e-mail contact@koyotec.digital. Devis gratuit sous 24 h.",
       "h1": "Contactez l'agence KOYOTEC à Tunis",
       "addr": [
         "Ennasr, Tunis",
@@ -226,7 +227,9 @@
       "f_msg": "Votre projet en quelques lignes",
       "f_send": "Envoyer la demande",
       "f_note": "Réponse et devis gratuit sous 24 h",
-      "f_done": "Votre messagerie s'ouvre avec la demande prête à envoyer."
+      "f_done": "Merci, votre message est bien parti. Nous vous répondons sous 24 h.",
+      "f_error": "L'envoi a échoué : votre messagerie s'ouvre avec la demande prête à envoyer.",
+      "f_sending": "Envoi en cours…"
     },
     "blog": {
       "title": "Blog : Conseils Site Web, SEO & Branding à Tunis – KOYOTEC",
@@ -461,7 +464,7 @@
     },
     "contact": {
       "title": "Contact & Free Quote | Web Agency in Tunis – KOYOTEC",
-      "desc": "Contact KOYOTEC, web design and branding agency in Ennasr, Tunis. Phone +216 52 405 699, email inquiry@koyotec.digital. Free quote within 24 hours.",
+      "desc": "Contact KOYOTEC, web design and branding agency in Ennasr, Tunis. Phone +216 52 405 699, email contact@koyotec.digital. Free quote within 24 hours.",
       "h1": "Contact the KOYOTEC agency in Tunis",
       "addr": [
         "Ennasr, Tunis",
@@ -477,7 +480,9 @@
       "f_msg": "Your project in a few lines",
       "f_send": "Send request",
       "f_note": "Reply and free quote within 24 hours",
-      "f_done": "Your email app opens with the request ready to send."
+      "f_done": "Thank you, your message has been sent. We reply within 24 hours.",
+      "f_error": "Sending failed: your email app opens with the request ready to send.",
+      "f_sending": "Sending…"
     },
     "blog": {
       "title": "Blog: Web Design, SEO & Branding Tips from Tunis – KOYOTEC",

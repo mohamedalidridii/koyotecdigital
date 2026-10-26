@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact &amp; Devis Gratuit | Agence Web à Tunis – KOYOTEC</title>
-    <meta name="description" content="Contactez KOYOTEC, agence web et branding à Ennasr, Tunis. Téléphone +216 52 405 699, e-mail inquiry@koyotec.digital. Devis gratuit sous 24 h." />
+    <meta name="description" content="Contactez KOYOTEC, agence web et branding à Ennasr, Tunis. Téléphone +216 52 405 699, e-mail contact@koyotec.digital. Devis gratuit sous 24 h." />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="https://www.koyotec.digital/contact" />
     <link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/contact" />
@@ -13,7 +13,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="KOYOTEC" />
     <meta property="og:title" content="Contact &amp; Devis Gratuit | Agence Web à Tunis – KOYOTEC" />
-    <meta property="og:description" content="Contactez KOYOTEC, agence web et branding à Ennasr, Tunis. Téléphone +216 52 405 699, e-mail inquiry@koyotec.digital. Devis gratuit sous 24 h." />
+    <meta property="og:description" content="Contactez KOYOTEC, agence web et branding à Ennasr, Tunis. Téléphone +216 52 405 699, e-mail contact@koyotec.digital. Devis gratuit sous 24 h." />
     <meta property="og:url" content="https://www.koyotec.digital/contact" />
     <meta property="og:locale" content="fr_TN" />
     <meta property="og:image" content="https://www.koyotec.digital/og/koyotec.jpg" />
@@ -107,12 +107,13 @@
         </address>
             <p class="contact-social"><a href="https://www.instagram.com/koyotec.digital/" target="_blank" rel="noopener noreferrer">Instagram</a>, <a href="https://www.youtube.com/@medaly.dridiy" target="_blank" rel="noopener noreferrer">YouTube</a></p>
           </div>
-          <form class="contact-form" action="mailto:contact@koyotec.digital" method="post" enctype="text/plain" data-email="contact@koyotec.digital" data-done="Votre messagerie s'ouvre avec la demande prête à envoyer.">
+          <form class="contact-form" action="https://api.koyotec.digital/contact" method="post" data-endpoint="https://api.koyotec.digital/contact" data-lang="fr" data-email="contact@koyotec.digital" data-done="Merci, votre message est bien parti. Nous vous répondons sous 24 h." data-error="L'envoi a échoué : votre messagerie s'ouvre avec la demande prête à envoyer." data-sending="Envoi en cours…">
             <h2 class="form-h">Parlez-nous de votre projet</h2>
             <label class="field" data-line><span>Votre nom</span><input name="name" autocomplete="name" required /></label>
             <label class="field" data-line><span>Votre e-mail</span><input name="email" type="email" autocomplete="email" required /></label>
             <fieldset class="chips" data-line><legend>Ce dont vous avez besoin</legend><label class="chip"><input type="checkbox" name="type" value="Création de site web" /><span>Création de site web</span></label><label class="chip"><input type="checkbox" name="type" value="Identité visuelle &amp; logo" /><span>Identité visuelle &amp; logo</span></label><label class="chip"><input type="checkbox" name="type" value="Référencement SEO" /><span>Référencement SEO</span></label><label class="chip"><input type="checkbox" name="type" value="Design UI/UX" /><span>Design UI/UX</span></label><label class="chip"><input type="checkbox" name="type" value="Boutique en ligne" /><span>Boutique en ligne</span></label><label class="chip"><input type="checkbox" name="type" value="Stratégie digitale" /><span>Stratégie digitale</span></label></fieldset>
             <label class="field" data-line><span>Votre projet en quelques lignes</span><textarea name="message" rows="4" required></textarea></label>
+            <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
             <div class="form-foot">
               <button class="send" type="submit" data-cursor="Écrire"><span>Envoyer la demande</span> <svg class="g g-arrow" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M8 32 32 8M14 8h18v18"/></svg></button>
               <p class="form-note">Réponse et devis gratuit sous 24 h</p>

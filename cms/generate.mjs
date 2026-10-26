@@ -514,12 +514,13 @@ ${ctaSection(lang, { h: s.cta_h, button: s.cta })}`;
             ${addressLockup(lang, "address")}
             <p class="contact-social"><a href="${esc(G.instagram)}" target="_blank" rel="noopener noreferrer">Instagram</a>, <a href="${esc(G.youtube)}" target="_blank" rel="noopener noreferrer">YouTube</a></p>
           </div>
-          <form class="contact-form" action="mailto:${esc(G.email)}" method="post" enctype="text/plain" data-email="${esc(G.email)}" data-done="${esc(c.f_done)}">
+          <form class="contact-form" action="${esc(G.formEndpoint)}" method="post" data-endpoint="${esc(G.formEndpoint)}" data-lang="${lang}" data-email="${esc(G.email)}" data-done="${esc(c.f_done)}" data-error="${esc(c.f_error)}" data-sending="${esc(c.f_sending)}">
             <h2 class="form-h">${esc(c.form_h)}</h2>
             <label class="field" data-line><span>${esc(c.f_name)}</span><input name="name" autocomplete="name" required /></label>
             <label class="field" data-line><span>${esc(c.f_email)}</span><input name="email" type="email" autocomplete="email" required /></label>
             <fieldset class="chips" data-line><legend>${esc(c.f_type)}</legend>${types}</fieldset>
             <label class="field" data-line><span>${esc(c.f_msg)}</span><textarea name="message" rows="4" required></textarea></label>
+            <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
             <div class="form-foot">
               <button class="send" type="submit" data-cursor="${CURSOR[lang].write}"><span>${esc(c.f_send)}</span> ${GLYPH.arrow}</button>
               <p class="form-note">${esc(c.f_note)}</p>

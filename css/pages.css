@@ -412,3 +412,6 @@ a.al-line:hover {
     grid-column: 1 / -1;
   }
 }
+
+/* honeypot: hidden from people, left in the DOM for bots */
+.contact-form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }

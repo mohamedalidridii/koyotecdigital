@@ -67,21 +67,49 @@ export function footer(scope) {
   });
 }
 
-// no backend: compose a ready-to-send email in the visitor's mail app
+// posts the request to the mail API on the VPS; falls back to the visitor's mail app if it fails
 export function contactForm(scope) {
   const form = scope.querySelector(".contact-form");
   if (!form) return;
-  const submit = (e) => {
+  const done = form.querySelector(".form-done");
+  const btn = form.querySelector(".send");
+  const say = (text) => {
+    done.textContent = text;
+    gsap.fromTo(done, { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.8 });
+  };
+  const submit = async (e) => {
     e.preventDefault();
     if (!form.reportValidity()) return;
     const data = new FormData(form);
-    const types = data.getAll("type").join(", ");
-    const subject = `${form.querySelector(".form-h").textContent} — ${data.get("name")}`;
-    const body = `${data.get("message")}\n\n${types ? `→ ${types}\n` : ""}${data.get("name")} · ${data.get("email")}`;
-    window.location.href = `mailto:${form.dataset.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    const done = form.querySelector(".form-done");
-    done.textContent = form.dataset.done;
-    gsap.from(done, { autoAlpha: 0, y: 10, duration: 0.8 });
+    const payload = {
+      name: data.get("name"),
+      email: data.get("email"),
+      type: data.getAll("type"),
+      message: data.get("message"),
+      website: data.get("website"),
+      lang: form.dataset.lang,
+      subject: form.querySelector(".form-h").textContent,
+    };
+    btn.disabled = true;
+    say(form.dataset.sending);
+    try {
+      const res = await fetch(form.dataset.endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error(res.status);
+      form.reset();
+      say(form.dataset.done);
+    } catch {
+      const types = payload.type.join(", ");
+      const subject = `${payload.subject} — ${payload.name}`;
+      const body = `${payload.message}\n\n${types ? `→ ${types}\n` : ""}${payload.name} · ${payload.email}`;
+      say(form.dataset.error);
+      window.location.href = `mailto:${form.dataset.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    } finally {
+      btn.disabled = false;
+    }
   };
   form.addEventListener("submit", submit);
   return () => form.removeEventListener("submit", submit);
