@@ -11,10 +11,6 @@
       "destination": "/contact.html"
     },
     {
-      "source": "/en",
-      "destination": "/en/index.html"
-    },
-    {
       "source": "/en/services",
       "destination": "/en/services.html"
     },
@@ -29,18 +25,6 @@
     {
       "source": "/en/art-of-difference",
       "destination": "/en/art-of-difference.html"
-    },
-    {
-      "source": "/work",
-      "destination": "/work.html"
-    },
-    {
-      "source": "/directors",
-      "destination": "/directors.html"
-    },
-    {
-      "source": "/film",
-      "destination": "/film.html"
     },
     {
       "source": "/blog",
@@ -89,6 +73,61 @@
       "source": "/engineering/:path(en|expertise|work|studio|engagements|contact|en/expertise|en/work|en/studio|en/engagements|en/contact)",
       "destination": "/engineering/:path/",
       "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/en",
+      "destination": "/en/",
+      "permanent": true
+    },
+    {
+      "source": "/en/index.html",
+      "destination": "/en/",
+      "permanent": true
+    },
+    {
+      "source": "/:page(services|contact|art-de-la-difference).html",
+      "destination": "/:page",
+      "permanent": true
+    },
+    {
+      "source": "/en/:page(services|contact|art-of-difference).html",
+      "destination": "/en/:page",
+      "permanent": true
+    },
+    {
+      "source": "/blog/",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/index.html",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/en/blog/",
+      "destination": "/en/blog",
+      "permanent": true
+    },
+    {
+      "source": "/en/blog/index.html",
+      "destination": "/en/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:slug([a-z0-9-]+).html",
+      "destination": "/blog/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/en/blog/:slug([a-z0-9-]+).html",
+      "destination": "/en/blog/:slug",
+      "permanent": true
     }
   ],
   "headers": [
@@ -98,6 +137,24 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/art-de-la-difference/:path+",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        }
+      ]
+    },
+    {
+      "source": "/engineering/(.*)\\.txt",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
         }
       ]
     }
