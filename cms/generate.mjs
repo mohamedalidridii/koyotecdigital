@@ -232,10 +232,10 @@ ${altFr ? `    <link rel="alternate" hreflang="fr" href="${esc(SITE + altFr)}" /
     const sw = switchTo || PATHS[page][idx(other)];
     const cur = (k) => (k === page ? ' aria-current="page"' : "");
     const links = keys
-      .map((k, n) => `<li><a href="${PATHS[k][i]}"${cur(k)}>${esc(ui.nav[k])}</a>${n < keys.length - 1 ? "," : ""}</li>`)
+      .map((k, n) => `<li><a href="${PATHS[k][i]}"${k === "art" ? ' class="nav-art"' : ""}${cur(k)}>${k === "art" ? '<i class="nav-art-dot" aria-hidden="true"></i>' : ""}${esc(ui.nav[k])}</a>${n < keys.length - 1 ? "," : ""}</li>`)
       .join(" ");
     const items = keys
-      .map((k, n) => `        <li><a href="${PATHS[k][i]}"${cur(k)}><span class="menu-idx">(${pad(n + 1)})</span><span class="menu-name">${esc(ui.nav[k])}</span></a></li>`)
+      .map((k, n) => `        <li><a href="${PATHS[k][i]}"${k === "art" ? ' class="nav-art"' : ""}${cur(k)}><span class="menu-idx">(${pad(n + 1)})</span><span class="menu-name">${esc(ui.nav[k])}</span>${k === "art" ? '<i class="nav-art-dot" aria-hidden="true"></i>' : ""}</a></li>`)
       .join("\n");
     return `    <header class="site-nav">
       <a class="brand" href="${PATHS.home[i]}" aria-label="${esc(G.name)} — ${esc(ui.nav.home)}">${logo("nav")}<span class="brand-name">${esc(G.name)}<sup>&reg;</sup></span></a>
@@ -501,7 +501,9 @@ ${ctaSection(lang, { h: s.cta_h, button: s.cta })}`;
 
   function contact(lang) {
     const c = site[lang].contact; const h = site[lang].home;
-    const types = h.cards.map(([a]) => `<label class="chip"><input type="checkbox" name="type" value="${esc(a)}" /><span>${esc(a)}</span></label>`).join("");
+    const types = h.cards.map(([a]) => `<label class="chip"><input type="checkbox" name="type" value="${esc(a)}" /><span>${esc(a)}</span></label>`).join("")
+      + `<label class="chip chip-art"><input type="checkbox" name="type" value="${esc(c.f_art)}" /><span><i class="chip-dot" aria-hidden="true"></i>${esc(c.f_art)}</span></label>`
+      + `<label class="chip"><input type="checkbox" name="type" value="${esc(c.f_other)}" data-other /><span>${esc(c.f_other)}</span></label>`;
     const main = `      <section class="contact page-hero" data-gl="orbit" data-gl-dim="0.25">
         <div class="shell">
           <p class="lockup-brand">${stamp("Hello", c.drop)} <span>${esc(c.love)}</span></p>
@@ -519,6 +521,7 @@ ${ctaSection(lang, { h: s.cta_h, button: s.cta })}`;
             <label class="field" data-line><span>${esc(c.f_name)}</span><input name="name" autocomplete="name" required /></label>
             <label class="field" data-line><span>${esc(c.f_email)}</span><input name="email" type="email" autocomplete="email" required /></label>
             <fieldset class="chips" data-line><legend>${esc(c.f_type)}</legend>${types}</fieldset>
+            <label class="field other-field" data-line hidden><span>${esc(c.f_other_label)}</span><input name="other" maxlength="200" /></label>
             <label class="field" data-line><span>${esc(c.f_msg)}</span><textarea name="message" rows="4" required></textarea></label>
             <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
             <div class="form-foot">

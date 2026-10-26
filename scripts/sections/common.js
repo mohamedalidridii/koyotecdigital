@@ -72,6 +72,14 @@ export function contactForm(scope) {
   const form = scope.querySelector(".contact-form");
   if (!form) return;
   const done = form.querySelector(".form-done");
+  const otherChip = form.querySelector("[data-other]");
+  const otherField = form.querySelector(".other-field");
+  const toggleOther = () => {
+    otherField.hidden = !otherChip.checked;
+    if (otherChip.checked) otherField.querySelector("input").focus();
+    else otherField.querySelector("input").value = "";
+  };
+  otherChip.addEventListener("change", toggleOther);
   const btn = form.querySelector(".send");
   const say = (text, failed = false) => {
     done.textContent = text;
@@ -87,6 +95,7 @@ export function contactForm(scope) {
       email: data.get("email"),
       type: data.getAll("type"),
       message: data.get("message"),
+      other: data.get("other"),
       website: data.get("website"),
       lang: form.dataset.lang,
       subject: form.querySelector(".form-h").textContent,
@@ -101,11 +110,12 @@ export function contactForm(scope) {
       });
       if (!res.ok) throw new Error(res.status);
       form.reset();
+      toggleOther();
       say(form.dataset.done);
     } catch {
       const types = payload.type.join(", ");
       const subject = `${payload.subject} — ${payload.name}`;
-      const body = `${payload.message}\n\n${types ? `→ ${types}\n` : ""}${payload.name} · ${payload.email}`;
+      const body = `${payload.message}\n\n${types ? `→ ${types}${payload.other ? ` (${payload.other})` : ""}\n` : ""}${payload.name} · ${payload.email}`;
       say(form.dataset.error, true);
       window.location.href = `mailto:${form.dataset.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     } finally {
@@ -113,7 +123,10 @@ export function contactForm(scope) {
     }
   };
   form.addEventListener("submit", submit);
-  return () => form.removeEventListener("submit", submit);
+  return () => {
+    form.removeEventListener("submit", submit);
+    otherChip.removeEventListener("change", toggleOther);
+  };
 }
 
 // article: body blocks rise in, the reading bar follows progress

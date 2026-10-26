@@ -210,6 +210,20 @@ a.al-line:hover {
   outline: 2px solid var(--ink);
   outline-offset: 3px;
 }
+.chip-art span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.chip-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: linear-gradient(110deg, #ff7a45, #7a5cff, #1fb8a6);
+}
+.other-field[hidden] {
+  display: none;
+}
 .form-foot {
   display: flex;
   flex-wrap: wrap;
