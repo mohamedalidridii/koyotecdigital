@@ -2263,12 +2263,83 @@
     "accent": "#ffffff",
     "fr": {
       "sector": "Photographe",
-      "line": "Un photographe dont le travail tourne en boucle."
+      "line": "Un photographe dont le travail tourne en boucle.",
+      "case": {
+        "title": "Sami Mabrouk : étude de cas d'un portfolio de photographe – KOYOTEC",
+        "desc": "Le portfolio imaginé d'un photographe : un travail qui boucle la boucle, présenté en cercle d'images autour d'une signature, sur fond noir.",
+        "intro": "Un photographe veut que l'on regarde ses images, pas son site. Pour Sami Mabrouk, nous avons imaginé un portfolio où le travail tourne autour d'un seul point : sa signature.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Sami Mabrouk est photographe, entre portrait, nature morte et image expérimentale. Ses clients sont des marques, des magazines et des artistes qui cherchent un regard singulier. Le site devait présenter une sélection de séries de façon immersive, sans texte superflu, et donner envie de découvrir chaque image."
+          ],
+          [
+            "L'idée",
+            "Sur un fond noir, les photographies s'organisent en cercle autour d'un logo minimal placé au centre. Portraits, textures, gros plans et images abstraites forment une couronne, comme une planche contact qui aurait pris la forme d'une boucle. Le travail « boucle la boucle » au sens propre."
+          ],
+          [
+            "Direction artistique",
+            "Noir absolu, blanc et gris, rien d'autre : les photographies sont les seules sources de couleur. Une typographie sans-serif discrète se limite au nom et à quelques mentions. Le contraste entre le fond sombre et les images en noir et blanc ou en couleurs douces donne une ambiance de galerie plongée dans la pénombre."
+          ],
+          [
+            "Le mouvement",
+            "Le cercle d'images tourne lentement, réagit au défilement et au curseur, et chaque photo s'agrandit lorsqu'on s'y arrête. Le mouvement crée une impression de profondeur, comme si l'on se déplaçait au milieu d'une installation."
+          ],
+          [
+            "Le parcours",
+            "Une seule page, immersive : le cercle d'images sert de menu, chaque photographie ouvre sa série, et les coordonnées restent accessibles discrètement. Le visiteur explore à son rythme, sans arborescence à comprendre."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Pour un photographe, un vidéaste ou un artiste visuel, ce concept montre qu'un portfolio peut être une expérience en soi. Une interaction originale, bien maîtrisée, rend le site mémorable et le distingue des galeries d'images habituelles."
+          ]
+        ]
+      }
     },
     "en": {
       "sector": "Photographer",
-      "line": "A photographer whose work comes full circle."
-    }
+      "line": "A photographer whose work comes full circle.",
+      "case": {
+        "title": "Sami Mabrouk: photographer portfolio case study – KOYOTEC",
+        "desc": "The imagined portfolio of a photographer: work that comes full circle, shown as a ring of images around a signature, on black.",
+        "intro": "A photographer wants people to look at the images, not the website. For Sami Mabrouk, we imagined a portfolio where the work revolves around a single point: his signature.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Sami Mabrouk is a photographer working across portrait, still life and experimental imagery. His clients are brands, magazines and artists looking for a singular eye. The site had to present a selection of series immersively, without superfluous text, and make people want to discover each image."
+          ],
+          [
+            "The idea",
+            "On a black background, the photographs form a circle around a minimal logo placed in the centre. Portraits, textures, close-ups and abstract images form a crown, like a contact sheet shaped into a loop. The work literally comes full circle."
+          ],
+          [
+            "Art direction",
+            "Absolute black, white and grey, nothing else: the photographs are the only sources of colour. A discreet sans-serif is limited to the name and a few labels. The contrast between the dark background and the black-and-white or softly coloured images creates the feel of a gallery in half-light."
+          ],
+          [
+            "Motion",
+            "The ring of images turns slowly, reacts to scrolling and the cursor, and each photo enlarges when you pause on it. The motion creates a sense of depth, as if moving through an installation."
+          ],
+          [
+            "The journey",
+            "A single immersive page: the ring of images acts as the menu, each photograph opens its series, and contact details stay discreetly reachable. Visitors explore at their own pace, with no site structure to figure out."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "For a photographer, videographer or visual artist, this concept shows that a portfolio can be an experience in itself. An original, well-controlled interaction makes the site memorable and sets it apart from usual image galleries."
+          ]
+        ]
+      }
+    },
+    "type": [
+      "Sans-serif"
+    ],
+    "palette": [
+      "#ffffff",
+      "#9a9a9a",
+      "#000000"
+    ],
+    "service": "lp_web"
   },
   {
     "slug": "perpetua-sneakers",
@@ -2280,12 +2351,84 @@
     "accent": "#ff3d3d",
     "fr": {
       "sector": "Streetwear",
-      "line": "Un mouvement perpétuel, en paires limitées."
+      "line": "Un mouvement perpétuel, en paires limitées.",
+      "case": {
+        "title": "Perpetua Sneakers : étude de cas d'un site streetwear – KOYOTEC",
+        "desc": "Le site imaginé d'une marque de sneakers en éditions limitées : un mouvement perpétuel, des images en escalier et une mise en scène de galerie.",
+        "intro": "Une marque de sneakers en éditions limitées vend autant un objet qu'une culture. Pour Perpetua Sneakers, nous avons imaginé un site qui met les produits en scène comme dans une galerie, autour d'une idée : le mouvement perpétuel.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Perpetua produit des sneakers en petites séries, pensées comme des objets de design. Sa communauté suit chaque sortie et collectionne les paires. Le site devait créer de l'attente autour des lancements, raconter l'univers de la marque et préparer le terrain pour la vente en ligne."
+          ],
+          [
+            "L'idée",
+            "Le nom de la collection, « Perpetual Motion », s'affiche en haut à gauche, simple et assuré. En dessous, une série d'images monte en escalier vers la droite — matières, architecture, objets en verre, sculpture — comme un mouvement qui ne s'arrête jamais. La marque se raconte par l'univers avant de montrer le produit."
+          ],
+          [
+            "Direction artistique",
+            "Un gris très clair presque minéral, un noir profond, des gris moyens et un rouge vif réservé aux accents et aux sorties. Une seule typographie, PP Neue Montreal, sobre et contemporaine, laisse aux images toute la place. L'ensemble évoque davantage une galerie de design qu'un magasin de sport."
+          ],
+          [
+            "Le mouvement",
+            "Les images de l'escalier glissent et changent au défilement, créant une boucle visuelle continue. Les transitions sont fluides et rythmées, à l'image d'une foulée : le site invite à continuer à faire défiler pour découvrir la suite."
+          ],
+          [
+            "Le parcours",
+            "Une page d'univers immersive pour présenter la collection et son inspiration, qui peut ensuite ouvrir sur les fiches produits, les dates de sortie et la boutique. Le même langage visuel se décline des visuels de campagne jusqu'au panier."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Pour une marque de mode, d'accessoires ou de produits en séries limitées, ce concept montre comment créer de la désirabilité avant la vente. Un univers fort, puis une boutique en ligne rapide et bien pensée : c'est la combinaison qui transforme l'attente en commandes."
+          ]
+        ]
+      }
     },
     "en": {
       "sector": "Streetwear",
-      "line": "Perpetual motion, in limited pairs."
-    }
+      "line": "Perpetual motion, in limited pairs.",
+      "case": {
+        "title": "Perpetua Sneakers: streetwear website case study – KOYOTEC",
+        "desc": "The imagined website of a limited-edition sneaker brand: perpetual motion, stepped images and a gallery-style staging.",
+        "intro": "A limited-edition sneaker brand sells a culture as much as an object. For Perpetua Sneakers, we imagined a site that stages products like a gallery, around one idea: perpetual motion.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Perpetua makes sneakers in small runs, designed as design objects. Its community follows every drop and collects pairs. The site had to build anticipation around launches, tell the brand's world and pave the way for online sales."
+          ],
+          [
+            "The idea",
+            "The collection name, \"Perpetual Motion\", sits top left, simple and confident. Below, a series of images climbs like a staircase to the right — materials, architecture, glass objects, sculpture — like a movement that never stops. The brand tells its world before showing the product."
+          ],
+          [
+            "Art direction",
+            "A very light, almost mineral grey, deep black, mid greys and a bright red kept for accents and drops. A single typeface, PP Neue Montreal, sober and contemporary, leaves all the room to the images. The whole feels more like a design gallery than a sports shop."
+          ],
+          [
+            "Motion",
+            "The staircase images slide and change as you scroll, creating a continuous visual loop. Transitions are fluid and rhythmic, like a stride: the site invites you to keep scrolling to see what comes next."
+          ],
+          [
+            "The journey",
+            "An immersive brand page presenting the collection and its inspiration, which can then open onto product pages, drop dates and the store. The same visual language runs from campaign visuals to the cart."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "For a fashion, accessories or limited-run brand, this concept shows how to build desirability before the sale. A strong world, then a fast, well-designed online store: that's the combination that turns anticipation into orders."
+          ]
+        ]
+      }
+    },
+    "type": [
+      "PP Neue Montreal"
+    ],
+    "palette": [
+      "#edede7",
+      "#ff3d3d",
+      "#8a8a84",
+      "#141414"
+    ],
+    "service": "lp_ecommerce"
   },
   {
     "slug": "escale-voyages",
@@ -2297,12 +2440,84 @@
     "accent": "#4fc3d9",
     "fr": {
       "sector": "Agence de voyage",
-      "line": "Chaque destination glisse vers la suivante."
+      "line": "Chaque destination glisse vers la suivante.",
+      "case": {
+        "title": "Escale Voyages : étude de cas d'un site d'agence de voyage – KOYOTEC",
+        "desc": "Le site imaginé d'une agence de voyage : chaque destination glisse vers la suivante dans un arc d'images, comme un voyage qui ne s'arrête pas.",
+        "intro": "Choisir un voyage, c'est d'abord rêver. Pour Escale Voyages, nous avons imaginé un site où les destinations défilent comme on feuillette un carnet de route, chacune glissant vers la suivante.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Escale Voyages est une agence qui organise des séjours sur mesure, en Tunisie et à l'étranger. Ses clients cherchent de l'inspiration autant qu'une organisation fiable. Le site devait donner envie de partir, présenter les destinations de façon visuelle et conduire vers une demande de devis."
+          ],
+          [
+            "L'idée",
+            "Les images de destinations s'organisent en arc au centre d'un écran blanc, comme un éventail de cartes postales. En faisant défiler, l'arc tourne et chaque image prend la place de la précédente, avec son titre en dessous. Le voyage devient un mouvement continu : une escale mène à la suivante."
+          ],
+          [
+            "Direction artistique",
+            "Beaucoup de blanc pour l'air et la lumière, du noir pour le texte, et un bleu lagon comme couleur d'accent. Une seule typographie, PP Neue Montreal, discrète et lisible. Les photographies portent toute l'émotion : paysages, matières, détails de voyage."
+          ],
+          [
+            "Le mouvement",
+            "L'arc d'images pivote au défilement avec une légère profondeur, les titres changent en fondu et la transition entre deux destinations reste douce. Le site se parcourt comme un diaporama interactif, à la souris comme au doigt sur mobile."
+          ],
+          [
+            "Le parcours",
+            "Une page d'accueil immersive pour l'inspiration, qui peut s'ouvrir vers une page par destination avec le programme, les dates et les tarifs, puis vers un formulaire de demande de devis. Chaque destination peut ainsi devenir une page bien référencée sur Google."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Pour une agence de voyage, un hôtel ou un organisateur d'événements, ce concept montre comment faire rêver dès la première seconde. Associé à des pages détaillées par destination, il attire aussi les visiteurs qui cherchent précisément un séjour sur Google."
+          ]
+        ]
+      }
     },
     "en": {
       "sector": "Travel agency",
-      "line": "Every destination slides into the next."
-    }
+      "line": "Every destination slides into the next.",
+      "case": {
+        "title": "Escale Voyages: travel agency website case study – KOYOTEC",
+        "desc": "The imagined website of a travel agency: every destination slides into the next in an arc of images, like a journey that never stops.",
+        "intro": "Choosing a trip starts with dreaming. For Escale Voyages, we imagined a site where destinations scroll by like a travel journal, each one sliding into the next.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Escale Voyages is an agency organising tailor-made trips in Tunisia and abroad. Its clients want inspiration as much as reliable organisation. The site had to make people want to travel, present destinations visually and lead to a quote request."
+          ],
+          [
+            "The idea",
+            "Destination images form an arc in the middle of a white screen, like a fan of postcards. As you scroll, the arc turns and each image takes the place of the previous one, with its title below. Travel becomes continuous motion: one stopover leads to the next."
+          ],
+          [
+            "Art direction",
+            "Lots of white for air and light, black for text, and a lagoon blue as the accent colour. A single typeface, PP Neue Montreal, discreet and readable. The photographs carry all the emotion: landscapes, textures, travel details."
+          ],
+          [
+            "Motion",
+            "The image arc pivots as you scroll with slight depth, titles crossfade and the transition between destinations stays soft. The site is browsed like an interactive slideshow, with a mouse or a finger on mobile."
+          ],
+          [
+            "The journey",
+            "An immersive home page for inspiration, which can open onto a page per destination with the itinerary, dates and prices, then a quote request form. Each destination can thus become a well-ranked page on Google."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "For a travel agency, hotel or events organiser, this concept shows how to spark dreams from the first second. Paired with detailed destination pages, it also attracts visitors searching for a specific trip on Google."
+          ]
+        ]
+      }
+    },
+    "type": [
+      "PP Neue Montreal"
+    ],
+    "palette": [
+      "#ffffff",
+      "#4fc3d9",
+      "#8a8a8a",
+      "#111111"
+    ],
+    "service": "lp_seo"
   },
   {
     "slug": "glacier-bambalouni",
@@ -2314,12 +2529,84 @@
     "accent": "#ff8ac2",
     "fr": {
       "sector": "Glacier artisanal",
-      "line": "Attention : le défilement peut provoquer de la joie."
+      "line": "Attention : le défilement peut provoquer de la joie.",
+      "case": {
+        "title": "Glacier Bambalouni : étude de cas d'un site de glacier artisanal – KOYOTEC",
+        "desc": "Le site imaginé d'un glacier artisanal : « Attention, le défilement peut provoquer de la joie ». Couleurs vives, illustration et humour.",
+        "intro": "Une glace, c'est un petit bonheur. Pour Glacier Bambalouni, nous avons imaginé un site qui fait sourire dès le premier défilement, avec des couleurs gourmandes et beaucoup d'humour.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Bambalouni est un glacier artisanal qui revisite des saveurs locales avec une identité joyeuse et décalée — son nom évoque d'ailleurs le célèbre beignet de Sidi Bou Saïd. Sa clientèle est jeune, familiale et très présente sur Instagram. Le site devait refléter cette bonne humeur, présenter les parfums et donner envie de passer à la boutique."
+          ],
+          [
+            "L'idée",
+            "Le site s'ouvre sur un avertissement : « Scrolling may cause joy » — attention, le défilement peut provoquer de la joie. Puis une illustration de personnage aux lunettes de soleil apparaît sur un fond corail, comme une affiche de pop culture. Le ton est donné : ici, on ne se prend pas au sérieux."
+          ],
+          [
+            "Direction artistique",
+            "Une palette de sorbet : corail, rose pêche, violet lilas, sur un gris anthracite qui fait ressortir les couleurs. Barlow Condensed, une typographie condensée en capitales, donne aux titres l'énergie d'une enseigne. L'illustration apporte le caractère et l'humour de la marque."
+          ],
+          [
+            "Le mouvement",
+            "Les sections changent de couleur au défilement, comme des boules de glace qui s'empilent, l'illustration réagit au mouvement et les titres glissent en place. Le site se termine par un clin d'œil : « Thanks for scrolling »."
+          ],
+          [
+            "Le parcours",
+            "Une seule page qui se déroule comme une dégustation : l'accueil, l'univers de la marque, les parfums mis en avant, puis les informations pratiques. Le parcours est court et ludique, pensé d'abord pour le téléphone."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Pour un glacier, un café, une pâtisserie ou une marque grand public, ce concept montre qu'une identité joyeuse et cohérente — couleurs, illustration, ton des textes — crée un attachement immédiat. Un site qui fait sourire est un site qu'on partage."
+          ]
+        ]
+      }
     },
     "en": {
       "sector": "Ice cream maker",
-      "line": "Warning: scrolling may cause joy."
-    }
+      "line": "Warning: scrolling may cause joy.",
+      "case": {
+        "title": "Glacier Bambalouni: artisan ice cream website case study – KOYOTEC",
+        "desc": "The imagined website of an artisan ice cream shop: \"Warning: scrolling may cause joy\". Bright colours, illustration and humour.",
+        "intro": "Ice cream is a small joy. For Glacier Bambalouni, we imagined a site that makes you smile from the first scroll, with mouth-watering colours and plenty of humour.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Bambalouni is an artisan ice cream shop reinventing local flavours with a cheerful, quirky identity — its name nods to the famous doughnut of Sidi Bou Saïd. Its customers are young, families and very active on Instagram. The site had to reflect that good mood, present the flavours and make people want to visit the shop."
+          ],
+          [
+            "The idea",
+            "The site opens on a warning: \"Scrolling may cause joy\". Then an illustrated character in sunglasses appears on a coral background, like a pop culture poster. The tone is set: nobody takes themselves too seriously here."
+          ],
+          [
+            "Art direction",
+            "A sorbet palette — coral, peach pink, lilac — on an anthracite grey that makes the colours pop. Barlow Condensed, a condensed typeface in capitals, gives headings the energy of a shop sign. The illustration brings the brand's character and humour."
+          ],
+          [
+            "Motion",
+            "Sections change colour as you scroll, like scoops stacking up, the illustration reacts to movement and headings slide into place. The site ends with a wink: \"Thanks for scrolling\"."
+          ],
+          [
+            "The journey",
+            "A single page that unfolds like a tasting: home, the brand's world, featured flavours, then practical information. The journey is short and playful, designed for phones first."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "For an ice cream shop, café, bakery or consumer brand, this concept shows that a joyful, consistent identity — colours, illustration, tone of voice — creates instant attachment. A site that makes people smile is a site they share."
+          ]
+        ]
+      }
+    },
+    "type": [
+      "Barlow Condensed"
+    ],
+    "palette": [
+      "#f4c2ad",
+      "#ff5766",
+      "#c779fc",
+      "#252627"
+    ],
+    "service": "lp_branding"
   },
   {
     "slug": "dar-zitouna",
@@ -2331,11 +2618,84 @@
     "accent": "#f0e442",
     "fr": {
       "sector": "Maison d'hôtes",
-      "line": "Chaque page s'ouvre comme une porte de la médina."
+      "line": "Chaque page s'ouvre comme une porte de la médina.",
+      "case": {
+        "title": "Dar Zitouna : étude de cas d'un site de maison d'hôtes – KOYOTEC",
+        "desc": "Le site imaginé d'une maison d'hôtes dans la médina : chaque page s'ouvre comme une porte, du patio aux chambres, jusqu'à la terrasse.",
+        "intro": "Dans une maison de la médina, on découvre les espaces un par un : la porte, le patio, les chambres, la terrasse. Pour Dar Zitouna, nous avons imaginé un site qui reprend exactement ce parcours.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Dar Zitouna est une maison d'hôtes installée dans une demeure traditionnelle de la médina. Ses hôtes sont des voyageurs qui cherchent le calme, l'authenticité et le charme de l'architecture tunisienne. Le site devait faire ressentir l'atmosphère de la maison et mener à la réservation directe, sans passer uniquement par les plateformes."
+          ],
+          [
+            "L'idée",
+            "Chaque page s'ouvre comme une porte dans la médina. La première s'intitule simplement « Patio », en grandes lettres serif posées sur une image rêveuse aux tons bleu nuit et ambre. Le menu suit la maison elle-même : Patio, Chambres, Terrasse. On visite le lieu avant même d'y être."
+          ],
+          [
+            "Direction artistique",
+            "Un blanc cassé chaux, un noir profond, des bleus du soir et une touche de jaune lumineux pour les accents. Instrument Serif, élégante et légèrement condensée, signe les titres ; Instrument Sans, de la même famille, porte les textes. Le duo crée un ton à la fois raffiné et chaleureux."
+          ],
+          [
+            "Le mouvement",
+            "Les transitions entre pages évoquent le passage d'une pièce à l'autre : un fondu, une image qui s'ouvre, un titre qui apparaît. Les images respirent lentement, comme la lumière qui change au fil de la journée dans un patio."
+          ],
+          [
+            "Le parcours",
+            "Trois espaces, trois pages : le patio pour l'âme de la maison, les chambres avec leurs photos et descriptions, la terrasse pour la vue et les moments partagés. Chaque page peut se conclure par un lien vers la réservation."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Pour une maison d'hôtes, un hôtel de charme ou un restaurant, ce concept montre comment transformer l'architecture du lieu en structure de site. Bien référencé et relié à une fiche Google Business Profile, ce type de site aide aussi à obtenir plus de réservations directes."
+          ]
+        ]
+      }
     },
     "en": {
       "sector": "Guesthouse",
-      "line": "Every page opens like a door in the medina."
-    }
+      "line": "Every page opens like a door in the medina.",
+      "case": {
+        "title": "Dar Zitouna: guesthouse website case study – KOYOTEC",
+        "desc": "The imagined website of a guesthouse in the medina: every page opens like a door, from the patio to the rooms and up to the terrace.",
+        "intro": "In a medina house, you discover the spaces one by one: the door, the patio, the rooms, the terrace. For Dar Zitouna, we imagined a site that follows exactly that path.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Dar Zitouna is a guesthouse in a traditional medina home. Its guests are travellers looking for calm, authenticity and the charm of Tunisian architecture. The site had to convey the house's atmosphere and lead to direct bookings, not only through platforms."
+          ],
+          [
+            "The idea",
+            "Every page opens like a door in the medina. The first is simply titled \"Patio\", in large serif letters over a dreamy image in midnight blue and amber. The menu follows the house itself: Patio, Rooms, Terrace. You visit the place before you even arrive."
+          ],
+          [
+            "Art direction",
+            "A lime-washed off-white, deep black, evening blues and a touch of bright yellow for accents. Instrument Serif, elegant and slightly condensed, signs the headings; Instrument Sans, from the same family, carries the copy. The pair creates a tone both refined and warm."
+          ],
+          [
+            "Motion",
+            "Page transitions evoke moving from one room to another: a fade, an image opening, a title appearing. Images breathe slowly, like light shifting through a patio during the day."
+          ],
+          [
+            "The journey",
+            "Three spaces, three pages: the patio for the soul of the house, the rooms with photos and descriptions, the terrace for the view and shared moments. Each page can end with a link to booking."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "For a guesthouse, boutique hotel or restaurant, this concept shows how to turn the architecture of a place into the structure of a site. Well ranked and linked to a Google Business Profile, this kind of site also helps win more direct bookings."
+          ]
+        ]
+      }
+    },
+    "type": [
+      "Instrument Serif",
+      "Instrument Sans"
+    ],
+    "palette": [
+      "#f2f0e6",
+      "#f0e442",
+      "#3d5a73",
+      "#0f0f0f"
+    ],
+    "service": "lp_seo"
   }
 ]
