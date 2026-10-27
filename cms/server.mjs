@@ -31,7 +31,7 @@ const PUBLIC = join(ROOT, "public");
 const SESSION_TTL = 2 * 60 * 60 * 1000;
 const IMG_EXT = { ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "image/png", ".webp": "image/webp", ".gif": "image/gif", ".svg": "image/svg+xml" };
 const UPLOAD_EXT = new Set([".jpg", ".jpeg", ".png", ".webp", ".gif"]); // no SVG uploads: can embed scripts
-const MANAGED_ALL = ["content", "index.html", "services.html", "contact.html", "art-de-la-difference.html", CASE_BASE[0].slice(1, -1), ...Object.values(LANDINGS).map(([fr]) => fr.slice(1) + ".html"), "en", "blog", "public/sitemap.xml", "public/uploads"];
+const MANAGED_ALL = ["content", "index.html", "services.html", "contact.html", "art-de-la-difference.html", "medalydridi.html", CASE_BASE[0].slice(1, -1), ...Object.values(LANDINGS).map(([fr]) => fr.slice(1) + ".html"), "en", "blog", "public/sitemap.xml", "public/uploads"];
 const managed = () => MANAGED_ALL.filter((p) => existsSync(join(ROOT, p)));
 
 // ---------- password ----------

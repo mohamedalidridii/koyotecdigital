@@ -25,7 +25,8 @@
         "engineering": "Ingénierie",
         "blog": "Blog",
         "art": "L’art de la différence",
-        "contact": "Contact"
+        "contact": "Contact",
+        "founder": "Le fondateur"
       },
       "menu": "Menu",
       "drop": "Contactez-nous",
@@ -751,6 +752,100 @@
         "article-1"
       ],
       "cta_h": "Lançons votre boutique en ligne"
+    },
+    "founder": {
+      "title": "Mohamed Ali Dridi – Fondateur de KOYOTEC & créateur de contenu tech",
+      "desc": "Mohamed Ali Dridi, fondateur de KOYOTEC et créateur de contenu tech suivi par plus de 37 000 personnes : la technologie expliquée simplement.",
+      "label": "Le fondateur",
+      "h1": "Mohamed Ali Dridi",
+      "role": "Fondateur de KOYOTEC · Créateur de contenu tech",
+      "intro": "J'ai fondé KOYOTEC avec une conviction simple : la technologie doit être utile, belle et compréhensible. En parallèle, j'explique la tech simplement à une communauté de plus de 37 000 personnes sur Instagram.",
+      "sections": [
+        [
+          "La tech, expliquée simplement",
+          "Chaque semaine, je publie des vidéos courtes pour rendre la technologie accessible : Linux, cloud, Docker et Kubernetes, bases de données, réseaux, DevOps, intelligence artificielle. Pas de jargon inutile, des exemples concrets et une bonne dose d'humour.\n\nOn me retrouve sur Instagram, TikTok et YouTube, et parfois en direct sur Kick pour coder et répondre aux questions."
+        ],
+        [
+          "Sur scène",
+          "J'aime aussi partager en face à face. J'interviens lors d'événements et de conférences tech, comme PyPAC, ou de talks autour de l'intelligence artificielle, pour parler de ce qui change vraiment dans nos métiers et de la façon de s'y préparer."
+        ],
+        [
+          "Pourquoi KOYOTEC",
+          "Expliquer la tech à des milliers de personnes m'a appris une chose : la clarté gagne toujours. C'est ce que nous appliquons chez KOYOTEC, que ce soit pour un site web, une identité de marque ou une architecture cloud. Un bon projet est rapide, solide, et compréhensible par ceux qui l'utilisent.\n\nL'agence réunit le design et l'ingénierie sous le même toit : création de sites, branding, référencement, et un pôle Ingénierie pour l'IA, le cloud, le DevOps et la cybersécurité."
+        ],
+        [
+          "Linux, open source et curiosité",
+          "Je suis un amoureux de Linux — et oui, j'utilise Arch. Je partage mes projets sur GitHub et je garde la même règle depuis le début : apprendre en public, tester, se tromper, recommencer, et partager ce qui fonctionne."
+        ]
+      ],
+      "photos_h": "En images",
+      "photos": [
+        [
+          "portrait",
+          "Mohamed Ali Dridi en polo GitHub, portrait sur fond clair"
+        ],
+        [
+          "stage-pypac",
+          "Mohamed Ali Dridi sur scène à PyPAC, présenté parmi les intervenants"
+        ],
+        [
+          "neon-koyotec",
+          "Mohamed Ali Dridi dans son studio, devant le néon KOYOTEC"
+        ],
+        [
+          "talk-ai",
+          "Mohamed Ali Dridi pendant une conférence sur l'intelligence artificielle"
+        ],
+        [
+          "garden",
+          "Mohamed Ali Dridi en extérieur, dans un jardin"
+        ],
+        [
+          "studio",
+          "Mohamed Ali Dridi au micro dans son studio d'enregistrement"
+        ],
+        [
+          "neon-studio",
+          "Mohamed Ali Dridi en tournage d'une vidéo sur l'architecture Linux"
+        ],
+        [
+          "thinking",
+          "Mohamed Ali Dridi expliquant un concept face caméra"
+        ],
+        [
+          "closeup",
+          "Portrait rapproché de Mohamed Ali Dridi"
+        ]
+      ],
+      "links_h": "Me suivre",
+      "links": [
+        [
+          "Instagram",
+          "https://www.instagram.com/medaly.dridi/"
+        ],
+        [
+          "TikTok",
+          "https://www.tiktok.com/@medaly.dridi"
+        ],
+        [
+          "YouTube",
+          "https://www.youtube.com/@medaly.dridiy"
+        ],
+        [
+          "LinkedIn",
+          "https://www.linkedin.com/in/med-ali-dridi/"
+        ],
+        [
+          "GitHub",
+          "https://github.com/mohamedalidridii"
+        ],
+        [
+          "Kick",
+          "https://kick.com/medaly-dridi"
+        ]
+      ],
+      "cta_h": "Un projet ? Parlons-en.",
+      "cta": "Demander un devis gratuit"
     }
   },
   "en": {
@@ -761,7 +856,8 @@
         "engineering": "Engineering",
         "blog": "Blog",
         "art": "The art of difference",
-        "contact": "Contact"
+        "contact": "Contact",
+        "founder": "The founder"
       },
       "menu": "Menu",
       "drop": "Drop a line",
@@ -1487,6 +1583,100 @@
         "article-1"
       ],
       "cta_h": "Let's launch your online store"
+    },
+    "founder": {
+      "title": "Mohamed Ali Dridi – Founder of KOYOTEC & tech content creator",
+      "desc": "Mohamed Ali Dridi, founder of KOYOTEC and a tech content creator followed by more than 37,000 people: technology, explained simply.",
+      "label": "The founder",
+      "h1": "Mohamed Ali Dridi",
+      "role": "Founder of KOYOTEC · Tech content creator",
+      "intro": "I founded KOYOTEC on a simple belief: technology should be useful, beautiful and easy to understand. Alongside the agency, I explain tech simply to a community of more than 37,000 people on Instagram.",
+      "sections": [
+        [
+          "Tech, explained simply",
+          "Every week I publish short videos that make technology accessible: Linux, cloud, Docker and Kubernetes, databases, networking, DevOps, artificial intelligence. No needless jargon, concrete examples and a good dose of humour.\n\nYou'll find me on Instagram, TikTok and YouTube, and sometimes live on Kick, coding and answering questions."
+        ],
+        [
+          "On stage",
+          "I also love sharing face to face. I speak at tech events and conferences, such as PyPAC, and give talks on artificial intelligence about what is really changing in our jobs and how to prepare for it."
+        ],
+        [
+          "Why KOYOTEC",
+          "Explaining tech to thousands of people taught me one thing: clarity always wins. That's what we apply at KOYOTEC, whether it's a website, a brand identity or a cloud architecture. A good project is fast, solid and understandable by the people who use it.\n\nThe agency brings design and engineering under one roof: websites, branding, SEO, and an Engineering team for AI, cloud, DevOps and cybersecurity."
+        ],
+        [
+          "Linux, open source and curiosity",
+          "I'm a Linux lover — and yes, I use Arch. I share my projects on GitHub and keep the same rule I started with: learn in public, test, fail, try again, and share what works."
+        ]
+      ],
+      "photos_h": "In pictures",
+      "photos": [
+        [
+          "portrait",
+          "Mohamed Ali Dridi in a GitHub polo, portrait on a light background"
+        ],
+        [
+          "stage-pypac",
+          "Mohamed Ali Dridi on stage at PyPAC, introduced among the speakers"
+        ],
+        [
+          "neon-koyotec",
+          "Mohamed Ali Dridi in his studio, in front of the KOYOTEC neon sign"
+        ],
+        [
+          "talk-ai",
+          "Mohamed Ali Dridi giving a talk on artificial intelligence"
+        ],
+        [
+          "garden",
+          "Mohamed Ali Dridi outdoors in a garden"
+        ],
+        [
+          "studio",
+          "Mohamed Ali Dridi at the microphone in his recording studio"
+        ],
+        [
+          "neon-studio",
+          "Mohamed Ali Dridi filming a video on Linux architecture"
+        ],
+        [
+          "thinking",
+          "Mohamed Ali Dridi explaining a concept to camera"
+        ],
+        [
+          "closeup",
+          "Close-up portrait of Mohamed Ali Dridi"
+        ]
+      ],
+      "links_h": "Follow me",
+      "links": [
+        [
+          "Instagram",
+          "https://www.instagram.com/medaly.dridi/"
+        ],
+        [
+          "TikTok",
+          "https://www.tiktok.com/@medaly.dridi"
+        ],
+        [
+          "YouTube",
+          "https://www.youtube.com/@medaly.dridiy"
+        ],
+        [
+          "LinkedIn",
+          "https://www.linkedin.com/in/med-ali-dridi/"
+        ],
+        [
+          "GitHub",
+          "https://github.com/mohamedalidridii"
+        ],
+        [
+          "Kick",
+          "https://kick.com/medaly-dridi"
+        ]
+      ],
+      "cta_h": "Got a project? Let's talk.",
+      "cta": "Get a free quote"
     }
   }
 }

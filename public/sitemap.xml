@@ -109,6 +109,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/contact"/>
   </url>
   <url>
+    <loc>https://www.koyotec.digital/medalydridi</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/medalydridi"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/medalydridi"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/medalydridi"/>
+  </url>
+  <url>
+    <loc>https://www.koyotec.digital/en/medalydridi</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/medalydridi"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/medalydridi"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/medalydridi"/>
+  </url>
+  <url>
     <loc>https://www.koyotec.digital/art-de-la-difference/etude/maison-aurele</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/art-de-la-difference/etude/maison-aurele"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/art-of-difference/case/maison-aurele"/>

@@ -26,12 +26,13 @@ const LABELS = {
   why_kicker: "Petite étiquette « pourquoi nous »", popup_title: "Texte de la carte flottante", popup_btn: "Bouton de la carte flottante", cta_giant: "Gros texte du bandeau final",
   close: "Libellé « fermer »", form_h: "Titre du formulaire", f_name: "Champ nom", f_email: "Champ e-mail", f_type: "Choix des besoins",
   f_art: "Option \"art de la différence\"", f_other: "Option \"Autre\"", f_other_label: "Champ \"Autre\"", f_msg: "Champ message", f_send: "Bouton d'envoi", f_note: "Note sous le bouton", f_done: "Message après l'envoi", f_error: "Message en cas d'échec", f_sending: "Message pendant l'envoi",
+  role: "Rôle (sous le nom)", photos_h: "Titre de la galerie", photos: "Photos (fichier dans public/founder, texte alternatif)", links_h: "Titre des réseaux", links: "Réseaux (nom, lien)", founder: "Le fondateur",
   label: "Nom court du service (fil d'Ariane, liens)", examples_h: "Titre des exemples", examples_lead: "Phrase sous le titre des exemples",
   examples: "Exemples (slugs de L'art de la différence)", related_h: "Titre « pour aller plus loin »", posts: "Articles liés (identifiants, ex. article-1)",
   nav_cta: "Bouton « devis » du menu", footer_pages: "Titre colonne pages (pied de page)", footer_contact: "Titre colonne contact", footer_follow: "Titre colonne réseaux",
 };
-const TUPLE = { cards: ["Titre", "Description"], points: ["Titre", "Description"], faq: ["Question", "Réponse"], blocks: ["Titre", "Texte"], process: ["Étape", "Description"], sections: ["Titre de section", "Texte (ligne vide = nouveau paragraphe ; « - » en début de ligne = liste)"] };
-const PAGE_NAMES = { home: "Accueil", services: "Services", lp_web: "Page « Création site web »", lp_branding: "Page « Logo et identité »", lp_seo: "Page « SEO »", lp_ecommerce: "Page « E-commerce »", contact: "Contact", blog: "Page Blog", ui: "Menus et libellés" };
+const TUPLE = { photos: ["Fichier (sans .webp)", "Texte alternatif"], links: ["Nom", "Lien"], cards: ["Titre", "Description"], points: ["Titre", "Description"], faq: ["Question", "Réponse"], blocks: ["Titre", "Texte"], process: ["Étape", "Description"], sections: ["Titre de section", "Texte (ligne vide = nouveau paragraphe ; « - » en début de ligne = liste)"] };
+const PAGE_NAMES = { home: "Accueil", services: "Services", lp_web: "Page « Création site web »", lp_branding: "Page « Logo et identité »", lp_seo: "Page « SEO »", lp_ecommerce: "Page « E-commerce »", founder: "Page fondateur", contact: "Contact", blog: "Page Blog", ui: "Menus et libellés" };
 const label = (k) => LABELS[k] || k;
 
 function h(tag, attrs = {}, ...kids) {

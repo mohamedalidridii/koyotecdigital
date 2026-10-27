@@ -29,6 +29,7 @@ const PATHS = {
   engineering: ["/engineering/", "/engineering/en/"],
   blog: ["/blog", "/en/blog"],
   contact: ["/contact", "/en/contact"],
+  founder: ["/medalydridi", "/en/medalydridi"],
 };
 const LANGS = ["fr", "en"];
 const LOCALE = { fr: "fr_TN", en: "en_US" };
@@ -312,6 +313,7 @@ ${items}
             <a href="${PATHS.art[i]}">${esc(ui.nav.art)}</a>
             <a href="${PATHS.blog[i]}">${esc(ui.nav.blog)}</a>
             <a href="${PATHS.contact[i]}">${esc(ui.nav.contact)}</a>
+            <a href="${PATHS.founder[i]}">${esc(ui.nav.founder)}</a>
           </div>
           <div>
             <h2 class="footer-h">${esc(ui.nav.services)}</h2>
@@ -625,6 +627,67 @@ ${ctaSection(lang, { h: l.cta_h, button: l.cta })}`;
     return page({ head, lang, ns: "services", pageKey: "services", switchTo: PATHS[key][idx(lang === "fr" ? "en" : "fr")], main });
   }
 
+  // the founder's page: story, photos from his Instagram, social links
+  function founder(lang) {
+    const f = site[lang].founder; const ui = site[lang].ui; const i = idx(lang);
+    const own = PATHS.founder[i];
+    const [hero, ...rest] = f.photos;
+    const body = f.sections.map(([h, t]) => `          <h2>${esc(h)}</h2>\n          ${bodyHtml(t)}`).join("\n");
+    const grid = rest.map(([file, alt]) => `            <figure data-line><img src="/founder/${esc(file)}.webp" alt="${esc(alt)}" loading="lazy" decoding="async" /></figure>`).join("\n");
+    const links = f.links.map(([label, href]) => `              <li data-line>${link(href, label, ' target="_blank" rel="noopener noreferrer"')}</li>`).join("\n");
+    const ld = graph(
+      {
+        "@type": "ProfilePage", name: f.title, url: SITE + own, inLanguage: lang,
+        mainEntity: {
+          "@type": "Person", "@id": SITE + "/medalydridi#person", name: f.h1, alternateName: "Med Ali Dridi",
+          jobTitle: f.role.split(" · ")[0], description: f.desc, image: SITE + `/founder/${hero[0]}.webp`,
+          worksFor: { "@id": SITE + "/#organization" }, sameAs: f.links.map(([, href]) => href),
+        },
+      },
+      crumbs([ui.nav.home, url("home", lang)], [f.h1, SITE + own]),
+    );
+    const main = `      <section class="page-hero founder-hero" data-gl="constellation" data-gl-dim="0.4">
+        <div class="shell founder-hero-grid">
+          <div>
+            <p class="lockup-brand">${stamp(G.name, f.label)} <span>${esc(f.role)}</span></p>
+            <h1 class="lockup-h1 page-title" data-split>${midGlyphs(f.h1, GLYPH.star, GLYPH.howl)}</h1>
+            <div class="page-hero-foot" data-line>
+              <p class="hero-sub">${esc(f.intro)}</p>
+            </div>
+          </div>
+          <figure class="founder-portrait"><img src="/founder/${esc(hero[0])}.webp" alt="${esc(hero[1])}" width="1200" height="1200" fetchpriority="high" /></figure>
+        </div>
+      </section>
+
+      <section class="landing-copy" data-gl="off">
+        <div class="article-body">
+${body}
+        </div>
+      </section>
+
+      <section class="founder-photos" aria-labelledby="photos-h" data-gl="off">
+        <div class="shell">
+          ${sectionHead(f.photos_h, rest.length, "photos-h")}
+          <div class="founder-grid">
+${grid}
+          </div>
+        </div>
+      </section>
+
+      <section class="table-sec" id="follow" aria-labelledby="follow-h">
+        <div class="shell">
+          ${sectionHead(f.links_h, f.links.length, "follow-h")}
+          <ul class="link-list">
+${links}
+          </ul>
+        </div>
+      </section>
+
+${ctaSection(lang, { h: f.cta_h, button: f.cta })}`;
+    const head = headTag({ lang, title: f.title, desc: f.desc, canon: own, altFr: PATHS.founder[0], altEn: PATHS.founder[1], ld, ogType: "profile" });
+    return page({ head, lang, ns: "services", pageKey: "founder", main });
+  }
+
   function contact(lang) {
     const c = site[lang].contact; const h = site[lang].home;
     const types = h.cards.map(([a]) => `<label class="chip"><input type="checkbox" name="type" value="${esc(a)}" /><span>${esc(a)}</span></label>`).join("")
@@ -882,7 +945,7 @@ ${body}
 
   function sitemap() {
     const entries = [];
-    for (const page of ["home", "services", ...Object.keys(LANDINGS).filter((k) => site.fr[k] && site.en[k]), "art", "blog", "contact"]) {
+    for (const page of ["home", "services", ...Object.keys(LANDINGS).filter((k) => site.fr[k] && site.en[k]), "art", "blog", "contact", "founder"]) {
       entries.push({ fr: PATHS[page][0], en: PATHS[page][1] });
     }
     for (const p of art) {
@@ -924,6 +987,7 @@ ${body}
     "contact.html": contact("fr"), "en/contact.html": contact("en"),
     "art-de-la-difference.html": artPage("fr"), "en/art-of-difference.html": artPage("en"),
     "blog/index.html": blogIndex("fr"), "en/blog/index.html": blogIndex("en"),
+    "medalydridi.html": founder("fr"), "en/medalydridi.html": founder("en"),
     "public/sitemap.xml": sitemap(),
   };
   for (const lang of LANGS) {

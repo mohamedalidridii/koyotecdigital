@@ -510,3 +510,46 @@ a.al-line:hover {
 
 /* honeypot: hidden from people, left in the DOM for bots */
 .contact-form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+
+/* ---------- founder page ---------- */
+.founder-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 2rem var(--gutter);
+  align-items: end;
+}
+.founder-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  outline: 1px solid var(--line);
+  outline-offset: 0.6rem;
+}
+.founder-photos {
+  padding-block: clamp(3rem, 8vh, 5rem);
+}
+.founder-grid {
+  columns: 3 16rem;
+  column-gap: var(--gutter);
+  margin-top: 2rem;
+}
+.founder-grid figure {
+  break-inside: avoid;
+  margin-bottom: var(--gutter);
+}
+.founder-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--paper-2);
+}
+@media (max-width: 900px) {
+  .founder-hero-grid {
+    grid-template-columns: 1fr;
+  }
+  .founder-portrait {
+    max-width: 26rem;
+  }
+}

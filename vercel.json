@@ -19,6 +19,14 @@
       "destination": "/en/contact.html"
     },
     {
+      "source": "/medalydridi",
+      "destination": "/medalydridi.html"
+    },
+    {
+      "source": "/en/medalydridi",
+      "destination": "/en/medalydridi.html"
+    },
+    {
       "source": "/creation-site-web-tunis",
       "destination": "/creation-site-web-tunis.html"
     },
@@ -130,12 +138,12 @@
       "permanent": true
     },
     {
-      "source": "/:page(services|contact|art-de-la-difference|creation-site-web-tunis|creation-logo-identite-visuelle|referencement-seo-tunis|creation-site-e-commerce-tunisie).html",
+      "source": "/:page(services|medalydridi|contact|art-de-la-difference|creation-site-web-tunis|creation-logo-identite-visuelle|referencement-seo-tunis|creation-site-e-commerce-tunisie).html",
       "destination": "/:page",
       "permanent": true
     },
     {
-      "source": "/en/:page(services|contact|art-of-difference|web-design-tunisia|logo-brand-identity-design|seo-agency-tunisia|ecommerce-website-tunisia).html",
+      "source": "/en/:page(services|medalydridi|contact|art-of-difference|web-design-tunisia|logo-brand-identity-design|seo-agency-tunisia|ecommerce-website-tunisia).html",
       "destination": "/en/:page",
       "permanent": true
     },
