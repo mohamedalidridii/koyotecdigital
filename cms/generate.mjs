@@ -16,6 +16,9 @@ export const LANDINGS = {
 // landing page of each service, in the order of home.cards / services.blocks (null: no page of its own)
 const SERVICE_LANDING = ["lp_web", "lp_branding", "lp_seo", null, "lp_ecommerce", null];
 
+// case study of each showcase piece: base + slug (the live concept itself stays at /art-de-la-difference/<slug>/)
+export const CASE_BASE = ["/art-de-la-difference/etude/", "/en/art-of-difference/case/"];
+
 // Fixed route table. URLs are not editable from the CMS on purpose.
 const PATHS = {
   ...LANDINGS,
@@ -76,6 +79,9 @@ export function generate(root = ROOT, content = loadContent(root), { write = tru
   const url = (page, lang) => SITE + PATHS[page][idx(lang)];
   const artPath = (lang, a) => (lang === "fr" ? "/blog/" : "/en/blog/") + a.slug;
   const partner = (lang, a) => blog[lang === "fr" ? "en" : "fr"].find((x) => x.id === a.id);
+  // pieces with a written case study in that language
+  const casePath = (lang, p) => CASE_BASE[idx(lang)] + p.slug;
+  const hasCase = (lang, p) => Boolean(p[lang].case);
 
   // particle shape shown for each service, in the order of home.cards / services.blocks
   const SHAPES = ["browser", "glyph", "signal", "grid", "bag", "compass"];
@@ -669,7 +675,7 @@ ${faqSection(c.faq_h, c.faq)}`;
       const href = `/art-de-la-difference/${p.slug}/`;
       const prev = `/art/previews/${p.slug}`;
       return `            <li class="art-piece" data-kind="${esc(p.kind)}" style="--accent:${esc(p.accent)}">
-              <a class="art-card" href="${href}" target="_blank" rel="noopener" data-barba-prevent data-slug="${esc(p.slug)}" data-cursor="${c.enter}">
+              <a class="art-card" href="${href}" target="_blank" rel="noopener" data-barba-prevent data-slug="${esc(p.slug)}"${hasCase(lang, p) ? ` data-case="${casePath(lang, p)}"` : ""} data-cursor="${c.enter}">
                 <span class="art-frame">
                   <img class="art-poster" src="${prev}.webp" alt="${esc(`${a.piece} ${pad(k + 1)} : ${p.client}, ${t.sector}`)}" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="${prev}.webm" data-mp4="${prev}.mp4"></video>
@@ -679,7 +685,8 @@ ${faqSection(c.faq_h, c.faq)}`;
                 <span class="art-sector">${esc(t.sector)} · ${esc(p.year)}</span>
                 <span class="art-line">${esc(t.line)}</span>
               </a>
-            </li>`;
+${hasCase(lang, p) ? `              <a class="art-case-link" href="${casePath(lang, p)}" data-barba-prevent>${esc(a.case_link)} →</a>
+` : ""}            </li>`;
     }).join("\n");
     const filters = [["all", a.all], ["entreprise", a.business], ["personal", a.personal]]
       .map(([k, label], j) => `<button class="art-filter" type="button" data-filter="${k}" aria-pressed="${j === 0}">${esc(label)} <sup>${pad(k === "all" ? art.length : art.filter((p) => p.kind === k).length)}</sup></button>`)
@@ -689,7 +696,7 @@ ${faqSection(c.faq_h, c.faq)}`;
       org(lang),
       {
         "@type": "CollectionPage", name: a.h1, description: a.desc, url: url("art", lang), inLanguage: lang,
-        hasPart: art.map((p) => ({ "@type": "CreativeWork", name: `${p.client} — ${p[lang].sector}`, url: SITE + `/art-de-la-difference/${p.slug}/`, creator: { "@id": SITE + "/#organization" } })),
+        hasPart: art.map((p) => ({ "@type": "CreativeWork", name: `${p.client} — ${p[lang].sector}`, url: SITE + (hasCase(lang, p) ? casePath(lang, p) : `/art-de-la-difference/${p.slug}/`), creator: { "@id": SITE + "/#organization" } })),
       },
       crumbs([site[lang].ui.nav.home, url("home", lang)], [a.h1, url("art", lang)]),
     );
@@ -723,6 +730,7 @@ ${pieces}
           <div class="art-viewer-actions">
             <button type="button" class="art-viewer-btn" data-step="-1" aria-label="${esc(a.prev)}">←</button>
             <button type="button" class="art-viewer-btn" data-step="1" aria-label="${esc(a.next)}">→</button>
+            <a class="art-viewer-btn art-viewer-case" href="#" data-barba-prevent hidden>${esc(a.case_link)}</a>
             <a class="art-viewer-btn art-viewer-open" href="#" target="_blank" rel="noopener" data-barba-prevent>${esc(a.open)} ↗</a>
             <button type="button" class="art-viewer-btn art-viewer-close">${esc(a.close)} ✕</button>
           </div>
@@ -733,6 +741,72 @@ ${pieces}
 ${ctaSection(lang, { h: a.cta_h, button: a.cta })}`;
     const head = headTag({ lang, title: a.title, desc: a.desc, canon: PATHS.art[i], altFr: PATHS.art[0], altEn: PATHS.art[1], ld, theme: "#0d0d0d", htmlClass: "is-art" });
     return page({ head, lang, ns: "art", pageKey: "art", main });
+  }
+
+  // case study: the story behind one showcase piece, its art direction and a link to the live concept
+  function caseStudy(lang, p, k) {
+    const a = site[lang].art; const ui = site[lang].ui; const i = idx(lang);
+    const t = p[lang]; const cs = t.case;
+    const own = casePath(lang, p);
+    const other = lang === "fr" ? "en" : "fr";
+    const prev = `/art/previews/${p.slug}`;
+    const live = `/art-de-la-difference/${p.slug}/`;
+    const body = cs.sections.map(([h, x]) => `          <h2>${esc(h)}</h2>\n          ${bodyHtml(x)}`).join("\n");
+    const listed = art.filter((q) => hasCase(lang, q));
+    const at = listed.indexOf(p);
+    const [before, after] = [listed[(at - 1 + listed.length) % listed.length], listed[(at + 1) % listed.length]];
+    const service = PATHS[p.service] && site[lang][p.service] ? [PATHS[p.service][i], site[lang][p.service].label] : [PATHS.services[i], ui.nav.services];
+    const spec = [
+      [a.case_sector, esc(t.sector)], [a.case_year, esc(p.year)], [a.case_kind, esc(a["kind_" + p.kind])],
+      [a.case_type, p.type.map(esc).join(", ")],
+      [a.case_palette, p.palette.map((h) => `<span class="case-swatch" style="--sw:${esc(h)}" title="${esc(h)}"></span>`).join("") + ` <span class="case-hex">${p.palette.map(esc).join(" · ")}</span>`],
+    ].map(([dt, dd]) => `            <div data-line><dt>${esc(dt)}</dt><dd>${dd}</dd></div>`).join("\n");
+    const ld = graph(
+      {
+        "@type": "CreativeWork", name: `${p.client} — ${t.sector}`, headline: cs.title, description: cs.desc, inLanguage: lang,
+        url: SITE + own, image: SITE + prev + ".webp", dateCreated: p.year, genre: a.case_kicker,
+        creator: { "@id": SITE + "/#organization" }, isPartOf: { "@type": "CollectionPage", name: a.h1, url: url("art", lang) },
+      },
+      crumbs([ui.nav.home, url("home", lang)], [a.h1, url("art", lang)], [p.client, SITE + own]),
+    );
+    const main = `      <div class="read-progress" aria-hidden="true"></div>
+      <article class="article case" data-gl="off" style="--accent:${esc(p.accent)}">
+        <header class="article-head shell">
+          <nav class="crumbs" aria-label="Breadcrumb"><a href="${PATHS.home[i]}">${esc(ui.nav.home)}</a>, <a href="${PATHS.art[i]}">${esc(a.h1)}</a></nav>
+          <p class="lockup-brand">${stamp(a.case_kicker, `${pad(k + 1)}/${pad(art.length)}`)} <span>${esc(t.sector)}</span></p>
+          <h1 class="article-title" data-split>${esc(p.client)}</h1>
+          <p class="case-line" data-line>${esc(t.line)}</p>
+        </header>
+        <figure class="case-frame shell">
+          <video muted loop playsinline autoplay preload="metadata" poster="${prev}.webp" width="1440" height="900" aria-label="${esc(`${p.client}, ${t.sector}`)}"><source src="${prev}.webm" type="video/webm" /><source src="${prev}.mp4" type="video/mp4" /></video>
+          <figcaption><a class="tlink" href="${live}" target="_blank" rel="noopener" data-barba-prevent><span class="tlink-label">${esc(a.case_open)}</span><span class="tlink-arrow" aria-hidden="true">↗</span></a></figcaption>
+        </figure>
+        <div class="article-body">
+          <p class="article-intro">${esc(cs.intro)}</p>
+${body}
+          <p class="case-note">${esc(a.case_note)}</p>
+        </div>
+        <section class="case-spec shell" aria-labelledby="spec-h">
+          <h2 class="footer-h" id="spec-h">${esc(a.case_spec)}</h2>
+          <dl>
+${spec}
+          </dl>
+        </section>
+        <nav class="case-pager shell" aria-label="${esc(a.h1)}">
+          <a href="${casePath(lang, before)}"><span>← ${esc(a.case_prev)}</span><strong>${esc(before.client)}</strong></a>
+          <a href="${PATHS.art[i]}"><span>${esc(a.case_back)}</span></a>
+          <a href="${casePath(lang, after)}"><span>${esc(a.case_next)} →</span><strong>${esc(after.client)}</strong></a>
+        </nav>
+        <aside class="article-cta shell">
+          <h2>${esc(a.case_cta_h)}</h2>
+          <div class="cta-links">${link(PATHS.contact[i], a.cta)} ${link(service[0], service[1])}</div>
+        </aside>
+      </article>`;
+    const head = headTag({
+      lang, title: cs.title, desc: cs.desc, canon: own, ld, ogType: "article",
+      altFr: hasCase("fr", p) ? casePath("fr", p) : null, altEn: hasCase("en", p) ? casePath("en", p) : null,
+    });
+    return page({ head, lang, ns: "article", pageKey: "art", switchTo: hasCase(other, p) ? casePath(other, p) : PATHS.art[idx(other)], main });
   }
 
   function blogIndex(lang) {
@@ -811,6 +885,9 @@ ${body}
     for (const page of ["home", "services", ...Object.keys(LANDINGS).filter((k) => site.fr[k] && site.en[k]), "art", "blog", "contact"]) {
       entries.push({ fr: PATHS[page][0], en: PATHS[page][1] });
     }
+    for (const p of art) {
+      if (hasCase("fr", p) || hasCase("en", p)) entries.push({ fr: hasCase("fr", p) ? casePath("fr", p) : null, en: hasCase("en", p) ? casePath("en", p) : null });
+    }
     for (const r of ENGINEERING_ROUTES) {
       entries.push({ fr: PATHS.engineering[0] + (r && `${r}/`), en: PATHS.engineering[1] + (r && `${r}/`) });
     }
@@ -853,6 +930,9 @@ ${body}
     for (const k of Object.keys(LANDINGS)) {
       if (site[lang][k]) files[PATHS[k][idx(lang)].slice(1) + ".html"] = landing(lang, k);
     }
+    art.forEach((p, k) => {
+      if (hasCase(lang, p)) files[casePath(lang, p).slice(1) + ".html"] = caseStudy(lang, p, k);
+    });
     for (const a of blog[lang]) {
       files[`${lang === "fr" ? "blog" : "en/blog"}/${a.slug}.html`] = article(lang, a);
     }
@@ -869,7 +949,7 @@ ${body}
     renameSync(tmp, full);
   }
   const removed = [];
-  for (const dir of ["blog", "en/blog"]) {
+  for (const dir of ["blog", "en/blog", ...CASE_BASE.map((b) => b.slice(1, -1))]) {
     const abs = join(root, dir);
     if (!existsSync(abs)) continue;
     for (const f of readdirSync(abs)) {

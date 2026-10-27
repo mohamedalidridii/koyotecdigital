@@ -73,6 +73,14 @@
     {
       "source": "/en/blog/:slug",
       "destination": "/en/blog/:slug.html"
+    },
+    {
+      "source": "/art-de-la-difference/etude/:slug",
+      "destination": "/art-de-la-difference/etude/:slug.html"
+    },
+    {
+      "source": "/en/art-of-difference/case/:slug",
+      "destination": "/en/art-of-difference/case/:slug.html"
     }
   ],
   "redirects": [
@@ -160,6 +168,16 @@
       "source": "/en/blog/:slug([a-z0-9-]+).html",
       "destination": "/en/blog/:slug",
       "permanent": true
+    },
+    {
+      "source": "/art-de-la-difference/etude/:slug([a-z0-9-]+).html",
+      "destination": "/art-de-la-difference/etude/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/en/art-of-difference/case/:slug([a-z0-9-]+).html",
+      "destination": "/en/art-of-difference/case/:slug",
+      "permanent": true
     }
   ],
   "headers": [
@@ -173,7 +191,7 @@
       ]
     },
     {
-      "source": "/art-de-la-difference/(.+)",
+      "source": "/art-de-la-difference/((?!etude/).+)",
       "headers": [
         {
           "key": "X-Robots-Tag",

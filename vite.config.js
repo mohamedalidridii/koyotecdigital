@@ -1,10 +1,11 @@
 import { defineConfig } from "vite";
 import { resolve } from "path";
 import { readdirSync, existsSync } from "fs";
+import { CASE_BASE } from "./cms/generate.mjs";
 
-// every .html page in the root, en/, blog/ and en/blog/ is a build entry
+// every .html page in the root, en/, blog/, en/blog/ and the case study folders is a build entry
 function collectHtml(root) {
-  return ["", "en", "blog", "en/blog"].flatMap((dir) =>
+  return ["", "en", "blog", "en/blog", ...CASE_BASE.map((b) => b.slice(1, -1))].filter((dir) => existsSync(resolve(root, dir))).flatMap((dir) =>
     readdirSync(resolve(root, dir))
       .filter((f) => f.endsWith(".html"))
       .map((f) => (dir ? `${dir}/${f}` : f))

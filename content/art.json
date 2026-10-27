@@ -9,13 +9,87 @@
     "accent": "#c9a45c",
     "fr": {
       "sector": "Haute couture",
-      "line": "Une maison de couture racontée fil d'or par fil d'or."
+      "line": "Une maison de couture racontée fil d'or par fil d'or.",
+      "case": {
+        "title": "Maison Aurèle : étude de cas d'un site haute couture – KOYOTEC",
+        "desc": "Comment nous avons imaginé le site d'une maison de couture fictive : une collection racontée fil d'or par fil d'or, entre serif éditorial et ivoire.",
+        "intro": "Une maison de couture ne vend pas des vêtements : elle vend un geste, une patience, une histoire. Pour Maison Aurèle, nous avons imaginé un site qui se lit comme un carnet d'atelier plutôt que comme une boutique.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Maison Aurèle est une maison parisienne qui présente sa collection printemps-été « Fil d'or ». Son public découvre la mode par les défilés et les magazines, pas par les fiches produits. Le site devait donc installer une atmosphère avant de montrer une seule pièce, et donner envie de demander un rendez-vous plutôt que d'ajouter au panier."
+          ],
+          [
+            "L'idée",
+            "Tout part du fil d'or. Le titre « Fil d'or » s'ouvre de part et d'autre d'une photographie verticale, comme une étoffe qu'on écarte. Chaque section du site — collections, lookbook, défilé — est pensée comme une page de catalogue de mode : beaucoup d'air, une image forte, quelques mots."
+          ],
+          [
+            "Direction artistique",
+            "Nous avons choisi un fond ivoire, presque papier, et un or discret réservé aux détails. Les titres sont composés en Cormorant Garamond, une serif aux contrastes fins qui évoque l'édition de luxe. Les petites mentions — saison, ville, navigation — passent en DM Mono, en capitales espacées, comme les étiquettes cousues dans un vêtement. Le bordeaux profond apparaît dans les images et les fonds sombres."
+          ],
+          [
+            "Le mouvement",
+            "Les animations restent lentes et retenues : les titres se dévoilent ligne après ligne, les images glissent légèrement au défilement. Rien ne clignote, rien ne presse. Le rythme du site imite celui d'un défilé, où chaque silhouette a le temps d'être regardée."
+          ],
+          [
+            "Le parcours",
+            "Le visiteur entre par la collection, puis choisit son chemin : les collections pour découvrir les pièces, le lookbook pour les silhouettes complètes, le défilé pour l'ambiance du show, et enfin le contact pour demander un rendez-vous en atelier. Le site existe en français et en anglais, avec un sélecteur discret en haut de page, comme il se doit pour une maison qui parle à une clientèle internationale."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Ce concept montre comment une identité haut de gamme peut se traduire en ligne sans perdre sa retenue : une typographie choisie avec soin, une palette courte et des animations qui servent le récit. C'est la même démarche que nous proposons aux marques de mode, de bijoux ou d'artisanat qui veulent un site à la hauteur de leur savoir-faire."
+          ]
+        ]
+      }
     },
     "en": {
       "sector": "Haute couture",
-      "line": "A couture house told one golden thread at a time."
+      "line": "A couture house told one golden thread at a time.",
+      "case": {
+        "title": "Maison Aurèle: haute couture website case study – KOYOTEC",
+        "desc": "How we imagined the website of a fictional couture house: a collection told one golden thread at a time, between editorial serif and ivory.",
+        "intro": "A couture house doesn't sell clothes: it sells a gesture, patience and a story. For Maison Aurèle, we imagined a website that reads like a studio notebook rather than a shop.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Maison Aurèle is a Paris couture house presenting its spring-summer collection, \"Fil d'or\" (golden thread). Its audience discovers fashion through shows and magazines, not product pages. So the site had to set a mood before showing a single piece, and make visitors want to book an appointment rather than add to cart."
+          ],
+          [
+            "The idea",
+            "Everything starts with the golden thread. The title \"Fil d'or\" opens on either side of a vertical photograph, like fabric being drawn apart. Each section — collections, lookbook, show — is treated like a page from a fashion catalogue: lots of air, one strong image, a few words."
+          ],
+          [
+            "Art direction",
+            "We chose an ivory, almost paper-like background and a discreet gold kept for details. Headings are set in Cormorant Garamond, a finely contrasted serif that recalls luxury publishing. Small labels — season, city, navigation — use DM Mono in spaced capitals, like the labels sewn into a garment. Deep burgundy appears in the images and dark backgrounds."
+          ],
+          [
+            "Motion",
+            "Animations stay slow and restrained: headings reveal line by line, images drift slightly as you scroll. Nothing flashes, nothing rushes. The site's rhythm mirrors a runway show, where every silhouette has time to be looked at."
+          ],
+          [
+            "The journey",
+            "Visitors enter through the collection, then choose their path: collections to discover the pieces, the lookbook for complete silhouettes, the show for the runway mood, and finally contact to request a studio appointment. The site exists in French and English, with a discreet switcher at the top, as befits a house speaking to an international clientele."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "This concept shows how a high-end identity can move online without losing its restraint: carefully chosen type, a short palette and motion that serves the story. It's the same approach we offer fashion, jewellery and craft brands that want a website worthy of their savoir-faire."
+          ]
+        ]
+      }
     },
-    "featured": true
+    "featured": true,
+    "type": [
+      "Cormorant Garamond",
+      "Host Grotesk",
+      "DM Mono"
+    ],
+    "palette": [
+      "#f3ece0",
+      "#c9a45c",
+      "#5a1622",
+      "#2e0a10"
+    ],
+    "service": "lp_branding"
   },
   {
     "slug": "atelier-terrah",
@@ -27,12 +101,85 @@
     "accent": "#b08a63",
     "fr": {
       "sector": "Architecture d'intérieur",
-      "line": "Des espaces simples, pensés pour durer."
+      "line": "Des espaces simples, pensés pour durer.",
+      "case": {
+        "title": "Atelier Terrah : étude de cas d'un site d'architecture d'intérieur – KOYOTEC",
+        "desc": "Le site imaginé d'un studio d'architecture d'intérieur : des espaces ancrés et humains, présentés par la matière, la lumière et un rythme calme.",
+        "intro": "En architecture d'intérieur, une photo vaut mieux qu'un long discours, à condition de lui laisser de la place. Pour Atelier Terrah, nous avons imaginé un site qui fait entrer le visiteur dans les espaces avant de lui parler du studio.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Atelier Terrah conçoit des intérieurs « ancrés, humains et subtilement audacieux » : bois, lumière naturelle, matières brutes. Ses clients — particuliers exigeants et lieux d'accueil — veulent d'abord savoir si l'univers du studio leur ressemble. Le site devait montrer des ambiances, puis guider vers une demande de projet."
+          ],
+          [
+            "L'idée",
+            "Le site s'ouvre en plein écran sur un intérieur : rideaux de bois, lampe suspendue, plante, lumière chaude. Pas de titre géant, seulement un bouton « Réserver » et un menu discret. Les pages suivent le parcours d'un projet : le studio, les espaces réalisés, une installation détaillée, les plans, puis le contact."
+          ],
+          [
+            "Direction artistique",
+            "La palette reprend celle des matériaux : un beige minéral, un bois clair, des noirs chauds plutôt qu'un noir pur. La typographie Manrope, géométrique et douce, garde les textes lisibles sans voler la vedette aux images. Les indications techniques — numéros, chiffres, coordonnées — sont en DM Mono, comme annotées sur un plan d'architecte."
+          ],
+          [
+            "Le mouvement",
+            "Les transitions sont pensées comme des déplacements dans une pièce : on glisse d'un espace à l'autre, les images se révèlent par cadrage plutôt que par effet. Les compteurs et chiffres clés s'animent sobrement pour donner l'échelle du travail sans en faire trop."
+          ],
+          [
+            "Le parcours",
+            "Cinq pages suffisent : le studio et sa philosophie, la galerie des espaces, une installation présentée en détail comme une étude de cas, les plans qui dévoilent la méthode, et une page de contact pour les commandes. Chaque page se termine par un lien vers la suivante, pour que la visite ressemble à une promenade guidée plutôt qu'à une navigation par menu."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Pour un architecte, un décorateur ou un hôtel, ce concept montre la force d'un site qui laisse parler les images et réduit le texte à l'essentiel. La même structure — ambiance, réalisations, détail d'un projet, contact — fonctionne pour toute activité où le client doit se projeter avant d'appeler."
+          ]
+        ]
+      }
     },
     "en": {
       "sector": "Interior design",
-      "line": "Simple spaces, built to last."
-    }
+      "line": "Simple spaces, built to last.",
+      "case": {
+        "title": "Atelier Terrah: interior design website case study – KOYOTEC",
+        "desc": "The imagined website of an interior design studio: grounded, human spaces presented through material, light and a calm rhythm.",
+        "intro": "In interior design, a photo beats a long speech, as long as it is given room. For Atelier Terrah, we imagined a website that brings visitors into the spaces before telling them about the studio.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Atelier Terrah designs interiors that are \"grounded, human and subtly bold\": wood, natural light, raw materials. Its clients — demanding homeowners and hospitality venues — first want to know whether the studio's world fits them. The site had to show atmospheres, then guide visitors towards a project enquiry."
+          ],
+          [
+            "The idea",
+            "The site opens full-screen on an interior: wooden slats, a pendant lamp, a plant, warm light. No giant headline, just a \"Reserve\" button and a discreet menu. The pages follow a project's journey: the studio, completed spaces, one detailed installation, the blueprints, then contact."
+          ],
+          [
+            "Art direction",
+            "The palette comes from the materials: a mineral beige, a light wood tone, warm blacks rather than pure black. Manrope, geometric and soft, keeps the copy readable without stealing attention from the images. Technical details — numbers, figures, coordinates — are set in DM Mono, as if annotated on an architect's plan."
+          ],
+          [
+            "Motion",
+            "Transitions are designed like moving through a room: you glide from one space to the next, and images reveal themselves through framing rather than effects. Counters and key figures animate soberly to give a sense of scale without overdoing it."
+          ],
+          [
+            "The journey",
+            "Five pages are enough: the studio and its philosophy, the gallery of spaces, one installation presented in detail as a case study, the blueprints revealing the method, and a contact page for commissions. Each page ends with a link to the next, so the visit feels like a guided walk rather than menu navigation."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "For an architect, a decorator or a hotel, this concept shows the strength of a site that lets images speak and keeps copy to the essentials. The same structure — atmosphere, projects, one project in detail, contact — works for any business where clients need to picture themselves before they call."
+          ]
+        ]
+      }
+    },
+    "type": [
+      "Manrope",
+      "DM Mono"
+    ],
+    "palette": [
+      "#d3cec5",
+      "#b08a63",
+      "#1a1818",
+      "#0d0c0c"
+    ],
+    "service": "lp_web"
   },
   {
     "slug": "nour-el-kamel",
@@ -44,13 +191,84 @@
     "accent": "#e4572e",
     "fr": {
       "sector": "Speaker & média",
-      "line": "Une voix, des histoires, un impact social."
+      "line": "Une voix, des histoires, un impact social.",
+      "case": {
+        "title": "Nour El Kamel : étude de cas d'un site de speaker – KOYOTEC",
+        "desc": "Le site imaginé d'une speaker et cheffe de projets médias : une voix, plusieurs histoires, et un impact social mis en avant dès la première seconde.",
+        "intro": "Quand votre métier, c'est la parole, votre site doit avoir une voix. Pour Nour El Kamel, nous avons imaginé un portfolio de speaker qui met la personne et ses causes au centre, sans jamais ressembler à un CV en ligne.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Nour El Kamel est une cheffe de projets médias basée à Tunis, avec plus de dix ans d'expérience dans le développement et le changement social en Afrique du Nord et au Moyen-Orient. Elle intervient en conférences et pilote des programmes médias. Le site devait rassurer les organisateurs d'événements et les partenaires, tout en racontant un engagement."
+          ],
+          [
+            "L'idée",
+            "Le nom devient le décor. « Nour El Kamel » défile en très grand sur toute la largeur de l'écran, entouré d'un nuage de portraits et de photos de terrain. Une seule phrase résume l'essentiel : dix ans de médias et de récits au service du changement social. Les pages suivent ensuite : à propos, projets, interventions, contact."
+          ],
+          [
+            "Direction artistique",
+            "Le fond blanc et le noir profond donnent un ton journalistique, net et crédible. Une seule couleur vive, un orange chaud, marque les accents et rappelle l'énergie militante. Google Sans Flex, une typographie variable, permet de passer d'un titre massif à des textes de lecture sans changer de famille."
+          ],
+          [
+            "Le mouvement",
+            "Les photos flottent autour du nom et réagissent au défilement, comme des souvenirs qu'on feuillette. Chaque projet a sa page, avec un récit structuré : contexte, action, résultats racontés par la personne elle-même. Les transitions restent simples pour que le contenu reste lisible en conférence, sur un téléphone, entre deux sessions."
+          ],
+          [
+            "Le parcours",
+            "La page « À propos » retrace le parcours en chapitres : formation, postes successifs, engagements bénévoles. La page « Travaux » présente chaque programme comme une histoire courte, avec une page dédiée. La page « Interventions » liste les thèmes de conférence et les formats possibles, et le contact s'adresse directement aux organisateurs et aux partenaires."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Pour un consultant, un formateur, un journaliste ou une personnalité publique, ce concept montre comment transformer un parcours en récit. Une page d'accueil forte, des projets racontés comme des histoires et une page « interventions » claire : c'est ce qui donne envie à un organisateur de vous inviter."
+          ]
+        ]
+      }
     },
     "en": {
       "sector": "Speaker & media",
-      "line": "One voice, many stories, real social impact."
+      "line": "One voice, many stories, real social impact.",
+      "case": {
+        "title": "Nour El Kamel: speaker website case study – KOYOTEC",
+        "desc": "The imagined website of a speaker and media project manager: one voice, many stories, and social impact front and centre from the first second.",
+        "intro": "When your job is speaking, your website needs a voice. For Nour El Kamel, we imagined a speaker portfolio that puts the person and their causes at the centre, without ever looking like an online CV.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Nour El Kamel is a media project manager based in Tunis, with over ten years in development and social change across North Africa and the Middle East. She speaks at conferences and leads media programmes. The site had to reassure event organisers and partners while telling the story of a commitment."
+          ],
+          [
+            "The idea",
+            "The name becomes the set. \"Nour El Kamel\" scrolls across the full width of the screen, surrounded by a cloud of portraits and field photos. A single sentence sums it up: a decade of media and storytelling for social change. Then come the pages: about, work, speaking, contact."
+          ],
+          [
+            "Art direction",
+            "White space and deep black give a journalistic tone, sharp and credible. A single bright colour, a warm orange, marks the accents and echoes activist energy. Google Sans Flex, a variable typeface, moves from a massive headline to reading text without changing family."
+          ],
+          [
+            "Motion",
+            "Photos float around the name and react to scrolling, like memories being leafed through. Each project has its own page with a structured story: context, action, outcomes told in the first person. Transitions stay simple so the content remains readable at a conference, on a phone, between two sessions."
+          ],
+          [
+            "The journey",
+            "The About page traces the career in chapters: education, successive roles, volunteer commitments. The Work page presents each programme as a short story with its own page. The Speaking page lists talk topics and possible formats, and the contact page speaks directly to organisers and partners."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "For a consultant, trainer, journalist or public figure, this concept shows how to turn a career into a story. A strong home page, projects told as stories and a clear speaking page: that's what makes an organiser want to invite you."
+          ]
+        ]
+      }
     },
-    "featured": true
+    "featured": true,
+    "type": [
+      "Google Sans Flex"
+    ],
+    "palette": [
+      "#ffffff",
+      "#e4572e",
+      "#0f0f0f"
+    ],
+    "service": "lp_web"
   },
   {
     "slug": "ferrana-mines",
@@ -62,12 +280,85 @@
     "accent": "#d36b2c",
     "fr": {
       "sector": "Mines & métaux",
-      "line": "L'industrie lourde avec la précision d'une maison d'édition."
+      "line": "L'industrie lourde avec la précision d'une maison d'édition.",
+      "case": {
+        "title": "Ferrana Mines : étude de cas d'un site industriel – KOYOTEC",
+        "desc": "Le site imaginé d'une société minière : l'industrie lourde présentée avec l'élégance d'un éditeur, autour de la responsabilité et de l'impact.",
+        "intro": "Les sites industriels se ressemblent souvent : photos de chantier, jargon, chiffres empilés. Pour Ferrana Mines, nous avons pris le contre-pied et imaginé une société minière qui s'exprime comme une maison d'édition.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Ferrana est une société minière qui veut changer la façon dont on parle de son métier. Elle s'adresse aux investisseurs, aux partenaires, aux candidats et aux communautés proches de ses sites. Son message central : chaque tonne prélevée est comptée, compensée et assumée. Le site devait porter cet engagement sans tomber dans le discours vert de façade."
+          ],
+          [
+            "L'idée",
+            "Une phrase occupe l'écran d'accueil : « Ferrana répond de chaque tonne de terre qu'elle choisit de prendre. » Derrière, une image de terrain dans la poussière et le feu, presque cinématographique. Le site est construit comme un magazine : initiatives, mission, impact, contact, avec des pages de détail pour chaque projet."
+          ],
+          [
+            "Direction artistique",
+            "La palette part du minerai : noirs profonds, gris anthracite et un jaune signal emprunté aux engins de chantier, complété par un orange terre. Neue Montreal, une grotesque sobre, donne au texte une voix posée et éditoriale. Les coordonnées, codes et chiffres sont composés en GT America Mono, comme des relevés techniques."
+          ],
+          [
+            "Le mouvement",
+            "Les images s'ouvrent lentement, les titres arrivent mot par mot et les données d'impact se construisent au défilement. Le rythme est celui d'un documentaire : on prend le temps de lire une phrase avant de passer à la suivante, ce qui renforce le sérieux du propos."
+          ],
+          [
+            "Le parcours",
+            "L'accueil pose la promesse, les initiatives détaillent les projets sur le terrain, la mission explique la méthode et la page impact présente les engagements chiffrés. Chaque initiative dispose d'une page de détail pour les investisseurs ou les journalistes qui veulent aller plus loin. Le pied de page ouvre vers les carrières, la presse et les partenaires."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Une entreprise industrielle, énergétique ou logistique peut se démarquer par le ton autant que par l'image. Ce concept montre comment une structure éditoriale claire et une palette tirée du métier rendent un sujet technique lisible et crédible, pour les investisseurs comme pour les recrues."
+          ]
+        ]
+      }
     },
     "en": {
       "sector": "Mining & metals",
-      "line": "Heavy industry with the poise of a publisher."
-    }
+      "line": "Heavy industry with the poise of a publisher.",
+      "case": {
+        "title": "Ferrana Mines: industrial company website case study – KOYOTEC",
+        "desc": "The imagined website of a mining company: heavy industry presented with a publisher's poise, built around responsibility and impact.",
+        "intro": "Industrial websites often look alike: site photos, jargon, stacked figures. For Ferrana Mines, we took the opposite route and imagined a mining company that speaks like a publishing house.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Ferrana is a mining company that wants to change how its industry is talked about. It addresses investors, partners, candidates and the communities near its sites. Its core message: every tonne taken is counted, offset and accounted for. The site had to carry that commitment without falling into greenwashing."
+          ],
+          [
+            "The idea",
+            "One sentence fills the home screen: \"Ferrana answers for every tonne of ground it chooses to take.\" Behind it, a field image in dust and fire, almost cinematic. The site is built like a magazine — initiatives, mission, impact, contact — with detail pages for each project."
+          ],
+          [
+            "Art direction",
+            "The palette comes from the ore: deep blacks, anthracite greys and a signal yellow borrowed from site machinery, with an earthy orange. Neue Montreal, a sober grotesque, gives the copy a calm, editorial voice. Coordinates, codes and figures are set in GT America Mono, like technical readings."
+          ],
+          [
+            "Motion",
+            "Images open slowly, headings arrive word by word and impact data builds as you scroll. The rhythm is that of a documentary: you take time to read one sentence before moving to the next, which reinforces the seriousness of the message."
+          ],
+          [
+            "The journey",
+            "The home page states the promise, initiatives detail the field projects, the mission explains the method and the impact page presents measurable commitments. Each initiative has a detail page for investors or journalists who want to go further. The footer opens onto careers, press and partners."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "An industrial, energy or logistics company can stand out through tone as much as imagery. This concept shows how a clear editorial structure and a palette drawn from the trade make a technical subject readable and credible, for investors and recruits alike."
+          ]
+        ]
+      }
+    },
+    "type": [
+      "Neue Montreal",
+      "GT America Mono"
+    ],
+    "palette": [
+      "#ffc32a",
+      "#d36b2c",
+      "#242424",
+      "#080808"
+    ],
+    "service": "lp_web"
   },
   {
     "slug": "selma-haddad",
@@ -79,13 +370,88 @@
     "accent": "#7fa65a",
     "fr": {
       "sector": "Diététicienne",
-      "line": "La nutrition présentée comme un art de vivre."
+      "line": "La nutrition présentée comme un art de vivre.",
+      "case": {
+        "title": "Dr. Selma Haddad : étude de cas d'un site de diététicienne – KOYOTEC",
+        "desc": "Le site imaginé d'une diététicienne à La Soukra : la nutrition présentée comme un art de vivre, en français et en arabe, avec prise de rendez-vous.",
+        "intro": "Une diététicienne ne vend pas des régimes : elle accompagne des personnes. Pour Dr. Selma Haddad, nous avons imaginé un site chaleureux et bilingue, qui inspire confiance et donne envie de prendre rendez-vous.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Selma Haddad est diététicienne-nutritionniste à La Soukra. Elle reçoit en cabinet — poids, enfants, diabète, cholestérol, jeûne — intervient dans les médias et partage des conseils à une large communauté en ligne. Ses patients parlent français et arabe. Le site devait présenter son approche, ses services et rendre la prise de rendez-vous évidente."
+          ],
+          [
+            "L'idée",
+            "La promesse tient en une phrase, en deux langues : « Bien manger, c'est se soigner chaque jour » et « الأكل الصحي، دواء كل يوم ». En dessous, un carrousel circulaire de plats colorés tourne doucement, comme une assiette qu'on présente. Le bouton « Prendre RDV » reste visible en permanence."
+          ],
+          [
+            "Direction artistique",
+            "Un vert forêt profond, presque botanique, porte l'ensemble, avec un or doux pour les accents. Les titres en Cormorant Garamond mêlent romain et italique pour un ton élégant mais accessible ; la signature en Great Vibes ajoute une touche personnelle. Amiri, une calligraphie arabe classique, compose les textes en arabe avec le même soin que le français."
+          ],
+          [
+            "Le mouvement",
+            "Le carrousel d'images tourne au défilement, les sections apparaissent en fondu, et les rubriques « Au cabinet », « Dans les médias » et « Avec ma communauté » se suivent comme trois chapitres. Les animations restent légères pour que le site se charge vite sur mobile, où la plupart des patients le consulteront."
+          ],
+          [
+            "Le parcours",
+            "Cinq pages, pensées pour un patient pressé : l'accueil et la promesse, « À propos » pour le parcours et l'approche, « Services » pour les consultations proposées, « Conseils » pour les articles et astuces, et « Contact » avec l'adresse du cabinet et la prise de rendez-vous. Chaque page rappelle le bouton de réservation."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Pour un professionnel de santé, la confiance passe par la clarté : qui vous êtes, ce que vous proposez, où et comment prendre rendez-vous. Ce concept montre aussi l'intérêt d'un site bilingue français-arabe bien construit, qui touche toute la patientèle et améliore la visibilité locale sur Google."
+          ]
+        ]
+      }
     },
     "en": {
       "sector": "Dietitian",
-      "line": "Nutrition presented as a way of living."
+      "line": "Nutrition presented as a way of living.",
+      "case": {
+        "title": "Dr. Selma Haddad: dietitian website case study – KOYOTEC",
+        "desc": "The imagined website of a dietitian in La Soukra: nutrition presented as a way of living, in French and Arabic, with appointment booking.",
+        "intro": "A dietitian doesn't sell diets: she supports people. For Dr. Selma Haddad, we imagined a warm, bilingual website that builds trust and makes visitors want to book an appointment.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Selma Haddad is a dietitian-nutritionist in La Soukra. She sees patients in her practice — weight, children, diabetes, cholesterol, fasting — appears in the media and shares advice with a large online community. Her patients speak French and Arabic. The site had to present her approach and services, and make booking obvious."
+          ],
+          [
+            "The idea",
+            "The promise fits in one sentence, in two languages: \"Bien manger, c'est se soigner chaque jour\" (eating well is daily care) and its Arabic counterpart. Below, a circular carousel of colourful dishes turns gently, like a plate being presented. The \"Book an appointment\" button stays visible at all times."
+          ],
+          [
+            "Art direction",
+            "A deep, almost botanical forest green carries the design, with soft gold for accents. Headings in Cormorant Garamond mix roman and italic for an elegant yet approachable tone; the Great Vibes signature adds a personal touch. Amiri, a classic Arabic typeface, sets the Arabic copy with the same care as the French."
+          ],
+          [
+            "Motion",
+            "The image carousel turns as you scroll, sections fade in, and \"In the practice\", \"In the media\" and \"With my community\" follow one another like three chapters. Animations stay light so the site loads quickly on mobile, where most patients will see it."
+          ],
+          [
+            "The journey",
+            "Five pages, designed for a busy patient: home and promise, About for the background and approach, Services for the consultations offered, Advice for articles and tips, and Contact with the practice address and booking. Every page repeats the booking button."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "For a health professional, trust comes from clarity: who you are, what you offer, where and how to book. This concept also shows the value of a well-built French-Arabic website, which reaches every patient and improves local visibility on Google."
+          ]
+        ]
+      }
     },
-    "featured": true
+    "featured": true,
+    "type": [
+      "Cormorant Garamond",
+      "Great Vibes",
+      "PP Neue Montreal",
+      "Amiri"
+    ],
+    "palette": [
+      "#eef3ec",
+      "#c9a96e",
+      "#22402f",
+      "#16291f"
+    ],
+    "service": "lp_seo"
   },
   {
     "slug": "ghoula-games",
@@ -97,13 +463,87 @@
     "accent": "#d7ff3a",
     "fr": {
       "sector": "Studio de jeux vidéo",
-      "line": "Un collectif de jeu au code de conduite verrouillé."
+      "line": "Un collectif de jeu au code de conduite verrouillé.",
+      "case": {
+        "title": "Ghoula Games : étude de cas d'un site de studio de jeux vidéo – KOYOTEC",
+        "desc": "Le site imaginé d'un studio de jeux vidéo indépendant : des mondes sans issue, une ambiance de surveillance et un code visuel verrouillé.",
+        "intro": "Un studio de jeux vidéo se juge à l'ambiance de ses mondes. Pour Ghoula Games, nous avons imaginé un site qui fait ressentir la tension de ses jeux avant même de montrer une capture d'écran.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Ghoula Games est un collectif qui crée des jeux d'atmosphère : couloirs de béton, surveillance, mécaniques qui ne livrent jamais toute leur logique. Le studio cherche des joueurs, des éditeurs et des talents. Le site devait poser un univers fort et cohérent, et donner l'impression d'entrer dans l'un de leurs jeux."
+          ],
+          [
+            "L'idée",
+            "L'écran d'accueil est presque entièrement noir. Au centre, un logo comme un insigne, posé sur un dôme vert flou, comme vu à travers une caméra de surveillance. De chaque côté, deux formules : « Worlds without exit » et « Games without mercy ». Le visiteur est accueilli comme un joueur au lancement d'une partie."
+          ],
+          [
+            "Direction artistique",
+            "La palette est réduite à des noirs, des gris verts et un vert acide qui évoque les écrans de contrôle. Cossette Titre, une display au caractère tranché, signe le logo et les grands titres ; Verilet et une mono, SUSE Mono, donnent aux textes l'allure de journaux de bord et de messages interceptés. Tout est pensé comme une identité de jeu, pas comme un site d'entreprise."
+          ],
+          [
+            "Le mouvement",
+            "Les éléments apparaissent par glitchs et balayages, les textes se tapent comme dans un terminal, et le menu s'ouvre comme une interface de jeu. Les effets restent au service de l'ambiance : ils installent la tension sans empêcher de lire le manifeste ou de parcourir le catalogue."
+          ],
+          [
+            "Le parcours",
+            "Index pour l'univers, Studio pour le manifeste et l'équipe, Catalog pour les jeux, Brief pour les projets en cours et les collaborations, Connect pour rejoindre la communauté ou contacter le studio. Le vocabulaire du jeu — signal, canal, transmission — remplace celui d'un site classique."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Pour une marque de divertissement, de musique ou de technologie, ce concept montre qu'une identité forte peut guider chaque détail du site : couleurs, typographie, vocabulaire et mouvement. Le résultat est un site qu'on reconnaît en une seconde, et qui donne envie de découvrir les produits."
+          ]
+        ]
+      }
     },
     "en": {
       "sector": "Game studio",
-      "line": "A game collective with a locked-in code."
+      "line": "A game collective with a locked-in code.",
+      "case": {
+        "title": "Ghoula Games: game studio website case study – KOYOTEC",
+        "desc": "The imagined website of an independent game studio: worlds without exit, a surveillance mood and a locked-in visual code.",
+        "intro": "A game studio is judged by the atmosphere of its worlds. For Ghoula Games, we imagined a website that makes you feel the tension of its games before showing a single screenshot.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Ghoula Games is a collective making atmospheric games: concrete corridors, surveillance, mechanics that never reveal their full logic. The studio is looking for players, publishers and talent. The site had to set up a strong, consistent universe and make you feel you were entering one of their games."
+          ],
+          [
+            "The idea",
+            "The home screen is almost entirely black. In the centre, a logo like an insignia sits on a blurred green dome, as if seen through a security camera. On each side, two lines: \"Worlds without exit\" and \"Games without mercy\". Visitors are greeted like players launching a game."
+          ],
+          [
+            "Art direction",
+            "The palette is reduced to blacks, green-greys and an acid green that recalls control screens. Cossette Titre, a sharp display face, signs the logo and large headings; Verilet and a monospace, SUSE Mono, make the copy look like logs and intercepted messages. Everything is designed as a game identity, not a corporate site."
+          ],
+          [
+            "Motion",
+            "Elements appear through glitches and sweeps, text types out like a terminal, and the menu opens like a game interface. Effects serve the mood: they build tension without getting in the way of reading the manifesto or browsing the catalogue."
+          ],
+          [
+            "The journey",
+            "Index for the universe, Studio for the manifesto and team, Catalog for the games, Brief for current projects and collaborations, Connect to join the community or contact the studio. Game vocabulary — signal, channel, transmission — replaces that of a standard website."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "For an entertainment, music or tech brand, this concept shows that a strong identity can guide every detail of a site: colours, type, vocabulary and motion. The result is a site you recognise in a second, and that makes you want to discover the products."
+          ]
+        ]
+      }
     },
-    "featured": true
+    "featured": true,
+    "type": [
+      "Cossette Titre",
+      "Verilet",
+      "SUSE Mono"
+    ],
+    "palette": [
+      "#f7f5f0",
+      "#d7ff3a",
+      "#49534e",
+      "#0b0b0b"
+    ],
+    "service": "lp_branding"
   },
   {
     "slug": "adam-rekik",
@@ -115,12 +555,84 @@
     "accent": "#f2f2f2",
     "fr": {
       "sector": "Designer indépendant",
-      "line": "Un portfolio qui se lit comme une affiche."
+      "line": "Un portfolio qui se lit comme une affiche.",
+      "case": {
+        "title": "Adam Rekik : étude de cas d'un portfolio de designer – KOYOTEC",
+        "desc": "Le portfolio imaginé d'un designer indépendant : un site qui se lit comme une affiche, en noir et blanc, avec des projets présentés comme des chapitres.",
+        "intro": "Un portfolio de designer doit prouver son talent dès le premier écran. Pour Adam Rekik, nous avons imaginé un site qui se lit comme une affiche : peu de mots, une typographie massive et un contraste maximal.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Adam Rekik est un designer et directeur de création indépendant qui accompagne des entreprises, des marques et des entrepreneurs sur leurs produits numériques. Ses clients potentiels comparent plusieurs portfolios en quelques minutes. Le site devait marquer les esprits immédiatement, puis présenter les projets de façon claire et convaincante."
+          ],
+          [
+            "L'idée",
+            "Le nom et le titre occupent l'écran comme sur une affiche : « ADAM REKIK » en haut à gauche, « CREATIVE DIRECTOR » en bas à droite, en capitales géantes. Entre les deux, une phrase courte résume la proposition de valeur. Le vide entre les mots fait partie de la composition."
+          ],
+          [
+            "Direction artistique",
+            "Noir et blanc, sans compromis. PP Acma, une display aux formes étroites et nettes, compose les grands titres ; PP Neue Montreal, une grotesque neutre, porte les textes. L'absence de couleur laisse toute la place aux visuels des projets, qui deviennent les seules touches colorées du site."
+          ],
+          [
+            "Le mouvement",
+            "Les titres se découpent et glissent en place au chargement, les projets défilent comme des planches numérotées — « 01 / 09 », « 02 / 09 » — et les images se dévoilent au survol. Le rythme est rapide et assuré, à l'image d'un designer sûr de son travail."
+          ],
+          [
+            "Le parcours",
+            "Accueil, À propos, Projets, Distinctions, Contact. Chaque projet dispose d'une page détaillée avec le contexte, le rôle et les livrables. La page Distinctions rassemble les reconnaissances, et le contact reste accessible depuis chaque page pour transformer l'intérêt en prise de contact."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Pour un freelance, un photographe ou un consultant, ce concept montre qu'un portfolio n'a pas besoin d'effets pour impressionner : une composition forte, une typographie affirmée et des projets bien racontés suffisent. C'est souvent ce qui fait la différence face à des concurrents au profil similaire."
+          ]
+        ]
+      }
     },
     "en": {
       "sector": "Independent designer",
-      "line": "A portfolio that reads like a poster."
-    }
+      "line": "A portfolio that reads like a poster.",
+      "case": {
+        "title": "Adam Rekik: designer portfolio case study – KOYOTEC",
+        "desc": "The imagined portfolio of an independent designer: a site that reads like a poster, in black and white, with projects presented as chapters.",
+        "intro": "A designer's portfolio has to prove its talent from the first screen. For Adam Rekik, we imagined a site that reads like a poster: few words, massive type and maximum contrast.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Adam Rekik is an independent designer and creative director who helps companies, brands and entrepreneurs with their digital products. Potential clients compare several portfolios in a few minutes. The site had to make an immediate impression, then present the projects clearly and convincingly."
+          ],
+          [
+            "The idea",
+            "The name and title fill the screen like a poster: \"ADAM REKIK\" top left, \"CREATIVE DIRECTOR\" bottom right, in giant capitals. Between them, a short sentence sums up the value proposition. The empty space between the words is part of the composition."
+          ],
+          [
+            "Art direction",
+            "Black and white, no compromise. PP Acma, a narrow, crisp display face, sets the headings; PP Neue Montreal, a neutral grotesque, carries the copy. The absence of colour leaves all the room to the project visuals, which become the only coloured touches on the site."
+          ],
+          [
+            "Motion",
+            "Headings slice and slide into place on load, projects scroll by like numbered plates — \"01 / 09\", \"02 / 09\" — and images reveal themselves on hover. The rhythm is fast and confident, like a designer sure of their work."
+          ],
+          [
+            "The journey",
+            "Home, About, Projects, Awards, Contact. Each project has a detailed page with the context, role and deliverables. The Awards page gathers recognition, and contact stays reachable from every page to turn interest into an enquiry."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "For a freelancer, photographer or consultant, this concept shows that a portfolio doesn't need effects to impress: a strong composition, confident type and well-told projects are enough. That's often what makes the difference against competitors with similar profiles."
+          ]
+        ]
+      }
+    },
+    "type": [
+      "PP Acma",
+      "PP Neue Montreal"
+    ],
+    "palette": [
+      "#ffffff",
+      "#f2f2f2",
+      "#0a0a0a"
+    ],
+    "service": "lp_web"
   },
   {
     "slug": "table-yasmina",
@@ -132,13 +644,87 @@
     "accent": "#e9e1d3",
     "fr": {
       "sector": "Restaurant",
-      "line": "Une table blanche, un menu de saison, le silence en plus."
+      "line": "Une table blanche, un menu de saison, le silence en plus.",
+      "case": {
+        "title": "Table Yasmina : étude de cas d'un site de restaurant – KOYOTEC",
+        "desc": "Le site imaginé d'un restaurant à Sidi Bou Saïd : une salle blanche, une carte de saison et un peu de calme, jusqu'à la réservation en ligne.",
+        "intro": "Un client choisit souvent un restaurant sur son téléphone, en quelques secondes. Pour Table Yasmina, nous avons imaginé un site qui donne faim, rassure sur l'ambiance et mène droit à la réservation.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Table Yasmina est une table de Sidi Bou Saïd qui mise sur une salle lumineuse, une cuisine de saison et un service attentif. Ses clients sont des habitants, des visiteurs étrangers et des groupes pour les occasions. Le site devait présenter l'esprit du lieu, la carte, et rendre la réservation immédiate."
+          ],
+          [
+            "L'idée",
+            "Le site s'ouvre sur un écran sombre et le nom « TABLE YASMINA » en lettres serrées, avec un simple bouton pour entrer. Ce sas crée une petite cérémonie, comme une porte qu'on pousse. Ensuite, la « Salle blanche » se dévoile : matières, lumière, présence, en quelques phrases courtes."
+          ],
+          [
+            "Direction artistique",
+            "Une palette chaude et retenue : écru, gris taupe, brun profond et un rouge brique pour les accents. Roslindale, une serif expressive, donne du caractère au nom et aux titres ; Host Grotesk assure la lecture de la carte ; DM Mono sert aux détails comme les grammages et les prix, à la manière d'un menu imprimé."
+          ],
+          [
+            "Le mouvement",
+            "Un écran de chargement compte jusqu'à cent avant l'ouverture, les titres se dédoublent et glissent, et les sections apparaissent en douceur. L'ensemble reste fluide sur mobile, car c'est souvent depuis un téléphone, dans la rue ou à l'hôtel, que la décision se prend."
+          ],
+          [
+            "Le parcours",
+            "Quatre étapes, comme un repas : l'accueil, « Essence » pour l'histoire et l'ambiance, la « Carte » détaillée par moments de la journée, puis « Réserver ». Les liens vers Instagram, Google et la réservation en ligne restent toujours à portée de doigt."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Pour un restaurant, un café ou un hôtel, ce concept montre l'importance d'une carte lisible en ligne, d'une ambiance bien racontée et d'un bouton de réservation toujours visible. Associé à une fiche Google Business Profile soignée, ce type de site aide à apparaître dans les recherches locales."
+          ]
+        ]
+      }
     },
     "en": {
       "sector": "Restaurant",
-      "line": "A white table, a seasonal menu, and some quiet."
+      "line": "A white table, a seasonal menu, and some quiet.",
+      "case": {
+        "title": "Table Yasmina: restaurant website case study – KOYOTEC",
+        "desc": "The imagined website of a restaurant in Sidi Bou Saïd: a white dining room, a seasonal menu and some quiet, all the way to online booking.",
+        "intro": "Diners often choose a restaurant on their phone, in seconds. For Table Yasmina, we imagined a website that makes you hungry, reassures you about the atmosphere and leads straight to a booking.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Table Yasmina is a restaurant in Sidi Bou Saïd built on a bright dining room, seasonal cooking and attentive service. Its guests are locals, foreign visitors and groups for special occasions. The site had to present the spirit of the place and the menu, and make booking instant."
+          ],
+          [
+            "The idea",
+            "The site opens on a dark screen with the name \"TABLE YASMINA\" in tight letters and a simple button to enter. This threshold creates a small ceremony, like pushing a door open. Then the \"white room\" reveals itself: materials, light, presence, in a few short sentences."
+          ],
+          [
+            "Art direction",
+            "A warm, restrained palette: ecru, taupe grey, deep brown and a brick red for accents. Roslindale, an expressive serif, gives character to the name and headings; Host Grotesk keeps the menu readable; DM Mono handles details like portion weights and prices, like a printed menu."
+          ],
+          [
+            "Motion",
+            "A loading screen counts to one hundred before opening, headings double and slide, and sections fade in gently. It all stays smooth on mobile, because the decision is often made on a phone, in the street or at a hotel."
+          ],
+          [
+            "The journey",
+            "Four steps, like a meal: home, \"Essence\" for the story and atmosphere, the \"Carte\" broken down by time of day, then \"Book\". Links to Instagram, Google and online booking are always within thumb's reach."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "For a restaurant, café or hotel, this concept shows the importance of a menu that reads well online, a well-told atmosphere and an always-visible booking button. Paired with a well-kept Google Business Profile, this kind of site helps you appear in local searches."
+          ]
+        ]
+      }
     },
-    "featured": true
+    "featured": true,
+    "type": [
+      "Roslindale Variable",
+      "Host Grotesk",
+      "DM Mono"
+    ],
+    "palette": [
+      "#e0ded1",
+      "#c0472b",
+      "#40373a",
+      "#231f20"
+    ],
+    "service": "lp_seo"
   },
   {
     "slug": "sable-noir-films",
@@ -150,12 +736,84 @@
     "accent": "#ff3b1f",
     "fr": {
       "sector": "Production audiovisuelle",
-      "line": "Une maison de production qui montre plutôt qu'elle ne dit."
+      "line": "Une maison de production qui montre plutôt qu'elle ne dit.",
+      "case": {
+        "title": "Sable Noir Films : étude de cas d'un site de production – KOYOTEC",
+        "desc": "Le site imaginé d'une maison de production audiovisuelle : un manifeste en rouge sur noir, qui montre plutôt qu'il ne raconte.",
+        "intro": "Une maison de production vend sa capacité à captiver. Pour Sable Noir Films, nous avons imaginé un site qui s'ouvre comme un générique de film : un manifeste rouge sur noir, puis les images.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Sable Noir Films est une société de production basée à Ennasr qui réalise des films de marque, des clips et des contenus pour le numérique. Elle s'adresse aux agences, aux marques et aux réalisateurs. Le site devait affirmer une signature visuelle forte et mettre les réalisations et les réalisateurs en avant."
+          ],
+          [
+            "L'idée",
+            "Le premier écran est un manifeste : « Everything changes. We shape what comes next. » en capitales rouges sur fond noir, comme un carton de film. En dessous, une invitation à défiler, puis une déclaration d'intention : affiner, composer, évoluer. Le site parle avec l'aplomb d'un studio qui sait ce qu'il fait."
+          ],
+          [
+            "Direction artistique",
+            "Noir profond, rouge pur et un gris clair légèrement vert pour les sections de lecture. Une seule famille typographique, Cossette Titre, condensée et puissante, donne au site l'allure d'une affiche de cinéma. Les mentions techniques entre crochets — « [ Scroll to continue ] » — rappellent les annotations d'un script."
+          ],
+          [
+            "Le mouvement",
+            "Les titres arrivent comme des plans montés serré, les textes se révèlent mot à mot et les vidéos de réalisations se lancent au survol. Le rythme du site suit celui d'un montage : alternance de moments rapides et de respirations."
+          ],
+          [
+            "Le parcours",
+            "Index pour le manifeste, Work pour les réalisations, Culture pour la façon de travailler, Directors pour présenter les réalisateurs, et Contact. Chaque section garde la même grammaire visuelle, pour que l'identité reste reconnaissable du premier au dernier écran."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Pour une agence créative, un studio photo ou une marque audacieuse, ce concept montre l'impact d'un ton affirmé et d'une palette très courte. Une identité qui ose un seul parti pris, tenu partout, se retient bien mieux qu'un site qui essaie de tout dire."
+          ]
+        ]
+      }
     },
     "en": {
       "sector": "Film production",
-      "line": "A production house that shows rather than tells."
-    }
+      "line": "A production house that shows rather than tells.",
+      "case": {
+        "title": "Sable Noir Films: film production website case study – KOYOTEC",
+        "desc": "The imagined website of a film production house: a manifesto in red on black, showing rather than telling.",
+        "intro": "A production house sells its ability to captivate. For Sable Noir Films, we imagined a site that opens like film credits: a red-on-black manifesto, then the images.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Sable Noir Films is a production company based in Ennasr making brand films, music videos and digital content. It works with agencies, brands and directors. The site had to assert a strong visual signature and put the work and the directors front and centre."
+          ],
+          [
+            "The idea",
+            "The first screen is a manifesto: \"Everything changes. We shape what comes next.\" in red capitals on black, like a title card. Below it, an invitation to scroll, then a statement of intent: refine, compose, evolve. The site speaks with the confidence of a studio that knows what it's doing."
+          ],
+          [
+            "Art direction",
+            "Deep black, pure red and a slightly green light grey for reading sections. A single typeface, Cossette Titre, condensed and powerful, gives the site the look of a film poster. Technical notes in brackets — \"[ Scroll to continue ]\" — recall script annotations."
+          ],
+          [
+            "Motion",
+            "Headings land like tightly cut shots, text reveals word by word and project videos play on hover. The site's rhythm follows an edit: alternating fast moments and pauses."
+          ],
+          [
+            "The journey",
+            "Index for the manifesto, Work for the projects, Culture for how the studio works, Directors to present the filmmakers, and Contact. Every section keeps the same visual grammar, so the identity stays recognisable from first to last screen."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "For a creative agency, photo studio or bold brand, this concept shows the impact of a confident tone and a very short palette. An identity that commits to one choice and holds it everywhere is far more memorable than a site trying to say everything."
+          ]
+        ]
+      }
+    },
+    "type": [
+      "Cossette Titre"
+    ],
+    "palette": [
+      "#e3e4d8",
+      "#fe0100",
+      "#222222",
+      "#000000"
+    ],
+    "service": "lp_branding"
   },
   {
     "slug": "yasmine-belkadi",
@@ -167,12 +825,85 @@
     "accent": "#e8a33d",
     "fr": {
       "sector": "Nutritionniste",
-      "line": "Un cabinet de nutrition clinique, chaleureux et clair."
+      "line": "Un cabinet de nutrition clinique, chaleureux et clair.",
+      "case": {
+        "title": "Yasmine Belkadi : étude de cas d'un site de nutritionniste – KOYOTEC",
+        "desc": "Le site imaginé d'une nutritionniste clinicienne à Tunis : une pratique scientifique, chaleureuse et claire, en français et en arabe.",
+        "intro": "La nutrition clinique demande de la rigueur, mais aussi de la douceur. Pour Yasmine Belkadi, nous avons imaginé un site qui inspire confiance par son sérieux tout en restant accueillant.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Yasmine Belkadi est nutritionniste et diététicienne clinicienne, avec un cabinet au Belvédère, à Tunis. Elle accompagne notamment les femmes atteintes du SOPK et intervient à la radio, à la télévision et sur les réseaux sociaux. Le site devait refléter cette double casquette : la clinicienne et la pédagogue."
+          ],
+          [
+            "L'idée",
+            "Le titre « Nourrir l'équilibre de vos hormones » est traversé par un anneau de photos de fruits et de légumes qui tourne lentement, comme une assiette. En arabe, une seule ligne résume l'essentiel : « صحتك في صحنك », votre santé est dans votre assiette."
+          ],
+          [
+            "Direction artistique",
+            "Des verts sauge et forêt, un fond très clair et une touche d'ambre chaude. Une serif éditoriale aux contrastes doux donne de l'élégance aux titres, avec des mots en italique pour l'émotion ; Amiri compose l'arabe. L'ensemble évoque à la fois le cabinet médical et la cuisine du quotidien."
+          ],
+          [
+            "Le mouvement",
+            "L'anneau d'images réagit au défilement, les sections numérotées (01), (02) apparaissent une à une et les thèmes d'expertise — SOPK, nutrition clinique, Ramadan, protéines — défilent dans un bandeau continu. Les animations restent discrètes pour un site rapide sur téléphone."
+          ],
+          [
+            "Le parcours",
+            "Accueil, À propos avec le parcours académique en frise chronologique, Services pour les consultations, Conseils pour les articles et passages médias, Contact pour prendre rendez-vous. Le bouton « Prendre RDV » est présent en haut de chaque page."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Pour un médecin, un kinésithérapeute ou un coach, ce concept montre comment présenter des compétences scientifiques de façon accessible : un parcours lisible, des thèmes clairs et une prise de rendez-vous simple. Un site bilingue bien structuré aide aussi à apparaître sur les recherches locales en français et en arabe."
+          ]
+        ]
+      }
     },
     "en": {
       "sector": "Nutritionist",
-      "line": "A clinical nutrition practice, warm and clear."
-    }
+      "line": "A clinical nutrition practice, warm and clear.",
+      "case": {
+        "title": "Yasmine Belkadi: nutritionist website case study – KOYOTEC",
+        "desc": "The imagined website of a clinical nutritionist in Tunis: a scientific practice, warm and clear, in French and Arabic.",
+        "intro": "Clinical nutrition requires rigour, but also gentleness. For Yasmine Belkadi, we imagined a website that builds trust through seriousness while staying welcoming.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Yasmine Belkadi is a nutritionist and clinical dietitian with a practice in Belvédère, Tunis. She notably supports women with PCOS and appears on radio, TV and social media. The site had to reflect both roles: the clinician and the educator."
+          ],
+          [
+            "The idea",
+            "The headline \"Nourish the balance of your hormones\" is crossed by a slowly turning ring of fruit and vegetable photos, like a plate. In Arabic, a single line sums it up: your health is on your plate."
+          ],
+          [
+            "Art direction",
+            "Sage and forest greens, a very light background and a touch of warm amber. An editorial serif with soft contrast gives the headings elegance, with italic words for emotion; Amiri sets the Arabic. The whole evokes both the medical practice and everyday cooking."
+          ],
+          [
+            "Motion",
+            "The image ring reacts to scrolling, numbered sections (01), (02) appear one by one, and areas of expertise — PCOS, clinical nutrition, Ramadan, protein — run in a continuous ticker. Animations stay discreet for a fast site on phones."
+          ],
+          [
+            "The journey",
+            "Home, About with the academic background as a timeline, Services for consultations, Advice for articles and media appearances, Contact to book. The \"Book an appointment\" button sits at the top of every page."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "For a doctor, physiotherapist or coach, this concept shows how to present scientific expertise accessibly: a readable background, clear topics and simple booking. A well-structured bilingual site also helps you appear in local searches in French and Arabic."
+          ]
+        ]
+      }
+    },
+    "type": [
+      "Serif (variable)",
+      "Amiri"
+    ],
+    "palette": [
+      "#e6ebdf",
+      "#e8a33d",
+      "#3b5a42",
+      "#1f2a1c"
+    ],
+    "service": "lp_seo"
   },
   {
     "slug": "studio-kif-kif",
@@ -184,13 +915,87 @@
     "accent": "#ff5c8a",
     "fr": {
       "sector": "Studio d'illustration",
-      "line": "Petite équipe, grandes images."
+      "line": "Petite équipe, grandes images.",
+      "case": {
+        "title": "Studio Kif-Kif : étude de cas d'un site de studio d'illustration – KOYOTEC",
+        "desc": "Le site imaginé d'un studio d'illustration : une petite équipe, une production bruyante, et un site qui dessine fort et ne joue jamais la sécurité.",
+        "intro": "Un studio d'illustration qui aurait un site sage se contredirait. Pour Studio Kif-Kif, nous avons imaginé un site qui assume le bruit, l'humour et le décalage, à l'image de ses dessins.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Kif-Kif est un petit studio qui crée des personnages, des mascottes, des couvertures, des fresques et des univers illustrés pour les marques. Ses clients cherchent une voix singulière, pas une illustration générique. Le site devait montrer cette personnalité tout de suite, puis présenter les projets et les expertises."
+          ],
+          [
+            "L'idée",
+            "Deux mots géants encadrent l'écran d'accueil : « DRAWN » en haut à gauche, « WEIRD » en bas à droite. Entre les deux, une illustration de crâne coloré, comme un sticker collé sur une affiche. La phrase d'accroche annonce la couleur : un studio qui dessine fort, pense bizarre et ne joue jamais la sécurité."
+          ],
+          [
+            "Direction artistique",
+            "Un fond crème lumineux, des titres noirs ultra-gras et une palette de couleurs de marqueurs : rose, bleu électrique, vert d'eau. Host Grotesk porte les textes, DM Mono les petites mentions, et Shadows Into Light, une écriture manuscrite, ajoute des annotations comme griffonnées dans les marges d'un carnet."
+          ],
+          [
+            "Le mouvement",
+            "Les illustrations réagissent au curseur, une longue liste de savoir-faire — personnages, motion, fresques, zines, packaging — défile en continu, et certains éléments invitent explicitement à cliquer. Le site est pensé comme un terrain de jeu, où l'interaction fait partie de l'expérience."
+          ],
+          [
+            "Le parcours",
+            "About pour l'équipe et l'état d'esprit, Work pour les projets illustrés, Expertise pour les domaines d'intervention, Careers pour les talents, Contact pour les briefs. Chaque projet est présenté avec son contexte en une phrase, comme une légende d'exposition."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Pour un créatif, une marque jeune ou un produit grand public, ce concept montre qu'un site peut avoir de l'humour sans perdre en clarté. Une identité joueuse, cohérente du logo aux micro-textes, rend une marque attachante et mémorable."
+          ]
+        ]
+      }
     },
     "en": {
       "sector": "Illustration studio",
-      "line": "Small crew, loud output."
+      "line": "Small crew, loud output.",
+      "case": {
+        "title": "Studio Kif-Kif: illustration studio website case study – KOYOTEC",
+        "desc": "The imagined website of an illustration studio: a small crew, loud output, and a site that draws loud and never plays it safe.",
+        "intro": "An illustration studio with a tame website would contradict itself. For Studio Kif-Kif, we imagined a site that embraces noise, humour and quirkiness, just like its drawings.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Kif-Kif is a small studio creating characters, mascots, covers, murals and illustrated worlds for brands. Its clients want a singular voice, not generic illustration. The site had to show that personality right away, then present the projects and areas of expertise."
+          ],
+          [
+            "The idea",
+            "Two giant words frame the home screen: \"DRAWN\" top left, \"WEIRD\" bottom right. Between them, a colourful skull illustration, like a sticker slapped on a poster. The tagline sets the tone: a studio that draws loud, thinks weird and never plays it safe."
+          ],
+          [
+            "Art direction",
+            "A bright cream background, ultra-bold black headings and a marker-pen palette: pink, electric blue, aqua. Host Grotesk carries the copy, DM Mono the small labels, and Shadows Into Light, a handwritten face, adds notes as if scribbled in a sketchbook margin."
+          ],
+          [
+            "Motion",
+            "Illustrations react to the cursor, a long list of skills — characters, motion, murals, zines, packaging — scrolls continuously, and some elements openly invite you to click. The site is designed as a playground, where interaction is part of the experience."
+          ],
+          [
+            "The journey",
+            "About for the team and mindset, Work for illustrated projects, Expertise for areas of work, Careers for talent, Contact for briefs. Each project is introduced with its context in one sentence, like an exhibition caption."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "For a creative, a young brand or a consumer product, this concept shows that a site can be funny without losing clarity. A playful identity, consistent from logo to microcopy, makes a brand endearing and memorable."
+          ]
+        ]
+      }
     },
-    "featured": true
+    "featured": true,
+    "type": [
+      "Host Grotesk",
+      "DM Mono",
+      "Shadows Into Light"
+    ],
+    "palette": [
+      "#ffffeb",
+      "#ff5c8a",
+      "#216ad1",
+      "#b6dedb"
+    ],
+    "service": "lp_branding"
   },
   {
     "slug": "ciel-de-douz",
@@ -202,13 +1007,87 @@
     "accent": "#8fb3ff",
     "fr": {
       "sector": "Astrotourisme",
-      "line": "Des nuits à la belle étoile, racontées comme une expédition."
+      "line": "Des nuits à la belle étoile, racontées comme une expédition.",
+      "case": {
+        "title": "Ciel de Douz : étude de cas d'un site d'astrotourisme – KOYOTEC",
+        "desc": "Le site imaginé d'une expérience d'astrotourisme dans le désert de Douz : des nuits d'observation racontées comme une expédition spatiale.",
+        "intro": "Une nuit sous les étoiles du Sahara se raconte mieux qu'elle ne se décrit. Pour Ciel de Douz, nous avons imaginé un site qui transforme une excursion touristique en mission d'exploration.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Ciel de Douz propose des nuits d'observation des étoiles depuis un petit camp dans les dunes, près de Douz. Ses visiteurs sont des voyageurs curieux, des familles et des passionnés d'astronomie. Le site devait faire rêver, se démarquer des agences d'excursions classiques et donner envie de réserver une nuit."
+          ],
+          [
+            "L'idée",
+            "Le camp devient un « observatoire du désert » et chaque visite une expédition. L'écran d'accueil montre des tours futuristes sur fond de planète géante, avec le titre « DESERT OBSERVATORY » en lettres condensées. Les compteurs — mondes observés, fragments récupérés, signaux — installent un récit de science-fiction ludique."
+          ],
+          [
+            "Direction artistique",
+            "Une palette de sable et de nuit : beige clair, gris charbon, un bleu ciel froid pour les accents. SCHABO, une display très condensée, signe les titres comme sur une affiche de film de science-fiction ; Host Grotesk porte les textes et Geist Mono les données, codes et horodatages façon tableau de bord de station."
+          ],
+          [
+            "Le mouvement",
+            "Le site démarre sur un « flux en stabilisation », les textes s'affichent comme des transmissions et les chiffres s'incrémentent au défilement. Même le formulaire de contact parle le langage de la mission : « Envoyer un signal », « Initier une transmission »."
+          ],
+          [
+            "Le parcours",
+            "Index pour l'histoire, Observatory pour le lieu et le matériel, Expedition pour le déroulé de la nuit, Traces pour les photos et souvenirs, Contact pour réserver. Une FAQ, rédigée elle aussi dans le ton de la mission, répond aux questions pratiques."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Pour un acteur du tourisme, de l'événementiel ou des loisirs, ce concept montre la force d'un récit : la même excursion devient une aventure quand le site la raconte avec un univers cohérent. C'est ce qui permet de sortir du lot face à des offres similaires."
+          ]
+        ]
+      }
     },
     "en": {
       "sector": "Astro-tourism",
-      "line": "Desert stargazing nights, told like an expedition."
+      "line": "Desert stargazing nights, told like an expedition.",
+      "case": {
+        "title": "Ciel de Douz: astrotourism website case study – KOYOTEC",
+        "desc": "The imagined website of a stargazing experience in the Douz desert: observation nights told like a space expedition.",
+        "intro": "A night under the Saharan stars is better told than described. For Ciel de Douz, we imagined a website that turns a tourist outing into an exploration mission.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Ciel de Douz offers stargazing nights from a small camp in the dunes near Douz. Its visitors are curious travellers, families and astronomy enthusiasts. The site had to spark wonder, stand out from standard excursion agencies and make people want to book a night."
+          ],
+          [
+            "The idea",
+            "The camp becomes a \"desert observatory\" and every visit an expedition. The home screen shows futuristic towers against a giant planet, with the title \"DESERT OBSERVATORY\" in condensed letters. Counters — worlds observed, fragments recovered, signals — set up a playful science-fiction story."
+          ],
+          [
+            "Art direction",
+            "A palette of sand and night: light beige, charcoal grey, a cold sky blue for accents. SCHABO, a very condensed display face, signs the headings like a sci-fi film poster; Host Grotesk carries the copy and Geist Mono the data, codes and timestamps, like a station dashboard."
+          ],
+          [
+            "Motion",
+            "The site starts on a \"stabilising feed\", text appears like transmissions and figures count up as you scroll. Even the contact form speaks the mission's language: \"Send a signal\", \"Initiate a transmission\"."
+          ],
+          [
+            "The journey",
+            "Index for the story, Observatory for the place and equipment, Expedition for how the night unfolds, Traces for photos and memories, Contact to book. An FAQ, also written in the mission's tone, answers practical questions."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "For a tourism, events or leisure business, this concept shows the power of a story: the same outing becomes an adventure when the site tells it within a consistent world. That's what lets you stand out against similar offers."
+          ]
+        ]
+      }
     },
-    "featured": true
+    "featured": true,
+    "type": [
+      "SCHABO",
+      "Host Grotesk",
+      "Geist Mono"
+    ],
+    "palette": [
+      "#f2eeda",
+      "#8fb3ff",
+      "#8c8a7f",
+      "#262626"
+    ],
+    "service": "lp_web"
   },
   {
     "slug": "ines-morel",
@@ -220,12 +1099,85 @@
     "accent": "#ffd23f",
     "fr": {
       "sector": "Directrice artistique",
-      "line": "Une signature visuelle, une seule page, aucun compromis."
+      "line": "Une signature visuelle, une seule page, aucun compromis.",
+      "case": {
+        "title": "Inès Morel : étude de cas d'un portfolio de directrice artistique – KOYOTEC",
+        "desc": "Le portfolio imaginé d'une directrice artistique : une signature visuelle, une seule page, aucun compromis.",
+        "intro": "Certaines personnes n'ont besoin que d'une page pour convaincre. Pour Inès Morel, nous avons imaginé un portfolio d'une seule page, où chaque élément est à sa place et rien n'est superflu.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Inès Morel est directrice artistique et designer visuelle, avec plusieurs années d'expérience en studio et des clients dans la restauration, la musique, le sport et l'hôtellerie. Elle veut un site qui lui ressemble : précis, éditorial, sans fioritures. Les recruteurs et les clients doivent comprendre son niveau en un coup d'œil."
+          ],
+          [
+            "L'idée",
+            "Tout tient sur une page, construite comme une mise en page de magazine. Un titre très large — « Visual Dev » — ouvre la page, puis une grille stricte organise la présentation, les clients, le parcours et les distinctions en colonnes. La rigueur de la grille devient la signature."
+          ],
+          [
+            "Direction artistique",
+            "Fond blanc, texte noir, gris pour les informations secondaires et une seule couleur, un jaune chaud, réservée aux accents. Romie, une serif expressive, compose le grand titre ; PP Neue Montreal porte tout le reste en petite taille, comme les colonnes d'une revue de design."
+          ],
+          [
+            "Le mouvement",
+            "Les blocs de texte apparaissent en fondu dans l'ordre de lecture, le titre se compose lettre à lettre et quelques images de projets se dévoilent au survol. Les animations sont rares, ce qui leur donne d'autant plus de poids."
+          ],
+          [
+            "Le parcours",
+            "Pas de menu complexe : la page se lit de haut en bas, de la présentation aux références, puis aux expériences et aux récompenses. Les liens vers les réseaux et l'e-mail sont accessibles en haut, pour un contact immédiat."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Pour un freelance, un consultant ou un artisan, ce concept montre qu'un site d'une seule page bien composé peut suffire, et qu'il se crée et se met à jour rapidement. L'essentiel est de choisir ce qu'on montre, et de le montrer avec soin."
+          ]
+        ]
+      }
     },
     "en": {
       "sector": "Art director",
-      "line": "One visual signature, one page, no compromise."
-    }
+      "line": "One visual signature, one page, no compromise.",
+      "case": {
+        "title": "Inès Morel: art director portfolio case study – KOYOTEC",
+        "desc": "The imagined portfolio of an art director: one visual signature, one page, no compromise.",
+        "intro": "Some people only need one page to convince. For Inès Morel, we imagined a one-page portfolio where every element is in its place and nothing is superfluous.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Inès Morel is an art director and visual designer with several years of studio experience and clients in food, music, sport and hospitality. She wants a site that reflects her: precise, editorial, no frills. Recruiters and clients must grasp her level at a glance."
+          ],
+          [
+            "The idea",
+            "Everything fits on one page, built like a magazine layout. A very wide title — \"Visual Dev\" — opens the page, then a strict grid organises the introduction, clients, career and awards into columns. The rigour of the grid becomes the signature."
+          ],
+          [
+            "Art direction",
+            "White background, black text, grey for secondary information and a single colour, a warm yellow, kept for accents. Romie, an expressive serif, sets the large title; PP Neue Montreal carries everything else at small size, like the columns of a design journal."
+          ],
+          [
+            "Motion",
+            "Text blocks fade in in reading order, the title assembles letter by letter and a few project images reveal on hover. Animations are rare, which gives them more weight."
+          ],
+          [
+            "The journey",
+            "No complex menu: the page reads top to bottom, from introduction to clients, then experience and awards. Social links and email sit at the top for immediate contact."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "For a freelancer, consultant or craftsperson, this concept shows that a well-composed one-page site can be enough, and that it's quick to build and update. What matters is choosing what to show, and showing it with care."
+          ]
+        ]
+      }
+    },
+    "type": [
+      "Romie",
+      "PP Neue Montreal"
+    ],
+    "palette": [
+      "#ffffff",
+      "#ffd23f",
+      "#a0a0a0",
+      "#1f1f1f"
+    ],
+    "service": "lp_web"
   },
   {
     "slug": "bruit-poli",
@@ -237,12 +1189,87 @@
     "accent": "#9c7bff",
     "fr": {
       "sector": "Studio créatif",
-      "line": "Du chaos maîtrisé, mis en mouvement."
+      "line": "Du chaos maîtrisé, mis en mouvement.",
+      "case": {
+        "title": "Studio Bruit Poli : étude de cas d'un site de studio créatif – KOYOTEC",
+        "desc": "Le site imaginé d'un studio créatif : un chaos maîtrisé, mis en mouvement, pour des clients qui aiment une créativité un peu imprévisible.",
+        "intro": "« Bruit poli » : le nom résume le concept. Pour ce studio créatif imaginé, nous avons conçu un site qui fait du bruit, mais un bruit soigneusement mis en forme.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Bruit Poli est un studio qui crée des visuels, des histoires et des systèmes graphiques pour des marques qui aiment l'inattendu. Il veut attirer des clients créatifs et des talents. Le site devait montrer un esprit libre et un peu espiègle, sans jamais paraître brouillon."
+          ],
+          [
+            "L'idée",
+            "Le titre « Crafting digital worlds with a bit of mischief » occupe le haut de l'écran en capitales condensées, très serrées. En dessous, une phrase plus calme précise la promesse, et un petit badge bleu et rouge signe le logo. Les mentions en bord d'écran — « Workroom 101 », « Dept. » — donnent l'impression d'une adresse fictive."
+          ],
+          [
+            "Direction artistique",
+            "Un gris chaud très clair sert de toile, avec deux couleurs franches : un orange vif et un violet bleuté. Big Shoulders Display, condensée et puissante, pour les titres ; PP Pangram Sans et PP Neue Montreal pour les textes ; Geist Mono pour les mentions techniques. Le mélange crée le « bruit », la grille le « poli »."
+          ],
+          [
+            "Le mouvement",
+            "Les éléments rebondissent légèrement, les images de projets se déplacent avec une petite inertie et les transitions entre pages jouent sur des glissements inattendus. Le mouvement est ludique, mais chaque effet est calé sur une grille précise."
+          ],
+          [
+            "Le parcours",
+            "Home pour l'univers, Work pour les projets, Studio pour l'équipe et la méthode, Stories pour les coulisses, Contact. Une page projet type montre comment chaque réalisation est racontée : contexte, idée, images, crédits."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Pour une agence, un collectif ou une marque créative, ce concept montre comment exprimer une personnalité forte tout en restant structuré. Le contraste entre une typographie expressive et une mise en page rigoureuse rend le site à la fois vivant et professionnel."
+          ]
+        ]
+      }
     },
     "en": {
       "sector": "Creative studio",
-      "line": "Controlled chaos, set in motion."
-    }
+      "line": "Controlled chaos, set in motion.",
+      "case": {
+        "title": "Studio Bruit Poli: creative studio website case study – KOYOTEC",
+        "desc": "The imagined website of a creative studio: controlled chaos set in motion, for clients who like their creativity a little unpredictable.",
+        "intro": "\"Bruit poli\" — polished noise — sums up the concept. For this imagined creative studio, we designed a site that makes noise, but carefully shaped noise.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Bruit Poli is a studio creating visuals, stories and graphic systems for brands that like the unexpected. It wants to attract creative clients and talent. The site had to show a free, slightly mischievous spirit without ever looking messy."
+          ],
+          [
+            "The idea",
+            "The headline \"Crafting digital worlds with a bit of mischief\" fills the top of the screen in very tight condensed capitals. Below it, a calmer sentence clarifies the promise, and a small blue and red badge signs the logo. Edge labels — \"Workroom 101\", \"Dept.\" — suggest a fictional address."
+          ],
+          [
+            "Art direction",
+            "A very light warm grey serves as the canvas, with two bold colours: a bright orange and a bluish violet. Big Shoulders Display, condensed and powerful, for headings; PP Pangram Sans and PP Neue Montreal for copy; Geist Mono for technical labels. The mix creates the \"noise\", the grid the \"polish\"."
+          ],
+          [
+            "Motion",
+            "Elements bounce slightly, project images move with a little inertia and page transitions play with unexpected slides. Motion is playful, but every effect is locked to a precise grid."
+          ],
+          [
+            "The journey",
+            "Home for the universe, Work for projects, Studio for the team and method, Stories for behind the scenes, Contact. A sample project page shows how each piece is told: context, idea, images, credits."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "For an agency, collective or creative brand, this concept shows how to express a strong personality while staying structured. The contrast between expressive type and a rigorous layout makes the site both lively and professional."
+          ]
+        ]
+      }
+    },
+    "type": [
+      "Big Shoulders Display",
+      "PP Pangram Sans",
+      "PP Neue Montreal",
+      "Geist Mono"
+    ],
+    "palette": [
+      "#e3e3db",
+      "#ff6e14",
+      "#3d2fa9",
+      "#1a1614"
+    ],
+    "service": "lp_branding"
   },
   {
     "slug": "sakina-studio",
@@ -254,12 +1281,85 @@
     "accent": "#c2c8b4",
     "fr": {
       "sector": "Studio digital",
-      "line": "Faire moins, mais mieux, et sans effort apparent."
+      "line": "Faire moins, mais mieux, et sans effort apparent.",
+      "case": {
+        "title": "Sakina Studio : étude de cas d'un site de studio digital – KOYOTEC",
+        "desc": "Le site imaginé d'un studio digital : faire moins, mais mieux, sans effort apparent. Une approche systémique du design web.",
+        "intro": "« Sakina » évoque la sérénité. Pour ce studio digital imaginé, nous avons conçu un site calme et maîtrisé, où la précision se voit sans jamais se montrer.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Sakina Studio conçoit des systèmes web, des interfaces et du développement créatif de bout en bout. Ses clients sont des marques et des entreprises qui veulent des résultats cohérents et durables. Le site devait refléter une méthode rigoureuse et une esthétique sobre, loin des effets tape-à-l'œil."
+          ],
+          [
+            "L'idée",
+            "Une seule forme géométrique, un grand triangle tramé de lignes fines, occupe l'écran d'accueil, avec un cercle noir comme point focal. À côté, une phrase résume la philosophie : la pensée systémique et l'exécution créative au service de résultats constants. La forme incarne l'idée de structure."
+          ],
+          [
+            "Direction artistique",
+            "Fond anthracite, gris doux, lignes claires et une seule couleur vive, un jaune réservé au bouton de contact. Neue Montreal, une grotesque neutre, donne au texte un ton posé ; DM Mono liste les expertises et les informations pratiques en petites capitales, comme une fiche technique."
+          ],
+          [
+            "Le mouvement",
+            "La trame du triangle ondule doucement et réagit au curseur, une horloge en temps réel s'affiche en haut de page et les transitions restent courtes et fluides. Le mouvement est continu mais discret, comme une respiration."
+          ],
+          [
+            "Le parcours",
+            "Index, Work pour les projets, Studio pour la méthode et l'équipe, Archive pour les explorations passées, Contact. La navigation est écrite en minuscules, séparée par des virgules, comme une phrase : « index, work, studio, archive, contact »."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Pour un cabinet de conseil, une société tech ou une marque premium, ce concept montre qu'un site minimal peut être très marquant si chaque détail est maîtrisé. Moins d'éléments, mais mieux choisis : c'est aussi un site plus rapide et plus simple à maintenir."
+          ]
+        ]
+      }
     },
     "en": {
       "sector": "Digital studio",
-      "line": "Doing less, better, with no visible effort."
-    }
+      "line": "Doing less, better, with no visible effort.",
+      "case": {
+        "title": "Sakina Studio: digital studio website case study – KOYOTEC",
+        "desc": "The imagined website of a digital studio: doing less, better, with no visible effort. A systems approach to web design.",
+        "intro": "\"Sakina\" evokes serenity. For this imagined digital studio, we designed a calm, controlled site where precision shows without showing off.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Sakina Studio designs web systems, interfaces and creative development end to end. Its clients are brands and companies that want consistent, lasting results. The site had to reflect a rigorous method and a sober aesthetic, far from flashy effects."
+          ],
+          [
+            "The idea",
+            "A single geometric shape, a large triangle woven from fine lines, fills the home screen, with a black circle as a focal point. Beside it, one sentence sums up the philosophy: systems thinking and creative execution for consistent outcomes. The shape embodies the idea of structure."
+          ],
+          [
+            "Art direction",
+            "Anthracite background, soft greys, light lines and a single bright colour, a yellow kept for the contact button. Neue Montreal, a neutral grotesque, gives the copy a calm tone; DM Mono lists services and practical details in small capitals, like a spec sheet."
+          ],
+          [
+            "Motion",
+            "The triangle's lines ripple gently and react to the cursor, a live clock sits at the top of the page and transitions stay short and smooth. Motion is continuous but discreet, like breathing."
+          ],
+          [
+            "The journey",
+            "Index, Work for projects, Studio for method and team, Archive for past explorations, Contact. The navigation is written in lowercase, separated by commas, like a sentence: \"index, work, studio, archive, contact\"."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "For a consultancy, tech company or premium brand, this concept shows that a minimal site can be striking if every detail is controlled. Fewer elements, better chosen: it's also a faster site that's easier to maintain."
+          ]
+        ]
+      }
+    },
+    "type": [
+      "Neue Montreal",
+      "DM Mono"
+    ],
+    "palette": [
+      "#e4e7df",
+      "#ffc22a",
+      "#666666",
+      "#141414"
+    ],
+    "service": "lp_web"
   },
   {
     "slug": "karim-souissi",
@@ -271,12 +1371,84 @@
     "accent": "#ff2a00",
     "fr": {
       "sector": "Designer graphique",
-      "line": "Un portfolio brut, sans décor, tout en caractère."
+      "line": "Un portfolio brut, sans décor, tout en caractère.",
+      "case": {
+        "title": "Karim Souissi : étude de cas d'un portfolio de designer graphique – KOYOTEC",
+        "desc": "Le portfolio imaginé d'un designer graphique à La Marsa : un site brut, sans décoration, tout en caractère, sur un rouge plein écran.",
+        "intro": "Il y a des portfolios qui se fondent dans la masse, et d'autres qu'on n'oublie pas. Pour Karim Souissi, nous avons imaginé un site brut et frontal : un rouge plein écran, une typographie pixel et rien d'autre.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Karim Souissi est designer et développeur créatif, basé à La Marsa, entre UI/UX, front-end et back-end. Il cherche des collaborations avec des studios et des marques qui aiment les profils hybrides. Le site devait montrer à la fois une sensibilité graphique et une culture du code, avec une personnalité impossible à confondre."
+          ],
+          [
+            "L'idée",
+            "Le site entier est rouge. Au centre, une seule image de projet, et par-dessus, le nom et la fonction en typographie pixel. En bas de l'écran, trois colonnes résument le parcours : poste actuel, expériences précédentes, localisation. C'est un CV transformé en affiche."
+          ],
+          [
+            "Direction artistique",
+            "Un rouge vif presque saturé, un rouge sombre pour les textes secondaires, et aucune autre couleur. PP NeueBit, une typographie bitmap, rappelle les écrans et le code ; PP Mondwest, entre pixel et serif, apporte une touche plus éditoriale. Le contraste entre l'univers numérique et la mise en page d'affiche fait le caractère du site."
+          ],
+          [
+            "Le mouvement",
+            "L'image centrale change au survol des projets, les textes apparaissent comme sur un terminal, et le curseur interagit avec la composition. Le site reste léger : quelques pages, peu d'images, un chargement quasi instantané."
+          ],
+          [
+            "Le parcours",
+            "Accueil, Case Studies pour les projets détaillés, About pour le parcours et les compétences, et des liens directs vers LinkedIn et le contact. La navigation tient en une ligne, en haut à droite, pour laisser toute la place au rouge."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Pour un profil créatif ou technique, ce concept montre qu'un choix radical — une couleur, une typographie — peut devenir une identité complète. Un portfolio qui ose se remarque, et se partage plus facilement."
+          ]
+        ]
+      }
     },
     "en": {
       "sector": "Graphic designer",
-      "line": "A raw portfolio, no decoration, all character."
-    }
+      "line": "A raw portfolio, no decoration, all character.",
+      "case": {
+        "title": "Karim Souissi: graphic designer portfolio case study – KOYOTEC",
+        "desc": "The imagined portfolio of a graphic designer in La Marsa: a raw site, no decoration, all character, on full-screen red.",
+        "intro": "Some portfolios blend in, others you never forget. For Karim Souissi, we imagined a raw, upfront site: full-screen red, pixel type and nothing else.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Karim Souissi is a designer and creative developer based in La Marsa, working across UI/UX, front-end and back-end. He's looking for collaborations with studios and brands that like hybrid profiles. The site had to show both graphic sensitivity and coding culture, with a personality impossible to mistake."
+          ],
+          [
+            "The idea",
+            "The whole site is red. In the centre, a single project image, with the name and role overlaid in pixel type. At the bottom, three columns sum up the career: current role, previous experience, location. It's a CV turned into a poster."
+          ],
+          [
+            "Art direction",
+            "A bright, almost saturated red, a dark red for secondary text, and no other colour. PP NeueBit, a bitmap typeface, recalls screens and code; PP Mondwest, between pixel and serif, adds a more editorial touch. The contrast between the digital world and a poster layout gives the site its character."
+          ],
+          [
+            "Motion",
+            "The central image changes as you hover over projects, text appears like a terminal, and the cursor interacts with the composition. The site stays light: a few pages, few images, near-instant loading."
+          ],
+          [
+            "The journey",
+            "Home, Case Studies for detailed projects, About for the background and skills, and direct links to LinkedIn and contact. The navigation fits on one line, top right, leaving all the room to the red."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "For a creative or technical profile, this concept shows that one radical choice — a colour, a typeface — can become a complete identity. A portfolio that dares gets noticed, and gets shared more easily."
+          ]
+        ]
+      }
+    },
+    "type": [
+      "PP NeueBit",
+      "PP Mondwest"
+    ],
+    "palette": [
+      "#e21010",
+      "#ff2a00",
+      "#340000"
+    ],
+    "service": "lp_branding"
   },
   {
     "slug": "nur-objects",
@@ -288,12 +1460,84 @@
     "accent": "#d9d4c7",
     "fr": {
       "sector": "Boutique d'objets",
-      "line": "Une boutique en ligne pensée comme une archive."
+      "line": "Une boutique en ligne pensée comme une archive.",
+      "case": {
+        "title": "Nūr Objects : étude de cas d'une boutique en ligne – KOYOTEC",
+        "desc": "La boutique en ligne imaginée d'une marque d'objets : un e-commerce pensé comme une archive, épuré, où chaque produit a la place d'une œuvre.",
+        "intro": "Une boutique en ligne n'a pas à ressembler à une grande surface. Pour Nūr Objects, nous avons imaginé un e-commerce pensé comme une archive de musée : blanc, calme, où chaque objet a sa place.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Nūr Objects vend une sélection courte d'objets de design et d'accessoires technologiques. Sa clientèle aime les belles choses et achète peu, mais bien. La boutique devait mettre chaque produit en valeur comme une pièce de collection, tout en gardant un parcours d'achat simple : catalogue, fiche produit, panier."
+          ],
+          [
+            "L'idée",
+            "L'écran d'accueil laisse beaucoup de blanc. Le nom « NUR OBJECTS » apparaît en lettres très grasses en bas à gauche, et quelques visuels de produits sont alignés à droite, comme des cartels. Le menu et le panier restent discrets en haut de l'écran : on regarde d'abord, on achète ensuite."
+          ],
+          [
+            "Direction artistique",
+            "Blanc, noir et un beige minéral pour les fonds de fiches produits. Une seule typographie, PP Neue Montreal, déclinée du gras extrême pour le nom à des tailles très fines pour les informations. Les photos de produits, sur fonds neutres, deviennent les seuls éléments de couleur."
+          ],
+          [
+            "Le mouvement",
+            "Les produits apparaissent en fondu dans la grille, s'agrandissent au survol et chaque fiche s'ouvre avec une transition douce. L'archive se parcourt comme une collection, sans pop-ups ni bandeaux promotionnels."
+          ],
+          [
+            "Le parcours",
+            "Accueil, Catalogue avec une page par produit, Archive pour les éditions passées, et Panier. Chaque fiche produit présente l'objet en grand, sa description, ses détails techniques et un bouton d'ajout au panier clair, visible sur mobile."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Pour une marque de design, de cosmétique ou d'artisanat, ce concept montre qu'un e-commerce peut être élégant et efficace à la fois. Moins de bruit visuel, des produits bien photographiés et un parcours d'achat court : c'est souvent ce qui fait la différence sur mobile."
+          ]
+        ]
+      }
     },
     "en": {
       "sector": "Object store",
-      "line": "An online store designed as an archive."
-    }
+      "line": "An online store designed as an archive.",
+      "case": {
+        "title": "Nūr Objects: online store case study – KOYOTEC",
+        "desc": "The imagined online store of an objects brand: an e-commerce site designed as an archive, pared back, where each product gets the space of an artwork.",
+        "intro": "An online store doesn't have to look like a supermarket. For Nūr Objects, we imagined an e-commerce site designed like a museum archive: white, calm, with a place for every object.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Nūr Objects sells a short selection of design objects and tech accessories. Its customers love beautiful things and buy little but well. The store had to showcase each product like a collector's piece while keeping a simple buying journey: catalogue, product page, cart."
+          ],
+          [
+            "The idea",
+            "The home screen leaves lots of white space. The name \"NUR OBJECTS\" sits in very bold letters at the bottom left, and a few product visuals line up on the right like museum labels. Menu and cart stay discreet at the top: you look first, then buy."
+          ],
+          [
+            "Art direction",
+            "White, black and a mineral beige for product backgrounds. A single typeface, PP Neue Montreal, ranging from extra bold for the name to very fine sizes for details. Product photos on neutral backgrounds become the only coloured elements."
+          ],
+          [
+            "Motion",
+            "Products fade into the grid, enlarge on hover and each product page opens with a soft transition. The archive is browsed like a collection, with no pop-ups or promo banners."
+          ],
+          [
+            "The journey",
+            "Home, Catalogue with a page per product, Archive for past editions, and Cart. Each product page shows the object large, its description, technical details and a clear add-to-cart button that stays visible on mobile."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "For a design, cosmetics or craft brand, this concept shows that e-commerce can be both elegant and effective. Less visual noise, well-photographed products and a short checkout: that's often what makes the difference on mobile."
+          ]
+        ]
+      }
+    },
+    "type": [
+      "PP Neue Montreal"
+    ],
+    "palette": [
+      "#ffffff",
+      "#d9d4c7",
+      "#3a3a3a",
+      "#000000"
+    ],
+    "service": "lp_ecommerce"
   },
   {
     "slug": "zero-douze",
@@ -305,12 +1549,85 @@
     "accent": "#00d1b2",
     "fr": {
       "sector": "Agence créative",
-      "line": "Une agence qui part de zéro à chaque projet."
+      "line": "Une agence qui part de zéro à chaque projet.",
+      "case": {
+        "title": "Studio Zéro Douze : étude de cas d'un site d'agence créative – KOYOTEC",
+        "desc": "Le site imaginé d'une agence créative qui repart de zéro à chaque projet : une galerie d'images cinématographiques et une identité éditoriale.",
+        "intro": "Le nom dit tout : repartir de zéro, à chaque fois. Pour Studio Zéro Douze, nous avons imaginé un site d'agence qui ressemble à une galerie, où les images parlent avant les mots.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Zéro Douze est une agence créative indépendante qui accompagne des marques sur leur image, leurs campagnes et leurs contenus. Elle veut attirer des clients ambitieux et montrer qu'elle n'applique jamais de recette toute faite. Le site devait mettre en avant les projets et l'équipe avec une esthétique de galerie."
+          ],
+          [
+            "L'idée",
+            "Le site s'ouvre sur un bandeau d'image flou et cinématographique, puis le nom « ZÉRO DOUZE STUDIOS » en capitales fines. Plus bas, les projets sont présentés comme des œuvres accrochées : un salon de peintures sur mur rouge, une salle blanche avec des visiteurs en silhouette."
+          ],
+          [
+            "Direction artistique",
+            "Beaucoup de blanc, du noir pour le texte, un rouge profond qui vient des images et un vert d'eau pour les accents. Teko, une typographie condensée aux formes géométriques, signe le nom et les titres, avec des sous-titres entre parenthèses comme des légendes de catalogue d'exposition."
+          ],
+          [
+            "Le mouvement",
+            "Les images se dévoilent par masques au défilement, un signe « + » ouvre le menu et les projets s'agrandissent quand on s'en approche. Le rythme est celui d'une visite d'exposition : on avance, on s'arrête, on regarde."
+          ],
+          [
+            "Le parcours",
+            "Index, Projects pour les réalisations avec une page projet type, About pour l'équipe, Careers pour les talents et Contact. Chaque section commence par un intitulé entre parenthèses — « (Selected Projects) », « (Know the Team) » — pour guider la lecture."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Pour une agence, un photographe ou une galerie, ce concept montre comment une mise en page de musée valorise un portfolio. Peu de texte, de grandes images et une navigation simple : le travail se présente de lui-même."
+          ]
+        ]
+      }
     },
     "en": {
       "sector": "Creative agency",
-      "line": "An agency that starts from zero every time."
-    }
+      "line": "An agency that starts from zero every time.",
+      "case": {
+        "title": "Studio Zéro Douze: creative agency website case study – KOYOTEC",
+        "desc": "The imagined website of a creative agency that starts from zero every time: a gallery of cinematic images and an editorial identity.",
+        "intro": "The name says it all: start from zero, every time. For Studio Zéro Douze, we imagined an agency site that looks like a gallery, where images speak before words.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Zéro Douze is an independent creative agency helping brands with their image, campaigns and content. It wants to attract ambitious clients and show it never applies a ready-made formula. The site had to showcase projects and the team with a gallery aesthetic."
+          ],
+          [
+            "The idea",
+            "The site opens on a blurred, cinematic image band, then the name \"ZÉRO DOUZE STUDIOS\" in thin capitals. Further down, projects are presented like hung artworks: a salon of paintings on a red wall, a white room with visitors in silhouette."
+          ],
+          [
+            "Art direction",
+            "Lots of white, black for text, a deep red drawn from the images and an aqua green for accents. Teko, a condensed, geometric typeface, signs the name and headings, with subtitles in brackets like exhibition catalogue captions."
+          ],
+          [
+            "Motion",
+            "Images reveal through masks as you scroll, a \"+\" sign opens the menu and projects enlarge as you approach them. The rhythm is that of an exhibition visit: you move, you stop, you look."
+          ],
+          [
+            "The journey",
+            "Index, Projects for the work with a sample project page, About for the team, Careers for talent and Contact. Each section opens with a label in brackets — \"(Selected Projects)\", \"(Know the Team)\" — to guide reading."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "For an agency, photographer or gallery, this concept shows how a museum-like layout enhances a portfolio. Little text, large images and simple navigation: the work presents itself."
+          ]
+        ]
+      }
+    },
+    "type": [
+      "Teko",
+      "Sans-serif"
+    ],
+    "palette": [
+      "#ffffff",
+      "#00d1b2",
+      "#7a1f1f",
+      "#0a0a0a"
+    ],
+    "service": "lp_web"
   },
   {
     "slug": "ombre-et-lumiere",
@@ -322,12 +1639,84 @@
     "accent": "#f5e6c8",
     "fr": {
       "sector": "Collectif photo",
-      "line": "Une archive vivante de visages, de lieux et d'instants."
+      "line": "Une archive vivante de visages, de lieux et d'instants.",
+      "case": {
+        "title": "Ombre & Lumière : étude de cas d'un site de collectif photo – KOYOTEC",
+        "desc": "Le site imaginé d'un collectif de photographes à Tunis : une archive vivante de visages, de lieux et de moments, autour d'une exposition.",
+        "intro": "Un collectif photo vit de ses images et de ses expositions. Pour Ombre & Lumière, nous avons imaginé un site qui fonctionne comme une archive vivante, et comme une invitation au prochain vernissage.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Ombre & Lumière est un collectif de photographes fondé à Tunis. Il constitue une archive de portraits, de lieux et de petits moments du quotidien, et organise des expositions. Le site devait présenter ce travail collectif, annoncer les événements et ouvrir la porte aux commandes."
+          ],
+          [
+            "L'idée",
+            "Le titre de l'exposition, « Long Exposure », défile en continu sur toute la largeur de l'écran, en très grand, comme un bandeau de festival. Au centre, une seule photographie, un portrait sur fond orange, interrompt le texte. En dessous, une phrase et une date : l'exposition ouvre le 14 novembre."
+          ],
+          [
+            "Direction artistique",
+            "Le site reste blanc et noir pour laisser les photographies dicter la couleur. Google Sans Flex, une typographie variable, permet de passer d'un titre massif et serré à des mentions minuscules. Le logo « O&LUMIÈRE », coupé et compact, joue sur le nom comme une signature d'affiche."
+          ],
+          [
+            "Le mouvement",
+            "Le bandeau « Long Exposure » glisse sans fin, comme une pose longue qui étire le temps. Les images de l'archive se succèdent en fondu et réagissent légèrement au curseur. Tout le site tient sur une page, pensée comme un flux continu."
+          ],
+          [
+            "Le parcours",
+            "Une page unique avec deux portes d'entrée en haut de l'écran : « Archive » pour parcourir les séries, et « Commission » pour les demandes de prises de vue. Le bas de page rappelle l'année de création du collectif et sa ville, Tunis."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Pour un photographe, un artiste ou un lieu culturel, ce concept montre comment un site très simple peut porter un événement et une identité. Une seule page bien rythmée, un titre fort et des images choisies : c'est rapide à mettre en place et facile à faire évoluer à chaque exposition."
+          ]
+        ]
+      }
     },
     "en": {
       "sector": "Photo collective",
-      "line": "A living archive of faces, places and moments."
-    }
+      "line": "A living archive of faces, places and moments.",
+      "case": {
+        "title": "Ombre & Lumière: photo collective website case study – KOYOTEC",
+        "desc": "The imagined website of a photographers' collective in Tunis: a living archive of faces, places and moments, built around an exhibition.",
+        "intro": "A photo collective lives through its images and exhibitions. For Ombre & Lumière, we imagined a site that works as a living archive, and as an invitation to the next opening.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Ombre & Lumière is a photographers' collective founded in Tunis. It builds an archive of portraits, places and small everyday moments, and organises exhibitions. The site had to present this collective work, announce events and open the door to commissions."
+          ],
+          [
+            "The idea",
+            "The exhibition title, \"Long Exposure\", scrolls continuously across the full width of the screen, very large, like a festival banner. In the centre, a single photograph — a portrait on an orange background — interrupts the text. Below, a sentence and a date: the exhibition opens on 14 November."
+          ],
+          [
+            "Art direction",
+            "The site stays black and white so the photographs set the colour. Google Sans Flex, a variable typeface, moves from a massive, tight headline to tiny labels. The cropped, compact \"O&LUMIÈRE\" logo plays on the name like a poster signature."
+          ],
+          [
+            "Motion",
+            "The \"Long Exposure\" banner glides endlessly, like a long exposure stretching time. Archive images follow one another in fades and react slightly to the cursor. The whole site fits on one page, designed as a continuous flow."
+          ],
+          [
+            "The journey",
+            "A single page with two entry points at the top: \"Archive\" to browse the series, and \"Commission\" for shoot requests. The footer recalls the collective's founding year and its city, Tunis."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "For a photographer, artist or cultural venue, this concept shows how a very simple site can carry an event and an identity. One well-paced page, a strong title and chosen images: quick to set up and easy to update for each exhibition."
+          ]
+        ]
+      }
+    },
+    "type": [
+      "Google Sans Flex"
+    ],
+    "palette": [
+      "#ffffff",
+      "#f5e6c8",
+      "#ff7a00",
+      "#0f0f0f"
+    ],
+    "service": "lp_web"
   },
   {
     "slug": "acier-carthage",
@@ -339,12 +1728,84 @@
     "accent": "#a3a9b0",
     "fr": {
       "sector": "Design industriel",
-      "line": "Des objets qui portent le poids de leur conviction."
+      "line": "Des objets qui portent le poids de leur conviction.",
+      "case": {
+        "title": "Acier Carthage : étude de cas d'un site de design industriel – KOYOTEC",
+        "desc": "Le site imaginé d'un cabinet de design industriel : des objets qui portent le poids de leur conviction, présentés en noir et blanc.",
+        "intro": "En design industriel, chaque courbe doit se justifier. Pour Acier Carthage, nous avons imaginé un site aussi rigoureux que les objets du cabinet : une phrase, une image, et rien de superflu.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Acier Carthage est un cabinet de conseil en design industriel qui conçoit des objets, du mobilier et des produits où la matière dicte la forme. Ses clients sont des fabricants et des marques. Le site devait exprimer cette philosophie et donner envie de découvrir le catalogue et les réalisations."
+          ],
+          [
+            "L'idée",
+            "Une phrase-manifeste occupe la moitié supérieure de l'écran : « Nous concevons des objets qui portent le poids de leur propre conviction, où chaque courbe et chaque jointure existe non pour la beauté, mais parce que la matière l'exigeait. » Derrière, un portrait en noir et blanc, sobre et intense."
+          ],
+          [
+            "Direction artistique",
+            "Noir, blanc et des gris acier, rien d'autre. DM Sans, une grotesque géométrique claire, porte le manifeste en grande taille et les informations en petite taille. L'absence de couleur et la photographie argentique traduisent la rigueur et l'exigence du cabinet."
+          ],
+          [
+            "Le mouvement",
+            "Les images se succèdent en fondu lent, la phrase-manifeste se révèle ligne par ligne et les liens réagissent sobrement au survol. Le site tient sur une page, avec un rythme posé qui laisse le temps de lire."
+          ],
+          [
+            "Le parcours",
+            "Trois entrées en haut à droite — Work, Catalogue, About — et un contact direct en bas à gauche : « Say Hello », l'adresse e-mail et un lien vers les demandes de projet. Tout est accessible sans faire défiler."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Pour un architecte, un fabricant ou une marque technique, ce concept montre la puissance d'un manifeste bien écrit : une seule phrase peut résumer une philosophie et convaincre plus qu'une page de services. Le reste du site peut alors rester simple."
+          ]
+        ]
+      }
     },
     "en": {
       "sector": "Industrial design",
-      "line": "Objects that carry the weight of their conviction."
-    }
+      "line": "Objects that carry the weight of their conviction.",
+      "case": {
+        "title": "Acier Carthage: industrial design website case study – KOYOTEC",
+        "desc": "The imagined website of an industrial design consultancy: objects that carry the weight of their conviction, presented in black and white.",
+        "intro": "In industrial design, every curve must justify itself. For Acier Carthage, we imagined a site as rigorous as the consultancy's objects: one sentence, one image, nothing superfluous.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Acier Carthage is an industrial design consultancy creating objects, furniture and products where material dictates form. Its clients are manufacturers and brands. The site had to express this philosophy and make visitors want to explore the catalogue and work."
+          ],
+          [
+            "The idea",
+            "A manifesto sentence fills the top half of the screen: \"We design objects that carry the weight of their own conviction, where every curve and joint exists not for beauty but because the material demanded it.\" Behind it, a black-and-white portrait, sober and intense."
+          ],
+          [
+            "Art direction",
+            "Black, white and steel greys, nothing else. DM Sans, a clear geometric grotesque, carries the manifesto large and the details small. The absence of colour and the film-like photography convey the consultancy's rigour and standards."
+          ],
+          [
+            "Motion",
+            "Images follow one another in slow fades, the manifesto reveals line by line and links respond soberly on hover. The site fits on one page, with a calm rhythm that leaves time to read."
+          ],
+          [
+            "The journey",
+            "Three entries top right — Work, Catalogue, About — and direct contact bottom left: \"Say Hello\", the email address and a link to project enquiries. Everything is reachable without scrolling."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "For an architect, manufacturer or technical brand, this concept shows the power of a well-written manifesto: one sentence can sum up a philosophy and convince more than a page of services. The rest of the site can then stay simple."
+          ]
+        ]
+      }
+    },
+    "type": [
+      "DM Sans"
+    ],
+    "palette": [
+      "#ffffff",
+      "#a3a9b0",
+      "#5c5c5c",
+      "#0f0f0f"
+    ],
+    "service": "lp_web"
   },
   {
     "slug": "maison-zephyr",
@@ -356,12 +1817,83 @@
     "accent": "#e0d6c2",
     "fr": {
       "sector": "Mode",
-      "line": "Une collection qui se dévoile pièce après pièce."
+      "line": "Une collection qui se dévoile pièce après pièce.",
+      "case": {
+        "title": "Maison Zéphyr : étude de cas d'un site de mode – KOYOTEC",
+        "desc": "Le site imaginé d'une marque de mode : une collection révélée pièce par pièce, autour de la permanence, du savoir-faire et de l'expression.",
+        "intro": "Une collection de mode se découvre comme on feuillette une archive. Pour Maison Zéphyr, nous avons imaginé un site qui révèle les pièces une à une, avec la lenteur d'un lookbook imprimé.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Maison Zéphyr est une marque de mode qui défend des vêtements faits pour durer, loin des tendances jetables. Elle s'adresse à une clientèle attentive aux matières et à la fabrication. Le site devait présenter la collection, raconter les matériaux et le processus, et donner envie de découvrir chaque pièce."
+          ],
+          [
+            "L'idée",
+            "Un seul mot remplit l'écran d'accueil : « ARCHIVE », en capitales noires sur un gris très clair. Trois valeurs sont posées aux coins de l'écran : Permanence, Craftsmanship, Expression. Le menu reprend la logique d'un catalogue : Index, Collection, Material, Process, Info."
+          ],
+          [
+            "Direction artistique",
+            "Un gris pierre, un beige lin et un noir profond : la palette d'un atelier de couture. Une seule typographie, PP Neue Montreal, utilisée en très grand pour le mot-titre et en petit pour tout le reste. La retenue graphique laisse toute la place aux photographies de vêtements et de matières."
+          ],
+          [
+            "Le mouvement",
+            "Les pièces de la collection apparaissent une à une au défilement, comme des pages qu'on tourne. Un compteur « 000 » accompagne la progression, et les transitions restent lentes pour que chaque vêtement soit regardé, pas survolé."
+          ],
+          [
+            "Le parcours",
+            "Index pour l'entrée en matière, Collection pour les pièces, Material pour les tissus et leurs origines, Process pour la fabrication, Info pour la marque et le contact. Ce découpage raconte une histoire complète, de la matière au vêtement."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Pour une marque de mode, de maroquinerie ou de décoration, ce concept montre comment raconter le « pourquoi » derrière le produit : matières, fabrication, valeurs. Associé à une boutique en ligne, ce récit justifie le prix et fidélise une clientèle exigeante."
+          ]
+        ]
+      }
     },
     "en": {
       "sector": "Fashion",
-      "line": "A collection revealed piece by piece."
-    }
+      "line": "A collection revealed piece by piece.",
+      "case": {
+        "title": "Maison Zéphyr: fashion brand website case study – KOYOTEC",
+        "desc": "The imagined website of a fashion brand: a collection revealed piece by piece, around permanence, craftsmanship and expression.",
+        "intro": "A fashion collection is discovered like leafing through an archive. For Maison Zéphyr, we imagined a site that reveals the pieces one by one, with the slowness of a printed lookbook.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Maison Zéphyr is a fashion brand standing for clothes made to last, far from throwaway trends. It speaks to customers who care about materials and making. The site had to present the collection, tell the story of materials and process, and make people want to discover each piece."
+          ],
+          [
+            "The idea",
+            "A single word fills the home screen: \"ARCHIVE\", in black capitals on a very light grey. Three values sit in the corners: Permanence, Craftsmanship, Expression. The menu follows a catalogue logic: Index, Collection, Material, Process, Info."
+          ],
+          [
+            "Art direction",
+            "Stone grey, linen beige and deep black: the palette of a tailoring studio. A single typeface, PP Neue Montreal, used very large for the title word and small for everything else. Graphic restraint leaves all the room to the photographs of clothes and fabrics."
+          ],
+          [
+            "Motion",
+            "Pieces from the collection appear one by one as you scroll, like turning pages. A \"000\" counter tracks progress, and transitions stay slow so every garment is looked at, not skimmed."
+          ],
+          [
+            "The journey",
+            "Index for the introduction, Collection for the pieces, Material for fabrics and their origins, Process for the making, Info for the brand and contact. This structure tells a complete story, from material to garment."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "For a fashion, leather goods or homeware brand, this concept shows how to tell the \"why\" behind the product: materials, making, values. Paired with an online store, that story justifies the price and builds loyalty among demanding customers."
+          ]
+        ]
+      }
+    },
+    "type": [
+      "PP Neue Montreal"
+    ],
+    "palette": [
+      "#e0e2db",
+      "#e0d6c2",
+      "#141414"
+    ],
+    "service": "lp_ecommerce"
   },
   {
     "slug": "rivage-immobilier",
@@ -373,12 +1905,84 @@
     "accent": "#c6a77a",
     "fr": {
       "sector": "Immobilier de prestige",
-      "line": "Le luxe de l'espace, raconté au défilement."
+      "line": "Le luxe de l'espace, raconté au défilement.",
+      "case": {
+        "title": "Rivage Immobilier : étude de cas d'un site d'immobilier de prestige – KOYOTEC",
+        "desc": "Le site imaginé d'une agence d'immobilier de prestige : le luxe de l'espace raconté au fil du défilement, entre paysages et lumière dorée.",
+        "intro": "Dans l'immobilier de prestige, on vend d'abord un cadre de vie. Pour Rivage Immobilier, nous avons imaginé un site qui fait ressentir l'espace et la lumière avant de parler de mètres carrés.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Rivage Immobilier accompagne une clientèle exigeante dans l'achat et la vente de biens d'exception : villas, propriétés en bord de mer, maisons de caractère. Ses clients, en Tunisie et à l'étranger, veulent être rassurés sur le sérieux de l'agence. Le site devait inspirer et donner envie de prendre contact."
+          ],
+          [
+            "L'idée",
+            "L'accueil s'ouvre sur un paysage à l'heure dorée — collines, pins, lumière rasante — avec une phrase centrée : « Une approche moderne du luxe et des espaces intemporels. » Une fine ligne rouge verticale traverse l'image, comme un repère sur un plan. Le récit continue ensuite au défilement."
+          ],
+          [
+            "Direction artistique",
+            "Une palette chaude et élégante : blanc cassé, doré sable, noir profond et un rouge bordeaux réservé à un seul détail graphique. DM Sans, une grotesque géométrique sobre, en capitales pour les titres, donne un ton contemporain et rassurant, loin des codes clinquants du luxe."
+          ],
+          [
+            "Le mouvement",
+            "Le site se raconte par le défilement : les images s'ouvrent, les phrases s'enchaînent, et la ligne rouge accompagne la progression. Chaque écran est une étape, comme une visite de propriété guidée pièce par pièce."
+          ],
+          [
+            "Le parcours",
+            "Une page d'accueil narrative, puis les biens présentés en grand format, l'approche de l'agence et le contact. Les phrases clés — espaces pensés pour inspirer, expériences fluides, attention au détail — rythment le parcours jusqu'à la demande de rendez-vous."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Pour une agence immobilière, un promoteur ou un hôtel, ce concept montre l'intérêt d'un récit visuel fort. Bien structuré, avec une page par bien et par quartier, ce type de site aide aussi à apparaître sur les recherches locales, là où les acheteurs commencent."
+          ]
+        ]
+      }
     },
     "en": {
       "sector": "Luxury real estate",
-      "line": "The luxury of space, told through scroll."
-    }
+      "line": "The luxury of space, told through scroll.",
+      "case": {
+        "title": "Rivage Immobilier: luxury real estate website case study – KOYOTEC",
+        "desc": "The imagined website of a luxury real estate agency: the luxury of space told through scroll, between landscapes and golden light.",
+        "intro": "In luxury real estate, you sell a way of living first. For Rivage Immobilier, we imagined a site that makes you feel space and light before talking about square metres.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Rivage Immobilier helps demanding clients buy and sell exceptional properties: villas, seaside homes, houses with character. Its clients, in Tunisia and abroad, want to be reassured about the agency's seriousness. The site had to inspire and make them want to get in touch."
+          ],
+          [
+            "The idea",
+            "The home page opens on a golden-hour landscape — hills, pines, low light — with a centred sentence: \"A modern approach to luxury living and timeless spaces.\" A thin vertical red line crosses the image like a mark on a plan. The story then continues as you scroll."
+          ],
+          [
+            "Art direction",
+            "A warm, elegant palette: off-white, sand gold, deep black and a burgundy red kept for a single graphic detail. DM Sans, a sober geometric grotesque, in capitals for headings, gives a contemporary, reassuring tone far from flashy luxury codes."
+          ],
+          [
+            "Motion",
+            "The site tells its story through scrolling: images open, sentences follow one another, and the red line accompanies progress. Each screen is a step, like a property tour guided room by room."
+          ],
+          [
+            "The journey",
+            "A narrative home page, then properties shown large, the agency's approach and contact. Key phrases — spaces designed to inspire, effortless experiences, attention to detail — pace the journey up to the viewing request."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "For a real estate agency, developer or hotel, this concept shows the value of a strong visual story. Well structured, with a page per property and neighbourhood, this kind of site also helps you appear in local searches, where buyers start."
+          ]
+        ]
+      }
+    },
+    "type": [
+      "DM Sans"
+    ],
+    "palette": [
+      "#f0f0e6",
+      "#c6a77a",
+      "#991f1f",
+      "#0f0f0f"
+    ],
+    "service": "lp_seo"
   },
   {
     "slug": "leila-gharbi",
@@ -390,12 +1994,84 @@
     "accent": "#e3c9a8",
     "fr": {
       "sector": "Architecte",
-      "line": "Une architecte, une entrée en matière cinématographique."
+      "line": "Une architecte, une entrée en matière cinématographique.",
+      "case": {
+        "title": "Leïla Gharbi : étude de cas d'un site d'architecte – KOYOTEC",
+        "desc": "Le site imaginé d'une architecte : une entrée cinématographique, puis une frise de projets datés qui défile comme une pellicule.",
+        "intro": "Une architecte pense en séquences : l'approche, l'entrée, la découverte. Pour Leïla Gharbi, nous avons imaginé un site qui reprend cette logique, avec une entrée en matière cinématographique.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Leïla Gharbi est architecte et mène des projets variés, de l'habitat aux espaces culturels. Elle veut un site qui montre l'ensemble de son travail, année après année, et qui se distingue des portfolios d'architecture habituels, souvent très statiques. Le site devait être sobre, mais mémorable."
+          ],
+          [
+            "L'idée",
+            "Le site commence par un écran presque vide, une simple « introduction », puis une frise d'images se déploie en bas de l'écran. Chaque projet porte un nom court et une année — Fieldnotes 2020, Redline 2021, Hill House 2020, Low Tide 2018 — et la frise défile comme une pellicule de film."
+          ],
+          [
+            "Direction artistique",
+            "Fond blanc, texte noir, et des images aux tons chauds — orange, ocre, sable — qui deviennent la vraie palette. PP Neue Montreal, en petite taille, laisse toute la place aux visuels. Les noms de projets, courts et évocateurs, fonctionnent comme des titres de films."
+          ],
+          [
+            "Le mouvement",
+            "La transition d'entrée agrandit progressivement la frise jusqu'à remplir l'écran, comme un travelling avant. Les projets défilent ensuite horizontalement, et chaque image s'agrandit au survol. Le visiteur traverse le travail de l'architecte comme on traverse un bâtiment."
+          ],
+          [
+            "Le parcours",
+            "Une seule page, qui va de l'introduction à la frise complète des projets, organisée par années. Le visiteur peut s'arrêter sur n'importe quel projet pour le voir en grand, puis reprendre le défilement là où il l'a laissé."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Pour un architecte, un designer ou un photographe avec beaucoup de projets, ce concept montre comment présenter un grand volume de travail sans surcharger : une frise chronologique, des titres courts et une navigation fluide rendent l'ensemble lisible et agréable à parcourir."
+          ]
+        ]
+      }
     },
     "en": {
       "sector": "Architect",
-      "line": "An architect, a cinematic way in."
-    }
+      "line": "An architect, a cinematic way in.",
+      "case": {
+        "title": "Leïla Gharbi: architect website case study – KOYOTEC",
+        "desc": "The imagined website of an architect: a cinematic way in, then a strip of dated projects scrolling like film.",
+        "intro": "An architect thinks in sequences: approach, entrance, discovery. For Leïla Gharbi, we imagined a site that follows that logic, with a cinematic way in.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Leïla Gharbi is an architect leading varied projects, from housing to cultural spaces. She wants a site showing her whole body of work, year after year, that stands apart from usual architecture portfolios, which are often very static. The site had to be sober yet memorable."
+          ],
+          [
+            "The idea",
+            "The site starts on an almost empty screen, a simple \"introduction\", then a strip of images unfolds along the bottom. Each project has a short name and a year — Fieldnotes 2020, Redline 2021, Hill House 2020, Low Tide 2018 — and the strip scrolls like a reel of film."
+          ],
+          [
+            "Art direction",
+            "White background, black text, and warm-toned images — orange, ochre, sand — that become the real palette. PP Neue Montreal, at small size, leaves all the room to the visuals. The short, evocative project names work like film titles."
+          ],
+          [
+            "Motion",
+            "The opening transition gradually enlarges the strip until it fills the screen, like a forward tracking shot. Projects then scroll horizontally, and each image enlarges on hover. Visitors move through the architect's work the way you move through a building."
+          ],
+          [
+            "The journey",
+            "A single page going from the introduction to the full project strip, organised by year. Visitors can stop on any project to see it large, then resume scrolling where they left off."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "For an architect, designer or photographer with many projects, this concept shows how to present a large body of work without overload: a timeline, short titles and smooth navigation make it all readable and pleasant to browse."
+          ]
+        ]
+      }
+    },
+    "type": [
+      "PP Neue Montreal"
+    ],
+    "palette": [
+      "#ffffff",
+      "#e3c9a8",
+      "#ff6a00",
+      "#111111"
+    ],
+    "service": "lp_web"
   },
   {
     "slug": "dix-sept-collective",
@@ -407,12 +2083,85 @@
     "accent": "#ff4d00",
     "fr": {
       "sector": "Collectif créatif",
-      "line": "Dix-sept esprits, un seul défilement."
+      "line": "Dix-sept esprits, un seul défilement.",
+      "case": {
+        "title": "Dix-Sept Collective : étude de cas d'un site de collectif créatif – KOYOTEC",
+        "desc": "Le site imaginé d'un collectif créatif de dix-sept membres : dix-sept esprits, un seul défilement, et une page de contact pensée comme une scène.",
+        "intro": "Dix-sept personnes, une seule voix : c'est le défi d'un collectif. Pour Dix-Sept Collective, nous avons imaginé un site d'une seule page où toutes les énergies se rejoignent dans un même défilement.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Dix-Sept est un collectif de dix-sept créatifs — designers, réalisateurs, développeurs — qui collaborent sur des projets de marque. Il reçoit des demandes très différentes : nouveaux clients, collaborations, candidatures. Le site devait présenter le collectif en un seul mouvement et orienter chaque visiteur vers le bon interlocuteur."
+          ],
+          [
+            "L'idée",
+            "Tout le site est un long défilement vertical qui se termine sur une page de contact pensée comme une scène : fond noir, informations alignées au centre, et une horloge en temps réel. Chaque type de demande a son adresse : informations générales, nouveaux projets, collaborations, recrutement."
+          ],
+          [
+            "Direction artistique",
+            "Le noir domine, avec du gris pour les intitulés, du blanc pour les informations et un orange vif pour les accents. La typographie Stylish, au dessin singulier, signe les titres et donne une voix propre au collectif ; une sans-serif simple assure la lisibilité des coordonnées."
+          ],
+          [
+            "Le mouvement",
+            "Les projets et les membres défilent dans un flux continu, les images apparaissent et disparaissent au rythme du défilement, et l'horloge rappelle que le collectif est actif à tout moment. Le site se vit comme une performance plus que comme une brochure."
+          ],
+          [
+            "Le parcours",
+            "Une seule page, de l'univers du collectif aux projets, jusqu'à la scène finale du contact. Pas de menu complexe : le défilement est la navigation, et chaque section prépare la suivante."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Pour un collectif, une agence ou une association, ce concept montre comment organiser des demandes variées sans perdre le visiteur : un contact clair par type de besoin évite les messages mal adressés et fait gagner du temps à tout le monde."
+          ]
+        ]
+      }
     },
     "en": {
       "sector": "Creative collective",
-      "line": "Seventeen minds, one scroll."
-    }
+      "line": "Seventeen minds, one scroll.",
+      "case": {
+        "title": "Dix-Sept Collective: creative collective website case study – KOYOTEC",
+        "desc": "The imagined website of a seventeen-member creative collective: seventeen minds, one scroll, and a contact page designed as a stage.",
+        "intro": "Seventeen people, one voice: that's a collective's challenge. For Dix-Sept Collective, we imagined a one-page site where all the energies meet in a single scroll.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Dix-Sept is a collective of seventeen creatives — designers, filmmakers, developers — collaborating on brand projects. It receives very different requests: new clients, collaborations, applications. The site had to present the collective in one movement and point each visitor to the right contact."
+          ],
+          [
+            "The idea",
+            "The whole site is one long vertical scroll ending on a contact page designed as a stage: black background, details aligned in the centre, and a live clock. Each type of request has its own address: general enquiries, new business, collaborations, hiring."
+          ],
+          [
+            "Art direction",
+            "Black dominates, with grey for labels, white for details and a bright orange for accents. The Stylish typeface, with its distinctive drawing, signs the headings and gives the collective its own voice; a simple sans-serif keeps contact details readable."
+          ],
+          [
+            "Motion",
+            "Projects and members flow continuously, images appear and disappear with the scroll, and the clock reminds you the collective is active at any time. The site feels like a performance more than a brochure."
+          ],
+          [
+            "The journey",
+            "A single page, from the collective's world to its projects, up to the final contact stage. No complex menu: scrolling is the navigation, and each section sets up the next."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "For a collective, agency or non-profit, this concept shows how to organise varied requests without losing visitors: one clear contact per type of need avoids misdirected messages and saves everyone time."
+          ]
+        ]
+      }
+    },
+    "type": [
+      "Stylish",
+      "Sans-serif"
+    ],
+    "palette": [
+      "#ffffff",
+      "#ff4d00",
+      "#4f4f4f",
+      "#0f0f0f"
+    ],
+    "service": "lp_branding"
   },
   {
     "slug": "forme-nouvelle",
@@ -424,13 +2173,85 @@
     "accent": "#bfc6ff",
     "fr": {
       "sector": "Galerie d'art",
-      "line": "Entre structure et désordre, de nouvelles formes émergent."
+      "line": "Entre structure et désordre, de nouvelles formes émergent.",
+      "case": {
+        "title": "Forme Nouvelle : étude de cas d'un site de galerie d'art – KOYOTEC",
+        "desc": "Le site imaginé d'une galerie d'art contemporain : entre structure et désordre, de nouvelles formes émergent dans un carrousel d'œuvres en 3D.",
+        "intro": "Une galerie d'art contemporain doit surprendre sans perdre le visiteur. Pour Forme Nouvelle, nous avons imaginé un site où le texte devient une architecture et les œuvres tournent comme dans une installation.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Forme Nouvelle est une galerie qui présente des artistes contemporains travaillant entre sculpture, photographie et image numérique. Elle s'adresse aux collectionneurs, aux curieux et à la presse. Le site devait refléter la dimension expérimentale de la programmation et donner envie de venir voir les œuvres en vrai."
+          ],
+          [
+            "L'idée",
+            "La phrase « Somewhere between structure and disorder new forms quietly start to emerge » remplit l'écran en capitales gris clair, mot par mot, comme un mur de texte d'exposition. Au premier plan, un cylindre d'images d'œuvres tourne lentement en trois dimensions, et traverse littéralement la phrase."
+          ],
+          [
+            "Direction artistique",
+            "Un fond anthracite, un texte gris perle et une touche de lavande froide pour les accents. Une seule typographie, PP Neue Montreal, en très grand et très serré, pour que le texte devienne une forme graphique à part entière. Les œuvres apportent la couleur et l'étrangeté."
+          ],
+          [
+            "Le mouvement",
+            "Le carrousel 3D tourne au défilement et réagit à la souris, les mots du titre s'écartent pour laisser passer les images, puis la page se conclut sur « New forms begin here ». Le site fonctionne comme une petite installation numérique."
+          ],
+          [
+            "Le parcours",
+            "Une page d'ouverture immersive, qui présente l'esprit de la galerie et sa sélection d'œuvres, puis se termine sur une invitation à découvrir les expositions. Le parcours est volontairement court pour laisser l'expérience visuelle dominer."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Pour une galerie, un musée, un festival ou une marque créative, ce concept montre comment une interaction forte peut créer un souvenir. Bien dosée, une expérience 3D donne envie de partager le site et de découvrir le lieu en vrai."
+          ]
+        ]
+      }
     },
     "en": {
       "sector": "Art gallery",
-      "line": "Between structure and disorder, new forms emerge."
+      "line": "Between structure and disorder, new forms emerge.",
+      "case": {
+        "title": "Forme Nouvelle: art gallery website case study – KOYOTEC",
+        "desc": "The imagined website of a contemporary art gallery: between structure and disorder, new forms emerge in a 3D carousel of works.",
+        "intro": "A contemporary art gallery must surprise without losing visitors. For Forme Nouvelle, we imagined a site where text becomes architecture and the works turn like an installation.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Forme Nouvelle is a gallery showing contemporary artists working across sculpture, photography and digital image. It speaks to collectors, curious visitors and the press. The site had to reflect the experimental side of its programme and make people want to see the works in person."
+          ],
+          [
+            "The idea",
+            "The sentence \"Somewhere between structure and disorder new forms quietly start to emerge\" fills the screen in light grey capitals, word by word, like an exhibition wall text. In the foreground, a cylinder of artwork images slowly turns in three dimensions, literally passing through the sentence."
+          ],
+          [
+            "Art direction",
+            "An anthracite background, pearl grey text and a touch of cool lavender for accents. A single typeface, PP Neue Montreal, very large and very tight, so the text becomes a graphic form in its own right. The works bring the colour and the strangeness."
+          ],
+          [
+            "Motion",
+            "The 3D carousel turns as you scroll and reacts to the mouse, the headline words part to let the images through, then the page closes on \"New forms begin here\". The site works like a small digital installation."
+          ],
+          [
+            "The journey",
+            "An immersive opening page presenting the gallery's spirit and its selection of works, ending on an invitation to discover the exhibitions. The journey is deliberately short so the visual experience can dominate."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "For a gallery, museum, festival or creative brand, this concept shows how strong interaction can create a memory. Used with care, a 3D experience makes people want to share the site and visit the place in person."
+          ]
+        ]
+      }
     },
-    "featured": true
+    "featured": true,
+    "type": [
+      "PP Neue Montreal"
+    ],
+    "palette": [
+      "#d2d2d2",
+      "#bfc6ff",
+      "#242424",
+      "#171717"
+    ],
+    "service": "lp_web"
   },
   {
     "slug": "sami-mabrouk",

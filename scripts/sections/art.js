@@ -221,6 +221,7 @@ export function artViewer(scope) {
   if (!dialog || typeof dialog.showModal !== "function") return;
   const frame = dialog.querySelector("iframe");
   const open = dialog.querySelector(".art-viewer-open");
+  const story = dialog.querySelector(".art-viewer-case");
   const num = dialog.querySelector(".art-viewer-num");
   const client = dialog.querySelector(".art-viewer-client");
   const sector = dialog.querySelector(".art-viewer-sector");
@@ -233,6 +234,10 @@ export function artViewer(scope) {
     const card = cards[i];
     frame.src = card.getAttribute("href");
     open.href = card.getAttribute("href");
+    if (story) {
+      story.hidden = !card.dataset.case;
+      story.href = card.dataset.case || "#";
+    }
     num.textContent = `${dialog.dataset.labelPiece} ${pad(i + 1)}/${total}`;
     client.textContent = card.querySelector(".art-client").textContent;
     sector.textContent = card.querySelector(".art-sector").textContent;
