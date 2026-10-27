@@ -369,6 +369,10 @@ em,
 .preloader {
   display: none;
 }
+/* already played in this session (flag set by the head script): never paint it */
+.js.pre-seen .preloader {
+  display: none !important;
+}
 .js .preloader {
   position: fixed;
   inset: 0;

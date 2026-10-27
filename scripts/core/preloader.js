@@ -17,9 +17,16 @@ export const preloaderDone = new Promise((r) => (markDone = r));
 
 export function runPreloader() {
   const pre = document.querySelector(".preloader");
-  if (!pre) {
+  // the full mark plays once per session; later full loads go straight to the page intro
+  if (pre && document.documentElement.classList.contains("pre-seen")) pre.remove();
+  if (!pre || !pre.isConnected) {
     markDone();
     return Promise.resolve();
+  }
+  try {
+    sessionStorage.setItem("koy-pre", "1");
+  } catch {
+    // private mode: it simply plays again next time
   }
   pre.style.animation = "none";
 
@@ -107,17 +114,17 @@ export function runPreloader() {
   if (navDot) navDot.style.opacity = "0";
 
   return new Promise((resolve) => {
-    const fonts = Promise.race([document.fonts.ready, new Promise((r) => setTimeout(r, 1500))]);
+    const fonts = Promise.race([document.fonts.ready, new Promise((r) => setTimeout(r, 900))]);
     const draw = gsap.timeline();
     draw
-      .from(texts, { autoAlpha: 0, y: 14, duration: 0.8, stagger: 0.1 }, 0)
-      .to(count, { v: 100, duration: 2, ease: "power2.inOut", onUpdate: showCount }, 0)
+      .from(texts, { autoAlpha: 0, y: 14, duration: 0.6, stagger: 0.08 }, 0)
+      .to(count, { v: 100, duration: 1.3, ease: "power2.inOut", onUpdate: showCount }, 0)
       // bar, stem, then the sweeping curve into the leg, then the second leg
-      .to(strokes[3], { strokeDashoffset: 0, duration: 0.8, ease: "koy.io" }, 0.15)
-      .to(strokes[1], { strokeDashoffset: 0, duration: 0.7, ease: "koy.io" }, 0.45)
-      .to(strokes[0], { strokeDashoffset: 0, duration: 1.1, ease: "koy.io" }, 0.7)
-      .to(strokes[2], { strokeDashoffset: 0, duration: 0.7, ease: "koy.io" }, 1.15)
-      .to(dot, { scale: 1, duration: 0.6, ease: "back.out(3)" }, 1.6);
+      .to(strokes[3], { strokeDashoffset: 0, duration: 0.55, ease: "koy.io" }, 0.1)
+      .to(strokes[1], { strokeDashoffset: 0, duration: 0.5, ease: "koy.io" }, 0.3)
+      .to(strokes[0], { strokeDashoffset: 0, duration: 0.75, ease: "koy.io" }, 0.45)
+      .to(strokes[2], { strokeDashoffset: 0, duration: 0.5, ease: "koy.io" }, 0.75)
+      .to(dot, { scale: 1, duration: 0.45, ease: "back.out(3)" }, 1.05);
 
     draw.then(() => fonts).then(() => {
       cycle.kill();
@@ -143,9 +150,9 @@ export function runPreloader() {
             gsap.to(dot, { autoAlpha: 0, duration: 0.4 });
           }
           resolve();
-        }, null, 0.4)
-        .to(svg, { scale: ZOOM, duration: 1.15, ease: "expo.in", onComplete: () => gsap.set(svg, { willChange: "auto" }) }, 0.4)
-        .to(paper, { opacity: 0, duration: 0.3, ease: "none" }, 1.2);
+        }, null, 0.2)
+        .to(svg, { scale: ZOOM, duration: 0.95, ease: "expo.in", onComplete: () => gsap.set(svg, { willChange: "auto" }) }, 0.2)
+        .to(paper, { opacity: 0, duration: 0.3, ease: "none" }, 0.8);
     });
   });
 }
