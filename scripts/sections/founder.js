@@ -25,7 +25,7 @@ export function founderHero(scope, { ready }) {
   const split = SplitText.create(name, { type: "chars", mask: "chars" });
   gsap.set(split.chars, { yPercent: 110 });
   gsap.set(portrait, { clipPath: "inset(100% 0% 0% 0%)" });
-  gsap.set(img, { scale: 1.25 });
+  gsap.set(img, { scale: 1.08 });
   gsap.set(small, { autoAlpha: 0, y: 16 });
 
   const tl = gsap.timeline({ paused: true })
@@ -123,9 +123,9 @@ export function founderReel(scope) {
       ease: "none",
       scrollTrigger: { trigger: li, containerAnimation: tween, start: "left right", end: "center center", scrub: true },
     });
-    gsap.fromTo(img, { xPercent: -8, scale: 1.15 }, {
-      xPercent: 8,
-      scale: 1.05,
+    gsap.fromTo(img, { xPercent: -4, scale: 1.08 }, {
+      xPercent: 4,
+      scale: 1.08,
       ease: "none",
       scrollTrigger: { trigger: li, containerAnimation: tween, start: "left right", end: "right left", scrub: true },
     });
@@ -184,7 +184,7 @@ export function founderStage(scope) {
     ease: "none",
     scrollTrigger: { trigger: stage, start: "top 85%", end: "top 15%", scrub: true },
   });
-  gsap.fromTo(media.querySelector("img"), { scale: 1.3 }, { scale: 1, ease: "none", scrollTrigger: { trigger: stage, start: "top bottom", end: "bottom top", scrub: true } });
+  gsap.fromTo(media.querySelector("img"), { scale: 1.1 }, { scale: 1, ease: "none", scrollTrigger: { trigger: stage, start: "top bottom", end: "bottom top", scrub: true } });
   revealLines(stage.querySelector(".fstage-title"));
   batchReveal($(".fstage-kicker, .fstage-text, .fstage-second, .ffollow-list li", scope), { y: 40, stagger: 0.08 });
 }
