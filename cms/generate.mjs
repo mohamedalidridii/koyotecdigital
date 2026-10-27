@@ -636,6 +636,11 @@ ${ctaSection(lang, { h: l.cta_h, button: l.cta })}`;
     const alt = Object.fromEntries(f.photos);
     const [hero] = f.photos;
     const reel = f.photos.filter(([file]) => file !== hero[0] && !f.stage_photos.includes(file));
+    // every photo ships at 1280 px and 640 px (stage-pyfac only exists at 720): the browser picks
+    const fimg = (file, a, sizes, extra = "") => {
+      const big = file === "stage-pyfac" ? 720 : 1280;
+      return `<img src="/founder/${esc(file)}.webp" srcset="/founder/${esc(file)}-640.webp 640w, /founder/${esc(file)}.webp ${big}w" sizes="${sizes}" alt="${esc(a)}"${extra} />`;
+    };
     const handle = (href) => "@" + href.replace(/\/+$/, "").split("/").pop().replace(/^@/, "");
     const words = f.manifesto.split(" ").map((w) => `<span class="fw">${esc(w)}</span>`).join(" ");
     const name = f.h1.split(" ").map((w) => `<span class="fh-word">${esc(w)}</span>`).join(" ");
@@ -658,7 +663,7 @@ ${ctaSection(lang, { h: l.cta_h, button: l.cta })}`;
           <span>${esc(G.latitude)}° N / ${esc(G.longitude)}° E</span>
           <span>${esc(G.locality)}</span>
         </div>
-        <figure class="fh-portrait"><img src="/founder/${esc(hero[0])}.webp" alt="${esc(hero[1])}" width="1200" height="1200" fetchpriority="high" /></figure>
+        <figure class="fh-portrait">${fimg(hero[0], hero[1], "(max-width: 960px) 70vw, 36vw", ' width="1280" height="1280" fetchpriority="high"')}</figure>
         <div class="fh-foot shell">
           <p class="fh-kicker">${stamp(G.name, f.label)} <span class="fh-ticker" aria-label="${esc(f.ticker.join(", "))}"><span class="fh-ticker-track" aria-hidden="true">${f.ticker.map((t) => `<span>${esc(t)}</span>`).join("")}</span></span></p>
           <h1 class="fh-name">${name}</h1>
@@ -682,7 +687,7 @@ ${f.stats.map(([v, l]) => `        <div class="fstat" data-line><strong class="f
         <div class="freel-head shell"><h2 class="sec-title" id="reel-h">${esc(f.reel_h)}</h2><p class="freel-count" aria-hidden="true"><span class="freel-n">01</span> / ${pad(reel.length)}</p></div>
         <div class="freel-stage">
           <ol class="freel-track">
-${reel.map(([file, a], n) => `            <li class="freel-item"><figure><div class="freel-frame"><img src="/founder/${esc(file)}.webp" alt="${esc(a)}" loading="lazy" decoding="async" /></div><figcaption><span>${pad(n + 1)}</span> ${esc(a)}</figcaption></figure></li>`).join("\n")}
+${reel.map(([file, a], n) => `            <li class="freel-item"><figure><div class="freel-frame">${fimg(file, a, "(max-width: 960px) 70vw, 32vw", ' loading="lazy" decoding="async"')}</div><figcaption><span>${pad(n + 1)}</span> ${esc(a)}</figcaption></figure></li>`).join("\n")}
           </ol>
         </div>
       </section>
@@ -711,12 +716,12 @@ ${f.timeline.map(([y, t]) => `          <li data-line><span class="ftime-y">${es
       </section>
 
       <section class="fstage" data-gl="off" aria-labelledby="stage-h">
-        <div class="fstage-media"><img src="/founder/${esc(f.stage_photos[0])}.webp" alt="${esc(alt[f.stage_photos[0]] || "")}" loading="lazy" decoding="async" /></div>
+        <div class="fstage-media">${fimg(f.stage_photos[0], alt[f.stage_photos[0]] || "", "100vw", ' loading="lazy" decoding="async"')}</div>
         <div class="fstage-copy shell">
           <p class="fstage-kicker" id="stage-h">${esc(f.stage_h)}</p>
           <h2 class="fstage-title">${esc(f.stage_title)}</h2>
           <p class="fstage-text">${esc(f.stage_text)}</p>
-          ${f.stage_photos[1] ? `<figure class="fstage-second"><img src="/founder/${esc(f.stage_photos[1])}.webp" alt="${esc(alt[f.stage_photos[1]] || "")}" loading="lazy" decoding="async" /></figure>` : ""}
+          ${f.stage_photos[1] ? `<figure class="fstage-second">${fimg(f.stage_photos[1], alt[f.stage_photos[1]] || "", "(max-width: 960px) 90vw, 24rem", ' loading="lazy" decoding="async"')}</figure>` : ""}
         </div>
       </section>
 
