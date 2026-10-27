@@ -266,6 +266,7 @@ ${altFr ? `    <link rel="alternate" hreflang="fr" href="${esc(SITE + altFr)}" /
       <nav class="nav-main" aria-label="${esc(ui.menu)}"><ul class="nav-links">${links}</ul></nav>
       <div class="nav-right">
         <a class="lang" href="${esc(sw)}" hreflang="${other}" lang="${other}">${other.toUpperCase()}</a>
+        <a class="nav-founder" href="${PATHS.founder[i]}" data-magnetic${page === "founder" ? ' aria-current="page"' : ""} aria-label="${esc(site[lang].founder.chip_hover)}"><img src="/founder/avatar.webp" alt="" width="28" height="28" /><span class="nav-founder-label" aria-hidden="true"><span>${esc(site[lang].founder.chip)}</span><span>${esc(site[lang].founder.chip_hover)} →</span></span><i class="nav-founder-dot" aria-hidden="true"></i></a>
         <a class="nav-cta" href="${PATHS.contact[i]}">${esc(ui.nav_cta)}</a>
         <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-btn-label" data-open="${esc(ui.menu)}" data-close="${esc(ui.close)}">${esc(ui.menu)}</span></button>
       </div>
@@ -279,6 +280,7 @@ ${items}
         </ol>
       </nav>
       <div class="menu-foot">
+        <a href="${PATHS.founder[i]}">${esc(site[lang].founder.chip_hover)}</a>
         <a href="mailto:${esc(G.email)}">${esc(G.email)}</a>
         <a href="tel:${esc(G.phone)}">${esc(G.phoneDisplay)}</a>
         <a href="${esc(G.instagram)}" target="_blank" rel="noopener noreferrer">Instagram</a>
@@ -627,65 +629,107 @@ ${ctaSection(lang, { h: l.cta_h, button: l.cta })}`;
     return page({ head, lang, ns: "services", pageKey: "services", switchTo: PATHS[key][idx(lang === "fr" ? "en" : "fr")], main });
   }
 
-  // the founder's page: story, photos from his Instagram, social links
+  // the founder's page: a dark, cinematic portrait driven by scripts/sections/founder.js
   function founder(lang) {
     const f = site[lang].founder; const ui = site[lang].ui; const i = idx(lang);
     const own = PATHS.founder[i];
-    const [hero, ...rest] = f.photos;
-    const body = f.sections.map(([h, t]) => `          <h2>${esc(h)}</h2>\n          ${bodyHtml(t)}`).join("\n");
-    const grid = rest.map(([file, alt]) => `            <figure data-line><img src="/founder/${esc(file)}.webp" alt="${esc(alt)}" loading="lazy" decoding="async" /></figure>`).join("\n");
-    const links = f.links.map(([label, href]) => `              <li data-line>${link(href, label, ' target="_blank" rel="noopener noreferrer"')}</li>`).join("\n");
+    const alt = Object.fromEntries(f.photos);
+    const [hero] = f.photos;
+    const reel = f.photos.filter(([file]) => file !== hero[0] && !f.stage_photos.includes(file));
+    const handle = (href) => "@" + href.replace(/\/+$/, "").split("/").pop().replace(/^@/, "");
+    const words = f.manifesto.split(" ").map((w) => `<span class="fw">${esc(w)}</span>`).join(" ");
+    const name = f.h1.split(" ").map((w) => `<span class="fh-word">${esc(w)}</span>`).join(" ");
     const ld = graph(
       {
         "@type": "ProfilePage", name: f.title, url: SITE + own, inLanguage: lang,
         mainEntity: {
           "@type": "Person", "@id": SITE + "/medalydridi#person", name: f.h1, alternateName: "Med Ali Dridi",
-          jobTitle: f.role.split(" · ")[0], description: f.desc, image: SITE + `/founder/${hero[0]}.webp`,
-          worksFor: { "@id": SITE + "/#organization" }, sameAs: f.links.map(([, href]) => href),
+          jobTitle: f.role.split(" · ")[1] || f.role, description: f.desc, image: SITE + `/founder/${hero[0]}.webp`,
+          worksFor: { "@id": SITE + "/#organization" }, founder: { "@id": SITE + "/#organization" },
+          alumniOf: { "@type": "CollegeOrUniversity", name: "ESPRIT" }, homeLocation: { "@type": "Place", name: "Tunis, Tunisia" },
+          knowsAbout: f.topics, sameAs: f.links.map(([, href]) => href),
         },
       },
       crumbs([ui.nav.home, url("home", lang)], [f.h1, SITE + own]),
     );
-    const main = `      <section class="page-hero founder-hero" data-gl="constellation" data-gl-dim="0.4">
-        <div class="shell founder-hero-grid">
-          <div>
-            <p class="lockup-brand">${stamp(G.name, f.label)} <span>${esc(f.role)}</span></p>
-            <h1 class="lockup-h1 page-title" data-split>${midGlyphs(f.h1, GLYPH.star, GLYPH.howl)}</h1>
-            <div class="page-hero-foot" data-line>
-              <p class="hero-sub">${esc(f.intro)}</p>
-            </div>
-          </div>
-          <figure class="founder-portrait"><img src="/founder/${esc(hero[0])}.webp" alt="${esc(hero[1])}" width="1200" height="1200" fetchpriority="high" /></figure>
+    const marquee = (dir) => `<div class="fm-row" data-dir="${dir}"><div class="fm-track">${[0, 1].map(() => f.topics.map((t) => `<span>${esc(t)}</span><i aria-hidden="true">✳</i>`).join("")).join("")}</div></div>`;
+    const main = `      <section class="fh" data-gl="off" data-cursor="Hey">
+        <div class="fh-meta shell" aria-hidden="true">
+          <span>${esc(G.latitude)}° N / ${esc(G.longitude)}° E</span>
+          <span>${esc(G.locality)}</span>
         </div>
-      </section>
-
-      <section class="landing-copy" data-gl="off">
-        <div class="article-body">
-${body}
-        </div>
-      </section>
-
-      <section class="founder-photos" aria-labelledby="photos-h" data-gl="off">
-        <div class="shell">
-          ${sectionHead(f.photos_h, rest.length, "photos-h")}
-          <div class="founder-grid">
-${grid}
+        <figure class="fh-portrait"><img src="/founder/${esc(hero[0])}.webp" alt="${esc(hero[1])}" width="1200" height="1200" fetchpriority="high" /></figure>
+        <div class="fh-foot shell">
+          <p class="fh-kicker">${stamp(G.name, f.label)} <span class="fh-ticker" aria-label="${esc(f.ticker.join(", "))}"><span class="fh-ticker-track" aria-hidden="true">${f.ticker.map((t) => `<span>${esc(t)}</span>`).join("")}</span></span></p>
+          <h1 class="fh-name">${name}</h1>
+          <div class="fh-aside">
+            <p class="fh-intro">${esc(f.intro)}</p>
+            <p class="fh-cue" aria-hidden="true">${esc(site[lang].home.scroll_hint)} ↓</p>
           </div>
         </div>
       </section>
 
-      <section class="table-sec" id="follow" aria-labelledby="follow-h">
-        <div class="shell">
-          ${sectionHead(f.links_h, f.links.length, "follow-h")}
-          <ul class="link-list">
-${links}
-          </ul>
+      <section class="fmani shell" data-gl="off">
+        <h2 class="visually-hidden">${esc(f.label)}</h2>
+        <p class="fmani-text">${words}</p>
+      </section>
+
+      <section class="fstats shell" data-gl="off" aria-label="${esc(f.label)}">
+${f.stats.map(([v, l]) => `        <div class="fstat" data-line><strong class="fstat-n" data-count="${esc(v)}">${esc(v)}</strong><span>${esc(l)}</span></div>`).join("\n")}
+      </section>
+
+      <section class="freel" data-gl="off" aria-labelledby="reel-h">
+        <div class="freel-head shell"><h2 class="sec-title" id="reel-h">${esc(f.reel_h)}</h2><p class="freel-count" aria-hidden="true"><span class="freel-n">01</span> / ${pad(reel.length)}</p></div>
+        <div class="freel-stage">
+          <ol class="freel-track">
+${reel.map(([file, a], n) => `            <li class="freel-item"><figure><div class="freel-frame"><img src="/founder/${esc(file)}.webp" alt="${esc(a)}" loading="lazy" decoding="async" /></div><figcaption><span>${pad(n + 1)}</span> ${esc(a)}</figcaption></figure></li>`).join("\n")}
+          </ol>
         </div>
+      </section>
+
+      <section class="fmarq" data-gl="off" aria-hidden="true">
+        ${marquee(1)}
+        ${marquee(-1)}
+      </section>
+
+      <section class="fchap shell" data-gl="off" aria-labelledby="chap-h">
+        <h2 class="visually-hidden" id="chap-h">${esc(f.chapters_h)}</h2>
+        <div class="fchap-side" aria-hidden="true">
+          <p class="fchap-label">${esc(f.chapters_h)}</p>
+          <p class="fchap-num"><span class="fchap-roll">${f.chapters.map((_, n) => `<span>${pad(n + 1)}</span>`).join("")}</span></p>
+        </div>
+        <div class="fchap-list">
+${f.chapters.map(([h, t], n) => `          <article class="fchap-item" data-index="${n}"><h3 data-split><span class="fchap-mini">${pad(n + 1)}</span> ${esc(h)}</h3>${bodyHtml(t)}</article>`).join("\n")}
+        </div>
+      </section>
+
+      <section class="ftime shell" data-gl="off" aria-labelledby="time-h">
+        ${sectionHead(f.timeline_h, f.timeline.length, "time-h")}
+        <ol class="ftime-list">
+${f.timeline.map(([y, t]) => `          <li data-line><span class="ftime-y">${esc(y)}</span><p>${esc(t)}</p></li>`).join("\n")}
+        </ol>
+      </section>
+
+      <section class="fstage" data-gl="off" aria-labelledby="stage-h">
+        <div class="fstage-media"><img src="/founder/${esc(f.stage_photos[0])}.webp" alt="${esc(alt[f.stage_photos[0]] || "")}" loading="lazy" decoding="async" /></div>
+        <div class="fstage-copy shell">
+          <p class="fstage-kicker" id="stage-h">${esc(f.stage_h)}</p>
+          <h2 class="fstage-title">${esc(f.stage_title)}</h2>
+          <p class="fstage-text">${esc(f.stage_text)}</p>
+          ${f.stage_photos[1] ? `<figure class="fstage-second"><img src="/founder/${esc(f.stage_photos[1])}.webp" alt="${esc(alt[f.stage_photos[1]] || "")}" loading="lazy" decoding="async" /></figure>` : ""}
+        </div>
+      </section>
+
+      <section class="ffollow shell" data-gl="off" aria-labelledby="follow-h">
+        <p class="fstage-kicker" id="follow-h">${esc(f.links_h)}</p>
+        <ul class="ffollow-list">
+${f.links.map(([label, href], n) => `          <li data-line><a href="${esc(href)}" target="_blank" rel="noopener noreferrer" data-cursor="Follow"><span class="ffollow-n">${pad(n + 1)}</span><span class="ffollow-name">${esc(label)}</span><span class="ffollow-handle">${esc(handle(href))} ↗</span></a></li>`).join("\n")}
+        </ul>
       </section>
 
 ${ctaSection(lang, { h: f.cta_h, button: f.cta })}`;
-    const head = headTag({ lang, title: f.title, desc: f.desc, canon: own, altFr: PATHS.founder[0], altEn: PATHS.founder[1], ld, ogType: "profile" });
-    return page({ head, lang, ns: "services", pageKey: "founder", main });
+    const head = headTag({ lang, title: f.title, desc: f.desc, canon: own, altFr: PATHS.founder[0], altEn: PATHS.founder[1], ld, ogType: "profile", theme: "#0b0b0b", htmlClass: "is-founder" });
+    return page({ head, lang, ns: "founder", pageKey: "founder", main });
   }
 
   function contact(lang) {

@@ -13,6 +13,7 @@ import { homeHero, pageHero } from "./sections/intro.js";
 import { serviceHover, statement, rows } from "./sections/home.js";
 import { faq, cta, footer, contactForm, article } from "./sections/common.js";
 import { artTheme, artHero, artExpo, artViewer, artTeaser, staticLetters } from "./sections/art.js";
+import { founderTheme, founderHero, founderManifesto, founderCounters, founderReel, founderMarquee, founderChapters, founderStage } from "./sections/founder.js";
 
 // motion modules per Barba namespace (nav, form and FAQ run everywhere, even with reduced motion)
 const PAGES = {
@@ -22,9 +23,10 @@ const PAGES = {
   blog: [pageHero, rows],
   article: [pageHero, article],
   art: [artHero, artExpo, cta],
+  founder: [founderHero, founderManifesto, founderCounters, founderReel, founderMarquee, founderChapters, founderStage, cta],
 };
 // per-page systems that run even with reduced motion
-const ALWAYS = { home: [staticLetters], art: [artTheme, artViewer, staticLetters] };
+const ALWAYS = { home: [staticLetters], art: [artTheme, artViewer, staticLetters], founder: [founderTheme] };
 
 let ctx = null;
 let cleanups = [];

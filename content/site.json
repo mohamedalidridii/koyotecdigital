@@ -754,31 +754,40 @@
       "cta_h": "Lançons votre boutique en ligne"
     },
     "founder": {
-      "title": "Mohamed Ali Dridi – Fondateur de KOYOTEC & créateur de contenu tech",
-      "desc": "Mohamed Ali Dridi, fondateur de KOYOTEC et créateur de contenu tech suivi par plus de 37 000 personnes : la technologie expliquée simplement.",
+      "title": "Mohamed Ali Dridi – Fondateur de KOYOTEC, ingénieur DevOps & créateur tech",
+      "desc": "Mohamed Ali Dridi : fondateur de KOYOTEC, ingénieur DevOps & cloud, O'Reilly Community Partner et créateur de contenu tech suivi par plus de 37 000 personnes.",
       "label": "Le fondateur",
       "h1": "Mohamed Ali Dridi",
-      "role": "Fondateur de KOYOTEC · Créateur de contenu tech",
-      "intro": "J'ai fondé KOYOTEC avec une conviction simple : la technologie doit être utile, belle et compréhensible. En parallèle, j'explique la tech simplement à une communauté de plus de 37 000 personnes sur Instagram.",
-      "sections": [
+      "role": "Fondateur de KOYOTEC · Ingénieur DevOps & Cloud",
+      "intro": "Ingénieur, fondateur et créateur de contenu. Je construis des produits numériques avec KOYOTEC, et j'explique la tech simplement — en dialecte tunisien — à une communauté de plus de 37 000 personnes.",
+      "ticker": [
+        "Fondateur de KOYOTEC",
+        "Ingénieur DevOps & Cloud",
+        "Créateur de contenu tech",
+        "Speaker",
+        "O'Reilly Community Partner",
+        "Linux lover"
+      ],
+      "manifesto": "La tech n'a pas à être compliquée. Je construis en apprenant, j'enseigne pour grandir, et je crée des outils qui résolvent de vrais problèmes.",
+      "stats": [
         [
-          "La tech, expliquée simplement",
-          "Chaque semaine, je publie des vidéos courtes pour rendre la technologie accessible : Linux, cloud, Docker et Kubernetes, bases de données, réseaux, DevOps, intelligence artificielle. Pas de jargon inutile, des exemples concrets et une bonne dose d'humour.\n\nOn me retrouve sur Instagram, TikTok et YouTube, et parfois en direct sur Kick pour coder et répondre aux questions."
+          "37,7K",
+          "abonnés sur Instagram"
         ],
         [
-          "Sur scène",
-          "J'aime aussi partager en face à face. J'interviens lors d'événements et de conférences tech, comme PyPAC. Lors d'un sommet consacré à l'avenir, j'ai présenté « The Algorithm of Grief: End Game », une conférence sur la façon dont l'intelligence artificielle — réseaux de neurones, modèles de langage — peut aider à transformer le diagnostic médical.\n\nSur scène comme en vidéo, mon objectif reste le même : rendre une technologie complexe claire pour tout le monde."
+          "50+",
+          "projets livrés avec KOYOTEC"
         ],
         [
-          "Pourquoi KOYOTEC",
-          "Expliquer la tech à des milliers de personnes m'a appris une chose : la clarté gagne toujours. C'est ce que nous appliquons chez KOYOTEC, que ce soit pour un site web, une identité de marque ou une architecture cloud. Un bon projet est rapide, solide, et compréhensible par ceux qui l'utilisent.\n\nL'agence réunit le design et l'ingénierie sous le même toit : création de sites, branding, référencement, et un pôle Ingénierie pour l'IA, le cloud, le DevOps et la cybersécurité."
+          "38",
+          "startups accompagnées"
         ],
         [
-          "Linux, open source et curiosité",
-          "Je suis un amoureux de Linux — et oui, j'utilise Arch. Je partage mes projets sur GitHub et je garde la même règle depuis le début : apprendre en public, tester, se tromper, recommencer, et partager ce qui fonctionne."
+          "4K+",
+          "abonnés sur LinkedIn"
         ]
       ],
-      "photos_h": "En images",
+      "reel_h": "En images",
       "photos": [
         [
           "portrait",
@@ -791,14 +800,6 @@
         [
           "field",
           "Mohamed Ali Dridi dans un champ, devant des collines et des éoliennes"
-        ],
-        [
-          "stage-pypac",
-          "Mohamed Ali Dridi sur scène à PyPAC, présenté parmi les intervenants"
-        ],
-        [
-          "talk-title",
-          "Mohamed Ali Dridi présentant sa conférence The Algorithm of Grief: End Game"
         ],
         [
           "neon-koyotec",
@@ -819,7 +820,94 @@
         [
           "neon-studio",
           "Mohamed Ali Dridi en tournage d'une vidéo sur l'architecture Linux"
+        ],
+        [
+          "stage-pyfac",
+          "Mohamed Ali Dridi sur scène à PyFAC, présenté parmi les intervenants"
+        ],
+        [
+          "talk-title",
+          "Mohamed Ali Dridi présentant sa conférence The Algorithm of Grief: End Game"
         ]
+      ],
+      "topics": [
+        "Linux",
+        "Docker",
+        "Kubernetes",
+        "Cloud",
+        "DevOps",
+        "CI/CD",
+        "Terraform",
+        "Kafka",
+        "PostgreSQL",
+        "Machine Learning",
+        "IA",
+        "Go",
+        "Rust",
+        "WebAssembly",
+        "TCP/IP",
+        "OSI"
+      ],
+      "chapters_h": "L'histoire",
+      "chapters": [
+        [
+          "De la mécatronique au code",
+          "Je suis diplômé ingénieur en mécatronique, robotique et automatisation de l'ESPRIT en 2020. Ces bases d'ingénierie m'ont appris la rigueur ; c'est pourtant l'informatique qui m'a happé. Après une année de freelance en développement full stack, j'ai fondé KOYOTEC en 2022."
+        ],
+        [
+          "KOYOTEC",
+          "KOYOTEC est une agence digitale qui livre des solutions web créatives dans le monde entier. Avec l'équipe, nous avons livré plus de 50 projets pour des startups, et accompagné 38 startups de bout en bout comme partenaire technique de la Westerwelle Foundation, entre Tunis, Kigali et Arusha. Côté infrastructure, je conçois des architectures cloud qui tiennent la charge : Kubernetes, Kafka, PostgreSQL, Terraform, CI/CD."
+        ],
+        [
+          "Revenir aux bancs de l'école",
+          "En 2024, je suis retourné en école d'ingénieurs, en génie informatique à l'ESPRIT, pour maîtriser le machine learning. Avec un objectif précis : construire un modèle d'IA capable d'aider à détecter tôt la sclérodermie. Un projet né d'une histoire personnelle, que j'ai présenté sous le titre « The Algorithm of Grief »."
+        ],
+        [
+          "Enseigner la tech, en tunisien",
+          "Depuis 2025, je partage chaque semaine du contenu sur le DevOps, le cloud, l'architecture logicielle et Linux, sur Instagram, TikTok et YouTube, et en live sur Kick. Je l'explique en dialecte tunisien, pour démystifier ces métiers et aider d'autres développeurs à passer au DevOps et au cloud. J'ai aussi fondé Localhost Community, un espace d'entraide pour les passionnés d'IT du monde arabe, devenu O'Reilly Community Partner."
+        ]
+      ],
+      "timeline_h": "Parcours",
+      "timeline": [
+        [
+          "2015–2020",
+          "Diplôme d'ingénieur en mécatronique, robotique et automatisation — ESPRIT"
+        ],
+        [
+          "2021",
+          "Développeur full stack freelance"
+        ],
+        [
+          "2022",
+          "Fondation de KOYOTEC"
+        ],
+        [
+          "2024",
+          "Retour en génie informatique à l'ESPRIT, spécialisation machine learning"
+        ],
+        [
+          "2025",
+          "Premières vidéos tech · Instructeur « Docker 101 » à Orbit 1.0 (IEEE INSAT) · Conférence à Fork it! sur la détection précoce de la sclérodermie"
+        ],
+        [
+          "2025",
+          "Fondation de Localhost Community · O'Reilly Community Partner · TN-Container, une alternative open source à Docker écrite en Go · LSSA, une extension Git open source"
+        ],
+        [
+          "2025",
+          "Speaker au Gigwave Forum (Bizerte) et à PyFAC (Sfax) : du freelance à l'agence digitale"
+        ],
+        [
+          "2026",
+          "Speaker à l'AI Innovation Summit de Leaders University et aux AI Community Days"
+        ]
+      ],
+      "stage_h": "Sur scène",
+      "stage_title": "The Algorithm of Grief",
+      "stage_text": "Un modèle hybride de machine learning — réseaux convolutifs et récurrents — pour la détection précoce de la sclérodermie. Une conférence sur la vie, la perte et les algorithmes, présentée à Fork it! puis à l'AI Innovation Summit de Leaders University.",
+      "stage_photos": [
+        "talk-title",
+        "stage-pyfac"
       ],
       "links_h": "Me suivre",
       "links": [
@@ -848,6 +936,8 @@
           "https://kick.com/medaly-dridi"
         ]
       ],
+      "chip": "Med Ali",
+      "chip_hover": "Rencontrer le fondateur",
       "cta_h": "Un projet ? Parlons-en.",
       "cta": "Demander un devis gratuit"
     }
@@ -1589,31 +1679,40 @@
       "cta_h": "Let's launch your online store"
     },
     "founder": {
-      "title": "Mohamed Ali Dridi – Founder of KOYOTEC & tech content creator",
-      "desc": "Mohamed Ali Dridi, founder of KOYOTEC and a tech content creator followed by more than 37,000 people: technology, explained simply.",
+      "title": "Mohamed Ali Dridi – Founder of KOYOTEC, DevOps engineer & tech creator",
+      "desc": "Mohamed Ali Dridi: founder of KOYOTEC, DevOps & cloud engineer, O'Reilly Community Partner and tech content creator followed by more than 37,000 people.",
       "label": "The founder",
       "h1": "Mohamed Ali Dridi",
-      "role": "Founder of KOYOTEC · Tech content creator",
-      "intro": "I founded KOYOTEC on a simple belief: technology should be useful, beautiful and easy to understand. Alongside the agency, I explain tech simply to a community of more than 37,000 people on Instagram.",
-      "sections": [
+      "role": "Founder of KOYOTEC · DevOps & Cloud Engineer",
+      "intro": "Engineer, founder and content creator. I build digital products with KOYOTEC, and I explain tech simply — in Tunisian dialect — to a community of more than 37,000 people.",
+      "ticker": [
+        "Founder of KOYOTEC",
+        "DevOps & Cloud Engineer",
+        "Tech content creator",
+        "Speaker",
+        "O'Reilly Community Partner",
+        "Linux lover"
+      ],
+      "manifesto": "Tech doesn't have to be complicated. I build while learning, teach to grow, and create tools that solve real problems.",
+      "stats": [
         [
-          "Tech, explained simply",
-          "Every week I publish short videos that make technology accessible: Linux, cloud, Docker and Kubernetes, databases, networking, DevOps, artificial intelligence. No needless jargon, concrete examples and a good dose of humour.\n\nYou'll find me on Instagram, TikTok and YouTube, and sometimes live on Kick, coding and answering questions."
+          "37.7K",
+          "followers on Instagram"
         ],
         [
-          "On stage",
-          "I also love sharing face to face. I speak at tech events and conferences, such as PyPAC. At a summit about the future, I presented \"The Algorithm of Grief: End Game\", a talk on how artificial intelligence — neural networks, language models — can help transform medical diagnosis.\n\nOn stage or on video, my goal stays the same: make complex technology clear for everyone."
+          "50+",
+          "projects delivered with KOYOTEC"
         ],
         [
-          "Why KOYOTEC",
-          "Explaining tech to thousands of people taught me one thing: clarity always wins. That's what we apply at KOYOTEC, whether it's a website, a brand identity or a cloud architecture. A good project is fast, solid and understandable by the people who use it.\n\nThe agency brings design and engineering under one roof: websites, branding, SEO, and an Engineering team for AI, cloud, DevOps and cybersecurity."
+          "38",
+          "startups supported"
         ],
         [
-          "Linux, open source and curiosity",
-          "I'm a Linux lover — and yes, I use Arch. I share my projects on GitHub and keep the same rule I started with: learn in public, test, fail, try again, and share what works."
+          "4K+",
+          "followers on LinkedIn"
         ]
       ],
-      "photos_h": "In pictures",
+      "reel_h": "In pictures",
       "photos": [
         [
           "portrait",
@@ -1626,14 +1725,6 @@
         [
           "field",
           "Mohamed Ali Dridi in a field, in front of hills and wind turbines"
-        ],
-        [
-          "stage-pypac",
-          "Mohamed Ali Dridi on stage at PyPAC, introduced among the speakers"
-        ],
-        [
-          "talk-title",
-          "Mohamed Ali Dridi presenting his talk The Algorithm of Grief: End Game"
         ],
         [
           "neon-koyotec",
@@ -1654,7 +1745,94 @@
         [
           "neon-studio",
           "Mohamed Ali Dridi filming a video on Linux architecture"
+        ],
+        [
+          "stage-pyfac",
+          "Mohamed Ali Dridi on stage at PyFAC, introduced among the speakers"
+        ],
+        [
+          "talk-title",
+          "Mohamed Ali Dridi presenting his talk The Algorithm of Grief: End Game"
         ]
+      ],
+      "topics": [
+        "Linux",
+        "Docker",
+        "Kubernetes",
+        "Cloud",
+        "DevOps",
+        "CI/CD",
+        "Terraform",
+        "Kafka",
+        "PostgreSQL",
+        "Machine Learning",
+        "AI",
+        "Go",
+        "Rust",
+        "WebAssembly",
+        "TCP/IP",
+        "OSI"
+      ],
+      "chapters_h": "The story",
+      "chapters": [
+        [
+          "From mechatronics to code",
+          "I graduated as a mechatronics, robotics and automation engineer from ESPRIT in 2020. That engineering foundation taught me rigour, but it was computing that pulled me in. After a year of full stack freelancing, I founded KOYOTEC in 2022."
+        ],
+        [
+          "KOYOTEC",
+          "KOYOTEC is a digital agency delivering creative web solutions worldwide. With the team, we have delivered more than 50 projects for startups, and supported 38 startups end to end as the technical partner of the Westerwelle Foundation across Tunis, Kigali and Arusha. On the infrastructure side, I design cloud architectures that hold under load: Kubernetes, Kafka, PostgreSQL, Terraform, CI/CD."
+        ],
+        [
+          "Back to school",
+          "In 2024 I went back to engineering school, in computer engineering at ESPRIT, to master machine learning. With one specific goal: building an AI model that can help detect scleroderma early. A project born from a personal story, which I presented as \"The Algorithm of Grief\"."
+        ],
+        [
+          "Teaching tech, in Tunisian",
+          "Since 2025 I've shared weekly content on DevOps, cloud, software architecture and Linux, on Instagram, TikTok and YouTube, and live on Kick. I explain it in Tunisian dialect, to demystify these jobs and help other developers move into DevOps and cloud. I also founded Localhost Community, a support space for IT enthusiasts across the Arab world, now an O'Reilly Community Partner."
+        ]
+      ],
+      "timeline_h": "Timeline",
+      "timeline": [
+        [
+          "2015–2020",
+          "Engineering degree in mechatronics, robotics and automation — ESPRIT"
+        ],
+        [
+          "2021",
+          "Freelance full stack developer"
+        ],
+        [
+          "2022",
+          "Founded KOYOTEC"
+        ],
+        [
+          "2024",
+          "Back to computer engineering at ESPRIT, specialising in machine learning"
+        ],
+        [
+          "2025",
+          "First tech videos · \"Docker 101\" instructor at Orbit 1.0 (IEEE INSAT) · Talk at Fork it! on early scleroderma detection"
+        ],
+        [
+          "2025",
+          "Founded Localhost Community · O'Reilly Community Partner · TN-Container, an open-source Docker alternative written in Go · LSSA, an open-source Git extension"
+        ],
+        [
+          "2025",
+          "Speaker at Gigwave Forum (Bizerte) and PyFAC (Sfax): from freelancing to a digital agency"
+        ],
+        [
+          "2026",
+          "Speaker at the AI Innovation Summit by Leaders University and AI Community Days"
+        ]
+      ],
+      "stage_h": "On stage",
+      "stage_title": "The Algorithm of Grief",
+      "stage_text": "A hybrid machine learning model — convolutional and recurrent networks — for the early detection of scleroderma. A talk about life, loss and algorithms, given at Fork it! and at the AI Innovation Summit by Leaders University.",
+      "stage_photos": [
+        "talk-title",
+        "stage-pyfac"
       ],
       "links_h": "Follow me",
       "links": [
@@ -1683,6 +1861,8 @@
           "https://kick.com/medaly-dridi"
         ]
       ],
+      "chip": "Med Ali",
+      "chip_hover": "Meet the founder",
       "cta_h": "Got a project? Let's talk.",
       "cta": "Get a free quote"
     }
