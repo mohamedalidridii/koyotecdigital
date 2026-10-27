@@ -14,15 +14,15 @@ const slideSources = Array.from(
 );
 
 const slideTitles = [
-  "Profile Study",
-  "Pump Noir",
-  "Compact Disc",
-  "Iris Frame",
-  "Open Compact",
-  "Shelf Set",
-  "Hand Held",
-  "Clear Stack",
-  "Foam Pump",
+  "Djerba",
+  "Tozeur",
+  "Tabarka",
+  "Kairouan",
+  "Sidi Bou Saïd",
+  "Istanbul",
+  "Marrakech",
+  "Lisbonne",
+  "Zanzibar",
 ];
 
 const sliderContainer = document.querySelector(".slider");
