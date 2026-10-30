@@ -15,12 +15,12 @@ const LABELS = {
   menu: "Bouton menu", start: "Bouton « démarrer »", other_lang: "Libellé du changement de langue", email_ph: "Texte du champ e-mail", touch: "Texte « nous écrire »",
   based: "Texte de localisation", rights: "Mention droits réservés", nav: "Noms du menu", services: "Services", blog: "Blog", contact: "Contact", engineering: "Ingénierie (section et lien du menu)",
   domain: "Adresse du site (https://…)", name: "Nom de l'entreprise", tagline: "Nom complet", email: "E-mail", phone: "Téléphone (format +21652405699)", phoneDisplay: "Téléphone affiché",
-  instagram: "Lien Instagram", youtube: "Lien YouTube", maps: "Lien de la fiche Google Maps", designrush: "Lien de la fiche DesignRush", locality: "Ville / quartier", country: "Code pays", latitude: "Latitude", longitude: "Longitude", year: "Année du copyright",
+  instagram: "Lien Instagram", youtube: "Lien YouTube", maps: "Lien de la fiche Google Maps", designrush: "Lien de la fiche DesignRush", linkedin: "Lien LinkedIn (entreprise)", facebook: "Lien Facebook", street: "Rue (adresse postale)", postalCode: "Code postal", city: "Ville (adresse postale)", founded: "Année de création", priceFrom: "Prix de départ d'un site (DT)", locality: "Ville / quartier", country: "Code pays", latitude: "Latitude", longitude: "Longitude", year: "Année du copyright",
   ogImage: "Image de partage (chemin, ex. /og/koyotec.jpg)", slug: "Adresse de l'article (slug : minuscules, chiffres, tirets)", date: "Date de publication", intro: "Introduction (en gras)",
   sections: "Sections de l'article",
   eyebrow: "Petite ligne au-dessus du titre", sub: "Phrase sous le titre", cta_primary: "Bouton principal (devis)", cta_secondary: "Bouton secondaire",
   services_kicker: "Petit titre des services", services_h: "Titre de la section services", services_lead: "Phrase sous le titre des services",
-  cards: "Cartes de services", cards_more: "Texte « en savoir plus »", why_h: "Titre « pourquoi nous »", points: "Trois points forts",
+  cards: "Cartes de services", cards_more: "Texte « en savoir plus »", why_h: "Titre « pourquoi nous »", points: "Trois points forts", facts_h: "Titre « en bref »", facts: "Chiffres clés (libellé, valeur)",
   faq_h: "Titre de la FAQ", faq: "Questions / réponses", cta_sub: "Phrase du bandeau final", cta_btn: "Bouton du bandeau final",
   hero_meta: "Lignes sous le grand nom (une par élément)", scroll_hint: "Texte « défiler »", services_outline: "Titre services : mot en contour", services_bold: "Titre services : mot en gras",
   why_kicker: "Petite étiquette « pourquoi nous »", popup_title: "Texte de la carte flottante", popup_btn: "Bouton de la carte flottante", cta_giant: "Gros texte du bandeau final",
@@ -31,7 +31,7 @@ const LABELS = {
   examples: "Exemples (slugs de L'art de la différence)", related_h: "Titre « pour aller plus loin »", posts: "Articles liés (identifiants, ex. article-1)",
   nav_cta: "Bouton « devis » du menu", footer_pages: "Titre colonne pages (pied de page)", footer_contact: "Titre colonne contact", footer_follow: "Titre colonne réseaux",
 };
-const TUPLE = { stats: ["Valeur (ex. 37,7K)", "Libellé"], chapters: ["Titre", "Texte"], timeline: ["Année", "Texte"], photos: ["Fichier (sans .webp)", "Texte alternatif"], links: ["Nom", "Lien"], cards: ["Titre", "Description"], points: ["Titre", "Description"], faq: ["Question", "Réponse"], blocks: ["Titre", "Texte"], process: ["Étape", "Description"], sections: ["Titre de section", "Texte (ligne vide = nouveau paragraphe ; « - » en début de ligne = liste)"] };
+const TUPLE = { stats: ["Valeur (ex. 37,7K)", "Libellé"], chapters: ["Titre", "Texte"], timeline: ["Année", "Texte"], photos: ["Fichier (sans .webp)", "Texte alternatif"], links: ["Nom", "Lien"], cards: ["Titre", "Description"], points: ["Titre", "Description"], facts: ["Libellé", "Valeur"], faq: ["Question", "Réponse"], blocks: ["Titre", "Texte"], process: ["Étape", "Description"], sections: ["Titre de section", "Texte (ligne vide = nouveau paragraphe ; « - » en début de ligne = liste)"] };
 const PAGE_NAMES = { home: "Accueil", services: "Services", lp_web: "Page « Création site web »", lp_branding: "Page « Logo et identité »", lp_seo: "Page « SEO »", lp_ecommerce: "Page « E-commerce »", founder: "Page fondateur", contact: "Contact", blog: "Page Blog", ui: "Menus et libellés" };
 const label = (k) => LABELS[k] || k;
 

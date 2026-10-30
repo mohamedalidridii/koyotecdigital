@@ -11,10 +11,17 @@
     "youtube": "https://www.youtube.com/@medaly.dridiy",
     "maps": "https://www.google.com/maps?cid=2608638256852672274",
     "designrush": "https://www.designrush.com/agency/website-design-development",
+    "linkedin": "https://www.linkedin.com/company/88672837",
+    "facebook": "https://www.facebook.com/profile.php?id=100086642061980",
     "locality": "Ennasr, Tunis",
+    "street": "28 Rue Boukhara",
+    "postalCode": "2037",
+    "city": "Ariana",
     "country": "TN",
     "latitude": "36.8652",
     "longitude": "10.1714",
+    "founded": "2022",
+    "priceFrom": "800",
     "year": "2026",
     "ogImage": "/og/koyotec.jpg"
   },
@@ -137,6 +144,33 @@
           "Logo, design, développement et mise en ligne : nous prenons tout en charge."
         ]
       ],
+      "facts_h": "KOYOTEC en bref",
+      "facts": [
+        [
+          "Fondée en",
+          "2022"
+        ],
+        [
+          "Adresse",
+          "28 Rue Boukhara, Ariana 2037, Tunisie"
+        ],
+        [
+          "Projets livrés",
+          "50+"
+        ],
+        [
+          "Startups accompagnées",
+          "38"
+        ],
+        [
+          "Langues",
+          "Français, arabe, anglais"
+        ],
+        [
+          "Sites web",
+          "À partir de 800 DT"
+        ]
+      ],
       "process_h": "Comment nous travaillons",
       "process": [
         [
@@ -160,7 +194,7 @@
       "faq": [
         [
           "Combien coûte la création d'un site web ?",
-          "Le prix dépend du type de site, du nombre de pages et des fonctionnalités. Décrivez-nous votre projet : nous vous envoyons un devis gratuit."
+          "Un site web démarre à partir de 800 DT. Le prix final dépend du type de site, du nombre de pages et des fonctionnalités : décrivez-nous votre projet et nous vous envoyons un devis gratuit et détaillé."
         ],
         [
           "Combien de temps faut-il pour créer un site ?",
@@ -305,7 +339,7 @@
         ],
         [
           "Combien coûte un site web ?",
-          "Le prix dépend du nombre de pages, du design sur mesure, des fonctionnalités, des langues et des contenus à rédiger. Le devis détaille chaque poste ; notre guide sur le coût d'un site web en Tunisie, sur le blog, vous aide aussi à préparer votre budget."
+          "Un site web démarre à partir de 800 DT. Le prix final dépend du nombre de pages, du design sur mesure, des fonctionnalités, des langues et des contenus à rédiger. Le devis détaille chaque poste ; notre guide sur le coût d'un site web en Tunisie, sur le blog, vous aide aussi à préparer votre budget."
         ]
       ]
     },
@@ -1054,6 +1088,33 @@
           "Logo, design, development and launch: we take care of everything."
         ]
       ],
+      "facts_h": "KOYOTEC at a glance",
+      "facts": [
+        [
+          "Founded",
+          "2022"
+        ],
+        [
+          "Address",
+          "28 Rue Boukhara, Ariana 2037, Tunisia"
+        ],
+        [
+          "Projects delivered",
+          "50+"
+        ],
+        [
+          "Startups supported",
+          "38"
+        ],
+        [
+          "Languages",
+          "French, Arabic, English"
+        ],
+        [
+          "Websites",
+          "From 800 TND"
+        ]
+      ],
       "process_h": "How we work",
       "process": [
         [
@@ -1077,7 +1138,7 @@
       "faq": [
         [
           "How much does a website cost?",
-          "The price depends on the type of site, the number of pages and the features. Describe your project and we will send you a free quote."
+          "Websites start from 800 TND. The final price depends on the type of site, the number of pages and the features: describe your project and we will send you a free, detailed quote."
         ],
         [
           "How long does it take to build a website?",
@@ -1222,7 +1283,7 @@
         ],
         [
           "How much does a website cost?",
-          "The price depends on the number of pages, custom design, features, languages and copy to write. The quote itemises each part; our guide to website costs in Tunisia, on the blog, also helps you plan your budget."
+          "Websites start from 800 TND. The final price depends on the number of pages, custom design, features, languages and copy to write. The quote itemises each part; our guide to website costs in Tunisia, on the blog, also helps you plan your budget."
         ]
       ]
     },

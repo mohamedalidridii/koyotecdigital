@@ -4,11 +4,13 @@
 
 KOYOTEC is a digital agency based in Tunis. We build fast, custom websites, memorable brand identities and digital strategies that bring in real customers.
 
-- Location: Ennasr, Tunis, Tunisia (https://www.koyotec.digital/en/)
+- Founded: 2022
+- Address: 28 Rue Boukhara, Ariana, 2037 (Ennasr, Tunis), Tunisia
 - Founder: Mohamed Ali Dridi, Founder of KOYOTEC · DevOps & Cloud Engineer (https://www.koyotec.digital/en/medalydridi)
 - 50+ projects delivered with KOYOTEC
 - 38 startups supported
 - Languages: French, Arabic, English
+- Pricing: websites from 800 TND, free quote within 24 hours
 - Services: Website design & development, Brand identity & logo, SEO, UI/UX design, Online store, Digital strategy
 - Engineering arm (Koyotec Engineering): Artificial intelligence, Cloud, DevOps, Cybersecurity, Business intelligence
 - Contact: contact@koyotec.digital, +216 52 405 699, https://www.koyotec.digital/en/contact

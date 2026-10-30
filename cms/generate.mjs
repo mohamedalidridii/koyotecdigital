@@ -144,8 +144,14 @@ export function generate(root = ROOT, content = loadContent(root), { write = tru
       image: SITE + G.ogImage,
       email: G.email,
       telephone: G.phone,
-      priceRange: "$$",
-      address: { "@type": "PostalAddress", addressLocality: G.locality, addressCountry: G.country },
+      priceRange: G.priceFrom ? `${G.priceFrom} TND+` : "$$",
+      address: {
+        "@type": "PostalAddress",
+        ...(G.street && { streetAddress: G.street }),
+        addressLocality: G.city || G.locality,
+        ...(G.postalCode && { postalCode: G.postalCode }),
+        addressCountry: G.country,
+      },
       geo: { "@type": "GeoCoordinates", latitude: Number(G.latitude), longitude: Number(G.longitude) },
       areaServed: [{ "@type": "Country", name: "Tunisia" }],
       knowsLanguage: ["fr", "ar", "en"],
@@ -328,7 +334,9 @@ ${Object.keys(LANDINGS).filter((k) => t[k]).map((k) => `            <a href="${P
           <div>
             <h2 class="footer-h">${esc(ui.footer_follow)}</h2>
             <a href="${esc(G.instagram)}" target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a href="${esc(G.youtube)}" target="_blank" rel="noopener noreferrer">YouTube</a>${pageKey === "home" && G.designrush ? `
+            <a href="${esc(G.youtube)}" target="_blank" rel="noopener noreferrer">YouTube</a>${G.linkedin ? `
+            <a href="${esc(G.linkedin)}" target="_blank" rel="noopener noreferrer">LinkedIn</a>` : ""}${G.facebook ? `
+            <a href="${esc(G.facebook)}" target="_blank" rel="noopener noreferrer">Facebook</a>` : ""}${pageKey === "home" && G.designrush ? `
             <a href="${esc(G.designrush)}" target="_blank" rel="noopener">Check out our listing on DesignRush</a>` : ""}
           </div>
           <div>
@@ -521,7 +529,13 @@ ${artTeaser(lang)}
           </div>
           <ol class="pillars">
 ${pillars}
-          </ol>
+          </ol>${h.facts ? `
+          <div class="facts">
+            <h3 class="facts-h">${esc(h.facts_h)}</h3>
+            <dl class="facts-list">
+${h.facts.map(([k, v]) => `              <div data-line><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("\n")}
+            </dl>
+          </div>` : ""}
         </div>
       </section>
 
@@ -1065,10 +1079,12 @@ ${body}
   function llmsTxt() {
     const e = site.en; const f = e.founder;
     const facts = [
-      `Location: ${G.locality}, Tunisia (${url("home", "en")})`,
+      ...(G.founded ? [`Founded: ${G.founded}`] : []),
+      `Address: ${[G.street, G.city, G.postalCode].filter(Boolean).join(", ")} (${G.locality}), Tunisia`,
       `Founder: ${plain(f.h1)}, ${plain(f.role)} (${url("founder", "en")})`,
       ...f.stats.filter(([, l]) => /project|startup/i.test(l)).map(([n, l]) => `${n} ${l}`),
       "Languages: French, Arabic, English",
+      ...(G.priceFrom ? [`Pricing: websites from ${G.priceFrom} TND, free quote within 24 hours`] : []),
       `Services: ${e.home.cards.map(([n]) => n).join(", ")}`,
       `Engineering arm (Koyotec Engineering): ${e.home.engineering.items.map(([n]) => n).join(", ")}`,
       `Contact: ${G.email}, ${G.phoneDisplay}, ${url("contact", "en")}`,
@@ -1104,6 +1120,7 @@ ${body}
   }
 
   function llmsFull() {
+    const facts = (t) => (t.home.facts ? [`### ${plain(t.home.facts_h)}`, "", ...t.home.facts.map(([k, v]) => `- ${plain(k)}: ${plain(v)}`), ""] : []);
     const qa = (items) => items.map(([q, a]) => `**${plain(q)}**\n${plain(a)}`).join("\n\n");
     const out = [`# ${G.name}: full text`, "", `> ${plain(site.en.home.desc)}`, ""];
     for (const lang of LANGS) {
@@ -1112,6 +1129,7 @@ ${body}
         `## ${shortTitle(t.home.title)}`, `URL: ${url("home", lang)}`, "",
         plain(t.home.lead), "", ...t.home.about.map(plain).flatMap((p) => [p, ""]),
         ...t.home.points.map(([a, b]) => `- ${plain(a)}: ${plain(b)}`), "",
+        ...facts(t),
         `### ${plain(t.home.faq_h)}`, "", qa(t.home.faq), "",
       );
       for (const k of landingKeys(lang)) {
