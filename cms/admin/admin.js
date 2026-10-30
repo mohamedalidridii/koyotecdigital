@@ -15,7 +15,7 @@ const LABELS = {
   menu: "Bouton menu", start: "Bouton « démarrer »", other_lang: "Libellé du changement de langue", email_ph: "Texte du champ e-mail", touch: "Texte « nous écrire »",
   based: "Texte de localisation", rights: "Mention droits réservés", nav: "Noms du menu", services: "Services", blog: "Blog", contact: "Contact", engineering: "Ingénierie (section et lien du menu)",
   domain: "Adresse du site (https://…)", name: "Nom de l'entreprise", tagline: "Nom complet", email: "E-mail", phone: "Téléphone (format +21652405699)", phoneDisplay: "Téléphone affiché",
-  instagram: "Lien Instagram", youtube: "Lien YouTube", maps: "Lien de la fiche Google Maps", locality: "Ville / quartier", country: "Code pays", latitude: "Latitude", longitude: "Longitude", year: "Année du copyright",
+  instagram: "Lien Instagram", youtube: "Lien YouTube", maps: "Lien de la fiche Google Maps", designrush: "Lien de la fiche DesignRush", locality: "Ville / quartier", country: "Code pays", latitude: "Latitude", longitude: "Longitude", year: "Année du copyright",
   ogImage: "Image de partage (chemin, ex. /og/koyotec.jpg)", slug: "Adresse de l'article (slug : minuscules, chiffres, tirets)", date: "Date de publication", intro: "Introduction (en gras)",
   sections: "Sections de l'article",
   eyebrow: "Petite ligne au-dessus du titre", sub: "Phrase sous le titre", cta_primary: "Bouton principal (devis)", cta_secondary: "Bouton secondaire",

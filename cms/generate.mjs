@@ -2,6 +2,7 @@
 // Used by the CMS "Publish" button and by `npm run generate`.
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, unlinkSync, existsSync, renameSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
+import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 export const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
@@ -149,7 +150,10 @@ export function generate(root = ROOT, content = loadContent(root), { write = tru
       areaServed: [{ "@type": "Country", name: "Tunisia" }],
       knowsLanguage: ["fr", "ar", "en"],
       hasMap: G.maps,
-      sameAs: [G.instagram, G.youtube, G.maps],
+      sameAs: [G.instagram, G.youtube, G.maps, G.linkedin, G.facebook, G.designrush].filter(Boolean),
+      ...(G.founded && { foundingDate: G.founded }),
+      founder: { "@id": SITE + "/medalydridi#person" },
+      knowsAbout: [...t.home.cards.map(([n]) => n), ...t.home.engineering.items.map(([n]) => n)],
       makesOffer: t.home.cards.map(([n]) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: n } })),
     };
   }
@@ -302,7 +306,7 @@ ${items}
         </${tag}>`;
   }
 
-  function footer(lang) {
+  function footer(lang, pageKey) {
     const t = site[lang]; const ui = t.ui; const i = idx(lang);
     return `    <footer class="footer">
       <div class="shell">
@@ -324,7 +328,8 @@ ${Object.keys(LANDINGS).filter((k) => t[k]).map((k) => `            <a href="${P
           <div>
             <h2 class="footer-h">${esc(ui.footer_follow)}</h2>
             <a href="${esc(G.instagram)}" target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a href="${esc(G.youtube)}" target="_blank" rel="noopener noreferrer">YouTube</a>
+            <a href="${esc(G.youtube)}" target="_blank" rel="noopener noreferrer">YouTube</a>${pageKey === "home" && G.designrush ? `
+            <a href="${esc(G.designrush)}" target="_blank" rel="noopener">Check out our listing on DesignRush</a>` : ""}
           </div>
           <div>
             <h2 class="footer-h">${esc(t.home.foot_copy)}</h2>
@@ -354,7 +359,7 @@ ${nav(lang, pageKey, switchTo)}
 ${main}
     </main>
 
-${footer(lang)}
+${footer(lang, pageKey)}
   </div>
   </div>
 
@@ -992,7 +997,26 @@ ${body}
     return page({ head, lang, ns: "article", pageKey: "blog", switchTo, main });
   }
 
-  function sitemap() {
+  // last change of a generated file: today if this run rewrites it, else its last commit
+  const today = new Date().toISOString().slice(0, 10);
+  function lastmod(files, file) {
+    if (!file) return today;
+    const abs = join(root, file);
+    if (files[file] !== undefined && (!existsSync(abs) || readFileSync(abs, "utf8") !== files[file])) return today;
+    try {
+      return execFileSync("git", ["log", "-1", "--format=%cs", "--", file], { cwd: root, encoding: "utf8" }).trim() || today;
+    } catch {
+      return today;
+    }
+  }
+  // route -> generated file (the engineering app is prebuilt into public/engineering)
+  const fileOf = (files, u) => {
+    const p = u.slice(1);
+    if (u.startsWith("/engineering/")) return `public/${p}index.html`;
+    return [`${p}.html`, `${p}index.html`, `${p}/index.html`].find((f) => files[f] !== undefined);
+  };
+
+  function sitemap(files) {
     const entries = [];
     for (const page of ["home", "services", ...Object.keys(LANDINGS).filter((k) => site.fr[k] && site.en[k]), "art", "blog", "contact", "founder"]) {
       entries.push({ fr: PATHS[page][0], en: PATHS[page][1] });
@@ -1020,13 +1044,94 @@ ${body}
     for (const e of entries) {
       for (const u of [e.fr, e.en]) {
         if (!u) continue;
-        x += `  <url>\n    <loc>${esc(SITE + u)}</loc>\n${e.lastmod ? `    <lastmod>${esc(e.lastmod)}</lastmod>\n` : ""}`;
+        x += `  <url>\n    <loc>${esc(SITE + u)}</loc>\n    <lastmod>${esc(e.lastmod || lastmod(files, fileOf(files, u)))}</lastmod>\n`;
         if (e.fr) x += `    <xhtml:link rel="alternate" hreflang="fr" href="${esc(SITE + e.fr)}"/>\n`;
         if (e.en) x += `    <xhtml:link rel="alternate" hreflang="en" href="${esc(SITE + e.en)}"/>\n`;
         x += `    <xhtml:link rel="alternate" hreflang="x-default" href="${esc(SITE + (e.fr || e.en))}"/>\n  </url>\n`;
       }
     }
     return x + "</urlset>\n";
+  }
+
+  // ---------- llms.txt: plain-text map of the site for AI assistants (llmstxt.org) ----------
+  const plain = (s) => String(s).replace(/\[\[(.+?)\]\]/g, "$1").replace(/\s+\n/g, "\n").trim();
+  const shortTitle = (s) => plain(s).replace(/\s*[–|]\s*KOYOTEC$/, "");
+  const landingKeys = (lang) => Object.keys(LANDINGS).filter((k) => site[lang][k]);
+  const LLMS = {
+    en: { pages: "Pages", services: "Services", blog: "Articles", concepts: "Concept work" },
+    fr: { pages: "Pages", services: "Services", blog: "Articles", concepts: "Concepts" },
+  };
+
+  function llmsTxt() {
+    const e = site.en; const f = e.founder;
+    const facts = [
+      `Location: ${G.locality}, Tunisia (${url("home", "en")})`,
+      `Founder: ${plain(f.h1)}, ${plain(f.role)} (${url("founder", "en")})`,
+      ...f.stats.filter(([, l]) => /project|startup/i.test(l)).map(([n, l]) => `${n} ${l}`),
+      "Languages: French, Arabic, English",
+      `Services: ${e.home.cards.map(([n]) => n).join(", ")}`,
+      `Engineering arm (Koyotec Engineering): ${e.home.engineering.items.map(([n]) => n).join(", ")}`,
+      `Contact: ${G.email}, ${G.phoneDisplay}, ${url("contact", "en")}`,
+    ];
+    const item = (href, title, desc) => `- [${shortTitle(title)}](${href}): ${plain(desc)}`;
+    const section = (lang) => {
+      const t = site[lang]; const L = LLMS[lang];
+      return [
+        `## ${L.pages} (${lang === "fr" ? "français" : "English"})`, "",
+        item(url("home", lang), t.home.title, t.home.desc),
+        item(url("services", lang), t.services.title, t.services.desc),
+        item(url("founder", lang), t.founder.title, t.founder.desc),
+        item(url("contact", lang), t.contact.title, t.contact.desc),
+        item(url("engineering", lang), t.home.engineering.kicker, t.home.engineering.lead),
+        "", `### ${L.services}`, "",
+        ...landingKeys(lang).map((k) => item(url(k, lang), t[k].title, t[k].desc)),
+        "", `### ${L.blog}`, "",
+        ...blog[lang].map((a) => item(SITE + artPath(lang, a), a.title, a.desc)),
+        "", `### ${L.concepts}`, "",
+        item(url("art", lang), t.art.title, t.art.desc),
+        "",
+      ].join("\n");
+    };
+    return [
+      `# ${G.name}`, "",
+      `> ${plain(e.home.desc)}`, "",
+      plain(e.home.lead), "",
+      ...facts.map((x) => `- ${x}`), "",
+      `Full text of the main pages: ${SITE}/llms-full.txt`, "",
+      section("en"),
+      section("fr"),
+    ].join("\n");
+  }
+
+  function llmsFull() {
+    const qa = (items) => items.map(([q, a]) => `**${plain(q)}**\n${plain(a)}`).join("\n\n");
+    const out = [`# ${G.name}: full text`, "", `> ${plain(site.en.home.desc)}`, ""];
+    for (const lang of LANGS) {
+      const t = site[lang];
+      out.push(
+        `## ${shortTitle(t.home.title)}`, `URL: ${url("home", lang)}`, "",
+        plain(t.home.lead), "", ...t.home.about.map(plain).flatMap((p) => [p, ""]),
+        ...t.home.points.map(([a, b]) => `- ${plain(a)}: ${plain(b)}`), "",
+        `### ${plain(t.home.faq_h)}`, "", qa(t.home.faq), "",
+      );
+      for (const k of landingKeys(lang)) {
+        const l = t[k];
+        out.push(
+          `## ${shortTitle(l.title)}`, `URL: ${url(k, lang)}`, "",
+          plain(l.intro), "",
+          ...l.sections.flatMap(([h, b]) => [`### ${plain(h)}`, "", plain(b), ""]),
+          `### ${plain(l.faq_h)}`, "", qa(l.faq), "",
+        );
+      }
+      for (const a of blog[lang]) {
+        out.push(
+          `## ${plain(a.title)}`, `URL: ${SITE + artPath(lang, a)}`, `Date: ${a.updated || a.date}`, "",
+          plain(a.intro), "",
+          ...a.sections.flatMap(([h, b]) => [`### ${plain(h)}`, "", plain(b), ""]),
+        );
+      }
+    }
+    return out.join("\n");
   }
 
   // ---------- assemble ----------
@@ -1037,7 +1142,6 @@ ${body}
     "art-de-la-difference.html": artPage("fr"), "en/art-of-difference.html": artPage("en"),
     "blog/index.html": blogIndex("fr"), "en/blog/index.html": blogIndex("en"),
     "medalydridi.html": founder("fr"), "en/medalydridi.html": founder("en"),
-    "public/sitemap.xml": sitemap(),
   };
   for (const lang of LANGS) {
     for (const k of Object.keys(LANDINGS)) {
@@ -1050,6 +1154,10 @@ ${body}
       files[`${lang === "fr" ? "blog" : "en/blog"}/${a.slug}.html`] = article(lang, a);
     }
   }
+
+  files["public/llms.txt"] = llmsTxt();
+  files["public/llms-full.txt"] = llmsFull();
+  files["public/sitemap.xml"] = sitemap(files);
 
   if (!write) return { files, removed: [] };
 
