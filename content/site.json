@@ -49,7 +49,7 @@
       "close": "Fermer"
     },
     "home": {
-      "title": "Agence Web & Branding à Tunis | Création de Site Internet – KOYOTEC",
+      "title": "Agence Web à Tunis : Création de Site Internet – KOYOTEC",
       "desc": "KOYOTEC, agence digitale à Tunis : création de sites web sur mesure, identité visuelle et branding, stratégie digitale. Demandez un devis gratuit.",
       "eyebrow": "KOYOTEC · Agence digitale à Tunis",
       "h1": "Création de site web et branding à Tunis",
@@ -216,7 +216,7 @@
       "cta_h": "Parlons de votre projet",
       "cta_sub": "Devis gratuit sous 24 h.",
       "cta_giant": "Parlons-en →",
-      "cta_btn": "Demander un devis gratuit",
+      "cta_btn": "Recevoir mon devis gratuit",
       "foot_copy": "Parlons de votre projet web.",
       "art_kicker": "Concepts",
       "art_h": "L’art de la",
@@ -226,7 +226,7 @@
       "art_count": "pièces"
     },
     "services": {
-      "title": "Services : Création de Site Web, Branding & SEO à Tunis – KOYOTEC",
+      "title": "Services : Site Web, Branding & SEO à Tunis – KOYOTEC",
       "desc": "Création de site internet sur mesure, identité visuelle, logo, design UI/UX et référencement SEO à Tunis. Découvrez les services de l'agence KOYOTEC.",
       "h1": "Nos services web et branding à Tunis",
       "sub": "Du logo au site web : tout ce qu'il faut pour une présence en ligne professionnelle.",
@@ -276,7 +276,7 @@
       "cta": "Demander un devis gratuit"
     },
     "contact": {
-      "title": "Devis Création Site Web Gratuit à Tunis | Contact – KOYOTEC",
+      "title": "Devis Site Web Gratuit à Tunis | Contact – KOYOTEC",
       "desc": "Demandez votre devis gratuit pour un site web, un logo, le SEO ou une boutique en ligne à Tunis. Réponse sous 24 h. KOYOTEC, Ennasr : +216 52 405 699.",
       "h1": "Demandez votre devis de site web à Tunis",
       "sub": "Site vitrine, boutique en ligne, logo ou référencement : décrivez votre projet en deux minutes, nous vous répondons avec un devis gratuit et détaillé sous 24 h.",
@@ -344,7 +344,7 @@
       ]
     },
     "blog": {
-      "title": "Blog : Conseils Site Web, SEO & Branding à Tunis – KOYOTEC",
+      "title": "Blog : Conseils Site Web, SEO & Branding – KOYOTEC",
       "desc": "Guides pratiques sur la création de site web, le référencement SEO et le branding en Tunisie, par l'agence digitale KOYOTEC à Tunis.",
       "h1": "Blog : site web, SEO et branding",
       "lead": "Des guides pratiques pour les entreprises tunisiennes qui veulent une présence en ligne efficace.",
@@ -789,7 +789,7 @@
       "cta_h": "Lançons votre boutique en ligne"
     },
     "founder": {
-      "title": "Mohamed Ali Dridi – Fondateur de KOYOTEC, ingénieur DevOps & créateur tech",
+      "title": "Mohamed Ali Dridi – Fondateur de KOYOTEC",
       "desc": "Mohamed Ali Dridi : fondateur de KOYOTEC, ingénieur DevOps & cloud, O'Reilly Community Partner et créateur de contenu tech suivi par plus de 37 000 personnes.",
       "label": "Le fondateur",
       "h1": "Mohamed Ali Dridi",
@@ -1160,7 +1160,7 @@
       "cta_h": "Let's talk about your project",
       "cta_sub": "Free quote within 24 hours.",
       "cta_giant": "Let's talk →",
-      "cta_btn": "Get a free quote",
+      "cta_btn": "Request your free quote",
       "foot_copy": "Let's talk about your web project.",
       "art_kicker": "Concepts",
       "art_h": "The art of",
@@ -1288,7 +1288,7 @@
       ]
     },
     "blog": {
-      "title": "Blog: Web Design, SEO & Branding Tips from Tunis – KOYOTEC",
+      "title": "Blog: Web Design, SEO & Branding Tips – KOYOTEC",
       "desc": "Practical guides on website design, SEO and branding in Tunisia from the KOYOTEC digital agency in Tunis.",
       "h1": "Blog: web design, SEO and branding",
       "lead": "Practical guides for Tunisian businesses that want an effective online presence.",
@@ -1339,7 +1339,7 @@
       "case_cta_h": "What if the next case study were yours?"
     },
     "lp_web": {
-      "title": "Web Design in Tunisia | Custom Websites in Tunis – KOYOTEC",
+      "title": "Web Design in Tunisia | Custom Websites – KOYOTEC",
       "desc": "Web design and development agency in Tunis, Tunisia: custom business websites, portfolios and web platforms that are fast, mobile-friendly and built to rank on Google.",
       "label": "Website design",
       "h1": "Custom web design and development in Tunisia",
@@ -1536,7 +1536,7 @@
       "cta_h": "Let's give your brand an identity"
     },
     "lp_seo": {
-      "title": "SEO Agency in Tunisia | Search Engine Optimization – KOYOTEC",
+      "title": "SEO Agency in Tunis, Tunisia | SEO Services – KOYOTEC",
       "desc": "SEO agency in Tunis, Tunisia: audits, technical SEO, content, local SEO and Google Business Profile to reach the first page of Google.",
       "label": "SEO",
       "h1": "Search engine optimization (SEO) in Tunisia",
@@ -1637,7 +1637,7 @@
       "cta_h": "Let's get you found on Google"
     },
     "lp_ecommerce": {
-      "title": "E-commerce Website Design in Tunisia | Online Store – KOYOTEC",
+      "title": "E-commerce Website Design in Tunisia – KOYOTEC",
       "desc": "E-commerce website design in Tunisia: custom online stores with card or cash-on-delivery payment, order management and SEO. Free quote from our Tunis agency.",
       "label": "E-commerce website",
       "h1": "E-commerce website design in Tunisia",
@@ -1733,7 +1733,7 @@
       "cta_h": "Let's launch your online store"
     },
     "founder": {
-      "title": "Mohamed Ali Dridi – Founder of KOYOTEC, DevOps engineer & tech creator",
+      "title": "Mohamed Ali Dridi – Founder of KOYOTEC, DevOps engineer",
       "desc": "Mohamed Ali Dridi: founder of KOYOTEC, DevOps & cloud engineer, O'Reilly Community Partner and tech content creator followed by more than 37,000 people.",
       "label": "The founder",
       "h1": "Mohamed Ali Dridi",

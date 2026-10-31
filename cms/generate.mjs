@@ -276,7 +276,7 @@ ${altFr ? `    <link rel="alternate" hreflang="fr" href="${esc(SITE + altFr)}" /
       <nav class="nav-main" aria-label="${esc(ui.menu)}"><ul class="nav-links">${links}</ul></nav>
       <div class="nav-right">
         <a class="lang" href="${esc(sw)}" hreflang="${other}" lang="${other}">${other.toUpperCase()}</a>
-        <a class="nav-founder" href="${PATHS.founder[i]}" data-magnetic${page === "founder" ? ' aria-current="page"' : ""} aria-label="${esc(site[lang].founder.chip_hover)}"><img src="/founder/avatar.webp" alt="" width="28" height="28" /><span class="nav-founder-label" aria-hidden="true"><span>${esc(site[lang].founder.chip)}</span><span>${esc(site[lang].founder.chip_hover)} →</span></span><i class="nav-founder-dot" aria-hidden="true"></i></a>
+        <a class="nav-founder" href="${PATHS.founder[i]}" data-magnetic${page === "founder" ? ' aria-current="page"' : ""} aria-label="${esc(site[lang].founder.chip_hover)}"><img src="/founder/avatar.webp" alt="${esc(site[lang].founder.h1)}" width="28" height="28" /><span class="nav-founder-label" aria-hidden="true"><span>${esc(site[lang].founder.chip)}</span><span>${esc(site[lang].founder.chip_hover)} →</span></span><i class="nav-founder-dot" aria-hidden="true"></i></a>
         <a class="nav-cta" href="${PATHS.contact[i]}">${esc(ui.nav_cta)}</a>
         <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-btn-label" data-open="${esc(ui.menu)}" data-close="${esc(ui.close)}">${esc(ui.menu)}</span></button>
       </div>
@@ -1007,7 +1007,7 @@ ${body}
           <div class="cta-links">${link(PATHS.contact[i], b.cta)} ${landingsFor(lang, a).map(([href, label]) => link(href, label)).join(" ") || link(PATHS.services[i], t.ui.nav.services)}</div>
         </aside>
       </article>`;
-    const head = headTag({ lang, title: `${a.title} – ${G.name}`, desc: a.desc, canon: own, altFr, altEn, ld, ogType: "article" });
+    const head = headTag({ lang, title: a.seo_title || `${a.title} – ${G.name}`, desc: a.desc, canon: own, altFr, altEn, ld, ogType: "article" });
     return page({ head, lang, ns: "article", pageKey: "blog", switchTo, main });
   }
 

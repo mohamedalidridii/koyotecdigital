@@ -16,7 +16,7 @@ const LABELS = {
   based: "Texte de localisation", rights: "Mention droits réservés", nav: "Noms du menu", services: "Services", blog: "Blog", contact: "Contact", engineering: "Ingénierie (section et lien du menu)",
   domain: "Adresse du site (https://…)", name: "Nom de l'entreprise", tagline: "Nom complet", email: "E-mail", phone: "Téléphone (format +21652405699)", phoneDisplay: "Téléphone affiché",
   instagram: "Lien Instagram", youtube: "Lien YouTube", maps: "Lien de la fiche Google Maps", designrush: "Lien de la fiche DesignRush", linkedin: "Lien LinkedIn (entreprise)", facebook: "Lien Facebook", street: "Rue (adresse postale)", postalCode: "Code postal", city: "Ville (adresse postale)", founded: "Année de création", priceFrom: "Prix de départ d'un site (DT)", locality: "Ville / quartier", country: "Code pays", latitude: "Latitude", longitude: "Longitude", year: "Année du copyright",
-  ogImage: "Image de partage (chemin, ex. /og/koyotec.jpg)", slug: "Adresse de l'article (slug : minuscules, chiffres, tirets)", date: "Date de publication", intro: "Introduction (en gras)",
+  ogImage: "Image de partage (chemin, ex. /og/koyotec.jpg)", slug: "Adresse de l'article (slug : minuscules, chiffres, tirets)", date: "Date de publication", seo_title: "Titre pour Google (facultatif, ~55 caractères max)", intro: "Introduction (en gras)",
   sections: "Sections de l'article",
   eyebrow: "Petite ligne au-dessus du titre", sub: "Phrase sous le titre", cta_primary: "Bouton principal (devis)", cta_secondary: "Bouton secondaire",
   services_kicker: "Petit titre des services", services_h: "Titre de la section services", services_lead: "Phrase sous le titre des services",
