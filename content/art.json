@@ -1,5 +1,96 @@
 [
   {
+    "slug": "ligne-inox",
+    "framework": "vite",
+    "source": "KOYOTEC/ligne-inox",
+    "client": "Ligne Inox",
+    "kind": "entreprise",
+    "year": "2026",
+    "accent": "#e2231a",
+    "fr": {
+      "sector": "Bureau d’études cuisines & buanderies",
+      "line": "Une cuisine bien pensée ne revient jamais en arrière.",
+      "case": {
+        "title": "Ligne Inox : site de bureau d’études en cuisines professionnelles – KOYOTEC",
+        "desc": "Le site imaginé d’un bureau d’études en cuisines et buanderies professionnelles : de l’inox qui ondule sous le curseur et un plan de cuisine qui se dessine au défilement.",
+        "intro": "Dans une cuisine professionnelle, tout se joue dans le flux : le produit entre, avance, et ne revient jamais sur ses pas. Pour Ligne Inox, nous avons imaginé un site qui rend ce principe visible, sur une plaque d’inox et un plan qui se dessine sous vos yeux.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Ligne Inox est un bureau d’études qui conçoit l’équipement et l’aménagement des cuisines et des buanderies professionnelles : hôtels, restaurants, cliniques, écoles, laboratoires. Son métier est technique et souvent invisible. Le site devait le rendre concret et désirable, et convaincre des directeurs d’établissement de prendre rendez-vous."
+          ],
+          [
+            "L’idée",
+            "Le fil rouge, au sens propre, c’est la « marche en avant », la règle d’hygiène qui veut qu’aucun flux ne revienne sur ses pas. Au défilement, l’écran se fige, un plan de cuisine se dessine trait par trait, puis une ligne rouge traverse les six zones dans l’ordre : réception, stockage, préparation, cuisson, service, plonge. Chaque zone s’allume avec sa légende."
+          ],
+          [
+            "Direction artistique",
+            "Un fond d’inox brossé en WebGL, sombre ou clair selon les sections, et un seul rouge, réservé à la ligne du flux, aux appels à l’action et au logo. Geist pour les titres et les textes, Fraunces en italique pour les accents, Geist Mono pour les cotes et les codes de zones, comme sur un vrai plan. Le logo reprend la plaque d’inox traversée par la ligne rouge."
+          ],
+          [
+            "Le mouvement",
+            "La surface d’acier ondule sous le curseur grâce à une simulation de vagues, la lumière glisse lentement et le brossage s’étire avec la vitesse du défilement. Au fil des pages, la caméra se déplace sur le plan pour cadrer la zone liée à chaque service, et les pages s’enchaînent derrière un rideau traversé par la ligne rouge."
+          ],
+          [
+            "Le parcours",
+            "Quatre pages : l’accueil et la démonstration de la marche en avant, le bureau et son manifeste, les services en cartes empilées avec leur expertise technique, puis le contact avec un formulaire de projet. Chaque page est générée en HTML au moment du build, pour être lue par les moteurs de recherche sans attendre le JavaScript."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Pour un bureau d’études, un architecte ou une entreprise technique, ce concept montre qu’on peut faire comprendre un savoir-faire complexe sans un mot de jargon : il suffit de le montrer en mouvement. Le même principe s’applique à une usine, à un laboratoire ou à tout métier fondé sur un processus."
+          ]
+        ]
+      }
+    },
+    "en": {
+      "sector": "Kitchen & laundry design office",
+      "line": "A well-designed kitchen never goes backwards.",
+      "case": {
+        "title": "Ligne Inox: professional kitchen design office website – KOYOTEC",
+        "desc": "The imagined website of a professional kitchen and laundry design office: brushed steel that ripples under the cursor and a kitchen plan that draws itself as you scroll.",
+        "intro": "In a professional kitchen, everything is about flow: produce comes in, moves forward and never doubles back. For Ligne Inox, we imagined a site that makes this principle visible, on a sheet of stainless steel and a plan that draws itself before your eyes.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Ligne Inox is a design office that plans the equipment and layout of professional kitchens and laundries: hotels, restaurants, clinics, schools, pastry labs. The work is technical and often invisible. The site had to make it concrete and desirable, and convince facility managers to book a meeting."
+          ],
+          [
+            "The idea",
+            "The common thread, quite literally, is the \"forward flow\", the hygiene rule that no flow may ever double back. As you scroll, the screen locks, a kitchen plan draws itself line by line, then a red line crosses the six zones in order: delivery, storage, preparation, cooking, service, dishwashing. Each zone lights up with its caption."
+          ],
+          [
+            "Art direction",
+            "A brushed-steel background in WebGL, dark or bright depending on the section, and a single red, kept for the flow line, the calls to action and the logo. Geist for headings and text, Fraunces italic for accents, Geist Mono for dimensions and zone codes, as on a real plan. The logo is the steel plate crossed by the red line."
+          ],
+          [
+            "Motion",
+            "The steel ripples under the cursor through a wave simulation, light sweeps slowly across it and the brushing stretches with scroll speed. From page to page, the camera moves over the plan to frame the zone tied to each service, and pages change behind a curtain crossed by the red line."
+          ],
+          [
+            "The journey",
+            "Four pages: home with the forward-flow demonstration, the office and its manifesto, the services as stacked cards with their technical expertise, then contact with a project form. Every page is rendered to HTML at build time, so search engines can read it without waiting for JavaScript."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "For a design office, an architect or any technical business, this concept shows that complex expertise can be understood without jargon: you just show it in motion. The same idea works for a factory, a laboratory or any business built on a process."
+          ]
+        ]
+      }
+    },
+    "type": [
+      "Geist",
+      "Fraunces",
+      "Geist Mono"
+    ],
+    "palette": [
+      "#0d0e0f",
+      "#c7cbcd",
+      "#ecebe7",
+      "#e2231a"
+    ],
+    "service": "lp_web"
+  },
+  {
     "slug": "maison-aurele",
     "framework": "next",
     "source": "CGMWTDEC2025/CGMWTDEC2025/nrmlss",
