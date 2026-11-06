@@ -32,12 +32,14 @@ export function initNav(scope) {
     const bg = menu.querySelector(".menu-bg");
     const links = $(".menu-list a", menu);
     const foot = $(".menu-foot a", menu);
+    const card = menu.querySelector(".menu-art");
     const label = btn.querySelector(".menu-btn-label");
     const tl = gsap
       .timeline({ paused: true, defaults: { ease: "koy" } })
       .set(menu, { visibility: "visible" })
       .fromTo(bg, { clipPath: "inset(0 0 100% 0)" }, { clipPath: "inset(0 0 0% 0)", duration: 1, ease: "koy.io" }, 0)
       .fromTo(links, { yPercent: 110 }, { yPercent: 0, duration: 1, stagger: 0.06 }, 0.35)
+      .fromTo(card ? [card] : [], { autoAlpha: 0, y: 40, scale: 0.94 }, { autoAlpha: 1, y: 0, scale: 1, duration: 1.1 }, 0.6)
       .fromTo(foot, { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.6, stagger: 0.04 }, 0.6);
 
     const open = () => {
@@ -74,7 +76,7 @@ export function initNav(scope) {
       }
       // keep Tab inside the menu and its toggle
       if (e.key === "Tab") {
-        const items = [btn, ...links, ...foot];
+        const items = [btn, ...links, ...(card ? [card] : []), ...foot];
         const i = items.indexOf(document.activeElement);
         const next = e.shiftKey ? (i <= 0 ? items.length - 1 : i - 1) : (i + 1) % items.length;
         e.preventDefault();
@@ -83,7 +85,7 @@ export function initNav(scope) {
     };
     btn.addEventListener("click", toggle);
     document.addEventListener("keydown", onKey);
-    links.forEach((a) => a.addEventListener("click", () => close(true)));
+    [...links, ...(card ? [card] : [])].forEach((a) => a.addEventListener("click", () => close(true)));
     off.push(() => {
       btn.removeEventListener("click", toggle);
       document.removeEventListener("keydown", onKey);

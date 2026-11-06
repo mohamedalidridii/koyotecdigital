@@ -265,22 +265,32 @@ ${altFr ? `    <link rel="alternate" hreflang="fr" href="${esc(SITE + altFr)}" /
   function nav(lang, page, switchTo) {
     const ui = site[lang].ui; const i = idx(lang);
     const other = lang === "fr" ? "en" : "fr";
-    const keys = ["home", "services", "engineering", "art", "blog", "contact"];
     const sw = switchTo || PATHS[page][idx(other)];
     const cur = (k) => (k === page ? ' aria-current="page"' : "");
-    const links = keys
-      .map((k, n) => `<li><a href="${PATHS[k][i]}"${k === "art" ? ' class="nav-art"' : ""}${full(k)}${cur(k)}>${k === "art" ? '<i class="nav-art-dot" aria-hidden="true"></i>' : ""}${esc(ui.nav[k])}</a>${n < keys.length - 1 ? "," : ""}</li>`)
-      .join(" ");
-    const items = [...keys, "careers"]
-      .map((k, n) => `        <li><a href="${PATHS[k][i]}"${k === "art" ? ' class="nav-art"' : ""}${full(k)}${cur(k)}><span class="menu-idx">(${pad(n + 1)})</span><span class="menu-name">${esc(ui.nav[k])}</span>${k === "art" ? '<i class="nav-art-dot" aria-hidden="true"></i>' : ""}</a></li>`)
+    // top bar: the brand already links home, so the bar lists the sections, then the showcase as a pill
+    const links = ["services", "engineering", "blog", "contact"]
+      .map((k) => `<li><a href="${PATHS[k][i]}"${full(k)}${cur(k)}>${esc(ui.nav[k])}</a></li>`)
+      .join("");
+    const artPill = `<a class="nav-art" href="${PATHS.art[i]}"${cur("art")}><i class="nav-art-dot" aria-hidden="true"></i>${esc(ui.nav.art)}</a>`;
+    // full-screen menu: every page as a big serif line; the showcase gets its own card below the list
+    const items = ["home", "services", "engineering", "blog", "contact", "careers"]
+      .map((k, n) => `        <li><a href="${PATHS[k][i]}"${full(k)}${cur(k)}><span class="menu-idx">(${pad(n + 1)})</span><span class="menu-name">${esc(ui.nav[k])}</span></a></li>`)
       .join("\n");
+    const h = site[lang].home;
+    const picks = ["nour-el-kamel", "ghoula-games", "studio-kif-kif"].map((slug) => art.find((p) => p.slug === slug)).filter(Boolean);
+    const artCard = `      <a class="menu-art" href="${PATHS.art[i]}"${cur("art")}>
+        <span class="menu-art-frame" aria-hidden="true"></span>
+        <span class="menu-art-stack" aria-hidden="true">${picks.map((p) => `<img src="/art/previews/${p.slug}.webp" alt="" width="1440" height="900" loading="lazy" decoding="async" style="--accent:${esc(p.accent)}" />`).join("")}</span>
+        <span class="menu-art-text"><span class="menu-art-kicker"><i class="nav-art-dot" aria-hidden="true"></i>${pad(art.length)} ${esc(h.art_count)}</span><span class="menu-name menu-art-name">${esc(ui.nav.art)}</span></span>
+        <span class="menu-art-go" aria-hidden="true">${GLYPH.arrow}</span>
+      </a>`;
     return `    <header class="site-nav">
       <a class="brand" href="${PATHS.home[i]}" aria-label="${esc(G.name)} — ${esc(ui.nav.home)}">${logo("nav")}<span class="brand-name">${esc(G.name)}<sup>&reg;</sup></span></a>
-      <nav class="nav-main" aria-label="${esc(ui.menu)}"><ul class="nav-links">${links}</ul></nav>
+      <nav class="nav-main" aria-label="${esc(ui.menu)}"><ul class="nav-links">${links}</ul>${artPill}</nav>
       <div class="nav-right">
         <a class="lang" href="${esc(sw)}" hreflang="${other}" lang="${other}">${other.toUpperCase()}</a>
         <a class="nav-founder" href="${PATHS.founder[i]}" data-magnetic${page === "founder" ? ' aria-current="page"' : ""} aria-label="${esc(site[lang].founder.chip_hover)}"><img src="/founder/avatar.webp" alt="${esc(site[lang].founder.h1)}" width="28" height="28" /><span class="nav-founder-label" aria-hidden="true"><span>${esc(site[lang].founder.chip)}</span><span>${esc(site[lang].founder.chip_hover)} →</span></span><i class="nav-founder-dot" aria-hidden="true"></i></a>
-        <a class="nav-cta" href="${PATHS.contact[i]}">${esc(ui.nav_cta)}</a>
+        <a class="nav-cta" href="${PATHS.contact[i]}" data-magnetic><span>${esc(ui.nav_cta)}</span>${GLYPH.arrow}</a>
         <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-btn-label" data-open="${esc(ui.menu)}" data-close="${esc(ui.close)}">${esc(ui.menu)}</span></button>
       </div>
     </header>
@@ -291,10 +301,10 @@ ${altFr ? `    <link rel="alternate" hreflang="fr" href="${esc(SITE + altFr)}" /
         <ol class="menu-list">
 ${items}
         </ol>
+${artCard}
       </nav>
       <div class="menu-foot">
         <a href="${PATHS.founder[i]}">${esc(site[lang].founder.chip_hover)}</a>
-        <a href="${PATHS.careers[i]}">${esc(ui.nav.careers)}</a>
         <a href="mailto:${esc(G.email)}">${esc(G.email)}</a>
         <a href="tel:${esc(G.phone)}">${esc(G.phoneDisplay)}</a>
         <a href="${esc(G.instagram)}" target="_blank" rel="noopener noreferrer">Instagram</a>

@@ -4,7 +4,8 @@
   inset: 0 0 auto;
   z-index: 80;
   display: grid;
-  grid-template-columns: 1fr 2fr auto;
+  /* brand | sections, centred on the page | language, founder, quote */
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
   gap: 1.5rem;
   height: var(--nav-h);
@@ -51,23 +52,43 @@
   transform: rotate(-8deg) scale(1.08);
 }
 .nav-main {
-  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: clamp(1.25rem, 2vw, 2rem);
+  justify-self: center;
 }
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: clamp(1.1rem, 1.8vw, 1.8rem);
   list-style: none;
 }
+/* a hairline draws under the hovered section; the type itself never changes size, so nothing shifts */
 .nav-links a {
   position: relative;
+  display: inline-block;
+  padding-block: 0.25rem;
+  background: linear-gradient(currentColor, currentColor) right 100% / 0% 1px no-repeat;
+  transition: background-size 0.5s var(--ease-out);
 }
-.nav-links a[aria-current="page"],
-.nav-links a:hover {
-  font-family: var(--f-serif);
-  font-style: italic;
-  font-size: 1.15em;
-  line-height: 1;
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  background-size: 100% 1px;
+  background-position: left 100%;
+}
+.nav-links a[aria-current="page"] {
+  background-size: 100% 1px;
+}
+.nav-links a[aria-current="page"]::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -0.7rem;
+  width: 0.3rem;
+  height: 0.3rem;
+  border-radius: 50%;
+  background: currentColor;
+  transform: translateY(-50%);
 }
 /* the art-of-difference link: a hairline pill in the serif italic, ink only, with a quietly pulsing dot */
 .nav-art {
@@ -99,16 +120,9 @@
   border-radius: 50%;
   animation: art-ping 2.6s var(--ease-out) infinite;
 }
-.nav-links a.nav-art:hover,
-.nav-links a.nav-art[aria-current="page"] {
-  font-family: var(--f-serif);
-  font-size: 1.15em;
-}
-.nav-links a.nav-art:hover {
-  background: var(--ink);
-  color: var(--paper);
-}
-.nav-links a.nav-art[aria-current="page"] {
+.nav-main .nav-art:hover,
+.nav-main .nav-art:focus-visible,
+.nav-main .nav-art[aria-current="page"] {
   background: var(--ink);
   color: var(--paper);
 }
@@ -132,7 +146,8 @@
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  justify-self: end;
+  gap: clamp(0.9rem, 1.4vw, 1.4rem);
 }
 .lang {
   opacity: 0.55;
@@ -228,19 +243,50 @@
     opacity: 0;
   }
 }
+/* the one filled button of the bar: the quote */
 .nav-cta {
-  background: linear-gradient(currentColor, currentColor) left 100% / 100% 1px no-repeat;
-  transition: background-size 0.5s var(--ease-out);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1rem 0.55rem 1.1rem;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--paper);
+  line-height: 1;
+  white-space: nowrap;
+  transition: background-color 0.4s var(--ease-out), color 0.4s var(--ease-out);
 }
-.nav-cta:hover {
-  background-size: 0% 1px;
-  background-position: right 100%;
+.nav-cta .g {
+  width: 0.7em;
+  height: 0.7em;
+  transition: transform 0.6s var(--ease-out);
+}
+.nav-cta:hover,
+.nav-cta:focus-visible {
+  background: transparent;
+  color: var(--ink);
+}
+.nav-cta:hover .g {
+  transform: translate(0.12em, -0.12em) rotate(45deg);
+}
+.menu-open .nav-cta {
+  border-color: var(--paper);
 }
 .menu-btn {
   display: none;
 }
 
-@media (max-width: 900px) {
+/* mid widths: the founder chip folds to its avatar so the bar keeps its three zones */
+@media (max-width: 1280px) {
+  .nav-right .nav-founder {
+    padding-right: 0.22rem;
+  }
+  .nav-right .nav-founder-label {
+    display: none;
+  }
+}
+@media (max-width: 1080px) {
   .site-nav {
     grid-template-columns: 1fr auto;
   }
@@ -305,27 +351,6 @@
 .menu-list a[aria-current="page"] {
   font-style: italic;
 }
-/* in the full-screen menu the link keeps its big type: just the dot, no pill */
-.menu-list a.nav-art {
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: none;
-  font-size: clamp(3.4rem, 15vw, 9rem);
-  font-style: normal;
-}
-.menu-list a.nav-art:hover,
-.menu-list a.nav-art[aria-current="page"] {
-  font-style: italic;
-}
-.menu-list .nav-art-dot::after {
-  display: none;
-}
-.menu-list .nav-art-dot {
-  align-self: center;
-  width: clamp(0.6rem, 1.8vw, 1rem);
-  height: clamp(0.6rem, 1.8vw, 1rem);
-}
 .menu-idx {
   font-family: var(--f-sans);
   font-size: var(--fs-small);
@@ -337,4 +362,152 @@
   gap: 0.5rem 1.5rem;
   padding-top: 1.5rem;
   opacity: 0.8;
+}
+
+/* the showcase in the menu: a card of its own instead of a giant two-line entry.
+   A ring of the pieces' accent colours turns around it, three previews fan out on the left. */
+@property --art-spin {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+.menu-art {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1.1rem;
+  margin-top: 1.4rem;
+  padding: 0.85rem 1rem 0.85rem 0.85rem;
+  border-radius: 22px;
+  background:
+    radial-gradient(120% 140% at 0% 0%, rgba(228, 87, 46, 0.22), transparent 55%),
+    radial-gradient(120% 140% at 100% 100%, rgba(143, 179, 255, 0.2), transparent 55%),
+    color-mix(in srgb, var(--paper) 7%, var(--ink));
+  isolation: isolate;
+  transition: transform 0.6s var(--ease-out);
+}
+.menu-art-frame {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  padding: 1.5px;
+  border-radius: inherit;
+  background: conic-gradient(from var(--art-spin), #e4572e, #d7ff3a, #8fb3ff, #ff5c8a, #c9a45c, #e4572e);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  animation: art-spin 5s linear infinite;
+}
+@keyframes art-spin {
+  to {
+    --art-spin: 360deg;
+  }
+}
+.menu-art-stack {
+  position: relative;
+  width: 5.6rem;
+  height: 3.9rem;
+}
+.menu-art-stack img {
+  position: absolute;
+  top: 0.55rem;
+  left: 0;
+  width: 3.9rem;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 7px;
+  outline: 1.5px solid var(--accent);
+  outline-offset: -1px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+  transform-origin: 50% 120%;
+  transition: transform 0.7s var(--ease-out);
+  animation: art-drift 4.5s ease-in-out infinite alternate;
+}
+.menu-art-stack img:nth-child(1) {
+  transform: rotate(-12deg);
+}
+.menu-art-stack img:nth-child(2) {
+  left: 0.85rem;
+  transform: rotate(-1deg);
+  animation-delay: -1.5s;
+}
+.menu-art-stack img:nth-child(3) {
+  left: 1.7rem;
+  transform: rotate(11deg);
+  animation-delay: -3s;
+}
+@keyframes art-drift {
+  to {
+    translate: 0 -3px;
+  }
+}
+.menu-art:hover .menu-art-stack img:nth-child(1),
+.menu-art:focus-visible .menu-art-stack img:nth-child(1) {
+  transform: rotate(-20deg) translateX(-0.2rem);
+}
+.menu-art:hover .menu-art-stack img:nth-child(3),
+.menu-art:focus-visible .menu-art-stack img:nth-child(3) {
+  transform: rotate(19deg) translateX(0.3rem);
+}
+.menu-art-text {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+}
+.menu-art-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+.menu-art-kicker .nav-art-dot {
+  background: #e4572e;
+}
+.menu-art-kicker .nav-art-dot::after {
+  border-color: #e4572e;
+}
+.menu-art-name {
+  font-family: var(--f-serif);
+  font-size: clamp(1.6rem, 6.4vw, 2.6rem);
+  font-style: italic;
+  line-height: 1;
+}
+.menu-art-go {
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 1px solid color-mix(in srgb, var(--paper) 35%, transparent);
+  border-radius: 50%;
+  transition: background-color 0.4s, color 0.4s, transform 0.6s var(--ease-out);
+}
+.menu-art-go .g {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+.menu-art:hover .menu-art-go,
+.menu-art:focus-visible .menu-art-go {
+  background: var(--paper);
+  color: var(--ink);
+  transform: rotate(45deg);
+}
+.menu-art:active {
+  transform: scale(0.98);
+}
+.menu-art[aria-current="page"] .menu-art-name {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+@media (prefers-reduced-motion: reduce) {
+  .menu-art-frame,
+  .menu-art-stack img {
+    animation: none;
+  }
 }
