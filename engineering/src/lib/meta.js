@@ -26,3 +26,24 @@ export function meta(lang, page) {
     },
   };
 }
+
+// metadata for pages whose title comes from the content (the AI case studies)
+export function metaFor(lang, route, title, description) {
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: url(lang, route),
+      languages: { fr: url("fr", route), en: url("en", route), "x-default": url("fr", route) },
+    },
+    openGraph: {
+      title,
+      description,
+      url: url(lang, route),
+      siteName: "Koyotec Engineering",
+      locale: lang === "en" ? "en_US" : "fr_FR",
+      images: ["https://www.koyotec.digital/og/koyotec.jpg"],
+      type: "article",
+    },
+  };
+}

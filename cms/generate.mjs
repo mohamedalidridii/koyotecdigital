@@ -37,7 +37,9 @@ const LANGS = ["fr", "en"];
 const LOCALE = { fr: "fr_TN", en: "en_US" };
 const idx = (lang) => (lang === "fr" ? 0 : 1);
 // routes outside the barba-driven pages: links to them must load the page for real
-const ENGINEERING_ROUTES = ["", "expertise", "systems", "work", "studio", "engagements", "contact"];
+// the AI case studies: slugs from engineering/src/content (aiCases.cases)
+const AI_CASES = ["graphrag-knowledge-engine", "onboarding-agents", "compliance-agent", "shopping-assistant", "rag-evaluation"];
+const ENGINEERING_ROUTES = ["", "expertise", "systems", "ai", ...AI_CASES.map((s) => `ai/${s}`), "work", "studio", "engagements", "contact"];
 const full = (k) => (k === "engineering" ? " data-barba-prevent" : "");
 
 // ---------- escaping and light markup ----------

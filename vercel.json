@@ -126,8 +126,18 @@
       "permanent": true
     },
     {
-      "source": "/engineering/:path(en|expertise|systems|work|studio|engagements|contact|en/expertise|en/systems|en/work|en/studio|en/engagements|en/contact)",
+      "source": "/engineering/:path(en|expertise|systems|ai|work|studio|engagements|contact|en/expertise|en/systems|en/ai|en/work|en/studio|en/engagements|en/contact)",
       "destination": "/engineering/:path/",
+      "permanent": true
+    },
+    {
+      "source": "/engineering/ai/:slug([a-z0-9-]+)",
+      "destination": "/engineering/ai/:slug/",
+      "permanent": true
+    },
+    {
+      "source": "/engineering/en/ai/:slug([a-z0-9-]+)",
+      "destination": "/engineering/en/ai/:slug/",
       "permanent": true
     },
     {

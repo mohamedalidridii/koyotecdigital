@@ -143,3 +143,31 @@ export function toScreen(v, camera, w, h, out = {}) {
   out.behind = p.z > 1;
   return out;
 }
+
+// wide or tall layout, from the frame's own proportions
+export function useWide(ref, ratio = 0.95) {
+  const [wide, setWide] = useState(true);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const ro = new ResizeObserver(() => setWide(el.clientWidth / Math.max(1, el.clientHeight) > ratio));
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [ref, ratio]);
+  return wide;
+}
+
+// a per-frame callback on the shared GSAP ticker, only while `active`
+export function useTick(active, fn, deps = []) {
+  useEffect(() => {
+    if (!active) return;
+    const tick = (time) => fn(time);
+    gsap.ticker.add(tick);
+    tick(gsap.ticker.time);
+    return () => gsap.ticker.remove(tick);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [active, ...deps]);
+}
+
+// the first k (0..1) of a text, for typing effects
+export const typed = (text, k) => text.slice(0, Math.round(text.length * clamp(k)));

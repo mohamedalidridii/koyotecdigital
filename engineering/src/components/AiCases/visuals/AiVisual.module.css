@@ -1,0 +1,423 @@
+/* Visuals of the AI case studies (overlays shared with Systems live in Systems/visuals/Visual.module.css). */
+.host {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.monoText {
+  font-family: var(--font-google-sans-code), monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.caret::after {
+  content: "▍";
+  margin-left: 1px;
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* text blocks inside the SVG (foreignObject) */
+.fo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 100%;
+  padding: 16px 18px;
+  color: #0d0d0d;
+  font-family: var(--font-google-sans-flex), sans-serif;
+}
+.compliance .fo {
+  color: #eef2f8;
+}
+.compliance .foDark {
+  color: #0f1b2d;
+}
+.foLabel {
+  font-family: var(--font-google-sans-code), monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+.foText {
+  font-size: 20px;
+  line-height: 1.35;
+}
+.cites {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+.cites i {
+  padding: 5px 10px;
+  border: 1.5px solid #0f1b2d;
+  font-family: var(--font-google-sans-code), monospace;
+  font-size: 12px;
+  font-style: normal;
+  text-transform: uppercase;
+}
+.cites i[data-kind="web"] {
+  border-color: #f2b544;
+  background: #f2b544;
+}
+
+/* ---------- GraphRAG ---------- */
+.pathTag {
+  border: 1px solid #ff0000;
+  background: rgba(13, 13, 13, 0.85);
+  color: #f3f1ec;
+}
+.pathTag i {
+  margin-right: 0.35rem;
+  color: #ff0000;
+  font-style: normal;
+}
+.legend {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  display: grid;
+  gap: 0.35rem;
+  font-family: var(--font-google-sans-code), monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  color: rgba(243, 241, 236, 0.7);
+}
+.legend span {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+.legend i {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: #f3f1ec;
+}
+
+/* ---------- Agents ---------- */
+.orchPulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+}
+.orch[data-on] .orchPulse {
+  animation: pulse 1.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+@keyframes pulse {
+  0% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}
+.taskBox {
+  fill: #fff;
+  stroke: #12a150;
+  stroke-width: 1.4;
+  transition: stroke 0.3s, fill 0.3s;
+}
+.taskWait {
+  opacity: 0;
+}
+.task[data-pending] .taskBox {
+  stroke: #e8a317;
+  fill: #fff8e8;
+}
+.task[data-pending] .taskWait {
+  opacity: 1;
+}
+.task[data-pending] .taskOk {
+  opacity: 0;
+}
+.taskText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  color: #0d0d0d;
+  font-family: var(--font-google-sans-flex), sans-serif;
+  font-size: 14px;
+  line-height: 1.2;
+}
+.taskText em {
+  font-family: var(--font-google-sans-code), monospace;
+  font-size: 10.5px;
+  font-style: normal;
+  text-transform: uppercase;
+}
+.taskPending {
+  display: none;
+  color: #b97d00;
+}
+.taskApproved {
+  color: #12a150;
+}
+.task[data-pending] .taskPending {
+  display: block;
+}
+.task[data-pending] .taskApproved {
+  display: none;
+}
+
+/* ---------- Shop ---------- */
+.shop {
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+.window {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 980px;
+  height: 100%;
+  max-height: 640px;
+  border: 1px solid rgba(13, 13, 13, 0.18);
+  background: #fff;
+  box-shadow: 0 30px 70px rgba(13, 13, 13, 0.12);
+  overflow: hidden;
+}
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.6rem 0.8rem;
+  border-bottom: 1px solid rgba(13, 13, 13, 0.1);
+  font-family: var(--font-google-sans-code), monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: rgba(13, 13, 13, 0.55);
+}
+.bar i {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: rgba(13, 13, 13, 0.15);
+}
+.bar span {
+  margin-left: 0.6rem;
+}
+.shopBody {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+  flex: 1;
+  min-height: 0;
+}
+.chat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1rem;
+  border-right: 1px solid rgba(13, 13, 13, 0.1);
+  background: #fbfaf8;
+  overflow: hidden;
+}
+.who {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-family: var(--font-google-sans-code), monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+.userMsg,
+.botMsg {
+  padding: 0.75rem 0.85rem;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+.userMsg {
+  align-self: flex-end;
+  max-width: 92%;
+  background: #0d0d0d;
+  color: #fff;
+}
+.botMsg {
+  border-left: 3px solid #ff5a1f;
+  background: #fff;
+  color: #0d0d0d;
+  box-shadow: 0 6px 18px rgba(13, 13, 13, 0.06);
+}
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+.filters span {
+  padding: 0.3rem 0.55rem;
+  background: rgba(255, 90, 31, 0.12);
+  color: #c63c06;
+  font-family: var(--font-google-sans-code), monospace;
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  transform-origin: left center;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: minmax(0, 1fr);
+  gap: 0.6rem;
+  padding: 1rem;
+  min-height: 0;
+}
+.product {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.2rem;
+  min-height: 0;
+  padding: 0.6rem;
+  border: 1px solid rgba(13, 13, 13, 0.1);
+  background: #fff;
+  transition: opacity 0.5s, filter 0.5s, border-color 0.4s;
+}
+.product svg {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+}
+.product[data-out] {
+  opacity: 0.22;
+  filter: grayscale(1);
+}
+.product[data-ranked] {
+  border-color: #ff5a1f;
+}
+.pname {
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+.pmeta {
+  font-size: 0.72rem;
+  color: rgba(13, 13, 13, 0.6);
+}
+.pmeta b {
+  color: #0d0d0d;
+  font-weight: 600;
+}
+.rank {
+  position: absolute;
+  top: 0.45rem;
+  left: 0.45rem;
+  display: grid;
+  place-items: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  background: #ff5a1f;
+  color: #fff;
+  font-family: var(--font-google-sans-code), monospace;
+  font-size: 0.7rem;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.4s, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.product[data-ranked] .rank {
+  opacity: 1;
+  transform: none;
+}
+.best {
+  position: absolute;
+  top: 0.45rem;
+  right: 0.45rem;
+  padding: 0.2rem 0.4rem;
+  background: #0d0d0d;
+  color: #fff;
+  font-family: var(--font-google-sans-code), monospace;
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.4s 0.4s;
+}
+.product[data-ranked] .best {
+  opacity: 1;
+}
+/* narrow frames: chat on top, catalogue below */
+.shop:not([data-wide]) {
+  padding: 0.6rem;
+}
+.shop:not([data-wide]) .window {
+  max-height: none;
+}
+.shop:not([data-wide]) .shopBody {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto minmax(0, 1fr);
+}
+.shop:not([data-wide]) .chat {
+  gap: 0.5rem;
+  padding: 0.6rem;
+  border-right: 0;
+  border-bottom: 1px solid rgba(13, 13, 13, 0.1);
+}
+.shop:not([data-wide]) .userMsg,
+.shop:not([data-wide]) .botMsg {
+  padding: 0.5rem 0.6rem;
+  font-size: 0.74rem;
+}
+.shop:not([data-wide]) .grid {
+  gap: 0.35rem;
+  padding: 0.5rem;
+}
+.shop:not([data-wide]) .pname {
+  font-size: 0.66rem;
+}
+.shop:not([data-wide]) .pmeta {
+  font-size: 0.6rem;
+}
+.shop:not([data-wide]) .best {
+  display: none;
+}
+
+/* ---------- Evaluation ---------- */
+.sampleQ {
+  color: #f1f1ea;
+  font-family: var(--font-google-sans-flex), sans-serif;
+  font-size: 17px;
+  line-height: 1.3;
+}
+.judge [data-ok] {
+  fill: #ff4d4d;
+}
+.judge[data-pass] [data-ok] {
+  fill: #c6ff3d;
+}
+.gateBox {
+  fill: rgba(255, 77, 77, 0.16);
+  stroke: #ff4d4d;
+  stroke-width: 1.5;
+  transition: fill 0.5s, stroke 0.5s;
+}
+.gateText {
+  fill: #ff4d4d;
+  font-family: var(--font-google-sans-code), monospace;
+  text-transform: uppercase;
+  transition: fill 0.5s;
+}
+.gate[data-go] .gateBox {
+  fill: #c6ff3d;
+  stroke: #c6ff3d;
+}
+.gate[data-go] .gateText {
+  fill: #151515;
+}
+
+/* per-visual hooks (also keep the class names defined for CSS modules) */
+.agents,
+.compliance,
+.evalv {
+  isolation: isolate;
+}

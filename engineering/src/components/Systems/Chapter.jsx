@@ -12,7 +12,7 @@ import { useGSAP } from "@gsap/react";
 import Copy from "@/components/Copy";
 
 import { useLang } from "@/lib/useLang";
-import { clamp, useNear, useReducedMotion } from "./lib";
+import Stage from "./Stage";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -31,35 +31,10 @@ export default function Chapter({ chapter, index, total, store }) {
   const { t, href } = useLang();
   const L = t.systems.labels;
   const sectionRef = useRef(null);
-  const stageRef = useRef(null);
-  const stepsRef = useRef(null);
-  const progress = useRef({ target: 0, value: 0 });
-  const reduced = useReducedMotion();
-  const near = useNear(sectionRef, "80% 0px");
   const Visual = VISUALS[chapter.id];
-  const n = chapter.steps.length;
 
   useGSAP(
     () => {
-      const items = Array.from(stepsRef.current.children);
-      const update = (p) => {
-        progress.current.target = p;
-        store.current.progress[index] = p;
-        const active = Math.min(n - 1, Math.floor(p * n));
-        items.forEach((li, i) => {
-          li.toggleAttribute("data-active", i === active);
-          li.toggleAttribute("data-done", i < active);
-          li.style.setProperty("--fill", clamp(p * n - i).toFixed(3));
-        });
-      };
-      update(0);
-      ScrollTrigger.create({
-        trigger: stageRef.current,
-        start: "top top",
-        end: "bottom bottom",
-        onUpdate: (st) => update(st.progress),
-        onRefresh: (st) => update(st.progress),
-      });
       // the rail follows whichever chapter holds the middle of the screen
       ScrollTrigger.create({
         trigger: sectionRef.current,
@@ -115,30 +90,14 @@ export default function Chapter({ chapter, index, total, store }) {
         </div>
       </header>
 
-      <div ref={stageRef} className={styles.stage} style={{ "--steps": n }}>
-        <div className={styles.stageInner}>
-          <div className={styles.side}>
-            <p className={`mono sm ${styles.sideLabel}`}>
-              <span className={styles.dot} aria-hidden="true" />
-              {L.build}
-            </p>
-            <ol ref={stepsRef} className={styles.steps}>
-              {chapter.steps.map(([title, text], i) => (
-                <li key={title} className={styles.step}>
-                  <span className={`mono sm ${styles.stepNum}`}>{pad(i + 1)}</span>
-                  <div>
-                    <p className={styles.stepTitle}>{title}</p>
-                    <p className={styles.stepText}>{text}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </div>
-          <div className={styles.visual} data-visual={chapter.id}>
-            <Visual progress={progress} content={chapter.visual} reduced={reduced} near={near} />
-          </div>
-        </div>
-      </div>
+      <Stage
+        id={chapter.id}
+        label={L.build}
+        steps={chapter.steps}
+        Visual={Visual}
+        content={chapter.visual}
+        onProgress={(p) => (store.current.progress[index] = p)}
+      />
 
       <footer className={`container ${styles.outro}`}>
         <p className={`mono sm ${styles.outroLabel}`}>
@@ -175,6 +134,14 @@ export default function Chapter({ chapter, index, total, store }) {
             <span aria-hidden="true">→</span>
           </Link>
         </div>
+        {chapter.more ? (
+          <p className={styles.moreRow}>
+            <Link href={href(chapter.more.href)} className={styles.more}>
+              <span>{chapter.more.label}</span>
+              <span aria-hidden="true">→</span>
+            </Link>
+          </p>
+        ) : null}
       </footer>
     </section>
   );
