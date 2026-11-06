@@ -1,0 +1,784 @@
+/* Careers page (/carrieres, /en/careers) and its home teaser. */
+
+/* ---------- hero ---------- */
+.careers.page-hero {
+  min-height: 86svh;
+}
+.careers .page-hero-foot .hero-sub {
+  max-width: 52ch;
+}
+
+/* ---------- the two arms ---------- */
+.poles-sec {
+  padding-block: clamp(4rem, 12vh, 8rem);
+}
+.poles {
+  display: flex;
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+  margin-top: clamp(1.5rem, 4vh, 3rem);
+}
+.pole {
+  --mx: 50%;
+  --my: 30%;
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: 1.1rem;
+  min-width: 0;
+  min-height: clamp(30rem, 70vh, 42rem);
+  padding: clamp(1.5rem, 3vw, 2.75rem);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: rgba(243, 241, 236, 0.62);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  overflow: hidden;
+  isolation: isolate;
+  transition: flex-grow 0.9s var(--ease-out), border-color 0.4s;
+}
+/* the dark one: Engineering speaks the colours of its own site */
+.pole[data-pole="engineering"] {
+  --line: rgba(243, 241, 236, 0.2);
+  background: rgba(13, 13, 13, 0.92);
+  color: var(--paper);
+  border-color: transparent;
+}
+.pole[data-line]::after {
+  display: none;
+}
+.pole::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(28rem circle at var(--mx) var(--my), rgba(13, 13, 13, 0.06), transparent 65%);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.pole[data-pole="engineering"]::before {
+  background: radial-gradient(28rem circle at var(--mx) var(--my), rgba(243, 241, 236, 0.12), transparent 65%);
+}
+.pole-kicker {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.pole-kicker .svc-num {
+  padding: 0;
+  color: inherit;
+  opacity: 0.55;
+}
+.pole-name {
+  font-family: var(--f-serif);
+  font-size: clamp(3.6rem, 8.5vw, 9.5rem);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  transition: transform 0.9s var(--ease-out);
+  transform-origin: left bottom;
+}
+.pole-pitch {
+  max-width: 34ch;
+  font-size: var(--fs-lead);
+  line-height: 1.4;
+}
+.pole-disc {
+  max-width: 44ch;
+  font-size: 0.9375rem;
+  opacity: 0.6;
+}
+.pole-roles {
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+.pole-roles-h {
+  margin-bottom: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+.pole-roles ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+}
+.pole-roles li {
+  padding: 0.4rem 0.85rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  opacity: 0.75;
+  transition: background-color 0.4s, color 0.4s, opacity 0.4s, transform 0.6s var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 40ms);
+}
+.pole-cta {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+  padding: 0.85rem 1.4rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-family: var(--f-serif);
+  font-size: clamp(1.2rem, 1.05rem + 0.5vw, 1.5rem);
+  line-height: 1;
+  transition: background-color 0.35s, color 0.35s;
+}
+.pole-cta .g {
+  width: 0.7em;
+  height: 0.7em;
+  transition: transform 0.6s var(--ease-out);
+}
+.pole-cta:hover,
+.pole-cta:focus-visible {
+  background: var(--ink);
+  color: var(--paper);
+  font-style: italic;
+}
+.pole[data-pole="engineering"] .pole-cta:hover,
+.pole[data-pole="engineering"] .pole-cta:focus-visible {
+  background: var(--paper);
+  color: var(--ink);
+}
+.pole-cta:hover .g {
+  transform: translate(0.15em, -0.15em);
+}
+@media (hover: hover) and (min-width: 901px) {
+  .poles:hover .pole:hover {
+    flex-grow: 1.45;
+  }
+  .pole:hover::before {
+    opacity: 1;
+  }
+  .pole:hover .pole-name {
+    font-style: italic;
+    transform: translateX(0.4rem);
+  }
+  .pole:hover .pole-roles li {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+  .pole[data-pole="digital"]:hover .pole-roles li {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+  }
+  .pole[data-pole="engineering"]:hover .pole-roles li {
+    background: var(--paper);
+    color: var(--ink);
+  }
+}
+@media (max-width: 900px) {
+  .poles {
+    flex-direction: column;
+  }
+  .pole {
+    flex: none;
+    min-height: 0;
+  }
+  .pole-roles {
+    margin-top: 1rem;
+  }
+}
+
+/* ---------- application ---------- */
+.apply {
+  padding-block: clamp(5rem, 14vh, 10rem);
+  scroll-margin-top: var(--nav-h);
+}
+.apply-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(2.5rem, 6vw, 7rem);
+  align-items: start;
+}
+.apply-aside {
+  position: sticky;
+  top: calc(var(--nav-h) + 2rem);
+}
+.apply-h {
+  font-family: var(--f-serif);
+  font-size: var(--fs-title);
+  font-weight: 400;
+  line-height: 0.95;
+}
+.apply-lead {
+  margin-top: 1.25rem;
+  max-width: 28ch;
+  font-size: var(--fs-lead);
+  color: var(--ink-dim);
+}
+.apply-pole {
+  margin-top: clamp(2rem, 8vh, 5rem);
+  overflow: hidden;
+  font-family: var(--f-serif);
+  font-size: clamp(3rem, 7vw, 8rem);
+  font-style: italic;
+  line-height: 1.05;
+  color: var(--ink-dim);
+}
+.apply-pole-word {
+  display: inline-block;
+}
+.apply-mail {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15em;
+  margin-top: 1.5rem;
+  font-family: var(--f-serif);
+  font-size: clamp(1.4rem, 2vw, 2.1rem);
+  line-height: 1;
+}
+.apply-mail .g {
+  width: 0.7em;
+  height: 0.7em;
+  stroke-width: 1.4;
+}
+.apply-mail:hover {
+  font-style: italic;
+}
+
+.apply-box {
+  position: relative;
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: rgba(243, 241, 236, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.apply-form {
+  display: grid;
+  gap: 0.25rem;
+}
+.apply-form[hidden],
+.apply-done[hidden],
+.role-set[hidden],
+.drop-zone[hidden],
+.drop-file[hidden] {
+  display: none;
+}
+.apply-form .field::after {
+  opacity: 0.5;
+  transition: opacity 0.3s, height 0.3s, background-color 0.3s;
+}
+.apply-form .field > span em {
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink-dim);
+}
+.apply-form .hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+.field-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 1rem;
+}
+.role-set {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* arm switch: two big options, the ink pill slides under the chosen one */
+.pole-switch {
+  padding: 0.5rem 0.5rem 1.25rem;
+  border: 0;
+}
+.pole-switch legend {
+  float: left;
+  width: 100%;
+  margin-bottom: 0.8rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.ps-track {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0.3rem;
+  border: 1px solid rgba(13, 13, 13, 0.4);
+  border-radius: 999px;
+  isolation: isolate;
+}
+.ps-ink {
+  position: absolute;
+  top: 0.3rem;
+  bottom: 0.3rem;
+  left: 0;
+  z-index: -1;
+  width: 0;
+  border-radius: 999px;
+  background: var(--ink);
+  visibility: hidden;
+}
+.ps-opt input {
+  position: absolute;
+  opacity: 0;
+}
+.ps-opt span {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1rem;
+  border-radius: 999px;
+  font-family: var(--f-serif);
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2.2rem);
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.45s var(--ease-out);
+}
+.ps-num {
+  font-family: var(--f-sans);
+  font-size: 0.75rem;
+  font-style: normal;
+  opacity: 0.6;
+}
+.ps-opt input:checked + span {
+  color: var(--paper);
+  font-style: italic;
+}
+/* before the script measured the pill (or without it), the chosen option carries its own fill */
+html:not(.js) .ps-opt input:checked + span,
+.ps-track:not(.is-measured) .ps-opt input:checked + span {
+  background: var(--ink);
+}
+.ps-opt input:focus-visible + span {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+/* CV drop zone */
+.drop {
+  padding: 0.9rem 0.5rem 1.1rem;
+}
+.drop[data-line]::after {
+  display: none;
+}
+.drop-label {
+  margin-bottom: 0.7rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.drop-label::after {
+  content: " *";
+}
+.drop-zone {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 0.35rem;
+  padding: 1.75rem 1rem;
+  border-radius: 18px;
+  text-align: center;
+  transition: background-color 0.35s, transform 0.5s var(--ease-out);
+}
+.drop-input {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.drop-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+.drop-frame rect {
+  fill: none;
+  stroke: rgba(13, 13, 13, 0.45);
+  stroke-width: 1.5;
+  stroke-dasharray: 7 7;
+  transition: stroke 0.3s;
+}
+.drop-icon svg {
+  width: 2.2rem;
+  height: 2.2rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.6s var(--ease-out);
+}
+.drop-hint {
+  font-family: var(--f-serif);
+  font-size: clamp(1.15rem, 1.05rem + 0.4vw, 1.4rem);
+}
+.drop-types {
+  font-size: 0.8125rem;
+  color: var(--ink-dim);
+}
+.drop-zone:hover,
+.drop-zone:focus-within,
+.drop-zone.is-over {
+  background: rgba(13, 13, 13, 0.04);
+}
+.drop-zone:hover .drop-icon svg,
+.drop-zone.is-over .drop-icon svg {
+  transform: translateY(-4px);
+}
+.drop-zone:focus-within .drop-frame rect,
+.drop-zone.is-over .drop-frame rect {
+  stroke: var(--ink);
+}
+.drop-zone.is-over {
+  transform: scale(1.015);
+}
+.drop-zone.is-over .drop-frame rect {
+  animation: drop-march 0.6s linear infinite;
+}
+@keyframes drop-march {
+  to {
+    stroke-dashoffset: -14;
+  }
+}
+.drop-file {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 0.85rem 0.85rem 1rem;
+  border-radius: 18px;
+  background: var(--ink);
+  color: var(--paper);
+}
+.drop-check {
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+}
+.drop-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  font-family: var(--f-serif);
+  font-size: 1.2rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.drop-size {
+  flex: none;
+  font-size: 0.8125rem;
+  opacity: 0.65;
+}
+.drop-remove {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid rgba(243, 241, 236, 0.4);
+  border-radius: 50%;
+  font-size: 1.2rem;
+  line-height: 1;
+  transition: background-color 0.3s, color 0.3s;
+}
+.drop-remove:hover,
+.drop-remove:focus-visible {
+  background: var(--paper);
+  color: var(--ink);
+}
+.drop-error {
+  margin-top: 0.6rem;
+  font-size: 0.9375rem;
+  color: #8a1c1c;
+}
+.drop-error:empty {
+  display: none;
+}
+
+/* consent: a square that draws its tick */
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 0.9rem 0.5rem 1rem;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  cursor: pointer;
+}
+.consent[data-line]::after {
+  display: none;
+}
+.consent input {
+  position: absolute;
+  opacity: 0;
+}
+.consent-box {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  margin-top: 0.05rem;
+  border: 1px solid var(--ink);
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+.consent-box svg {
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: var(--paper);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 0.45s var(--ease-out) 0.05s;
+}
+.consent input:checked + .consent-box {
+  background: var(--ink);
+}
+.consent input:checked + .consent-box svg {
+  stroke-dashoffset: 0;
+}
+.consent input:focus-visible + .consent-box {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+.consent:has(input:user-invalid) .consent-box {
+  border-color: #8a1c1c;
+}
+
+/* send: the ink fills the button as the CV uploads */
+.apply-send {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.send-fill {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.apply-form.is-sending .apply-send {
+  justify-content: center;
+  opacity: 1;
+  cursor: progress;
+  background: var(--paper);
+  color: var(--ink);
+  font-style: normal;
+}
+.apply-form.is-sending .apply-send .send-label,
+.apply-form.is-sending .apply-send .g {
+  color: #fff;
+  mix-blend-mode: difference;
+}
+
+/* success */
+.apply-done {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  padding: clamp(2rem, 6vh, 4rem) 1rem;
+  text-align: center;
+  outline: none;
+}
+.apply-done-mark {
+  width: clamp(4.5rem, 8vw, 6rem);
+  height: clamp(4.5rem, 8vw, 6rem);
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.apply-done-mark circle,
+.apply-done-mark path {
+  stroke-dasharray: 1;
+}
+.apply-done-h {
+  font-family: var(--f-serif);
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1;
+}
+.apply-done-text {
+  max-width: 46ch;
+  font-size: var(--fs-lead);
+  line-height: 1.5;
+  color: var(--ink-dim);
+}
+.apply-again {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+@media (max-width: 900px) {
+  .apply-grid {
+    grid-template-columns: 1fr;
+  }
+  .apply-aside {
+    position: static;
+  }
+  .apply-pole {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .field-pair {
+    grid-template-columns: 1fr;
+  }
+  .apply-box {
+    padding: 1rem 0.5rem;
+    border-radius: 20px;
+  }
+  .ps-opt span {
+    padding: 0.75rem 0.5rem;
+  }
+}
+
+/* ---------- home teaser ---------- */
+.careers-teaser {
+  padding-block: clamp(4rem, 12vh, 8rem);
+  overflow: hidden;
+}
+.ct-marquee {
+  margin-bottom: clamp(2.5rem, 8vh, 5rem);
+  padding-block: 0.6rem;
+  border-block: 1px solid var(--line);
+  white-space: nowrap;
+}
+.ct-marquee-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  font-family: var(--f-serif);
+  font-size: clamp(3.5rem, 11vw, 12rem);
+  line-height: 1.05;
+  will-change: transform;
+}
+.ct-marquee-track > span {
+  padding-right: 0.15em;
+}
+.ct-marquee-track > span:nth-of-type(even) {
+  font-style: italic;
+  color: var(--ink-dim);
+}
+.ct-marquee-track i {
+  margin-right: 0.35em;
+  font-size: 0.4em;
+  font-style: normal;
+  color: var(--ink-dim);
+}
+.ct-title {
+  padding-block: clamp(1.25rem, 4vh, 3rem);
+  max-width: 22ch;
+  font-family: var(--f-serif);
+  font-size: clamp(2rem, 4.5vw, 4.8rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 0.98;
+  color: var(--ink-dim);
+}
+.ct-list {
+  list-style: none;
+}
+.ct-pole {
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr) auto;
+  grid-template-areas: "num name go" ". disc go";
+  align-items: center;
+  column-gap: 1rem;
+  row-gap: 0.9rem;
+  padding-block: 0.5rem 1.4rem;
+  transition: opacity 0.5s var(--ease-out);
+}
+.ct-pole .svc-num {
+  grid-area: num;
+}
+.ct-name {
+  grid-area: name;
+  font-family: var(--f-serif);
+  font-size: var(--fs-row);
+  line-height: 1;
+  transition: transform 0.7s var(--ease-out);
+}
+.ct-disc {
+  grid-area: disc;
+  color: var(--ink-dim);
+}
+.ct-go {
+  grid-area: go;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.3rem;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  font-family: var(--f-serif);
+  font-size: clamp(1.1rem, 1rem + 0.4vw, 1.4rem);
+  line-height: 1;
+  white-space: nowrap;
+  transition: background-color 0.35s, color 0.35s;
+}
+.ct-go .g {
+  width: 0.7em;
+  height: 0.7em;
+  transition: transform 0.6s var(--ease-out);
+}
+.ct-pole:hover .ct-name,
+.ct-pole:focus-visible .ct-name {
+  font-style: italic;
+  transform: translateX(0.6rem);
+}
+.ct-pole:hover .ct-go,
+.ct-pole:focus-visible .ct-go {
+  background: var(--ink);
+  color: var(--paper);
+}
+.ct-pole:hover .ct-go .g {
+  transform: translate(0.15em, -0.15em);
+}
+@media (hover: hover) {
+  .ct-list:hover .ct-pole:not(:hover) {
+    opacity: 0.25;
+  }
+}
+@media (max-width: 900px) {
+  .ct-pole {
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    grid-template-areas: "num name" ". disc" ". go";
+    row-gap: 0.6rem;
+  }
+  .ct-go {
+    justify-self: start;
+  }
+}

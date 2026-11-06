@@ -5,6 +5,8 @@
     "tagline": "KOYOTEC Digital Agency",
     "email": "contact@koyotec.digital",
     "formEndpoint": "https://api.koyotec.digital/contact",
+    "careersEndpoint": "https://api.koyotec.digital/careers",
+    "careersEmail": "careers@koyotec.digital",
     "phone": "+21652405699",
     "phoneDisplay": "+216 52 405 699",
     "instagram": "https://www.instagram.com/koyotec.digital/",
@@ -34,7 +36,8 @@
         "blog": "Blog",
         "art": "L’art de la différence",
         "contact": "Contact",
-        "founder": "Le fondateur"
+        "founder": "Le fondateur",
+        "careers": "Carrières"
       },
       "menu": "Menu",
       "drop": "Contactez-nous",
@@ -223,7 +226,16 @@
       "art_word": "différence",
       "art_lead": "Trente marques, trente identités qui ne se ressemblent pas. Le même point de départ, des fins toutes différentes.",
       "art_cta": "Entrer dans l’exposition",
-      "art_count": "pièces"
+      "art_count": "pièces",
+      "careers": {
+        "kicker": "Carrières",
+        "title": "On recrute, côté Digital comme côté Engineering",
+        "lead": "Développeurs, designers, ingénieurs cloud ou data : envoyez-nous votre candidature spontanée, nous lisons chacune d’elles.",
+        "marquee": "Rejoignez la meute",
+        "digital": "Postuler côté Digital",
+        "engineering": "Postuler côté Engineering",
+        "cta": "Voir la page carrières"
+      }
     },
     "services": {
       "title": "Services : Site Web, Branding & SEO à Tunis – KOYOTEC",
@@ -967,6 +979,199 @@
       "chip_hover": "Rencontrer le fondateur",
       "cta_h": "Un projet ? Parlons-en.",
       "cta": "Demander un devis gratuit"
+    },
+    "careers": {
+      "title": "Carrières : rejoindre KOYOTEC Digital & Engineering à Tunis",
+      "desc": "Candidature spontanée chez KOYOTEC, à Tunis : développement web, design, SEO, IA, cloud, DevOps, cybersécurité, data. CDI, stage, PFE, freelance ou alternance.",
+      "label": "Carrières",
+      "drop": "Candidature",
+      "love": "Ouverte toute l’année",
+      "h1": "Rejoignez la meute KOYOTEC",
+      "sub": "Deux pôles, une seule équipe. Pas d’offre qui vous correspond ? Envoyez une candidature spontanée en deux minutes : nous lisons chacune d’elles et revenons vers vous quand un projet vous attend.",
+      "poles_h": "Deux pôles, un même cap",
+      "poles": [
+        {
+          "key": "digital",
+          "name": "Digital",
+          "kicker": "KOYOTEC Digital",
+          "shape": "browser",
+          "pitch": "Sites web sur mesure, identités visuelles et référencement pour des marques qui veulent compter en ligne.",
+          "disciplines": "Développement web · Design UI/UX · Branding · SEO · E-commerce · Stratégie digitale",
+          "roles": [
+            [
+              "web",
+              "Développeur web / front-end"
+            ],
+            [
+              "uiux",
+              "Designer UI/UX"
+            ],
+            [
+              "brand",
+              "Designer graphique & identité"
+            ],
+            [
+              "seo",
+              "SEO & contenu"
+            ],
+            [
+              "ecommerce",
+              "Développeur e-commerce"
+            ],
+            [
+              "strategy",
+              "Stratégie digitale & social media"
+            ]
+          ],
+          "cta": "Postuler côté Digital"
+        },
+        {
+          "key": "engineering",
+          "name": "Engineering",
+          "kicker": "KOYOTEC Engineering",
+          "shape": "chip",
+          "pitch": "Le pôle technique : nous concevons, déployons et sécurisons les systèmes qui font tourner une entreprise.",
+          "disciplines": "Intelligence artificielle · Cloud · DevOps · Cybersécurité · Business intelligence",
+          "roles": [
+            [
+              "devops",
+              "Ingénieur DevOps"
+            ],
+            [
+              "cloud",
+              "Ingénieur cloud"
+            ],
+            [
+              "ai",
+              "Ingénieur IA / ML"
+            ],
+            [
+              "data",
+              "Data engineer / BI"
+            ],
+            [
+              "security",
+              "Analyste cybersécurité"
+            ]
+          ],
+          "cta": "Postuler côté Engineering"
+        }
+      ],
+      "roles_label": "Profils recherchés",
+      "values_h": "Ce que vous trouverez chez nous",
+      "values": [
+        [
+          "Des projets réels, tout de suite",
+          "Vous travaillez sur des sites, des marques et des systèmes livrés à de vrais clients, pas sur des maquettes qui dorment."
+        ],
+        [
+          "Une petite équipe, beaucoup d’autonomie",
+          "Peu de niveaux, des décisions rapides, et la confiance de porter un sujet de bout en bout."
+        ],
+        [
+          "Le Digital et l’Engineering se parlent",
+          "Designers et ingénieurs travaillent ensemble : on apprend vite le métier de l’autre."
+        ],
+        [
+          "Apprendre en continu",
+          "Revue de code, retours sur le design, veille partagée et temps pour monter en compétences."
+        ]
+      ],
+      "process_h": "Comment se passe votre candidature",
+      "process": [
+        [
+          "1. Candidature",
+          "Le formulaire ci-dessous et votre CV suffisent. Une lettre de motivation n’est pas obligatoire."
+        ],
+        [
+          "2. Premier échange",
+          "Si votre profil correspond, nous vous appelons pour un échange de 20 à 30 minutes."
+        ],
+        [
+          "3. Mise en situation",
+          "Un cas concret, court et proche de nos projets, puis une discussion avec l’équipe."
+        ],
+        [
+          "4. Bienvenue",
+          "Une proposition claire, puis un accueil accompagné pour vos premières semaines."
+        ]
+      ],
+      "form_h": "Votre candidature",
+      "form_lead": "Deux minutes, votre CV, et c’est envoyé.",
+      "f_name": "Nom et prénom",
+      "f_email": "E-mail",
+      "f_phone": "Téléphone",
+      "f_optional": "facultatif",
+      "f_pole": "Le pôle qui vous intéresse",
+      "f_role": "Votre profil",
+      "f_other": "Autre",
+      "f_other_label": "Précisez votre profil",
+      "f_contract": "Type de poste",
+      "contracts": [
+        [
+          "cdi",
+          "CDI / CDD"
+        ],
+        [
+          "stage",
+          "Stage / PFE"
+        ],
+        [
+          "freelance",
+          "Freelance"
+        ],
+        [
+          "alternance",
+          "Alternance"
+        ]
+      ],
+      "f_link": "Portfolio, LinkedIn ou GitHub",
+      "f_msg": "Quelques mots sur vous",
+      "f_cv": "Votre CV",
+      "f_cv_hint": "Glissez votre fichier ici ou cliquez pour le choisir",
+      "f_cv_types": "PDF, DOC ou DOCX · 8 Mo maximum",
+      "f_cv_remove": "Retirer le fichier",
+      "f_cv_bad": "Format non accepté : envoyez un PDF, DOC ou DOCX.",
+      "f_cv_big": "Fichier trop lourd : 8 Mo maximum.",
+      "f_cv_missing": "Ajoutez votre CV pour envoyer la candidature.",
+      "f_consent": "J’accepte que KOYOTEC conserve ma candidature 12 mois, uniquement pour le recrutement.",
+      "f_send": "Envoyer ma candidature",
+      "f_note": "Réponse sous 10 jours ouvrés",
+      "f_sending": "Envoi en cours…",
+      "f_done_h": "Candidature envoyée",
+      "f_done": "Merci ! Nous avons bien reçu votre candidature. Un e-mail de confirmation vient de partir : s’il n’apparaît pas d’ici quelques minutes, pensez à vérifier vos spams ou courriers indésirables.",
+      "f_again": "Envoyer une autre candidature",
+      "f_error": "L’envoi a échoué. Réessayez dans un instant, ou écrivez-nous directement à careers@koyotec.digital en joignant votre CV.",
+      "f_limit": "Trop d’envois depuis votre connexion. Réessayez dans une heure, ou écrivez à careers@koyotec.digital.",
+      "faq_h": "Questions fréquentes sur le recrutement",
+      "faq": [
+        [
+          "Proposez-vous des stages et des PFE ?",
+          "Oui. Nous accueillons chaque année des stagiaires et des projets de fin d’études, côté Digital comme côté Engineering. Indiquez « Stage / PFE » et la période souhaitée dans votre message."
+        ],
+        [
+          "Faut-il une lettre de motivation ?",
+          "Non. Votre CV et quelques lignes sur ce qui vous motive suffisent. Un portfolio, un GitHub ou des projets personnels comptent souvent plus qu’une lettre."
+        ],
+        [
+          "Le télétravail est-il possible ?",
+          "Nous sommes basés à Ennasr, Tunis. Selon le poste, nous proposons du présentiel, de l’hybride ou du travail à distance, notamment pour les freelances."
+        ],
+        [
+          "Dans quelles langues travaillez-vous ?",
+          "En français, en arabe et en anglais. Nos clients sont en Tunisie et à l’étranger, un bon niveau d’anglais technique est un vrai plus."
+        ],
+        [
+          "Quand aurai-je une réponse ?",
+          "Nous lisons chaque candidature et répondons sous 10 jours ouvrés. Si aucun poste ne correspond aujourd’hui, nous gardons votre profil pour les prochains projets."
+        ],
+        [
+          "Que devient mon CV ?",
+          "Il est transmis uniquement à l’équipe recrutement de KOYOTEC, conservé 12 mois puis supprimé. Vous pouvez demander sa suppression à tout moment à careers@koyotec.digital."
+        ]
+      ],
+      "cta_kicker": "Une question avant de postuler ?",
+      "cta_giant": "Parlons-en"
     }
   },
   "en": {
@@ -978,7 +1183,8 @@
         "blog": "Blog",
         "art": "The art of difference",
         "contact": "Contact",
-        "founder": "The founder"
+        "founder": "The founder",
+        "careers": "Careers"
       },
       "menu": "Menu",
       "drop": "Drop a line",
@@ -1167,7 +1373,16 @@
       "art_word": "difference",
       "art_lead": "Thirty brands, thirty identities that look nothing alike. The same starting point, completely different endings.",
       "art_cta": "Enter the exhibition",
-      "art_count": "pieces"
+      "art_count": "pieces",
+      "careers": {
+        "kicker": "Careers",
+        "title": "We’re hiring, on the Digital and the Engineering side",
+        "lead": "Developers, designers, cloud or data engineers: send us a spontaneous application, we read every single one.",
+        "marquee": "Join the pack",
+        "digital": "Apply to Digital",
+        "engineering": "Apply to Engineering",
+        "cta": "See the careers page"
+      }
     },
     "services": {
       "title": "Services: Web Design, Branding & SEO in Tunis – KOYOTEC",
@@ -1911,6 +2126,199 @@
       "chip_hover": "Meet the founder",
       "cta_h": "Got a project? Let's talk.",
       "cta": "Get a free quote"
+    },
+    "careers": {
+      "title": "Careers: join KOYOTEC Digital & Engineering in Tunis",
+      "desc": "Spontaneous application to KOYOTEC, Tunis: web development, design, SEO, AI, cloud, DevOps, cybersecurity, data. Full-time, internship, freelance or work-study.",
+      "label": "Careers",
+      "drop": "Apply",
+      "love": "Open all year round",
+      "h1": "Join the KOYOTEC pack",
+      "sub": "Two arms, one team. No opening that fits you? Send a spontaneous application in two minutes: we read every single one and get back to you when a project is waiting for you.",
+      "poles_h": "Two arms, one direction",
+      "poles": [
+        {
+          "key": "digital",
+          "name": "Digital",
+          "kicker": "KOYOTEC Digital",
+          "shape": "browser",
+          "pitch": "Custom websites, visual identities and search for brands that want to matter online.",
+          "disciplines": "Web development · UI/UX design · Branding · SEO · E-commerce · Digital strategy",
+          "roles": [
+            [
+              "web",
+              "Web / front-end developer"
+            ],
+            [
+              "uiux",
+              "UI/UX designer"
+            ],
+            [
+              "brand",
+              "Graphic & brand designer"
+            ],
+            [
+              "seo",
+              "SEO & content"
+            ],
+            [
+              "ecommerce",
+              "E-commerce developer"
+            ],
+            [
+              "strategy",
+              "Digital strategy & social media"
+            ]
+          ],
+          "cta": "Apply to Digital"
+        },
+        {
+          "key": "engineering",
+          "name": "Engineering",
+          "kicker": "KOYOTEC Engineering",
+          "shape": "chip",
+          "pitch": "Our technical arm: we design, deploy and secure the systems a business runs on.",
+          "disciplines": "Artificial intelligence · Cloud · DevOps · Cybersecurity · Business intelligence",
+          "roles": [
+            [
+              "devops",
+              "DevOps engineer"
+            ],
+            [
+              "cloud",
+              "Cloud engineer"
+            ],
+            [
+              "ai",
+              "AI / ML engineer"
+            ],
+            [
+              "data",
+              "Data engineer / BI"
+            ],
+            [
+              "security",
+              "Cybersecurity analyst"
+            ]
+          ],
+          "cta": "Apply to Engineering"
+        }
+      ],
+      "roles_label": "Profiles we look for",
+      "values_h": "What you’ll find here",
+      "values": [
+        [
+          "Real projects, from day one",
+          "You work on websites, brands and systems shipped to real clients, not on mock-ups that gather dust."
+        ],
+        [
+          "A small team, a lot of autonomy",
+          "Few layers, quick decisions, and the trust to own a topic end to end."
+        ],
+        [
+          "Digital and Engineering talk",
+          "Designers and engineers work side by side: you learn the other craft fast."
+        ],
+        [
+          "Always learning",
+          "Code reviews, design feedback, shared tech watch and time to level up."
+        ]
+      ],
+      "process_h": "How your application works",
+      "process": [
+        [
+          "1. Apply",
+          "The form below and your CV are enough. A cover letter is optional."
+        ],
+        [
+          "2. First call",
+          "If your profile fits, we call you for a 20 to 30 minute conversation."
+        ],
+        [
+          "3. Practical case",
+          "A short, concrete case close to our real projects, then a talk with the team."
+        ],
+        [
+          "4. Welcome",
+          "A clear offer, then a guided onboarding for your first weeks."
+        ]
+      ],
+      "form_h": "Your application",
+      "form_lead": "Two minutes, your CV, and it’s sent.",
+      "f_name": "Full name",
+      "f_email": "Email",
+      "f_phone": "Phone",
+      "f_optional": "optional",
+      "f_pole": "The arm you’re interested in",
+      "f_role": "Your profile",
+      "f_other": "Other",
+      "f_other_label": "Tell us your profile",
+      "f_contract": "Type of position",
+      "contracts": [
+        [
+          "cdi",
+          "Full-time / fixed-term"
+        ],
+        [
+          "stage",
+          "Internship"
+        ],
+        [
+          "freelance",
+          "Freelance"
+        ],
+        [
+          "alternance",
+          "Work-study"
+        ]
+      ],
+      "f_link": "Portfolio, LinkedIn or GitHub",
+      "f_msg": "A few words about you",
+      "f_cv": "Your CV",
+      "f_cv_hint": "Drop your file here or click to choose it",
+      "f_cv_types": "PDF, DOC or DOCX · 8 MB max",
+      "f_cv_remove": "Remove the file",
+      "f_cv_bad": "Format not accepted: please send a PDF, DOC or DOCX.",
+      "f_cv_big": "File too large: 8 MB max.",
+      "f_cv_missing": "Add your CV to send the application.",
+      "f_consent": "I agree that KOYOTEC keeps my application for 12 months, for recruitment only.",
+      "f_send": "Send my application",
+      "f_note": "Answer within 10 working days",
+      "f_sending": "Sending…",
+      "f_done_h": "Application sent",
+      "f_done": "Thank you! We received your application. A confirmation email is on its way: if it doesn’t show up within a few minutes, please check your spam or junk folder.",
+      "f_again": "Send another application",
+      "f_error": "Sending failed. Try again in a moment, or write to careers@koyotec.digital with your CV attached.",
+      "f_limit": "Too many submissions from your connection. Try again in an hour, or write to careers@koyotec.digital.",
+      "faq_h": "Hiring FAQ",
+      "faq": [
+        [
+          "Do you offer internships?",
+          "Yes. Every year we welcome interns and end-of-studies projects (PFE), on the Digital and the Engineering side. Choose “Internship” and mention the period in your message."
+        ],
+        [
+          "Do I need a cover letter?",
+          "No. Your CV and a few lines on what drives you are enough. A portfolio, a GitHub or side projects often count more than a letter."
+        ],
+        [
+          "Is remote work possible?",
+          "We are based in Ennasr, Tunis. Depending on the role we offer on-site, hybrid or remote work, especially for freelancers."
+        ],
+        [
+          "Which languages do you work in?",
+          "French, Arabic and English. Our clients are in Tunisia and abroad, so good technical English is a real plus."
+        ],
+        [
+          "When will I hear back?",
+          "We read every application and answer within 10 working days. If no role fits today, we keep your profile for upcoming projects."
+        ],
+        [
+          "What happens to my CV?",
+          "It is only shared with the KOYOTEC hiring team, kept for 12 months and then deleted. You can ask for its deletion at any time at careers@koyotec.digital."
+        ]
+      ],
+      "cta_kicker": "A question before you apply?",
+      "cta_giant": "Let’s talk"
     }
   }
 }

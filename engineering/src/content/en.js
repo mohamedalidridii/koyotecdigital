@@ -29,6 +29,8 @@ const en = {
     home: "Koyotec Engineering — home",
     back: "← koyotec.digital",
     backHref: "/en/",
+    careers: "Careers",
+    careersHref: "/en/careers",
     switchLabel: "FR",
     switchName: "Français",
   },
@@ -186,14 +188,15 @@ const en = {
   positions: {
     meta: "Open applications /",
     title: ["Join", "us"],
-    email: "mailto:contact@koyotec.digital?subject=Application%20Koyotec%20Engineering",
+    // each row opens the application form of the main site, preset for this role
+    careers: "/en/careers",
     roles: [
-      { title: "DevOps engineer", tag: "DevOps", location: "Tunis" },
-      { title: "Cloud engineer", tag: "Cloud", location: "Hybrid" },
-      { title: "AI / ML engineer", tag: "AI", location: "Tunis" },
-      { title: "Data engineer", tag: "Data", location: "Remote" },
-      { title: "Security analyst", tag: "Security", location: "Tunis" },
-      { title: "Final-year internship", tag: "All teams", location: "Tunis" },
+      { title: "DevOps engineer", tag: "DevOps", location: "Tunis", role: "devops" },
+      { title: "Cloud engineer", tag: "Cloud", location: "Hybrid", role: "cloud" },
+      { title: "AI / ML engineer", tag: "AI", location: "Tunis", role: "ai" },
+      { title: "Data engineer", tag: "Data", location: "Remote", role: "data" },
+      { title: "Security analyst", tag: "Security", location: "Tunis", role: "security" },
+      { title: "Final-year internship", tag: "All teams", location: "Tunis", contract: "stage" },
     ],
   },
 

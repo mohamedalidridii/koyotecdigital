@@ -344,6 +344,9 @@ function MenuPanel() {
           <a href={t.menu.backHref} className={`mono sm ${styles.reveal}`}>
             {t.menu.back}
           </a>
+          <a href={t.menu.careersHref} className={`mono sm ${styles.reveal}`}>
+            {t.menu.careers}
+          </a>
           <Link
             href={localize(other, route)}
             hrefLang={other}

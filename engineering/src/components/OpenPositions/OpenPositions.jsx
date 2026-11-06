@@ -77,14 +77,17 @@ export default function OpenPositions() {
         </div>
 
         <div ref={listRef} className={styles.list}>
-          {ROLES.map(({ title, tag, location }, index) => (
+          {ROLES.map(({ title, tag, location, role, contract }, index) => (
             <Copy
               key={title}
               delay={index * ROW_STAGGER}
               stagger={0}
               trigger={`.${styles.list}`}
             >
-              <a href={c.email} className={styles.row}>
+              <a
+                href={`${c.careers}?pole=engineering&${role ? `role=${role}` : `contract=${contract}`}#postuler`}
+                className={styles.row}
+              >
                 <p className={`lg ${styles.role}`} data-copy-text>
                   {title}
                 </p>

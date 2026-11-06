@@ -220,6 +220,10 @@ export default function Footer() {
                 <h6>{label}</h6>
               </Link>
             ))}
+            {/* the careers page lives on the main site, outside this app's basePath */}
+            <a href={t.menu.careersHref} className={styles.footerLink}>
+              <h6>{t.menu.careers}</h6>
+            </a>
           </nav>
           <p className={styles.footerCopy}>{t.footer.copy}</p>
         </div>

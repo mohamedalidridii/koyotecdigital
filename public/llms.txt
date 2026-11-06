@@ -14,6 +14,7 @@ KOYOTEC is a digital agency based in Tunis. We build fast, custom websites, memo
 - Services: Website design & development, Brand identity & logo, SEO, UI/UX design, Online store, Digital strategy
 - Engineering arm (Koyotec Engineering): Artificial intelligence, Cloud, DevOps, Cybersecurity, Business intelligence
 - Contact: contact@koyotec.digital, +216 52 405 699, https://www.koyotec.digital/en/contact
+- Careers: spontaneous applications for both arms at https://www.koyotec.digital/en/careers (careers@koyotec.digital)
 
 Full text of the main pages: https://www.koyotec.digital/llms-full.txt
 
@@ -23,6 +24,7 @@ Full text of the main pages: https://www.koyotec.digital/llms-full.txt
 - [Services: Web Design, Branding & SEO in Tunis](https://www.koyotec.digital/en/services): Custom website development, brand identity, logo design, UI/UX and SEO in Tunis, Tunisia. Explore the services of the KOYOTEC digital agency.
 - [Mohamed Ali Dridi – Founder of KOYOTEC, DevOps engineer](https://www.koyotec.digital/en/medalydridi): Mohamed Ali Dridi: founder of KOYOTEC, DevOps & cloud engineer, O'Reilly Community Partner and tech content creator followed by more than 37,000 people.
 - [Free Website Design Quote in Tunis | Contact](https://www.koyotec.digital/en/contact): Request a free quote for a website, logo, SEO or online store in Tunis, Tunisia. Reply within 24 hours. KOYOTEC, Ennasr: +216 52 405 699.
+- [Careers: join KOYOTEC Digital & Engineering in Tunis](https://www.koyotec.digital/en/careers): Spontaneous application to KOYOTEC, Tunis: web development, design, SEO, AI, cloud, DevOps, cybersecurity, data. Full-time, internship, freelance or work-study.
 - [Koyotec Engineering](https://www.koyotec.digital/engineering/en/): Our technical arm designs, ships and secures the systems your business runs on.
 
 ### Services
@@ -48,6 +50,7 @@ Full text of the main pages: https://www.koyotec.digital/llms-full.txt
 - [Services : Site Web, Branding & SEO à Tunis](https://www.koyotec.digital/services): Création de site internet sur mesure, identité visuelle, logo, design UI/UX et référencement SEO à Tunis. Découvrez les services de l'agence KOYOTEC.
 - [Mohamed Ali Dridi – Fondateur de KOYOTEC](https://www.koyotec.digital/medalydridi): Mohamed Ali Dridi : fondateur de KOYOTEC, ingénieur DevOps & cloud, O'Reilly Community Partner et créateur de contenu tech suivi par plus de 37 000 personnes.
 - [Devis Site Web Gratuit à Tunis | Contact](https://www.koyotec.digital/contact): Demandez votre devis gratuit pour un site web, un logo, le SEO ou une boutique en ligne à Tunis. Réponse sous 24 h. KOYOTEC, Ennasr : +216 52 405 699.
+- [Carrières : rejoindre KOYOTEC Digital & Engineering à Tunis](https://www.koyotec.digital/carrieres): Candidature spontanée chez KOYOTEC, à Tunis : développement web, design, SEO, IA, cloud, DevOps, cybersécurité, data. CDI, stage, PFE, freelance ou alternance.
 - [Koyotec Engineering](https://www.koyotec.digital/engineering/): Notre pôle technique conçoit, déploie et sécurise les systèmes qui font tourner votre entreprise.
 
 ### Services

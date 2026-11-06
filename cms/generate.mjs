@@ -30,6 +30,7 @@ const PATHS = {
   engineering: ["/engineering/", "/engineering/en/"],
   blog: ["/blog", "/en/blog"],
   contact: ["/contact", "/en/contact"],
+  careers: ["/carrieres", "/en/careers"],
   founder: ["/medalydridi", "/en/medalydridi"],
 };
 const LANGS = ["fr", "en"];
@@ -217,6 +218,8 @@ ${altFr ? `    <link rel="alternate" hreflang="fr" href="${esc(SITE + altFr)}" /
       );
     } else if (page === "contact") {
       ld = graph(org(lang), { "@type": "ContactPage", name: p.h1, url: url(page, lang), about: { "@id": SITE + "/#organization" } }, faqLd(p.faq), crumbs(home, [ui.nav[page], url(page, lang)]));
+    } else if (page === "careers") {
+      ld = graph(org(lang), { "@type": "WebPage", name: p.h1, url: url(page, lang), inLanguage: lang, about: { "@id": SITE + "/#organization" } }, faqLd(p.faq), crumbs(home, [ui.nav[page], url(page, lang)]));
     } else {
       ld = graph(org(lang), crumbs(home, [ui.nav[page], url(page, lang)]));
     }
@@ -268,7 +271,7 @@ ${altFr ? `    <link rel="alternate" hreflang="fr" href="${esc(SITE + altFr)}" /
     const links = keys
       .map((k, n) => `<li><a href="${PATHS[k][i]}"${k === "art" ? ' class="nav-art"' : ""}${full(k)}${cur(k)}>${k === "art" ? '<i class="nav-art-dot" aria-hidden="true"></i>' : ""}${esc(ui.nav[k])}</a>${n < keys.length - 1 ? "," : ""}</li>`)
       .join(" ");
-    const items = keys
+    const items = [...keys, "careers"]
       .map((k, n) => `        <li><a href="${PATHS[k][i]}"${k === "art" ? ' class="nav-art"' : ""}${full(k)}${cur(k)}><span class="menu-idx">(${pad(n + 1)})</span><span class="menu-name">${esc(ui.nav[k])}</span>${k === "art" ? '<i class="nav-art-dot" aria-hidden="true"></i>' : ""}</a></li>`)
       .join("\n");
     return `    <header class="site-nav">
@@ -291,6 +294,7 @@ ${items}
       </nav>
       <div class="menu-foot">
         <a href="${PATHS.founder[i]}">${esc(site[lang].founder.chip_hover)}</a>
+        <a href="${PATHS.careers[i]}">${esc(ui.nav.careers)}</a>
         <a href="mailto:${esc(G.email)}">${esc(G.email)}</a>
         <a href="tel:${esc(G.phone)}">${esc(G.phoneDisplay)}</a>
         <a href="${esc(G.instagram)}" target="_blank" rel="noopener noreferrer">Instagram</a>
@@ -325,6 +329,7 @@ ${items}
             <a href="${PATHS.art[i]}">${esc(ui.nav.art)}</a>
             <a href="${PATHS.blog[i]}">${esc(ui.nav.blog)}</a>
             <a href="${PATHS.contact[i]}">${esc(ui.nav.contact)}</a>
+            <a href="${PATHS.careers[i]}">${esc(ui.nav.careers)}</a>
             <a href="${PATHS.founder[i]}">${esc(ui.nav.founder)}</a>
           </div>
           <div>
@@ -479,6 +484,26 @@ ${chips}
       </section>`;
   }
 
+  // home teaser for the careers page: a marquee, then one big link per arm, each opening the form preset
+  function careersTeaser(lang) {
+    const t = site[lang].home.careers; const c = site[lang].careers; const i = idx(lang);
+    if (!t || !c) return "";
+    const href = PATHS.careers[i];
+    const words = Array(4).fill(`<span>${esc(t.marquee)}</span><i>✳</i>`).join("");
+    const poles = c.poles.map((p, n) => `            <li data-line><a class="ct-pole" href="${href}?pole=${esc(p.key)}#postuler" data-pole-shape="${esc(p.shape)}" data-cursor="${CURSOR[lang].write}"><span class="svc-num">${pad(n + 1)}</span><span class="ct-name">${esc(p.name)}</span><span class="ct-disc">${esc(p.disciplines)}</span><span class="ct-go">${esc(n ? t.engineering : t.digital)} ${GLYPH.arrow}</span></a></li>`).join("\n");
+    return `      <section class="careers-teaser" id="careers" data-gl="constellation" data-gl-dim="0.3">
+        <div class="ct-marquee" aria-hidden="true"><div class="ct-marquee-track">${words}${words}</div></div>
+        <div class="shell">
+          <div class="label-row" data-line><span>${esc(t.kicker)} (${pad(c.poles.length)})</span><span class="label-lead">${esc(t.lead)}</span></div>
+          <h2 class="ct-title" data-split>${esc(t.title)}</h2>
+          <ol class="ct-list">
+${poles}
+          </ol>
+          <p class="svc-more">${link(href, t.cta)}</p>
+        </div>
+      </section>`;
+  }
+
   function home(lang) {
     const h = site[lang].home; const i = idx(lang); const c = CURSOR[lang];
     const pillars = h.points.map(([a, b], n) => `            <li data-line><span class="pillar-num">(${pad(n + 1)})</span><h3>${esc(a)}</h3><p>${esc(b)}</p></li>`).join("\n");
@@ -538,6 +563,8 @@ ${h.facts.map(([k, v]) => `              <div data-line><dt>${esc(k)}</dt><dd>${
           </div>` : ""}
         </div>
       </section>
+
+${careersTeaser(lang)}
 
 ${processSection(lang, h.process_h, h.process)}
 
@@ -797,6 +824,114 @@ ${faqSection(c.faq_h, c.faq)}`;
     return page({ head: pageHead(lang, "contact"), lang, ns: "contact", pageKey: "contact", main });
   }
 
+  // careers: the two arms, how we work, the process, then the application form (CV upload to the VPS API)
+  function careers(lang) {
+    const c = site[lang].careers; const i = idx(lang); const cur = CURSOR[lang];
+    const opt = (label) => `${esc(label)} <em>(${esc(c.f_optional)})</em>`;
+    const poles = c.poles.map((p, n) => `            <article class="pole" data-pole="${esc(p.key)}" data-pole-shape="${esc(p.shape)}" data-line>
+              <p class="pole-kicker"><span class="svc-num">${pad(n + 1)}</span> ${esc(p.kicker)}</p>
+              <h3 class="pole-name">${esc(p.name)}</h3>
+              <p class="pole-pitch">${esc(p.pitch)}</p>
+              <p class="pole-disc">${esc(p.disciplines)}</p>
+              <div class="pole-roles">
+                <p class="pole-roles-h">${esc(c.roles_label)}</p>
+                <ul>${p.roles.map(([, r], k) => `<li style="--i:${k}">${esc(r)}</li>`).join("")}</ul>
+              </div>
+              <a class="pole-cta" href="#postuler" data-pick-pole="${esc(p.key)}" data-cursor="${cur.write}"><span>${esc(p.cta)}</span> ${GLYPH.arrow}</a>
+            </article>`).join("\n");
+    const poleSwitch = c.poles.map((p, n) => `<label class="ps-opt"><input type="radio" name="pole" value="${esc(p.key)}"${n ? "" : " checked"} required /><span><i class="ps-num">${pad(n + 1)}</i>${esc(p.name)}</span></label>`).join("");
+    const roleSets = c.poles.map((p, n) => `<div class="role-set" data-for="${esc(p.key)}"${n ? " hidden" : ""}>${p.roles.map(([k, r]) => `<label class="chip"><input type="radio" name="role" value="${esc(k)}" required${n ? " disabled" : ""} /><span>${esc(r)}</span></label>`).join("")}<label class="chip"><input type="radio" name="role" value="other" data-other required${n ? " disabled" : ""} /><span>${esc(c.f_other)}</span></label></div>`).join("");
+    const contracts = c.contracts.map(([k, l]) => `<label class="chip"><input type="radio" name="contract" value="${esc(k)}" required /><span>${esc(l)}</span></label>`).join("");
+    const values = c.values.map(([a, b], n) => `            <li class="row" data-line><span class="row-num">${pad(n + 1)}</span><h3 class="row-title">${esc(a)}</h3><p class="row-text">${esc(b)}</p></li>`).join("\n");
+    const [mailUser, mailHost] = String(G.careersEmail).split("@");
+    const main = `      <section class="careers page-hero" data-gl="orbit" data-gl-dim="0.25">
+        <div class="shell">
+          <p class="lockup-brand">${stamp("Join", c.drop)} <span>${esc(c.love)}</span></p>
+          <h1 class="lockup-h1 page-title" data-split>${midGlyphs(c.h1, GLYPH.howl, GLYPH.star)}</h1>
+          <div class="page-hero-foot" data-line><p class="hero-sub">${esc(c.sub)}</p>${link("#postuler", c.form_h, ' data-pick-pole=""')}</div>
+        </div>
+      </section>
+
+      <section class="poles-sec" id="poles" data-gl="constellation" data-gl-dim="0.3">
+        <div class="shell">
+          ${sectionHead(c.poles_h, c.poles.length, "poles-h")}
+          <div class="poles">
+${poles}
+          </div>
+        </div>
+      </section>
+
+      <section class="table-sec" id="values" data-gl="dunes" data-gl-dim="0.25">
+        <div class="shell">
+          ${sectionHead(c.values_h, c.values.length, "values-h")}
+          <ol class="rows">
+${values}
+          </ol>
+        </div>
+      </section>
+
+${processSection(lang, c.process_h, c.process)}
+
+      <section class="apply" id="postuler" data-gl="orbit" data-gl-dim="0.18">
+        <div class="shell apply-grid">
+          <div class="apply-aside">
+            <h2 class="apply-h" data-split>${esc(c.form_h)}</h2>
+            <p class="apply-lead">${esc(c.form_lead)}</p>
+            <p class="apply-pole" aria-hidden="true"><span class="apply-pole-word">${esc(c.poles[0].name)}</span></p>
+            <a class="apply-mail" href="mailto:${esc(G.careersEmail)}">${esc(mailUser)}${GLYPH.loop}<span class="visually-hidden">@</span>${esc(mailHost)}</a>
+          </div>
+          <div class="apply-box">
+          <form class="apply-form" action="${esc(G.careersEndpoint)}" method="post" enctype="multipart/form-data" data-endpoint="${esc(G.careersEndpoint)}" data-lang="${lang}" data-sending="${esc(c.f_sending)}" data-error="${esc(c.f_error)}" data-limit="${esc(c.f_limit)}" data-cv-bad="${esc(c.f_cv_bad)}" data-cv-big="${esc(c.f_cv_big)}" data-cv-missing="${esc(c.f_cv_missing)}">
+            <fieldset class="pole-switch" data-line><legend>${esc(c.f_pole)}</legend><div class="ps-track"><i class="ps-ink" aria-hidden="true"></i>${poleSwitch}</div></fieldset>
+            <fieldset class="chips role-chips" data-line><legend>${esc(c.f_role)}</legend>${roleSets}</fieldset>
+            <label class="field other-field" data-line hidden><span>${esc(c.f_other_label)}</span><input name="other" maxlength="160" /></label>
+            <fieldset class="chips" data-line><legend>${esc(c.f_contract)}</legend>${contracts}</fieldset>
+            <div class="field-pair">
+              <label class="field" data-line><span>${esc(c.f_name)}</span><input name="name" autocomplete="name" maxlength="120" required /></label>
+              <label class="field" data-line><span>${esc(c.f_email)}</span><input name="email" type="email" autocomplete="email" maxlength="200" required /></label>
+            </div>
+            <div class="field-pair">
+              <label class="field" data-line><span>${opt(c.f_phone)}</span><input name="phone" type="tel" autocomplete="tel" maxlength="40" /></label>
+              <label class="field" data-line><span>${opt(c.f_link)}</span><input name="link" type="text" inputmode="url" autocomplete="url" maxlength="300" placeholder="linkedin.com/in/…" /></label>
+            </div>
+            <label class="field" data-line><span>${opt(c.f_msg)}</span><textarea name="message" rows="3" maxlength="3000"></textarea></label>
+            <div class="drop" data-line>
+              <p class="drop-label">${esc(c.f_cv)}</p>
+              <label class="drop-zone" data-cursor="${cur.view}">
+                <input class="drop-input" type="file" name="cv" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required />
+                <svg class="drop-frame" aria-hidden="true" focusable="false"><rect width="100%" height="100%" rx="18" ry="18" /></svg>
+                <span class="drop-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M20 28V8M12 15l8-8 8 8M7 26v6h26v-6" /></svg></span>
+                <span class="drop-hint">${esc(c.f_cv_hint)}</span>
+                <span class="drop-types">${esc(c.f_cv_types)}</span>
+              </label>
+              <div class="drop-file" hidden><svg class="drop-check" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path pathLength="1" d="M9 21l7 7 15-16" /></svg><span class="drop-name"></span><span class="drop-size"></span><button class="drop-remove" type="button" aria-label="${esc(c.f_cv_remove)}">×</button></div>
+              <p class="drop-error" role="alert"></p>
+            </div>
+            <label class="consent" data-line><input type="checkbox" name="consent" value="yes" required /><span class="consent-box" aria-hidden="true"><svg viewBox="0 0 40 40"><path pathLength="1" d="M9 21l7 7 15-16" /></svg></span><span>${esc(c.f_consent)}</span></label>
+            <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <input type="hidden" name="lang" value="${lang}" />
+            <div class="form-foot">
+              <button class="send apply-send" type="submit" data-cursor="${cur.write}" data-magnetic><span class="send-fill" aria-hidden="true"></span><span class="send-label">${esc(c.f_send)}</span> ${GLYPH.arrow}</button>
+              <p class="form-note">${esc(c.f_note)}</p>
+            </div>
+            <p class="form-done" role="status" aria-live="polite"></p>
+          </form>
+          <div class="apply-done" hidden tabindex="-1">
+            <svg class="apply-done-mark" viewBox="0 0 80 80" aria-hidden="true" focusable="false"><circle pathLength="1" cx="40" cy="40" r="36" /><path pathLength="1" d="M24 41l11 11 22-24" /></svg>
+            <h3 class="apply-done-h">${esc(c.f_done_h)}</h3>
+            <p class="apply-done-text">${esc(c.f_done)}</p>
+            <button class="tlink apply-again" type="button"><span class="tlink-label">${esc(c.f_again)}</span><span class="tlink-arrow" aria-hidden="true">→</span></button>
+          </div>
+          </div>
+        </div>
+      </section>
+
+${faqSection(c.faq_h, c.faq)}
+
+${ctaSection(lang, { kicker: c.cta_kicker, h: c.cta_kicker, giant: c.cta_giant, button: site[lang].ui.nav.contact })}`;
+    return page({ head: pageHead(lang, "careers"), lang, ns: "careers", pageKey: "careers", main });
+  }
+
   // the exhibition: every showcase piece as a framed card that opens its live concept in a viewer
   function artPage(lang) {
     const a = site[lang].art; const i = idx(lang); const c = CURSOR[lang];
@@ -1032,7 +1167,7 @@ ${body}
 
   function sitemap(files) {
     const entries = [];
-    for (const page of ["home", "services", ...Object.keys(LANDINGS).filter((k) => site.fr[k] && site.en[k]), "art", "blog", "contact", "founder"]) {
+    for (const page of ["home", "services", ...Object.keys(LANDINGS).filter((k) => site.fr[k] && site.en[k]), "art", "blog", "contact", "careers", "founder"]) {
       entries.push({ fr: PATHS[page][0], en: PATHS[page][1] });
     }
     for (const p of art) {
@@ -1088,6 +1223,7 @@ ${body}
       `Services: ${e.home.cards.map(([n]) => n).join(", ")}`,
       `Engineering arm (Koyotec Engineering): ${e.home.engineering.items.map(([n]) => n).join(", ")}`,
       `Contact: ${G.email}, ${G.phoneDisplay}, ${url("contact", "en")}`,
+      `Careers: spontaneous applications for both arms at ${url("careers", "en")} (${G.careersEmail})`,
     ];
     const item = (href, title, desc) => `- [${shortTitle(title)}](${href}): ${plain(desc)}`;
     const section = (lang) => {
@@ -1098,6 +1234,7 @@ ${body}
         item(url("services", lang), t.services.title, t.services.desc),
         item(url("founder", lang), t.founder.title, t.founder.desc),
         item(url("contact", lang), t.contact.title, t.contact.desc),
+        item(url("careers", lang), t.careers.title, t.careers.desc),
         item(url("engineering", lang), t.home.engineering.kicker, t.home.engineering.lead),
         "", `### ${L.services}`, "",
         ...landingKeys(lang).map((k) => item(url(k, lang), t[k].title, t[k].desc)),
@@ -1157,6 +1294,7 @@ ${body}
     "index.html": home("fr"), "en/index.html": home("en"),
     "services.html": services("fr"), "en/services.html": services("en"),
     "contact.html": contact("fr"), "en/contact.html": contact("en"),
+    "carrieres.html": careers("fr"), "en/careers.html": careers("en"),
     "art-de-la-difference.html": artPage("fr"), "en/art-of-difference.html": artPage("en"),
     "blog/index.html": blogIndex("fr"), "en/blog/index.html": blogIndex("en"),
     "medalydridi.html": founder("fr"), "en/medalydridi.html": founder("en"),

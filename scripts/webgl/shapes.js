@@ -195,6 +195,42 @@ const DRAW = {
     ctx.lineWidth = 3;
     ctx.stroke();
   },
+
+  // engineering: a processor with traces running out to the edges
+  chip(ctx, s) {
+    const c = s / 2;
+    ctx.lineWidth = 6;
+    roundRect(ctx, s * 0.28, s * 0.28, s * 0.44, s * 0.44, 16);
+    ctx.stroke();
+    ctx.lineWidth = 3;
+    roundRect(ctx, s * 0.38, s * 0.38, s * 0.24, s * 0.24, 8);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(c, c, s * 0.04, 0, TAU);
+    ctx.fill();
+    // four pins per side, each ending in a small pad, alternate pins bend like PCB traces
+    ctx.lineWidth = 4;
+    [0.36, 0.45, 0.55, 0.64].forEach((t, i) => {
+      const reach = i % 2 ? 0.1 : 0.17;
+      for (const side of [0, 1, 2, 3]) {
+        const p = s * t;
+        const from = s * 0.28;
+        const to = s * (0.28 - reach);
+        const pts =
+          side === 0 ? [[p, from], [p, to]] :
+          side === 1 ? [[s - from, p], [s - to, p]] :
+          side === 2 ? [[p, s - from], [p, s - to]] :
+                       [[from, p], [to, p]];
+        ctx.beginPath();
+        ctx.moveTo(...pts[0]);
+        ctx.lineTo(...pts[1]);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(...pts[1], 6, 0, TAU);
+        ctx.fill();
+      }
+    });
+  },
 };
 
 // endless dune field in world space (height is computed in the shader)

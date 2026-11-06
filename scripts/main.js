@@ -13,20 +13,22 @@ import { homeHero, pageHero } from "./sections/intro.js";
 import { serviceHover, statement, rows } from "./sections/home.js";
 import { faq, cta, footer, contactForm, article } from "./sections/common.js";
 import { artTheme, artHero, artExpo, artViewer, artTeaser, staticLetters } from "./sections/art.js";
+import { careersForm, careersPoles, careersTeaser } from "./sections/careers.js";
 import { founderTheme, founderHero, founderManifesto, founderCounters, founderReel, founderMarquee, founderChapters, founderStage } from "./sections/founder.js";
 
 // motion modules per Barba namespace (nav, form and FAQ run everywhere, even with reduced motion)
 const PAGES = {
-  home: [homeHero, serviceHover, artTeaser, statement, rows, cta],
+  home: [homeHero, serviceHover, artTeaser, careersTeaser, statement, rows, cta],
   services: [pageHero, rows, cta],
   contact: [pageHero, rows],
+  careers: [pageHero, careersPoles, rows, cta],
   blog: [pageHero, rows],
   article: [pageHero, article],
   art: [artHero, artExpo, cta],
   founder: [founderHero, founderManifesto, founderCounters, founderReel, founderMarquee, founderChapters, founderStage, cta],
 };
 // per-page systems that run even with reduced motion
-const ALWAYS = { home: [staticLetters], art: [artTheme, artViewer, staticLetters], founder: [founderTheme] };
+const ALWAYS = { home: [staticLetters], art: [artTheme, artViewer, staticLetters], founder: [founderTheme], careers: [careersForm] };
 
 let ctx = null;
 let cleanups = [];
@@ -36,7 +38,7 @@ function mount(container, { ready = Promise.resolve() } = {}) {
   scroll.add(container);
 
   ctx = gsap.context(() => {
-    cleanups = [initNav(container), faq(container), contactForm(container), ...(ALWAYS[ns] || []).map((fn) => fn(container))];
+    cleanups = [initNav(container), faq(container), contactForm(container), ...(ALWAYS[ns] || []).map((fn) => fn(container, { ready }))];
     if (!reduced) {
       cleanups.push(magnetic(container));
       (PAGES[ns] || [pageHero]).forEach((fn) => cleanups.push(fn(container, { ready })));

@@ -18,6 +18,7 @@ import Button from "@/components/Button";
 import FocusAreas from "@/components/FocusAreas";
 import Marquee from "@/components/Marquee";
 import ProcessSteps from "@/components/ProcessSteps";
+import OpenPositions from "@/components/OpenPositions";
 import StatementBanner from "@/components/StatementBanner";
 
 import {
@@ -171,6 +172,8 @@ export default function Home() {
       <Marquee />
 
       <ProcessSteps />
+
+      <OpenPositions />
 
       <StatementBanner />
     </>

@@ -30,6 +30,8 @@ const fr = {
     home: "Koyotec Engineering — accueil",
     back: "← koyotec.digital",
     backHref: "/",
+    careers: "Carrières",
+    careersHref: "/carrieres",
     switchLabel: "EN",
     switchName: "English",
   },
@@ -188,14 +190,15 @@ const fr = {
   positions: {
     meta: "Candidatures spontanées /",
     title: ["Nous", "rejoindre"],
-    email: "mailto:contact@koyotec.digital?subject=Candidature%20Koyotec%20Engineering",
+    // each row opens the application form of the main site, preset for this role
+    careers: "/carrieres",
     roles: [
-      { title: "Ingénieur DevOps", tag: "DevOps", location: "Tunis" },
-      { title: "Ingénieur cloud", tag: "Cloud", location: "Hybride" },
-      { title: "Ingénieur IA / ML", tag: "IA", location: "Tunis" },
-      { title: "Data engineer", tag: "Data", location: "Remote" },
-      { title: "Analyste cybersécurité", tag: "Sécurité", location: "Tunis" },
-      { title: "Stage de fin d’études", tag: "Tous pôles", location: "Tunis" },
+      { title: "Ingénieur DevOps", tag: "DevOps", location: "Tunis", role: "devops" },
+      { title: "Ingénieur cloud", tag: "Cloud", location: "Hybride", role: "cloud" },
+      { title: "Ingénieur IA / ML", tag: "IA", location: "Tunis", role: "ai" },
+      { title: "Data engineer", tag: "Data", location: "Remote", role: "data" },
+      { title: "Analyste cybersécurité", tag: "Sécurité", location: "Tunis", role: "security" },
+      { title: "Stage de fin d’études", tag: "Tous pôles", location: "Tunis", contract: "stage" },
     ],
   },
 

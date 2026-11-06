@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.koyotec.digital/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/"/>
   </url>
   <url>
     <loc>https://www.koyotec.digital/en/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/"/>
@@ -125,6 +125,20 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/contact"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/contact"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/contact"/>
+  </url>
+  <url>
+    <loc>https://www.koyotec.digital/carrieres</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/carrieres"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/careers"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/carrieres"/>
+  </url>
+  <url>
+    <loc>https://www.koyotec.digital/en/careers</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/carrieres"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/careers"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/carrieres"/>
   </url>
   <url>
     <loc>https://www.koyotec.digital/medalydridi</loc>

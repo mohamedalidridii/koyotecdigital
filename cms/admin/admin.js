@@ -30,9 +30,13 @@ const LABELS = {
   label: "Nom court du service (fil d'Ariane, liens)", examples_h: "Titre des exemples", examples_lead: "Phrase sous le titre des exemples",
   examples: "Exemples (slugs de L'art de la différence)", related_h: "Titre « pour aller plus loin »", posts: "Articles liés (identifiants, ex. article-1)",
   nav_cta: "Bouton « devis » du menu", footer_pages: "Titre colonne pages (pied de page)", footer_contact: "Titre colonne contact", footer_follow: "Titre colonne réseaux",
+  careers: "Carrières (page et encart de l'accueil)", careersEndpoint: "Adresse de l'API des candidatures", careersEmail: "E-mail des candidatures",
+  poles_h: "Titre des deux pôles", poles: "Pôles (ne pas changer key, shape ni les identifiants des profils : l'API les vérifie)", roles_label: "Libellé « profils recherchés »",
+  values_h: "Titre « ce que vous trouverez »", values: "Points forts (titre, texte)", contracts: "Types de poste (identifiant, libellé)", form_lead: "Phrase sous le titre du formulaire",
+  marquee: "Texte qui défile", digital: "Bouton Digital", cta_kicker: "Phrase au-dessus du gros texte final",
 };
 const TUPLE = { stats: ["Valeur (ex. 37,7K)", "Libellé"], chapters: ["Titre", "Texte"], timeline: ["Année", "Texte"], photos: ["Fichier (sans .webp)", "Texte alternatif"], links: ["Nom", "Lien"], cards: ["Titre", "Description"], points: ["Titre", "Description"], facts: ["Libellé", "Valeur"], faq: ["Question", "Réponse"], blocks: ["Titre", "Texte"], process: ["Étape", "Description"], sections: ["Titre de section", "Texte (ligne vide = nouveau paragraphe ; « - » en début de ligne = liste)"] };
-const PAGE_NAMES = { home: "Accueil", services: "Services", lp_web: "Page « Création site web »", lp_branding: "Page « Logo et identité »", lp_seo: "Page « SEO »", lp_ecommerce: "Page « E-commerce »", founder: "Page fondateur", contact: "Contact", blog: "Page Blog", ui: "Menus et libellés" };
+const PAGE_NAMES = { home: "Accueil", services: "Services", lp_web: "Page « Création site web »", lp_branding: "Page « Logo et identité »", lp_seo: "Page « SEO »", lp_ecommerce: "Page « E-commerce »", founder: "Page fondateur", contact: "Contact", careers: "Carrières", blog: "Page Blog", ui: "Menus et libellés" };
 const label = (k) => LABELS[k] || k;
 
 function h(tag, attrs = {}, ...kids) {
