@@ -617,6 +617,20 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/engineering/expertise/"/>
   </url>
   <url>
+    <loc>https://www.koyotec.digital/engineering/systems/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/engineering/systems/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/engineering/en/systems/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/engineering/systems/"/>
+  </url>
+  <url>
+    <loc>https://www.koyotec.digital/engineering/en/systems/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/engineering/systems/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/engineering/en/systems/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/engineering/systems/"/>
+  </url>
+  <url>
     <loc>https://www.koyotec.digital/engineering/work/</loc>
     <lastmod>2026-11-06</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/engineering/work/"/>

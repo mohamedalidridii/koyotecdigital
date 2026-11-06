@@ -126,7 +126,7 @@
       "permanent": true
     },
     {
-      "source": "/engineering/:path(en|expertise|work|studio|engagements|contact|en/expertise|en/work|en/studio|en/engagements|en/contact)",
+      "source": "/engineering/:path(en|expertise|systems|work|studio|engagements|contact|en/expertise|en/systems|en/work|en/studio|en/engagements|en/contact)",
       "destination": "/engineering/:path/",
       "permanent": true
     },

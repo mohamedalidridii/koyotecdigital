@@ -37,7 +37,7 @@ const LANGS = ["fr", "en"];
 const LOCALE = { fr: "fr_TN", en: "en_US" };
 const idx = (lang) => (lang === "fr" ? 0 : 1);
 // routes outside the barba-driven pages: links to them must load the page for real
-const ENGINEERING_ROUTES = ["", "expertise", "work", "studio", "engagements", "contact"];
+const ENGINEERING_ROUTES = ["", "expertise", "systems", "work", "studio", "engagements", "contact"];
 const full = (k) => (k === "engineering" ? " data-barba-prevent" : "");
 
 // ---------- escaping and light markup ----------

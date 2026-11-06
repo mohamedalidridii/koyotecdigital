@@ -1,0 +1,358 @@
+/* overlays shared by the five visuals: labels, cards, terminals sitting over the canvas/SVG */
+.host {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.25rem 0.45rem;
+  font-family: var(--font-google-sans-code), monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  will-change: transform, opacity;
+}
+.card {
+  position: absolute;
+  padding: 1rem 1.1rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  will-change: opacity, transform;
+}
+.mono {
+  font-family: var(--font-google-sans-code), monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.caret::after {
+  content: "▍";
+  margin-left: 1px;
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+.svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* ---------- AI ---------- */
+.ai .tag {
+  color: rgba(243, 241, 236, 0.75);
+}
+.ai .clusterTag {
+  border: 1px solid rgba(243, 241, 236, 0.35);
+  color: #f3f1ec;
+}
+.ai .clusterTag[data-hit] {
+  border-color: #ff0000;
+  background: #ff0000;
+}
+.bubble {
+  left: 1.5rem;
+  bottom: 1.5rem;
+  max-width: min(22rem, 70%);
+  background: #f3f1ec;
+  color: #0d0d0d;
+}
+.bubble .mono,
+.answer .mono {
+  display: block;
+  margin-bottom: 0.4rem;
+  opacity: 0.6;
+}
+.answer {
+  right: 1.5rem;
+  bottom: 1.5rem;
+  max-width: min(24rem, 74%);
+  border: 1px solid #ff0000;
+  background: rgba(13, 13, 13, 0.9);
+  color: #f3f1ec;
+}
+.sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.75rem;
+}
+.sources span {
+  padding: 0.25rem 0.45rem;
+  background: #ff0000;
+  color: #f3f1ec;
+  font-family: var(--font-google-sans-code), monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+}
+
+/* ---------- DevOps ---------- */
+.terminal {
+  left: 1.5rem;
+  bottom: 1.5rem;
+  width: min(21rem, 33%);
+  padding: 0;
+  background: #0d0d0d;
+  color: #f3f1ec;
+  font-family: var(--font-google-sans-code), monospace;
+  font-size: 0.74rem;
+  box-shadow: 0 18px 40px rgba(13, 13, 13, 0.25);
+}
+.terminalBar {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid rgba(243, 241, 236, 0.12);
+  opacity: 0.7;
+}
+.terminalBar i {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: rgba(243, 241, 236, 0.3);
+}
+.terminalBar span {
+  margin-left: 0.4rem;
+  text-transform: uppercase;
+}
+.terminalBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 13.5rem;
+  padding: 0.6rem 0.75rem 0.75rem;
+  overflow: hidden;
+}
+.terminalBody p {
+  font-size: 0.74rem;
+  line-height: 1.6;
+  white-space: pre;
+  opacity: 0;
+  transform: translateY(0.4rem);
+  transition: opacity 0.3s, transform 0.4s;
+}
+.terminalBody p[data-on] {
+  opacity: 1;
+  transform: none;
+}
+.terminalBody p[data-ok] {
+  color: #4be08f;
+}
+.statusLine {
+  left: 1rem;
+  right: 1rem;
+  bottom: 0.9rem;
+  padding: 0.55rem 0.75rem;
+  background: #0d0d0d;
+  color: #4be08f;
+  font-family: var(--font-google-sans-code), monospace;
+  font-size: 0.72rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---------- Cloud ---------- */
+.cloud .tag {
+  border: 1px solid rgba(121, 208, 255, 0.45);
+  background: rgba(10, 26, 51, 0.75);
+  color: #bfe6ff;
+}
+.cloud .tag[data-warn] {
+  border-color: #ff5a4f;
+  color: #ff8a80;
+}
+.code {
+  top: 1.5rem;
+  right: 1.5rem;
+  width: min(21rem, 46%);
+  border: 1px solid rgba(121, 208, 255, 0.35);
+  background: rgba(10, 26, 51, 0.88);
+  color: #bfe6ff;
+  font-family: var(--font-google-sans-code), monospace;
+  font-size: 0.72rem;
+  line-height: 1.55;
+  white-space: pre;
+}
+.code b {
+  color: #79d0ff;
+  font-weight: 500;
+}
+.metrics {
+  top: 1.5rem;
+  right: 1.5rem;
+  display: grid;
+  gap: 0.8rem;
+  width: min(15rem, 44%);
+  border: 1px solid rgba(121, 208, 255, 0.35);
+  background: rgba(10, 26, 51, 0.88);
+  color: #e6f2ff;
+}
+.metric {
+  display: grid;
+  gap: 0.35rem;
+}
+.metric .mono {
+  display: flex;
+  justify-content: space-between;
+  color: #9fd8ff;
+}
+.meter {
+  height: 4px;
+  background: rgba(121, 208, 255, 0.18);
+}
+.meter i {
+  display: block;
+  height: 100%;
+  background: #79d0ff;
+  transform-origin: left;
+}
+.meter[data-hot] i {
+  background: #ff5a4f;
+}
+
+/* ---------- Security ---------- */
+.sec {
+  color: #0d0d0d;
+}
+.counter {
+  top: 1.5rem;
+  left: 1.5rem;
+  padding: 0;
+}
+.counterNum {
+  display: block;
+  font-family: var(--font-google-sans-code), monospace;
+  font-size: clamp(48px, 6vw, 96px);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+.report {
+  left: 1.5rem;
+  bottom: 1.5rem;
+  width: min(17rem, 42%);
+  background: #0d0d0d;
+  color: #ff0000;
+}
+.reportRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.4rem 1rem;
+  align-items: center;
+  padding: 0.35rem 0;
+  font-family: var(--font-google-sans-code), monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+.reportBar {
+  grid-column: 1 / -1;
+  height: 3px;
+  background: rgba(255, 0, 0, 0.25);
+}
+.reportBar i {
+  display: block;
+  height: 100%;
+  background: #ff0000;
+  transform-origin: left;
+}
+.log {
+  right: 1.5rem;
+  bottom: 1.5rem;
+  width: min(20rem, 44%);
+  padding: 0.75rem 0.9rem;
+  background: #0d0d0d;
+  color: #ff0000;
+  font-family: var(--font-google-sans-code), monospace;
+  font-size: 0.7rem;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+.log p {
+  font-size: inherit;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.score {
+  top: 1.5rem;
+  right: 1.5rem;
+  padding: 0;
+  text-align: right;
+}
+
+/* ---------- Data ---------- */
+.data text {
+  font-family: var(--font-google-sans-flex), sans-serif;
+}
+.data .monoText {
+  font-family: var(--font-google-sans-code), monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 1000px) {
+  .terminal,
+  .report,
+  .log,
+  .code,
+  .metrics {
+    transform: scale(0.86);
+  }
+  .terminal {
+    display: none;
+  }
+  .bubble,
+  .answer {
+    font-size: 0.85rem;
+    padding: 0.7rem 0.8rem;
+  }
+  .bubble {
+    left: 0.75rem;
+    bottom: auto;
+    top: 0.75rem;
+  }
+  .answer {
+    right: 0.75rem;
+    bottom: 0.75rem;
+  }
+  .report {
+    left: 0.5rem;
+    bottom: 0.5rem;
+    transform-origin: left bottom;
+  }
+  .log {
+    right: 0.5rem;
+    bottom: 0.5rem;
+    transform-origin: right bottom;
+  }
+  .code,
+  .metrics {
+    top: 0.75rem;
+    right: 0.5rem;
+    transform-origin: right top;
+  }
+  .counter {
+    top: 0.75rem;
+    left: 0.75rem;
+  }
+  .score {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+}
