@@ -663,34 +663,3 @@
   height: 100%;
   display: block;
 }
-
-/* the loader shown under the knot during the hand-off, in the Engineering preloader's voice */
-.eng-loader {
-  position: absolute;
-  left: 50%;
-  top: calc(50% + min(23vh, 34vw));
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 0.75rem 2rem;
-  width: min(25vw, 360px);
-  min-width: 220px;
-  color: #f3f1ec;
-  font-size: 1.125rem;
-  transform: translateX(-50%);
-  opacity: 0;
-}
-.eng-loader-n {
-  font-variant-numeric: tabular-nums;
-}
-.eng-loader i {
-  grid-column: 1 / -1;
-  height: 2px;
-  background: rgba(243, 241, 236, 0.18);
-}
-.eng-loader b {
-  display: block;
-  height: 100%;
-  background: #ff0000;
-  transform: scaleX(0);
-  transform-origin: left;
-}
