@@ -2,7 +2,7 @@
 
 import styles from "./home.module.css";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import CustomEase from "gsap/CustomEase";
@@ -29,6 +29,7 @@ import {
   markPreloaderSeen,
   shouldShowPreloader,
 } from "@/lib/preloader";
+import { endHandoff, isHandoff } from "@/lib/handoff";
 
 gsap.registerPlugin(useGSAP, CustomEase);
 
@@ -41,7 +42,29 @@ export default function Home() {
   const ctasRef = useRef(null);
   const lenis = useLenis();
   const { t, href } = useLang();
-  const showPreloader = shouldShowPreloader();
+  // the static HTML is built with the preloader; arriving from the koyotec.digital panel, the
+  // hero is already on screen (the borrowed frame), so the preloader is dropped right after
+  // hydration, before the first client paint
+  const [handoff, setHandoff] = useState(false);
+  const showPreloader = shouldShowPreloader() && !handoff;
+  const lenisRef = useRef(lenis);
+  lenisRef.current = lenis;
+
+  useLayoutEffect(() => {
+    if (!isHandoff()) return;
+    markPreloaderSeen();
+    setHandoff(true);
+  }, []);
+
+  useEffect(() => {
+    if (!handoff) return;
+    const stop = endHandoff(0.75);
+    const t = setTimeout(() => lenisRef.current?.start(), 900);
+    return () => {
+      stop();
+      clearTimeout(t);
+    };
+  }, [handoff]);
   const wait = showPreloader
     ? PRELOADER_COPY_BASE_DELAY - HOME_COPY_BASE_DELAY
     : 0;

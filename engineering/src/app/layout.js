@@ -7,6 +7,7 @@ import Menu from "@/components/Menu";
 import Footer from "@/components/Footer";
 import DitherCursorTrail from "@/components/DitherCursorTrail";
 import { meta } from "@/lib/meta";
+import { HANDOFF_SCRIPT } from "@/lib/handoff";
 
 const googleSansFlex = Google_Sans_Flex({
   variable: "--font-google-sans-flex",
@@ -25,7 +26,12 @@ export default function RootLayout({ children }) {
     <html
       lang="fr"
       className={`${googleSansFlex.variable} ${googleSansCode.variable}`}
+      suppressHydrationWarning
     >
+      <head>
+        {/* frame handed over by koyotec.digital's "Découvrir Engineering" panel, shown before first paint */}
+        <script dangerouslySetInnerHTML={{ __html: HANDOFF_SCRIPT }} />
+      </head>
       <body>
         <ClientLayout>
           <Menu />

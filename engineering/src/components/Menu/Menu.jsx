@@ -14,6 +14,7 @@ import { useLenis } from "lenis/react";
 import Logo from "@/components/Logo";
 
 import { useLang } from "@/lib/useLang";
+import { isHandoff } from "@/lib/handoff";
 import { localize } from "@/lib/i18n";
 
 import {
@@ -61,7 +62,9 @@ function MenuPanel() {
     const menu = menuRef.current;
     if (!menu) return;
 
-    if (!playIntro) {
+    // arriving from the koyotec.digital panel: the menu slides in once the hero shows
+    const fromHandoff = isHandoff();
+    if (!playIntro && !fromHandoff) {
       gsap.set(menu, { clearProps: "transform,translate,rotate,scale,transition" });
       menu.removeAttribute("data-nav-intro");
       return;
@@ -71,8 +74,8 @@ function MenuPanel() {
     menu.removeAttribute("data-nav-intro");
     gsap.to(menu, {
       y: 0,
-      duration: 0.75,
-      delay: introDelay,
+      duration: fromHandoff ? 0.9 : 0.75,
+      delay: fromHandoff ? 1.15 : introDelay,
       ease: "power3.out",
       onComplete: () => {
         gsap.set(menu, {

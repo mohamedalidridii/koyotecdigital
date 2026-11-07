@@ -114,3 +114,18 @@ p.mono.lg {
   margin-inline: auto;
   padding: 1.5rem;
 }
+
+/* the frame handed over by koyotec.digital (see lib/handoff.js), over everything until the hero is ready */
+html.koy-handoff::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  background: #0d0d0d var(--koy-handoff) center / 100% 100% no-repeat;
+  image-rendering: pixelated;
+  pointer-events: none;
+  transition: opacity 0.9s ease;
+}
+html.koy-handoff-out::after {
+  opacity: 0;
+}
