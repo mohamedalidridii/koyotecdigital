@@ -122,6 +122,57 @@
   --chip: rgba(10, 122, 168, 0.1);
 }
 
+.case[data-theme="oncall-copilot"],
+.row[data-theme="oncall-copilot"],
+.next[data-theme="oncall-copilot"] {
+  --bg: #0c1424;
+  --fg: #eef2f8;
+  --dim: rgba(238, 242, 248, 0.6);
+  --line: rgba(238, 242, 248, 0.15);
+  --accent: #ffb547;
+  --chip: rgba(255, 181, 71, 0.12);
+}
+.case[data-theme="predictive-autoscaling"],
+.row[data-theme="predictive-autoscaling"],
+.next[data-theme="predictive-autoscaling"] {
+  --bg: #eef5f1;
+  --fg: #0d1f1a;
+  --dim: rgba(13, 31, 26, 0.6);
+  --line: rgba(13, 31, 26, 0.15);
+  --accent: #00a383;
+  --chip: rgba(0, 163, 131, 0.1);
+}
+.case[data-theme="iac-security-review"],
+.row[data-theme="iac-security-review"],
+.next[data-theme="iac-security-review"] {
+  --bg: #0d1117;
+  --fg: #e6edf3;
+  --dim: rgba(230, 237, 243, 0.6);
+  --line: rgba(230, 237, 243, 0.14);
+  --accent: #3fb950;
+  --chip: rgba(63, 185, 80, 0.12);
+}
+.case[data-theme="self-healing-ci"],
+.row[data-theme="self-healing-ci"],
+.next[data-theme="self-healing-ci"] {
+  --bg: #111111;
+  --fg: #f2f0ea;
+  --dim: rgba(242, 240, 234, 0.6);
+  --line: rgba(242, 240, 234, 0.14);
+  --accent: #ff7a1a;
+  --chip: rgba(255, 122, 26, 0.12);
+}
+.case[data-theme="idp-scaffolder"],
+.row[data-theme="idp-scaffolder"],
+.next[data-theme="idp-scaffolder"] {
+  --bg: #efedf8;
+  --fg: #15123a;
+  --dim: rgba(21, 18, 58, 0.6);
+  --line: rgba(21, 18, 58, 0.14);
+  --accent: #4b3df5;
+  --chip: rgba(75, 61, 245, 0.1);
+}
+
 .dot {
   display: inline-block;
   width: 0.5rem;

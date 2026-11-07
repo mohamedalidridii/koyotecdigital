@@ -13,9 +13,10 @@ import { useLang } from "@/lib/useLang";
 const pad = (n) => String(n).padStart(2, "0");
 
 // the five cases as big rows; hovering one floods it with its own colours and draws its emblem
-export default function AiCasesList() {
+// collection: the content key (aiCases, devopsCases); base: the route of the listing
+export default function AiCasesList({ collection = "aiCases", base = "/ai" }) {
   const { t, href } = useLang();
-  const a = t.aiCases;
+  const a = t[collection];
 
   return (
     <section className={styles.list}>
@@ -34,7 +35,7 @@ export default function AiCasesList() {
         <ol className={styles.rows}>
           {a.cases.map((c, i) => (
             <li key={c.slug}>
-              <Link href={href(`/ai/${c.slug}`)} className={styles.row} data-theme={c.slug}>
+              <Link href={href(`${base}/${c.slug}`)} className={styles.row} data-theme={c.slug}>
                 <span className={`mono sm ${styles.rowNum}`}>{pad(i + 1)}</span>
                 <span className={styles.rowMain}>
                   <span className={`mono sm ${styles.rowClient}`}>

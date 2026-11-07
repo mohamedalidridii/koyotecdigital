@@ -632,3 +632,171 @@
     animation: none;
   }
 }
+
+/* ---------- DevOps case studies ---------- */
+.oncall,
+.scaling,
+.iac,
+.ci,
+.idp {
+  isolation: isolate;
+}
+/* on-call copilot */
+.pagerPulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+}
+.pager[data-live] .pagerPulse {
+  animation: pulse 1.4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+.findText {
+  color: #eef2f8;
+  font-family: var(--font-google-sans-flex), sans-serif;
+  font-size: 15px;
+  line-height: 1.35;
+}
+.slackTitle {
+  color: #1d1c1d;
+  font-family: var(--font-google-sans-flex), sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.slackText {
+  color: #1d1c1d;
+  font-family: var(--font-google-sans-flex), sans-serif;
+  font-size: 14.5px;
+  line-height: 1.4;
+}
+.copyBtn rect {
+  fill: #fff;
+  stroke: #1d1c1d;
+  transition: fill 0.3s;
+}
+.copyBtn text {
+  fill: #1d1c1d;
+}
+.copyBtn[data-done] rect {
+  fill: #007a5a;
+  stroke: #007a5a;
+}
+.copyBtn[data-done] text {
+  fill: #fff;
+}
+/* IaC review */
+.iacNode rect {
+  fill: #0d1117;
+  stroke: #30363d;
+  stroke-width: 1.5;
+  transition: fill 0.4s, stroke 0.4s;
+}
+.iacNode[data-risk] rect {
+  fill: #2d1517;
+  stroke: #f85149;
+}
+.iacNode[data-safe] rect {
+  fill: #132a1a;
+  stroke: #3fb950;
+}
+.iacNodeText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #e6edf3;
+  font-family: var(--font-google-sans-code), monospace;
+  font-size: 12px;
+  line-height: 1.2;
+  text-align: center;
+}
+.iacRisk {
+  color: #ffdcd7;
+  font-family: var(--font-google-sans-flex), sans-serif;
+  font-size: 14.5px;
+  line-height: 1.4;
+}
+.iacCheck circle {
+  fill: #d29922;
+  transition: fill 0.4s;
+}
+.iacCheck[data-pass] circle {
+  fill: #3fb950;
+}
+/* self-healing CI */
+.ciStage rect {
+  fill: rgba(242, 240, 234, 0.05);
+  stroke: rgba(242, 240, 234, 0.2);
+  transition: fill 0.4s, stroke 0.4s;
+}
+.ciStage text {
+  fill: #f2f0ea;
+}
+.ciOk,
+.ciFail,
+.ciRun {
+  display: none;
+}
+.ciStage[data-state="ok"] rect {
+  fill: rgba(61, 220, 132, 0.12);
+  stroke: #3ddc84;
+}
+.ciStage[data-state="ok"] .ciOk {
+  display: inline;
+  fill: #3ddc84;
+}
+.ciStage[data-state="fail"] rect {
+  fill: rgba(255, 90, 95, 0.14);
+  stroke: #ff5a5f;
+}
+.ciStage[data-state="fail"] .ciFail {
+  display: inline;
+  fill: #ff5a5f;
+}
+.ciStage[data-state="run"] rect {
+  stroke: #ff7a1a;
+}
+.ciStage[data-state="run"] .ciRun {
+  display: inline;
+  fill: #ff7a1a;
+}
+/* developer platform */
+.idpPrompt {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  color: #15123a;
+  font-family: var(--font-google-sans-flex), sans-serif;
+  font-size: 18px;
+  line-height: 1.35;
+}
+.idpDoc rect {
+  fill: #f6f5fd;
+  stroke: rgba(21, 18, 58, 0.12);
+  transition: fill 0.4s, stroke 0.4s;
+}
+.idpTick {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.idpDoc[data-on] rect {
+  fill: rgba(75, 61, 245, 0.08);
+  stroke: #4b3df5;
+}
+.idpDoc[data-on] .idpTick {
+  opacity: 1;
+}
+.idpCheck rect {
+  fill: #f6f5fd;
+  stroke: rgba(21, 18, 58, 0.1);
+}
+.idpCheck circle {
+  fill: none;
+  stroke: rgba(21, 18, 58, 0.3);
+  stroke-width: 2;
+  transition: fill 0.3s, stroke 0.3s;
+}
+.idpCheck[data-pass] circle {
+  fill: #12a150;
+  stroke: #12a150;
+}

@@ -30,13 +30,20 @@ const VISUALS = {
   "legacy-modernization": dynamic(() => import("./visuals/LegacyAgents"), { ssr: false }),
   "soc-triage-agent": dynamic(() => import("./visuals/SocTriage"), { ssr: false }),
   "supply-chain-radar": dynamic(() => import("./visuals/SupplyRadar"), { ssr: false }),
+  // DevOps case studies
+  "oncall-copilot": dynamic(() => import("./visuals/OncallCopilot"), { ssr: false }),
+  "predictive-autoscaling": dynamic(() => import("./visuals/PredictiveScaling"), { ssr: false }),
+  "iac-security-review": dynamic(() => import("./visuals/IacReview"), { ssr: false }),
+  "self-healing-ci": dynamic(() => import("./visuals/SelfHealingCi"), { ssr: false }),
+  "idp-scaffolder": dynamic(() => import("./visuals/IdpScaffolder"), { ssr: false }),
 };
 
 const pad = (n) => String(n).padStart(2, "0");
 
-export default function AiCase({ slug }) {
+// collection: the content key (aiCases, devopsCases); base: the route of its listing
+export default function AiCase({ slug, collection = "aiCases", base = "/ai" }) {
   const { t, href } = useLang();
-  const a = t.aiCases;
+  const a = t[collection];
   const L = a.labels;
   const index = a.cases.findIndex((c) => c.slug === slug);
   const c = a.cases[index];
@@ -83,7 +90,7 @@ export default function AiCase({ slug }) {
       <header className={`container ${styles.hero}`}>
         <div className={styles.heroTop}>
           <p className="mono sm">
-            <Link href={href("/ai")} className={styles.crumb}>
+            <Link href={href(base)} className={styles.crumb}>
               {L.all}
             </Link>{" "}
             / {L.caseStudy} {pad(index + 1)} / {pad(a.cases.length)}
@@ -230,7 +237,7 @@ export default function AiCase({ slug }) {
         </Link>
       </section>
 
-      <Link href={href(`/ai/${next.slug}`)} className={styles.next} data-theme={next.slug}>
+      <Link href={href(`${base}/${next.slug}`)} className={styles.next} data-theme={next.slug}>
         <span className={`container ${styles.nextInner}`}>
           <span className="mono sm">
             {L.next} · {next.client}

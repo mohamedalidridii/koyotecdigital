@@ -43,7 +43,8 @@ const AI_CASES = [
   "graphrag-knowledge-engine", "onboarding-agents", "compliance-agent", "shopping-assistant", "rag-evaluation",
   "vlm-document-extraction", "text-to-sql-agent", "legacy-modernization", "soc-triage-agent", "supply-chain-radar",
 ];
-const ENGINEERING_ROUTES = ["", "expertise", "systems", "ai", ...AI_CASES.map((s) => `ai/${s}`), "work", "studio", "engagements", "contact"];
+const DEVOPS_CASES = ["oncall-copilot", "predictive-autoscaling", "iac-security-review", "self-healing-ci", "idp-scaffolder"];
+const ENGINEERING_ROUTES = ["", "expertise", "systems", "ai", ...AI_CASES.map((s) => `ai/${s}`), "devops", ...DEVOPS_CASES.map((s) => `devops/${s}`), "work", "studio", "engagements", "contact"];
 const full = (k) => (k === "engineering" ? " data-barba-prevent" : "");
 
 // ---------- escaping and light markup ----------

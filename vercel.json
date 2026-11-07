@@ -126,7 +126,7 @@
       "permanent": true
     },
     {
-      "source": "/engineering/:path(en|expertise|systems|ai|work|studio|engagements|contact|en/expertise|en/systems|en/ai|en/work|en/studio|en/engagements|en/contact)",
+      "source": "/engineering/:path(en|expertise|systems|ai|devops|work|studio|engagements|contact|en/expertise|en/systems|en/ai|en/devops|en/work|en/studio|en/engagements|en/contact)",
       "destination": "/engineering/:path/",
       "permanent": true
     },
@@ -138,6 +138,16 @@
     {
       "source": "/engineering/en/ai/:slug([a-z0-9-]+)",
       "destination": "/engineering/en/ai/:slug/",
+      "permanent": true
+    },
+    {
+      "source": "/engineering/devops/:slug([a-z0-9-]+)",
+      "destination": "/engineering/devops/:slug/",
+      "permanent": true
+    },
+    {
+      "source": "/engineering/en/devops/:slug([a-z0-9-]+)",
+      "destination": "/engineering/en/devops/:slug/",
       "permanent": true
     },
     {
