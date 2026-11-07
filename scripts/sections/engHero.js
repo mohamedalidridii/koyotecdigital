@@ -60,6 +60,10 @@ export function engineeringHero(scope, { ready = Promise.resolve() } = {}) {
   }
 
   // ---------- the hand-off to Engineering ----------
+  // 1. the panel fills the screen and the knot settles in the centre
+  // 2. it ripples like a loader while a counter runs, as on the Engineering preloader
+  // 3. the Engineering hero photo grows out of the centre (scale 0 → 1, −20° → 0, same ease)
+  // 4. that last frame is handed to the Engineering home, which takes over without a cut
   const onClick = (e) => {
     if (reduced || !mesh || leaving) return; // plain link
     if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
@@ -67,44 +71,62 @@ export function engineeringHero(scope, { ready = Promise.resolve() } = {}) {
     leaving = true;
     const url = panel.href;
     const r = panel.getBoundingClientRect();
+    const en = document.documentElement.lang === "en";
 
-    // a fixed layer takes the panel's place and carries the live canvas to full screen
     const layer = document.createElement("div");
     layer.className = "eng-takeover";
     Object.assign(layer.style, { top: `${r.top}px`, left: `${r.left}px`, width: `${r.width}px`, height: `${r.height}px` });
+    layer.innerHTML = `<div class="eng-loader" aria-hidden="true"><p>${en ? "Loading" : "Chargement"}</p><p class="eng-loader-n">0</p><i><b></b></i></div>`;
     document.body.appendChild(layer);
-    layer.appendChild(canvas);
+    layer.prepend(canvas);
     mesh.setHost(layer);
     scroll.lock();
 
+    const loader = layer.querySelector(".eng-loader");
+    const count = layer.querySelector(".eng-loader-n");
+    const bar = layer.querySelector(".eng-loader b");
     const image = mesh.loadImage(HERO_IMAGE).catch(() => null);
     const u = mesh.uniforms;
     const st = mesh.state;
     const finalCell = 2 * mesh.dpr; // the Engineering hero dithers in 2 px cells
+    const progress = { v: 0 };
 
-    const tl = gsap.timeline({ defaults: { ease: "koy.io" } });
-    tl.to(".site-nav, .cursor, .scroll-cue", { autoAlpha: 0, duration: 0.5, ease: "power2.out" }, 0)
-      .to(panel.querySelectorAll(".hero-eng-top, .hero-eng-body"), { autoAlpha: 0, duration: 0.35, ease: "power2.out" }, 0)
-      .to(layer, { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight, duration: 1.15 }, 0.05)
-      .to(st, { takeover: 1, rush: 1, duration: 1.15 }, 0.05)
-      // the knot speeds up while the photo arrives cell by cell
-      .add(() => {
-        image.then(() => {
-          gsap
-            .timeline({ defaults: { ease: "power2.inOut" } })
-            .to(u.uMix, { value: 1, duration: 1.8 }, 0)
-            .to(u.uCell, { value: finalCell, duration: 1.8 }, 0)
-            .to(st, { rush: 0, duration: 1.8 }, 0)
-            .add(() => {
-              try {
-                sessionStorage.setItem(HANDOFF_KEY, JSON.stringify({ t: Date.now(), img: mesh.capture() }));
-              } catch {
-                /* storage full or blocked: Engineering simply loads as usual */
-              }
-              window.location.href = url;
-            }, "+=0.1");
-        });
-      });
+    const reveal = () =>
+      gsap
+        .timeline()
+        .to(loader, { autoAlpha: 0, y: 10, duration: 0.35, ease: "power2.in" }, 0)
+        .to(u.uImgS, { value: 1, duration: 1.25, ease: "koy.hop" }, 0.1)
+        .to(u.uImgR, { value: 0, duration: 1.25, ease: "koy.hop" }, 0.1)
+        .to(u.uCell, { value: finalCell, duration: 1.25, ease: "koy.hop" }, 0.1)
+        .to(st, { shrink: 1, wave: 0, duration: 0.9, ease: "power2.in" }, 0.1)
+        .add(() => {
+          try {
+            sessionStorage.setItem(HANDOFF_KEY, JSON.stringify({ t: Date.now(), img: mesh.capture() }));
+          } catch {
+            /* storage full or blocked: Engineering simply loads as usual */
+          }
+          window.location.href = url;
+        }, "+=0.12");
+
+    gsap
+      .timeline({ defaults: { ease: "koy.io" } })
+      .to(".site-nav, .cursor, .scroll-cue", { autoAlpha: 0, duration: 0.5, ease: "power2.out" }, 0)
+      .to(panel.querySelectorAll(".hero-eng-top, .hero-eng-body"), { autoAlpha: 0, duration: 0.3, ease: "power2.out" }, 0)
+      .to(layer, { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight, duration: 1.05 }, 0.05)
+      .to(st, { takeover: 1, duration: 1.05 }, 0.05)
+      // the loader: the knot ripples, the counter runs
+      .to(st, { wave: 1, rush: 0.5, duration: 0.7, ease: "power2.inOut" }, 0.75)
+      .fromTo(loader, { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "power2.out" }, 0.85)
+      .to(progress, {
+        v: 100,
+        duration: 1.5,
+        ease: "power1.inOut",
+        onUpdate: () => {
+          count.textContent = String(Math.round(progress.v));
+          bar.style.transform = `scaleX(${progress.v / 100})`;
+        },
+      }, 0.9)
+      .add(() => image.then(reveal), 2.45);
   };
   panel.addEventListener("click", onClick);
 

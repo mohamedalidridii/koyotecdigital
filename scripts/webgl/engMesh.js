@@ -1,6 +1,8 @@
 // The engineering panel of the home hero: a knot built from ~1,800 small cubes (instanced
 // meshes) with red data packets running along it, rendered off-screen and then dithered into
 // paper / black / red cells, like the imagery of the Engineering site.
+// On click (see sections/engHero.js) it becomes a centred loader, then the Engineering hero
+// photo grows out of it the way the Engineering preloader opens its hero (scale 0 → 1, −20° → 0).
 import * as THREE from "three";
 import { gsap } from "../core/gsap.js";
 
@@ -8,14 +10,17 @@ const SEG = 260;
 const RING = 7;
 const TUBE = 0.3;
 const PACKETS = 7;
+// the knot is about this many units across, whatever its orientation
+const KNOT = 3.7;
 
 const DITHER = /* glsl */ `
   uniform sampler2D tScene;
   uniform sampler2D tImage;
   uniform vec2 uRes;
   uniform float uCell;
-  uniform float uMix;
   uniform float uHasImg;
+  uniform float uImgS;
+  uniform float uImgR;
   uniform vec2 uImgScale;
   varying vec2 vUv;
   const float BAYER[16] = float[16](0., 8., 2., 10., 12., 4., 14., 6., 3., 11., 1., 9., 15., 7., 13., 5.);
@@ -25,15 +30,20 @@ const DITHER = /* glsl */ `
     vec3 c = texture2D(tScene, uv).rgb;
     float red = step(0.35, c.r - max(c.g, c.b));
     float l = pow(dot(c, vec3(0.299, 0.587, 0.114)), 1.35) * 1.15;
-    // hand-off to the Engineering hero: cells switch one by one from the knot to the photo
-    // ...from the centre outwards, with a ragged, per-cell edge
-    float h = fract(sin(dot(cell, vec2(12.9898, 78.233))) * 43758.5453);
-    float d = length((uv - 0.5) * vec2(uRes.x / uRes.y, 1.)) / 0.9;
-    float img = step(d * 0.75 + h * 0.25, uMix * 1.05) * uHasImg;
-    vec2 iuv = (uv - 0.5) * uImgScale + 0.5;
+
+    // the Engineering hero photo, as a screen-sized frame scaled and turned about the centre
+    float aspect = uRes.x / uRes.y;
+    vec2 p = (uv - 0.5) * vec2(aspect, 1.);
+    float cs = cos(uImgR);
+    float sn = sin(uImgR);
+    vec2 q = vec2(cs * p.x + sn * p.y, -sn * p.x + cs * p.y) / max(uImgS, 1e-4);
+    vec2 fuv = q / vec2(aspect, 1.) + 0.5;
+    float inside = step(0., fuv.x) * step(fuv.x, 1.) * step(0., fuv.y) * step(fuv.y, 1.) * step(0.002, uImgS) * uHasImg;
+    vec2 iuv = (fuv - 0.5) * uImgScale + 0.5;
     float li = dot(texture2D(tImage, iuv).rgb, vec3(0.2126, 0.7152, 0.0722));
-    l = mix(l, li, img);
-    red *= 1. - img;
+    l = mix(l, li, inside);
+    red *= 1. - inside;
+
     ivec2 ip = ivec2(mod(cell, 4.));
     float t = (BAYER[ip.x + ip.y * 4] + 0.5) / 16.;
     vec3 bg = vec3(0.051);
@@ -52,7 +62,7 @@ export function createEngMesh(canvas, hostEl, { reduced = false } = {}) {
 
   const scene = new THREE.Scene();
   scene.background = new THREE.Color(0x000000);
-  const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 60);
+  const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 80);
   camera.position.set(0, 0, 9);
 
   // a (2,3) torus knot, as a curve with Frenet frames for the cube ring around it
@@ -81,46 +91,51 @@ export function createEngMesh(canvas, hostEl, { reduced = false } = {}) {
     const P = points[i];
     const N = frames.normals[i];
     const B = frames.binormals[i];
-    const T = frames.tangents[i];
-    basis.makeBasis(T, N, B);
+    basis.makeBasis(frames.tangents[i], N, B);
     q.setFromRotationMatrix(basis);
     for (let j = 0; j < RING; j++) {
       const a = (j / RING) * Math.PI * 2 + i * 0.16;
-      const pos = P.clone().addScaledVector(N, Math.cos(a) * TUBE).addScaledVector(B, Math.sin(a) * TUBE);
+      const dir = N.clone().multiplyScalar(Math.cos(a)).addScaledVector(B, Math.sin(a));
+      const pos = P.clone().addScaledVector(dir, TUBE);
       const size = 0.058 + ((i * 7 + j * 13) % 5) * 0.005;
-      base.push({ pos, q: q.clone(), size, u: i / SEG });
+      base.push({ pos, dir, q: q.clone(), size, u: i / SEG, j });
     }
   }
   const tmpS = new THREE.Vector3();
-  const writeCubes = (wave) => {
+  const tmpP = new THREE.Vector3();
+  // pulse: a bright band travelling along the knot; wave: the loader ripple of the hand-off
+  const writeCubes = (pulse, wave, time) => {
     base.forEach((c, k) => {
-      // a pulse of light and size travels along the knot
-      let d = Math.abs(c.u - wave);
+      let d = Math.abs(c.u - pulse);
       d = Math.min(d, 1 - d);
-      const s = c.size * (1 + 0.9 * Math.exp(-d * d * 900));
-      m.compose(c.pos, c.q, tmpS.setScalar(s));
+      const ripple = wave ? Math.sin(c.u * Math.PI * 2 * 6 - time * 6 + c.j * 0.9) : 0;
+      const s = c.size * (1 + 0.9 * Math.exp(-d * d * 900) + wave * 0.35 * (ripple + 1));
+      tmpP.copy(c.pos).addScaledVector(c.dir, wave * 0.17 * ripple);
+      m.compose(tmpP, c.q, tmpS.setScalar(s));
       cubes.setMatrixAt(k, m);
     });
     cubes.instanceMatrix.needsUpdate = true;
   };
-  writeCubes(0.2);
+  writeCubes(0.2, 0, 0);
   group.add(cubes);
 
   const packets = new THREE.InstancedMesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshBasicMaterial({ color: 0xff0000 }), PACKETS);
   group.add(packets);
   const pPos = new THREE.Vector3();
-  const writePackets = (time) => {
+  const idQ = new THREE.Quaternion();
+  let packetClock = 0;
+  const writePackets = () => {
     for (let k = 0; k < PACKETS; k++) {
-      const u = (time * 0.035 + k / PACKETS) % 1;
+      const u = (packetClock * 0.035 + k / PACKETS) % 1;
       curve.getPointAt(u, pPos);
       const i = Math.floor(u * SEG) % SEG;
       pPos.addScaledVector(frames.normals[i], TUBE * 1.15);
-      m.compose(pPos, q.identity(), tmpS.setScalar(0.17));
+      m.compose(pPos, idQ, tmpS.setScalar(0.17));
       packets.setMatrixAt(k, m);
     }
     packets.instanceMatrix.needsUpdate = true;
   };
-  writePackets(0);
+  writePackets();
 
   const key = new THREE.DirectionalLight(0xffffff, 2.4);
   key.position.set(3, 4, 6);
@@ -137,8 +152,9 @@ export function createEngMesh(canvas, hostEl, { reduced = false } = {}) {
     tImage: { value: null },
     uRes: { value: new THREE.Vector2(1, 1) },
     uCell: { value: 3 * dpr },
-    uMix: { value: 0 },
     uHasImg: { value: 0 },
+    uImgS: { value: 0 },
+    uImgR: { value: -0.349 },
     uImgScale: { value: new THREE.Vector2(1, 1) },
   };
   let imgAspect = 16 / 9;
@@ -153,6 +169,35 @@ export function createEngMesh(canvas, hostEl, { reduced = false } = {}) {
   );
   quadScene.add(quad);
 
+  // hand-off state, tweened from outside
+  let takeover = 0; // 0 in the panel, 1 centred full screen as a loader
+  let wave = 0; // loader ripple
+  let shrink = 0; // the knot folding away as the photo grows
+  let rush = 0; // extra spin
+
+  const frame = () => {
+    const w = host.clientWidth || 1;
+    const h = host.clientHeight || 1;
+    camera.aspect = w / h;
+    const tanH = Math.tan((camera.fov * Math.PI) / 360);
+    // in the panel: the knot fills the upper part
+    const zPanel = Math.max(2.95 / (tanH * camera.aspect), 2.6 / tanH);
+    const lookPanel = -0.55 + (h > w ? -1.7 : -0.35);
+    // full screen: a centred loader, about a third of the screen's short side
+    const share = 0.34;
+    const zCentre = h > w ? KNOT / (share * 1.6 * 2 * tanH * camera.aspect) : KNOT / (share * 2 * tanH);
+    camera.position.set(0, -0.55 * (1 - takeover), zPanel + (zCentre - zPanel) * takeover);
+    camera.lookAt(0, lookPanel * (1 - takeover), 0);
+    camera.updateProjectionMatrix();
+  };
+
+  function render() {
+    renderer.setRenderTarget(rt);
+    renderer.render(scene, camera);
+    renderer.setRenderTarget(null);
+    renderer.render(quadScene, quadCam);
+  }
+
   const resize = () => {
     const w = host.clientWidth || 1;
     const h = host.clientHeight || 1;
@@ -160,25 +205,14 @@ export function createEngMesh(canvas, hostEl, { reduced = false } = {}) {
     rt.setSize(Math.round(w * dpr), Math.round(h * dpr));
     uniforms.uRes.value.set(w * dpr, h * dpr);
     fitImage();
-    camera.aspect = w / h;
-    // the knot (about 3.9 units across) fills the upper part of the panel
-    const fov = (camera.fov * Math.PI) / 180;
-    const fitW = 2.95 / (Math.tan(fov / 2) * camera.aspect);
-    const fitH = 2.6 / Math.tan(fov / 2);
-    camera.position.z = Math.max(fitW, fitH);
-    camera.position.y = -0.55;
-    // portrait panels (phones) carry more text below: the knot sits higher
-    camera.lookAt(0, -0.55 + (h > w ? -1.7 : -0.35) * (1 - takeover), 0);
-    camera.updateProjectionMatrix();
-    render(0);
+    frame();
+    render();
   };
 
   const pointer = { x: 0, y: 0, tx: 0, ty: 0 };
   let spin = 0;
   let boost = 0;
   let hover = false;
-  let takeover = 0; // 0 in the panel, 1 once it fills the screen (knot centred)
-  let rush = 0; // extra spin during the hand-off
   const onMove = (e) => {
     const r = host.getBoundingClientRect();
     pointer.tx = ((e.clientX - r.left) / r.width - 0.5) * 2;
@@ -191,16 +225,8 @@ export function createEngMesh(canvas, hostEl, { reduced = false } = {}) {
     pointer.ty = 0;
   };
   host.addEventListener("pointermove", onMove);
-  host.addEventListener("pointerenter", onEnter);
-  host.addEventListener("pointerleave", onLeave);
-
-  function render(time) {
-    renderer.setRenderTarget(rt);
-    renderer.render(scene, camera);
-    renderer.setRenderTarget(null);
-    renderer.render(quadScene, quadCam);
-    return time;
-  }
+  hostEl.addEventListener("pointerenter", onEnter);
+  hostEl.addEventListener("pointerleave", onLeave);
 
   let visible = true;
   const io = new IntersectionObserver(([e]) => (visible = e.isIntersecting));
@@ -215,17 +241,21 @@ export function createEngMesh(canvas, hostEl, { reduced = false } = {}) {
     const dt = Math.min(0.05, time - last || 0.016);
     last = time;
     boost += ((hover ? 1 : 0) - boost) * 0.05;
-    spin += dt * (0.14 + boost * 0.5 + rush * 2.2);
+    spin += dt * (0.14 + boost * 0.5 + rush * 1.6);
+    packetClock += dt * (1 + rush * 4 + wave * 3);
     pointer.x += (pointer.tx - pointer.x) * 0.06;
     pointer.y += (pointer.ty - pointer.y) * 0.06;
-    group.rotation.y = -0.3 + spin + pointer.x * 0.35;
-    group.rotation.x = 0.5 + pointer.y * 0.25;
-    writeCubes((time * 0.09) % 1);
-    writePackets(time);
-    render(time);
+    const calm = 1 - takeover;
+    group.rotation.y = -0.3 + spin + pointer.x * 0.35 * calm;
+    group.rotation.x = 0.5 + pointer.y * 0.25 * calm;
+    group.scale.setScalar(Math.max(0.0001, 1 - shrink * 0.85));
+    writeCubes((time * (0.09 + wave * 0.25)) % 1, wave, time);
+    writePackets();
+    frame();
+    render();
   };
 
-  if (reduced) render(0);
+  if (reduced) render();
   else gsap.ticker.add(tick);
 
   // ---------- hand-off API, used when the visitor opens Engineering from the panel ----------
@@ -239,21 +269,15 @@ export function createEngMesh(canvas, hostEl, { reduced = false } = {}) {
     host.addEventListener("pointermove", onMove);
     visible = true;
   };
-  const state = {
-    get takeover() {
-      return takeover;
-    },
-    set takeover(v) {
-      takeover = v;
-      resize();
-    },
-    get rush() {
-      return rush;
-    },
-    set rush(v) {
-      rush = v;
-    },
-  };
+  const state = {};
+  for (const [name, get, set] of [
+    ["takeover", () => takeover, (v) => (takeover = v)],
+    ["wave", () => wave, (v) => (wave = v)],
+    ["shrink", () => shrink, (v) => (shrink = v)],
+    ["rush", () => rush, (v) => (rush = v)],
+  ]) {
+    Object.defineProperty(state, name, { get, set, enumerable: true });
+  }
   const loadImage = (url) =>
     new Promise((resolve, reject) => {
       new THREE.TextureLoader().load(
@@ -272,7 +296,7 @@ export function createEngMesh(canvas, hostEl, { reduced = false } = {}) {
     });
   // the last frame, one pixel per dither cell (tiny PNG, scaled back up with pixelated rendering)
   const capture = () => {
-    render(0);
+    render();
     const cell = uniforms.uCell.value;
     const w = Math.max(1, Math.round(canvas.width / cell));
     const h = Math.max(1, Math.round(canvas.height / cell));
