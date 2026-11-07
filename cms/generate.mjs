@@ -919,7 +919,7 @@ ${processSection(lang, c.process_h, c.process)}
             <a class="apply-mail" href="mailto:${esc(G.careersEmail)}">${esc(mailUser)}${GLYPH.loop}<span class="visually-hidden">@</span>${esc(mailHost)}</a>
           </div>
           <div class="apply-box">
-          <form class="apply-form" action="${esc(G.careersEndpoint)}" method="post" enctype="multipart/form-data" data-endpoint="${esc(G.careersEndpoint)}" data-lang="${lang}" data-sending="${esc(c.f_sending)}" data-error="${esc(c.f_error)}" data-limit="${esc(c.f_limit)}" data-cv-bad="${esc(c.f_cv_bad)}" data-cv-big="${esc(c.f_cv_big)}" data-cv-missing="${esc(c.f_cv_missing)}">
+          <form class="apply-form" action="${esc(G.careersEndpoint)}" method="post" enctype="multipart/form-data" data-endpoint="${esc(G.careersEndpoint)}" data-lang="${lang}" data-sending="${esc(c.f_sending)}" data-error="${esc(c.f_error)}" data-limit="${esc(c.f_limit)}" data-captcha="${esc(c.f_captcha)}" data-cv-bad="${esc(c.f_cv_bad)}" data-cv-big="${esc(c.f_cv_big)}" data-cv-missing="${esc(c.f_cv_missing)}">
             <fieldset class="pole-switch" data-line><legend>${esc(c.f_pole)}</legend><div class="ps-track"><i class="ps-ink" aria-hidden="true"></i>${poleSwitch}</div></fieldset>
             <fieldset class="chips role-chips" data-line><legend>${esc(c.f_role)}</legend>${roleSets}</fieldset>
             <label class="field other-field" data-line hidden><span>${esc(c.f_other_label)}</span><input name="other" maxlength="160" /></label>
@@ -948,6 +948,7 @@ ${processSection(lang, c.process_h, c.process)}
             <label class="consent" data-line><input type="checkbox" name="consent" value="yes" required /><span class="consent-box" aria-hidden="true"><svg viewBox="0 0 40 40"><path pathLength="1" d="M9 21l7 7 15-16" /></svg></span><span>${esc(c.f_consent)}</span></label>
             <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
             <input type="hidden" name="lang" value="${lang}" />
+            ${G.turnstileSiteKey ? `<div class="ts-slot" data-sitekey="${esc(G.turnstileSiteKey)}"></div>` : ""}
             <div class="form-foot">
               <button class="send apply-send" type="submit" data-cursor="${cur.write}" data-magnetic><span class="send-fill" aria-hidden="true"></span><span class="send-label">${esc(c.f_send)}</span> ${GLYPH.arrow}</button>
               <p class="form-note">${esc(c.f_note)}</p>

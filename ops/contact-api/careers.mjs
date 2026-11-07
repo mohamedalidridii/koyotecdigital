@@ -6,6 +6,43 @@ import busboy from "busboy";
 const MAX_FILE = 8 * 1024 * 1024;
 const MAX_BODY = MAX_FILE + 64 * 1024;
 
+// anti-bot: Cloudflare Turnstile. Verification is on only when TURNSTILE_SECRET is set, so the
+// server can be deployed before the website sends tokens.
+const { TURNSTILE_SECRET, TURNSTILE_HOSTNAMES = "koyotec.digital,www.koyotec.digital" } = process.env;
+const TS_HOSTS = new Set(TURNSTILE_HOSTNAMES.split(",").map((h) => h.trim()).filter(Boolean));
+
+// daily caps, whatever the IP: past CONFIRM_CAP applications the confirmation emails stop (so a
+// bot can't use the form to mail strangers), past DAILY_MAX the form refuses new applications.
+const CONFIRM_CAP = Number(process.env.CAREERS_CONFIRM_CAP || 30);
+const DAILY_MAX = Number(process.env.CAREERS_DAILY_MAX || 100);
+const day = { key: "", count: 0 };
+const today = () => {
+  const k = new Date().toISOString().slice(0, 10);
+  if (day.key !== k) Object.assign(day, { key: k, count: 0 });
+  return day;
+};
+
+async function humanCheck(token, ip) {
+  if (!TURNSTILE_SECRET) return true;
+  if (!token || token.length > 2048) return false;
+  try {
+    const r = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+      method: "POST",
+      body: new URLSearchParams({ secret: TURNSTILE_SECRET, response: token, remoteip: ip }),
+      signal: AbortSignal.timeout(8000),
+    });
+    const j = await r.json();
+    // test keys answer hostname "example.com": accept it only with a test secret
+    const host = j.hostname === "example.com" && TURNSTILE_SECRET.startsWith("1x0000") ? null : j.hostname;
+    if (!j.success) console.warn("turnstile rejected:", (j["error-codes"] || []).join(","), ip);
+    return j.success === true && (host === null || TS_HOSTS.has(host));
+  } catch (err) {
+    // Cloudflare unreachable: fail open rather than lose real applications (rate limits still apply)
+    console.error("turnstile verify error:", err.message);
+    return true;
+  }
+}
+
 // keys sent by the form -> label used in the email (the founder reads French)
 export const POLES = {
   digital: {
@@ -218,7 +255,12 @@ export async function handleCareers(req, res, ctx) {
     const parsed = await parse(req);
     // honeypot: bots fill it, humans never see it. Pretend success.
     if (parsed.fields.website) return send(res, 200, { ok: true }, origin);
+    if (today().count >= DAILY_MAX) {
+      console.warn(`careers: daily max (${DAILY_MAX}) reached, refusing ${ip}`);
+      return send(res, 429, { error: "daily limit" }, origin);
+    }
     app = validate(parsed, ctx);
+    if (!(await humanCheck(parsed.fields["cf-turnstile-response"], ip))) return send(res, 403, { error: "captcha" }, origin);
   } catch (err) {
     if (err instanceof HttpError) return send(res, err.status, { error: err.message }, origin);
     console.error("careers parse error:", err.message);
@@ -238,9 +280,14 @@ export async function handleCareers(req, res, ctx) {
     console.error("careers smtp error:", err.message);
     return send(res, 502, { error: "mail failed" }, origin);
   }
-  console.log(`application from ${app.email} (${app.pole}, ${app.role})`);
+  const n = ++today().count;
+  console.log(`application #${n} today from ${app.email} (${app.pole}, ${app.role})`);
 
   // the confirmation is a courtesy: never fail the request because of it
+  if (n > CONFIRM_CAP) {
+    console.warn(`careers: confirmation cap (${CONFIRM_CAP}) reached, no confirmation to ${app.email}`);
+    return send(res, 200, { ok: true }, origin);
+  }
   ctx.transport
     .sendMail({ from, to: { name: app.name, address: app.email }, ...applicantMail(app) })
     .catch((err) => console.error("careers confirmation error:", err.message));

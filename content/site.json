@@ -7,6 +7,7 @@
     "formEndpoint": "https://api.koyotec.digital/contact",
     "careersEndpoint": "https://api.koyotec.digital/careers",
     "careersEmail": "careers@koyotec.digital",
+    "turnstileSiteKey": "",
     "phone": "+21652405699",
     "phoneDisplay": "+216 52 405 699",
     "instagram": "https://www.instagram.com/koyotec.digital/",
@@ -1156,6 +1157,7 @@
       "f_again": "Envoyer une autre candidature",
       "f_error": "L’envoi a échoué. Réessayez dans un instant, ou écrivez-nous directement à careers@koyotec.digital en joignant votre CV.",
       "f_limit": "Trop d’envois depuis votre connexion. Réessayez dans une heure, ou écrivez à careers@koyotec.digital.",
+      "f_captcha": "La vérification anti-robot n’a pas abouti. Rechargez la page et réessayez, ou écrivez à careers@koyotec.digital.",
       "faq_h": "Questions fréquentes sur le recrutement",
       "faq": [
         [
@@ -2316,6 +2318,7 @@
       "f_again": "Send another application",
       "f_error": "Sending failed. Try again in a moment, or write to careers@koyotec.digital with your CV attached.",
       "f_limit": "Too many submissions from your connection. Try again in an hour, or write to careers@koyotec.digital.",
+      "f_captcha": "The anti-bot check didn’t go through. Reload the page and try again, or write to careers@koyotec.digital.",
       "faq_h": "Hiring FAQ",
       "faq": [
         [

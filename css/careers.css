@@ -277,6 +277,14 @@
   text-transform: none;
   color: var(--ink-dim);
 }
+/* Cloudflare Turnstile: empty unless Cloudflare asks for an interaction */
+.apply-form .ts-slot:empty {
+  display: none;
+}
+.apply-form .ts-slot {
+  max-width: 420px;
+}
+
 .apply-form .hp {
   position: absolute;
   left: -9999px;

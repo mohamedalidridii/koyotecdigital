@@ -14,6 +14,69 @@ const listen = (off) => (el, ev, fn, opts) => {
   el.addEventListener(ev, fn, opts);
   off.push(() => el.removeEventListener(ev, fn, opts));
 };
+// ---------- Cloudflare Turnstile (anti-bot), only when the page carries a site key ----------
+// The script loads once for the whole visit (page transitions keep it); each visit to the
+// careers page renders its own widget, invisible unless Cloudflare wants an interaction.
+let tsScript;
+const loadTurnstile = () =>
+  (tsScript ||= new Promise((resolve, reject) => {
+    if (window.turnstile) return resolve(window.turnstile);
+    window.__koyTs = () => resolve(window.turnstile);
+    const sc = document.createElement("script");
+    sc.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=__koyTs";
+    sc.async = true;
+    sc.onerror = () => {
+      tsScript = null;
+      reject(new Error("turnstile script"));
+    };
+    document.head.appendChild(sc);
+  }));
+
+function turnstileWidget(slot, lang) {
+  let id = null;
+  let token = "";
+  let waiting = [];
+  let dead = false;
+  const settle = (t) => {
+    token = t;
+    waiting.forEach((fn) => fn(t));
+    waiting = [];
+  };
+  loadTurnstile()
+    .then((ts) => {
+      if (dead) return;
+      id = ts.render(slot, {
+        sitekey: slot.dataset.sitekey,
+        language: lang,
+        appearance: "interaction-only",
+        size: "flexible",
+        callback: (t) => settle(t),
+        "expired-callback": () => (token = ""),
+        "error-callback": () => settle(""),
+      });
+    })
+    .catch(() => settle("")); // blocked or offline: let the server decide
+  return {
+    // resolves with a token, or "" after `wait` ms (the server then answers 403 if it needs one)
+    token: (wait = 15000) =>
+      token
+        ? Promise.resolve(token)
+        : new Promise((resolve) => {
+            waiting.push(resolve);
+            setTimeout(() => resolve(token), wait);
+          }),
+    // tokens are single-use: get a fresh one after every submission
+    reset: () => {
+      token = "";
+      if (id !== null) window.turnstile?.reset(id);
+    },
+    destroy: () => {
+      dead = true;
+      if (id !== null) window.turnstile?.remove(id);
+    },
+  };
+}
+
 const size = (b) => (b < 1024 * 1024 ? `${Math.max(1, Math.round(b / 1024))} Ko` : `${(b / 1024 / 1024).toFixed(1)} Mo`);
 
 // ---------- the application form ----------
@@ -37,6 +100,9 @@ export function careersForm(scope, { ready = Promise.resolve() } = {}) {
   const poleInputs = $('input[name="pole"]', form);
   const sets = $(".role-set", form);
   const en = form.dataset.lang === "en";
+  const tsSlot = form.querySelector(".ts-slot");
+  const human = tsSlot ? turnstileWidget(tsSlot, en ? "en" : "fr") : null;
+  if (human) off.push(human.destroy);
 
   const say = (text, failed = false) => {
     status.textContent = text;
@@ -209,7 +275,7 @@ export function careersForm(scope, { ready = Promise.resolve() } = {}) {
       err.textContent = code === 413 ? form.dataset.cvBig : form.dataset.cvBad;
       return say("");
     }
-    say(code === 429 ? form.dataset.limit : form.dataset.error, true);
+    say(code === 429 ? form.dataset.limit : code === 403 ? form.dataset.captcha : form.dataset.error, true);
   };
   const success = () => {
     const pole = current();
@@ -241,7 +307,7 @@ export function careersForm(scope, { ready = Promise.resolve() } = {}) {
       .set(form, { clearProps: "opacity,visibility,transform" });
   };
 
-  on(form, "submit", (e) => {
+  on(form, "submit", async (e) => {
     e.preventDefault();
     if (btn.disabled) return;
     if (!form.checkValidity()) return form.reportValidity();
@@ -257,6 +323,9 @@ export function careersForm(scope, { ready = Promise.resolve() } = {}) {
     label.textContent = form.dataset.sending;
     say("");
     progress(0.04);
+    if (human) await human.token();
+    const body = new FormData(form);
+    human?.reset();
     const xhr = new XMLHttpRequest();
     xhr.open("POST", form.dataset.endpoint);
     xhr.timeout = 90000;
@@ -264,7 +333,7 @@ export function careersForm(scope, { ready = Promise.resolve() } = {}) {
     xhr.upload.onprogress = (ev) => ev.lengthComputable && progress(0.04 + (ev.loaded / ev.total) * 0.86);
     xhr.onload = () => (xhr.status === 200 ? success() : fail(xhr.status));
     xhr.onerror = xhr.ontimeout = () => fail(0);
-    xhr.send(new FormData(form));
+    xhr.send(body);
   });
 
   on(done.querySelector(".apply-again"), "click", () => {
