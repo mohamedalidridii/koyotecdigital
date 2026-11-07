@@ -43,6 +43,7 @@ const Overlay = memo(function Overlay({ overlayRef, titleRef }) {
 function LinkTransitions() {
   const { navigate } = useTransitionState();
   const pathname = usePathname();
+  const lenis = useLenis();
 
   useEffect(() => {
     const onClick = (event) => {
@@ -56,6 +57,18 @@ function LinkTransitions() {
       const path = link.pathname;
       if (path !== BASE && !path.startsWith(`${BASE}/`)) return;
 
+      // same page: the route won't change, so the curtain would cover the screen and never
+      // lift. In-page anchors (#devops…) are left to the page's own scroll handlers; a link to
+      // the current page just glides back to the top.
+      const trim = (p) => p.replace(/\/+$/, "");
+      if (trim(path) === trim(window.location.pathname)) {
+        if (link.hash) return;
+        event.preventDefault();
+        if (lenis) lenis.scrollTo(0, { duration: 1.2 });
+        else window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+
       // capture phase: Next's Link sees defaultPrevented and leaves the navigation to us
       event.preventDefault();
       navigate(path.slice(BASE.length) || "/", pathname);
@@ -63,7 +76,7 @@ function LinkTransitions() {
 
     document.addEventListener("click", onClick, true);
     return () => document.removeEventListener("click", onClick, true);
-  }, [navigate, pathname]);
+  }, [navigate, pathname, lenis]);
 
   return null;
 }
@@ -80,6 +93,7 @@ export default function TransitionProvider({ children }) {
   const splitRef = useRef(null);
   const timelineRef = useRef(null);
   const lenisRef = useRef(null);
+  const stuckRef = useRef(null);
   const lenis = useLenis();
 
   lenisRef.current = lenis;
@@ -89,9 +103,29 @@ export default function TransitionProvider({ children }) {
     splitRef.current = null;
   };
 
+  // safety net: if a navigation never reaches `enter` (route unchanged, failed load…), lift the
+  // curtain anyway so the site can't stay covered and scroll-locked
+  const uncover = () => {
+    const overlay = overlayRef.current;
+    timelineRef.current?.kill();
+    if (overlay) {
+      gsap.to(overlay, {
+        "--clip": CLOSED,
+        duration: 0.8,
+        ease: "hop",
+        onComplete: () => {
+          gsap.set(overlay, { autoAlpha: 0, pointerEvents: "none", visibility: "hidden" });
+          revertSplit();
+        },
+      });
+    }
+    lenisRef.current?.start();
+  };
+
   useEffect(() => {
     return () => {
       timelineRef.current?.kill();
+      clearTimeout(stuckRef.current);
       revertSplit();
     };
   }, []);
@@ -143,6 +177,8 @@ export default function TransitionProvider({ children }) {
           "--clip": OPEN,
           onComplete: () => {
             window.dispatchEvent(new Event("transition-cover"));
+            clearTimeout(stuckRef.current);
+            stuckRef.current = setTimeout(uncover, 3000);
             next();
           },
         });
@@ -150,6 +186,7 @@ export default function TransitionProvider({ children }) {
         timelineRef.current = tl;
       }}
       enter={(next) => {
+        clearTimeout(stuckRef.current);
         const overlay = overlayRef.current;
         const words = splitRef.current?.words;
 
