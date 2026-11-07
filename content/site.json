@@ -123,7 +123,20 @@
             "Entrepôt de données, ETL et tableaux de bord Power BI ou Metabase."
           ]
         ],
-        "cta": "Découvrir Koyotec Engineering"
+        "cta": "Découvrir Koyotec Engineering",
+        "hero": {
+          "kicker": "Le pôle technique",
+          "name": "KOYOTEC Engineering",
+          "lead": "IA, cloud, DevOps, cybersécurité et data : nous concevons, déployons et sécurisons les systèmes qui font tourner votre entreprise.",
+          "items": [
+            "IA",
+            "Cloud",
+            "DevOps",
+            "Cybersécurité",
+            "Data"
+          ],
+          "cta": "Découvrir Engineering"
+        }
       },
       "why_h": "Pourquoi choisir KOYOTEC",
       "why_kicker": "Pourquoi nous",
@@ -1270,7 +1283,20 @@
             "Data warehouses, ETL and Power BI or Metabase dashboards."
           ]
         ],
-        "cta": "Discover Koyotec Engineering"
+        "cta": "Discover Koyotec Engineering",
+        "hero": {
+          "kicker": "Our technical arm",
+          "name": "KOYOTEC Engineering",
+          "lead": "AI, cloud, DevOps, cybersecurity and data: we design, deploy and secure the systems your business runs on.",
+          "items": [
+            "AI",
+            "Cloud",
+            "DevOps",
+            "Security",
+            "Data"
+          ],
+          "cta": "Explore Engineering"
+        }
       },
       "why_h": "Why choose KOYOTEC",
       "why_kicker": "Why us",

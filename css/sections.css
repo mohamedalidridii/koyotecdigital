@@ -461,3 +461,189 @@
   gap: 0.75rem 2.5rem;
   font-size: 1rem;
 }
+
+/* ---------- hero, second column: KOYOTEC Engineering ---------- */
+.hero {
+  --eng-w: clamp(330px, 31vw, 500px);
+}
+.hero-eng {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  background: #0d0d0d;
+  color: #f3f1ec;
+  isolation: isolate;
+}
+.hero-eng-gl {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+/* text sits on a soft dark fade so it reads over the mesh */
+.hero-eng::after {
+  content: "";
+  position: absolute;
+  inset: 45% 0 0;
+  z-index: -1;
+  background: linear-gradient(rgba(13, 13, 13, 0), rgba(13, 13, 13, 0.92) 55%);
+  pointer-events: none;
+}
+.hero-eng-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 1.25rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.hero-eng-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+.hero-eng-kicker::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #ff0000;
+}
+.hero-eng-idx {
+  opacity: 0.55;
+}
+.hero-eng-body {
+  display: grid;
+  gap: 0.9rem;
+  padding: 1.25rem;
+}
+.hero-eng-name {
+  font-size: clamp(1.7rem, 2.3vw, 2.6rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.hero-eng-lead {
+  max-width: 32ch;
+  font-size: 0.98rem;
+  line-height: 1.45;
+  color: rgba(243, 241, 236, 0.75);
+}
+.hero-eng-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.hero-eng-items span {
+  padding: 0.3rem 0.55rem;
+  border: 1px solid rgba(243, 241, 236, 0.28);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background-color 0.4s, color 0.4s, border-color 0.4s;
+  transition-delay: calc(var(--i, 0) * 40ms);
+}
+.hero-eng-cta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.4rem;
+  padding: 0.95rem 1.1rem;
+  background: #ff0000;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.4s, color 0.4s;
+}
+.hero-eng-cta .g {
+  width: 1.1rem;
+  height: 1.1rem;
+  stroke-width: 2;
+  transition: transform 0.6s var(--ease-out);
+}
+.hero-eng:hover .hero-eng-cta,
+.hero-eng:focus-visible .hero-eng-cta {
+  background: #f3f1ec;
+  color: #0d0d0d;
+}
+.hero-eng:hover .hero-eng-cta .g,
+.hero-eng:focus-visible .hero-eng-cta .g {
+  transform: translate(0.2rem, -0.2rem) rotate(45deg);
+}
+.hero-eng:hover .hero-eng-items span {
+  border-color: #ff0000;
+}
+.hero-eng:focus-visible {
+  outline: 2px solid #ff0000;
+  outline-offset: 3px;
+}
+/* no WebGL: a still, dotted texture instead of the mesh */
+.hero-eng.no-gl .hero-eng-gl {
+  display: none;
+}
+.hero-eng.no-gl {
+  background:
+    radial-gradient(circle at 60% 35%, rgba(255, 0, 0, 0.25), transparent 45%),
+    radial-gradient(rgba(243, 241, 236, 0.22) 1px, transparent 1.4px) 0 0 / 7px 7px,
+    #0d0d0d;
+}
+
+/* desktop: the engineering panel takes the right column of the hero */
+@media (min-width: 1081px) {
+  .hero-eng {
+    position: absolute;
+    top: calc(var(--nav-h) + 0.75rem);
+    right: var(--gutter);
+    bottom: 1.5rem;
+    width: var(--eng-w);
+  }
+  .hero-foot {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.75rem;
+    padding-right: calc(var(--eng-w) + var(--gutter) * 2);
+  }
+  .hero .lockup-h1 {
+    font-size: clamp(3.2rem, 6.6vw, 9rem);
+  }
+  .hero-aside {
+    grid-template-columns: minmax(0, 30ch) auto;
+    align-items: end;
+    gap: 2.5rem;
+    padding-bottom: 0;
+  }
+  .hero .float-a {
+    left: 26%;
+  }
+  .hero .float-b {
+    left: 36%;
+  }
+  .hero .float-c,
+  .hero .scroll-cue {
+    right: calc(var(--eng-w) + var(--gutter) * 2);
+  }
+}
+/* tablets and phones: the first screen stays the Digital hero, the panel follows with its top in view */
+@media (max-width: 1080px) {
+  .hero {
+    justify-content: flex-start;
+  }
+  .hero-float {
+    height: 52svh;
+  }
+  .hero-foot {
+    min-height: calc(76svh - var(--nav-h));
+    align-content: end;
+  }
+  .hero-eng {
+    min-height: 76svh;
+    margin: 1.5rem var(--gutter) 0;
+  }
+}

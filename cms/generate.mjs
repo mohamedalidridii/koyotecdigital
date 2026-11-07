@@ -520,6 +520,26 @@ ${poles}
       </section>`;
   }
 
+  // hero, second column: the engineering arm, with its own WebGL mesh (scripts/webgl/engMesh.js)
+  function engineeringPanel(lang) {
+    const e = site[lang].home.engineering; const x = e.hero; const i = idx(lang);
+    if (!x) return "";
+    return `        <a class="hero-eng" href="${PATHS.engineering[i]}" data-barba-prevent data-cursor="${CURSOR[lang].enter}">
+          <canvas class="hero-eng-gl" aria-hidden="true"></canvas>
+          <span class="hero-eng-top">
+            <span class="hero-eng-kicker">${esc(x.kicker)}</span>
+            <span class="hero-eng-idx" aria-hidden="true">(02)</span>
+          </span>
+          <span class="hero-eng-body">
+            <span class="hero-eng-name">${esc(x.name)}</span>
+            <span class="hero-eng-lead">${esc(x.lead)}</span>
+            <span class="hero-eng-items">${x.items.map((it, n) => `<span style="--i:${n}">${esc(it)}</span>`).join("")}</span>
+            <span class="hero-eng-cta"><span>${esc(x.cta)}</span>${GLYPH.arrow}</span>
+          </span>
+        </a>
+`;
+  }
+
   function home(lang) {
     const h = site[lang].home; const i = idx(lang); const c = CURSOR[lang];
     const pillars = h.points.map(([a, b], n) => `            <li data-line><span class="pillar-num">(${pad(n + 1)})</span><h3>${esc(a)}</h3><p>${esc(b)}</p></li>`).join("\n");
@@ -542,6 +562,7 @@ ${poles}
             </div>
           </div>
         </div>
+${engineeringPanel(lang)}
         <p class="scroll-cue" aria-hidden="true">${esc(h.scroll_hint)} ↓</p>
       </section>
 
