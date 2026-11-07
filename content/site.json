@@ -1158,6 +1158,7 @@
       "f_error": "L’envoi a échoué. Réessayez dans un instant, ou écrivez-nous directement à careers@koyotec.digital en joignant votre CV.",
       "f_limit": "Trop d’envois depuis votre connexion. Réessayez dans une heure, ou écrivez à careers@koyotec.digital.",
       "f_captcha": "La vérification anti-robot n’a pas abouti. Rechargez la page et réessayez, ou écrivez à careers@koyotec.digital.",
+      "f_verify": "Une petite vérification anti-robot s’affiche ci-dessus : validez-la et votre candidature partira automatiquement.",
       "faq_h": "Questions fréquentes sur le recrutement",
       "faq": [
         [
@@ -2319,6 +2320,7 @@
       "f_error": "Sending failed. Try again in a moment, or write to careers@koyotec.digital with your CV attached.",
       "f_limit": "Too many submissions from your connection. Try again in an hour, or write to careers@koyotec.digital.",
       "f_captcha": "The anti-bot check didn’t go through. Reload the page and try again, or write to careers@koyotec.digital.",
+      "f_verify": "A quick anti-bot check is showing above: complete it and your application will be sent automatically.",
       "faq_h": "Hiring FAQ",
       "faq": [
         [

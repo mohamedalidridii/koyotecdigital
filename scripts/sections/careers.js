@@ -37,10 +37,12 @@ function turnstileWidget(slot, lang) {
   let token = "";
   let waiting = [];
   let dead = false;
+  let onToken = null;
   const settle = (t) => {
     token = t;
     waiting.forEach((fn) => fn(t));
     waiting = [];
+    if (t && onToken) onToken(t);
   };
   loadTurnstile()
     .then((ts) => {
@@ -65,6 +67,10 @@ function turnstileWidget(slot, lang) {
             waiting.push(resolve);
             setTimeout(() => resolve(token), wait);
           }),
+    // Cloudflare is showing a challenge the visitor has to answer
+    challenged: () => slot.offsetHeight > 0,
+    // called whenever a fresh token arrives (used to resume a submission after a challenge)
+    whenToken: (fn) => (onToken = fn),
     // tokens are single-use: get a fresh one after every submission
     reset: () => {
       token = "";
@@ -323,7 +329,22 @@ export function careersForm(scope, { ready = Promise.resolve() } = {}) {
     label.textContent = form.dataset.sending;
     say("");
     progress(0.04);
-    if (human) await human.token();
+    if (human) {
+      // usually the token is already there; otherwise give Cloudflare a moment
+      let t = await human.token(4000);
+      if (!t && human.challenged()) {
+        // a challenge is showing: ask for it, and send automatically once it's answered
+        idle();
+        say(form.dataset.verify);
+        tsSlot.scrollIntoView?.({ block: "center", behavior: reduced ? "auto" : "smooth" });
+        human.whenToken(() => {
+          human.whenToken(null);
+          form.requestSubmit();
+        });
+        return;
+      }
+      if (!t) t = await human.token(12000); // still working invisibly
+    }
     const body = new FormData(form);
     human?.reset();
     const xhr = new XMLHttpRequest();
