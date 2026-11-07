@@ -61,6 +61,57 @@
   --chip: rgba(198, 255, 61, 0.1);
 }
 
+.case[data-theme="vlm-document-extraction"],
+.row[data-theme="vlm-document-extraction"],
+.next[data-theme="vlm-document-extraction"] {
+  --bg: #efe9dc;
+  --fg: #1a1612;
+  --dim: rgba(26, 22, 18, 0.6);
+  --line: rgba(26, 22, 18, 0.16);
+  --accent: #6b3df0;
+  --chip: rgba(107, 61, 240, 0.1);
+}
+.case[data-theme="text-to-sql-agent"],
+.row[data-theme="text-to-sql-agent"],
+.next[data-theme="text-to-sql-agent"] {
+  --bg: #0d2a2c;
+  --fg: #e9f6f2;
+  --dim: rgba(233, 246, 242, 0.6);
+  --line: rgba(233, 246, 242, 0.16);
+  --accent: #4fe3b5;
+  --chip: rgba(79, 227, 181, 0.12);
+}
+.case[data-theme="legacy-modernization"],
+.row[data-theme="legacy-modernization"],
+.next[data-theme="legacy-modernization"] {
+  --bg: #1f3fd9;
+  --fg: #ffffff;
+  --dim: rgba(255, 255, 255, 0.68);
+  --line: rgba(255, 255, 255, 0.22);
+  --accent: #ffe14d;
+  --chip: rgba(255, 255, 255, 0.12);
+}
+.case[data-theme="soc-triage-agent"],
+.row[data-theme="soc-triage-agent"],
+.next[data-theme="soc-triage-agent"] {
+  --bg: #170d1a;
+  --fg: #f6eef7;
+  --dim: rgba(246, 238, 247, 0.6);
+  --line: rgba(246, 238, 247, 0.15);
+  --accent: #ff3d81;
+  --chip: rgba(255, 61, 129, 0.12);
+}
+.case[data-theme="supply-chain-radar"],
+.row[data-theme="supply-chain-radar"],
+.next[data-theme="supply-chain-radar"] {
+  --bg: #e6eef2;
+  --fg: #0b2433;
+  --dim: rgba(11, 36, 51, 0.62);
+  --line: rgba(11, 36, 51, 0.16);
+  --accent: #0a7aa8;
+  --chip: rgba(10, 122, 168, 0.1);
+}
+
 .dot {
   display: inline-block;
   width: 0.5rem;

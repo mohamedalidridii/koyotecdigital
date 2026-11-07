@@ -23,6 +23,11 @@ const VISUALS = {
   "compliance-agent": dynamic(() => import("./visuals/ComplianceFlow"), { ssr: false }),
   "shopping-assistant": dynamic(() => import("./visuals/ShopDemo"), { ssr: false }),
   "rag-evaluation": dynamic(() => import("./visuals/EvalDashboard"), { ssr: false }),
+  "vlm-document-extraction": dynamic(() => import("./visuals/DocScan"), { ssr: false }),
+  "text-to-sql-agent": dynamic(() => import("./visuals/SqlAgent"), { ssr: false }),
+  "legacy-modernization": dynamic(() => import("./visuals/LegacyAgents"), { ssr: false }),
+  "soc-triage-agent": dynamic(() => import("./visuals/SocTriage"), { ssr: false }),
+  "supply-chain-radar": dynamic(() => import("./visuals/SupplyRadar"), { ssr: false }),
 };
 
 const pad = (n) => String(n).padStart(2, "0");
