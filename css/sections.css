@@ -642,9 +642,28 @@
     min-height: calc(76svh - var(--nav-h));
     align-content: end;
   }
+  /* in order: label, the knot in a frame of its own, then the text; nothing overlaps */
   .hero-eng {
-    min-height: 76svh;
     margin: 1.5rem var(--gutter) 0;
+  }
+  .hero-eng-top {
+    order: 1;
+  }
+  .hero-eng-gl {
+    position: relative;
+    inset: auto;
+    z-index: 0;
+    order: 2;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 0.86;
+  }
+  .hero-eng-body {
+    order: 3;
+    padding-top: 0.5rem;
+  }
+  .hero-eng::after {
+    display: none;
   }
 }
 

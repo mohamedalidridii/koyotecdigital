@@ -72,7 +72,8 @@ export function engineeringHero(scope, { ready = Promise.resolve() } = {}) {
     e.preventDefault();
     leaving = true;
     const url = panel.href;
-    const r = panel.getBoundingClientRect();
+    // start from the knot's own frame (the whole panel on desktop, its box on phones)
+    const r = canvas.getBoundingClientRect();
 
     const layer = document.createElement("div");
     layer.className = "eng-takeover";

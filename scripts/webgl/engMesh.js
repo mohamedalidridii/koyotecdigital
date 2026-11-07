@@ -176,18 +176,23 @@ export function createEngMesh(canvas, hostEl, { reduced = false } = {}) {
   let rush = 0; // extra spin
   let plan = null; // where each cube goes, computed when the building starts
 
+  // the canvas sets the frame: the whole panel on desktop, its own box on phones, the screen
+  // during the hand-off
+  const size = () => [canvas.clientWidth || 1, canvas.clientHeight || 1];
   const frame = () => {
-    const w = host.clientWidth || 1;
-    const h = host.clientHeight || 1;
+    const [w, h] = size();
     camera.aspect = w / h;
     const tanH = Math.tan((camera.fov * Math.PI) / 360);
-    // in the panel: the knot fills the upper part
-    const zPanel = Math.max(2.95 / (tanH * camera.aspect), 2.6 / tanH);
-    const lookPanel = -0.55 + (h > w ? -1.7 : -0.35);
+    // phones: the canvas is a box of its own, the knot sits centred in it
+    const compact = host === hostEl && h < hostEl.clientHeight * 0.85;
+    // desktop: the canvas fills the panel and the knot fills its upper part, above the text
+    const zPanel = compact ? Math.max(2.35 / (tanH * camera.aspect), 2.35 / tanH) : Math.max(2.95 / (tanH * camera.aspect), 2.6 / tanH);
+    const lookPanel = compact ? 0 : -0.55 + (h > w ? -1.7 : -0.35);
+    const liftPanel = compact ? 0 : -0.55;
     // full screen: a centred loader, about a third of the screen's short side
     const share = 0.34;
     const zCentre = h > w ? KNOT / (share * 1.6 * 2 * tanH * camera.aspect) : KNOT / (share * 2 * tanH);
-    camera.position.set(0, -0.55 * (1 - takeover), zPanel + (zCentre - zPanel) * takeover);
+    camera.position.set(0, liftPanel * (1 - takeover), zPanel + (zCentre - zPanel) * takeover);
     camera.lookAt(0, lookPanel * (1 - takeover), 0);
     camera.updateProjectionMatrix();
   };
@@ -200,8 +205,9 @@ export function createEngMesh(canvas, hostEl, { reduced = false } = {}) {
   }
 
   const resize = () => {
-    const w = host.clientWidth || 1;
-    const h = host.clientHeight || 1;
+    const [w, h] = size();
+    // finer cells on small frames, so the knot keeps its shape
+    if (!plan && uniforms.uMix.value === 0) uniforms.uCell.value = (Math.min(w, h) < 520 ? 2 : 3) * dpr;
     renderer.setSize(w, h, false);
     rt.setSize(Math.round(w * dpr), Math.round(h * dpr));
     uniforms.uRes.value.set(w * dpr, h * dpr);
@@ -233,7 +239,7 @@ export function createEngMesh(canvas, hostEl, { reduced = false } = {}) {
   const io = new IntersectionObserver(([e]) => (visible = e.isIntersecting));
   io.observe(host);
   const ro = new ResizeObserver(resize);
-  ro.observe(host);
+  ro.observe(canvas);
   resize();
 
   let last = 0;
@@ -270,11 +276,9 @@ export function createEngMesh(canvas, hostEl, { reduced = false } = {}) {
 
   // ---------- hand-off API, used when the visitor opens Engineering from the panel ----------
   const setHost = (el) => {
-    ro.unobserve(host);
     io.unobserve(host);
     host.removeEventListener("pointermove", onMove);
     host = el;
-    ro.observe(host);
     io.observe(host);
     host.addEventListener("pointermove", onMove);
     visible = true;
@@ -363,8 +367,7 @@ export function createEngMesh(canvas, hostEl, { reduced = false } = {}) {
 
   const beginBuild = () => {
     const img = uniforms.tImage.value?.image;
-    const W = host.clientWidth || 1;
-    const H = host.clientHeight || 1;
+    const [W, H] = size();
     frame();
     // freeze the knot as it is now, in world space, then hand the cubes over to the plan
     group.updateMatrixWorld(true);
