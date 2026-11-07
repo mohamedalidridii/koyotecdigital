@@ -18,6 +18,8 @@ import { useLang } from "@/lib/useLang";
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const VISUALS = {
+  // Atlas reuses the point-cloud scene of the Systems AI chapter
+  "rag-document-assistant": dynamic(() => import("@/components/Systems/visuals/RagScene"), { ssr: false }),
   "graphrag-knowledge-engine": dynamic(() => import("./visuals/GraphScene"), { ssr: false }),
   "onboarding-agents": dynamic(() => import("./visuals/AgentsFlow"), { ssr: false }),
   "compliance-agent": dynamic(() => import("./visuals/ComplianceFlow"), { ssr: false }),

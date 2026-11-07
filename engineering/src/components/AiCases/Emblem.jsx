@@ -1,5 +1,12 @@
 // One line drawing per case, drawn stroke by stroke when its row is hovered (pathLength = 1).
 const PATHS = {
+  "rag-document-assistant": [
+    "M14 16h22l6 6v30H14z M36 16v6h6",
+    "M19 30h16 M19 37h16 M19 44h10",
+    "M58 50m-12 0a12 12 0 1 0 24 0a12 12 0 1 0 -24 0",
+    "M67 59l8 8",
+    "M52 48l4 4 7-8",
+  ],
   "graphrag-knowledge-engine": [
     "M20 22 L50 14 L74 34 L56 62 L26 58 Z",
     "M20 22 L56 62 M50 14 L26 58 M74 34 L26 58",

@@ -235,7 +235,7 @@ const en = {
         ],
         stack: ["Python", "LangChain", "PostgreSQL + pgvector", "Open-source LLM or API", "Docker"],
         timeline: "6 to 10 weeks",
-        more: { href: "/ai", label: "See our 10 AI case studies" },
+        more: { href: "/ai", label: "See our 11 AI case studies" },
         visual: {
           files: ["contracts.pdf", "hr_2025.docx", "procedures.pdf", "invoices.xlsx", "emails.mbox", "wiki.html"],
           clusters: ["Contracts", "HR", "Procedures", "Invoices", "Emails", "Wiki"],
@@ -388,7 +388,7 @@ const en = {
     header: {
       title: "Artificial",
       subtitle: "intelligence",
-      description: "Ten case studies: AI solutions we deliver to companies, from the need to production.",
+      description: "Eleven case studies: AI solutions we deliver to companies, from the need to production.",
     },
     intro: {
       kicker: ["Case studies", "AI for business"],
@@ -417,6 +417,60 @@ const en = {
       read: "Read the case study",
     },
     cases: [
+      {
+        slug: "rag-document-assistant",
+        client: "Norvelle Group",
+        sector: "Business services",
+        size: "200 staff, 3 offices",
+        short: "“Atlas”, RAG document assistant",
+        title: "Atlas: an assistant that knows all your documents",
+        summary: "Procedures, contracts, HR notes, emails: Atlas indexes every internal document by meaning and answers teams’ questions in plain words, citing its sources every time.",
+        metrics: [
+          ["A few seconds", "instead of long searches through shared folders"],
+          ["100%", "of answers cite their sources"],
+          ["0", "documents leaving your infrastructure"],
+        ],
+        context: "At Norvelle, the information exists but sleeps in thousands of files: procedures in a shared folder, HR rules as PDFs, contracts in the document system, decisions lost in emails. Newcomers keep asking the same questions, and managers keep answering them by hand.",
+        challenges: [
+          "Keyword search finds nothing when you don’t know the right term.",
+          "Documents exist in several versions, and no one knows which one is current.",
+          "An answer without a source is worthless to HR or legal.",
+          "The documents are internal and must stay on the company’s infrastructure.",
+        ],
+        approach: "Every document is split into passages, and each passage becomes a vector that captures its meaning, stored in PostgreSQL with pgvector. For each question, Atlas finds the passages closest in meaning, respecting the user’s access rights, then a language model writes a short answer citing the original document and page. The model can run on your servers, or through an API hosted in Europe.",
+        steps: [
+          ["Your documents", "PDFs, Word files, emails, wiki: we gather them without taking them out of your infrastructure."],
+          ["Indexed by meaning", "Each passage becomes a point in a space where related ideas cluster together."],
+          ["A question, in plain words", "Your teams ask their question as they would ask a colleague."],
+          ["The right passages", "Atlas finds the most relevant excerpts, not just keywords."],
+          ["An answer with sources", "The answer cites its sources: you can always check."],
+        ],
+        results: [
+          ["−60%", "repetitive questions to managers and HR"],
+          ["A few seconds", "to find the right procedure"],
+          ["100%", "of answers with source and page"],
+          ["1 week", "saved onboarding a newcomer"],
+        ],
+        deliverables: [
+          "Connectors to the shared drive, document system and email",
+          "Semantic chunking and indexing pipeline",
+          "PostgreSQL + pgvector with access rights",
+          "Q&A assistant with citations",
+          "Automatic updates when a document changes",
+        ],
+        stack: ["Python", "LangChain", "PostgreSQL + pgvector", "Open-source LLM or API", "Docker"],
+        timeline: "6 to 10 weeks",
+        team: "1 AI engineer, 1 developer",
+        visual: {
+          files: ["contracts.pdf", "hr_2025.docx", "procedures.pdf", "invoices.xlsx", "emails.mbox", "wiki.html"],
+          clusters: ["Contracts", "HR", "Procedures", "Invoices", "Emails", "Wiki"],
+          question: "How many days of leave after a birth?",
+          answer: "Birth leave is 7 working days, to be taken within 30 days of the birth.",
+          sources: ["HR rules 2025, art. 14", "Leave procedure v3, p. 2"],
+          you: "You",
+          assistant: "Atlas",
+        },
+      },
       {
         slug: "graphrag-knowledge-engine",
         client: "Veltaro Industries",

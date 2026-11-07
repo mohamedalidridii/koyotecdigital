@@ -39,6 +39,7 @@ const idx = (lang) => (lang === "fr" ? 0 : 1);
 // routes outside the barba-driven pages: links to them must load the page for real
 // the AI case studies: slugs from engineering/src/content (aiCases.cases)
 const AI_CASES = [
+  "rag-document-assistant",
   "graphrag-knowledge-engine", "onboarding-agents", "compliance-agent", "shopping-assistant", "rag-evaluation",
   "vlm-document-extraction", "text-to-sql-agent", "legacy-modernization", "soc-triage-agent", "supply-chain-radar",
 ];

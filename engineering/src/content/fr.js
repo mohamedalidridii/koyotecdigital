@@ -237,7 +237,7 @@ const fr = {
         ],
         stack: ["Python", "LangChain", "PostgreSQL + pgvector", "LLM open source ou API", "Docker"],
         timeline: "6 à 10 semaines",
-        more: { href: "/ai", label: "Voir nos 10 études de cas IA" },
+        more: { href: "/ai", label: "Voir nos 11 études de cas IA" },
         visual: {
           files: ["contrats.pdf", "rh_2025.docx", "procedures.pdf", "factures.xlsx", "emails.mbox", "wiki.html"],
           clusters: ["Contrats", "RH", "Procédures", "Factures", "E-mails", "Wiki"],
@@ -390,7 +390,7 @@ const fr = {
     header: {
       title: "Intelligence",
       subtitle: "artificielle",
-      description: "Dix études de cas : des solutions d’IA que nous livrons aux entreprises, du besoin à la mise en production.",
+      description: "Onze études de cas : des solutions d’IA que nous livrons aux entreprises, du besoin à la mise en production.",
     },
     intro: {
       kicker: ["Études de cas", "IA pour l’entreprise"],
@@ -419,6 +419,60 @@ const fr = {
       read: "Lire l’étude de cas",
     },
     cases: [
+      {
+        slug: "rag-document-assistant",
+        client: "Groupe Norvelle",
+        sector: "Services aux entreprises",
+        size: "200 collaborateurs, 3 agences",
+        short: "« Atlas », assistant documentaire RAG",
+        title: "Atlas : un assistant qui connaît tous vos documents",
+        summary: "Procédures, contrats, notes RH, e-mails : Atlas indexe tous les documents internes par leur sens et répond aux questions des équipes en langage courant, en citant à chaque fois ses sources.",
+        metrics: [
+          ["Quelques secondes", "au lieu de longues recherches dans les dossiers partagés"],
+          ["100 %", "des réponses citent leurs sources"],
+          ["0", "document qui quitte votre infrastructure"],
+        ],
+        context: "Chez Norvelle, l’information existe, mais elle dort dans des milliers de fichiers : procédures dans un dossier partagé, règlement RH en PDF, contrats dans la GED, décisions perdues dans les e-mails. Les nouveaux arrivants posent toujours les mêmes questions, et les managers y répondent toujours à la main.",
+        challenges: [
+          "La recherche par mots-clés ne trouve rien quand on ne connaît pas le bon terme.",
+          "Les documents existent en plusieurs versions, et personne ne sait laquelle fait foi.",
+          "Une réponse sans source ne vaut rien pour les RH ou le juridique.",
+          "Les documents sont internes et doivent rester sur l’infrastructure de l’entreprise.",
+        ],
+        approach: "Chaque document est découpé en passages, et chaque passage est transformé en vecteur qui représente son sens, stocké dans PostgreSQL avec pgvector. À chaque question, Atlas retrouve les passages les plus proches par le sens, en respectant les droits d’accès de l’utilisateur, puis un modèle de langage rédige une réponse courte qui cite le document et la page d’origine. Le modèle peut tourner sur vos serveurs, ou via une API hébergée en Europe.",
+        steps: [
+          ["Vos documents", "PDF, Word, e-mails, wiki : nous les rassemblons sans les sortir de votre infrastructure."],
+          ["Indexés par le sens", "Chaque passage devient un point dans un espace où les idées proches se regroupent."],
+          ["Une question, en langage courant", "Vos équipes posent leur question comme à un collègue."],
+          ["Les bons passages", "Atlas retrouve les extraits les plus pertinents, pas seulement des mots-clés."],
+          ["Une réponse sourcée", "La réponse cite ses sources : on peut toujours vérifier."],
+        ],
+        results: [
+          ["−60 %", "de questions répétitives adressées aux managers et aux RH"],
+          ["Quelques secondes", "pour trouver la bonne procédure"],
+          ["100 %", "des réponses avec la source et la page"],
+          ["1 semaine", "gagnée sur l’intégration d’un nouvel arrivant"],
+        ],
+        deliverables: [
+          "Connecteurs vers le dossier partagé, la GED et la messagerie",
+          "Pipeline de découpage et d’indexation sémantique",
+          "Base PostgreSQL + pgvector avec gestion des droits",
+          "Assistant de questions-réponses avec citations",
+          "Mise à jour automatique quand un document change",
+        ],
+        stack: ["Python", "LangChain", "PostgreSQL + pgvector", "LLM open source ou API", "Docker"],
+        timeline: "6 à 10 semaines",
+        team: "1 ingénieur IA, 1 développeur",
+        visual: {
+          files: ["contrats.pdf", "rh_2025.docx", "procedures.pdf", "factures.xlsx", "emails.mbox", "wiki.html"],
+          clusters: ["Contrats", "RH", "Procédures", "Factures", "E-mails", "Wiki"],
+          question: "Combien de jours de congé après une naissance ?",
+          answer: "Le congé de naissance est de 7 jours ouvrés, à poser dans les 30 jours suivant la naissance.",
+          sources: ["Règlement RH 2025, art. 14", "Procédure congés v3, p. 2"],
+          you: "Vous",
+          assistant: "Atlas",
+        },
+      },
       {
         slug: "graphrag-knowledge-engine",
         client: "Veltaro Industries",

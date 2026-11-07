@@ -10,6 +10,16 @@
   --accent: var(--base-300);
   --chip: rgba(13, 13, 13, 0.06);
 }
+.case[data-theme="rag-document-assistant"],
+.row[data-theme="rag-document-assistant"],
+.next[data-theme="rag-document-assistant"] {
+  --bg: #10151d;
+  --fg: #f3f1ec;
+  --dim: rgba(243, 241, 236, 0.58);
+  --line: rgba(243, 241, 236, 0.15);
+  --accent: #ff4b3e;
+  --chip: rgba(243, 241, 236, 0.08);
+}
 .case[data-theme="graphrag-knowledge-engine"],
 .row[data-theme="graphrag-knowledge-engine"],
 .next[data-theme="graphrag-knowledge-engine"] {
