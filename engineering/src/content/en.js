@@ -482,11 +482,11 @@ const en = {
         size: "1,100 staff, 2 plants, 640 machines",
         short: "“Vulcan”, maintenance AI assistant",
         title: "Vulcan: a maintenance assistant that knows every manual and every past repair",
-        summary: "Vulcan connects the technical documentation (manuals, SOPs, P&ID drawings, warranties) to live CMMS data (work orders, parts, failure codes, run-hours). At the machine, a technician asks by voice and gets a troubleshooting guide citing the exact manual page and the past work order.",
+        summary: "Vulcan connects the technical documentation (manuals, SOPs, P&ID drawings, warranties) to live CMMS data (work orders, parts, failure codes, run-hours). At the machine, a technician asks by voice and gets a troubleshooting guide citing the exact manual page and the past work order. Everything runs on a server inside the plant: no cloud, no external API, and it keeps working offline.",
         metrics: [
           ["−38%", "mean time to repair (MTTR) on critical machines"],
           ["100%", "of answers cite a manual page and a past work order"],
-          ["4 min", "to draft a work order instead of 20"],
+          ["0", "external APIs: everything runs inside the plant"],
         ],
         context: "Novaferr runs 640 machines across two plants. The answers exist, but they are split in two: thousands of pages of manuals and SOPs in three languages on one side, nine years of work orders and technician notes in the CMMS on the other. At night, a technician facing a broken press calls the senior technician, or searches through PDFs while the line is stopped.",
         challenges: [
@@ -494,14 +494,15 @@ const en = {
           "The best knowledge is in the CMMS history and free-text technician notes, which no one can search.",
           "On the shop floor, hands are busy, gloves are on and it is noisy: no time to type on a keyboard.",
           "A wrong answer is dangerous: every step must come from an official source, never be invented.",
+          "Drawings, procedures and maintenance data are confidential, and the plant network is isolated: nothing may leave for the cloud.",
         ],
-        approach: "Manuals, SOPs, P&ID drawings and warranties are split into passages (with OCR for scans), turned into vector embeddings and stored in PostgreSQL with pgvector. A read-only connector syncs the CMMS: work orders, parts used, failure codes, run-hours and technician notes. For each question, the agent queries both sources in parallel, filtered on the exact asset: the official repair steps, and how the same fault was fixed on this same machine. A language model then writes a short guide citing the manual page and the work-order number, and can draft the new work order with its parts. Thumbs up / down and a weekly evaluation pipeline flag outdated manuals and parts lists.",
+        approach: "Manuals, SOPs, P&ID drawings and warranties are split into passages (with OCR for scans), turned into vector embeddings by a local embedding model and stored in PostgreSQL with pgvector. A read-only connector on the plant network syncs the CMMS (direct database read or scheduled export, no cloud service): work orders, parts used, failure codes, run-hours and technician notes. For each question, the agent queries both sources in parallel, filtered on the exact asset: the official repair steps, and how the same fault was fixed on this same machine. An open-source language model (Llama, Qwen or Mistral) running on a GPU server in the plant then writes a short guide citing the manual page and the work-order number, and can draft the new work order with its parts. Speech-to-text (Whisper) also runs locally: no question, document or data ever leaves the site, and the assistant keeps working without internet. Thumbs up / down and a weekly evaluation pipeline flag outdated manuals and parts lists.",
         steps: [
           ["Manuals & SOPs, indexed", "Manuals, P&ID drawings, warranties and procedures become passages searchable by meaning."],
-          ["The CMMS, connected", "Past work orders, parts, failure codes and technician notes, synced live, read-only."],
+          ["The CMMS, connected", "Past work orders, parts, failure codes and technician notes, synced on the plant network, read-only."],
           ["A question at the machine", "The technician scans the QR code on the press and asks by voice."],
           ["Two sources, one answer", "The official repair steps, and how the same fault was fixed on this exact asset."],
-          ["A guide and a work order", "A cited troubleshooting guide, then the work order drafted with its parts."],
+          ["A guide and a work order", "A cited guide, then the work order drafted with its parts: all computed on-site, no cloud."],
         ],
         results: [
           ["−38%", "MTTR on critical machines"],
@@ -511,13 +512,14 @@ const en = {
         ],
         deliverables: [
           "Indexing pipeline for manuals, SOPs, P&ID drawings and warranties (multilingual, OCR)",
-          "Read-only connector to the CMMS / EAM (SAP PM, Maximo, Odoo or API)",
+          "Read-only connector to the CMMS / EAM on the plant network (SAP PM, Maximo, Odoo)",
+          "On-premise GPU server: local LLM, embeddings and speech-to-text, works offline",
           "Hybrid retrieval: vector search + history of the exact asset",
           "Mobile and voice app, with a QR code on each machine",
           "Work-order drafting with parts and estimated time",
           "Feedback loop, evaluation pipeline and audit log",
         ],
-        stack: ["Python", "LangGraph", "PostgreSQL + pgvector", "CMMS / EAM API", "Whisper (speech-to-text)", "React Native"],
+        stack: ["Python", "LangGraph", "PostgreSQL + pgvector", "Local LLM (Ollama / vLLM)", "Whisper (local)", "React Native"],
         timeline: "8 to 12 weeks",
         team: "1 AI engineer, 1 electromechanical maintenance engineer",
         visual: {
@@ -545,6 +547,7 @@ const en = {
           created: "Work order WO-19077 created",
           you: "Technician",
           assistant: "Vulcan",
+          local: "On-site server · no cloud · works offline",
         },
       },
       {

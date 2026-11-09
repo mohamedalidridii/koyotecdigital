@@ -484,11 +484,11 @@ const fr = {
         size: "1 100 collaborateurs, 2 usines, 640 machines",
         short: "« Vulcan », assistant IA de maintenance",
         title: "Vulcan : un assistant de maintenance qui connaît chaque manuel et chaque réparation passée",
-        summary: "Vulcan relie la documentation technique (manuels, modes opératoires, schémas P&ID, garanties) aux données vivantes de la GMAO (ordres de travail, pièces, codes de panne, heures de marche). Au pied de la machine, le technicien pose sa question à la voix et reçoit un guide de dépannage qui cite la page exacte du manuel et l’ordre de travail précédent.",
+        summary: "Vulcan relie la documentation technique (manuels, modes opératoires, schémas P&ID, garanties) aux données vivantes de la GMAO (ordres de travail, pièces, codes de panne, heures de marche). Au pied de la machine, le technicien pose sa question à la voix et reçoit un guide de dépannage qui cite la page exacte du manuel et l’ordre de travail précédent. Tout tourne sur un serveur installé dans l’usine : pas de cloud, pas d’API externe, et cela fonctionne même sans internet.",
         metrics: [
           ["−38 %", "de temps moyen de réparation (MTTR) sur les machines critiques"],
           ["100 %", "des réponses citent une page de manuel et un ordre de travail passé"],
-          ["4 min", "pour rédiger un ordre de travail au lieu de 20"],
+          ["0", "API externe : tout tourne dans l’usine"],
         ],
         context: "Novaferr exploite 640 machines sur deux usines. Les réponses existent, mais elles sont coupées en deux : des milliers de pages de manuels et de modes opératoires en trois langues d’un côté, neuf ans d’ordres de travail et de notes de techniciens dans la GMAO de l’autre. La nuit, un technicien face à une presse en panne appelle le technicien senior, ou fouille dans des PDF pendant que la ligne est à l’arrêt.",
         challenges: [
@@ -496,14 +496,15 @@ const fr = {
           "Le meilleur savoir dort dans l’historique de la GMAO et les notes libres des techniciens, que personne ne peut interroger.",
           "Sur le terrain, on a les mains prises, des gants et du bruit : pas le temps de taper sur un clavier.",
           "Une mauvaise réponse est dangereuse : chaque étape doit venir d’une source officielle, jamais être inventée.",
+          "Plans, procédures et données de maintenance sont confidentiels, et le réseau de l’usine est isolé : rien ne doit partir dans le cloud.",
         ],
-        approach: "Manuels, modes opératoires, schémas P&ID et garanties sont découpés en passages (avec OCR pour les scans), transformés en vecteurs et stockés dans PostgreSQL avec pgvector. Un connecteur en lecture seule synchronise la GMAO : ordres de travail, pièces consommées, codes de panne, heures de marche et notes des techniciens. À chaque question, l’agent interroge les deux sources en parallèle, filtrées sur l’équipement exact : les étapes de réparation officielles, et la façon dont la même panne a été réparée sur cette même machine. Un modèle de langage rédige alors un guide court qui cite la page du manuel et le numéro d’ordre de travail, et peut préparer le nouvel ordre de travail avec ses pièces. Des votes pouce haut / pouce bas et un pipeline d’évaluation hebdomadaire signalent les manuels et les listes de pièces à mettre à jour.",
+        approach: "Manuels, modes opératoires, schémas P&ID et garanties sont découpés en passages (avec OCR pour les scans), transformés en vecteurs par un modèle d’embeddings local et stockés dans PostgreSQL avec pgvector. Un connecteur en lecture seule sur le réseau de l’usine synchronise la GMAO (lecture directe de la base ou export planifié, sans service cloud) : ordres de travail, pièces consommées, codes de panne, heures de marche et notes des techniciens. À chaque question, l’agent interroge les deux sources en parallèle, filtrées sur l’équipement exact : les étapes de réparation officielles, et la façon dont la même panne a été réparée sur cette même machine. Un modèle de langage open source (Llama, Qwen ou Mistral), installé sur un serveur GPU dans l’usine, rédige alors un guide court qui cite la page du manuel et le numéro d’ordre de travail, et peut préparer le nouvel ordre de travail avec ses pièces. La reconnaissance vocale (Whisper) tourne elle aussi en local : aucune question, aucun document ni aucune donnée ne quitte le site, et l’assistant fonctionne même sans internet. Des votes pouce haut / pouce bas et un pipeline d’évaluation hebdomadaire signalent les manuels et les listes de pièces à mettre à jour.",
         steps: [
           ["Manuels et modes opératoires indexés", "Manuels, schémas P&ID, garanties et procédures deviennent des passages interrogeables par le sens."],
-          ["La GMAO connectée", "Ordres de travail passés, pièces, codes de panne et notes des techniciens, synchronisés en direct, en lecture seule."],
+          ["La GMAO connectée", "Ordres de travail passés, pièces, codes de panne et notes des techniciens, synchronisés sur le réseau de l’usine, en lecture seule."],
           ["Une question au pied de la machine", "Le technicien scanne le QR code de la presse et pose sa question à la voix."],
           ["Deux sources, une réponse", "Les étapes de réparation officielles, et la réparation de la même panne sur cet équipement précis."],
-          ["Un guide et un ordre de travail", "Un guide de dépannage sourcé, puis l’ordre de travail préparé avec ses pièces."],
+          ["Un guide et un ordre de travail", "Un guide sourcé, puis l’ordre de travail préparé avec ses pièces : tout est calculé sur site, sans cloud."],
         ],
         results: [
           ["−38 %", "de MTTR sur les machines critiques"],
@@ -513,13 +514,14 @@ const fr = {
         ],
         deliverables: [
           "Pipeline d’indexation des manuels, modes opératoires, schémas P&ID et garanties (multilingue, OCR)",
-          "Connecteur en lecture seule vers la GMAO / EAM (SAP PM, Maximo, Odoo ou API)",
+          "Connecteur en lecture seule vers la GMAO / EAM sur le réseau de l’usine (SAP PM, Maximo, Odoo)",
+          "Serveur GPU sur site : LLM, embeddings et reconnaissance vocale en local, fonctionne hors ligne",
           "Recherche hybride : vecteurs + historique de l’équipement exact",
           "Application mobile et vocale, avec un QR code sur chaque machine",
           "Préparation des ordres de travail avec pièces et temps estimé",
           "Boucle de retours, pipeline d’évaluation et journal d’audit",
         ],
-        stack: ["Python", "LangGraph", "PostgreSQL + pgvector", "API GMAO / EAM", "Whisper (reconnaissance vocale)", "React Native"],
+        stack: ["Python", "LangGraph", "PostgreSQL + pgvector", "LLM local (Ollama / vLLM)", "Whisper (en local)", "React Native"],
         timeline: "8 à 12 semaines",
         team: "1 ingénieur IA, 1 ingénieur maintenance électromécanique",
         visual: {
@@ -547,6 +549,7 @@ const fr = {
           created: "Ordre de travail OT-19077 créé",
           you: "Technicien",
           assistant: "Vulcan",
+          local: "Serveur sur site · sans cloud · hors ligne",
         },
       },
       {

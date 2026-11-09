@@ -25,6 +25,7 @@ function layoutFor(wide) {
       answer: { x: 430, y: 240, w: 330, h: 330 },
       wo: { x: 800, y: 70, w: 360, h: 290 },
       metric: { x: 800, y: 420 },
+      local: { x: 40, y: 600, w: 340, h: 44 },
     };
   }
   return {
@@ -36,6 +37,7 @@ function layoutFor(wide) {
     answer: { x: 20, y: 640, w: 560, h: 290 },
     wo: { x: 20, y: 946, w: 560, h: 190 },
     metric: null,
+    local: null,
   };
 }
 
@@ -59,6 +61,7 @@ export default function MaintenanceAssistant({ progress, content, reduced, near 
   const btnTextRef = useRef(null);
   const metricRef = useRef(null);
   const metricValRef = useRef(null);
+  const localRef = useRef(null);
 
   useTick(
     near,
@@ -94,6 +97,7 @@ export default function MaintenanceAssistant({ progress, content, reduced, near 
       btnRef.current.style.opacity = String(band(p, 0.87, 0.9));
       btnRef.current.toggleAttribute("data-done", done);
       btnTextRef.current.textContent = done ? `✓ ${content.created}` : content.create;
+      if (localRef.current) localRef.current.style.opacity = String(band(p, 0.3, 0.34));
       if (metricRef.current) {
         const k = band(p, 0.92, 0.98);
         metricRef.current.style.opacity = String(k);
@@ -103,7 +107,7 @@ export default function MaintenanceAssistant({ progress, content, reduced, near 
     [L, content, reduced],
   );
 
-  const { W, H, docs, hist, chip, ask, answer, wo, metric } = L;
+  const { W, H, docs, hist, chip, ask, answer, wo, metric, local } = L;
   const docY = (i) => docs.y + i * (docs.row + docs.gap);
   const histY = (i) => hist.y + i * (hist.row + hist.gap);
   const wires = wide
@@ -157,6 +161,19 @@ export default function MaintenanceAssistant({ progress, content, reduced, near 
             </g>
           );
         })}
+
+        {/* everything runs on a server inside the plant */}
+        {local && content.local ? (
+          <g ref={localRef} style={{ opacity: 0 }}>
+            <rect x={local.x} y={local.y} width={local.w} height={local.h} fill="none" stroke={ACCENT} strokeDasharray="4 4" />
+            <path d={`M${local.x + 14} ${local.y + 12}h18v8h-18z M${local.x + 14} ${local.y + 24}h18v8h-18z`} fill="none" stroke={ACCENT} strokeWidth="1.5" />
+            <circle cx={local.x + 28} cy={local.y + 16} r="1.6" fill={ACCENT} />
+            <circle cx={local.x + 28} cy={local.y + 28} r="1.6" fill={ACCENT} />
+            <text x={local.x + 44} y={local.y + local.h / 2 + 4} className={s.monoText} fontSize="11" fill={ACCENT}>
+              {content.local}
+            </text>
+          </g>
+        ) : null}
 
         {/* wires: both sources matched on the exact asset */}
         {wires.map((d, i) => (
