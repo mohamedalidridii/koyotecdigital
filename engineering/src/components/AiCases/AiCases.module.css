@@ -20,6 +20,16 @@
   --accent: #ff4b3e;
   --chip: rgba(243, 241, 236, 0.08);
 }
+.case[data-theme="maintenance-ai-assistant"],
+.row[data-theme="maintenance-ai-assistant"],
+.next[data-theme="maintenance-ai-assistant"] {
+  --bg: #121417;
+  --fg: #eef0ec;
+  --dim: rgba(238, 240, 236, 0.6);
+  --line: rgba(238, 240, 236, 0.15);
+  --accent: #ff7a1a;
+  --chip: rgba(255, 122, 26, 0.12);
+}
 .case[data-theme="graphrag-knowledge-engine"],
 .row[data-theme="graphrag-knowledge-engine"],
 .next[data-theme="graphrag-knowledge-engine"] {

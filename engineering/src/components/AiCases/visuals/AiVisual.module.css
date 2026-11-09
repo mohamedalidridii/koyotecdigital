@@ -800,3 +800,57 @@
   fill: #12a150;
   stroke: #12a150;
 }
+
+/* ---------- Maintenance AI assistant ---------- */
+.maint {
+  isolation: isolate;
+}
+.mBox {
+  fill: rgba(238, 240, 236, 0.05);
+  stroke: rgba(238, 240, 236, 0.14);
+  transition: fill 0.4s, stroke 0.4s;
+}
+.mRow {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.mRow[data-picked] {
+  transform: translateX(8px);
+}
+.mRow[data-picked] .mBox {
+  fill: rgba(255, 122, 26, 0.14);
+  stroke: #ff7a1a;
+}
+.mText {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  overflow: hidden;
+  color: #eef0ec;
+  font-family: var(--font-google-sans-flex), sans-serif;
+  font-size: 14px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.mAsk {
+  color: #eef0ec;
+  font-family: var(--font-google-sans-flex), sans-serif;
+  font-size: 16px;
+  line-height: 1.35;
+}
+.mAnswer {
+  font-size: 16px;
+  line-height: 1.45;
+}
+.mBtn rect {
+  fill: #ff7a1a;
+  transition: fill 0.4s;
+}
+.mBtn text {
+  fill: #121417;
+}
+.mBtn[data-done] rect {
+  fill: #12a150;
+}
+.mBtn[data-done] text {
+  fill: #fff;
+}
