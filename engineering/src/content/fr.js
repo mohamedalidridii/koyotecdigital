@@ -59,6 +59,7 @@ const fr = {
   home: {
     header: ["IA · Cloud · DevOps · Sécurité · Data", "Tunis, Tunisie"],
     title: "Des systèmes qui tiennent.",
+    partnerBadge: "Membre de l’AWS Partner Network",
     ctaPrimary: "Démarrer un projet",
     ctaSecondary: "Notre expertise",
     aboutHeader: ["Qui nous sommes", "Le pôle technique"],
