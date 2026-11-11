@@ -291,14 +291,17 @@ function MenuPanel() {
     >
       <div className={styles.bar}>
         <div className={styles.brandGroup}>
-          <Link
-            href={href("/")}
-            className={styles.logo}
-            aria-label={t.menu.home}
-            onClick={() => handleLinkClick("/")}
-          >
-            <Logo />
-          </Link>
+          <div className={styles.logoCol}>
+            <Link
+              href={href("/")}
+              className={styles.logo}
+              aria-label={t.menu.home}
+              onClick={() => handleLinkClick("/")}
+            >
+              <Logo />
+            </Link>
+            <p className={`mono ${styles.partner}`}>{t.brand.partner}</p>
+          </div>
           <div className={styles.brandText}>
             <p className="mono sm">{t.brand.name}</p>
             <p className="mono sm">

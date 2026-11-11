@@ -17,7 +17,7 @@ const en = {
     },
   },
 
-  brand: { name: "Koyotec", line: ["Engineering", "Tunis"] },
+  brand: { name: "Koyotec", line: ["Engineering", "Tunis"], partner: "Registered AWS Partner" },
   nav: [
     { route: "/", label: "Home" },
     { route: "/expertise", label: "Expertise" },
@@ -57,7 +57,6 @@ const en = {
   home: {
     header: ["AI · Cloud · DevOps · Security · Data", "Tunis, Tunisia"],
     title: "Systems that hold.",
-    partnerBadge: "Member of the AWS Partner Network",
     ctaPrimary: "Start a project",
     ctaSecondary: "Our expertise",
     aboutHeader: ["Who we are", "The technical arm"],

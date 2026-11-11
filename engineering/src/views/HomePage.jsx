@@ -150,12 +150,9 @@ export default function Home() {
           </Copy>
         </div>
         <div className={`container ${styles.heroContent}`}>
-          <div className={styles.heroLead}>
-            <p className={`mono sm ${styles.heroBadge}`}>{t.home.partnerBadge}</p>
-            <Copy animateOnScroll={false} delay={wait + 0.75}>
-              <h1 className={styles.heroTitle}>{t.home.title}</h1>
-            </Copy>
-          </div>
+          <Copy animateOnScroll={false} delay={wait + 0.75}>
+            <h1 className={styles.heroTitle}>{t.home.title}</h1>
+          </Copy>
           <div ref={ctasRef} className={styles.heroCtas}>
             <Button
               variant="primary"

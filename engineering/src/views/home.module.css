@@ -26,32 +26,6 @@
   align-items: flex-end;
 }
 
-.heroLead {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1.25rem;
-}
-
-.heroBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.45rem 0.8rem;
-  border: 1px solid var(--base-400);
-  background-color: rgba(255, 255, 255, 0.72);
-  color: var(--base-400);
-  white-space: nowrap;
-}
-
-.heroBadge::before {
-  content: "";
-  flex: none;
-  width: 0.5rem;
-  height: 0.5rem;
-  background-color: var(--base-300);
-}
-
 .heroTitle {
   width: min-content;
   color: var(--base-500);
@@ -101,10 +75,6 @@
 @media (max-width: 768px) {
   .heroHeader {
     display: none;
-  }
-
-  .heroLead {
-    width: 100%;
   }
 
   .heroTitle {
