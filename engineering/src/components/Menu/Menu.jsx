@@ -327,7 +327,7 @@ function MenuPanel() {
           </span>
         </button>
       </div>
-      <div className={styles.panel}>
+      <div className={styles.panel} data-lenis-prevent>
         <nav className={styles.nav}>
           {NAV_LINKS.map((link, i) => (
             <Link

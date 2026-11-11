@@ -274,6 +274,32 @@
     --w: calc(100vw - 2 * var(--gap));
   }
 
+  /* on phones the menu is taller than the screen: let the panel scroll (Lenis leaves it alone via data-lenis-prevent) */
+  .panel {
+    height: calc(100dvh - 2 * var(--gap));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .navItem {
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+  }
+
+  .label {
+    font-size: 1.35rem;
+  }
+
+  .extra {
+    margin-top: 0;
+  }
+
+  .contact {
+    min-height: 110px;
+    margin-top: 0;
+  }
+
   .word {
     text-shadow: none;
   }
