@@ -1646,8 +1646,16 @@ const en = {
       {
         question: "How do you protect our data?",
         answer: [
-          "We sign an NDA before any access, work on least privilege, and log every access we are given.",
-          "Your data stays in your environment whenever possible.",
+          "We sign an NDA before any access, use named accounts with multi-factor authentication and least privilege, and log every access we are given.",
+          "Your data stays in your environment whenever possible, and we work on anonymised or test data when the task allows it.",
+        ],
+      },
+      {
+        question: "Do you work with EU companies under the GDPR?",
+        answer: [
+          "Yes. When we handle personal data on your behalf, we sign a data processing agreement (Article 28 GDPR) before work starts.",
+          "We are based in Tunisia, outside the EU, so any access from our team is covered by the European Commission's Standard Contractual Clauses.",
+          "Production data can stay in EU hosting (for example AWS Paris or Frankfurt) or on your own servers: we deploy where your compliance requires.",
         ],
       },
       {

@@ -409,7 +409,7 @@ Our team works from Ennasr, Tunis, with Tunisian and international companies, in
 - Projects delivered: 50+
 - Startups supported: 38
 - Languages: French, Arabic, English
-- Websites: From 800 TND
+- Engineering: AI, cloud, DevOps, industrial IoT
 
 ### Frequently asked questions
 

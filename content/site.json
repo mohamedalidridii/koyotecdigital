@@ -1290,7 +1290,7 @@
         "hero": {
           "kicker": "Our technical arm",
           "name": "KOYOTEC Engineering",
-          "lead": "AI, cloud, DevOps, cybersecurity and data: we design, deploy and secure the systems your business runs on.",
+          "lead": "AI, cloud, DevOps, cybersecurity, data and industrial IoT for companies in Europe, the Gulf and Africa: we design, deploy and secure the systems your business runs on.",
           "items": [
             "AI",
             "Cloud",
@@ -1346,8 +1346,8 @@
           "French, Arabic, English"
         ],
         [
-          "Websites",
-          "From 800 TND"
+          "Engineering",
+          "AI, cloud, DevOps, industrial IoT"
         ]
       ],
       "process_h": "How we work",

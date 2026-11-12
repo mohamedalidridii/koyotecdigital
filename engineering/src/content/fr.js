@@ -1648,8 +1648,16 @@ const fr = {
       {
         question: "Comment protégez-vous nos données ?",
         answer: [
-          "Nous signons un accord de confidentialité avant tout accès, travaillons avec le principe du moindre privilège et documentons chaque accès.",
-          "Vos données restent dans votre environnement autant que possible.",
+          "Nous signons un accord de confidentialité avant tout accès, utilisons des comptes nominatifs avec authentification multifacteur et le principe du moindre privilège, et documentons chaque accès.",
+          "Vos données restent dans votre environnement autant que possible, et nous travaillons sur des données anonymisées ou de test quand la tâche le permet.",
+        ],
+      },
+      {
+        question: "Travaillez-vous avec des entreprises européennes soumises au RGPD ?",
+        answer: [
+          "Oui. Lorsque nous traitons des données personnelles pour votre compte, nous signons un accord de traitement des données (article 28 du RGPD) avant le début des travaux.",
+          "Nous sommes basés en Tunisie, hors de l’UE : tout accès de notre équipe est encadré par les clauses contractuelles types de la Commission européenne.",
+          "Les données de production peuvent rester hébergées dans l’UE (par exemple AWS Paris ou Francfort) ou sur vos propres serveurs : nous déployons là où votre conformité l’exige.",
         ],
       },
       {
