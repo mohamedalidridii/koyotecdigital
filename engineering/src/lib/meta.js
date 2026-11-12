@@ -8,16 +8,17 @@ export function meta(lang, page) {
   const t = DICTS[lang].meta;
   const route = page ? `/${page}` : "/";
   const title = page ? t.pages[page] : t.title;
+  const description = (page && t.descriptions?.[page]) || t.description;
   return {
     title,
-    description: t.description,
+    description,
     alternates: {
       canonical: url(lang, route),
       languages: { fr: url("fr", route), en: url("en", route), "x-default": url("fr", route) },
     },
     openGraph: {
       title,
-      description: t.description,
+      description,
       url: url(lang, route),
       siteName: "Koyotec Engineering",
       locale: lang === "en" ? "en_US" : "fr_FR",

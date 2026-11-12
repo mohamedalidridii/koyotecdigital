@@ -14,8 +14,8 @@ import { useLang } from "@/lib/useLang";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-export default function FAQ() {
-  const { faq: c } = useLang().t;
+export default function FAQ({ k = "faq" }) {
+  const c = useLang().t[k];
   const rootRef = useRef(null);
 
   useGSAP(

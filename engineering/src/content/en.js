@@ -14,6 +14,11 @@ const en = {
       studio: "The studio — Koyotec Engineering",
       engagements: "Engagements — Koyotec Engineering",
       contact: "Contact — Koyotec Engineering",
+      nearshore: "Nearshore DevOps & Cloud in Tunisia — Koyotec Engineering",
+    },
+    descriptions: {
+      nearshore:
+        "A nearshore DevOps and cloud team in Tunis, in the Central European time zone, for European companies. Start with a fixed-price two-week DevOps & Cloud audit.",
     },
   },
 
@@ -27,6 +32,7 @@ const en = {
     { route: "/work", label: "Blueprints" },
     { route: "/studio", label: "The studio" },
     { route: "/engagements", label: "Engagements" },
+    { route: "/nearshore", label: "Nearshore" },
   ],
   navContact: { title: "Let’s talk", code: "Contact" },
   menu: {
@@ -49,6 +55,7 @@ const en = {
     "/work": "Blueprints",
     "/studio": "The studio",
     "/engagements": "Engagements",
+    "/nearshore": "Nearshore",
     "/contact": "Let’s talk",
   },
   preloader: "Loading",
@@ -110,11 +117,86 @@ const en = {
       subtitle: "to engage",
       description: "An audit, a project or ongoing support: you pick the format.",
     },
+    nearshore: {
+      title: "Nearshore",
+      subtitle: "DevOps & Cloud",
+      description: "A DevOps and cloud team in Tunis, in your time zone, for European companies. We start with a fixed-price, two-week audit.",
+    },
     contact: {
       title: "Let’s build",
       subtitle: "together",
       description: "A question, a project, a system that needs fixing: write to us.",
     },
+  },
+
+  nearshoreStatement: {
+    header: ["Nearshore", "From Tunis"],
+    statement:
+      "A DevOps and cloud team in your time zone, speaking your language and delivering like an in-house team.",
+    copy: "We support European companies on their cloud infrastructure, CI/CD pipelines, costs and observability, remotely from Tunis. To start without risk: a fixed-price, two-week audit, and the report is yours to keep.",
+    stats: [
+      { label: "Offset from Paris", value: "0–1 h" },
+      { label: "Audit length", value: "2 wks" },
+      { label: "Public clouds", value: "03" },
+      { label: "Working languages", value: "EN·FR" },
+    ],
+  },
+
+  nearshoreAudit: [
+    {
+      title: "Week 1 · Current state",
+      copy: "Read-only access, a review of your cloud, CI/CD pipelines, security, costs and monitoring, and short interviews with your team.",
+    },
+    {
+      title: "Week 2 · Action plan",
+      copy: "A prioritised report: risks, quick wins, estimated cloud savings and a 90-day roadmap, with the effort for each action.",
+    },
+    {
+      title: "Readout · What next",
+      copy: "A presentation to your team, and the report stays with you. Run the plan yourselves, or with us as a project or monthly support. No commitment.",
+    },
+  ],
+
+  nearshoreFaq: {
+    header: ["FAQ / 02", "Nearshore"],
+    title: "Working with us from Europe",
+    items: [
+      {
+        question: "Why a team in Tunisia?",
+        answer: [
+          "Same time zone as Paris in winter, one hour apart in summer: your meetings and releases happen during the same hours.",
+          "We work in English and French, with standard tools and practices (Terraform, Kubernetes, GitHub Actions, GitLab CI), at a lower cost than an equivalent team in Western Europe.",
+        ],
+      },
+      {
+        question: "What does the DevOps & Cloud audit cover?",
+        answer: [
+          "A review of your cloud infrastructure (AWS, Azure or GCP), CI/CD pipelines, access security, costs and monitoring.",
+          "You receive a prioritised report with risks, quick wins, estimated savings and a 90-day roadmap.",
+        ],
+      },
+      {
+        question: "How much does the audit cost?",
+        answer: [
+          "A fixed price, agreed before we start, based on the size of your environment: number of cloud accounts, services and pipelines.",
+          "After a free 30-minute call, you receive a proposal within 48 business hours.",
+        ],
+      },
+      {
+        question: "What access do you need?",
+        answer: [
+          "Read-only access, on named accounts with multi-factor authentication, removed at the end of the audit.",
+          "We sign an NDA before any access, and a data processing agreement with the Standard Contractual Clauses if personal data is involved.",
+        ],
+      },
+      {
+        question: "What happens after the audit?",
+        answer: [
+          "It is your call: the report is written so your own team can execute it.",
+          "If you want, we deliver the plan as a fixed-price project, as monthly support, or with a dedicated DevOps engineer embedded in your team.",
+        ],
+      },
+    ],
   },
 
   researchStatement: {

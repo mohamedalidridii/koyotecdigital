@@ -15,6 +15,11 @@ const fr = {
       studio: "Le studio — Koyotec Engineering",
       engagements: "Engagements — Koyotec Engineering",
       contact: "Contact — Koyotec Engineering",
+      nearshore: "DevOps & Cloud nearshore en Tunisie — Koyotec Engineering",
+    },
+    descriptions: {
+      nearshore:
+        "Une équipe DevOps et cloud nearshore à Tunis, dans le fuseau horaire de Paris, pour les entreprises européennes. Démarrez par un audit DevOps & Cloud de deux semaines, à prix fixe.",
     },
   },
 
@@ -28,6 +33,7 @@ const fr = {
     { route: "/work", label: "Blueprints" },
     { route: "/studio", label: "Le studio" },
     { route: "/engagements", label: "Engagements" },
+    { route: "/nearshore", label: "Nearshore" },
   ],
   navContact: { title: "Parlons-en", code: "Contact" },
   menu: {
@@ -51,6 +57,7 @@ const fr = {
     "/work": "Blueprints",
     "/studio": "Le studio",
     "/engagements": "Engagements",
+    "/nearshore": "Nearshore",
     "/contact": "Parlons-en",
   },
   preloader: "Chargement",
@@ -112,11 +119,86 @@ const fr = {
       subtitle: "d’engagement",
       description: "Un audit, un projet ou un accompagnement continu : vous choisissez le format.",
     },
+    nearshore: {
+      title: "DevOps & Cloud",
+      subtitle: "nearshore",
+      description: "Une équipe DevOps et cloud à Tunis, dans votre fuseau horaire, pour les entreprises européennes. On commence par un audit de deux semaines, à prix fixe.",
+    },
     contact: {
       title: "Construisons",
       subtitle: "ensemble",
       description: "Une question, un projet, un système à remettre d’aplomb : écrivez-nous.",
     },
+  },
+
+  nearshoreStatement: {
+    header: ["Nearshore", "Depuis Tunis"],
+    statement:
+      "Une équipe DevOps et cloud dans votre fuseau horaire, qui parle votre langue et livre comme une équipe interne.",
+    copy: "Nous accompagnons les entreprises européennes sur leur infrastructure cloud, leurs chaînes CI/CD, leurs coûts et leur observabilité, à distance depuis Tunis. Pour commencer sans risque : un audit de deux semaines, à prix fixe, dont le rapport vous appartient.",
+    stats: [
+      { label: "Décalage avec Paris", value: "0–1 h" },
+      { label: "Durée de l’audit", value: "2 sem." },
+      { label: "Clouds publics", value: "03" },
+      { label: "Langues de travail", value: "FR·EN" },
+    ],
+  },
+
+  nearshoreAudit: [
+    {
+      title: "Semaine 1 · État des lieux",
+      copy: "Accès en lecture seule, revue de votre cloud, de vos pipelines CI/CD, de la sécurité, des coûts et de la supervision, et entretiens courts avec votre équipe.",
+    },
+    {
+      title: "Semaine 2 · Plan d’action",
+      copy: "Un rapport priorisé : risques, gains rapides, économies cloud estimées et feuille de route sur 90 jours, avec l’effort de chaque action.",
+    },
+    {
+      title: "Restitution · Et ensuite",
+      copy: "Une présentation à votre équipe, le rapport vous reste. Vous exécutez le plan vous-mêmes, ou avec nous, en projet ou en accompagnement mensuel. Sans engagement.",
+    },
+  ],
+
+  nearshoreFaq: {
+    header: ["FAQ / 02", "Nearshore"],
+    title: "Travailler avec nous depuis l’Europe",
+    items: [
+      {
+        question: "Pourquoi une équipe en Tunisie ?",
+        answer: [
+          "Même fuseau horaire que Paris en hiver, une heure d’écart en été : vos réunions et vos mises en production se font aux mêmes heures.",
+          "Nous travaillons en français et en anglais, avec des outils et des pratiques standards (Terraform, Kubernetes, GitHub Actions, GitLab CI), pour un coût inférieur à une équipe équivalente en Europe de l’Ouest.",
+        ],
+      },
+      {
+        question: "Que contient l’audit DevOps & Cloud ?",
+        answer: [
+          "Une revue de votre infrastructure cloud (AWS, Azure ou GCP), de vos chaînes CI/CD, de la sécurité des accès, des coûts et de la supervision.",
+          "Vous recevez un rapport priorisé avec les risques, les gains rapides, les économies estimées et une feuille de route sur 90 jours.",
+        ],
+      },
+      {
+        question: "Combien coûte l’audit ?",
+        answer: [
+          "Un forfait fixe, annoncé avant de commencer, selon la taille de votre environnement : nombre de comptes cloud, de services et de pipelines.",
+          "Après un premier appel gratuit de 30 minutes, vous recevez une proposition sous 48 heures ouvrées.",
+        ],
+      },
+      {
+        question: "De quels accès avez-vous besoin ?",
+        answer: [
+          "Des accès en lecture seule, sur des comptes nominatifs avec authentification multifacteur, retirés à la fin de l’audit.",
+          "Nous signons un accord de confidentialité avant tout accès, et un accord de traitement des données avec les clauses contractuelles types si des données personnelles sont concernées.",
+        ],
+      },
+      {
+        question: "Et après l’audit ?",
+        answer: [
+          "Vous êtes libres : le rapport est conçu pour être exécuté par votre équipe.",
+          "Si vous le souhaitez, nous réalisons le plan en projet à prix fixe, en accompagnement mensuel, ou avec un ingénieur DevOps dédié intégré à votre équipe.",
+        ],
+      },
+    ],
   },
 
   researchStatement: {
@@ -244,7 +326,7 @@ const fr = {
         visual: {
           files: ["contrats.pdf", "rh_2025.docx", "procedures.pdf", "factures.xlsx", "emails.mbox", "wiki.html"],
           clusters: ["Contrats", "RH", "Procédures", "Factures", "E-mails", "Wiki"],
-          question: "Combien de jours de congé après une naissance ?",
+          question: "Combien de jours de congé après une naissance ?",
           answer: "Le congé de naissance est de 7 jours ouvrés, à poser dans les 30 jours suivant la naissance.",
           sources: ["Règlement RH 2025, art. 14", "Procédure congés v3, p. 2"],
           you: "Vous",
@@ -470,7 +552,7 @@ const fr = {
         visual: {
           files: ["contrats.pdf", "rh_2025.docx", "procedures.pdf", "factures.xlsx", "emails.mbox", "wiki.html"],
           clusters: ["Contrats", "RH", "Procédures", "Factures", "E-mails", "Wiki"],
-          question: "Combien de jours de congé après une naissance ?",
+          question: "Combien de jours de congé après une naissance ?",
           answer: "Le congé de naissance est de 7 jours ouvrés, à poser dans les 30 jours suivant la naissance.",
           sources: ["Règlement RH 2025, art. 14", "Procédure congés v3, p. 2"],
           you: "Vous",
@@ -599,7 +681,7 @@ const fr = {
         visual: {
           kinds: ["Machine", "Incident", "Procédure", "Décision", "Document"],
           sources: ["Jira", "Confluence", "Teams"],
-          question: "Pourquoi la ligne 3 s’est-elle arrêtée en mars, et qu’a-t-on changé depuis ?",
+          question: "Pourquoi la ligne 3 s’est-elle arrêtée en mars, et qu’a-t-on changé depuis ?",
           path: ["Ligne 3", "Presse P-12", "MAINT-482", "Procédure de graissage", "Réunion qualité"],
           answer: "L’arrêt vient de l’usure d’un roulement de la presse P-12 (ticket MAINT-482). La procédure de graissage a été révisée le 14 mars, décision validée en réunion qualité.",
           cites: ["Jira · MAINT-482", "Confluence · Presse P-12", "Teams · Qualité 14/03"],
@@ -717,7 +799,7 @@ const fr = {
         timeline: "6 à 10 semaines",
         team: "1 ingénieur IA, 1 développeur, 1 référent juridique côté client",
         visual: {
-          question: "Quelle pénalité de retard peut-on appliquer sur le contrat LS-2291 ?",
+          question: "Quelle pénalité de retard peut-on appliquer sur le contrat LS-2291 ?",
           localLabel: "Base interne",
           local: ["Contrat LS-2291 · art. 9 · 2022", "Procédure de recouvrement v2"],
           confidence: "Confiance",
@@ -925,7 +1007,7 @@ const fr = {
           ],
           check: "Contrôle : poids total = 36 350 kg ✓",
           stores: ["MongoDB", "Qdrant"],
-          question: "Quels conteneurs ont été livrés avec des réserves ce mois-ci ?",
+          question: "Quels conteneurs ont été livrés avec des réserves ce mois-ci ?",
           answer: "3 conteneurs, dont MSKU 482117 (BL-48217) : « 2 cartons abîmés », note manuscrite au déchargement.",
           you: "Vous",
           assistant: "Assistant documents",
@@ -976,7 +1058,7 @@ const fr = {
         timeline: "6 à 10 semaines",
         team: "1 ingénieur IA, 1 ingénieur data",
         visual: {
-          question: "Quelles ont été nos 3 catégories les plus vendues au T4, par région ?",
+          question: "Quelles ont été nos 3 catégories les plus vendues au T4, par région ?",
           schemaLabel: "Schéma · 140 tables",
           tables: [
             ["ventes", "date, produit_id, magasin_id, montant"],
@@ -1625,35 +1707,35 @@ const fr = {
     title: "Vos questions, nos réponses",
     items: [
       {
-        question: "Sur quels types de projets intervenez-vous ?",
+        question: "Sur quels types de projets intervenez-vous ?",
         answer: [
           "IA appliquée, cloud, DevOps, cybersécurité et business intelligence.",
           "Cela va d’un assistant IA branché sur vos documents à la migration complète d’une infrastructure, en passant par un audit de sécurité ou un entrepôt de données.",
         ],
       },
       {
-        question: "Comment chiffrez-vous une mission ?",
+        question: "Comment chiffrez-vous une mission ?",
         answer: [
           "Après un premier échange gratuit, nous proposons un périmètre et un prix fixe pour les audits et les projets.",
           "L’accompagnement continu (run) est facturé au mois, avec un volume d’heures défini.",
         ],
       },
       {
-        question: "Avec quels fournisseurs cloud travaillez-vous ?",
+        question: "Avec quels fournisseurs cloud travaillez-vous ?",
         answer: [
           "AWS, Microsoft Azure et Google Cloud, ainsi que les hébergeurs locaux et les serveurs on-premise.",
           "Nous recommandons ce qui convient à votre budget et à vos contraintes, pas un fournisseur en particulier.",
         ],
       },
       {
-        question: "Comment protégez-vous nos données ?",
+        question: "Comment protégez-vous nos données ?",
         answer: [
           "Nous signons un accord de confidentialité avant tout accès, utilisons des comptes nominatifs avec authentification multifacteur et le principe du moindre privilège, et documentons chaque accès.",
           "Vos données restent dans votre environnement autant que possible, et nous travaillons sur des données anonymisées ou de test quand la tâche le permet.",
         ],
       },
       {
-        question: "Travaillez-vous avec des entreprises européennes soumises au RGPD ?",
+        question: "Travaillez-vous avec des entreprises européennes soumises au RGPD ?",
         answer: [
           "Oui. Lorsque nous traitons des données personnelles pour votre compte, nous signons un accord de traitement des données (article 28 du RGPD) avant le début des travaux.",
           "Nous sommes basés en Tunisie, hors de l’UE : tout accès de notre équipe est encadré par les clauses contractuelles types de la Commission européenne.",
@@ -1661,7 +1743,7 @@ const fr = {
         ],
       },
       {
-        question: "Que se passe-t-il après la livraison ?",
+        question: "Que se passe-t-il après la livraison ?",
         answer: [
           "Chaque projet se termine par une documentation complète et une passation à vos équipes.",
           "Si vous le souhaitez, nous continuons à superviser et à faire évoluer le système dans le cadre d’un contrat de run.",

@@ -7,8 +7,8 @@ import SectionHeader from "@/components/SectionHeader";
 
 import { useLang } from "@/lib/useLang";
 
-export default function ResearchStatement() {
-  const { researchStatement: c } = useLang().t;
+export default function ResearchStatement({ k = "researchStatement" }) {
+  const c = useLang().t[k];
   return (
     <section className={styles.researchStatement}>
       <Copy variant="flicker">
