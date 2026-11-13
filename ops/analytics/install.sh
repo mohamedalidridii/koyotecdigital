@@ -95,6 +95,10 @@ nginx -t
 systemctl reload nginx
 
 echo "--- HTTPS certificate (uses the existing Let's Encrypt account of api.koyotec.digital)"
+if ! certbot plugins 2>/dev/null | grep -q "^\* nginx"; then
+  echo "installing certbot's nginx plugin"
+  DEBIAN_FRONTEND=noninteractive apt-get install -y -qq python3-certbot-nginx >/dev/null
+fi
 certbot --nginx -d "$DOMAIN" --non-interactive --redirect
 
 echo "--- waiting for Umami"
