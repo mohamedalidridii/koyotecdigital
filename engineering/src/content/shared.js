@@ -1,6 +1,6 @@
 // Language-independent data. Contact details follow content/site.json of the main site.
 // cookieless analytics (Umami, self-hosted on the KOYOTEC VPS): the tracker loads only once `id` is set
-export const ANALYTICS = { src: "https://analytics.koyotec.digital/script.js", id: "" };
+export const ANALYTICS = { src: "https://analytics.koyotec.digital/script.js", id: "45c8b402-4a10-4f69-9b4d-3b2466193c36" };
 
 export const CONTACT = {
   phone: { href: "tel:+21652405699", text: "+216 52 405 699", event: "phone" },
