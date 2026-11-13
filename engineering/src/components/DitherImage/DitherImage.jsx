@@ -66,6 +66,19 @@ function unwatchPointer(effect) {
   window.removeEventListener("pointermove", handleSharedPointerMove);
 }
 
+// three.js needs WebGL2; without it (old browser, GPU blocklist, disabled by policy) the
+// component keeps showing the plain photo instead of crashing the page
+let glSupport = null;
+function webglAvailable() {
+  if (glSupport !== null) return glSupport;
+  try {
+    glSupport = Boolean(document.createElement("canvas").getContext("webgl2"));
+  } catch {
+    glSupport = false;
+  }
+  return glSupport;
+}
+
 function getRenderer() {
   if (!sharedRenderer) {
     sharedRenderer = new THREE.WebGLRenderer({
@@ -971,6 +984,16 @@ const DitherImage = forwardRef(function DitherImage(
   useEffect(() => {
     const canvas = canvasRef.current;
     const img = imgRef.current;
+    if (!webglAvailable()) {
+      img.style.opacity = "1";
+      canvas.style.display = "none";
+      instanceRef.current = { redraw() {}, showOriginal() {}, reload() {} };
+      if (!onReadyFired.current) {
+        onReadyFired.current = true;
+        onReadyRef.current?.();
+      }
+      return;
+    }
     const effect = new DitherEffect(canvas, img);
 
     const showOriginal = (show) => {

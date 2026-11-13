@@ -65,7 +65,12 @@ export function follow(progress, reduced) {
 // three.js stage: renderer + resize + a ticker loop. Returns a dispose function.
 export async function createStage(host, { camera: makeCamera, setup, frame, alpha = true }) {
   const THREE = await import("three");
-  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha, powerPreference: "high-performance" });
+  let renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({ antialias: true, alpha, powerPreference: "high-performance" });
+  } catch {
+    return () => {}; // no WebGL: the chapter keeps its text, without the visual
+  }
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   const canvas = renderer.domElement;
@@ -123,10 +128,12 @@ export function useStage(hostRef, near, options, deps = []) {
     if (!near || !hostRef.current) return;
     let dispose = null;
     let cancelled = false;
-    createStage(hostRef.current, options).then((d) => {
-      if (cancelled) d();
-      else dispose = d;
-    });
+    createStage(hostRef.current, options)
+      .then((d) => {
+        if (cancelled) d();
+        else dispose = d;
+      })
+      .catch(() => {});
     return () => {
       cancelled = true;
       dispose?.();

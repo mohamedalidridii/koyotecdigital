@@ -322,8 +322,9 @@
   height: auto;
 }
 .noGl .sticky {
+  position: relative;
   height: auto;
-  min-height: 100svh;
+  min-height: 0;
 }
 .noGl .stage,
 .noGl .rail,
@@ -366,6 +367,10 @@
 .noGl .list h2 {
   font-size: 2rem;
   margin-bottom: 0.6rem;
+}
+.noGl .list ul {
+  padding-left: 1.2rem;
+  margin: 0.5rem 0;
 }
 .noGl .list p,
 .noGl .list li {
