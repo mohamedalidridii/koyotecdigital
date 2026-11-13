@@ -20,6 +20,8 @@ export default function Button({
   children,
   className = "",
   showArrow = true,
+  event, // analytics (Umami) event name sent on click
+  eventPlace,
 }) {
   const rootRef = useRef(null);
   const labelRef = useRef(null);
@@ -104,7 +106,13 @@ export default function Button({
     .join(" ");
 
   return (
-    <Link ref={rootRef} href={href} className={classNames}>
+    <Link
+      ref={rootRef}
+      href={href}
+      className={classNames}
+      data-umami-event={event}
+      data-umami-event-place={event ? eventPlace : undefined}
+    >
       <span ref={labelRef} className={styles.label}>
         {children}
       </span>

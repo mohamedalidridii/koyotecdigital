@@ -111,6 +111,8 @@ export function contactForm(scope) {
         body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error(res.status);
+      // conversion for the analytics (Umami); absent until the tracker is configured
+      window.umami?.track("quote-sent", { type: payload.type.join(", ") || "none", lang: payload.lang });
       form.reset();
       toggleOther();
       say(form.dataset.done);

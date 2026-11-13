@@ -285,6 +285,7 @@ export function careersForm(scope, { ready = Promise.resolve() } = {}) {
   };
   const success = () => {
     const pole = current();
+    window.umami?.track("careers-sent", { pole: pole || "none" });
     const finish = () => {
       form.hidden = true;
       done.hidden = false;

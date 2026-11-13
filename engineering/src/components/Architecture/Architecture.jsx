@@ -220,10 +220,10 @@ export default function Architecture() {
           <h2 className={styles.outroTitle}>{c.outroTitle}</h2>
           <p className={styles.outroCopy}>{c.outroCopy}</p>
           <div className={styles.ctas}>
-            <Button variant="primary" href={href("/nearshore")}>
+            <Button variant="primary" href={href("/nearshore")} event="eng-audit-cta" eventPlace="architecture">
               {c.ctaAudit}
             </Button>
-            <Button variant="secondary" href={href("/contact")}>
+            <Button variant="secondary" href={href("/contact")} event="eng-contact-cta" eventPlace="architecture">
               {c.ctaContact}
             </Button>
           </div>

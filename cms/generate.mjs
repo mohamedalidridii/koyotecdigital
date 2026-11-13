@@ -210,7 +210,7 @@ ${altFr ? `    <link rel="alternate" hreflang="fr" href="${esc(SITE + altFr)}" /
     <link rel="preload" href="/fonts/instrument-serif-400.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/geist-variable.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/css/main.css" />
-    <script type="application/ld+json">${ldJson(ld)}</script>
+${G.analytics?.id ? `    <script defer src="${esc(G.analytics.src)}" data-website-id="${esc(G.analytics.id)}" data-domains="www.koyotec.digital,koyotec.digital"></script>\n` : ""}    <script type="application/ld+json">${ldJson(ld)}</script>
   </head>`;
   }
 
@@ -242,9 +242,21 @@ ${altFr ? `    <link rel="alternate" hreflang="fr" href="${esc(SITE + altFr)}" /
   const link = (href, label, extra = "") =>
     `<a class="tlink" href="${esc(href)}"${extra}><span class="tlink-label">${esc(label)}</span><span class="tlink-arrow" aria-hidden="true">→</span></a>`;
 
+  // WhatsApp click-to-chat, prefilled; `topic` names the service the visitor is reading about
+  const waUrl = (lang, topic = "") => {
+    const text = site[lang].ui.wa_text + (topic ? `${lang === "fr" ? " : " : ": "}${topic}` : "") + ".";
+    return `https://wa.me/${G.whatsapp}?text=${encodeURIComponent(text)}`;
+  };
+  // analytics event attributes (Umami reads data-umami-event on click)
+  const ev = (name, place = "") => ` data-umami-event="${name}"${place ? ` data-umami-event-place="${place}"` : ""}`;
+  const WA_OUT = ' target="_blank" rel="noopener" data-barba-prevent';
+  const WA_ICON = '<svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>';
+
   // persistent chrome that lives outside the swapped page: WebGL stage, cursor, transition curtain, preloader
   function chrome(lang) {
+    const ui = site[lang].ui;
     return `  <a class="skip-link" href="#main">${SKIP[lang]}</a>
+  <a class="wa-float" href="${esc(waUrl(lang))}"${WA_OUT} aria-label="${esc(ui.wa_label)}"${ev("whatsapp", "float")}>${WA_ICON}<span class="wa-float-label">${esc(ui.wa_label)}</span></a>
   <canvas class="gl" id="gl" aria-hidden="true"></canvas>
   <div class="gl-fallback" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
@@ -299,7 +311,7 @@ ${altFr ? `    <link rel="alternate" hreflang="fr" href="${esc(SITE + altFr)}" /
       <div class="nav-right">
         <a class="lang" href="${esc(sw)}" hreflang="${other}" lang="${other}">${other.toUpperCase()}</a>
         <a class="nav-founder" href="${PATHS.founder[i]}" data-magnetic${page === "founder" ? ' aria-current="page"' : ""} aria-label="${esc(site[lang].founder.chip_hover)}"><img src="/founder/avatar.webp" alt="${esc(site[lang].founder.h1)}" width="28" height="28" /><span class="nav-founder-label" aria-hidden="true"><span>${esc(site[lang].founder.chip)}</span><span>${esc(site[lang].founder.chip_hover)} →</span></span><i class="nav-founder-dot" aria-hidden="true"></i></a>
-        <a class="nav-cta" href="${PATHS.contact[i]}" data-magnetic><span>${esc(ui.nav_cta)}</span>${GLYPH.arrow}</a>
+        <a class="nav-cta" href="${PATHS.contact[i]}" data-magnetic${ev("quote-cta", "nav")}><span>${esc(ui.nav_cta)}</span>${GLYPH.arrow}</a>
         <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-btn-label" data-open="${esc(ui.menu)}" data-close="${esc(ui.close)}">${esc(ui.menu)}</span></button>
       </div>
     </header>
@@ -314,9 +326,10 @@ ${artCard}
       </nav>
       <div class="menu-foot">
         <a href="${PATHS.founder[i]}">${esc(site[lang].founder.chip_hover)}</a>
-        <a href="mailto:${esc(G.email)}">${esc(G.email)}</a>
-        <a href="tel:${esc(G.phone)}">${esc(G.phoneDisplay)}</a>
-        <a href="${esc(G.instagram)}" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="mailto:${esc(G.email)}"${ev("email", "menu")}>${esc(G.email)}</a>
+        <a href="tel:${esc(G.phone)}"${ev("phone", "menu")}>${esc(G.phoneDisplay)}</a>
+        <a href="${esc(waUrl(lang))}"${WA_OUT}${ev("whatsapp", "menu")}>${esc(ui.wa_short)}</a>
+        <a href="${esc(G.instagram)}" target="_blank" rel="noopener noreferrer"${ev("instagram", "menu")}>Instagram</a>
         <a href="${esc(G.youtube)}" target="_blank" rel="noopener noreferrer">YouTube</a>
         <a href="${esc(sw)}" hreflang="${other}" lang="${other}">${esc(ui.other_lang)}</a>
       </div>
@@ -330,8 +343,8 @@ ${artCard}
     const [mailUser, mailHost] = String(G.email).split("@");
     return `<${tag} class="address-lockup">
           <span class="al-line">${GLYPH.pin} ${esc(G.locality)} ${coords()} ${GLYPH.swap} ${esc(site[lang].contact.addr[1] || "")}</span>
-          <a class="al-line" href="tel:${esc(G.phone)}">${esc(ui.footer_contact)} ${stamp(phonePrefix, phoneRest.slice(0, 1).join(" "), phoneRest.slice(1).join(" "))}<span class="visually-hidden">${esc(G.phoneDisplay)}</span></a>
-          <a class="al-line" href="mailto:${esc(G.email)}">${esc(mailUser)}${GLYPH.loop}<span class="visually-hidden">@</span>${esc(mailHost)}</a>
+          <a class="al-line" href="tel:${esc(G.phone)}"${ev("phone", "lockup")}>${esc(ui.footer_contact)} ${stamp(phonePrefix, phoneRest.slice(0, 1).join(" "), phoneRest.slice(1).join(" "))}<span class="visually-hidden">${esc(G.phoneDisplay)}</span></a>
+          <a class="al-line" href="mailto:${esc(G.email)}"${ev("email", "lockup")}>${esc(mailUser)}${GLYPH.loop}<span class="visually-hidden">@</span>${esc(mailHost)}</a>
         </${tag}>`;
   }
 
@@ -357,7 +370,7 @@ ${Object.keys(LANDINGS).filter((k) => t[k]).map((k) => `            <a href="${P
           </div>
           <div>
             <h2 class="footer-h">${esc(ui.footer_follow)}</h2>
-            <a href="${esc(G.instagram)}" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="${esc(G.instagram)}" target="_blank" rel="noopener noreferrer"${ev("instagram", "footer")}>Instagram</a>
             <a href="${esc(G.youtube)}" target="_blank" rel="noopener noreferrer">YouTube</a>${G.linkedin ? `
             <a href="${esc(G.linkedin)}" target="_blank" rel="noopener noreferrer">LinkedIn</a>` : ""}${G.facebook ? `
             <a href="${esc(G.facebook)}" target="_blank" rel="noopener noreferrer">Facebook</a>` : ""}${pageKey === "home" && G.designrush ? `
@@ -365,7 +378,8 @@ ${Object.keys(LANDINGS).filter((k) => t[k]).map((k) => `            <a href="${P
           </div>
           <div>
             <h2 class="footer-h">${esc(t.home.foot_copy)}</h2>
-            <a href="${PATHS.contact[i]}">${esc(ui.nav_cta)} →</a>
+            <a href="${PATHS.contact[i]}"${ev("quote-cta", "footer")}>${esc(ui.nav_cta)} →</a>
+            <a href="${esc(waUrl(lang))}"${WA_OUT}${ev("whatsapp", "footer")}>${esc(ui.wa_label)} →</a>
           </div>
         </div>
         <div class="footer-sign">
@@ -428,15 +442,16 @@ ${faqRows(items)}
       </section>`;
   const faqLd = (items) => ({ "@type": "FAQPage", mainEntity: items.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) });
 
-  const ctaSection = (lang, { kicker, h, giant, button }) => {
+  const ctaSection = (lang, { kicker, h, giant, button, topic = "" }) => {
     const i = idx(lang);
     return `      <section class="cta" id="contact-cta" data-gl="orbit" data-gl-dim="0.45">
         <div class="shell">
           <p class="cta-kicker">${esc(kicker || h)}</p>
-          <a class="cta-giant" href="${PATHS.contact[i]}" data-cursor="${CURSOR[lang].write}"><span class="cta-word">${esc(giant || h)}</span></a>
+          <a class="cta-giant" href="${PATHS.contact[i]}" data-cursor="${CURSOR[lang].write}"${ev("quote-cta", "cta-giant")}><span class="cta-word">${esc(giant || h)}</span></a>
           <div class="cta-links">
-            ${link(PATHS.contact[i], button)}
-            ${link("tel:" + G.phone, G.phoneDisplay)}
+            ${link(PATHS.contact[i], button, ev("quote-cta", "cta"))}
+            ${link(waUrl(lang, topic), site[lang].ui.wa_label, WA_OUT + ev("whatsapp", "cta"))}
+            ${link("tel:" + G.phone, G.phoneDisplay, ev("phone", "cta"))}
           </div>
           ${kicker ? `<h2 class="visually-hidden">${esc(h)}</h2>` : ""}
         </div>
@@ -710,7 +725,7 @@ ${related}
         </div>
       </section>
 
-${ctaSection(lang, { h: l.cta_h, button: l.cta })}`;
+${ctaSection(lang, { h: l.cta_h, button: l.cta, topic: l.label })}`;
     const head = headTag({ lang, title: l.title, desc: l.desc, canon: own, altFr: PATHS[key][0], altEn: PATHS[key][1], ld });
     return page({ head, lang, ns: "services", pageKey: "services", switchTo: PATHS[key][idx(lang === "fr" ? "en" : "fr")], main });
   }
@@ -839,6 +854,7 @@ ${ctaSection(lang, { h: f.cta_h, button: f.cta })}`;
         <div class="shell contact-grid">
           <div class="contact-info">
             ${addressLockup(lang, "address")}
+            <a class="wa-btn" href="${esc(waUrl(lang))}"${WA_OUT}${ev("whatsapp", "contact")}>${WA_ICON}<span>${esc(site[lang].ui.wa_label)}</span></a>
             <p class="contact-social"><a href="${esc(G.instagram)}" target="_blank" rel="noopener noreferrer">Instagram</a>, <a href="${esc(G.youtube)}" target="_blank" rel="noopener noreferrer">YouTube</a>, <a href="${esc(G.maps)}" target="_blank" rel="noopener noreferrer">Google Maps</a></p>
           </div>
           <form class="contact-form" action="${esc(G.formEndpoint)}" method="post" data-endpoint="${esc(G.formEndpoint)}" data-lang="${lang}" data-email="${esc(G.email)}" data-done="${esc(c.f_done)}" data-error="${esc(c.f_error)}" data-sending="${esc(c.f_sending)}">

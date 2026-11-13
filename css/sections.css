@@ -682,3 +682,102 @@
   height: 100%;
   display: block;
 }
+
+/* ---------- WhatsApp: floating button (persistent chrome) and the contact page button ---------- */
+.wa-float {
+  position: fixed;
+  right: var(--gutter);
+  bottom: calc(var(--gutter) + env(safe-area-inset-bottom, 0px));
+  z-index: 70; /* above the grain, below the menu (75), nav (80) and curtain (110) */
+  display: flex;
+  align-items: center;
+  gap: 0;
+  height: 3.5rem;
+  min-width: 3.5rem;
+  padding: 0 1rem;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--paper);
+  box-shadow: 0 10px 30px rgba(13, 13, 13, 0.22);
+  transition: gap 0.45s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.6s ease, translate 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.js .wa-float:not(.is-in) {
+  opacity: 0;
+  translate: 0 1.5rem;
+  pointer-events: none;
+}
+.wa-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex: none;
+  fill: currentColor;
+}
+.wa-float-label {
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: var(--fs-small);
+  transition: max-width 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.wa-float:hover,
+.wa-float:focus-visible {
+  gap: 0.6rem;
+  padding-right: 1.3rem;
+}
+.wa-float:hover .wa-float-label,
+.wa-float:focus-visible .wa-float-label {
+  max-width: 14rem;
+}
+/* the little green dot: online */
+.wa-float::after {
+  content: "";
+  position: absolute;
+  top: 0.7rem;
+  left: 2.05rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: #25d366;
+  box-shadow: 0 0 0 2px var(--ink);
+}
+html.is-art .wa-float {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+.wa-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 1rem;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+.wa-btn:hover,
+.wa-btn:focus-visible {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+@media (max-width: 600px) {
+  .wa-float {
+    height: 3.25rem;
+    min-width: 3.25rem;
+    padding: 0 0.875rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wa-float,
+  .wa-float-label {
+    transition: none;
+  }
+}
+/* the full-screen menu lives inside the page's stacking context: step aside while it is open */
+html:has(.menu.is-open) .wa-float {
+  opacity: 0;
+  translate: 0 1.5rem;
+  pointer-events: none;
+}

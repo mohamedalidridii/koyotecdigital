@@ -82,6 +82,15 @@ function unmount(container) {
 }
 
 function start() {
+  // the WhatsApp button (outside the page, like the cursor) joins after the preloader, once the
+  // visitor has scrolled a little: heroes keep their own calls to action free of it
+  preloaderDone.then(() => {
+    const wa = document.querySelector(".wa-float");
+    if (!wa) return;
+    const check = () => wa.classList.toggle("is-in", window.scrollY > window.innerHeight * 0.3);
+    check();
+    window.addEventListener("scroll", check, { passive: true });
+  });
   initScroll();
   bootGL({ after: preloaderDone });
   initCursor();

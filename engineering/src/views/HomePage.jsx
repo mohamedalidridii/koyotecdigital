@@ -158,6 +158,8 @@ export default function Home() {
               variant="primary"
               href={href("/contact")}
               className={styles.ctaPrimary}
+              event="eng-contact-cta"
+              eventPlace="home-hero"
             >
               {t.home.ctaPrimary}
             </Button>

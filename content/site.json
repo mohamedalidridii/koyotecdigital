@@ -26,7 +26,12 @@
     "founded": "2022",
     "priceFrom": "800",
     "year": "2026",
-    "ogImage": "/og/koyotec.jpg"
+    "ogImage": "/og/koyotec.jpg",
+    "whatsapp": "21652405699",
+    "analytics": {
+      "src": "https://analytics.koyotec.digital/script.js",
+      "id": ""
+    }
   },
   "fr": {
     "ui": {
@@ -52,7 +57,10 @@
       "footer_pages": "Pages",
       "footer_contact": "Contact",
       "footer_follow": "Suivez-nous",
-      "close": "Fermer"
+      "close": "Fermer",
+      "wa_label": "Discuter sur WhatsApp",
+      "wa_short": "WhatsApp",
+      "wa_text": "Bonjour KOYOTEC, je souhaite un devis"
     },
     "home": {
       "title": "Agence Web à Tunis : Création de Site Internet – KOYOTEC",
@@ -1233,7 +1241,10 @@
       "footer_pages": "Pages",
       "footer_contact": "Contact",
       "footer_follow": "Follow us",
-      "close": "Close"
+      "close": "Close",
+      "wa_label": "Chat on WhatsApp",
+      "wa_short": "WhatsApp",
+      "wa_text": "Hello KOYOTEC, I'd like a quote"
     },
     "home": {
       "title": "Web Design & Branding Agency in Tunis, Tunisia – KOYOTEC",
