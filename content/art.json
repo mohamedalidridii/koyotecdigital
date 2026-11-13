@@ -1,5 +1,188 @@
 [
   {
+    "slug": "yasmine-belkadi",
+    "framework": "vite",
+    "source": "nutritionist/codegrid-studiodialect-image-gallery",
+    "client": "Yasmine Belkadi",
+    "kind": "personal",
+    "year": "2026",
+    "accent": "#e8a33d",
+    "fr": {
+      "sector": "Nutritionniste",
+      "line": "Un cabinet de nutrition clinique, chaleureux et clair.",
+      "case": {
+        "title": "Yasmine Belkadi : site de nutritionniste – KOYOTEC",
+        "desc": "Le site imaginé d'une nutritionniste clinicienne à Tunis : une pratique scientifique, chaleureuse et claire, en français et en arabe.",
+        "intro": "La nutrition clinique demande de la rigueur, mais aussi de la douceur. Pour Yasmine Belkadi, nous avons imaginé un site qui inspire confiance par son sérieux tout en restant accueillant.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Yasmine Belkadi est nutritionniste et diététicienne clinicienne, avec un cabinet au Belvédère, à Tunis. Elle accompagne notamment les femmes atteintes du SOPK et intervient à la radio, à la télévision et sur les réseaux sociaux. Le site devait refléter cette double casquette : la clinicienne et la pédagogue."
+          ],
+          [
+            "L'idée",
+            "Le titre « Nourrir l'équilibre de vos hormones » est traversé par un anneau de photos de fruits et de légumes qui tourne lentement, comme une assiette. En arabe, une seule ligne résume l'essentiel : « صحتك في صحنك », votre santé est dans votre assiette."
+          ],
+          [
+            "Direction artistique",
+            "Des verts sauge et forêt, un fond très clair et une touche d'ambre chaude. Une serif éditoriale aux contrastes doux donne de l'élégance aux titres, avec des mots en italique pour l'émotion ; Amiri compose l'arabe. L'ensemble évoque à la fois le cabinet médical et la cuisine du quotidien."
+          ],
+          [
+            "Le mouvement",
+            "L'anneau d'images réagit au défilement, les sections numérotées (01), (02) apparaissent une à une et les thèmes d'expertise — SOPK, nutrition clinique, Ramadan, protéines — défilent dans un bandeau continu. Les animations restent discrètes pour un site rapide sur téléphone."
+          ],
+          [
+            "Le parcours",
+            "Accueil, À propos avec le parcours académique en frise chronologique, Services pour les consultations, Conseils pour les articles et passages médias, Contact pour prendre rendez-vous. Le bouton « Prendre RDV » est présent en haut de chaque page."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Pour un médecin, un kinésithérapeute ou un coach, ce concept montre comment présenter des compétences scientifiques de façon accessible : un parcours lisible, des thèmes clairs et une prise de rendez-vous simple. Un site bilingue bien structuré aide aussi à apparaître sur les recherches locales en français et en arabe."
+          ]
+        ]
+      }
+    },
+    "en": {
+      "sector": "Nutritionist",
+      "line": "A clinical nutrition practice, warm and clear.",
+      "case": {
+        "title": "Yasmine Belkadi: nutritionist website case study – KOYOTEC",
+        "desc": "The imagined website of a clinical nutritionist in Tunis: a scientific practice, warm and clear, in French and Arabic.",
+        "intro": "Clinical nutrition requires rigour, but also gentleness. For Yasmine Belkadi, we imagined a website that builds trust through seriousness while staying welcoming.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Yasmine Belkadi is a nutritionist and clinical dietitian with a practice in Belvédère, Tunis. She notably supports women with PCOS and appears on radio, TV and social media. The site had to reflect both roles: the clinician and the educator."
+          ],
+          [
+            "The idea",
+            "The headline \"Nourish the balance of your hormones\" is crossed by a slowly turning ring of fruit and vegetable photos, like a plate. In Arabic, a single line sums it up: your health is on your plate."
+          ],
+          [
+            "Art direction",
+            "Sage and forest greens, a very light background and a touch of warm amber. An editorial serif with soft contrast gives the headings elegance, with italic words for emotion; Amiri sets the Arabic. The whole evokes both the medical practice and everyday cooking."
+          ],
+          [
+            "Motion",
+            "The image ring reacts to scrolling, numbered sections (01), (02) appear one by one, and areas of expertise — PCOS, clinical nutrition, Ramadan, protein — run in a continuous ticker. Animations stay discreet for a fast site on phones."
+          ],
+          [
+            "The journey",
+            "Home, About with the academic background as a timeline, Services for consultations, Advice for articles and media appearances, Contact to book. The \"Book an appointment\" button sits at the top of every page."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "For a doctor, physiotherapist or coach, this concept shows how to present scientific expertise accessibly: a readable background, clear topics and simple booking. A well-structured bilingual site also helps you appear in local searches in French and Arabic."
+          ]
+        ]
+      }
+    },
+    "type": [
+      "Serif (variable)",
+      "Amiri"
+    ],
+    "palette": [
+      "#e6ebdf",
+      "#e8a33d",
+      "#3b5a42",
+      "#1f2a1c"
+    ],
+    "service": "lp_seo"
+  },
+  {
+    "slug": "selma-haddad",
+    "framework": "vite",
+    "source": "CodeGrid/codegrid-studiodialect-image-gallery",
+    "client": "Dr. Selma Haddad",
+    "kind": "personal",
+    "year": "2026",
+    "accent": "#7fa65a",
+    "fr": {
+      "sector": "Diététicienne",
+      "line": "La nutrition présentée comme un art de vivre.",
+      "case": {
+        "title": "Dr. Selma Haddad : site de diététicienne – KOYOTEC",
+        "desc": "Le site imaginé d'une diététicienne à La Soukra : la nutrition présentée comme un art de vivre, en français et en arabe, avec prise de rendez-vous.",
+        "intro": "Une diététicienne ne vend pas des régimes : elle accompagne des personnes. Pour Dr. Selma Haddad, nous avons imaginé un site chaleureux et bilingue, qui inspire confiance et donne envie de prendre rendez-vous.",
+        "sections": [
+          [
+            "Le brief imaginé",
+            "Selma Haddad est diététicienne-nutritionniste à La Soukra. Elle reçoit en cabinet — poids, enfants, diabète, cholestérol, jeûne — intervient dans les médias et partage des conseils à une large communauté en ligne. Ses patients parlent français et arabe. Le site devait présenter son approche, ses services et rendre la prise de rendez-vous évidente."
+          ],
+          [
+            "L'idée",
+            "La promesse tient en une phrase, en deux langues : « Bien manger, c'est se soigner chaque jour » et « الأكل الصحي، دواء كل يوم ». En dessous, un carrousel circulaire de plats colorés tourne doucement, comme une assiette qu'on présente. Le bouton « Prendre RDV » reste visible en permanence."
+          ],
+          [
+            "Direction artistique",
+            "Un vert forêt profond, presque botanique, porte l'ensemble, avec un or doux pour les accents. Les titres en Cormorant Garamond mêlent romain et italique pour un ton élégant mais accessible ; la signature en Great Vibes ajoute une touche personnelle. Amiri, une calligraphie arabe classique, compose les textes en arabe avec le même soin que le français."
+          ],
+          [
+            "Le mouvement",
+            "Le carrousel d'images tourne au défilement, les sections apparaissent en fondu, et les rubriques « Au cabinet », « Dans les médias » et « Avec ma communauté » se suivent comme trois chapitres. Les animations restent légères pour que le site se charge vite sur mobile, où la plupart des patients le consulteront."
+          ],
+          [
+            "Le parcours",
+            "Cinq pages, pensées pour un patient pressé : l'accueil et la promesse, « À propos » pour le parcours et l'approche, « Services » pour les consultations proposées, « Conseils » pour les articles et astuces, et « Contact » avec l'adresse du cabinet et la prise de rendez-vous. Chaque page rappelle le bouton de réservation."
+          ],
+          [
+            "Ce que ce concept apporte à une vraie marque",
+            "Pour un professionnel de santé, la confiance passe par la clarté : qui vous êtes, ce que vous proposez, où et comment prendre rendez-vous. Ce concept montre aussi l'intérêt d'un site bilingue français-arabe bien construit, qui touche toute la patientèle et améliore la visibilité locale sur Google."
+          ]
+        ]
+      }
+    },
+    "en": {
+      "sector": "Dietitian",
+      "line": "Nutrition presented as a way of living.",
+      "case": {
+        "title": "Dr. Selma Haddad: dietitian website case study – KOYOTEC",
+        "desc": "The imagined website of a dietitian in La Soukra: nutrition presented as a way of living, in French and Arabic, with appointment booking.",
+        "intro": "A dietitian doesn't sell diets: she supports people. For Dr. Selma Haddad, we imagined a warm, bilingual website that builds trust and makes visitors want to book an appointment.",
+        "sections": [
+          [
+            "The imagined brief",
+            "Selma Haddad is a dietitian-nutritionist in La Soukra. She sees patients in her practice — weight, children, diabetes, cholesterol, fasting — appears in the media and shares advice with a large online community. Her patients speak French and Arabic. The site had to present her approach and services, and make booking obvious."
+          ],
+          [
+            "The idea",
+            "The promise fits in one sentence, in two languages: \"Bien manger, c'est se soigner chaque jour\" (eating well is daily care) and its Arabic counterpart. Below, a circular carousel of colourful dishes turns gently, like a plate being presented. The \"Book an appointment\" button stays visible at all times."
+          ],
+          [
+            "Art direction",
+            "A deep, almost botanical forest green carries the design, with soft gold for accents. Headings in Cormorant Garamond mix roman and italic for an elegant yet approachable tone; the Great Vibes signature adds a personal touch. Amiri, a classic Arabic typeface, sets the Arabic copy with the same care as the French."
+          ],
+          [
+            "Motion",
+            "The image carousel turns as you scroll, sections fade in, and \"In the practice\", \"In the media\" and \"With my community\" follow one another like three chapters. Animations stay light so the site loads quickly on mobile, where most patients will see it."
+          ],
+          [
+            "The journey",
+            "Five pages, designed for a busy patient: home and promise, About for the background and approach, Services for the consultations offered, Advice for articles and tips, and Contact with the practice address and booking. Every page repeats the booking button."
+          ],
+          [
+            "What this concept brings to a real brand",
+            "For a health professional, trust comes from clarity: who you are, what you offer, where and how to book. This concept also shows the value of a well-built French-Arabic website, which reaches every patient and improves local visibility on Google."
+          ]
+        ]
+      }
+    },
+    "featured": true,
+    "type": [
+      "Cormorant Garamond",
+      "Great Vibes",
+      "PP Neue Montreal",
+      "Amiri"
+    ],
+    "palette": [
+      "#eef3ec",
+      "#c9a96e",
+      "#22402f",
+      "#16291f"
+    ],
+    "service": "lp_seo"
+  },
+  {
     "slug": "ligne-inox",
     "framework": "vite",
     "source": "KOYOTEC/ligne-inox",
@@ -452,99 +635,6 @@
     "service": "lp_web"
   },
   {
-    "slug": "selma-haddad",
-    "framework": "vite",
-    "source": "CodeGrid/codegrid-studiodialect-image-gallery",
-    "client": "Dr. Selma Haddad",
-    "kind": "personal",
-    "year": "2026",
-    "accent": "#7fa65a",
-    "fr": {
-      "sector": "Diététicienne",
-      "line": "La nutrition présentée comme un art de vivre.",
-      "case": {
-        "title": "Dr. Selma Haddad : site de diététicienne – KOYOTEC",
-        "desc": "Le site imaginé d'une diététicienne à La Soukra : la nutrition présentée comme un art de vivre, en français et en arabe, avec prise de rendez-vous.",
-        "intro": "Une diététicienne ne vend pas des régimes : elle accompagne des personnes. Pour Dr. Selma Haddad, nous avons imaginé un site chaleureux et bilingue, qui inspire confiance et donne envie de prendre rendez-vous.",
-        "sections": [
-          [
-            "Le brief imaginé",
-            "Selma Haddad est diététicienne-nutritionniste à La Soukra. Elle reçoit en cabinet — poids, enfants, diabète, cholestérol, jeûne — intervient dans les médias et partage des conseils à une large communauté en ligne. Ses patients parlent français et arabe. Le site devait présenter son approche, ses services et rendre la prise de rendez-vous évidente."
-          ],
-          [
-            "L'idée",
-            "La promesse tient en une phrase, en deux langues : « Bien manger, c'est se soigner chaque jour » et « الأكل الصحي، دواء كل يوم ». En dessous, un carrousel circulaire de plats colorés tourne doucement, comme une assiette qu'on présente. Le bouton « Prendre RDV » reste visible en permanence."
-          ],
-          [
-            "Direction artistique",
-            "Un vert forêt profond, presque botanique, porte l'ensemble, avec un or doux pour les accents. Les titres en Cormorant Garamond mêlent romain et italique pour un ton élégant mais accessible ; la signature en Great Vibes ajoute une touche personnelle. Amiri, une calligraphie arabe classique, compose les textes en arabe avec le même soin que le français."
-          ],
-          [
-            "Le mouvement",
-            "Le carrousel d'images tourne au défilement, les sections apparaissent en fondu, et les rubriques « Au cabinet », « Dans les médias » et « Avec ma communauté » se suivent comme trois chapitres. Les animations restent légères pour que le site se charge vite sur mobile, où la plupart des patients le consulteront."
-          ],
-          [
-            "Le parcours",
-            "Cinq pages, pensées pour un patient pressé : l'accueil et la promesse, « À propos » pour le parcours et l'approche, « Services » pour les consultations proposées, « Conseils » pour les articles et astuces, et « Contact » avec l'adresse du cabinet et la prise de rendez-vous. Chaque page rappelle le bouton de réservation."
-          ],
-          [
-            "Ce que ce concept apporte à une vraie marque",
-            "Pour un professionnel de santé, la confiance passe par la clarté : qui vous êtes, ce que vous proposez, où et comment prendre rendez-vous. Ce concept montre aussi l'intérêt d'un site bilingue français-arabe bien construit, qui touche toute la patientèle et améliore la visibilité locale sur Google."
-          ]
-        ]
-      }
-    },
-    "en": {
-      "sector": "Dietitian",
-      "line": "Nutrition presented as a way of living.",
-      "case": {
-        "title": "Dr. Selma Haddad: dietitian website case study – KOYOTEC",
-        "desc": "The imagined website of a dietitian in La Soukra: nutrition presented as a way of living, in French and Arabic, with appointment booking.",
-        "intro": "A dietitian doesn't sell diets: she supports people. For Dr. Selma Haddad, we imagined a warm, bilingual website that builds trust and makes visitors want to book an appointment.",
-        "sections": [
-          [
-            "The imagined brief",
-            "Selma Haddad is a dietitian-nutritionist in La Soukra. She sees patients in her practice — weight, children, diabetes, cholesterol, fasting — appears in the media and shares advice with a large online community. Her patients speak French and Arabic. The site had to present her approach and services, and make booking obvious."
-          ],
-          [
-            "The idea",
-            "The promise fits in one sentence, in two languages: \"Bien manger, c'est se soigner chaque jour\" (eating well is daily care) and its Arabic counterpart. Below, a circular carousel of colourful dishes turns gently, like a plate being presented. The \"Book an appointment\" button stays visible at all times."
-          ],
-          [
-            "Art direction",
-            "A deep, almost botanical forest green carries the design, with soft gold for accents. Headings in Cormorant Garamond mix roman and italic for an elegant yet approachable tone; the Great Vibes signature adds a personal touch. Amiri, a classic Arabic typeface, sets the Arabic copy with the same care as the French."
-          ],
-          [
-            "Motion",
-            "The image carousel turns as you scroll, sections fade in, and \"In the practice\", \"In the media\" and \"With my community\" follow one another like three chapters. Animations stay light so the site loads quickly on mobile, where most patients will see it."
-          ],
-          [
-            "The journey",
-            "Five pages, designed for a busy patient: home and promise, About for the background and approach, Services for the consultations offered, Advice for articles and tips, and Contact with the practice address and booking. Every page repeats the booking button."
-          ],
-          [
-            "What this concept brings to a real brand",
-            "For a health professional, trust comes from clarity: who you are, what you offer, where and how to book. This concept also shows the value of a well-built French-Arabic website, which reaches every patient and improves local visibility on Google."
-          ]
-        ]
-      }
-    },
-    "featured": true,
-    "type": [
-      "Cormorant Garamond",
-      "Great Vibes",
-      "PP Neue Montreal",
-      "Amiri"
-    ],
-    "palette": [
-      "#eef3ec",
-      "#c9a96e",
-      "#22402f",
-      "#16291f"
-    ],
-    "service": "lp_seo"
-  },
-  {
     "slug": "ghoula-games",
     "framework": "next",
     "source": "CGMWTMAY2026/CGMWTMAY2026/deadlock-studios",
@@ -905,96 +995,6 @@
       "#000000"
     ],
     "service": "lp_branding"
-  },
-  {
-    "slug": "yasmine-belkadi",
-    "framework": "vite",
-    "source": "nutritionist/codegrid-studiodialect-image-gallery",
-    "client": "Yasmine Belkadi",
-    "kind": "personal",
-    "year": "2026",
-    "accent": "#e8a33d",
-    "fr": {
-      "sector": "Nutritionniste",
-      "line": "Un cabinet de nutrition clinique, chaleureux et clair.",
-      "case": {
-        "title": "Yasmine Belkadi : site de nutritionniste – KOYOTEC",
-        "desc": "Le site imaginé d'une nutritionniste clinicienne à Tunis : une pratique scientifique, chaleureuse et claire, en français et en arabe.",
-        "intro": "La nutrition clinique demande de la rigueur, mais aussi de la douceur. Pour Yasmine Belkadi, nous avons imaginé un site qui inspire confiance par son sérieux tout en restant accueillant.",
-        "sections": [
-          [
-            "Le brief imaginé",
-            "Yasmine Belkadi est nutritionniste et diététicienne clinicienne, avec un cabinet au Belvédère, à Tunis. Elle accompagne notamment les femmes atteintes du SOPK et intervient à la radio, à la télévision et sur les réseaux sociaux. Le site devait refléter cette double casquette : la clinicienne et la pédagogue."
-          ],
-          [
-            "L'idée",
-            "Le titre « Nourrir l'équilibre de vos hormones » est traversé par un anneau de photos de fruits et de légumes qui tourne lentement, comme une assiette. En arabe, une seule ligne résume l'essentiel : « صحتك في صحنك », votre santé est dans votre assiette."
-          ],
-          [
-            "Direction artistique",
-            "Des verts sauge et forêt, un fond très clair et une touche d'ambre chaude. Une serif éditoriale aux contrastes doux donne de l'élégance aux titres, avec des mots en italique pour l'émotion ; Amiri compose l'arabe. L'ensemble évoque à la fois le cabinet médical et la cuisine du quotidien."
-          ],
-          [
-            "Le mouvement",
-            "L'anneau d'images réagit au défilement, les sections numérotées (01), (02) apparaissent une à une et les thèmes d'expertise — SOPK, nutrition clinique, Ramadan, protéines — défilent dans un bandeau continu. Les animations restent discrètes pour un site rapide sur téléphone."
-          ],
-          [
-            "Le parcours",
-            "Accueil, À propos avec le parcours académique en frise chronologique, Services pour les consultations, Conseils pour les articles et passages médias, Contact pour prendre rendez-vous. Le bouton « Prendre RDV » est présent en haut de chaque page."
-          ],
-          [
-            "Ce que ce concept apporte à une vraie marque",
-            "Pour un médecin, un kinésithérapeute ou un coach, ce concept montre comment présenter des compétences scientifiques de façon accessible : un parcours lisible, des thèmes clairs et une prise de rendez-vous simple. Un site bilingue bien structuré aide aussi à apparaître sur les recherches locales en français et en arabe."
-          ]
-        ]
-      }
-    },
-    "en": {
-      "sector": "Nutritionist",
-      "line": "A clinical nutrition practice, warm and clear.",
-      "case": {
-        "title": "Yasmine Belkadi: nutritionist website case study – KOYOTEC",
-        "desc": "The imagined website of a clinical nutritionist in Tunis: a scientific practice, warm and clear, in French and Arabic.",
-        "intro": "Clinical nutrition requires rigour, but also gentleness. For Yasmine Belkadi, we imagined a website that builds trust through seriousness while staying welcoming.",
-        "sections": [
-          [
-            "The imagined brief",
-            "Yasmine Belkadi is a nutritionist and clinical dietitian with a practice in Belvédère, Tunis. She notably supports women with PCOS and appears on radio, TV and social media. The site had to reflect both roles: the clinician and the educator."
-          ],
-          [
-            "The idea",
-            "The headline \"Nourish the balance of your hormones\" is crossed by a slowly turning ring of fruit and vegetable photos, like a plate. In Arabic, a single line sums it up: your health is on your plate."
-          ],
-          [
-            "Art direction",
-            "Sage and forest greens, a very light background and a touch of warm amber. An editorial serif with soft contrast gives the headings elegance, with italic words for emotion; Amiri sets the Arabic. The whole evokes both the medical practice and everyday cooking."
-          ],
-          [
-            "Motion",
-            "The image ring reacts to scrolling, numbered sections (01), (02) appear one by one, and areas of expertise — PCOS, clinical nutrition, Ramadan, protein — run in a continuous ticker. Animations stay discreet for a fast site on phones."
-          ],
-          [
-            "The journey",
-            "Home, About with the academic background as a timeline, Services for consultations, Advice for articles and media appearances, Contact to book. The \"Book an appointment\" button sits at the top of every page."
-          ],
-          [
-            "What this concept brings to a real brand",
-            "For a doctor, physiotherapist or coach, this concept shows how to present scientific expertise accessibly: a readable background, clear topics and simple booking. A well-structured bilingual site also helps you appear in local searches in French and Arabic."
-          ]
-        ]
-      }
-    },
-    "type": [
-      "Serif (variable)",
-      "Amiri"
-    ],
-    "palette": [
-      "#e6ebdf",
-      "#e8a33d",
-      "#3b5a42",
-      "#1f2a1c"
-    ],
-    "service": "lp_seo"
   },
   {
     "slug": "studio-kif-kif",
