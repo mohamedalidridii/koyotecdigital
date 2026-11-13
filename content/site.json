@@ -38,7 +38,8 @@
         "art": "L’art de la différence",
         "contact": "Contact",
         "founder": "Le fondateur",
-        "careers": "Carrières"
+        "careers": "Carrières",
+        "mesh": "Projets"
       },
       "menu": "Menu",
       "drop": "Contactez-nous",
@@ -1217,7 +1218,8 @@
         "art": "The art of difference",
         "contact": "Contact",
         "founder": "The founder",
-        "careers": "Careers"
+        "careers": "Careers",
+        "mesh": "Projects"
       },
       "menu": "Menu",
       "drop": "Drop a line",

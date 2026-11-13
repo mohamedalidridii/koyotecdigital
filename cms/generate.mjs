@@ -276,12 +276,12 @@ ${altFr ? `    <link rel="alternate" hreflang="fr" href="${esc(SITE + altFr)}" /
     const sw = switchTo || PATHS[page][idx(other)];
     const cur = (k) => (k === page ? ' aria-current="page"' : "");
     // top bar: the brand already links home, so the bar lists the sections, then the showcase as a pill
-    const links = ["services", "engineering", "blog", "contact"]
+    const links = ["services", "mesh", "engineering", "blog", "contact"]
       .map((k) => `<li><a href="${PATHS[k][i]}"${full(k)}${cur(k)}>${esc(ui.nav[k])}</a></li>`)
       .join("");
     const artPill = `<a class="nav-art" href="${PATHS.art[i]}"${cur("art")}><i class="nav-art-dot" aria-hidden="true"></i>${esc(ui.nav.art)}</a>`;
     // full-screen menu: every page as a big serif line; the showcase gets its own card below the list
-    const items = ["home", "services", "engineering", "blog", "contact", "careers"]
+    const items = ["home", "services", "mesh", "engineering", "blog", "contact", "careers"]
       .map((k, n) => `        <li><a href="${PATHS[k][i]}"${full(k)}${cur(k)}><span class="menu-idx">(${pad(n + 1)})</span><span class="menu-name">${esc(ui.nav[k])}</span></a></li>`)
       .join("\n");
     const h = site[lang].home;
