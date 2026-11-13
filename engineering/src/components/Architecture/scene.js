@@ -39,8 +39,9 @@ const DITHER = /* glsl */ `
     float l = pow(lum, 1.15) * 1.05;
     ivec2 ip = ivec2(mod(cell, 4.));
     float t = (BAYER[ip.x + ip.y * 4] + 0.5) / 16.;
-    vec3 col = mix(uInk, uPaper, step(t, l));
-    col = mix(col, vec3(1.0, 0.0, 0.0), red);
+    // light page: empty space is paper, lit surfaces turn into ink dots
+    vec3 col = mix(uPaper, uInk, step(t, l));
+    col = mix(col, vec3(0.93, 0.0, 0.0), red);
     gl_FragColor = vec4(col, 1.0);
   }
 `;
@@ -138,8 +139,9 @@ function setup({ THREE, renderer, scene: screen }, { store, blocksPerLayer, mobi
       tScene: { value: rt.texture },
       uRes: { value: new THREE.Vector2(1, 1) },
       uCell: { value: (mobile ? 2.5 : 3) * dpr },
-      uInk: { value: new THREE.Color("#0d0d0d") },
-      uPaper: { value: new THREE.Color("#f3f1ec") },
+      // raw sRGB values (a THREE.Color would be converted to linear and print greyer than the page)
+      uInk: { value: new THREE.Vector3(0.051, 0.051, 0.051) },
+      uPaper: { value: new THREE.Vector3(0.953, 0.945, 0.925) },
     },
     vertexShader: "varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }",
     fragmentShader: DITHER,

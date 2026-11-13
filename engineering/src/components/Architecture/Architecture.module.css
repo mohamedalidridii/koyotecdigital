@@ -3,8 +3,8 @@
 .section {
   position: relative;
   height: 720svh;
-  background: #0d0d0d;
-  color: var(--base-200);
+  background: var(--base-200);
+  color: var(--base-400);
   --p: 0;
 }
 
@@ -54,11 +54,11 @@
 }
 .lead {
   max-width: 32rem;
-  color: #bdbbb4;
+  color: #4a4945;
 }
 .hint {
   margin-top: 1.4rem;
-  color: #8f8d87;
+  color: #6b6964;
 }
 .section:not([data-phase="intro"]) .intro {
   opacity: 0;
@@ -71,9 +71,9 @@
   top: 50%;
   translate: 0 -50%;
   padding: 0.8rem 1rem 0.8rem 0.9rem;
-  background: rgba(13, 13, 13, 0.78);
+  background: rgba(243, 241, 236, 0.86);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(243, 241, 236, 0.16);
+  border: 1px solid rgba(13, 13, 13, 0.14);
 }
 .rail ol {
   list-style: none;
@@ -89,7 +89,7 @@
   padding: 0.45rem 0.6rem 0.45rem 0;
   font: inherit;
   font-size: 0.95rem;
-  color: #77756f;
+  color: #86837c;
   background: none;
   border: 0;
   cursor: pointer;
@@ -101,10 +101,10 @@
   font-size: 0.75rem;
 }
 .rail button:hover {
-  color: var(--base-200);
+  color: var(--base-400);
 }
 .rail .railOn {
-  color: var(--base-200);
+  color: var(--base-400);
   padding-left: 1rem;
   position: relative;
 }
@@ -130,9 +130,9 @@
   translate: 0 -50%;
   width: min(27rem, calc(100% - 3rem));
   padding: 1.6rem 1.6rem 1.4rem;
-  background: rgba(13, 13, 13, 0.78);
+  background: rgba(243, 241, 236, 0.86);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(243, 241, 236, 0.16);
+  border: 1px solid rgba(13, 13, 13, 0.14);
 }
 .section:not([data-phase="layers"]) .panel {
   opacity: 0;
@@ -143,7 +143,7 @@
   animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 .panelIn > p:first-child {
-  color: #8f8d87;
+  color: #6b6964;
 }
 .layerName {
   margin: 0.7rem 0 1.2rem;
@@ -160,17 +160,17 @@
   font-family: var(--font-google-sans-code), monospace;
   font-size: 0.72rem;
   text-transform: uppercase;
-  color: var(--base-300);
+  color: #d40000;
 }
 .facts dd {
   margin: 0;
   font-size: 0.98rem;
   line-height: 1.45;
-  color: #d9d7d0;
+  color: #2a2927;
 }
 .toolsLabel {
   margin-top: 1.1rem;
-  color: #8f8d87;
+  color: #6b6964;
 }
 .tools {
   list-style: none;
@@ -184,12 +184,12 @@
   font-family: var(--font-google-sans-code), monospace;
   font-size: 0.75rem;
   padding: 0.3rem 0.55rem;
-  border: 1px solid rgba(243, 241, 236, 0.25);
+  border: 1px solid rgba(13, 13, 13, 0.22);
 }
 .picked {
   margin-top: 1.2rem;
   padding-top: 1rem;
-  border-top: 1px solid rgba(243, 241, 236, 0.16);
+  border-top: 1px solid rgba(13, 13, 13, 0.14);
   min-height: 5.2rem;
 }
 .pickedIn {
@@ -198,14 +198,14 @@
 .pickedIn h3 {
   margin: 0.5rem 0 0.4rem;
   font-size: 1.4rem;
-  color: var(--base-200);
+  color: var(--base-400);
 }
 .pickedIn p:last-child {
   font-size: 0.95rem;
-  color: #d9d7d0;
+  color: #2a2927;
 }
 .pickHint {
-  color: #77756f;
+  color: #86837c;
 }
 
 /* ---------- tooltip ---------- */
@@ -246,7 +246,7 @@
   position: absolute;
   inset: 40% 0 0;
   z-index: 1;
-  background: linear-gradient(to bottom, rgba(13, 13, 13, 0), rgba(13, 13, 13, 0.92) 45%);
+  background: linear-gradient(to bottom, rgba(243, 241, 236, 0), rgba(243, 241, 236, 0.94) 45%);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.8s ease;
@@ -268,7 +268,7 @@
 .outroCopy {
   max-width: 34rem;
   margin: 0 auto;
-  color: #bdbbb4;
+  color: #4a4945;
 }
 .ctas {
   display: flex;
@@ -279,7 +279,7 @@
 }
 .note {
   margin-top: 1.2rem;
-  color: #77756f;
+  color: #86837c;
 }
 .section:not([data-phase="outro"]) .outro {
   opacity: 0;
@@ -295,7 +295,7 @@
   bottom: 0;
   height: 3px;
   z-index: 2;
-  background: rgba(243, 241, 236, 0.08);
+  background: rgba(13, 13, 13, 0.08);
 }
 .progress span {
   display: block;
@@ -354,7 +354,7 @@
 }
 .noGl .noGlNote {
   display: block;
-  color: #bdbbb4;
+  color: #4a4945;
   margin-bottom: 2rem;
 }
 .noGl .list ol {
@@ -369,7 +369,7 @@
 }
 .noGl .list p,
 .noGl .list li {
-  color: #d9d7d0;
+  color: #2a2927;
   line-height: 1.5;
 }
 
@@ -402,7 +402,7 @@
   }
   .rail button {
     padding: 0.3rem 0.5rem;
-    border: 1px solid rgba(243, 241, 236, 0.2);
+    border: 1px solid rgba(13, 13, 13, 0.18);
   }
   .rail .railOn {
     padding-left: 0.5rem;
