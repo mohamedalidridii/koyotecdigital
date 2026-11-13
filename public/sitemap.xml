@@ -99,6 +99,20 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/art-de-la-difference"/>
   </url>
   <url>
+    <loc>https://www.koyotec.digital/projets</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/projets"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/projects"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/projets"/>
+  </url>
+  <url>
+    <loc>https://www.koyotec.digital/en/projects</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/projets"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/projects"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/projets"/>
+  </url>
+  <url>
     <loc>https://www.koyotec.digital/blog</loc>
     <lastmod>2026-11-06</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/blog"/>

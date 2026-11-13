@@ -1,0 +1,393 @@
+/* /projets — the showcase as a WebGL mesh. Uses the art page's night palette (html.is-art). */
+
+/* ---------- stage ---------- */
+.mesh-stage {
+  position: relative;
+  height: 100svh;
+  min-height: 600px;
+  overflow: hidden;
+  --accent: var(--ink);
+}
+.mesh-gl {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: grab;
+  touch-action: pan-y;
+}
+.mesh-gl.is-dragging {
+  cursor: grabbing;
+}
+.mesh-ui {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding-top: calc(var(--nav-h) + 1.5rem);
+  padding-bottom: clamp(1.25rem, 3vw, 2.5rem);
+  pointer-events: none;
+}
+.mesh-ui a,
+.mesh-ui button {
+  pointer-events: auto;
+}
+.mesh-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+}
+.mesh-brand span:last-child {
+  font-family: var(--f-sans);
+  font-size: var(--fs-small);
+  color: var(--ink-dim);
+}
+.mesh-hint {
+  max-width: 18rem;
+  font-size: var(--fs-small);
+  line-height: 1.5;
+  color: var(--ink-dim);
+  text-align: right;
+}
+.mesh-bottom {
+  grid-row: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+/* the big title, and the project name that rolls in over it */
+.mesh-head {
+  min-width: 0;
+}
+.mesh-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.2rem;
+  margin-bottom: 0.6rem;
+  font-size: var(--fs-small);
+  color: var(--ink-dim);
+}
+.mesh-num {
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+  min-width: 6.5em;
+}
+.is-hovering .mesh-num {
+  color: var(--accent);
+}
+.mesh-titles {
+  display: grid;
+}
+.mesh-title,
+.mesh-name {
+  grid-area: 1 / 1;
+  font-family: var(--f-serif);
+  font-weight: 400;
+  font-size: clamp(3.4rem, 10.5vw, 11.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  margin: 0;
+}
+.mesh-name {
+  color: var(--accent);
+  font-style: italic;
+}
+.mesh-ch {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+.mesh-ch > span {
+  display: inline-block;
+  will-change: transform;
+}
+
+.mesh-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.9rem;
+  flex: none;
+}
+.mesh-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+.mesh-to-art {
+  font-size: var(--fs-small);
+  color: var(--ink-dim);
+  transition: color 0.3s;
+}
+.mesh-to-art:hover {
+  color: var(--ink);
+}
+
+/* ---------- preview card ---------- */
+.mesh-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: clamp(15rem, 22vw, 21rem);
+  pointer-events: none;
+  opacity: 0;
+  transform-origin: 0 50%;
+  transition: opacity 0.35s, scale 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+  scale: 0.92;
+  z-index: 3;
+}
+.is-hovering .mesh-card {
+  opacity: 1;
+  scale: 1;
+}
+.mesh-card-frame {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--paper-2);
+  outline: 1px solid var(--accent);
+  outline-offset: 5px;
+}
+.mesh-card-img,
+.mesh-card-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.mesh-card-cap {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.9rem;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+.mesh-card-line {
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.25;
+}
+.mesh-card-go {
+  flex: none;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+/* touch: the card sits at the bottom, above the title, and is a button to the project */
+.is-touch .mesh-card {
+  top: auto;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: calc(clamp(3.4rem, 10.5vw, 11.5rem) + 7.5rem);
+  width: auto;
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.7rem;
+  background: rgba(13, 13, 13, 0.82);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--line);
+  transform: none !important;
+}
+.is-touch.is-hovering .mesh-card {
+  pointer-events: auto;
+}
+.is-touch .mesh-card-frame {
+  outline-offset: 2px;
+}
+.is-touch .mesh-card-cap {
+  margin: 0;
+  flex-direction: column;
+}
+
+/* no WebGL: the stage becomes a title over the index */
+.mesh-nogl {
+  display: none;
+}
+.no-gl.mesh-stage {
+  height: auto;
+  min-height: 0;
+  padding-bottom: 2rem;
+}
+.no-gl .mesh-ui {
+  position: relative;
+}
+.no-gl .mesh-gl,
+.no-gl .mesh-card,
+.no-gl .mesh-hint {
+  display: none;
+}
+.no-gl .mesh-nogl {
+  display: block;
+  padding-inline: var(--gutter);
+  color: var(--ink-dim);
+}
+
+/* ---------- the index ---------- */
+.mesh-index {
+  padding-block: clamp(4rem, 10vw, 9rem);
+  border-top: 1px solid var(--line);
+}
+.mesh-index-head {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 26rem);
+  gap: 2rem;
+  align-items: end;
+  margin-bottom: clamp(2rem, 5vw, 4rem);
+}
+.mesh-index-h {
+  font-family: var(--f-serif);
+  font-weight: 400;
+  font-size: clamp(3rem, 8vw, 7rem);
+  line-height: 0.9;
+  margin: 0;
+}
+.mesh-index-h sup {
+  font-family: var(--f-sans);
+  font-size: 0.18em;
+  color: var(--ink-dim);
+  vertical-align: top;
+}
+.mesh-index-lead {
+  color: var(--ink-dim);
+  line-height: 1.55;
+}
+.mesh-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+.mesh-item {
+  border-bottom: 1px solid var(--line);
+  transition: opacity 0.4s;
+}
+.mesh-item.is-out {
+  opacity: 0.22;
+}
+.mesh-link {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 1.3fr) minmax(0, 1.4fr) 9rem 4rem 1.5rem;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 1.05rem 0;
+  transition: padding 0.45s cubic-bezier(0.2, 0.7, 0.2, 1), color 0.3s;
+}
+.mesh-link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0.7rem;
+  height: 0.7rem;
+  margin-top: -0.35rem;
+  background: var(--accent);
+  scale: 0;
+  transition: scale 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.mesh-item-num,
+.mesh-item-kind,
+.mesh-item-year {
+  font-size: var(--fs-small);
+  color: var(--ink-dim);
+  font-variant-numeric: tabular-nums;
+}
+.mesh-item-client {
+  font-family: var(--f-serif);
+  font-size: clamp(1.5rem, 2.6vw, 2.3rem);
+  line-height: 1.05;
+}
+.mesh-item-sector {
+  color: var(--ink-dim);
+  font-size: 0.95rem;
+}
+.mesh-item-go {
+  text-align: right;
+  color: var(--ink-dim);
+  transition: color 0.3s, translate 0.4s;
+}
+.mesh-link:hover,
+.mesh-link:focus-visible {
+  padding-left: 1.6rem;
+}
+.mesh-link:hover::before,
+.mesh-link:focus-visible::before {
+  scale: 1;
+}
+.mesh-link:hover .mesh-item-client,
+.mesh-link:focus-visible .mesh-item-client {
+  font-style: italic;
+}
+.mesh-link:hover .mesh-item-go {
+  color: var(--ink);
+  translate: 0.3rem 0;
+}
+
+/* the exhibition links here */
+.art-mesh-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--fs-small);
+  padding: 0.55em 1em;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  transition: border-color 0.3s;
+}
+.art-mesh-link:hover {
+  border-color: var(--ink);
+}
+
+@media (max-width: 960px) {
+  .mesh-top {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .mesh-hint {
+    text-align: left;
+  }
+  .mesh-bottom {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.1rem;
+  }
+  .mesh-controls {
+    align-items: flex-start;
+  }
+  .mesh-filters {
+    justify-content: flex-start;
+  }
+  .mesh-index-head {
+    grid-template-columns: 1fr;
+  }
+  .mesh-link {
+    grid-template-columns: 2.4rem minmax(0, 1fr) 1.2rem;
+    row-gap: 0.25rem;
+  }
+  .mesh-item-sector {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .mesh-item-kind,
+  .mesh-item-year {
+    display: none;
+  }
+  .mesh-item-go {
+    grid-column: 3;
+    grid-row: 1;
+  }
+}

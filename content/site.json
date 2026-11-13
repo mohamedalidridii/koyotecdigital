@@ -1188,6 +1188,23 @@
       ],
       "cta_kicker": "Une question avant de postuler ?",
       "cta_giant": "Parlons-en"
+    },
+    "mesh": {
+      "title": "Projets : l’index en maillage des concepts – KOYOTEC",
+      "desc": "Explorez les concepts web de KOYOTEC dans un maillage 3D interactif : survolez un nœud pour découvrir chaque projet, cliquez pour l’ouvrir.",
+      "kicker": "Index",
+      "h1": "Maillage",
+      "idle": "Survolez un nœud",
+      "hint": "Glissez pour faire tourner · survolez un nœud · cliquez pour ouvrir",
+      "hint_touch": "Glissez pour faire tourner · touchez un nœud",
+      "open_case": "Lire l’étude de cas",
+      "open_live": "Voir le concept",
+      "index_h": "L’index",
+      "index_lead": "Les mêmes projets, en liste. Chacun est un concept : une marque et un brief imaginés par KOYOTEC pour explorer une direction créative.",
+      "to_art": "Voir l’exposition",
+      "from_art": "Vue en maillage 3D",
+      "no_gl": "Votre navigateur n’affiche pas la 3D : parcourez l’index ci-dessous.",
+      "idle_touch": "Touchez un nœud"
     }
   },
   "en": {
@@ -2350,6 +2367,23 @@
       ],
       "cta_kicker": "A question before you apply?",
       "cta_giant": "Let’s talk"
+    },
+    "mesh": {
+      "title": "Projects: the KOYOTEC concept index as a mesh",
+      "desc": "Explore KOYOTEC’s web concepts in an interactive 3D mesh: hover a node to discover each project, click to open it.",
+      "kicker": "Index",
+      "h1": "The mesh",
+      "idle": "Hover a node",
+      "hint": "Drag to rotate · hover a node · click to open",
+      "hint_touch": "Drag to rotate · tap a node",
+      "open_case": "Read the case study",
+      "open_live": "View the concept",
+      "index_h": "The index",
+      "index_lead": "The same projects, as a list. Each one is a concept: a brand and a brief imagined by KOYOTEC to explore a creative direction.",
+      "to_art": "See the exhibition",
+      "from_art": "3D mesh view",
+      "no_gl": "Your browser can’t display 3D: browse the index below.",
+      "idle_touch": "Tap a node"
     }
   }
 }

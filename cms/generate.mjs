@@ -26,6 +26,7 @@ const PATHS = {
   home: ["/", "/en/"],
   services: ["/services", "/en/services"],
   art: ["/art-de-la-difference", "/en/art-of-difference"],
+  mesh: ["/projets", "/en/projects"],
   // the engineering section is a separate Next app (engineering/), built into public/engineering
   engineering: ["/engineering/", "/engineering/en/"],
   blog: ["/blog", "/en/blog"],
@@ -1020,6 +1021,7 @@ ${hasCase(lang, p) ? `              <a class="art-case-link" href="${casePath(la
       <section class="art-expo" aria-label="${esc(a.h1)}" data-gl="off">
         <div class="art-bar shell">
           <div class="art-filters" role="group" aria-label="${esc(a.kicker)}">${filters}</div>
+          <a class="art-mesh-link" href="${PATHS.mesh[i]}"><i class="nav-art-dot" aria-hidden="true"></i>${esc(site[lang].mesh.from_art)} →</a>
           <p class="art-progress" aria-hidden="true"><span class="art-progress-n">01</span> / ${n}</p>
         </div>
         <div class="art-stage">
@@ -1046,6 +1048,83 @@ ${pieces}
 ${ctaSection(lang, { h: a.cta_h, button: a.cta })}`;
     const head = headTag({ lang, title: a.title, desc: a.desc, canon: PATHS.art[i], altFr: PATHS.art[0], altEn: PATHS.art[1], ld, theme: "#0d0d0d", htmlClass: "is-art" });
     return page({ head, lang, ns: "art", pageKey: "art", main });
+  }
+
+  // the index as a mesh: every showcase piece is a node on a living WebGL surface
+  // (scripts/webgl/projectMesh.js); hovering a node names it, clicking opens it.
+  // The same pieces are listed below as plain links, for keyboards, crawlers and no-WebGL.
+  function meshPage(lang) {
+    const m = site[lang].mesh; const a = site[lang].art; const i = idx(lang); const c = CURSOR[lang];
+    const n = pad(art.length);
+    const items = art.map((p, k) => {
+      const t = p[lang];
+      const live = `/art-de-la-difference/${p.slug}/`;
+      const cs = hasCase(lang, p) ? casePath(lang, p) : "";
+      return `            <li class="mesh-item" data-kind="${esc(p.kind)}" style="--accent:${esc(p.accent)}">
+              <a class="mesh-link" href="${cs || live}"${cs ? "" : ' target="_blank" rel="noopener"'} data-barba-prevent data-i="${k}" data-slug="${esc(p.slug)}" data-client="${esc(p.client)}" data-sector="${esc(t.sector)}" data-year="${esc(p.year)}" data-kind="${esc(p.kind)}" data-kind-label="${esc(a["kind_" + p.kind])}" data-accent="${esc(p.accent)}" data-tagline="${esc(t.line)}" data-go="${esc(cs ? m.open_case : m.open_live)}">
+                <span class="mesh-item-num">${pad(k + 1)}</span>
+                <span class="mesh-item-client">${esc(p.client)}</span>
+                <span class="mesh-item-sector">${esc(t.sector)}</span>
+                <span class="mesh-item-kind">${esc(a["kind_" + p.kind])}</span>
+                <span class="mesh-item-year">${esc(p.year)}</span>
+                <span class="mesh-item-go" aria-hidden="true">${cs ? "→" : "↗"}</span>
+              </a>
+            </li>`;
+    }).join("\n");
+    const filters = [["all", a.all], ["entreprise", a.business], ["personal", a.personal]]
+      .map(([k, label], j) => `<button class="art-filter mesh-filter" type="button" data-filter="${k}" aria-pressed="${j === 0}">${esc(label)} <sup>${pad(k === "all" ? art.length : art.filter((p) => p.kind === k).length)}</sup></button>`)
+      .join("");
+    const ld = graph(
+      org(lang),
+      {
+        "@type": "CollectionPage", name: m.title, description: m.desc, url: url("mesh", lang), inLanguage: lang,
+        hasPart: art.map((p) => ({ "@type": "CreativeWork", name: `${p.client} — ${p[lang].sector}`, url: SITE + (hasCase(lang, p) ? casePath(lang, p) : `/art-de-la-difference/${p.slug}/`), creator: { "@id": SITE + "/#organization" } })),
+      },
+      crumbs([site[lang].ui.nav.home, url("home", lang)], [a.h1, url("art", lang)], [m.h1, url("mesh", lang)]),
+    );
+    const main = `      <section class="mesh-stage" aria-label="${esc(m.h1)}" data-gl="off">
+        <canvas class="mesh-gl" aria-hidden="true" data-cursor-enter="${esc(c.enter)}"></canvas>
+        <div class="mesh-ui shell">
+          <div class="mesh-top">
+            <p class="lockup-brand mesh-brand">${stamp(m.kicker, n)} <span>${esc(a.note)}</span></p>
+            <p class="mesh-hint" data-touch="${esc(m.hint_touch)}">${esc(m.hint)}</p>
+          </div>
+          <div class="mesh-bottom">
+            <div class="mesh-head">
+              <p class="mesh-meta"><span class="mesh-num">— / ${n}</span><span class="mesh-sector" data-touch="${esc(m.idle_touch)}">${esc(m.idle)}</span></p>
+              <div class="mesh-titles">
+                <h1 class="mesh-title">${esc(m.h1)}</h1>
+                <p class="mesh-name" aria-hidden="true"></p>
+              </div>
+            </div>
+            <div class="mesh-controls">
+              <div class="art-filters mesh-filters" role="group" aria-label="${esc(m.kicker)}">${filters}</div>
+              <a class="mesh-to-art" href="${PATHS.art[i]}">${esc(m.to_art)} →</a>
+            </div>
+          </div>
+        </div>
+        <div class="mesh-card" aria-hidden="true">
+          <span class="mesh-card-frame"><img class="mesh-card-img" alt="" width="1440" height="900" decoding="async" /><video class="mesh-card-video" muted loop playsinline preload="none"></video></span>
+          <span class="mesh-card-cap"><span class="mesh-card-line"></span><span class="mesh-card-go"></span></span>
+        </div>
+        <p class="mesh-nogl">${esc(m.no_gl)}</p>
+      </section>
+
+      <section class="mesh-index" id="index" aria-labelledby="mesh-index-h">
+        <div class="shell">
+          <div class="mesh-index-head">
+            <h2 class="mesh-index-h" id="mesh-index-h">${esc(m.index_h)} <sup>${n}</sup></h2>
+            <p class="mesh-index-lead">${esc(m.index_lead)}</p>
+          </div>
+          <ol class="mesh-list">
+${items}
+          </ol>
+        </div>
+      </section>
+
+${ctaSection(lang, { h: a.cta_h, button: a.cta })}`;
+    const head = headTag({ lang, title: m.title, desc: m.desc, canon: PATHS.mesh[i], altFr: PATHS.mesh[0], altEn: PATHS.mesh[1], ld, theme: "#0d0d0d", htmlClass: "is-art" });
+    return page({ head, lang, ns: "mesh", pageKey: "mesh", main });
   }
 
   // case study: the story behind one showcase piece, its art direction and a link to the live concept
@@ -1206,7 +1285,7 @@ ${body}
 
   function sitemap(files) {
     const entries = [];
-    for (const page of ["home", "services", ...Object.keys(LANDINGS).filter((k) => site.fr[k] && site.en[k]), "art", "blog", "contact", "careers", "founder"]) {
+    for (const page of ["home", "services", ...Object.keys(LANDINGS).filter((k) => site.fr[k] && site.en[k]), "art", "mesh", "blog", "contact", "careers", "founder"]) {
       entries.push({ fr: PATHS[page][0], en: PATHS[page][1] });
     }
     for (const p of art) {
@@ -1335,6 +1414,7 @@ ${body}
     "contact.html": contact("fr"), "en/contact.html": contact("en"),
     "carrieres.html": careers("fr"), "en/careers.html": careers("en"),
     "art-de-la-difference.html": artPage("fr"), "en/art-of-difference.html": artPage("en"),
+    "projets.html": meshPage("fr"), "en/projects.html": meshPage("en"),
     "blog/index.html": blogIndex("fr"), "en/blog/index.html": blogIndex("en"),
     "medalydridi.html": founder("fr"), "en/medalydridi.html": founder("en"),
   };

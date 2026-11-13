@@ -3,6 +3,14 @@
   "outputDirectory": "dist",
   "rewrites": [
     {
+      "source": "/en/projects",
+      "destination": "/en/projects.html"
+    },
+    {
+      "source": "/projets",
+      "destination": "/projets.html"
+    },
+    {
       "source": "/services",
       "destination": "/services.html"
     },
