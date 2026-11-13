@@ -29,6 +29,7 @@ const PATHS = {
   mesh: ["/projets", "/en/projects"],
   // the engineering section is a separate Next app (engineering/), built into public/engineering
   engineering: ["/engineering/", "/engineering/en/"],
+  architecture: ["/engineering/architecture/", "/engineering/en/architecture/"],
   blog: ["/blog", "/en/blog"],
   contact: ["/contact", "/en/contact"],
   careers: ["/carrieres", "/en/careers"],
@@ -46,7 +47,7 @@ const AI_CASES = [
 ];
 const DEVOPS_CASES = ["oncall-copilot", "predictive-autoscaling", "iac-security-review", "self-healing-ci", "idp-scaffolder"];
 const ENGINEERING_ROUTES = ["", "expertise", "systems", "ai", ...AI_CASES.map((s) => `ai/${s}`), "devops", ...DEVOPS_CASES.map((s) => `devops/${s}`), "work", "studio", "engagements", "nearshore", "architecture", "contact"];
-const full = (k) => (k === "engineering" ? " data-barba-prevent" : "");
+const full = (k) => (k === "engineering" || k === "architecture" ? " data-barba-prevent" : "");
 
 // ---------- escaping and light markup ----------
 const esc = (s) =>
@@ -276,12 +277,12 @@ ${altFr ? `    <link rel="alternate" hreflang="fr" href="${esc(SITE + altFr)}" /
     const sw = switchTo || PATHS[page][idx(other)];
     const cur = (k) => (k === page ? ' aria-current="page"' : "");
     // top bar: the brand already links home, so the bar lists the sections, then the showcase as a pill
-    const links = ["services", "mesh", "engineering", "blog", "contact"]
+    const links = ["services", "mesh", "engineering", "architecture", "blog", "contact"]
       .map((k) => `<li><a href="${PATHS[k][i]}"${full(k)}${cur(k)}>${esc(ui.nav[k])}</a></li>`)
       .join("");
     const artPill = `<a class="nav-art" href="${PATHS.art[i]}"${cur("art")}><i class="nav-art-dot" aria-hidden="true"></i>${esc(ui.nav.art)}</a>`;
     // full-screen menu: every page as a big serif line; the showcase gets its own card below the list
-    const items = ["home", "services", "mesh", "engineering", "blog", "contact", "careers"]
+    const items = ["home", "services", "mesh", "engineering", "architecture", "blog", "contact", "careers"]
       .map((k, n) => `        <li><a href="${PATHS[k][i]}"${full(k)}${cur(k)}><span class="menu-idx">(${pad(n + 1)})</span><span class="menu-name">${esc(ui.nav[k])}</span></a></li>`)
       .join("\n");
     const h = site[lang].home;

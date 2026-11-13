@@ -344,7 +344,8 @@
   align-items: baseline;
   gap: 1rem;
   font-family: var(--f-serif);
-  font-size: clamp(3.4rem, 15vw, 9rem);
+  /* capped by the height too: eight entries, the showcase card and the footer must fit on short phones */
+  font-size: clamp(2.4rem, min(15vw, calc(8svh - 0.5rem)), 9rem);
   line-height: 0.95;
 }
 .menu-list a:hover,

@@ -39,7 +39,8 @@
         "contact": "Contact",
         "founder": "Le fondateur",
         "careers": "Carrières",
-        "mesh": "Projets"
+        "mesh": "Projets",
+        "architecture": "Architecture"
       },
       "menu": "Menu",
       "drop": "Contactez-nous",
@@ -1219,7 +1220,8 @@
         "contact": "Contact",
         "founder": "The founder",
         "careers": "Careers",
-        "mesh": "Projects"
+        "mesh": "Projects",
+        "architecture": "Architecture"
       },
       "menu": "Menu",
       "drop": "Drop a line",
