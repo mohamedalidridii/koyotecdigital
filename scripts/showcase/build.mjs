@@ -5,6 +5,7 @@ import { execSync } from "node:child_process";
 import { existsSync, readFileSync, writeFileSync, readdirSync, statSync, rmSync, mkdirSync, cpSync, symlinkSync } from "node:fs";
 import { join, resolve, dirname, extname, relative } from "node:path";
 import { fileURLToPath } from "node:url";
+import { addTracker } from "./tracker.mjs";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "../..");
 const SRC = join(ROOT, "showcase");
@@ -117,6 +118,7 @@ for (const piece of pieces) {
       piece.framework === "next" ? buildNext(dir, base) : piece.framework === "vite" ? buildVite(dir, base) : buildStatic(dir);
     rebase(out, base, piece.framework === "next" && join(dir, "public"));
     badge(out, piece);
+    addTracker(out);
     const dest = join(OUT, piece.slug);
     rmSync(dest, { recursive: true, force: true });
     mkdirSync(dirname(dest), { recursive: true });

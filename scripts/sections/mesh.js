@@ -136,6 +136,16 @@ export function meshStage(scope, { ready = Promise.resolve() } = {}) {
   };
   stage.addEventListener("click", onFilter);
 
+  // ---- analytics: a concept opened from the 3D mesh or from the index list ----
+  let fromMesh = false;
+  const onOpen = (e) => {
+    const a = e.target.closest(".mesh-link");
+    if (!a) return;
+    window.umami?.track("concept-open", { project: a.dataset.slug, place: fromMesh ? "projets-mesh" : "projets-index" });
+    fromMesh = false;
+  };
+  scope.addEventListener("click", onOpen);
+
   // ---- the index below: keyboard focus names the node too ----
   const onFocus = (e) => {
     const a = e.target.closest(".mesh-link");
@@ -164,7 +174,10 @@ export function meshStage(scope, { ready = Promise.resolve() } = {}) {
           items: items.map((it) => ({ accent: it.accent, kind: it.kind })),
           reduced,
           onHover: show,
-          onPick: (i) => links[i].click(),
+          onPick: (i) => {
+            fromMesh = true;
+            links[i].click();
+          },
         });
         mesh.start();
         ready.then(() => !cancelled && mesh.intro());
@@ -205,6 +218,7 @@ export function meshStage(scope, { ready = Promise.resolve() } = {}) {
     stage.removeEventListener("click", onFilter);
     card.removeEventListener("click", openCard);
     scope.removeEventListener("focusin", onFocus);
+    scope.removeEventListener("click", onOpen);
     video.pause();
     mesh?.destroy();
     mesh = null;

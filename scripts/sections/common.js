@@ -142,3 +142,26 @@ export function article(scope) {
     gsap.to(bar, { scaleX: 1, ease: "none", scrollTrigger: { trigger: body, start: "top top", end: "bottom bottom", scrub: 0.3 } });
   }
 }
+
+// analytics: how far visitors read (25 / 50 / 75 / 100% of the main content), once per page view.
+// Runs on service pages, blog articles and case studies, even with reduced motion.
+export function scrollDepth(scope) {
+  const main = scope.querySelector("main");
+  if (!main) return;
+  const marks = [25, 50, 75, 100];
+  const sent = new Set();
+  const page = location.pathname;
+  const check = () => {
+    const r = main.getBoundingClientRect();
+    const read = (window.innerHeight - r.top) / Math.max(1, r.height);
+    for (const m of marks) {
+      if (!sent.has(m) && read >= m / 100 - (m === 100 ? 0.02 : 0)) {
+        sent.add(m);
+        window.umami?.track("scroll-depth", { page, depth: `${m}%` });
+      }
+    }
+    if (sent.size === marks.length) window.removeEventListener("scroll", check);
+  };
+  window.addEventListener("scroll", check, { passive: true });
+  return () => window.removeEventListener("scroll", check);
+}

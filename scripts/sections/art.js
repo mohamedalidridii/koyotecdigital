@@ -229,14 +229,20 @@ export function artViewer(scope) {
   const total = pad(cards.length);
   let current = -1;
 
-  const show = (i) => {
+  const show = (i, place = "exhibition") => {
     current = i;
     const card = cards[i];
     frame.src = card.getAttribute("href");
     open.href = card.getAttribute("href");
+    // analytics: which concepts get opened, and from where
+    window.umami?.track("concept-open", { project: card.dataset.slug, place });
+    open.dataset.umamiEvent = "concept-new-tab";
+    open.dataset.umamiEventProject = card.dataset.slug;
     if (story) {
       story.hidden = !card.dataset.case;
       story.href = card.dataset.case || "#";
+      story.dataset.umamiEvent = "case-open";
+      story.dataset.umamiEventProject = card.dataset.slug;
     }
     num.textContent = `${dialog.dataset.labelPiece} ${pad(i + 1)}/${total}`;
     client.textContent = card.querySelector(".art-client").textContent;
@@ -267,11 +273,11 @@ export function artViewer(scope) {
     const shown = cards.map((c, i) => [c, i]).filter(([c]) => !c.parentElement.hidden).map(([, i]) => i);
     const at = shown.indexOf(current);
     const next = shown[(at + dir + shown.length) % shown.length];
-    if (reduced) return show(next);
+    if (reduced) return show(next, "viewer");
     const screen = dialog.querySelector(".art-viewer-screen");
     gsap.timeline()
       .to(screen, { xPercent: -8 * dir, autoAlpha: 0, duration: 0.35, ease: "power2.in" })
-      .call(() => show(next))
+      .call(() => show(next, "viewer"))
       .fromTo(screen, { xPercent: 8 * dir }, { xPercent: 0, autoAlpha: 1, duration: 0.7 });
   };
 

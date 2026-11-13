@@ -11,7 +11,7 @@ import { initRouter } from "./core/router.js";
 import { autoSplits, drawLines } from "./core/reveal.js";
 import { homeHero, pageHero } from "./sections/intro.js";
 import { serviceHover, statement, rows } from "./sections/home.js";
-import { faq, cta, footer, contactForm, article } from "./sections/common.js";
+import { faq, cta, footer, contactForm, article, scrollDepth } from "./sections/common.js";
 import { artTheme, artHero, artExpo, artViewer, artTeaser, staticLetters } from "./sections/art.js";
 import { careersForm, careersPoles, careersTeaser } from "./sections/careers.js";
 import { engineeringHero } from "./sections/engHero.js";
@@ -31,7 +31,7 @@ const PAGES = {
   founder: [founderHero, founderManifesto, founderCounters, founderReel, founderMarquee, founderChapters, founderStage, cta],
 };
 // per-page systems that run even with reduced motion
-const ALWAYS = { home: [staticLetters, engineeringHero], art: [artTheme, artViewer, staticLetters], mesh: [artTheme, meshStage], founder: [founderTheme], careers: [careersForm] };
+const ALWAYS = { services: [scrollDepth], article: [scrollDepth], home: [staticLetters, engineeringHero], art: [artTheme, artViewer, staticLetters], mesh: [artTheme, meshStage], founder: [founderTheme], careers: [careersForm] };
 
 let ctx = null;
 let cleanups = [];

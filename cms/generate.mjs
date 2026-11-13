@@ -669,7 +669,7 @@ ${ctaSection(lang, { h: s.cta_h, button: s.cta })}`;
     const own = PATHS[key][i];
     const body = l.sections.map(([h, t]) => `          <h2>${esc(h)}</h2>\n          ${bodyHtml(t)}`).join("\n");
     const pieces = l.examples.map((slug) => art.find((p) => p.slug === slug)).filter(Boolean);
-    const examples = pieces.map((p, n) => `            <li data-line><a class="svc-row" href="/art-de-la-difference/${p.slug}/" target="_blank" rel="noopener" data-barba-prevent data-cursor="${c.enter}"><span class="svc-num">${pad(n + 1)}</span><span class="svc-name">${esc(p.client)}</span><span class="svc-desc">${esc(p[lang].sector)} · ${esc(p[lang].line)}</span></a></li>`).join("\n");
+    const examples = pieces.map((p, n) => `            <li data-line><a class="svc-row" href="/art-de-la-difference/${p.slug}/" target="_blank" rel="noopener" data-barba-prevent data-umami-event="concept-open" data-umami-event-project="${esc(p.slug)}" data-umami-event-place="service-examples" data-cursor="${c.enter}"><span class="svc-num">${pad(n + 1)}</span><span class="svc-name">${esc(p.client)}</span><span class="svc-desc">${esc(p[lang].sector)} · ${esc(p[lang].line)}</span></a></li>`).join("\n");
     const others = Object.keys(LANDINGS).filter((k) => k !== key && site[lang][k]).map((k) => [PATHS[k][i], site[lang][k].label]);
     const posts = l.posts.map((id) => blog[lang].find((a) => a.id === id)).filter(Boolean).map((a) => [artPath(lang, a), a.title]);
     const related = [...others, ...posts, [PATHS.services[i], ui.nav.services], [PATHS.art[i], ui.nav.art]]
@@ -1008,7 +1008,7 @@ ${ctaSection(lang, { kicker: c.cta_kicker, h: c.cta_kicker, giant: c.cta_giant, 
                 <span class="art-sector">${esc(t.sector)} · ${esc(p.year)}</span>
                 <span class="art-line">${esc(t.line)}</span>
               </a>
-${hasCase(lang, p) ? `              <a class="art-case-link" href="${casePath(lang, p)}" data-barba-prevent>${esc(a.case_link)} →</a>
+${hasCase(lang, p) ? `              <a class="art-case-link" href="${casePath(lang, p)}" data-barba-prevent data-umami-event="case-open" data-umami-event-project="${esc(p.slug)}">${esc(a.case_link)} →</a>
 ` : ""}            </li>`;
     }).join("\n");
     const filters = [["all", a.all], ["entreprise", a.business], ["personal", a.personal]]
