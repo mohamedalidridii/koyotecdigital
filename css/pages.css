@@ -418,6 +418,19 @@ a.al-line:hover {
 .article-body li + li {
   margin-top: 0.5rem;
 }
+.article-body a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+.article-body a:hover {
+  text-decoration-thickness: 2px;
+}
+.article-body .article-q {
+  margin-top: 2.4rem;
+  font-size: clamp(1.4rem, 2vw, 1.75rem);
+  line-height: 1.2;
+}
 .article-intro {
   font-family: var(--f-serif);
   font-size: clamp(1.6rem, 2.4vw, 2.2rem);

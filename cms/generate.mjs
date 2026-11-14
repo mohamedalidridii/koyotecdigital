@@ -56,6 +56,11 @@ const esc = (s) =>
 // [[word]] -> highlighted word, applied after escaping
 const inline = (s) => esc(s).replace(/\[\[(.+?)\]\]/g, '<span class="highlight">$1</span>');
 
+// body text links, applied after escaping: [label](https://…) opens in a new tab, [label](/path) stays on the site
+const rich = (s) =>
+  esc(s).replace(/\[([^\]]+)\]\(((?:https:\/\/|\/)[^)\s]+)\)/g, (_, label, href) =>
+    href.startsWith("/") ? `<a href="${href}">${label}</a>` : `<a href="${href}" target="_blank" rel="noopener">${label}</a>`);
+
 // body text: blank line = new paragraph, lines starting with "- " = bullet list
 function bodyHtml(text) {
   return String(text)
@@ -65,9 +70,9 @@ function bodyHtml(text) {
     .map((block) => {
       const lines = block.split("\n").map((l) => l.trim());
       if (lines.every((l) => l.startsWith("- "))) {
-        return `<ul>${lines.map((l) => `<li>${esc(l.slice(2))}</li>`).join("")}</ul>`;
+        return `<ul>${lines.map((l) => `<li>${rich(l.slice(2))}</li>`).join("")}</ul>`;
       }
-      return `<p>${lines.map(esc).join("<br />")}</p>`;
+      return `<p>${lines.map(rich).join("<br />")}</p>`;
     })
     .join("\n      ");
 }
@@ -1250,7 +1255,8 @@ ${rows}
     const own = artPath(lang, a);
     const altFr = lang === "fr" ? own : sib ? artPath("fr", sib) : null;
     const altEn = lang === "en" ? own : sib ? artPath("en", sib) : null;
-    const body = a.sections.map(([h, c]) => `          <h2>${esc(h)}</h2>\n          ${bodyHtml(c)}`).join("\n");
+    const body = a.sections.map(([h, c]) => `          <h2>${esc(h)}</h2>\n          ${bodyHtml(c)}`).join("\n")
+      + (a.faq ? `\n          <h2>${esc(a.faq_h || "FAQ")}</h2>\n` + a.faq.map(([q, r]) => `          <h3 class="article-q">${esc(q)}</h3>\n          ${bodyHtml(r)}`).join("\n") : "");
     const modified = a.updated || a.date;
     const ld = graph(
       {
@@ -1259,6 +1265,7 @@ ${rows}
         author: { "@id": SITE + "/#organization" }, publisher: { "@id": SITE + "/#organization" },
       },
       crumbs([b.home, SITE + PATHS.home[i]], ["Blog", SITE + PATHS.blog[i]], [a.title, SITE + own]),
+      ...(a.faq ? [faqLd(a.faq.map(([q, r]) => [q, r.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")]))] : []),
     );
     const switchTo = lang === "fr" ? (altEn || PATHS.blog[1]) : (altFr || PATHS.blog[0]);
     const main = `      <div class="read-progress" aria-hidden="true"></div>
@@ -1273,8 +1280,10 @@ ${rows}
 ${body}
         </div>
         <aside class="article-cta shell">
-          <h2>${esc(b.cta_h)}</h2>
-          <div class="cta-links">${link(PATHS.contact[i], b.cta)} ${landingsFor(lang, a).map(([href, label]) => link(href, label)).join(" ") || link(PATHS.services[i], t.ui.nav.services)}</div>
+          <h2>${esc(a.cta_h || b.cta_h)}</h2>
+          <div class="cta-links">${a.cta_links
+            ? a.cta_links.map(([href, label]) => link(href, label, /^https:/.test(href) ? ' target="_blank" rel="noopener"' : "")).join(" ")
+            : `${link(PATHS.contact[i], b.cta)} ${landingsFor(lang, a).map(([href, label]) => link(href, label)).join(" ") || link(PATHS.services[i], t.ui.nav.services)}`}</div>
         </aside>
       </article>`;
     const head = headTag({ lang, title: a.seo_title || `${a.title} – ${G.name}`, desc: a.desc, canon: own, altFr, altEn, ld, ogType: "article" });

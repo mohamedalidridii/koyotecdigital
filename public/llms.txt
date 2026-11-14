@@ -36,6 +36,7 @@ Full text of the main pages: https://www.koyotec.digital/llms-full.txt
 
 ### Articles
 
+- [Free AWS certification in 2026: the official programs that give you a voucher](https://www.koyotec.digital/en/blog/free-aws-certification-voucher): How to take an AWS certification for free or at 50% off in 2026: AWS Educate, Student Rewards, re/Start, Skill Builder. Eligibility checked, including from Tunisia.
 - [How Much Does a Website Cost in Tunisia?](https://www.koyotec.digital/en/blog/website-design-cost-tunisia): The factors that change the price of a website in Tunisia: site type, design, features and SEO. A guide to prepare your budget and compare quotes.
 - [SEO in Tunis: How to Rank on Google](https://www.koyotec.digital/en/blog/seo-tunis-rank-on-google): SEO basics for a business in Tunis: keywords, content, Google Business Profile, speed and links. A practical step-by-step guide.
 - [Logo and Brand Identity: Why It Matters for Your Business](https://www.koyotec.digital/en/blog/logo-brand-identity-guide): Logo, colors, typography, brand guidelines: what a brand identity includes and why it helps your business stand out and build trust.
@@ -62,6 +63,7 @@ Full text of the main pages: https://www.koyotec.digital/llms-full.txt
 
 ### Articles
 
+- [Certification AWS gratuite en 2026 : les programmes officiels pour obtenir un voucher](https://www.koyotec.digital/blog/certification-aws-gratuite): Passer une certification AWS gratuitement ou à -50 % en 2026 : AWS Educate, Student Rewards, re/Start, Skill Builder. Conditions vérifiées, y compris depuis la Tunisie.
 - [Combien coûte la création d'un site web en Tunisie ?](https://www.koyotec.digital/blog/cout-creation-site-web-tunisie): Les facteurs qui font varier le prix d'un site internet en Tunisie : type de site, design, fonctionnalités, SEO. Guide pour préparer votre budget et votre devis.
 - [SEO à Tunis : comment apparaître sur Google](https://www.koyotec.digital/blog/seo-tunis-apparaitre-sur-google): Les bases du référencement naturel pour une entreprise à Tunis : mots-clés, contenu, Google Business Profile, vitesse et liens. Guide pratique étape par étape.
 - [Logo et identité visuelle : pourquoi c'est essentiel pour votre entreprise](https://www.koyotec.digital/blog/logo-identite-visuelle-entreprise): Logo, couleurs, typographie, charte graphique : ce que comprend une identité visuelle et pourquoi elle aide votre entreprise à se démarquer et à inspirer confiance.

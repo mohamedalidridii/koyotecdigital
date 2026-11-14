@@ -114,14 +114,14 @@
   </url>
   <url>
     <loc>https://www.koyotec.digital/blog</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/blog"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/blog"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/blog"/>
   </url>
   <url>
     <loc>https://www.koyotec.digital/en/blog</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/blog"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/blog"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/blog"/>
@@ -993,6 +993,20 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/engineering/contact/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/engineering/en/contact/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/engineering/contact/"/>
+  </url>
+  <url>
+    <loc>https://www.koyotec.digital/blog/certification-aws-gratuite</loc>
+    <lastmod>2026-11-14</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/blog/certification-aws-gratuite"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/blog/free-aws-certification-voucher"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/blog/certification-aws-gratuite"/>
+  </url>
+  <url>
+    <loc>https://www.koyotec.digital/en/blog/free-aws-certification-voucher</loc>
+    <lastmod>2026-11-14</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.koyotec.digital/blog/certification-aws-gratuite"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koyotec.digital/en/blog/free-aws-certification-voucher"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.koyotec.digital/blog/certification-aws-gratuite"/>
   </url>
   <url>
     <loc>https://www.koyotec.digital/blog/cout-creation-site-web-tunisie</loc>
