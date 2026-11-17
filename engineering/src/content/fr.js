@@ -1837,6 +1837,15 @@ const fr = {
     error: "Le message n'a pas pu être envoyé. Réessayez, ou contactez-nous sur",
     mailCompany: "Entreprise",
     mailNeed: "Besoin",
+    errors: {
+      nameRequired: "Veuillez indiquer votre nom.",
+      nameShort: "Votre nom semble trop court.",
+      emailRequired: "Veuillez indiquer votre adresse e-mail.",
+      emailInvalid: "Cette adresse e-mail n'est pas valide (exemple : nom@entreprise.com).",
+      messageRequired: "Décrivez votre projet en quelques mots.",
+      messageShort: "Un peu plus de détails, s'il vous plaît (au moins 10 caractères).",
+      ok: "✓",
+    },
   },
 
   faq: {

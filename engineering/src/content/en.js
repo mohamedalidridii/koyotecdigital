@@ -1835,6 +1835,15 @@ const en = {
     error: "The message could not be sent. Please try again, or reach us on",
     mailCompany: "Company",
     mailNeed: "Need",
+    errors: {
+      nameRequired: "Please enter your name.",
+      nameShort: "Your name looks too short.",
+      emailRequired: "Please enter your email address.",
+      emailInvalid: "This email address is not valid (example: name@company.com).",
+      messageRequired: "Please describe your project in a few words.",
+      messageShort: "A little more detail, please (at least 10 characters).",
+      ok: "✓",
+    },
   },
 
   faq: {

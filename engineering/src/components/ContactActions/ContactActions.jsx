@@ -11,6 +11,8 @@ import { CONTACT } from "@/content/shared";
 
 // The contact form API (ops/contact-api on the KOYOTEC VPS) accepts requests from www.koyotec.digital.
 const API = "https://api.koyotec.digital/contact";
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const MIN_MESSAGE = 10;
 
 const track = (name, data) => {
   try {
@@ -20,11 +22,43 @@ const track = (name, data) => {
   }
 };
 
+// returns the error label for a field, or "" when the value is valid
+function validate(name, value, e) {
+  const v = String(value ?? "").trim();
+  if (name === "name") {
+    if (!v) return e.nameRequired;
+    if (v.length < 2) return e.nameShort;
+  }
+  if (name === "email") {
+    if (!v) return e.emailRequired;
+    if (!EMAIL_RE.test(v)) return e.emailInvalid;
+  }
+  if (name === "message") {
+    if (!v) return e.messageRequired;
+    if (v.length < MIN_MESSAGE) return e.messageShort;
+  }
+  return "";
+}
+
+const REQUIRED = ["name", "email", "message"];
+
 export default function ContactActions() {
   const { t, lang } = useLang();
   const c = t.contactForm;
   const [status, setStatus] = useState("idle"); // idle | sending | sent | error
+  const [values, setValues] = useState({ name: "", email: "", message: "" });
+  const [touched, setTouched] = useState({});
   const waHref = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(c.waText)}`;
+
+  const errors = Object.fromEntries(REQUIRED.map((n) => [n, validate(n, values[n], c.errors)]));
+  const errorOf = (n) => (touched[n] ? errors[n] : "");
+
+  // live check: once a field has been left (or a submit was tried), its label updates on every keystroke
+  const onChange = (e) => setValues((v) => ({ ...v, [e.target.name]: e.target.value }));
+  const onBlur = (e) => {
+    const n = e.target.name;
+    setTouched((s) => (s[n] ? s : { ...s, [n]: true }));
+  };
 
   const scrollToForm = (e) => {
     e.preventDefault();
@@ -35,14 +69,21 @@ export default function ContactActions() {
   async function onSubmit(e) {
     e.preventDefault();
     if (status === "sending") return;
-    const f = new FormData(e.currentTarget);
-    if (!String(f.get("name") || "").trim() || !String(f.get("email") || "").trim() || !String(f.get("message") || "").trim()) return;
+    const form = e.currentTarget;
+    const firstBad = REQUIRED.find((n) => errors[n]);
+    if (firstBad) {
+      setTouched({ name: true, email: true, message: true });
+      form.querySelector(`[name="${firstBad}"]`)?.focus();
+      track("eng-form-invalid", { field: firstBad });
+      return;
+    }
+    const f = new FormData(form);
     const need = String(f.get("need") || "");
     const company = String(f.get("company") || "").trim();
     const body = {
-      name: String(f.get("name") || "").trim(),
-      email: String(f.get("email") || "").trim(),
-      message: `${String(f.get("message") || "").trim()}\n\n${c.mailCompany}: ${company || "-"}\n${c.mailNeed}: ${need || "-"}\n(Koyotec Engineering)`,
+      name: values.name.trim(),
+      email: values.email.trim(),
+      message: `${values.message.trim()}\n\n${c.mailCompany}: ${company || "-"}\n${c.mailNeed}: ${need || "-"}\n(Koyotec Engineering)`,
       type: [`Engineering: ${need || "-"}`],
       lang,
       website: String(f.get("website") || ""), // honeypot
@@ -62,6 +103,30 @@ export default function ContactActions() {
       track("eng-form-error", { lang });
     }
   }
+
+  const field = (n) => {
+    const err = errorOf(n);
+    const ok = touched[n] && !errors[n];
+    return {
+      name: n,
+      value: values[n],
+      onChange,
+      onBlur,
+      "aria-invalid": err ? "true" : "false",
+      "aria-describedby": `${n}-hint`,
+      className: err ? styles.invalid : ok ? styles.valid : undefined,
+    };
+  };
+
+  const hint = (n) => {
+    const err = errorOf(n);
+    const ok = touched[n] && !errors[n];
+    return (
+      <span id={`${n}-hint`} className={err ? styles.hintError : styles.hintOk} aria-live="polite">
+        {err || (ok ? c.errors.ok : "")}
+      </span>
+    );
+  };
 
   return (
     <section className={styles.actions} aria-label={c.ariaLabel}>
@@ -115,10 +180,11 @@ export default function ContactActions() {
               <p>{c.sentCopy}</p>
             </div>
           ) : (
-            <form className={styles.form} onSubmit={onSubmit} noValidate={false}>
+            <form className={styles.form} onSubmit={onSubmit} noValidate>
               <label className={styles.field}>
                 <span>{c.name} *</span>
-                <input name="name" type="text" required maxLength={120} autoComplete="name" />
+                <input type="text" maxLength={120} autoComplete="name" {...field("name")} />
+                {hint("name")}
               </label>
               <label className={styles.field}>
                 <span>{c.company}</span>
@@ -126,7 +192,8 @@ export default function ContactActions() {
               </label>
               <label className={styles.field}>
                 <span>{c.email} *</span>
-                <input name="email" type="email" required maxLength={200} autoComplete="email" />
+                <input type="email" maxLength={200} autoComplete="email" inputMode="email" {...field("email")} />
+                {hint("email")}
               </label>
               <label className={styles.field}>
                 <span>{c.need}</span>
@@ -143,7 +210,8 @@ export default function ContactActions() {
               </label>
               <label className={`${styles.field} ${styles.full}`}>
                 <span>{c.message} *</span>
-                <textarea name="message" required rows={5} maxLength={5000} placeholder={c.messagePlaceholder} />
+                <textarea rows={5} maxLength={5000} placeholder={c.messagePlaceholder} {...field("message")} />
+                {hint("message")}
               </label>
               {/* honeypot: hidden from humans, bots fill it */}
               <label className={styles.hp} aria-hidden="true">

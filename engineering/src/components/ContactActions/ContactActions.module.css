@@ -234,3 +234,31 @@
     width: 100%;
   }
 }
+
+/* live validation labels */
+.hintError,
+.hintOk {
+  min-height: 1.1em;
+  font-family: var(--font-google-sans-code), monospace;
+  font-size: 0.75rem;
+  line-height: 1.3;
+}
+
+.hintError {
+  color: var(--base-300);
+}
+
+.hintOk {
+  color: #128c4a;
+}
+
+.field input.invalid,
+.field textarea.invalid {
+  border-color: var(--base-300);
+  background-color: #fff5f5;
+}
+
+.field input.valid,
+.field textarea.valid {
+  border-color: #128c4a;
+}
