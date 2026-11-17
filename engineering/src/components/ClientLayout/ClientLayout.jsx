@@ -69,8 +69,41 @@ function LenisGate() {
   return null;
 }
 
+// analytics: how far visitors scroll each Engineering page (25 / 50 / 75 / 100%), once per page view.
+// Same event as the koyotec.digital articles ("scroll-depth" with page + depth).
+function useScrollDepth(pathname) {
+  useEffect(() => {
+    const marks = [25, 50, 75, 100];
+    const sent = new Set();
+    const check = () => {
+      const doc = document.documentElement;
+      const read = (window.scrollY + window.innerHeight) / Math.max(1, doc.scrollHeight);
+      for (const m of marks) {
+        if (!sent.has(m) && read >= m / 100 - (m === 100 ? 0.02 : 0)) {
+          sent.add(m);
+          try {
+            // full path (with /engineering), like the rest of the site's analytics
+            window.umami?.track("scroll-depth", { page: window.location.pathname, depth: `${m}%` });
+          } catch {
+            /* ignore */
+          }
+        }
+      }
+    };
+    // wait for the page transition and intro before measuring
+    const start = setTimeout(() => {
+      window.addEventListener("scroll", check, { passive: true });
+    }, 1500);
+    return () => {
+      clearTimeout(start);
+      window.removeEventListener("scroll", check);
+    };
+  }, [pathname]);
+}
+
 export default function ClientLayout({ children }) {
   const [isMobile, setIsMobile] = useState(false);
+  useScrollDepth(usePathname());
 
   useEffect(() => {
     const handleResize = () =>

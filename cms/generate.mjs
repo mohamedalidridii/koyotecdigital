@@ -215,7 +215,7 @@ ${altFr ? `    <link rel="alternate" hreflang="fr" href="${esc(SITE + altFr)}" /
     <link rel="preload" href="/fonts/instrument-serif-400.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/geist-variable.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/css/main.css" />
-${G.analytics?.id ? `    <script defer src="${esc(G.analytics.src)}" data-website-id="${esc(G.analytics.id)}" data-domains="www.koyotec.digital,koyotec.digital"></script>\n` : ""}    <script type="application/ld+json">${ldJson(ld)}</script>
+${G.analytics?.id ? `    <script defer src="${esc(G.analytics.src)}" data-website-id="${esc(G.analytics.id)}" data-domains="www.koyotec.digital,koyotec.digital" data-performance="true" data-errors="true"></script>\n` : ""}    <script type="application/ld+json">${ldJson(ld)}</script>
   </head>`;
   }
 
@@ -376,8 +376,8 @@ ${Object.keys(LANDINGS).filter((k) => t[k]).map((k) => `            <a href="${P
           <div>
             <h2 class="footer-h">${esc(ui.footer_follow)}</h2>
             <a href="${esc(G.instagram)}" target="_blank" rel="noopener noreferrer"${ev("instagram", "footer")}>Instagram</a>
-            <a href="${esc(G.youtube)}" target="_blank" rel="noopener noreferrer">YouTube</a>${G.linkedin ? `
-            <a href="${esc(G.linkedin)}" target="_blank" rel="noopener noreferrer">LinkedIn</a>` : ""}${G.facebook ? `
+            <a href="${esc(G.youtube)}" target="_blank" rel="noopener noreferrer"${ev("youtube", "footer")}>YouTube</a>${G.linkedin ? `
+            <a href="${esc(G.linkedin)}" target="_blank" rel="noopener noreferrer"${ev("linkedin", "footer")}>LinkedIn</a>` : ""}${G.facebook ? `
             <a href="${esc(G.facebook)}" target="_blank" rel="noopener noreferrer">Facebook</a>` : ""}${pageKey === "home" && G.designrush ? `
             <a href="${esc(G.designrush)}" target="_blank" rel="noopener">Check out our listing on DesignRush</a>` : ""}
           </div>
@@ -1257,6 +1257,10 @@ ${rows}
     const altEn = lang === "en" ? own : sib ? artPath("en", sib) : null;
     const body = a.sections.map(([h, c]) => `          <h2>${esc(h)}</h2>\n          ${bodyHtml(c)}`).join("\n")
       + (a.faq ? `\n          <h2>${esc(a.faq_h || "FAQ")}</h2>\n` + a.faq.map(([q, r]) => `          <h3 class="article-q">${esc(q)}</h3>\n          ${bodyHtml(r)}`).join("\n") : "");
+    // analytics: which articles send readers to Engineering (pilots, contact)
+    const artEv = ` data-umami-event="article-to-engineering" data-umami-event-article="${esc(a.slug)}"`;
+    const bodyTracked = body.replace(/<a href="(\/engineering[^"]*)"/g, (_, h) => `<a href="${h}"${artEv}`);
+    const ctaEv = (href) => ` data-umami-event="article-cta" data-umami-event-article="${esc(a.slug)}" data-umami-event-href="${esc(href)}"`;
     const modified = a.updated || a.date;
     const ld = graph(
       {
@@ -1277,12 +1281,12 @@ ${rows}
         </header>
         <div class="article-body">
           <p class="article-intro">${esc(a.intro)}</p>
-${body}
+${bodyTracked}
         </div>
         <aside class="article-cta shell">
           <h2>${esc(a.cta_h || b.cta_h)}</h2>
           <div class="cta-links">${a.cta_links
-            ? a.cta_links.map(([href, label]) => link(href, label, /^https:/.test(href) ? ' target="_blank" rel="noopener"' : "")).join(" ")
+            ? a.cta_links.map(([href, label]) => link(href, label, (/^https:/.test(href) ? ' target="_blank" rel="noopener"' : "") + ctaEv(href))).join(" ")
             : `${link(PATHS.contact[i], b.cta)} ${landingsFor(lang, a).map(([href, label]) => link(href, label)).join(" ") || link(PATHS.services[i], t.ui.nav.services)}`}</div>
         </aside>
       </article>`;

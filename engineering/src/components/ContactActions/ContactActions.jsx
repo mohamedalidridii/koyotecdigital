@@ -2,7 +2,7 @@
 
 import styles from "./ContactActions.module.css";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { FiArrowRight, FiArrowDown, FiMail } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 
@@ -48,6 +48,13 @@ export default function ContactActions() {
   const [status, setStatus] = useState("idle"); // idle | sending | sent | error
   const [values, setValues] = useState({ name: "", email: "", message: "" });
   const [touched, setTouched] = useState({});
+  const started = useRef(false);
+  // analytics: form started (first focus), compared with eng-form-sent it gives the abandonment rate
+  const onStart = () => {
+    if (started.current) return;
+    started.current = true;
+    track("eng-form-start", { lang });
+  };
   const waHref = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(c.waText)}`;
 
   const errors = Object.fromEntries(REQUIRED.map((n) => [n, validate(n, values[n], c.errors)]));
@@ -180,7 +187,7 @@ export default function ContactActions() {
               <p>{c.sentCopy}</p>
             </div>
           ) : (
-            <form className={styles.form} onSubmit={onSubmit} noValidate>
+            <form className={styles.form} onSubmit={onSubmit} onFocus={onStart} noValidate>
               <label className={styles.field}>
                 <span>{c.name} *</span>
                 <input type="text" maxLength={120} autoComplete="name" {...field("name")} />

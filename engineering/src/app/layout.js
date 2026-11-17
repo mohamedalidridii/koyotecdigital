@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
         <script dangerouslySetInnerHTML={{ __html: HANDOFF_SCRIPT }} />
         {/* cookieless analytics, same Umami website as koyotec.digital */}
         {ANALYTICS.id ? (
-          <script defer src={ANALYTICS.src} data-website-id={ANALYTICS.id} data-domains="www.koyotec.digital,koyotec.digital" />
+          <script defer src={ANALYTICS.src} data-website-id={ANALYTICS.id} data-domains="www.koyotec.digital,koyotec.digital" data-performance="true" data-errors="true" />
         ) : null}
       </head>
       <body>

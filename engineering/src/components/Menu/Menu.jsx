@@ -356,6 +356,8 @@ function MenuPanel() {
             href={localize(other, route)}
             hrefLang={other}
             lang={other}
+            data-umami-event="lang-switch"
+            data-umami-event-to={other}
             aria-label={t.menu.switchName}
             className={`mono sm ${styles.reveal}`}
           >
