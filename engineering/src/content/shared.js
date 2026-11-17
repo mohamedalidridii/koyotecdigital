@@ -5,7 +5,9 @@ export const ANALYTICS = { src: "https://analytics.koyotec.digital/script.js", i
 export const CONTACT = {
   phone: { href: "tel:+21652405699", text: "+216 52 405 699", event: "phone" },
   email: { href: "mailto:contact@koyotec.digital", text: "contact@koyotec.digital", event: "email" },
+  whatsapp: "21652405699",
   social: [
+    { href: "https://www.linkedin.com/company/88672837", text: "LinkedIn", external: true, event: "linkedin" },
     { href: "https://www.instagram.com/koyotec.digital/", text: "Instagram", external: true },
     { href: "https://www.youtube.com/@medaly.dridiy", text: "YouTube", external: true },
   ],

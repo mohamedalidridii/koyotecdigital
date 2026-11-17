@@ -54,6 +54,7 @@ export default function PageHeader({
   subtitle,
   description,
   icon = "WorkspaceIcon",
+  compact = false, // shorter header, so what follows (e.g. contact buttons) shows on the first screen
 }) {
   const sectionRef = useRef(null);
   const iconRef = useRef(null);
@@ -85,7 +86,7 @@ export default function PageHeader({
   );
 
   return (
-    <section ref={sectionRef} className={styles.pageHeader}>
+    <section ref={sectionRef} className={`${styles.pageHeader}${compact ? ` ${styles.compact}` : ""}`}>
       <div className={`container ${styles.container}`}>
         <div className={styles.inner}>
           <Copy animateOnScroll={false} delay={HEADING_DELAY}>

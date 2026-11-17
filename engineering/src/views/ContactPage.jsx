@@ -1,4 +1,5 @@
 import PageHeader from "@/components/PageHeader";
+import ContactActions from "@/components/ContactActions";
 import ContactBanner from "@/components/ContactBanner";
 import FAQ from "@/components/FAQ";
 
@@ -8,7 +9,9 @@ export default function ContactPage({ lang }) {
   const page = DICTS[lang].pages.contact;
   return (
     <>
-      <PageHeader {...page} icon="SendIcon" />
+      <PageHeader {...page} icon="SendIcon" compact />
+
+      <ContactActions />
 
       <ContactBanner />
 

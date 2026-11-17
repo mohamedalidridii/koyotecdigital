@@ -20,6 +20,7 @@ import { localize } from "@/lib/i18n";
 import {
   HOME_COPY_BASE_DELAY,
   PRELOADER_COPY_BASE_DELAY,
+  introWait,
   shouldShowPreloader,
 } from "@/lib/preloader";
 
@@ -52,9 +53,7 @@ function MenuPanel() {
   const NAV_LINKS = t.nav.map((link) => ({ ...link, href: href(link.route) }));
   const other = lang === "en" ? "fr" : "en";
   const playIntro = isHome && shouldShowPreloader();
-  const introDelay = playIntro
-    ? PRELOADER_COPY_BASE_DELAY - HOME_COPY_BASE_DELAY + 0.75
-    : 0;
+  const introDelay = playIntro ? introWait() + 0.75 : 0;
 
   isOpenRef.current = isOpen;
 

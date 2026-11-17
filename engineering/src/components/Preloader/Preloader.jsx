@@ -19,6 +19,7 @@ import {
   PRELOADER_OPEN_DURATION,
   PRELOADER_OVERLAY_HOLD,
   PRELOADER_PROGRESS_FADE,
+  markIntroPlayed,
 } from "@/lib/preloader";
 
 gsap.registerPlugin(CustomEase);
@@ -50,6 +51,7 @@ export default function Preloader({ active = true, onExpand }) {
       const counter = counterRef.current;
       if (!overlay || !progressBar || !counter) return;
 
+      markIntroPlayed(); // later visits in this session get the fast intro
       gsap.set(overlay, { clipPath: CLIP_START, autoAlpha: 1 });
       gsap.set(progressBar, { width: "25vw", opacity: 1 });
       gsap.set(counter, { innerHTML: 0 });

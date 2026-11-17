@@ -26,6 +26,7 @@ import {
   PRELOADER_COPY_BASE_DELAY,
   PRELOADER_EASE,
   PRELOADER_HERO_SCALE_DURATION,
+  introWait,
   markPreloaderSeen,
   shouldShowPreloader,
 } from "@/lib/preloader";
@@ -65,9 +66,7 @@ export default function Home() {
       clearTimeout(t);
     };
   }, [handoff]);
-  const wait = showPreloader
-    ? PRELOADER_COPY_BASE_DELAY - HOME_COPY_BASE_DELAY
-    : 0;
+  const wait = showPreloader ? introWait() : 0;
 
   useEffect(() => {
     return () => {
