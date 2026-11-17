@@ -129,6 +129,51 @@
       "permanent": true
     },
     {
+      "source": "/fr",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:page(catalogue|editorial|info)",
+      "destination": "/art-de-la-difference/nur-objects/:page/",
+      "permanent": true
+    },
+    {
+      "source": "/:page(chambres|terrasse)",
+      "destination": "/art-de-la-difference/dar-zitouna/:page/",
+      "permanent": true
+    },
+    {
+      "source": "/:page(sample-space|spaces|blueprints)",
+      "destination": "/art-de-la-difference/atelier-terrah/:page/",
+      "permanent": true
+    },
+    {
+      "source": "/:page(sample-project|stories)",
+      "destination": "/art-de-la-difference/bruit-poli/:page/",
+      "permanent": true
+    },
+    {
+      "source": "/brief",
+      "destination": "/art-de-la-difference/ghoula-games/brief/",
+      "permanent": true
+    },
+    {
+      "source": "/:page(menu|reservation)",
+      "destination": "/art-de-la-difference/table-yasmina/:page/",
+      "permanent": true
+    },
+    {
+      "source": "/art-de-la-difference/sable-noir-films/:page(work|directors|contact|culture|film)",
+      "destination": "/art-de-la-difference/sable-noir-films/:page.html",
+      "permanent": true
+    },
+    {
+      "source": "/art-de-la-difference/ciel-de-douz/:page(expedition|observatory|traces|contact)",
+      "destination": "/art-de-la-difference/ciel-de-douz/:page.html",
+      "permanent": true
+    },
+    {
       "source": "/engineering",
       "destination": "/engineering/",
       "permanent": true

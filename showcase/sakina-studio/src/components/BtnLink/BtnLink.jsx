@@ -3,6 +3,7 @@ import { useTransitionRouter } from "next-view-transitions";
 import { IoMdArrowForward } from "react-icons/io";
 
 import "./BtnLink.css";
+import { withBase } from "@/utils/withBase";
 
 const BtnLink = ({ label, route, dark = false }) => {
   const router = useTransitionRouter();
@@ -55,7 +56,7 @@ const BtnLink = ({ label, route, dark = false }) => {
   return (
     <a
       className={`sm caps mono ${dark ? "link-dark" : "link-light"}`}
-      href={route}
+      href={withBase(route)}
       onClick={handleClick}
     >
       <div

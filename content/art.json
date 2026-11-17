@@ -1183,6 +1183,7 @@
   {
     "slug": "ines-morel",
     "framework": "vite",
+    "routes": ["work", "photos", "project", "gallery"],
     "source": "CGMWTMAY2024/CGMWTMAY2024/Source Code /alejandro-ortiz",
     "client": "Inès Morel",
     "kind": "personal",

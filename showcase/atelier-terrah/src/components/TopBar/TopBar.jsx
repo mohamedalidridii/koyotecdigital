@@ -8,6 +8,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 import { useViewTransition } from "@/hooks/useViewTransition";
 import AnimatedButton from "../AnimatedButton/AnimatedButton";
+import { withBase } from "@/utils/withBase";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -70,7 +71,7 @@ const TopBar = () => {
     <div className="top-bar" ref={topBarRef}>
       <div className="top-bar-logo">
         <a
-          href="/"
+          href={withBase("/")}
           onClick={(e) => {
             e.preventDefault();
             navigateWithTransition("/");

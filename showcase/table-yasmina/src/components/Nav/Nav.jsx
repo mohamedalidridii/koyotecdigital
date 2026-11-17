@@ -8,6 +8,7 @@ import gsap from "gsap";
 import { useViewTransition } from "@/hooks/useViewTransition";
 
 import "./Nav.css";
+import { withBase } from "@/utils/withBase";
 
 const NAV_LINKS = [
   { label: "Home", href: "/", img: "/menu/menu-home.jpg" },
@@ -281,7 +282,7 @@ export default function Nav({ pageRef }) {
       <nav className="nav-bar">
         <div className="nav-logo">
           <a
-            href="/"
+            href={withBase("/")}
             onClick={(e) => {
               e.preventDefault();
               navigateWithTransition("/");
@@ -322,7 +323,7 @@ export default function Nav({ pageRef }) {
                 {NAV_LINKS.map((link) => (
                   <div className="nav-link" key={link.label}>
                     <a
-                      href={link.href}
+                      href={withBase(link.href)}
                       data-img={link.img}
                       onMouseOver={() => handleLinkHover(link.img)}
                       onClick={(e) => {

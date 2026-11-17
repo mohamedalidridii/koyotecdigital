@@ -8,6 +8,7 @@ import gsap from "gsap";
 import CustomEase from "gsap/CustomEase";
 import { useGSAP } from "@gsap/react";
 import { useTransitionRouter } from "next-view-transitions";
+import { withBase } from "@/utils/withBase";
 
 gsap.registerPlugin(CustomEase);
 CustomEase.create("hop", ".15, 1, .25, 1");
@@ -331,7 +332,7 @@ const Menu = () => {
         <div className="nav-logo">
           <div className="revealer">
             <a
-              href="/"
+              href={withBase("/")}
               ref={navLogoRef}
               onClick={(e) => {
                 e.preventDefault();
@@ -374,7 +375,7 @@ const Menu = () => {
           <div className="menu-overlay-nav-logo">
             <div className="revealer">
               <a
-                href="/"
+                href={withBase("/")}
                 ref={overlayLogoRef}
                 onClick={(e) => {
                   e.preventDefault();
@@ -394,7 +395,7 @@ const Menu = () => {
         <div className="menu-overlay-items" ref={menuItemsRef}>
           <div className="revealer">
             <a
-              href="/"
+              href={withBase("/")}
               onClick={(e) => {
                 e.preventDefault();
                 navigateTo("/");
@@ -405,7 +406,7 @@ const Menu = () => {
           </div>
           <div className="revealer">
             <a
-              href="/catalogue"
+              href={withBase("/catalogue")}
               onClick={(e) => {
                 e.preventDefault();
                 navigateTo("/catalogue");
@@ -416,7 +417,7 @@ const Menu = () => {
           </div>
           <div className="revealer">
             <a
-              href="/info"
+              href={withBase("/info")}
               onClick={(e) => {
                 e.preventDefault();
                 navigateTo("/info");
@@ -427,7 +428,7 @@ const Menu = () => {
           </div>
           <div className="revealer">
             <a
-              href="/archive"
+              href={withBase("/archive")}
               onClick={(e) => {
                 e.preventDefault();
                 navigateTo("/archive");
@@ -438,7 +439,7 @@ const Menu = () => {
           </div>
           <div className="revealer">
             <a
-              href="/editorial"
+              href={withBase("/editorial")}
               onClick={(e) => {
                 e.preventDefault();
                 navigateTo("/editorial");

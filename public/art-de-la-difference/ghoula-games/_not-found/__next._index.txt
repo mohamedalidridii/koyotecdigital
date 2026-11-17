@@ -3,4 +3,4 @@
 3:I[1138,[],""]
 4:I[4608,[],""]
 :HL["/art-de-la-difference/ghoula-games/_next/static/css/a674aea5422192e5.css","style"]
-0:{"buildId":"tdVVjNl4t3r6fH4C5Qnwp","rsc":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/art-de-la-difference/ghoula-games/_next/static/css/a674aea5422192e5.css","precedence":"next"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":["$","$L2",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","template":["$","$L4",null,{}]}]}]}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"mMScwDwDbkAcFuJPQO1BH","rsc":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/art-de-la-difference/ghoula-games/_next/static/css/a674aea5422192e5.css","precedence":"next"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":["$","$L2",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","template":["$","$L4",null,{}]}]}]}]}]]}],"loading":null,"isPartial":false}

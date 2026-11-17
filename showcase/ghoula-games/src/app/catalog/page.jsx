@@ -16,6 +16,7 @@ import {
   scrambleOut,
   scrambleVisible,
 } from "@/utils/scramble";
+import { withBase } from "@/utils/withBase";
 
 gsap.registerPlugin(SplitText);
 
@@ -120,7 +121,7 @@ function CatalogSlideContent({ slide }) {
         </div>
 
         <div className="catalog-slide-link">
-          <a href="/brief" className="mono">
+          <a href={withBase("/brief")} className="mono">
             [ View Full Brief ]
           </a>
         </div>

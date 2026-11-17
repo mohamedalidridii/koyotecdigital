@@ -4,6 +4,7 @@ import { useRef, useMemo } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useViewTransition } from "@/hooks/useViewTransition";
+import { withBase } from "@/utils/withBase";
 
 gsap.registerPlugin(useGSAP);
 
@@ -205,7 +206,7 @@ const Page = () => {
             {workItems.slice(rowIndex * 2, rowIndex * 2 + 2).map((item) => (
               <a
                 key={item.index}
-                href={item.href}
+                href={withBase(item.href)}
                 onClick={(e) => {
                   e.preventDefault();
                   navigateWithTransition(item.href);

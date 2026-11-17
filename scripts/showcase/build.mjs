@@ -6,6 +6,7 @@ import { existsSync, readFileSync, writeFileSync, readdirSync, statSync, rmSync,
 import { join, resolve, dirname, extname, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import { addTracker } from "./tracker.mjs";
+import { addCanonical } from "./canonical.mjs";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "../..");
 const SRC = join(ROOT, "showcase");
@@ -42,6 +43,8 @@ const nextConfig = {
   basePath: "${base}",
   trailingSlash: true,
   images: { unoptimized: true },
+  // for plain <a> tags (src/utils/withBase.js): unlike next/link they do not add the basePath
+  env: { NEXT_PUBLIC_BASE_PATH: "${base}" },
 };
 
 export default nextConfig;
@@ -80,17 +83,18 @@ function rebase(out, base, publicDir) {
   const isDir = (f) => statSync(join(root, f)).isDirectory();
   const esc = (f) => f.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   const names = top.map((f) => (publicDir && isDir(f) ? `${esc(f)}(?=\\/)` : esc(f))).join("|");
-  const asset = names && new RegExp(`(["'\`(=,\\s])\\/(?:${names})(?=[\\/"'\`)?#\\s,]|$)`, "g");
+  const asset = names && new RegExp(`(["'\`(=,\\s])\\/(?:${names})(?=[\\/"'\`)?#\\s,\\\\]|$)`, "g");
   for (const file of walk(out)) {
     const ext = extname(file);
     if (![".html", ".js", ".css", ".json", ".txt", ".webmanifest"].includes(ext)) continue;
     let s = readFileSync(file, "utf8");
     const before = s;
-    if (asset) s = s.replace(asset, (m, pre) => `${pre}${base}${m.slice(pre.length)}`);
-    // clean page links (/work -> /base/work.html) and links to the root
+    // clean page links (/work -> /base/work.html) first: a page may share its name with a media folder
+    // (work.html and work/), and the asset pass below would turn the link into /base/work, a folder without index
     s = s.replace(/(href=|location\.href\s*=\s*)(["'])\/([a-z0-9-]+)\/?\2/gi, (m, attr, q, name) =>
       pages.has(name) ? `${attr}${q}${base}/${name}.html${q}` : m
     );
+    if (asset) s = s.replace(asset, (m, pre) => `${pre}${base}${m.slice(pre.length)}`);
     if (ext === ".html") s = s.replace(/href=(["'])\/\1/g, `href=$1${base}/$1`);
     if (s !== before) writeFileSync(file, s);
   }
@@ -120,6 +124,13 @@ for (const piece of pieces) {
     badge(out, piece);
     addTracker(out);
     const dest = join(OUT, piece.slug);
+    // client-side routes of a single-page app ("routes" in art.json) get their own copy of the shell,
+    // so /base/work/ exists as a page instead of returning 404 when opened directly
+    for (const route of piece.routes || []) {
+      mkdirSync(join(out, route), { recursive: true });
+      cpSync(join(out, "index.html"), join(out, route, "index.html"));
+    }
+    addCanonical(out, base);
     rmSync(dest, { recursive: true, force: true });
     mkdirSync(dirname(dest), { recursive: true });
     cpSync(out, dest, { recursive: true, filter: (f) => !f.endsWith(".DS_Store") });

@@ -38,6 +38,8 @@ const dmMono = DM_Mono({
   variable: "--font-dm-mono",
 });
 
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export const dynamicParams = false;
 
 export function generateStaticParams() {
@@ -50,7 +52,9 @@ export async function generateMetadata({ params }) {
   return {
     title: { default: dict.meta.title, template: "%s — Maison Aurèle" },
     description: dict.meta.description,
-    alternates: { languages: { fr: "/fr", en: "/en" } },
+    // the piece is served under a sub-path (NEXT_PUBLIC_BASE_PATH, set by the showcase build): metadata URLs do not get the basePath
+    metadataBase: new URL("https://www.koyotec.digital"),
+    alternates: { languages: { fr: `${BASE}/fr/`, en: `${BASE}/en/` } },
   };
 }
 

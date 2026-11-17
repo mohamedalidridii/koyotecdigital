@@ -9,6 +9,7 @@ import { useGSAP } from "@gsap/react";
 import { useViewTransition } from "@/hooks/useViewTransition";
 
 import { IoMdArrowForward } from "react-icons/io";
+import { withBase } from "@/utils/withBase";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
@@ -151,7 +152,7 @@ const AnimatedButton = ({
   if (route) {
     return (
       <a
-        href={route}
+        href={withBase(route)}
         className="btn"
         ref={buttonRef}
         onClick={(e) => {

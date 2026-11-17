@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { useViewTransition } from "@/hooks/useViewTransition";
 
 import "./Button.css";
+import { withBase } from "@/utils/withBase";
 
 const MOBILE_BREAKPOINT = 1000;
 
@@ -143,7 +144,7 @@ const Button = forwardRef(
 
     return (
       <a
-        href={href}
+        href={withBase(href)}
         className={`slide-button ${className}`}
         ref={mergeRefs}
         onClick={handleClick}

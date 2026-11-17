@@ -6,6 +6,7 @@ import { useLayoutEffect, useRef } from "react";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { withBase } from "@/utils/withBase";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -241,7 +242,7 @@ export default function FeaturedProjects() {
       const inY = direction === "down" ? "120%" : "-120%";
 
       gsap.killTweensOf(titleElement);
-      exploreLink.href = slides[index].url;
+      exploreLink.href = withBase(slides[index].url);
 
       gsap.to(titleElement, {
         y: outY,
@@ -376,7 +377,7 @@ export default function FeaturedProjects() {
           </div>
 
           <div className="fp-slide-link">
-            <a ref={exploreLinkRef} href={slides[0].url}>
+            <a ref={exploreLinkRef} href={withBase(slides[0].url)}>
               Explore
             </a>
           </div>

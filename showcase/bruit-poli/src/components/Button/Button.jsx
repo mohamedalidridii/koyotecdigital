@@ -7,6 +7,7 @@ import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { withBase } from "@/utils/withBase";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
@@ -135,7 +136,7 @@ export default function Button({
   return (
     <a
       ref={buttonRef}
-      href={href}
+      href={withBase(href)}
       className={`button button--${variant}`}
       onClick={(e) => {
         if (!href) return;

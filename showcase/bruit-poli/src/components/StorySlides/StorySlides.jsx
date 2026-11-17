@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { stories } from "./stories.js";
 import { gsap } from "gsap";
 import Button from "../Button/Button.jsx";
+import { withBase } from "@/utils/withBase";
 
 export default function StorySlides() {
   const storiesContainerRef = useRef(null);
@@ -234,7 +235,7 @@ export default function StorySlides() {
 
         const link = storiesContainer.querySelector(".link a");
         if (link) {
-          link.href = story.linkSrc;
+          link.href = withBase(story.linkSrc);
           const labelEl = link.querySelector(".button-label");
           if (labelEl) {
             labelEl.textContent = story.linkLabel;

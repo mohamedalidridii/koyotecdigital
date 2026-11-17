@@ -10,6 +10,7 @@ import Nav from "@/components/Nav/Nav";
 import ConditionalFooter from "@/components/ConditionalFooter/ConditionalFooter";
 import Copy from "@/components/Copy/Copy";
 import { useViewTransition } from "@/hooks/useViewTransition";
+import { withBase } from "@/utils/withBase";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -127,7 +128,7 @@ const page = () => {
             {spacesData.map((space, index) => (
               <a
                 key={space.id}
-                href={space.route}
+                href={withBase(space.route)}
                 className="space"
                 onClick={(e) => {
                   e.preventDefault();

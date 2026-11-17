@@ -17,6 +17,7 @@ import { useLenis } from "lenis/react";
 
 import MenuBtn from "../MenuBtn/MenuBtn";
 import { useViewTransition } from "@/hooks/useViewTransition";
+import { withBase } from "@/utils/withBase";
 
 gsap.registerPlugin(SplitText);
 
@@ -231,13 +232,13 @@ const Nav = () => {
           <div className="col col-1">
             <div className="links">
               <div className="link">
-                <a href="/" onClick={(e) => handleLinkClick(e, "/")}>
+                <a href={withBase("/")} onClick={(e) => handleLinkClick(e, "/")}>
                   <h2>Index</h2>
                 </a>
               </div>
               <div className="link">
                 <a
-                  href="/studio"
+                  href={withBase("/studio")}
                   onClick={(e) => handleLinkClick(e, "/studio")}
                 >
                   <h2>Studio</h2>
@@ -245,7 +246,7 @@ const Nav = () => {
               </div>
               <div className="link">
                 <a
-                  href="/spaces"
+                  href={withBase("/spaces")}
                   onClick={(e) => handleLinkClick(e, "/spaces")}
                 >
                   <h2>Our Spaces</h2>
@@ -253,7 +254,7 @@ const Nav = () => {
               </div>
               <div className="link">
                 <a
-                  href="/sample-space"
+                  href={withBase("/sample-space")}
                   onClick={(e) => handleLinkClick(e, "/sample-space")}
                 >
                   <h2>One Installation</h2>
@@ -261,7 +262,7 @@ const Nav = () => {
               </div>
               <div className="link">
                 <a
-                  href="/blueprints"
+                  href={withBase("/blueprints")}
                   onClick={(e) => handleLinkClick(e, "/blueprints")}
                 >
                   <h2>Blueprints</h2>
@@ -269,7 +270,7 @@ const Nav = () => {
               </div>
               <div className="link">
                 <a
-                  href="/connect"
+                  href={withBase("/connect")}
                   onClick={(e) => handleLinkClick(e, "/connect")}
                 >
                   <h2>Connect</h2>

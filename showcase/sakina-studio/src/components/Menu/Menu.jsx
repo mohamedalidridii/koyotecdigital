@@ -6,6 +6,7 @@ import { useTransitionRouter } from "next-view-transitions";
 import gsap from "gsap";
 import CustomEase from "gsap/CustomEase";
 import { useGSAP } from "@gsap/react";
+import { withBase } from "@/utils/withBase";
 
 gsap.registerPlugin(CustomEase);
 CustomEase.create("hop", ".15, 1, .25, 1");
@@ -313,7 +314,7 @@ const Menu = ({ onMenuStateChange }) => {
           <div className="nav-logo">
             <div className="revealer">
               <a
-                href="/"
+                href={withBase("/")}
                 ref={navLogoRef}
                 onClick={(e) => {
                   e.preventDefault();
@@ -363,7 +364,7 @@ const Menu = ({ onMenuStateChange }) => {
           <div className="menu-overlay-items" ref={menuItemsRef}>
             <div className="revealer">
               <a
-                href="/"
+                href={withBase("/")}
                 onClick={(e) => {
                   e.preventDefault();
                   navigateTo("/");
@@ -374,7 +375,7 @@ const Menu = ({ onMenuStateChange }) => {
             </div>
             <div className="revealer">
               <a
-                href="/work"
+                href={withBase("/work")}
                 onClick={(e) => {
                   e.preventDefault();
                   navigateTo("/work");
@@ -385,7 +386,7 @@ const Menu = ({ onMenuStateChange }) => {
             </div>
             <div className="revealer">
               <a
-                href="/studio"
+                href={withBase("/studio")}
                 onClick={(e) => {
                   e.preventDefault();
                   navigateTo("/studio");
@@ -396,7 +397,7 @@ const Menu = ({ onMenuStateChange }) => {
             </div>
             <div className="revealer">
               <a
-                href="/archive"
+                href={withBase("/archive")}
                 onClick={(e) => {
                   e.preventDefault();
                   navigateTo("/archive");
@@ -407,7 +408,7 @@ const Menu = ({ onMenuStateChange }) => {
             </div>
             <div className="revealer">
               <a
-                href="/contact"
+                href={withBase("/contact")}
                 onClick={(e) => {
                   e.preventDefault();
                   navigateTo("/contact");

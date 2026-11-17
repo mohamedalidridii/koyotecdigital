@@ -7,6 +7,7 @@ import Copy from "@/components/Copy/Copy";
 import { useTransitionRouter } from "next-view-transitions";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { withBase } from "@/utils/withBase";
 
 const page = () => {
   const router = useTransitionRouter();
@@ -139,13 +140,13 @@ const page = () => {
 
         <div className="contact-copy-links">
           <Copy delay={1.6}>
-            <a href="/studio" onClick={(e) => handleNavigation(e, "/studio")}>
+            <a href={withBase("/studio")} onClick={(e) => handleNavigation(e, "/studio")}>
               <p className="caps sm">Studio Overview</p>
             </a>
-            <a href="/archive" onClick={(e) => handleNavigation(e, "/archive")}>
+            <a href={withBase("/archive")} onClick={(e) => handleNavigation(e, "/archive")}>
               <p className="caps sm">Project Archive</p>
             </a>
-            <a href="/work" onClick={(e) => handleNavigation(e, "/work")}>
+            <a href={withBase("/work")} onClick={(e) => handleNavigation(e, "/work")}>
               <p className="caps sm">Selected Work</p>
             </a>
           </Copy>

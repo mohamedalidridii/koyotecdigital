@@ -6,6 +6,7 @@ import { SplitText } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 import { useLenis } from "lenis/react";
 import { useViewTransition } from "@/hooks/useViewTransition";
+import { withBase } from "@/utils/withBase";
 
 gsap.registerPlugin(useGSAP, SplitText);
 
@@ -458,7 +459,7 @@ const Menu = ({ pageRef }) => {
       <nav>
         <div className="nav-logo">
           <a
-            href="/"
+            href={withBase("/")}
             onClick={(e) => {
               e.preventDefault();
               const currentPath = window.location.pathname;
@@ -573,7 +574,7 @@ const Menu = ({ pageRef }) => {
               }}
             >
               <a
-                href={item.route}
+                href={withBase(item.route)}
                 ref={(el) => {
                   menuLinksRef.current[index] = el;
                 }}

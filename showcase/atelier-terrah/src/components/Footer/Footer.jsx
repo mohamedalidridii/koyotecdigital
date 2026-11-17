@@ -14,6 +14,7 @@ import { RiLinkedinBoxLine } from "react-icons/ri";
 import { RiInstagramLine } from "react-icons/ri";
 import { RiDribbbleLine } from "react-icons/ri";
 import { RiYoutubeLine } from "react-icons/ri";
+import { withBase } from "@/utils/withBase";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -64,7 +65,7 @@ const Footer = () => {
             <div className="footer-nav-links">
               <Copy delay={0.1}>
                 <a
-                  href="/"
+                  href={withBase("/")}
                   onClick={(e) => {
                     e.preventDefault();
                     navigateWithTransition("/");
@@ -73,7 +74,7 @@ const Footer = () => {
                   <h3>Index</h3>
                 </a>
                 <a
-                  href="/studio"
+                  href={withBase("/studio")}
                   onClick={(e) => {
                     e.preventDefault();
                     navigateWithTransition("/studio");
@@ -82,7 +83,7 @@ const Footer = () => {
                   <h3>Studio</h3>
                 </a>
                 <a
-                  href="/spaces"
+                  href={withBase("/spaces")}
                   onClick={(e) => {
                     e.preventDefault();
                     navigateWithTransition("/spaces");
@@ -91,7 +92,7 @@ const Footer = () => {
                   <h3>Our Spaces</h3>
                 </a>
                 <a
-                  href="/sample-space"
+                  href={withBase("/sample-space")}
                   onClick={(e) => {
                     e.preventDefault();
                     navigateWithTransition("/sample-space");
@@ -100,7 +101,7 @@ const Footer = () => {
                   <h3>One Installation</h3>
                 </a>
                 <a
-                  href="/blueprints"
+                  href={withBase("/blueprints")}
                   onClick={(e) => {
                     e.preventDefault();
                     navigateWithTransition("/blueprints");
@@ -109,7 +110,7 @@ const Footer = () => {
                   <h3>Blueprints</h3>
                 </a>
                 <a
-                  href="/connect"
+                  href={withBase("/connect")}
                   onClick={(e) => {
                     e.preventDefault();
                     navigateWithTransition("/connect");

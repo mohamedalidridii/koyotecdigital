@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useViewTransition } from "@/hooks/useViewTransition";
+import { withBase } from "@/utils/withBase";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -19,7 +20,7 @@ export default function FeaturedWork() {
         const featuredWorkItem = document.createElement("div");
         featuredWorkItem.className = "featured-work-item";
         featuredWorkItem.innerHTML = `
-        <a href="${project.route}" class="featured-work-item-link">
+        <a href="${withBase(project.route)}" data-route="${project.route}" class="featured-work-item-link">
           <div class="featured-work-item-img">
            <div class="featured-work-item-copy">
             <h3>${project.name}</h3>
@@ -86,7 +87,7 @@ export default function FeaturedWork() {
         const anchor = e.currentTarget;
         if (!anchor) return;
         e.preventDefault();
-        const href = anchor.getAttribute("href");
+        const href = anchor.dataset.route || anchor.getAttribute("href");
         if (!href) return;
         navigateWithTransition(href);
       };

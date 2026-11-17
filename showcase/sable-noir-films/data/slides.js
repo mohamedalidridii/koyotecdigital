@@ -7,7 +7,7 @@ export const slides = [
     field: "Architecture",
     date: "2024",
     image: "/work/work-1.jpg",
-    route: "/work",
+    route: "work.html",
   },
   {
     title: "NOVA/01",
@@ -17,7 +17,7 @@ export const slides = [
     field: "Technology",
     date: "2024",
     image: "/work/work-2.jpg",
-    route: "/work",
+    route: "work.html",
   },
   {
     title: "FORMA",
@@ -27,6 +27,6 @@ export const slides = [
     field: "Design",
     date: "2023",
     image: "/work/work-3.jpg",
-    route: "/work",
+    route: "work.html",
   },
 ];
