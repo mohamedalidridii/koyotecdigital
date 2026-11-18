@@ -3,29 +3,43 @@
 const fr = {
   lang: "fr",
   meta: {
-    title: "Koyotec Engineering — IA, Cloud, DevOps, Cybersécurité & BI à Tunis",
+    title: "Koyotec Engineering | IA, Cloud & DevOps à Tunis",
     description:
-      "Koyotec Engineering conçoit, déploie et sécurise vos systèmes : intelligence artificielle, cloud, DevOps, cybersécurité et business intelligence. Basés à Tunis.",
+      "Koyotec Engineering conçoit des systèmes IA, cloud et DevOps pour les entreprises d’Europe et du Golfe, de l’audit à la production. Équipe basée à Tunis.",
     pages: {
-      expertise: "Expertise — Koyotec Engineering",
-      systems: "Ce que nous construisons — Koyotec Engineering",
-      ai: "Études de cas IA — Koyotec Engineering",
-      devops: "Études de cas DevOps — Koyotec Engineering",
-      work: "Blueprints — Koyotec Engineering",
-      studio: "Le studio — Koyotec Engineering",
-      engagements: "Engagements — Koyotec Engineering",
-      contact: "Contact — Koyotec Engineering",
-      nearshore: "DevOps & Cloud nearshore en Tunisie — Koyotec Engineering",
-      "cloud-costs": "Scénarios de coûts AWS : NAT, inter-zones, Spot, DynamoDB — Koyotec Engineering",
-      architecture: "Architecture cloud de référence, explorée en 3D — Koyotec Engineering",
+      expertise: "Nos expertises : IA, Cloud, DevOps, Sécurité, Data | Koyotec",
+      systems: "Ce que nous construisons | Koyotec Engineering",
+      ai: "Études de cas IA | Koyotec Engineering",
+      devops: "Études de cas DevOps | Koyotec Engineering",
+      work: "Solutions types | Koyotec Engineering",
+      studio: "Le studio | Koyotec Engineering",
+      engagements: "Modes d’engagement | Koyotec Engineering",
+      contact: "Nous contacter | Koyotec Engineering",
+      nearshore: "DevOps & Cloud nearshore en Tunisie | Koyotec",
+      "cloud-costs": "Coûts AWS : NAT, inter-zones, Spot | Koyotec",
+      architecture: "Architecture cloud de référence en 3D | Koyotec",
     },
     descriptions: {
+      expertise:
+        "Cinq disciplines, une seule équipe : IA et RAG, cloud et Kubernetes, DevOps et SRE, cybersécurité, data et BI. Comment nous bâtissons des systèmes durables.",
+      systems:
+        "Ce que nous construisons et exploitons : assistants IA, plateformes cloud, CI/CD et observabilité, data et IoT industriel, de l’audit à la production.",
+      ai: "Études de cas IA : assistants RAG, agents, extraction de documents et évaluation, avec le contexte, l’architecture, les résultats et le plan de livraison.",
+      devops:
+        "Études de cas DevOps : copilote d’astreinte, CI/CD auto-réparant, autoscaling prédictif et plateforme développeur, avec architecture et résultats.",
+      work: "Solutions types : assistant RAG, migration cloud, CI/CD sur Kubernetes, audit de sécurité et tableaux BI. Des modèles que nous adaptons à votre stack.",
+      studio:
+        "Découvrez le studio Koyotec Engineering à Tunis : notre façon de travailler, ce qui compte pour nous et les ingénieurs que nous recherchons.",
+      engagements:
+        "Trois façons de travailler avec Koyotec Engineering : un audit, un projet ou un accompagnement continu. Vous choisissez, nous cadrons ensemble.",
+      contact:
+        "Contactez Koyotec Engineering pour un projet, un audit ou un système à remettre d’aplomb : formulaire, email ou WhatsApp. Réponse en français ou en anglais.",
       architecture:
         "Explorez en 3D une plateforme cloud complète : réseau, CI/CD, Kubernetes, données et observabilité. Voyez comment Koyotec Engineering construit chaque couche.",
       "cloud-costs":
-        "Quatre réglages AWS par défaut qui gonflent la facture cloud, chiffrés pour Paris, Francfort, les Émirats et Bahreïn, avec calculateurs et l'architecture optimisée.",
+        "Quatre réglages AWS par défaut qui gonflent la facture, chiffrés pour Paris, Francfort, les Émirats et Bahreïn, avec un calculateur et la solution optimisée.",
       nearshore:
-        "Une équipe DevOps et cloud nearshore à Tunis, dans le fuseau horaire de Paris, pour les entreprises européennes. Démarrez par un audit DevOps & Cloud de deux semaines, à prix fixe.",
+        "Une équipe DevOps et cloud nearshore à Tunis, au fuseau horaire de Paris, pour les entreprises européennes. Démarrage par un audit de deux semaines à prix fixe.",
     },
   },
 
@@ -412,7 +426,7 @@ const fr = {
     { title: "Tableau de bord décisionnel", category: "BI" },
   ],
   workYear: "2026",
-  workLabels: { header: "Solutions types", footer: ["Index des blueprints", "Faites défiler"] },
+  workLabels: { heading: "Solutions types : architectures de référence pour l’IA, le cloud, le DevOps, la sécurité et la data", header: "Solutions types", footer: ["Index des blueprints", "Faites défiler"] },
 
   firmIntro: {
     short: "Une petite équipe d’ingénieurs seniors. Nous construisons les systèmes.",

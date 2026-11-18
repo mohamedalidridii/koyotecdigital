@@ -14,11 +14,11 @@ export const CONTACT = {
 };
 
 export const WORK_IMAGES = [
-  "/images/work/rag-assistant.jpg",
-  "/images/work/cloud-migration.jpg",
-  "/images/work/cicd-kubernetes.jpg",
-  "/images/work/security-audit.jpg",
-  "/images/work/bi-dashboard.jpg",
+  "/images/work/rag-assistant.webp",
+  "/images/work/cloud-migration.webp",
+  "/images/work/cicd-kubernetes.webp",
+  "/images/work/security-audit.webp",
+  "/images/work/bi-dashboard.webp",
 ];
 
 export const TOOLS = [

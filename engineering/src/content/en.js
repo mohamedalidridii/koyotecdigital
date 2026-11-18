@@ -2,23 +2,37 @@
 const en = {
   lang: "en",
   meta: {
-    title: "Koyotec Engineering — AI, Cloud, DevOps, Cybersecurity & BI in Tunis",
+    title: "Koyotec Engineering | AI, Cloud & DevOps in Tunis",
     description:
-      "Koyotec Engineering designs, ships and secures your systems: artificial intelligence, cloud, DevOps, cybersecurity and business intelligence. Based in Tunis.",
+      "Koyotec Engineering builds AI, cloud and DevOps systems for companies in Europe and the Gulf, from the first audit to production. Team based in Tunis.",
     pages: {
-      expertise: "Expertise — Koyotec Engineering",
-      systems: "What we build — Koyotec Engineering",
-      ai: "AI case studies — Koyotec Engineering",
-      devops: "DevOps case studies — Koyotec Engineering",
-      work: "Blueprints — Koyotec Engineering",
-      studio: "The studio — Koyotec Engineering",
-      engagements: "Engagements — Koyotec Engineering",
-      contact: "Contact — Koyotec Engineering",
-      nearshore: "Nearshore DevOps & Cloud in Tunisia — Koyotec Engineering",
-      "cloud-costs": "AWS cost scenarios: NAT, cross-AZ, Spot, DynamoDB — Koyotec Engineering",
-      architecture: "A reference cloud architecture, explored in 3D — Koyotec Engineering",
+      expertise: "Expertise: AI, Cloud, DevOps, Security, Data | Koyotec",
+      systems: "What we build | Koyotec Engineering",
+      ai: "AI case studies | Koyotec Engineering",
+      devops: "DevOps case studies | Koyotec Engineering",
+      work: "Solution blueprints | Koyotec Engineering",
+      studio: "The studio | Koyotec Engineering",
+      engagements: "Ways to engage | Koyotec Engineering",
+      contact: "Contact | Koyotec Engineering",
+      nearshore: "Nearshore DevOps & Cloud in Tunisia | Koyotec",
+      "cloud-costs": "AWS cost scenarios: NAT, cross-AZ, Spot | Koyotec",
+      architecture: "Cloud reference architecture in 3D | Koyotec",
     },
     descriptions: {
+      expertise:
+        "Five disciplines in one team: AI and RAG, cloud and Kubernetes, DevOps and SRE, cybersecurity, data and BI. How Koyotec Engineering builds systems that last.",
+      systems:
+        "What we build and run: AI assistants, cloud platforms, CI/CD and observability, data platforms and industrial IoT, from the first audit to production.",
+      ai: "AI case studies: RAG assistants, agents, document extraction and evaluation, each with the context, the architecture, the results and the delivery plan.",
+      devops:
+        "DevOps case studies: on-call copilot, self-healing CI/CD, predictive autoscaling and developer platform, with architecture, results and timeline.",
+      work: "Solution blueprints: RAG assistant, cloud migration, CI/CD on Kubernetes, security audit and BI dashboards. Reference designs we adapt to your stack.",
+      studio:
+        "Meet the Koyotec Engineering studio in Tunis: how we work, what matters to us, and the engineers we are looking for to join the team.",
+      engagements:
+        "Three ways to work with Koyotec Engineering: an audit, a project or ongoing support. You pick the format; we define the scope together.",
+      contact:
+        "Contact Koyotec Engineering about a project, an audit or a system to fix: send the form, write by email or WhatsApp. We answer in English or French.",
       architecture:
         "Explore a complete cloud platform in 3D: network, CI/CD, Kubernetes, data and observability. See how Koyotec Engineering builds every layer.",
       "cloud-costs":
@@ -410,7 +424,7 @@ const en = {
     { title: "Decision dashboard", category: "BI" },
   ],
   workYear: "2026",
-  workLabels: { header: "Solution blueprints", footer: ["Blueprint index", "Scroll through"] },
+  workLabels: { heading: "Solution blueprints: reference designs for AI, cloud, DevOps, security and data", header: "Solution blueprints", footer: ["Blueprint index", "Scroll through"] },
 
   firmIntro: {
     short: "A small team of senior engineers. We build the systems.",

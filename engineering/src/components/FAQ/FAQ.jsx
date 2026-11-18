@@ -9,6 +9,7 @@ import { useGSAP } from "@gsap/react";
 
 import Copy from "@/components/Copy";
 import SectionHeader from "@/components/SectionHeader";
+import JsonLd from "@/components/JsonLd";
 
 import { useLang } from "@/lib/useLang";
 
@@ -119,8 +120,19 @@ export default function FAQ({ k = "faq" }) {
     { scope: rootRef },
   );
 
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: c.items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: [].concat(item.answer).join(" ") },
+    })),
+  };
+
   return (
     <section className={styles.faq} ref={rootRef}>
+      <JsonLd data={schema} />
       <Copy variant="flicker">
         <SectionHeader bullet left={c.header[0]} right={c.header[1]} />
       </Copy>

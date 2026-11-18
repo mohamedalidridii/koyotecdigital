@@ -13,13 +13,13 @@ export default function FirmIntro() {
       <div className={`container ${styles.inner}`}>
         <div className={styles.block}>
           <Copy animateOnScroll={false} delay="1.25">
-            <h1 className={styles.heading}>{t.firmIntro.short}</h1>
+            <h2 className={`h1 ${styles.heading}`}>{t.firmIntro.short}</h2>
           </Copy>
         </div>
 
         <div className={styles.block}>
           <Copy>
-            <h1 className={styles.heading}>{t.firmIntro.long}</h1>
+            <h2 className={`h1 ${styles.heading}`}>{t.firmIntro.long}</h2>
           </Copy>
         </div>
       </div>

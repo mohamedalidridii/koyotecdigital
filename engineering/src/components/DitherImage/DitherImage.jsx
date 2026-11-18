@@ -956,7 +956,7 @@ async function ensureGui() {
 }
 
 const DitherImage = forwardRef(function DitherImage(
-  { src, alt = "", className, style, onReady, ...props },
+  { src, alt = "", className, style, onReady, priority = false, ...props },
   ref,
 ) {
   const imgRef = useRef(null);
@@ -1082,7 +1082,15 @@ const DitherImage = forwardRef(function DitherImage(
       className={className ? `${styles.wrapper} ${className}` : styles.wrapper}
       style={style}
     >
-      <img ref={imgRef} src={withBase(src)} alt={alt} className={styles.img} />
+      <img
+        ref={imgRef}
+        src={withBase(src)}
+        alt={alt}
+        className={styles.img}
+        loading={priority ? "eager" : "lazy"}
+        fetchPriority={priority ? "high" : "auto"}
+        decoding="async"
+      />
       <canvas ref={canvasRef} aria-hidden="true" className={styles.canvas} />
     </div>
   );

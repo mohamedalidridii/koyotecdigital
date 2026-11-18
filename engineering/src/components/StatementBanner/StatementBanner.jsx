@@ -36,7 +36,7 @@ function BannerCopy({ copy, className }) {
 
 export default function StatementBanner({
   showContent = true,
-  src = "/images/home/statement.jpg",
+  src = "/images/home/statement.webp",
   copyTopLeft,
   copyBottomRight,
 }) {

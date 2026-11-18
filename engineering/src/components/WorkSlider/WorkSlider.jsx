@@ -442,6 +442,7 @@ export default function WorkSlider() {
 
   return (
     <div className={`${styles.page}${revealed ? ` ${styles.revealed}` : ""}`}>
+      <h1 className="sr-only">{t.workLabels.heading}</h1>
       <div className={styles.chrome}>
         <Copy variant="flicker" animateOnScroll={false} delay="1">
           <SectionHeader variant="v2" bullet left="" right={t.workLabels.header} />

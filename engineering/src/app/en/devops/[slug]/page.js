@@ -14,7 +14,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const c = cases.find((x) => x.slug === slug);
-  return metaFor(LANG, `/devops/${slug}`, `${c.title} — ${c.client} · Koyotec Engineering`, c.summary);
+  return metaFor(LANG, `/devops/${slug}`, `${c.short} | Koyotec`, c.summary);
 }
 
 export default async function Page({ params }) {

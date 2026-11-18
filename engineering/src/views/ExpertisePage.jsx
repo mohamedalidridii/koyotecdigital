@@ -12,7 +12,7 @@ export default function ExpertisePage({ lang }) {
     <>
       <PageHeader {...page} icon="TensorIcon" />
 
-      <StatementBanner showContent={false} src="/images/research/banner.jpg" />
+      <StatementBanner showContent={false} src="/images/research/banner.webp" />
 
       <ResearchStatement />
 

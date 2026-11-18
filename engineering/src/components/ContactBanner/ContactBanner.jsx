@@ -72,7 +72,7 @@ export default function ContactBanner() {
   return (
     <section ref={sectionRef} className={styles.contactBanner}>
       <div className={styles.bg} aria-hidden="true">
-        <DitherImage src="/images/contact/banner.jpg" alt="" />
+        <DitherImage src="/images/contact/banner.webp" alt="" />
       </div>
 
       <div className={styles.wrap}>

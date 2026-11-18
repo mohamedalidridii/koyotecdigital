@@ -69,7 +69,7 @@ export default function ResearchAreas() {
     <section className={styles.researchAreas} ref={container}>
       <div className={styles.bg} aria-hidden="true">
         <DitherImage
-          src="/images/research/areas.jpg"
+          src="/images/research/areas.webp"
           alt=""
           darkColor="#ff0000"
           lightColor="#f3f1ec"

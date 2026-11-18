@@ -14,6 +14,8 @@ import Stage from "@/components/Systems/Stage";
 import Emblem from "./Emblem";
 
 import { useLang } from "@/lib/useLang";
+import JsonLd from "@/components/JsonLd";
+import { ORG_ID, pageUrl } from "@/lib/schema";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -43,7 +45,7 @@ const pad = (n) => String(n).padStart(2, "0");
 
 // collection: the content key (aiCases, devopsCases); base: the route of its listing
 export default function AiCase({ slug, collection = "aiCases", base = "/ai" }) {
-  const { t, href } = useLang();
+  const { t, href, lang } = useLang();
   const a = t[collection];
   const L = a.labels;
   const index = a.cases.findIndex((c) => c.slug === slug);
@@ -86,8 +88,35 @@ export default function AiCase({ slug, collection = "aiCases", base = "/ai" }) {
 
   if (!c) return null;
 
+  const caseUrl = pageUrl(lang, `${base}/${c.slug}`);
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        headline: c.title,
+        description: c.summary,
+        url: caseUrl,
+        inLanguage: lang,
+        about: c.short,
+        author: { "@id": ORG_ID },
+        publisher: { "@id": ORG_ID },
+        image: "https://www.koyotec.digital/og/koyotec.jpg",
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Koyotec Engineering", item: pageUrl(lang, "/") },
+          { "@type": "ListItem", position: 2, name: t.nav.find((n) => n.route === base)?.label || L.caseStudy, item: pageUrl(lang, base) },
+          { "@type": "ListItem", position: 3, name: c.short, item: caseUrl },
+        ],
+      },
+    ],
+  };
+
   return (
     <article ref={rootRef} className={styles.case} data-theme={c.slug}>
+      <JsonLd data={schema} />
       <header className={`container ${styles.hero}`}>
         <div className={styles.heroTop}>
           <p className="mono sm">

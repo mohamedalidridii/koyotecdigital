@@ -16,7 +16,7 @@ export default function StudioPage({ lang }) {
       <OpenPositions />
 
       <StatementBanner
-        src="/images/firm/banner.jpg"
+        src="/images/firm/banner.webp"
         copyTopLeft={t.studioStatement.topLeft}
         copyBottomRight={t.studioStatement.bottomRight}
       />

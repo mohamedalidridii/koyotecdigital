@@ -18,8 +18,8 @@ gsap.registerPlugin(ScrollTrigger, SplitText, useGSAP);
 
 
 const HANDS = [
-  { src: "/images/footer/hand-left.png", side: "left" },
-  { src: "/images/footer/hand-right.png", side: "right" },
+  { src: "/images/footer/hand-left.webp", side: "left" },
+  { src: "/images/footer/hand-right.webp", side: "right" },
 ];
 
 const PARALLAX_STRENGTH = 30;
@@ -229,9 +229,9 @@ export default function Footer() {
         </div>
         <div className={styles.footerHeader}>
           {t.footer.words.map((word) => (
-            <h1 key={word} className={styles.footerWord}>
+            <div key={word} className={`h1 ${styles.footerWord}`} aria-hidden="true">
               {word}
-            </h1>
+            </div>
           ))}
         </div>
       </div>

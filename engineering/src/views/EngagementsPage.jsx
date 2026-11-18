@@ -13,7 +13,7 @@ export default function EngagementsPage({ lang }) {
 
       <StatementBanner
         showContent={false}
-        src="/images/partnerships/banner.jpg"
+        src="/images/partnerships/banner.webp"
       />
 
       <FocusAreas items="engagements" />

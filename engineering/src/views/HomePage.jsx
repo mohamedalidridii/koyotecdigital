@@ -136,7 +136,7 @@ export default function Home() {
         data-hero-intro={showPreloader ? "" : undefined}
       >
         <div className={styles.heroBg}>
-          <DitherImage src="/images/home/hero.jpg" alt="" />
+          <DitherImage src="/images/home/hero.webp" alt="" priority />
         </div>
         <div className={styles.heroHeader}>
           <Copy variant="flicker" animateOnScroll={false} delay={wait + 1}>

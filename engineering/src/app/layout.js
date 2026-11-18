@@ -9,6 +9,8 @@ import DitherCursorTrail from "@/components/DitherCursorTrail";
 import { meta } from "@/lib/meta";
 import { HANDOFF_SCRIPT } from "@/lib/handoff";
 import { ANALYTICS } from "@/content/shared";
+import JsonLd from "@/components/JsonLd";
+import { ORGANIZATION } from "@/lib/schema";
 
 const googleSansFlex = Google_Sans_Flex({
   variable: "--font-google-sans-flex",
@@ -38,6 +40,7 @@ export default function RootLayout({ children }) {
         ) : null}
       </head>
       <body>
+        <JsonLd data={ORGANIZATION} />
         <ClientLayout>
           <Menu />
           {children}
