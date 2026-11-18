@@ -1,0 +1,295 @@
+.cloudCosts {
+  width: 100%;
+  padding: 3rem 0 5rem;
+  background-color: var(--base-200);
+  color: var(--base-500);
+}
+
+.toolbar {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 0.75rem 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.toolbar > p.mono {
+  opacity: 0.6;
+}
+
+.region {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 18rem;
+}
+
+.region span,
+.field span {
+  font-family: var(--font-google-sans-code), monospace;
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.region select,
+.field input {
+  padding: 12px 14px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  background-color: var(--base-100);
+  color: var(--base-500);
+  font: inherit;
+  font-size: 1rem;
+}
+
+.note {
+  grid-column: 1 / -1;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.scenario {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  padding: 3.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  scroll-margin-top: 2rem;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 52rem;
+}
+
+.head p.mono {
+  opacity: 0.5;
+}
+
+.head h3 {
+  font-size: clamp(26px, 2.4vw, 40px);
+  line-height: 1.1;
+  font-weight: 400;
+}
+
+.problem {
+  opacity: 0.8;
+  line-height: 1.55;
+}
+
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  background-color: var(--base-100);
+  border-left: 4px solid rgba(0, 0, 0, 0.35);
+  line-height: 1.5;
+}
+
+.side p.mono {
+  opacity: 0.6;
+}
+
+.good {
+  border-left-color: var(--base-300);
+}
+
+.amount {
+  margin-top: auto;
+  font-size: 1.5rem;
+}
+
+.amount span,
+.big span {
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+
+.calc {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 0.75rem;
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem;
+  align-content: start;
+  padding: 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.fields > p.mono,
+.price {
+  grid-column: 1 / -1;
+}
+
+.fields > p.mono {
+  opacity: 0.6;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.price {
+  font-family: var(--font-google-sans-code), monospace;
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1.75rem;
+  background-color: var(--base-400);
+  color: var(--base-100);
+}
+
+.result p.mono {
+  opacity: 0.7;
+}
+
+.big {
+  font-size: clamp(32px, 3.4vw, 56px);
+  line-height: 1;
+  color: var(--base-100);
+}
+
+.year {
+  opacity: 0.8;
+}
+
+.shards {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.lists {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.lists p.mono {
+  opacity: 0.6;
+  margin-bottom: 0.75rem;
+}
+
+.lists ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-left: 1.1rem;
+  line-height: 1.5;
+}
+
+.cta {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 4rem;
+  padding: 2.5rem;
+  background-color: var(--base-300);
+  color: var(--base-100);
+}
+
+.cta h3 {
+  font-size: clamp(26px, 2.4vw, 40px);
+  font-weight: 400;
+}
+
+.cta p {
+  max-width: 40rem;
+  line-height: 1.55;
+}
+
+.ctaButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.ctaPrimary,
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  min-width: 16rem;
+  padding: 16px 18px;
+  text-decoration: none;
+}
+
+.ctaPrimary {
+  background-color: var(--base-100);
+  color: var(--base-500);
+}
+
+.ctaSecondary {
+  background-color: var(--base-400);
+  color: var(--base-100);
+}
+
+.footnotes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 3rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  opacity: 0.75;
+}
+
+.footnotes ul {
+  padding-left: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.footnotes a {
+  color: inherit;
+}
+
+@media (max-width: 900px) {
+  .toolbar,
+  .compare,
+  .calc,
+  .lists {
+    grid-template-columns: 1fr;
+  }
+
+  .region {
+    min-width: 0;
+  }
+
+  .scenario {
+    padding: 2.5rem 0;
+  }
+
+  .cta {
+    padding: 1.75rem;
+  }
+
+  .ctaPrimary,
+  .ctaSecondary {
+    width: 100%;
+  }
+}

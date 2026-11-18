@@ -15,11 +15,14 @@ const en = {
       engagements: "Engagements — Koyotec Engineering",
       contact: "Contact — Koyotec Engineering",
       nearshore: "Nearshore DevOps & Cloud in Tunisia — Koyotec Engineering",
+      "cloud-costs": "AWS cost scenarios: NAT, cross-AZ, Spot, DynamoDB — Koyotec Engineering",
       architecture: "A reference cloud architecture, explored in 3D — Koyotec Engineering",
     },
     descriptions: {
       architecture:
         "Explore a complete cloud platform in 3D: network, CI/CD, Kubernetes, data and observability. See how Koyotec Engineering builds every layer.",
+      "cloud-costs":
+        "Four AWS defaults that inflate cloud bills, priced for Paris, Frankfurt, the UAE and Bahrain, with calculators and the optimised design for each.",
       nearshore:
         "A nearshore DevOps and cloud team in Tunis, in the Central European time zone, for European companies. Start with a fixed-price two-week DevOps & Cloud audit.",
     },
@@ -37,6 +40,7 @@ const en = {
     { route: "/studio", label: "The studio" },
     { route: "/engagements", label: "Engagements" },
     { route: "/nearshore", label: "Nearshore" },
+    { route: "/cloud-costs", label: "Cloud costs" },
   ],
   navContact: { title: "Let’s talk", code: "Contact" },
   menu: {
@@ -61,6 +65,7 @@ const en = {
     "/studio": "The studio",
     "/engagements": "Engagements",
     "/nearshore": "Nearshore",
+    "/cloud-costs": "Cloud costs",
     "/contact": "Let’s talk",
   },
   preloader: "Loading",
@@ -121,6 +126,11 @@ const en = {
       title: "Ways",
       subtitle: "to engage",
       description: "An audit, a project or ongoing support: you pick the format.",
+    },
+    "cloud-costs": {
+      title: "Cloud costs",
+      subtitle: "four expensive defaults",
+      description: "Four AWS architecture defaults that inflate the bill, priced with real list prices for your Region, and how we fix each one.",
     },
     nearshore: {
       title: "Nearshore",
@@ -254,6 +264,39 @@ const en = {
       copy: "A presentation to your team, and the report stays with you. Run the plan yourselves, or with us as a project or monthly support. No commitment.",
     },
   ],
+
+  cloudCostsFaq: {
+    header: ["FAQ / 03", "Cloud costs"],
+    title: "About these figures",
+    items: [
+      {
+        question: "Are these the prices on my bill?",
+        answer: [
+          "They are AWS public list prices for the Region you select, checked on the date shown. Your bill can be lower with Savings Plans, Reserved Instances or a negotiated discount, and Spot prices move every day.",
+          "The audit uses your Cost and Usage Report, so the figures are yours, not estimates.",
+        ],
+      },
+      {
+        question: "What does the cloud cost audit deliver?",
+        answer: [
+          "A review of your AWS account over two weeks: network (NAT, endpoints, cross-zone traffic), compute (sizing, Spot, Savings Plans), storage and databases.",
+          "You receive a prioritised list of savings with the effort, the risk and the expected monthly amount for each.",
+        ],
+      },
+      {
+        question: "Do you also work on Azure and Google Cloud?",
+        answer: [
+          "Yes. The same kinds of defaults exist there (NAT, egress, zone traffic, idle capacity); the scenarios on this page use AWS because most of our clients run on it.",
+        ],
+      },
+      {
+        question: "Can you guarantee the savings?",
+        answer: [
+          "No honest engineer can guarantee an amount before seeing the account. What we commit to is a measured baseline, changes you can review in code (Terraform), and a before/after comparison on your bill.",
+        ],
+      },
+    ],
+  },
 
   nearshoreFaq: {
     header: ["FAQ / 02", "Nearshore"],
