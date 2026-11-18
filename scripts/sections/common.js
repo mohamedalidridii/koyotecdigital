@@ -165,3 +165,32 @@ export function scrollDepth(scope) {
   window.addEventListener("scroll", check, { passive: true });
   return () => window.removeEventListener("scroll", check);
 }
+
+// analytics: real reading time, once per page view. Counts only while the tab is visible, so a page
+// left open in the background is not "engaged". Marks: 30 s and 2 min.
+export function engagedTime() {
+  const page = location.pathname;
+  const marks = [[30, "30s"], [120, "2min"]];
+  let seconds = 0;
+  const tick = setInterval(() => {
+    if (document.visibilityState !== "visible") return;
+    seconds += 1;
+    for (const [s, label] of marks) {
+      if (seconds === s) window.umami?.track("engaged", { page, time: label });
+    }
+    if (seconds >= marks[marks.length - 1][0]) clearInterval(tick);
+  }, 1000);
+  return () => clearInterval(tick);
+}
+
+// analytics: visitors who copy the email address or phone number instead of clicking it
+const EMAIL_RE = /[\w.+-]+@[\w-]+\.[\w.]{2,}/;
+const PHONE_RE = /(\+?216)?[\s.]?\d{2}[\s.]?\d{3}[\s.]?\d{3}/;
+export function trackContactCopy() {
+  document.addEventListener("copy", () => {
+    const text = String(window.getSelection?.() || "").trim();
+    if (!text || text.length > 120) return;
+    const type = EMAIL_RE.test(text) ? "email" : PHONE_RE.test(text) ? "phone" : null;
+    if (type) window.umami?.track("contact-copy", { type, page: location.pathname });
+  });
+}

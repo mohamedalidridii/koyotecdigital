@@ -11,7 +11,7 @@ import { initRouter } from "./core/router.js";
 import { autoSplits, drawLines } from "./core/reveal.js";
 import { homeHero, pageHero } from "./sections/intro.js";
 import { serviceHover, statement, rows } from "./sections/home.js";
-import { faq, cta, footer, contactForm, article, scrollDepth } from "./sections/common.js";
+import { faq, cta, footer, contactForm, article, scrollDepth, engagedTime, trackContactCopy } from "./sections/common.js";
 import { artTheme, artHero, artExpo, artViewer, artTeaser, staticLetters } from "./sections/art.js";
 import { careersForm, careersPoles, careersTeaser } from "./sections/careers.js";
 import { engineeringHero } from "./sections/engHero.js";
@@ -41,7 +41,7 @@ function mount(container, { ready = Promise.resolve() } = {}) {
   scroll.add(container);
 
   ctx = gsap.context(() => {
-    cleanups = [initNav(container), faq(container), contactForm(container), ...(ALWAYS[ns] || []).map((fn) => fn(container, { ready }))];
+    cleanups = [initNav(container), faq(container), contactForm(container), engagedTime(), ...(ALWAYS[ns] || []).map((fn) => fn(container, { ready }))];
     if (!reduced) {
       cleanups.push(magnetic(container));
       (PAGES[ns] || [pageHero]).forEach((fn) => cleanups.push(fn(container, { ready })));
@@ -91,6 +91,7 @@ function start() {
     check();
     window.addEventListener("scroll", check, { passive: true });
   });
+  trackContactCopy();
   initScroll();
   bootGL({ after: preloaderDone });
   initCursor();

@@ -2,7 +2,7 @@
 
 import styles from "./ContactActions.module.css";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FiArrowRight, FiArrowDown, FiMail } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 
@@ -49,12 +49,32 @@ export default function ContactActions() {
   const [values, setValues] = useState({ name: "", email: "", message: "" });
   const [touched, setTouched] = useState({});
   const started = useRef(false);
+  const lastField = useRef("");
+  const finished = useRef(false); // sent, or abandonment already reported
   // analytics: form started (first focus), compared with eng-form-sent it gives the abandonment rate
-  const onStart = () => {
+  const onStart = (e) => {
+    if (e?.target?.name) lastField.current = e.target.name;
     if (started.current) return;
     started.current = true;
     track("eng-form-start", { lang });
   };
+  const valuesRef = useRef(values);
+  valuesRef.current = values;
+
+  // analytics: started but left without sending -> last field touched and how many required fields were filled
+  useEffect(() => {
+    const report = () => {
+      if (!started.current || finished.current) return;
+      finished.current = true;
+      const filled = ["name", "email", "message"].filter((n) => String(valuesRef.current[n] || "").trim()).length;
+      track("eng-form-abandon", { field: lastField.current || "none", filled: `${filled}/3`, lang });
+    };
+    window.addEventListener("pagehide", report);
+    return () => {
+      window.removeEventListener("pagehide", report);
+      report(); // leaving the page inside the site (client navigation)
+    };
+  }, [lang]);
   const waHref = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(c.waText)}`;
 
   const errors = Object.fromEntries(REQUIRED.map((n) => [n, validate(n, values[n], c.errors)]));
@@ -103,6 +123,7 @@ export default function ContactActions() {
         body: JSON.stringify(body),
       });
       if (!r.ok) throw new Error(String(r.status));
+      finished.current = true;
       setStatus("sent");
       track("eng-form-sent", { need: need || "unspecified", lang });
     } catch {

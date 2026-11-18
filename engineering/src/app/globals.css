@@ -14,6 +14,15 @@
   user-select: none;
 }
 
+/* text stays selectable and copyable (email, phone, address, any paragraph, form fields):
+   prospects often copy contact details instead of clicking them */
+:is(p, li, h1, h2, h3, h4, h5, h6, address, blockquote, a[href^="mailto:"], a[href^="tel:"]),
+:is(p, li, h1, h2, h3, h4, h5, h6, address, blockquote, a[href^="mailto:"], a[href^="tel:"]) *,
+input, textarea, select {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
 html:not(.lenis) {
   overflow: hidden;
 }

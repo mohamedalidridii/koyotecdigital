@@ -101,9 +101,91 @@ function useScrollDepth(pathname) {
   }, [pathname]);
 }
 
+const umamiTrack = (name, data) => {
+  try {
+    window.umami?.track(name, data);
+  } catch {
+    /* analytics must never break the page */
+  }
+};
+
+// analytics: real reading time per page view (30 s, 2 min), counted only while the tab is visible
+function useEngagedTime(pathname) {
+  useEffect(() => {
+    const page = window.location.pathname;
+    let seconds = 0;
+    const tick = setInterval(() => {
+      if (document.visibilityState !== "visible") return;
+      seconds += 1;
+      if (seconds === 30) umamiTrack("engaged", { page, time: "30s" });
+      if (seconds === 120) {
+        umamiTrack("engaged", { page, time: "2min" });
+        clearInterval(tick);
+      }
+    }, 1000);
+    return () => clearInterval(tick);
+  }, [pathname]);
+}
+
+// analytics: which sections of a page are actually seen, once per section per page view
+function sectionName(el) {
+  if (el.dataset.umamiSection) return el.dataset.umamiSection;
+  const mod = String(el.className || "").match(/__([A-Za-z0-9]+)(?:\s|$)/); // CSS module: "home-module__hash__hero"
+  if (mod) return mod[1];
+  const h = el.querySelector("h1, h2, h3, h6");
+  return h ? h.textContent.trim().slice(0, 40) : null;
+}
+function useSectionViews(pathname) {
+  useEffect(() => {
+    if (typeof IntersectionObserver === "undefined") return;
+    const page = window.location.pathname;
+    const seen = new Set();
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (!e.isIntersecting) continue;
+          const name = sectionName(e.target);
+          io.unobserve(e.target);
+          if (!name || seen.has(name)) continue;
+          seen.add(name);
+          umamiTrack("section-view", { page, section: name });
+        }
+      },
+      // a section counts as seen when it crosses the middle band of the screen (works for tall sections too)
+      { rootMargin: "-45% 0px -45% 0px", threshold: 0 },
+    );
+    // after the page transition and intro, so sections hidden behind them are not counted
+    const start = setTimeout(() => document.querySelectorAll("section").forEach((s) => io.observe(s)), 1500);
+    return () => {
+      clearTimeout(start);
+      io.disconnect();
+    };
+  }, [pathname]);
+}
+
+// analytics: email or phone copied instead of clicked
+const COPY_EMAIL = /[\w.+-]+@[\w-]+\.[\w.]{2,}/;
+const COPY_PHONE = /(\+?216)?[\s.]?\d{2}[\s.]?\d{3}[\s.]?\d{3}/;
+function useContactCopy() {
+  useEffect(() => {
+    const onCopy = () => {
+      const text = String(window.getSelection?.() || "").trim();
+      if (!text || text.length > 120) return;
+      const type = COPY_EMAIL.test(text) ? "email" : COPY_PHONE.test(text) ? "phone" : null;
+      if (type) umamiTrack("contact-copy", { type, page: window.location.pathname });
+    };
+    document.addEventListener("copy", onCopy);
+    return () => document.removeEventListener("copy", onCopy);
+  }, []);
+}
+
 export default function ClientLayout({ children }) {
   const [isMobile, setIsMobile] = useState(false);
-  useScrollDepth(usePathname());
+  const currentPath = usePathname();
+  useScrollDepth(currentPath);
+  useEngagedTime(currentPath);
+  useSectionViews(currentPath);
+  useContactCopy();
 
   useEffect(() => {
     const handleResize = () =>
