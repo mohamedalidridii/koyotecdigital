@@ -431,6 +431,8 @@ const fr = {
   firmIntro: {
     short: "Une petite équipe d’ingénieurs seniors. Nous construisons les systèmes.",
     long: "Une petite équipe d’ingénieurs seniors. Nous construisons les systèmes, nous les documentons, et nous les confions à vos équipes en état de marche.",
+    founder: ["Fondée en 2022 par", "Mohamed Ali Dridi", "(Med Ali Dridi), ingénieur en électromécanique et en informatique."],
+    founderHref: "/medalydridi",
   },
 
   systems: {

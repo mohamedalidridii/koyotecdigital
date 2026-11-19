@@ -315,7 +315,7 @@ ${G.analytics?.id ? `    <script defer src="${esc(G.analytics.src)}" data-websit
       <nav class="nav-main" aria-label="${esc(ui.menu)}"><ul class="nav-links">${links}</ul>${artPill}</nav>
       <div class="nav-right">
         <a class="lang" href="${esc(sw)}" hreflang="${other}" lang="${other}">${other.toUpperCase()}</a>
-        <a class="nav-founder" href="${PATHS.founder[i]}" data-magnetic${page === "founder" ? ' aria-current="page"' : ""} aria-label="${esc(site[lang].founder.chip_hover)}"><img src="/founder/avatar.webp" alt="${esc(site[lang].founder.h1)}" width="28" height="28" /><span class="nav-founder-label" aria-hidden="true"><span>${esc(site[lang].founder.chip)}</span><span>${esc(site[lang].founder.chip_hover)} →</span></span><i class="nav-founder-dot" aria-hidden="true"></i></a>
+        <a class="nav-founder" href="${PATHS.founder[i]}" data-magnetic${page === "founder" ? ' aria-current="page"' : ""} aria-label="${esc(site[lang].founder.h1)} · ${esc(site[lang].founder.chip_hover)}"><img src="/founder/avatar.webp" alt="${esc(site[lang].founder.h1)}" width="28" height="28" /><span class="nav-founder-label" aria-hidden="true"><span>${esc(site[lang].founder.chip)}</span><span>${esc(site[lang].founder.chip_hover)} →</span></span><i class="nav-founder-dot" aria-hidden="true"></i></a>
         <a class="nav-cta" href="${PATHS.contact[i]}" data-magnetic${ev("quote-cta", "nav")}><span>${esc(ui.nav_cta)}</span>${GLYPH.arrow}</a>
         <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-btn-label" data-open="${esc(ui.menu)}" data-close="${esc(ui.close)}">${esc(ui.menu)}</span></button>
       </div>
@@ -367,7 +367,7 @@ ${artCard}
             <a href="${PATHS.blog[i]}">${esc(ui.nav.blog)}</a>
             <a href="${PATHS.contact[i]}">${esc(ui.nav.contact)}</a>
             <a href="${PATHS.careers[i]}">${esc(ui.nav.careers)}</a>
-            <a href="${PATHS.founder[i]}">${esc(ui.nav.founder)}</a>
+            <a href="${PATHS.founder[i]}">${esc(ui.nav.founder)}${lang === "fr" ? " : " : ": "}${esc(site[lang].founder.h1)}</a>
           </div>
           <div>
             <h2 class="footer-h">${esc(ui.nav.services)}</h2>
@@ -754,11 +754,12 @@ ${ctaSection(lang, { h: l.cta_h, button: l.cta, topic: l.label })}`;
       {
         "@type": "ProfilePage", name: f.title, url: SITE + own, inLanguage: lang,
         mainEntity: {
-          "@type": "Person", "@id": SITE + "/medalydridi#person", name: f.h1, alternateName: "Med Ali Dridi",
+          "@type": "Person", "@id": SITE + "/medalydridi#person", name: f.h1, alternateName: ["Med Ali Dridi", "Medaly Dridi"],
+          givenName: "Mohamed Ali", familyName: "Dridi", url: SITE + PATHS.founder[0],
           jobTitle: f.role.split(" · ")[1] || f.role, description: f.desc, image: SITE + `/founder/${hero[0]}.webp`,
           worksFor: { "@id": SITE + "/#organization" }, founder: { "@id": SITE + "/#organization" },
-          alumniOf: { "@type": "CollegeOrUniversity", name: "ESPRIT" }, homeLocation: { "@type": "Place", name: "Tunis, Tunisia" },
-          knowsAbout: f.topics, sameAs: f.links.map(([, href]) => href),
+          alumniOf: { "@type": "CollegeOrUniversity", name: "ESPRIT", url: "https://esprit.tn" }, homeLocation: { "@type": "Place", name: "Tunis, Tunisia" },
+          knowsAbout: f.topics, sameAs: [...f.links.map(([, href]) => href), ...(f.profiles || [])],
         },
       },
       crumbs([ui.nav.home, url("home", lang)], [f.h1, SITE + own]),

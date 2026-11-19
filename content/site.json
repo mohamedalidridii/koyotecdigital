@@ -825,15 +825,16 @@
       "cta_h": "Lançons votre boutique en ligne"
     },
     "founder": {
-      "title": "Mohamed Ali Dridi – Fondateur de KOYOTEC",
-      "desc": "Mohamed Ali Dridi : fondateur de KOYOTEC, ingénieur DevOps & cloud, O'Reilly Community Partner et créateur de contenu tech suivi par plus de 37 000 personnes.",
+      "title": "Mohamed Ali Dridi (Med Ali Dridi) · Fondateur de KOYOTEC",
+      "desc": "Mohamed Ali Dridi (Med Ali Dridi) : ingénieur cloud, DevOps et industrie 4.0, fondateur de KOYOTEC et de la communauté Localhost, O'Reilly Community Partner.",
       "label": "Le fondateur",
       "h1": "Mohamed Ali Dridi",
-      "role": "Fondateur de KOYOTEC · Ingénieur DevOps & Cloud",
-      "intro": "Ingénieur, fondateur et créateur de contenu. Je construis des produits numériques avec KOYOTEC, et j'explique la tech simplement — en dialecte tunisien — à une communauté de plus de 37 000 personnes.",
+      "role": "Fondateur de KOYOTEC · Ingénieur cloud, DevOps & industrie 4.0",
+      "intro": "Med Ali Dridi sur les réseaux. Ingénieur en électromécanique et en informatique, fondateur de KOYOTEC : je conçois des systèmes cloud, DevOps, IA et industrie 4.0, et j'explique la tech simplement — en dialecte tunisien — à une communauté de plus de 37 000 personnes.",
       "ticker": [
         "Fondateur de KOYOTEC",
-        "Ingénieur DevOps & Cloud",
+        "Ingénieur cloud, DevOps & industrie 4.0",
+        "Fondateur de Localhost",
         "Créateur de contenu tech",
         "Speaker",
         "O'Reilly Community Partner",
@@ -897,6 +898,7 @@
         "Linux",
         "Docker",
         "Kubernetes",
+        "AWS",
         "Cloud",
         "DevOps",
         "CI/CD",
@@ -905,6 +907,9 @@
         "PostgreSQL",
         "Machine Learning",
         "IA",
+        "Industrie 4.0",
+        "IIoT",
+        "SCADA",
         "Go",
         "Rust",
         "WebAssembly",
@@ -998,6 +1003,12 @@
           "Kick",
           "https://kick.com/medaly-dridi"
         ]
+      ],
+      "profiles": [
+        "https://sessionize.com/mohamed-ali-dridi/",
+        "https://aicommunitydays.ai/speakers/mohamed-ali-dridi",
+        "https://www.communitydays.org/profile/spk/07e3ca0a-9cf0-41e7-92b2-72d9d04dc030",
+        "https://dev.to/medalydridi"
       ],
       "chip": "Med Ali",
       "chip_hover": "Rencontrer le fondateur",
@@ -2009,15 +2020,16 @@
       "cta_h": "Let's launch your online store"
     },
     "founder": {
-      "title": "Mohamed Ali Dridi – Founder of KOYOTEC, DevOps engineer",
-      "desc": "Mohamed Ali Dridi: founder of KOYOTEC, DevOps & cloud engineer, O'Reilly Community Partner and tech content creator followed by more than 37,000 people.",
+      "title": "Mohamed Ali Dridi (Med Ali Dridi) · Founder of KOYOTEC",
+      "desc": "Mohamed Ali Dridi (Med Ali Dridi): cloud, DevOps and Industry 4.0 engineer, founder of KOYOTEC and the Localhost community, O'Reilly Community Partner.",
       "label": "The founder",
       "h1": "Mohamed Ali Dridi",
-      "role": "Founder of KOYOTEC · DevOps & Cloud Engineer",
-      "intro": "Engineer, founder and content creator. I build digital products with KOYOTEC, and I explain tech simply — in Tunisian dialect — to a community of more than 37,000 people.",
+      "role": "Founder of KOYOTEC · Cloud, DevOps & Industry 4.0 Engineer",
+      "intro": "Med Ali Dridi online. Electromechanical and computer engineer, founder of KOYOTEC: I design cloud, DevOps, AI and Industry 4.0 systems, and I explain tech simply — in Tunisian dialect — to a community of more than 37,000 people.",
       "ticker": [
         "Founder of KOYOTEC",
-        "DevOps & Cloud Engineer",
+        "Cloud, DevOps & Industry 4.0 Engineer",
+        "Founder of Localhost",
         "Tech content creator",
         "Speaker",
         "O'Reilly Community Partner",
@@ -2081,6 +2093,7 @@
         "Linux",
         "Docker",
         "Kubernetes",
+        "AWS",
         "Cloud",
         "DevOps",
         "CI/CD",
@@ -2089,6 +2102,9 @@
         "PostgreSQL",
         "Machine Learning",
         "AI",
+        "Industry 4.0",
+        "IIoT",
+        "SCADA",
         "Go",
         "Rust",
         "WebAssembly",
@@ -2182,6 +2198,12 @@
           "Kick",
           "https://kick.com/medaly-dridi"
         ]
+      ],
+      "profiles": [
+        "https://sessionize.com/mohamed-ali-dridi/",
+        "https://aicommunitydays.ai/speakers/mohamed-ali-dridi",
+        "https://www.communitydays.org/profile/spk/07e3ca0a-9cf0-41e7-92b2-72d9d04dc030",
+        "https://dev.to/medalydridi"
       ],
       "chip": "Med Ali",
       "chip_hover": "Meet the founder",

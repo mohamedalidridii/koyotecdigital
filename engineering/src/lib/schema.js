@@ -43,6 +43,7 @@ export const ORGANIZATION = {
         "Predictive maintenance",
       ],
       parentOrganization: { "@id": "https://www.koyotec.digital/#organization" },
+      founder: { "@id": "https://www.koyotec.digital/medalydridi#person" },
       sameAs: ["https://www.linkedin.com/company/88672837"],
     },
     {

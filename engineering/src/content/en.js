@@ -429,6 +429,8 @@ const en = {
   firmIntro: {
     short: "A small team of senior engineers. We build the systems.",
     long: "A small team of senior engineers. We build the systems, document them, and hand them to your teams in working order.",
+    founder: ["Founded in 2022 by", "Mohamed Ali Dridi", "(Med Ali Dridi), electromechanical and computer engineer."],
+    founderHref: "/en/medalydridi",
   },
 
   systems: {

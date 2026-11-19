@@ -25,6 +25,20 @@
   width: 100%;
 }
 
+.founder {
+  margin-top: 2.5rem;
+  max-width: 40rem;
+  font-size: 1.1rem;
+  line-height: 1.55;
+  opacity: 0.8;
+}
+
+.founder a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 @media (max-width: 768px) {
   .inner {
     padding-block: 4rem;

@@ -21,6 +21,15 @@ export default function FirmIntro() {
           <Copy>
             <h2 className={`h1 ${styles.heading}`}>{t.firmIntro.long}</h2>
           </Copy>
+          {t.firmIntro.founder ? (
+            <p className={styles.founder}>
+              {t.firmIntro.founder[0]}{" "}
+              <a href={t.firmIntro.founderHref} data-umami-event="founder-link" data-umami-event-place="studio">
+                {t.firmIntro.founder[1]}
+              </a>{" "}
+              {t.firmIntro.founder[2]}
+            </p>
+          ) : null}
         </div>
       </div>
     </section>
