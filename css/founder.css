@@ -351,6 +351,45 @@ html.is-founder .grain {
   font-size: var(--fs-lead);
   color: var(--ink-dim);
 }
+.fstage-talks {
+  grid-column: 1 / -1;
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+.fstage-talks li {
+  display: grid;
+  grid-template-columns: 9rem minmax(0, 1fr);
+  gap: 0.5rem var(--gutter);
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.fstage-when {
+  font-size: var(--fs-small);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-dim);
+}
+.fstage-talks p {
+  max-width: 70ch;
+}
+.fstage-talks p span {
+  color: var(--ink-dim);
+}
+.fstage-talks strong {
+  display: block;
+  font-weight: 500;
+}
+.fstage-talks a,
+.fstage-more a {
+  color: inherit;
+  text-underline-offset: 3px;
+}
+.fstage-more {
+  grid-column: 1 / -1;
+  font-size: var(--fs-small);
+}
 .fstage-second {
   grid-column: 2;
   width: min(100%, 24rem);
@@ -464,6 +503,10 @@ html.is-founder .grain {
   }
   .fstage-second {
     grid-column: 1;
+  }
+  .fstage-talks li {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
   }
   .ffollow-list a {
     grid-template-columns: 2rem 1fr;

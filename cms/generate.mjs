@@ -760,6 +760,7 @@ ${ctaSection(lang, { h: l.cta_h, button: l.cta, topic: l.label })}`;
           worksFor: { "@id": SITE + "/#organization" }, founder: { "@id": SITE + "/#organization" },
           alumniOf: { "@type": "CollegeOrUniversity", name: "ESPRIT", url: "https://esprit.tn" }, homeLocation: { "@type": "Place", name: "Tunis, Tunisia" },
           knowsAbout: f.topics, sameAs: [...f.links.map(([, href]) => href), ...(f.profiles || [])],
+          ...(f.talks ? { performerIn: f.talks.map(([, ev, what, href, iso]) => ({ "@type": "Event", name: ev, description: what, ...(iso ? { startDate: iso } : {}), ...(href ? { url: href } : {}) })) } : {}),
         },
       },
       crumbs([ui.nav.home, url("home", lang)], [f.h1, SITE + own]),
@@ -828,7 +829,11 @@ ${f.timeline.map(([y, t]) => `          <li data-line><span class="ftime-y">${es
           <p class="fstage-kicker" id="stage-h">${esc(f.stage_h)}</p>
           <h2 class="fstage-title">${esc(f.stage_title)}</h2>
           <p class="fstage-text">${esc(f.stage_text)}</p>
-          ${f.stage_photos[1] ? `<figure class="fstage-second">${fimg(f.stage_photos[1], alt[f.stage_photos[1]] || "", "(max-width: 960px) 90vw, 24rem", ' loading="lazy" decoding="async"')}</figure>` : ""}
+${f.talks ? `          <ol class="fstage-talks">
+${f.talks.map(([when, ev, what, href]) => `            <li><span class="fstage-when">${esc(when)}</span><p><strong>${href ? `<a href="${esc(href)}" target="_blank" rel="noopener">${esc(ev)}</a>` : esc(ev)}</strong> <span>${esc(what)}</span></p></li>`).join("\n")}
+          </ol>${f.talks_link ? `
+          <p class="fstage-more"><a href="${esc(f.talks_link[1])}" target="_blank" rel="noopener">${esc(f.talks_link[0])} ↗</a></p>` : ""}
+` : ""}          ${f.stage_photos[1] ? `<figure class="fstage-second">${fimg(f.stage_photos[1], alt[f.stage_photos[1]] || "", "(max-width: 960px) 90vw, 24rem", ' loading="lazy" decoding="async"')}</figure>` : ""}
         </div>
       </section>
 

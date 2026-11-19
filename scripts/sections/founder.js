@@ -186,5 +186,5 @@ export function founderStage(scope) {
   });
   gsap.fromTo(media.querySelector("img"), { scale: 1.1 }, { scale: 1, ease: "none", scrollTrigger: { trigger: stage, start: "top bottom", end: "bottom top", scrub: true } });
   revealLines(stage.querySelector(".fstage-title"));
-  batchReveal($(".fstage-kicker, .fstage-text, .fstage-second, .ffollow-list li", scope), { y: 40, stagger: 0.08 });
+  batchReveal($(".fstage-kicker, .fstage-text, .fstage-talks li, .fstage-more, .fstage-second, .ffollow-list li", scope), { y: 40, stagger: 0.08 });
 }
