@@ -48,6 +48,60 @@
   opacity: 0.7;
 }
 
+/* top CTA: the audit offer in the first screen, plus jump links to each scenario */
+.lead {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1.25rem 2rem;
+  margin-bottom: 2rem;
+  padding: 1.75rem;
+  background-color: var(--base-400);
+  color: var(--base-100);
+}
+
+.leadCopy {
+  max-width: 44rem;
+  line-height: 1.55;
+}
+
+.leadButton,
+.resultCta,
+.sticky {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 16px 18px;
+  text-decoration: none;
+}
+
+.leadButton {
+  background-color: var(--base-300);
+  color: var(--base-100);
+  white-space: nowrap;
+}
+
+.jump {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.jump span {
+  opacity: 0.6;
+}
+
+.jump a {
+  color: inherit;
+  font-size: 0.9rem;
+  text-underline-offset: 3px;
+}
+
 .scenario {
   display: flex;
   flex-direction: column;
@@ -180,6 +234,12 @@
   opacity: 0.85;
 }
 
+.resultCta {
+  margin-top: 1rem;
+  background-color: var(--base-300);
+  color: var(--base-100);
+}
+
 .lists {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -266,6 +326,60 @@
 
 .footnotes a {
   color: inherit;
+}
+
+/* sticky audit button: mobile only, shown by the component between the top and bottom CTAs */
+.sticky {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .sticky {
+    display: flex;
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    z-index: 900;
+    background-color: var(--base-300);
+    color: var(--base-100);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    transform: translateY(calc(100% + 24px));
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .stickyOn {
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .lead {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+
+  .leadButton {
+    width: 100%;
+    white-space: normal;
+  }
+
+  .cloudCosts {
+    padding-top: 1.5rem;
+    padding-bottom: 6rem;
+  }
+
+  .lead {
+    gap: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sticky {
+    transition: none;
+  }
 }
 
 @media (max-width: 900px) {

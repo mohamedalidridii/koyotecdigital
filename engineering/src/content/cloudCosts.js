@@ -20,6 +20,12 @@ export const CLOUD_COSTS = {
     ctaCopy: "In two weeks, we audit your AWS account (network, compute, storage, data) and hand you a prioritised list of savings with the effort each one takes.",
     ctaAudit: "Request a cloud cost audit",
     ctaTalk: "Talk to an engineer",
+    leadCopy:
+      "Try your own figures below, or let us find these leaks in your account: a two-week audit that ends with a prioritised list of savings.",
+    leadJump: "Jump to",
+    jump: { "s3-nat": "S3 through NAT", "cross-az": "Cross-AZ traffic", "spot-ebs": "Spot for batch", dynamodb: "DynamoDB hot key" },
+    scenarioCta: "Check my AWS account for this",
+    stickyCta: "Request a cloud cost audit",
     scenarios: [
       {
         id: "s3-nat",
@@ -120,6 +126,12 @@ export const CLOUD_COSTS = {
     ctaCopy: "En deux semaines, nous auditons votre compte AWS (réseau, calcul, stockage, données) et vous remettons une liste priorisée d'économies, avec l'effort que chacune demande.",
     ctaAudit: "Demander un audit des coûts cloud",
     ctaTalk: "Parler à un ingénieur",
+    leadCopy:
+      "Testez vos chiffres ci-dessous, ou laissez-nous trouver ces fuites dans votre compte AWS : audit en deux semaines, économies priorisées.",
+    leadJump: "Aller à",
+    jump: { "s3-nat": "S3 via NAT", "cross-az": "Trafic inter-zones", "spot-ebs": "Spot pour le batch", dynamodb: "DynamoDB : clé chaude" },
+    scenarioCta: "Vérifier mon compte AWS",
+    stickyCta: "Demander un audit cloud",
     scenarios: [
       {
         id: "s3-nat",

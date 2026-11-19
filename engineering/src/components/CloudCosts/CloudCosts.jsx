@@ -2,7 +2,7 @@
 
 import styles from "./CloudCosts.module.css";
 
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { FiArrowRight } from "react-icons/fi";
 
@@ -51,7 +51,7 @@ function compute(id, v, p) {
   return { before, after, price: `$${p.wcuHour} / WCU-hour`, shards: Math.ceil(wcu / 1000) };
 }
 
-function Scenario({ s, region, c, fmt, index }) {
+function Scenario({ s, region, c, fmt, index, contact }) {
   const [v, setV] = useState(DEFAULTS[s.id]);
   const used = useRef(false);
   const p = PRICES[region];
@@ -110,6 +110,16 @@ function Scenario({ s, region, c, fmt, index }) {
               {s.shardsLabel}: <strong>{r.shards}</strong>
             </p>
           ) : null}
+          <Link
+            className={styles.resultCta}
+            href={contact}
+            data-umami-event="cost-audit-cta"
+            data-umami-event-place={s.id}
+            data-umami-event-region={region}
+          >
+            <span>{c.scenarioCta}</span>
+            <FiArrowRight aria-hidden="true" />
+          </Link>
         </div>
       </div>
 
@@ -131,6 +141,26 @@ export default function CloudCosts() {
   const { lang, href } = useLang();
   const c = CLOUD_COSTS[lang];
   const [region, setRegion] = useState(REGIONS[0].id);
+  const leadRef = useRef(null);
+  const auditRef = useRef(null);
+  const [pastLead, setPastLead] = useState(false);
+  const [auditVisible, setAuditVisible] = useState(false);
+  const contact = href("/contact");
+  const stickyOn = pastLead && !auditVisible;
+
+  // sticky audit bar (mobile only, via CSS): shown once the top CTA has scrolled away,
+  // hidden again while the bottom CTA is on screen
+  useEffect(() => {
+    if (typeof IntersectionObserver === "undefined") return undefined;
+    const lead = new IntersectionObserver(([e]) => setPastLead(!e.isIntersecting && e.boundingClientRect.top < 0));
+    const audit = new IntersectionObserver(([e]) => setAuditVisible(e.isIntersecting));
+    if (leadRef.current) lead.observe(leadRef.current);
+    if (auditRef.current) audit.observe(auditRef.current);
+    return () => {
+      lead.disconnect();
+      audit.disconnect();
+    };
+  }, []);
   const fmt = useMemo(() => {
     const nf = new Intl.NumberFormat(lang === "fr" ? "fr-FR" : "en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
     return (n) => nf.format(Math.round(n));
@@ -144,6 +174,22 @@ export default function CloudCosts() {
   return (
     <section className={styles.cloudCosts} data-umami-section="cost-scenarios">
       <div className="container">
+        <div className={styles.lead} ref={leadRef}>
+          <p className={styles.leadCopy}>{c.leadCopy}</p>
+          <Link className={styles.leadButton} href={contact} data-umami-event="cost-audit-cta" data-umami-event-place="top" data-umami-event-region={region}>
+            <span>{c.stickyCta}</span>
+            <FiArrowRight aria-hidden="true" />
+          </Link>
+          <nav className={styles.jump} aria-label={c.leadJump}>
+            <span className="mono sm">{c.leadJump}</span>
+            {c.scenarios.map((s, i) => (
+              <a key={s.id} href={`#${s.id}`}>
+                {String(i + 1).padStart(2, "0")} · {c.jump[s.id]}
+              </a>
+            ))}
+          </nav>
+        </div>
+
         <div className={styles.toolbar}>
           <p className="mono sm">{c.kicker}</p>
           <label className={styles.region}>
@@ -160,14 +206,14 @@ export default function CloudCosts() {
         </div>
 
         {c.scenarios.map((s, i) => (
-          <Scenario key={s.id} s={s} region={region} c={c} fmt={fmt} index={i} />
+          <Scenario key={s.id} s={s} region={region} c={c} fmt={fmt} index={i} contact={contact} />
         ))}
 
-        <div className={styles.cta}>
+        <div className={styles.cta} id="audit" ref={auditRef}>
           <h3>{c.ctaTitle}</h3>
           <p>{c.ctaCopy}</p>
           <div className={styles.ctaButtons}>
-            <Link className={styles.ctaPrimary} href={href("/contact")} data-umami-event="cost-audit-cta" data-umami-event-region={region}>
+            <Link className={styles.ctaPrimary} href={contact} data-umami-event="cost-audit-cta" data-umami-event-place="bottom" data-umami-event-region={region}>
               <span>{c.ctaAudit}</span>
               <FiArrowRight aria-hidden="true" />
             </Link>
@@ -192,6 +238,19 @@ export default function CloudCosts() {
           </ul>
         </div>
       </div>
+
+      <Link
+        className={`${styles.sticky} ${stickyOn ? styles.stickyOn : ""}`}
+        href={contact}
+        aria-hidden={stickyOn ? undefined : "true"}
+        tabIndex={stickyOn ? undefined : -1}
+        data-umami-event="cost-audit-cta"
+        data-umami-event-place="sticky"
+        data-umami-event-region={region}
+      >
+        <span>{c.stickyCta}</span>
+        <FiArrowRight aria-hidden="true" />
+      </Link>
     </section>
   );
 }
