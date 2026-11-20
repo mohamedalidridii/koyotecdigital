@@ -16,6 +16,7 @@ import Copy from "@/components/Copy";
 import SectionHeader from "@/components/SectionHeader";
 import Button from "@/components/Button";
 import FocusAreas from "@/components/FocusAreas";
+import CloudCallout from "@/components/CloudCallout";
 import Marquee from "@/components/Marquee";
 import ProcessSteps from "@/components/ProcessSteps";
 import OpenPositions from "@/components/OpenPositions";
@@ -192,6 +193,8 @@ export default function Home() {
       </section>
 
       <FocusAreas />
+
+      <CloudCallout />
 
       <Marquee />
 

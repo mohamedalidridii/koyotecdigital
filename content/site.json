@@ -64,7 +64,7 @@
     },
     "home": {
       "title": "Agence Web à Tunis : Création de Site Internet – KOYOTEC",
-      "desc": "KOYOTEC, agence digitale à Tunis : création de sites web sur mesure, identité visuelle et branding, stratégie digitale. Demandez un devis gratuit.",
+      "desc": "KOYOTEC, agence digitale et ingénierie à Tunis : sites web sur mesure, branding, et Koyotec Engineering pour le cloud AWS, le DevOps et l'IA, dans le monde.",
       "eyebrow": "KOYOTEC · Agence digitale à Tunis",
       "h1": "Création de site web et branding à Tunis",
       "sub": "Nous concevons votre site internet, votre logo et votre identité visuelle, du design à la mise en ligne. Devis gratuit.",
@@ -259,7 +259,8 @@
         "digital": "Postuler côté Digital",
         "engineering": "Postuler côté Engineering",
         "cta": "Voir la page carrières"
-      }
+      },
+      "keywords": "agence web Tunis, création site web Tunisie, identité visuelle, branding, stratégie digitale, ingénierie cloud, consultant AWS Tunisie, migration cloud, DevOps, intelligence artificielle, Koyotec Engineering, KOYOTEC"
     },
     "services": {
       "title": "Services : Site Web, Branding & SEO à Tunis – KOYOTEC",
@@ -826,7 +827,7 @@
     },
     "founder": {
       "title": "Mohamed Ali Dridi (Med Ali Dridi) · Fondateur de KOYOTEC",
-      "desc": "Mohamed Ali Dridi (Med Ali Dridi) : ingénieur cloud, DevOps et industrie 4.0, fondateur de KOYOTEC et de la communauté Localhost, O'Reilly Community Partner.",
+      "desc": "Mohamed Ali Dridi (Med Ali Dridi) : ingénieur cloud, DevOps et industrie 4.0, stratège business IA et cloud, fondateur de KOYOTEC et de Localhost.",
       "label": "Le fondateur",
       "h1": "Mohamed Ali Dridi",
       "role": "Fondateur de KOYOTEC · Ingénieur cloud, DevOps & industrie 4.0",
@@ -834,10 +835,11 @@
       "ticker": [
         "Fondateur de KOYOTEC",
         "Ingénieur cloud, DevOps & industrie 4.0",
+        "Stratège business IA & cloud",
         "Fondateur de Localhost",
         "Créateur de contenu tech",
         "Speaker AI Community Days",
-        "Finaliste JCI TOYP 2026",
+        "Finaliste JCI Ten Outstanding Young Persons of the World 2026",
         "O'Reilly Community Partner",
         "Linux lover"
       ],
@@ -921,15 +923,15 @@
       "chapters": [
         [
           "De la mécatronique au code",
-          "Je suis diplômé ingénieur en mécatronique, robotique et automatisation de l'ESPRIT en 2020. Ces bases d'ingénierie m'ont appris la rigueur ; c'est pourtant l'informatique qui m'a happé. Après une année de freelance en développement full stack, j'ai fondé KOYOTEC en 2022."
+          "Je suis diplômé ingénieur en mécatronique, robotique et automatisation en 2020. Ces bases d'ingénierie m'ont appris la rigueur ; c'est pourtant l'informatique qui m'a happé. Après une année de freelance en développement full stack, j'ai fondé KOYOTEC en 2022."
         ],
         [
           "KOYOTEC",
-          "KOYOTEC est une agence digitale qui livre des solutions web créatives dans le monde entier. Avec l'équipe, nous avons livré plus de 50 projets pour des startups, et accompagné 38 startups de bout en bout comme partenaire technique de la Westerwelle Foundation, entre Tunis, Kigali et Arusha. Côté infrastructure, je conçois des architectures cloud qui tiennent la charge : Kubernetes, Kafka, PostgreSQL, Terraform, CI/CD."
+          "KOYOTEC est une agence digitale qui livre des solutions web créatives dans le monde entier. Avec l'équipe, nous avons livré plus de 50 projets pour des startups, et accompagné 38 startups de bout en bout comme partenaire technique de la Westerwelle Foundation, entre Tunis, Kigali et Arusha. Côté infrastructure, je conçois des architectures cloud qui tiennent la charge : Kubernetes, Kafka, PostgreSQL, Terraform, CI/CD. C'est aujourd'hui la spécialité de [Koyotec Engineering : l'ingénierie cloud AWS, partout dans le monde](/engineering/cloud/)."
         ],
         [
           "Revenir aux bancs de l'école",
-          "En 2024, je suis retourné en école d'ingénieurs, en génie informatique à l'ESPRIT, pour maîtriser le machine learning. Avec un objectif précis : construire un modèle d'IA capable d'aider à détecter tôt la sclérodermie. Un projet né d'une histoire personnelle, que j'ai présenté sous le titre « The Algorithm of Grief »."
+          "En 2024, je suis retourné en école d'ingénieurs, en génie informatique, pour maîtriser le machine learning. Avec un objectif précis : construire un modèle d'IA capable d'aider à détecter tôt la sclérodermie. Un projet né d'une histoire personnelle, que j'ai présenté sous le titre « The Algorithm of Grief »."
         ],
         [
           "Enseigner la tech, en tunisien",
@@ -940,7 +942,7 @@
       "timeline": [
         [
           "2015–2020",
-          "Diplôme d'ingénieur en mécatronique, robotique et automatisation — ESPRIT"
+          "Diplôme d'ingénieur en mécatronique, robotique et automatisation"
         ],
         [
           "2021",
@@ -952,7 +954,7 @@
         ],
         [
           "2024",
-          "Retour en génie informatique à l'ESPRIT, spécialisation machine learning"
+          "Retour en génie informatique, spécialisation machine learning"
         ],
         [
           "2025",
@@ -972,12 +974,12 @@
         ],
         [
           "2026",
-          "Finaliste du JCI TOYP Tunisie 2026 (Ten Outstanding Young Persons), catégorie Développement scientifique et/ou technologique, sur proposition de la JCI Ouardanine"
+          "Finaliste JCI Ten Outstanding Young Persons of the World (TOYP) Tunisie 2026, catégorie Développement scientifique et/ou technologique, sur proposition de la JCI Ouardanine"
         ]
       ],
       "stage_h": "Sur scène",
       "stage_title": "Conférences et ateliers",
-      "stage_text": "Je parle d'IA, de cloud et de DevOps comme je les pratique : avec des systèmes réels, des chiffres et des histoires vraies. Speaker aux AI Community Days, à Fork it! et à Orbit 1.0 (IEEE INSAT), et finaliste du JCI TOYP Tunisie 2026.",
+      "stage_text": "Je parle d'IA, de cloud et de DevOps comme je les pratique : avec des systèmes réels, des chiffres et des histoires vraies. Speaker aux AI Community Days, à Fork it! et à Orbit 1.0 (IEEE INSAT), et finaliste du JCI Ten Outstanding Young Persons of the World, Tunisie 2026.",
       "talks": [
         [
           "29 avril 2026",
@@ -1045,7 +1047,11 @@
       "chip": "Med Ali",
       "chip_hover": "Rencontrer le fondateur",
       "cta_h": "Un projet ? Parlons-en.",
-      "cta": "Demander un devis gratuit"
+      "cta": "Demander un devis gratuit",
+      "job_titles": [
+        "Ingénieur cloud, DevOps & industrie 4.0",
+        "Stratège business IA & cloud"
+      ]
     },
     "careers": {
       "title": "Carrières : rejoindre KOYOTEC Digital & Engineering à Tunis",
@@ -1291,7 +1297,7 @@
     },
     "home": {
       "title": "Web Design & Branding Agency in Tunis, Tunisia – KOYOTEC",
-      "desc": "KOYOTEC is a digital agency in Tunis, Tunisia: custom website design and development, brand identity, logo design and digital strategy. Get a free quote.",
+      "desc": "KOYOTEC, digital agency and engineering studio in Tunis: custom websites, branding, and Koyotec Engineering for AWS cloud, DevOps and AI, worldwide.",
       "eyebrow": "KOYOTEC · Digital agency in Tunis",
       "h1": "Web design and branding agency in Tunis",
       "sub": "We design your website, logo and brand identity, from first sketch to launch. Free quote.",
@@ -1486,7 +1492,8 @@
         "digital": "Apply to Digital",
         "engineering": "Apply to Engineering",
         "cta": "See the careers page"
-      }
+      },
+      "keywords": "web design agency Tunis, website design Tunisia, brand identity, branding, digital strategy, cloud engineering, AWS consultant Tunisia, cloud migration, DevOps, artificial intelligence, Koyotec Engineering, KOYOTEC"
     },
     "services": {
       "title": "Services: Web Design, Branding & SEO in Tunis – KOYOTEC",
@@ -2053,7 +2060,7 @@
     },
     "founder": {
       "title": "Mohamed Ali Dridi (Med Ali Dridi) · Founder of KOYOTEC",
-      "desc": "Mohamed Ali Dridi (Med Ali Dridi): cloud, DevOps and Industry 4.0 engineer, founder of KOYOTEC and the Localhost community, O'Reilly Community Partner.",
+      "desc": "Mohamed Ali Dridi (Med Ali Dridi): cloud, DevOps and Industry 4.0 engineer, AI/cloud business strategist, founder of KOYOTEC and Localhost.",
       "label": "The founder",
       "h1": "Mohamed Ali Dridi",
       "role": "Founder of KOYOTEC · Cloud, DevOps & Industry 4.0 Engineer",
@@ -2061,10 +2068,11 @@
       "ticker": [
         "Founder of KOYOTEC",
         "Cloud, DevOps & Industry 4.0 Engineer",
+        "AI/Cloud Business Strategist",
         "Founder of Localhost",
         "Tech content creator",
         "Speaker AI Community Days",
-        "JCI TOYP 2026 finalist",
+        "JCI Ten Outstanding Young Persons of the World 2026 finalist",
         "O'Reilly Community Partner",
         "Linux lover"
       ],
@@ -2148,15 +2156,15 @@
       "chapters": [
         [
           "From mechatronics to code",
-          "I graduated as a mechatronics, robotics and automation engineer from ESPRIT in 2020. That engineering foundation taught me rigour, but it was computing that pulled me in. After a year of full stack freelancing, I founded KOYOTEC in 2022."
+          "I graduated as a mechatronics, robotics and automation engineer in 2020. That engineering foundation taught me rigour, but it was computing that pulled me in. After a year of full stack freelancing, I founded KOYOTEC in 2022."
         ],
         [
           "KOYOTEC",
-          "KOYOTEC is a digital agency delivering creative web solutions worldwide. With the team, we have delivered more than 50 projects for startups, and supported 38 startups end to end as the technical partner of the Westerwelle Foundation across Tunis, Kigali and Arusha. On the infrastructure side, I design cloud architectures that hold under load: Kubernetes, Kafka, PostgreSQL, Terraform, CI/CD."
+          "KOYOTEC is a digital agency delivering creative web solutions worldwide. With the team, we have delivered more than 50 projects for startups, and supported 38 startups end to end as the technical partner of the Westerwelle Foundation across Tunis, Kigali and Arusha. On the infrastructure side, I design cloud architectures that hold under load: Kubernetes, Kafka, PostgreSQL, Terraform, CI/CD. Today that is the specialty of [Koyotec Engineering: AWS cloud engineering, worldwide](/engineering/en/cloud/)."
         ],
         [
           "Back to school",
-          "In 2024 I went back to engineering school, in computer engineering at ESPRIT, to master machine learning. With one specific goal: building an AI model that can help detect scleroderma early. A project born from a personal story, which I presented as \"The Algorithm of Grief\"."
+          "In 2024 I went back to engineering school, in computer engineering, to master machine learning. With one specific goal: building an AI model that can help detect scleroderma early. A project born from a personal story, which I presented as \"The Algorithm of Grief\"."
         ],
         [
           "Teaching tech, in Tunisian",
@@ -2167,7 +2175,7 @@
       "timeline": [
         [
           "2015–2020",
-          "Engineering degree in mechatronics, robotics and automation — ESPRIT"
+          "Engineering degree in mechatronics, robotics and automation"
         ],
         [
           "2021",
@@ -2179,7 +2187,7 @@
         ],
         [
           "2024",
-          "Back to computer engineering at ESPRIT, specialising in machine learning"
+          "Back to computer engineering, specialising in machine learning"
         ],
         [
           "2025",
@@ -2199,12 +2207,12 @@
         ],
         [
           "2026",
-          "Finalist, JCI TOYP Tunisia 2026 (Ten Outstanding Young Persons), Scientific and/or Technological Development category, nominated by JCI Ouardanine"
+          "Finalist, JCI Ten Outstanding Young Persons of the World (TOYP) Tunisia 2026, Scientific and/or Technological Development category, nominated by JCI Ouardanine"
         ]
       ],
       "stage_h": "On stage",
       "stage_title": "Talks and workshops",
-      "stage_text": "I talk about AI, cloud and DevOps the way I practise them: with real systems, real numbers and true stories. Speaker at AI Community Days, Fork it! and Orbit 1.0 (IEEE INSAT), and a JCI TOYP Tunisia 2026 finalist.",
+      "stage_text": "I talk about AI, cloud and DevOps the way I practise them: with real systems, real numbers and true stories. Speaker at AI Community Days, Fork it! and Orbit 1.0 (IEEE INSAT), and a finalist of JCI Ten Outstanding Young Persons of the World, Tunisia 2026.",
       "talks": [
         [
           "29 April 2026",
@@ -2272,7 +2280,11 @@
       "chip": "Med Ali",
       "chip_hover": "Meet the founder",
       "cta_h": "Got a project? Let's talk.",
-      "cta": "Get a free quote"
+      "cta": "Get a free quote",
+      "job_titles": [
+        "Cloud, DevOps & Industry 4.0 Engineer",
+        "AI/Cloud Business Strategist"
+      ]
     },
     "careers": {
       "title": "Careers: join KOYOTEC Digital & Engineering in Tunis",

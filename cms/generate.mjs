@@ -46,7 +46,7 @@ const AI_CASES = [
   "vlm-document-extraction", "text-to-sql-agent", "legacy-modernization", "soc-triage-agent", "supply-chain-radar",
 ];
 const DEVOPS_CASES = ["oncall-copilot", "predictive-autoscaling", "iac-security-review", "self-healing-ci", "idp-scaffolder"];
-const ENGINEERING_ROUTES = ["", "expertise", "systems", "ai", ...AI_CASES.map((s) => `ai/${s}`), "devops", ...DEVOPS_CASES.map((s) => `devops/${s}`), "work", "studio", "engagements", "nearshore", "cloud-costs", "architecture", "contact"];
+const ENGINEERING_ROUTES = ["", "expertise", "cloud", "cloud/consultant-aws-tunisie", "cloud/migration-cloud-tunisie", "cloud/consultant-aws-france", "medalydridi", "systems", "ai", ...AI_CASES.map((s) => `ai/${s}`), "devops", ...DEVOPS_CASES.map((s) => `devops/${s}`), "work", "studio", "engagements", "nearshore", "cloud-costs", "architecture", "contact"];
 const full = (k) => (k === "engineering" || k === "architecture" ? " data-barba-prevent" : "");
 
 // ---------- escaping and light markup ----------
@@ -185,7 +185,7 @@ export function generate(root = ROOT, content = loadContent(root), { write = tru
     itemListElement: items.map(([name, item], n) => ({ "@type": "ListItem", position: n + 1, name, item })),
   });
 
-  function headTag({ lang, title, desc, canon, altFr, altEn, ld, ogType = "website", theme = "#f3f1ec", htmlClass = "" }) {
+  function headTag({ lang, title, desc, keywords, canon, altFr, altEn, ld, ogType = "website", theme = "#f3f1ec", htmlClass = "" }) {
     return `<!DOCTYPE html>
 <html lang="${lang}" class="no-js${htmlClass ? " " + htmlClass : ""}">
   <head>
@@ -193,7 +193,7 @@ export function generate(root = ROOT, content = loadContent(root), { write = tru
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${esc(title)}</title>
     <meta name="description" content="${esc(desc)}" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
+${keywords ? `    <meta name="keywords" content="${esc(keywords)}" />\n` : ""}    <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="${esc(SITE + canon)}" />
 ${altFr ? `    <link rel="alternate" hreflang="fr" href="${esc(SITE + altFr)}" />\n` : ""}${altEn ? `    <link rel="alternate" hreflang="en" href="${esc(SITE + altEn)}" />\n` : ""}    <link rel="alternate" hreflang="x-default" href="${esc(SITE + (altFr || canon))}" />
     <meta property="og:type" content="${ogType}" />
@@ -238,7 +238,7 @@ ${G.analytics?.id ? `    <script defer src="${esc(G.analytics.src)}" data-websit
       ld = graph(org(lang), crumbs(home, [ui.nav[page], url(page, lang)]));
     }
     return headTag({
-      lang, title: p.title, desc: p.desc, canon: PATHS[page][idx(lang)],
+      lang, title: p.title, desc: p.desc, keywords: p.keywords, canon: PATHS[page][idx(lang)],
       altFr: PATHS[page][0], altEn: PATHS[page][1], ld,
     });
   }
@@ -756,9 +756,9 @@ ${ctaSection(lang, { h: l.cta_h, button: l.cta, topic: l.label })}`;
         mainEntity: {
           "@type": "Person", "@id": SITE + "/medalydridi#person", name: f.h1, alternateName: ["Med Ali Dridi", "Medaly Dridi"],
           givenName: "Mohamed Ali", familyName: "Dridi", url: SITE + PATHS.founder[0],
-          jobTitle: f.role.split(" · ")[1] || f.role, description: f.desc, image: SITE + `/founder/${hero[0]}.webp`,
+          jobTitle: f.job_titles || f.role.split(" · ")[1] || f.role, description: f.desc, image: SITE + `/founder/${hero[0]}.webp`,
           worksFor: { "@id": SITE + "/#organization" }, founder: { "@id": SITE + "/#organization" },
-          alumniOf: { "@type": "CollegeOrUniversity", name: "ESPRIT", url: "https://esprit.tn" }, homeLocation: { "@type": "Place", name: "Tunis, Tunisia" },
+          homeLocation: { "@type": "Place", name: "Tunis, Tunisia" },
           knowsAbout: f.topics, sameAs: [...f.links.map(([, href]) => href), ...(f.profiles || [])],
           ...(f.talks ? { performerIn: f.talks.map(([, ev, what, href, iso]) => ({ "@type": "Event", name: ev, description: what, ...(iso ? { startDate: iso } : {}), ...(href ? { url: href } : {}) })) } : {}),
         },
@@ -1365,6 +1365,18 @@ ${bodyTracked}
     fr: { pages: "Pages", services: "Services", blog: "Articles", concepts: "Concepts" },
   };
 
+  // engineering pages listed in llms.txt next to the engineering home
+  const ENG_LLMS = {
+    fr: [
+      ["/engineering/cloud/", "Cloud Tunisie & France", "Consultant AWS en Tunisie, migration cloud et équipe AWS nearshore pour la France, expliqués simplement."],
+      ["/engineering/medalydridi/", "Med Ali Dridi, fondateur", "Fondateur de KOYOTEC, ingénieur cloud et DevOps, stratège business IA et cloud : parcours, conférences et profils."],
+    ],
+    en: [
+      ["/engineering/en/cloud/", "Cloud in Tunisia & France", "AWS consulting, cloud migration in Tunisia and a nearshore AWS team for France, explained plainly."],
+      ["/engineering/en/medalydridi/", "Med Ali Dridi, founder", "Founder of KOYOTEC, cloud & DevOps engineer and AI/cloud business strategist: path, talks and public profiles."],
+    ],
+  };
+
   function llmsTxt() {
     const e = site.en; const f = e.founder;
     const facts = [
@@ -1390,6 +1402,7 @@ ${bodyTracked}
         item(url("contact", lang), t.contact.title, t.contact.desc),
         item(url("careers", lang), t.careers.title, t.careers.desc),
         item(url("engineering", lang), t.home.engineering.kicker, t.home.engineering.lead),
+        ...ENG_LLMS[lang].map(([path, title, desc]) => item(SITE + path, title, desc)),
         "", `### ${L.services}`, "",
         ...landingKeys(lang).map((k) => item(url(k, lang), t[k].title, t[k].desc)),
         "", `### ${L.blog}`, "",

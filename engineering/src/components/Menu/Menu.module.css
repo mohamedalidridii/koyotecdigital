@@ -304,3 +304,294 @@
     text-shadow: none;
   }
 }
+
+
+/* ---------- desktop: a full-width bar, logo on the left, links on the right ---------- */
+.desktopNav {
+  display: none;
+}
+
+@media (min-width: 1100px) {
+  .menu {
+    --bar-h: 112px;
+    --pad: 1rem;
+    width: calc(100vw - 2 * var(--gap));
+  }
+
+  .brandGroup {
+    flex: 0 0 auto;
+  }
+
+  .toggle,
+  .panel {
+    display: none;
+  }
+
+  .desktopNav {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-end;
+    gap: 0.25rem;
+    padding: 0 var(--pad);
+  }
+
+  .deskLink {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.6rem 0.7rem;
+    border: none;
+    background: none;
+    color: var(--base-500);
+    font-family: var(--font-google-sans-code), monospace;
+    font-size: 0.78rem;
+    font-weight: 450;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  .deskLink::after {
+    content: "";
+    position: absolute;
+    left: 0.7rem;
+    right: 0.7rem;
+    bottom: 0.3rem;
+    height: 2px;
+    background: var(--base-300);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  .deskLink:hover::after,
+  .deskLink[aria-current="page"]::after {
+    transform: scaleX(1);
+  }
+
+  .deskLink[aria-current="page"] {
+    color: var(--base-300);
+  }
+
+  .lang,
+  .deskCta {
+    align-self: center;
+  }
+
+  .lang {
+    margin-left: 0.5rem;
+    border-left: var(--dash);
+    padding-left: 1.1rem;
+  }
+
+  .deskCta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 0.5rem;
+    padding: 0.85rem 1.1rem;
+    background: var(--base-300);
+    color: var(--base-100);
+    font-size: 0.95rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.3s ease;
+  }
+
+  .deskCta:hover {
+    background: var(--base-400);
+  }
+
+  .more {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .moreList {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 240px;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0;
+    background: var(--base-100);
+    box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  }
+
+  .more:hover .moreList,
+  .more:has(:focus-visible) .moreList,
+  .more[data-open="true"] .moreList {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .moreList a {
+    padding: 0.7rem 1.1rem;
+    color: var(--base-500);
+    font-family: var(--font-google-sans-code), monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .moreList a:hover,
+  .moreList a[aria-current="page"] {
+    color: var(--base-300);
+    background: #f6f6f3;
+  }
+
+  .narrowOnly {
+    display: none;
+  }
+
+  /* ---------- preview panels: what is inside each page, under the bar ---------- */
+  .deskItem {
+    display: flex;
+    align-items: center;
+  }
+
+  .mega {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: grid;
+    grid-template-columns: minmax(240px, 0.75fr) 2.25fr;
+    gap: 2.5rem;
+    max-height: calc(100svh - var(--bar-h) - 3rem);
+    overflow-y: auto;
+    padding: 2rem var(--pad) 2.25rem;
+    background: var(--base-100);
+    border-top: var(--dash);
+    box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  }
+
+  .deskItem:hover .mega,
+  .deskItem:has(:focus-visible) .mega {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .desktopNav[data-quiet="true"] .mega,
+  .desktopNav[data-quiet="true"] .moreList {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .megaPath {
+    font-family: var(--font-google-sans-code), monospace;
+    font-size: 0.75rem;
+    color: var(--base-300);
+  }
+
+  .megaTitle {
+    margin-top: 0.6rem;
+    font-size: 2rem !important;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+
+  .megaDesc {
+    margin-top: 0.85rem;
+    font-size: 0.95rem !important;
+    line-height: 1.5;
+    color: #4d4d4a;
+  }
+
+  .megaAll {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 1.25rem;
+    padding-bottom: 0.2rem;
+    border-bottom: 2px solid var(--base-300);
+    color: var(--base-500);
+    font-size: 0.95rem;
+    text-decoration: none;
+  }
+
+  .megaList {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 0 1.5rem;
+    align-content: start;
+  }
+
+  .megaList li {
+    border-top: 1px solid rgba(13, 13, 13, 0.12);
+  }
+
+  .megaList a {
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    column-gap: 0.25rem;
+    padding: 0.85rem 0;
+    color: var(--base-500);
+    text-decoration: none;
+    transition: color 0.2s ease, padding-left 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  .megaList a:hover {
+    color: var(--base-300);
+    padding-left: 0.4rem;
+  }
+
+  .megaNo {
+    grid-row: span 2;
+    font-family: var(--font-google-sans-code), monospace;
+    font-size: 0.7rem;
+    color: var(--base-300);
+    padding-top: 0.2rem;
+  }
+
+  .megaLabel {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+
+  .megaSub {
+    margin-top: 0.25rem;
+    font-size: 0.82rem;
+    line-height: 1.4;
+    color: #6b6b67;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .deskCta {
+    position: relative;
+  }
+}
+
+/* medium desktop screens: two links move into "More" so the bar never overflows */
+@media (min-width: 1100px) and (max-width: 1439px) {
+  .wideOnly {
+    display: none;
+  }
+  .moreList .narrowOnly {
+    display: block;
+  }
+  .brandText {
+    display: none;
+  }
+}

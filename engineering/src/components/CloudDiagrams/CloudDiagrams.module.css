@@ -1,0 +1,468 @@
+.figure {
+  width: 100%;
+  margin: 0;
+}
+
+.caption {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-google-sans-code), monospace;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.captionDot {
+  width: 8px;
+  height: 8px;
+  background: var(--base-300);
+}
+
+/* ---------- office vs cloud ---------- */
+.onprem {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: stretch;
+  gap: 1rem;
+}
+
+.side {
+  border: 1px solid rgba(13, 13, 13, 0.14);
+  padding: 1.5rem;
+  background: #fafaf8;
+}
+
+.sideCloud {
+  background: #fff;
+  border-color: var(--base-400);
+}
+
+.sideHead {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.icon svg {
+  width: 44px;
+  height: 44px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.sideCloud .icon svg {
+  stroke: var(--base-300);
+}
+
+.side ul {
+  list-style: none;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.side li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
+
+.side li svg {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ok {
+  stroke: var(--base-300);
+}
+
+.ko {
+  stroke: #9a9a96;
+}
+
+.bridge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-width: 110px;
+}
+
+.bridgeLine {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background: repeating-linear-gradient(90deg, var(--base-400) 0 6px, transparent 6px 12px);
+  overflow: visible;
+}
+
+.bridgeLine i {
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  background: var(--base-300);
+  animation: travel 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+.bridgeLabel {
+  font-family: var(--font-google-sans-code), monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--base-300);
+}
+
+@keyframes travel {
+  from {
+    left: 0;
+  }
+  to {
+    left: calc(100% - 9px);
+  }
+}
+
+@keyframes travelDown {
+  from {
+    top: 0;
+  }
+  to {
+    top: calc(100% - 9px);
+  }
+}
+
+/* ---------- data map ---------- */
+.map {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 8;
+  border: 1px solid rgba(13, 13, 13, 0.12);
+  background-color: #fff;
+  background-image: radial-gradient(rgba(13, 13, 13, 0.16) 1px, transparent 1.2px);
+  background-size: 14px 14px;
+}
+
+.mapLines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.mapLines line {
+  stroke: var(--base-400);
+  stroke-width: 1.4;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 2 6;
+  animation: flow 1.6s linear infinite;
+}
+
+.mapLines .dashed {
+  stroke: #9a9a96;
+  animation: none;
+}
+
+@keyframes flow {
+  to {
+    stroke-dashoffset: -16;
+  }
+}
+
+.node {
+  position: absolute;
+  transform: translate(-7px, -7px);
+  display: grid;
+  grid-template-columns: 14px auto;
+  column-gap: 0.5rem;
+  align-items: center;
+  max-width: 46%;
+}
+
+.node i {
+  grid-row: span 2;
+  width: 14px;
+  height: 14px;
+  background: var(--base-400);
+}
+
+.node p:global(.mono) {
+  font-size: 0.8rem;
+  line-height: 1.1;
+  background: #fff;
+  padding: 0 0.2rem;
+}
+
+.nodeNote {
+  font-size: 0.75rem !important;
+  line-height: 1.2;
+  color: #6b6b67;
+  background: #fff;
+  padding: 0 0.2rem;
+}
+
+.nodeYou i {
+  background: var(--base-300);
+  box-shadow: 0 0 0 6px rgba(255, 0, 0, 0.14);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.nodeYou p:global(.mono) {
+  color: var(--base-300);
+}
+
+.nodeLocal i {
+  background: #fff;
+  border: 2px solid #9a9a96;
+}
+
+@keyframes pulse {
+  50% {
+    box-shadow: 0 0 0 12px rgba(255, 0, 0, 0);
+  }
+}
+
+/* ---------- migration steps ---------- */
+.steps {
+  position: relative;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  padding-top: 2.25rem;
+}
+
+.stepsTrack {
+  position: absolute;
+  top: 0.5rem;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(13, 13, 13, 0.1);
+}
+
+.stepsTrack span {
+  position: absolute;
+  inset: 0;
+  background: var(--base-300);
+}
+
+.steps li {
+  position: relative;
+  padding-top: 1rem;
+  border-top: 1px solid var(--base-400);
+}
+
+.stepNo {
+  display: block;
+  font-family: var(--font-google-sans-code), monospace;
+  font-size: 0.8rem;
+  color: var(--base-300);
+  margin-bottom: 0.75rem;
+}
+
+.stepTitle {
+  font-size: 1.25rem !important;
+  font-weight: 500 !important;
+  margin-bottom: 0.4rem;
+}
+
+.stepCopy {
+  font-size: 1rem !important;
+  line-height: 1.4;
+  color: #4d4d4a;
+}
+
+/* ---------- nearshore day ---------- */
+.near {
+  display: grid;
+  gap: 1rem;
+}
+
+.toggle {
+  display: inline-flex;
+  justify-self: start;
+  border: 1px solid var(--base-400);
+  margin-bottom: 0.5rem;
+}
+
+.toggle button {
+  font: inherit;
+  font-family: var(--font-google-sans-code), monospace;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  padding: 0.6rem 0.9rem;
+  border: 0;
+  background: #fff;
+  color: var(--base-400);
+  cursor: pointer;
+}
+
+.toggle button[aria-pressed="true"] {
+  background: var(--base-400);
+  color: #fff;
+}
+
+.ruler {
+  position: relative;
+  height: 1.2rem;
+  margin-left: 11rem;
+  font-family: var(--font-google-sans-code), monospace;
+  font-size: 0.72rem;
+  color: #6b6b67;
+}
+
+.ruler span {
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  align-items: center;
+}
+
+.row p:global(.mono) {
+  font-size: 0.8rem;
+}
+
+.track {
+  position: relative;
+  height: 2.4rem;
+  background: repeating-linear-gradient(90deg, rgba(13, 13, 13, 0.08) 0 1px, transparent 1px calc(100% / 24));
+  border: 1px solid rgba(13, 13, 13, 0.12);
+}
+
+.block,
+.overlap {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: var(--base-400);
+  transition: left 0.6s cubic-bezier(0.65, 0, 0.35, 1), width 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.blockRed {
+  background: var(--base-300);
+}
+
+.overlap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: repeating-linear-gradient(135deg, var(--base-300) 0 6px, #fff 6px 12px);
+  color: var(--base-400);
+  font-family: var(--font-google-sans-code), monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* ---------- AWS layers ---------- */
+.layers {
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.layers li {
+  display: grid;
+  grid-template-columns: 3rem minmax(9rem, 14rem) 1fr;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid rgba(13, 13, 13, 0.14);
+  margin-left: calc(var(--i) * 1.25rem);
+  background: #fff;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.layers li:hover {
+  background: var(--base-400);
+  border-color: var(--base-400);
+  color: #fff;
+}
+
+.layers li:hover .layerCopy {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.layerNo {
+  font-family: var(--font-google-sans-code), monospace;
+  font-size: 0.8rem;
+  color: var(--base-300);
+}
+
+.layerTitle {
+  font-size: 1.3rem !important;
+  font-weight: 500 !important;
+}
+
+.layerCopy {
+  font-size: 1.05rem !important;
+  line-height: 1.4;
+  color: #4d4d4a;
+}
+
+@media (max-width: 900px) {
+  .onprem {
+    grid-template-columns: 1fr;
+  }
+  .bridge {
+    flex-direction: row;
+    min-width: 0;
+    height: 64px;
+  }
+  .bridgeLine {
+    width: 1px;
+    height: 100%;
+    background: repeating-linear-gradient(180deg, var(--base-400) 0 6px, transparent 6px 12px);
+  }
+  .bridgeLine i {
+    left: -4px;
+    animation-name: travelDown;
+  }
+  .map {
+    aspect-ratio: 1 / 1.05;
+  }
+  .node {
+    max-width: 40%;
+  }
+  .node p:global(.mono) {
+    font-size: 0.7rem;
+  }
+  .nodeNote {
+    font-size: 0.68rem !important;
+  }
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 1.75rem;
+  }
+  .ruler {
+    margin-left: 0;
+  }
+  .row {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+  .layers li {
+    grid-template-columns: 2.25rem 1fr;
+    margin-left: calc(var(--i) * 0.5rem);
+  }
+  .layerCopy {
+    grid-column: 2;
+  }
+}

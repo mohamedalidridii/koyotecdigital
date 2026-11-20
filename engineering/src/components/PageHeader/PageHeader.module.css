@@ -1,12 +1,16 @@
 .pageHeader {
   width: 100%;
-  height: 65svh;
+  min-height: 65svh;
+  display: flex;
+  flex-direction: column;
   background-color: var(--base-300);
   color: var(--base-100);
 }
 
 .container {
-  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .compact {
@@ -19,8 +23,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
+  flex: 1;
   padding-top: calc(132px + 2rem);
+  padding-bottom: 1.5rem;
 }
 
 .heading {

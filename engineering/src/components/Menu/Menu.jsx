@@ -16,6 +16,8 @@ import Logo from "@/components/Logo";
 import { useLang } from "@/lib/useLang";
 import { isHandoff } from "@/lib/handoff";
 import { localize } from "@/lib/i18n";
+import { CLOUD_PAGES } from "@/lib/cloudPages";
+import { CLOUD_COSTS } from "@/content/cloudCosts";
 
 import {
   HOME_COPY_BASE_DELAY,
@@ -34,6 +36,36 @@ const OVERLAY_DURATION = 0.7;
 const OVERLAY_EASE = "power3.out";
 const HOVER_DURATION = 0.3;
 const HOVER_STAGGER = 0.035;
+
+// desktop bar: these routes are always visible; WIDE_ONLY ones move into "More" on medium screens;
+// every other route lives in the "More" dropdown
+const PRIMARY = ["/expertise", "/cloud", "/nearshore", "/cloud-costs", "/devops", "/ai", "/medalydridi"];
+const WIDE_ONLY = ["/devops", "/ai"];
+
+// what each desktop link previews on hover: the content of the page it leads to
+function previewItems(r, t, lang) {
+  switch (r) {
+    case "/expertise":
+      return t.areas.map((a) => ({ label: a.title, sub: a.description, to: "/expertise" }));
+    case "/cloud":
+      return CLOUD_PAGES.map((p) => ({ label: t.cloud.pages[p.key].title, sub: t.cloud.pages[p.key].subtitle, to: p.route }));
+    case "/nearshore":
+      return t.nearshoreAudit.map((step) => ({ label: step.title, sub: step.copy, to: "/nearshore" }));
+    case "/cloud-costs":
+      return CLOUD_COSTS[lang].scenarios.map((sc) => ({ label: sc.title, to: "/cloud-costs", hash: sc.id }));
+    case "/devops":
+      return t.devopsCases.cases.map((c) => ({ label: c.short, sub: c.sector, to: `/devops/${c.slug}` }));
+    case "/ai":
+      return t.aiCases.cases.map((c) => ({ label: c.short, sub: c.sector, to: `/ai/${c.slug}` }));
+    case "/medalydridi":
+      return [
+        ...t.founderPage.roles.map((role) => ({ label: role, to: "/medalydridi" })),
+        ...t.founderPage.talks.items.slice(0, 3).map((talk) => ({ label: talk.title, sub: talk.event, to: "/medalydridi" })),
+      ];
+    default:
+      return null;
+  }
+}
 
 // remount on language change: SplitText owns the menu's text nodes once it has split them
 export default function Menu() {
@@ -276,6 +308,43 @@ function MenuPanel() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const [moreOpen, setMoreOpen] = useState(false);
+  // after a navigation the pointer is often still over the bar: keep the panels closed until it leaves
+  const [quiet, setQuiet] = useState(false);
+  const firstPathRef = useRef(true);
+  useEffect(() => {
+    setMoreOpen(false);
+    if (firstPathRef.current) {
+      firstPathRef.current = false;
+      return;
+    }
+    setQuiet(true);
+  }, [pathname]);
+  const isActive = (r) => route === r || route.startsWith(`${r}/`);
+
+  useEffect(() => {
+    if (!moreOpen) return undefined;
+    const close = (e) => {
+      if (e.type === "keydown" && e.key !== "Escape") return;
+      if (e.type === "pointerdown" && e.target.closest?.(`.${styles.more}`)) return;
+      setMoreOpen(false);
+    };
+    window.addEventListener("keydown", close);
+    window.addEventListener("pointerdown", close);
+    return () => {
+      window.removeEventListener("keydown", close);
+      window.removeEventListener("pointerdown", close);
+    };
+  }, [moreOpen]);
+
+  // a link clicked with the mouse keeps the focus: release it when the pointer leaves the bar
+  const leaveBar = () => {
+    setQuiet(false);
+    setMoreOpen(false);
+    const el = document.activeElement;
+    if (el && menuRef.current?.contains(el) && !el.matches(":focus-visible")) el.blur();
+  };
+
   const toggle = () => setIsOpen((prev) => !prev);
   const handleLinkClick = (to) => {
     if (to === route) setIsOpen(false);
@@ -285,6 +354,7 @@ function MenuPanel() {
     <div
       className={styles.menu}
       ref={menuRef}
+      data-site-menu
       data-open={isOpen}
       {...(playIntro ? { "data-nav-intro": "" } : {})}
     >
@@ -312,6 +382,80 @@ function MenuPanel() {
         </div>
 
         <span className={styles.divider} aria-hidden="true" />
+
+        <nav className={styles.desktopNav} data-quiet={quiet} onClickCapture={(e) => e.target.closest("a") && setQuiet(true)} onMouseEnter={() => setQuiet(false)} onMouseLeave={leaveBar} onFocus={() => setQuiet(false)} aria-label={lang === "en" ? "Main navigation" : "Navigation principale"}>
+          {NAV_LINKS.filter((l) => PRIMARY.includes(l.route)).map((link) => {
+            const items = previewItems(link.route, t, lang);
+            return (
+              <div key={link.href} className={`${styles.deskItem}${WIDE_ONLY.includes(link.route) ? ` ${styles.wideOnly}` : ""}`}>
+                <Link href={link.href} className={styles.deskLink} aria-current={isActive(link.route) ? "page" : undefined}>
+                  {link.label}
+                </Link>
+                {items ? (
+                  <div className={styles.mega} data-lenis-prevent>
+                    <div className={styles.megaIntro}>
+                      <p className={styles.megaPath}>{link.route}/</p>
+                      <p className={styles.megaTitle}>{link.label}</p>
+                      <p className={styles.megaDesc}>{t.meta.descriptions[link.route.slice(1)]}</p>
+                      <Link href={link.href} className={styles.megaAll}>
+                        {t.menu.viewPage} <FiArrowRight aria-hidden="true" />
+                      </Link>
+                    </div>
+                    <ul className={styles.megaList}>
+                      {items.map((it, i) => (
+                        <li key={it.label}>
+                          <Link href={it.hash ? `${href(it.to)}/#${it.hash}` : href(it.to)}>
+                            <span className={styles.megaNo}>{String(i + 1).padStart(2, "0")}</span>
+                            <span className={styles.megaLabel}>{it.label}</span>
+                            {it.sub ? <span className={styles.megaSub}>{it.sub}</span> : null}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
+              </div>
+            );
+          })}
+          <div className={styles.more} data-open={moreOpen} onMouseLeave={() => setMoreOpen(false)}>
+            <button
+              type="button"
+              className={styles.deskLink}
+              aria-expanded={moreOpen}
+              onClick={() => setMoreOpen((v) => !v)}
+            >
+              {t.menu.more} <span aria-hidden="true">▾</span>
+            </button>
+            <div className={styles.moreList}>
+              {NAV_LINKS.filter((l) => WIDE_ONLY.includes(l.route)).map((link) => (
+                <Link key={link.href} href={link.href} className={styles.narrowOnly} aria-current={isActive(link.route) ? "page" : undefined}>
+                  {link.label}
+                </Link>
+              ))}
+              {NAV_LINKS.filter((l) => l.route !== "/" && !PRIMARY.includes(l.route)).map((link) => (
+                <Link key={link.href} href={link.href} aria-current={isActive(link.route) ? "page" : undefined}>
+                  {link.label}
+                </Link>
+              ))}
+              <a href={t.menu.careersHref}>{t.menu.careers}</a>
+              <a href={t.menu.backHref}>{t.menu.back}</a>
+            </div>
+          </div>
+          <Link
+            href={localize(other, route)}
+            hrefLang={other}
+            lang={other}
+            data-umami-event="lang-switch"
+            data-umami-event-to={other}
+            aria-label={t.menu.switchName}
+            className={`${styles.deskLink} ${styles.lang}`}
+          >
+            {t.menu.switchLabel}
+          </Link>
+          <Link href={href("/contact")} className={styles.deskCta} data-umami-event="nav-contact">
+            {t.navContact.title} <FiArrowRight aria-hidden="true" />
+          </Link>
+        </nav>
 
         <button
           type="button"

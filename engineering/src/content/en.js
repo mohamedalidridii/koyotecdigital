@@ -1,10 +1,13 @@
 // English copy: same keys as fr.js.
+import enCloud from "./cloud.en";
+import enFounder from "./founder.en";
+
 const en = {
   lang: "en",
   meta: {
     title: "Koyotec Engineering | AI, Cloud & DevOps in Tunis",
     description:
-      "Koyotec Engineering builds AI, cloud and DevOps systems for companies in Europe and the Gulf, from the first audit to production. Team based in Tunis.",
+      "Koyotec Engineering builds AI, cloud and DevOps systems for companies worldwide, from the first audit to production. Team based in Tunis.",
     pages: {
       expertise: "Expertise: AI, Cloud, DevOps, Security, Data | Koyotec",
       systems: "What we build | Koyotec Engineering",
@@ -15,6 +18,11 @@ const en = {
       engagements: "Ways to engage | Koyotec Engineering",
       contact: "Contact | Koyotec Engineering",
       nearshore: "Nearshore DevOps & Cloud in Tunisia | Koyotec",
+      "cloud": "Cloud in Tunisia & France: AWS cloud engineer | Koyotec",
+      "cloud/consultant-aws-tunisie": "AWS Consultant in Tunisia · Cloud Engineer | Koyotec",
+      "cloud/migration-cloud-tunisie": "Cloud Migration in Tunisia to AWS | Koyotec",
+      "cloud/consultant-aws-france": "AWS Cloud Consultant for France, nearshore | Koyotec",
+      medalydridi: "Med Ali Dridi, founder and AI/cloud strategist | Koyotec",
       "cloud-costs": "AWS cost scenarios: NAT, cross-AZ, Spot | Koyotec",
       architecture: "Cloud reference architecture in 3D | Koyotec",
     },
@@ -38,7 +46,17 @@ const en = {
       "cloud-costs":
         "Four AWS defaults that inflate cloud bills, priced for Paris, Frankfurt, the UAE and Bahrain, with calculators and the optimised design for each.",
       nearshore:
-        "A nearshore DevOps and cloud team in Tunis, in the Central European time zone, for European companies. Start with a fixed-price two-week DevOps & Cloud audit.",
+        "A nearshore DevOps and cloud team in Tunis for companies worldwide: Europe, the Gulf, Asia, Africa. Start with a fixed-price two-week DevOps & Cloud audit.",
+      "cloud":
+        "Cloud in Tunisia, France and worldwide: we design, migrate and secure your AWS infrastructure, explained plainly. A cloud engineering team in Tunis.",
+      "cloud/consultant-aws-tunisie":
+        "AWS consultant in Tunisia: cloud engineers who design and deliver your infrastructure themselves, for clients all over the world. Fixed-price audit.",
+      "cloud/migration-cloud-tunisie":
+        "Cloud migration to AWS in Tunisia and worldwide, step by step and without stopping your business: inventory, plan, cutover. Fixed-price audit.",
+      "cloud/consultant-aws-france":
+        "AWS cloud consultant for France and worldwide, from Tunis: nearshore AWS migration, close working hours, data kept in your region. Fixed-price audit.",
+      medalydridi:
+        "Mohamed Ali Dridi, founder of KOYOTEC: double engineer, cloud and DevOps engineer, AI/cloud business strategist. Path, talks and public profiles.",
     },
   },
 
@@ -46,6 +64,7 @@ const en = {
   nav: [
     { route: "/", label: "Home" },
     { route: "/expertise", label: "Expertise" },
+    { route: "/cloud", label: "Cloud" },
     { route: "/nearshore", label: "Nearshore" },
     { route: "/cloud-costs", label: "Cloud costs" },
     { route: "/devops", label: "DevOps cases" },
@@ -55,6 +74,7 @@ const en = {
     { route: "/work", label: "Blueprints" },
     { route: "/architecture", label: "Architecture" },
     { route: "/studio", label: "The studio" },
+    { route: "/medalydridi", label: "The founder" },
   ],
   navContact: { title: "Let’s talk", code: "Contact" },
   menu: {
@@ -67,6 +87,8 @@ const en = {
     careersHref: "/en/careers",
     switchLabel: "FR",
     switchName: "Français",
+    more: "More",
+    viewPage: "View page",
   },
   transition: {
     "/": "Home",
@@ -77,8 +99,13 @@ const en = {
     "/devops": "DevOps cases",
     "/work": "Blueprints",
     "/studio": "The studio",
+    "/medalydridi": "The founder",
     "/engagements": "Engagements",
     "/nearshore": "Nearshore",
+    "/cloud": "Cloud",
+    "/cloud/consultant-aws-tunisie": "AWS consultant",
+    "/cloud/migration-cloud-tunisie": "Cloud migration",
+    "/cloud/consultant-aws-france": "Cloud France",
     "/cloud-costs": "Cloud costs",
     "/contact": "Let’s talk",
   },
@@ -149,7 +176,7 @@ const en = {
     nearshore: {
       title: "Nearshore",
       subtitle: "DevOps & Cloud",
-      description: "A DevOps and cloud team in Tunis, in your time zone, for European companies. We start with a fixed-price, two-week audit.",
+      description: "A DevOps and cloud team in Tunis, for companies worldwide. We start with a fixed-price, two-week audit.",
     },
     contact: {
       title: "Let’s build",
@@ -254,13 +281,13 @@ const en = {
   nearshoreStatement: {
     header: ["Nearshore", "From Tunis"],
     statement:
-      "A DevOps and cloud team in your time zone, speaking your language and delivering like an in-house team.",
-    copy: "We support European companies on their cloud infrastructure, CI/CD pipelines, costs and observability, remotely from Tunis. To start without risk: a fixed-price, two-week audit, and the report is yours to keep.",
+      "A DevOps and cloud team close to your working hours, speaking your language and delivering like an in-house team.",
+    copy: "We support companies worldwide (Europe, the Gulf, Asia, Africa) on their cloud infrastructure, CI/CD pipelines, costs and observability, remotely from Tunis. To start without risk: a fixed-price, two-week audit, and the report is yours to keep.",
     stats: [
-      { label: "Offset from Paris", value: "0–1 h" },
+      { label: "Offset Europe · Gulf", value: "0–3 h" },
       { label: "Audit length", value: "2 wks" },
       { label: "Public clouds", value: "03" },
-      { label: "Working languages", value: "EN·FR" },
+      { label: "Working languages", value: "EN·FR·AR" },
     ],
   },
 
@@ -314,13 +341,13 @@ const en = {
 
   nearshoreFaq: {
     header: ["FAQ / 02", "Nearshore"],
-    title: "Working with us from Europe",
+    title: "Working with us remotely",
     items: [
       {
         question: "Why a team in Tunisia?",
         answer: [
-          "Same time zone as Paris in winter, one hour apart in summer: your meetings and releases happen during the same hours.",
-          "We work in English and French, with standard tools and practices (Terraform, Kubernetes, GitHub Actions, GitLab CI), at a lower cost than an equivalent team in Western Europe.",
+          "0 to 1 hour from Europe, 2 to 3 hours from the Gulf: your meetings and releases happen during your office hours.",
+          "We work in English, French and Arabic, with standard tools and practices (Terraform, Kubernetes, GitHub Actions, GitLab CI), at a lower cost than an equivalent team in Western Europe or the Gulf.",
         ],
       },
       {
@@ -429,8 +456,8 @@ const en = {
   firmIntro: {
     short: "A small team of senior engineers. We build the systems.",
     long: "A small team of senior engineers. We build the systems, document them, and hand them to your teams in working order.",
-    founder: ["Founded in 2022 by", "Mohamed Ali Dridi", "(Med Ali Dridi), electromechanical and computer engineer."],
-    founderHref: "/en/medalydridi",
+    founder: ["Founded in 2022 by", "Mohamed Ali Dridi", "(Med Ali Dridi), double engineer in computer science and electromechanics."],
+    founderHref: "/engineering/en/medalydridi/",
   },
 
   systems: {
@@ -1959,6 +1986,8 @@ const en = {
     copy: "The technical arm of Koyotec: artificial intelligence, cloud, DevOps, cybersecurity and business intelligence, built to hold long after launch.",
     words: ["Koyotec", "Eng."],
   },
+  ...enCloud,
+  ...enFounder,
 };
 
 export default en;

@@ -9,31 +9,44 @@ import { useLenis } from "lenis/react";
 import gsap from "gsap";
 import { CustomEase } from "gsap/CustomEase";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SplitText } from "gsap/SplitText";
 
 import { markPreloaderSeen, releasePreloaderVisit } from "@/lib/preloader";
-import { BASE, DICTS, splitPath } from "@/lib/i18n";
+import { BASE } from "@/lib/i18n";
 
-gsap.registerPlugin(ScrollTrigger, SplitText, CustomEase);
+gsap.registerPlugin(ScrollTrigger, CustomEase);
 
 if (typeof window !== "undefined") {
   CustomEase.create("hop", "0.9, 0, 0.1, 1");
 }
 
 
-const OPEN = "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)";
-const CLOSED = "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)";
+const FULL = "inset(0px 0px 0px 0px)";
+const LOADER_DELAY = 180; // ms: the logo only shows if the next page takes a moment to arrive
 
-function band(percent, span) {
-  const top = (50 - percent).toFixed(3);
-  const bottom = (50 + percent).toFixed(3);
-  return `polygon(0% ${top}%, ${span}% ${top}%, ${span}% ${bottom}%, 0% ${bottom}%)`;
+// the navbar's box as a clip-path, so the white layer grows out of it and folds back into it;
+// when the bar is scrolled away, the layer starts from the top edge of the screen
+function fromNavbar() {
+  const bar = document.querySelector("[data-site-menu]");
+  const r = bar?.getBoundingClientRect();
+  const w = window.innerWidth;
+  const h = window.innerHeight;
+  if (!r || r.bottom <= 0) return `inset(0px 0px ${h}px 0px)`;
+  const px = (n) => `${Math.max(0, Math.round(n))}px`;
+  return `inset(${px(r.top)} ${px(w - r.right)} ${px(h - r.bottom)} ${px(r.left)})`;
 }
 
-const Overlay = memo(function Overlay({ overlayRef, titleRef }) {
+const Overlay = memo(function Overlay({ overlayRef }) {
   return (
     <div ref={overlayRef} className={styles.overlay} aria-hidden="true">
-      <p ref={titleRef} className={styles.title} />
+      <div className={styles.loader}>
+        <svg viewBox="0 0 250 195" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path className={styles.stroke} pathLength="1" d="M220.5 10C175.75 9.25 132.75 31 92 90.25L19.66 206" />
+          <path className={styles.stroke} pathLength="1" d="M79 1.5V72.5M80 112V206" />
+          <path className={styles.stroke} pathLength="1" d="M142.1 106L233.1 206" />
+          <path className={styles.stroke} pathLength="1" d="M1 104H246" />
+          <rect className={styles.dot} x="232" y="2" width="18" height="18" />
+        </svg>
+      </div>
     </div>
   );
 });
@@ -81,44 +94,36 @@ function LinkTransitions() {
   return null;
 }
 
-function pageLabel(to) {
-  const { lang, route } = splitPath(to);
-  const t = DICTS[lang];
-  return t.transition[route] ?? t.transition["/"];
-}
-
 export default function TransitionProvider({ children }) {
   const overlayRef = useRef(null);
-  const titleRef = useRef(null);
-  const splitRef = useRef(null);
   const timelineRef = useRef(null);
   const lenisRef = useRef(null);
   const stuckRef = useRef(null);
+  const loaderRef = useRef(null);
   const lenis = useLenis();
 
   lenisRef.current = lenis;
 
-  const revertSplit = () => {
-    splitRef.current?.revert();
-    splitRef.current = null;
+  const showLoader = (on) => {
+    clearTimeout(loaderRef.current);
+    const overlay = overlayRef.current;
+    if (!overlay) return;
+    if (on) loaderRef.current = setTimeout(() => overlay.classList.add(styles.loading), LOADER_DELAY);
+    else overlay.classList.remove(styles.loading);
   };
 
-  // safety net: if a navigation never reaches `enter` (route unchanged, failed load…), lift the
-  // curtain anyway so the site can't stay covered and scroll-locked
+  const hide = () => {
+    const overlay = overlayRef.current;
+    if (overlay) gsap.set(overlay, { autoAlpha: 0, pointerEvents: "none", visibility: "hidden" });
+  };
+
+  // safety net: if a navigation never reaches `enter` (route unchanged, failed load…), fold the
+  // layer back anyway so the site can't stay covered and scroll-locked
   const uncover = () => {
     const overlay = overlayRef.current;
     timelineRef.current?.kill();
-    if (overlay) {
-      gsap.to(overlay, {
-        "--clip": CLOSED,
-        duration: 0.8,
-        ease: "hop",
-        onComplete: () => {
-          gsap.set(overlay, { autoAlpha: 0, pointerEvents: "none", visibility: "hidden" });
-          revertSplit();
-        },
-      });
-    }
+    showLoader(false);
+    if (overlay) gsap.to(overlay, { "--clip": fromNavbar(), duration: 0.7, ease: "hop", onComplete: hide });
     lenisRef.current?.start();
   };
 
@@ -126,79 +131,46 @@ export default function TransitionProvider({ children }) {
     return () => {
       timelineRef.current?.kill();
       clearTimeout(stuckRef.current);
-      revertSplit();
+      clearTimeout(loaderRef.current);
     };
   }, []);
 
   return (
     <TransitionRouter
-      leave={(next, _from, to) => {
+      leave={(next) => {
         markPreloaderSeen();
         releasePreloaderVisit();
 
         const overlay = overlayRef.current;
-        const title = titleRef.current;
-
-        if (!overlay || !title) {
+        if (!overlay) {
           next();
           return;
         }
 
         timelineRef.current?.kill();
-        revertSplit();
-
-        title.textContent = pageLabel(to);
-        splitRef.current = new SplitText(title, {
-          type: "words",
-          mask: "words",
-          wordsClass: styles.word,
-        });
-
-        const overlayHeight =
-          overlay.getBoundingClientRect().height || window.innerHeight;
-        const percent =
-          (title.getBoundingClientRect().height / overlayHeight) * 50;
-
-        gsap.set(overlay, {
-          "--clip": band(percent, 0),
-          autoAlpha: 1,
-          visibility: "visible",
-          pointerEvents: "auto",
-        });
-
+        showLoader(false);
+        gsap.set(overlay, { "--clip": fromNavbar(), autoAlpha: 1, visibility: "visible", pointerEvents: "auto" });
         lenisRef.current?.stop();
 
+        // the white layer drops out of the navbar until it covers the screen
         const tl = gsap.timeline({
-          defaults: { duration: 1, ease: "hop" },
-        });
-
-        tl.to(overlay, { "--clip": band(percent, 100) });
-        tl.to(overlay, {
-          "--clip": OPEN,
           onComplete: () => {
             window.dispatchEvent(new Event("transition-cover"));
+            showLoader(true);
             clearTimeout(stuckRef.current);
-            stuckRef.current = setTimeout(uncover, 3000);
+            stuckRef.current = setTimeout(uncover, 6000);
             next();
           },
         });
-
+        tl.to(overlay, { "--clip": FULL, duration: 0.75, ease: "hop" }, 0);
         timelineRef.current = tl;
       }}
       enter={(next) => {
         clearTimeout(stuckRef.current);
         const overlay = overlayRef.current;
-        const words = splitRef.current?.words;
 
         const finish = () => {
-          if (overlay) {
-            gsap.set(overlay, {
-              autoAlpha: 0,
-              pointerEvents: "none",
-              visibility: "hidden",
-            });
-          }
-          revertSplit();
+          hide();
           ScrollTrigger.refresh();
           lenisRef.current?.start();
           next();
@@ -207,41 +179,35 @@ export default function TransitionProvider({ children }) {
         lenisRef.current?.scrollTo(0, { immediate: true, force: true });
         window.scrollTo(0, 0);
 
-        if (!overlay || !words?.length) {
+        if (!overlay) {
           finish();
           return;
         }
 
         const playOut = () => {
-          const tl = gsap.timeline({
-            defaults: { duration: 1, ease: "hop" },
+          showLoader(false);
+          // the new page is ready: the layer folds back up into the navbar
+          timelineRef.current = gsap.to(overlay, {
+            "--clip": fromNavbar(),
+            duration: 0.75,
+            delay: 0.1,
+            ease: "hop",
             onComplete: finish,
           });
-
-          tl.to(
-            words,
-            {
-              yPercent: -120,
-              duration: 1,
-              ease: "power3.out",
-              stagger: { amount: 0.1 },
-            },
-            0,
-          );
-          tl.to(overlay, { "--clip": CLOSED, delay: 0.25 }, 0);
-
-          timelineRef.current = tl;
         };
 
         const cover = timelineRef.current;
-        if (cover?.isActive()) cover.eventCallback("onComplete", playOut);
+        if (cover?.isActive()) cover.eventCallback("onComplete", () => {
+          window.dispatchEvent(new Event("transition-cover"));
+          playOut();
+        });
         else playOut();
 
         return () => timelineRef.current?.kill();
       }}
     >
       <LinkTransitions />
-      <Overlay overlayRef={overlayRef} titleRef={titleRef} />
+      <Overlay overlayRef={overlayRef} />
       {children}
     </TransitionRouter>
   );

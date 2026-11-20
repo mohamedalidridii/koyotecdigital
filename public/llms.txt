@@ -1,6 +1,6 @@
 # KOYOTEC
 
-> KOYOTEC is a digital agency in Tunis, Tunisia: custom website design and development, brand identity, logo design and digital strategy. Get a free quote.
+> KOYOTEC, digital agency and engineering studio in Tunis: custom websites, branding, and Koyotec Engineering for AWS cloud, DevOps and AI, worldwide.
 
 KOYOTEC is a digital agency based in Tunis. We build fast, custom websites, memorable brand identities and digital strategies that bring in real customers.
 
@@ -20,12 +20,14 @@ Full text of the main pages: https://www.koyotec.digital/llms-full.txt
 
 ## Pages (English)
 
-- [Web Design & Branding Agency in Tunis, Tunisia](https://www.koyotec.digital/en/): KOYOTEC is a digital agency in Tunis, Tunisia: custom website design and development, brand identity, logo design and digital strategy. Get a free quote.
+- [Web Design & Branding Agency in Tunis, Tunisia](https://www.koyotec.digital/en/): KOYOTEC, digital agency and engineering studio in Tunis: custom websites, branding, and Koyotec Engineering for AWS cloud, DevOps and AI, worldwide.
 - [Services: Web Design, Branding & SEO in Tunis](https://www.koyotec.digital/en/services): Custom website development, brand identity, logo design, UI/UX and SEO in Tunis, Tunisia. Explore the services of the KOYOTEC digital agency.
-- [Mohamed Ali Dridi (Med Ali Dridi) · Founder of KOYOTEC](https://www.koyotec.digital/en/medalydridi): Mohamed Ali Dridi (Med Ali Dridi): cloud, DevOps and Industry 4.0 engineer, founder of KOYOTEC and the Localhost community, O'Reilly Community Partner.
+- [Mohamed Ali Dridi (Med Ali Dridi) · Founder of KOYOTEC](https://www.koyotec.digital/en/medalydridi): Mohamed Ali Dridi (Med Ali Dridi): cloud, DevOps and Industry 4.0 engineer, AI/cloud business strategist, founder of KOYOTEC and Localhost.
 - [Free Website Design Quote in Tunis | Contact](https://www.koyotec.digital/en/contact): Request a free quote for a website, logo, SEO or online store in Tunis, Tunisia. Reply within 24 hours. KOYOTEC, Ennasr: +216 52 405 699.
 - [Careers: join KOYOTEC Digital & Engineering in Tunis](https://www.koyotec.digital/en/careers): Spontaneous application to KOYOTEC, Tunis: web development, design, SEO, AI, cloud, DevOps, cybersecurity, data. Full-time, internship, freelance or work-study.
 - [Koyotec Engineering](https://www.koyotec.digital/engineering/en/): Our technical arm designs, ships and secures the systems your business runs on.
+- [Cloud in Tunisia & France](https://www.koyotec.digital/engineering/en/cloud/): AWS consulting, cloud migration in Tunisia and a nearshore AWS team for France, explained plainly.
+- [Med Ali Dridi, founder](https://www.koyotec.digital/engineering/en/medalydridi/): Founder of KOYOTEC, cloud & DevOps engineer and AI/cloud business strategist: path, talks and public profiles.
 
 ### Services
 
@@ -47,12 +49,14 @@ Full text of the main pages: https://www.koyotec.digital/llms-full.txt
 
 ## Pages (français)
 
-- [Agence Web à Tunis : Création de Site Internet](https://www.koyotec.digital/): KOYOTEC, agence digitale à Tunis : création de sites web sur mesure, identité visuelle et branding, stratégie digitale. Demandez un devis gratuit.
+- [Agence Web à Tunis : Création de Site Internet](https://www.koyotec.digital/): KOYOTEC, agence digitale et ingénierie à Tunis : sites web sur mesure, branding, et Koyotec Engineering pour le cloud AWS, le DevOps et l'IA, dans le monde.
 - [Services : Site Web, Branding & SEO à Tunis](https://www.koyotec.digital/services): Création de site internet sur mesure, identité visuelle, logo, design UI/UX et référencement SEO à Tunis. Découvrez les services de l'agence KOYOTEC.
-- [Mohamed Ali Dridi (Med Ali Dridi) · Fondateur de KOYOTEC](https://www.koyotec.digital/medalydridi): Mohamed Ali Dridi (Med Ali Dridi) : ingénieur cloud, DevOps et industrie 4.0, fondateur de KOYOTEC et de la communauté Localhost, O'Reilly Community Partner.
+- [Mohamed Ali Dridi (Med Ali Dridi) · Fondateur de KOYOTEC](https://www.koyotec.digital/medalydridi): Mohamed Ali Dridi (Med Ali Dridi) : ingénieur cloud, DevOps et industrie 4.0, stratège business IA et cloud, fondateur de KOYOTEC et de Localhost.
 - [Devis Site Web Gratuit à Tunis | Contact](https://www.koyotec.digital/contact): Demandez votre devis gratuit pour un site web, un logo, le SEO ou une boutique en ligne à Tunis. Réponse sous 24 h. KOYOTEC, Ennasr : +216 52 405 699.
 - [Carrières : rejoindre KOYOTEC Digital & Engineering à Tunis](https://www.koyotec.digital/carrieres): Candidature spontanée chez KOYOTEC, à Tunis : développement web, design, SEO, IA, cloud, DevOps, cybersécurité, data. CDI, stage, PFE, freelance ou alternance.
 - [Koyotec Engineering](https://www.koyotec.digital/engineering/): Notre pôle technique conçoit, déploie et sécurise les systèmes qui font tourner votre entreprise.
+- [Cloud Tunisie & France](https://www.koyotec.digital/engineering/cloud/): Consultant AWS en Tunisie, migration cloud et équipe AWS nearshore pour la France, expliqués simplement.
+- [Med Ali Dridi, fondateur](https://www.koyotec.digital/engineering/medalydridi/): Fondateur de KOYOTEC, ingénieur cloud et DevOps, stratège business IA et cloud : parcours, conférences et profils.
 
 ### Services
 

@@ -2,6 +2,7 @@ import PageHeader from "@/components/PageHeader";
 import CloudCosts from "@/components/CloudCosts";
 import FAQ from "@/components/FAQ";
 import ContactBanner from "@/components/ContactBanner";
+import CloudCallout from "@/components/CloudCallout";
 
 import { DICTS } from "@/lib/i18n";
 
@@ -14,6 +15,8 @@ export default function CloudCostsPage({ lang }) {
       <PageHeader {...page} icon="ChartIcon" compact />
 
       <CloudCosts />
+
+      <CloudCallout />
 
       <FAQ k="cloudCostsFaq" />
 

@@ -3,6 +3,7 @@ import ResearchStatement from "@/components/ResearchStatement";
 import FocusAreas from "@/components/FocusAreas";
 import FAQ from "@/components/FAQ";
 import ContactBanner from "@/components/ContactBanner";
+import CloudCallout from "@/components/CloudCallout";
 
 import { DICTS } from "@/lib/i18n";
 
@@ -16,6 +17,8 @@ export default function NearshorePage({ lang }) {
       <ResearchStatement k="nearshoreStatement" />
 
       <FocusAreas items="nearshoreAudit" />
+
+      <CloudCallout />
 
       <FAQ k="nearshoreFaq" />
 

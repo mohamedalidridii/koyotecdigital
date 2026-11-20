@@ -158,3 +158,8 @@ html.koy-handoff::after {
 html.koy-handoff-out::after {
   opacity: 0;
 }
+
+/* the cloud pages (views/CloudPage.jsx) sit on pure white, for maximum readability */
+body:has([data-theme="white"]) {
+  background-color: var(--base-100);
+}
