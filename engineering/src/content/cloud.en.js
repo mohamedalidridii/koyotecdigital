@@ -78,15 +78,17 @@ const cloudEn = {
       },
       data: {
         title: "Where your data lives",
-        desc: "Simplified map: Tunis and the nearest AWS data centres, in Paris, Frankfurt, Bahrain and the UAE.",
-        you: "You, in Tunis",
-        local: "Hosting in Tunisia",
-        localNote: "if the law requires data to stay here",
+        desc: "Simplified map: our engineers in Tunis work on your data in the AWS Region you choose, in Europe, the Gulf, Asia or North America.",
+        you: "Our engineers, in Tunis",
+        local: "Local hosting",
+        localNote: "if the law keeps data in your country",
         regions: [
           { name: "Paris", code: "eu-west-3" },
           { name: "Frankfurt", code: "eu-central-1" },
           { name: "Bahrain", code: "me-south-1" },
           { name: "UAE", code: "me-central-1" },
+          { name: "N. Virginia", code: "us-east-1" },
+          { name: "Singapore", code: "ap-southeast-1" },
         ],
       },
       steps: {
@@ -152,11 +154,11 @@ const cloudEn = {
           ],
         },
         market: {
-          header: ["03", "Tunisia, France, worldwide"],
-          title: "Where should your data live?",
+          header: ["03", "Worldwide"],
+          title: "Your data stays where your customers are.",
           paras: [
-            "AWS has no data centre in Tunisia. The closest are in Paris and Frankfurt, then Bahrain and the UAE for the Gulf. From Tunis, Paris is the nearest AWS Region.",
-            "If your data must stay in Tunisia, there are local hosting providers. Our job is to tell you honestly where to put it, based on your customers, your obligations and your budget, and then build it.",
+            "AWS runs data centres in Regions all over the world. We put your data in the Region that fits your customers and your regulator: Paris or Frankfurt for Europe, Bahrain or the UAE for the Gulf, Singapore for Asia, N. Virginia for North America.",
+            "Our engineers work from Tunis with controlled, logged access. Your data does not move to Tunisia. If the law requires data to stay in a country with no AWS Region, Tunisia included, we use a local host or a hybrid setup. Our job is to tell you honestly where to put it, then build it.",
           ],
           diagram: "data",
         },

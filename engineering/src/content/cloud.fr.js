@@ -80,15 +80,17 @@ const cloudFr = {
       },
       data: {
         title: "Où vivent vos données",
-        desc: "Carte simplifiée : Tunis et les centres de données AWS les plus proches, à Paris, Francfort, Bahreïn et aux Émirats.",
-        you: "Vous, à Tunis",
-        local: "Hébergeurs en Tunisie",
-        localNote: "si la loi impose de garder les données ici",
+        desc: "Carte simplifiée : nos ingénieurs à Tunis travaillent sur vos données dans la région AWS de votre choix, en Europe, dans le Golfe, en Asie ou en Amérique du Nord.",
+        you: "Nos ingénieurs, à Tunis",
+        local: "Hébergement local",
+        localNote: "si la loi garde les données dans votre pays",
         regions: [
           { name: "Paris", code: "eu-west-3" },
           { name: "Francfort", code: "eu-central-1" },
           { name: "Bahreïn", code: "me-south-1" },
           { name: "Émirats", code: "me-central-1" },
+          { name: "Virginie du Nord", code: "us-east-1" },
+          { name: "Singapour", code: "ap-southeast-1" },
         ],
       },
       steps: {
@@ -154,11 +156,11 @@ const cloudFr = {
           ],
         },
         market: {
-          header: ["03", "Tunisie, France, monde"],
-          title: "Où mettre vos données ?",
+          header: ["03", "Partout dans le monde"],
+          title: "Vos données restent là où sont vos clients.",
           paras: [
-            "AWS n'a pas de centre de données en Tunisie. Les plus proches sont à Paris et à Francfort, puis à Bahreïn et aux Émirats pour le Golfe. Depuis Tunis, Paris est la région AWS la plus proche.",
-            "Si vos données doivent rester en Tunisie, il existe des hébergeurs locaux. Notre rôle est de vous dire honnêtement où les mettre, selon vos clients, vos obligations et votre budget, puis de construire l'ensemble.",
+            "AWS exploite des centres de données dans des régions partout dans le monde. Nous plaçons vos données dans la région qui convient à vos clients et à votre régulateur : Paris ou Francfort pour l'Europe, Bahreïn ou les Émirats pour le Golfe, Singapour pour l'Asie, la Virginie du Nord pour l'Amérique du Nord.",
+            "Nos ingénieurs travaillent depuis Tunis avec des accès contrôlés et tracés. Vos données ne partent pas en Tunisie. Si la loi impose de garder les données dans un pays sans région AWS, la Tunisie comprise, nous utilisons un hébergeur local ou une solution hybride. Notre rôle est de vous dire honnêtement où les mettre, puis de construire l'ensemble.",
           ],
           diagram: "data",
         },
