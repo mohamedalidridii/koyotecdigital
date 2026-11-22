@@ -23,7 +23,8 @@ export const CLOUD_COSTS = {
     leadCopy:
       "Try your own figures below, or let us find these leaks in your account: a two-week audit that ends with a prioritised list of savings.",
     leadJump: "Jump to",
-    jump: { "s3-nat": "S3 through NAT", "cross-az": "Cross-AZ traffic", "spot-ebs": "Spot for batch", dynamodb: "DynamoDB hot key" },
+    jump: { "s3-nat": "S3 through NAT", "cross-az": "Cross-AZ traffic", "spot-ebs": "Spot for batch", dynamodb: "DynamoDB hot key", "nat-instance": "NAT in dev & staging" },
+    moreLabel: "Full guide, worked example and gotchas",
     scenarioCta: "Check my AWS account for this",
     stickyCta: "Request a cloud cost audit",
     scenarios: [
@@ -104,6 +105,28 @@ export const CLOUD_COSTS = {
         fields: { writes: "Peak writes per second", size: "Item size (KB)", factor: "Over-provisioning factor in the default setup (×)", hours: "Hours per month at that capacity" },
         shardsLabel: "Minimum shards needed",
       },
+      {
+        id: "nat-instance",
+        page: "/cloud-costs/nat-instance",
+        title: "NAT Gateways in every dev and staging account",
+        problem:
+          "Landing zones often copy the production network into every account: one NAT Gateway per Availability Zone, \"for parity\". Each one is billed per hour, per GB processed, and for its public IPv4 address, even in a dev account that moves a few hundred gigabytes a month.",
+        default: "One NAT Gateway (with its public IPv4 address) in each zone of every non-production account.",
+        optimised: "One t4g.nano NAT instance per account (8 GB gp3, one public IPv4), in an Auto Scaling group of one. No per-GB processing fee; traffic from the other zones pays cross-AZ transfer. Above about 1.2 TB a month, one instance per zone is cheaper: the calculator picks the cheaper of the two.",
+        how: [
+          "A Terraform module with two variants: managed NAT Gateways for production, a NAT instance (fck-nat ARM image or Amazon Linux 2023 with masquerading) for non-production.",
+          "Source/destination check disabled, a fixed network interface and Elastic IP attached at boot, so the private route tables stay valid after a replacement.",
+          "S3 and DynamoDB gateway endpoints in the same VPC, and a check in Cost Explorer that NatGateway-Hours and NatGateway-Bytes drop to zero.",
+        ],
+        tradeoffs: [
+          "A t4g.nano has 0.032 Gbps of baseline network bandwidth (5 Gbps burst) and 0.5 GiB of memory: fine for dev traffic, not for large data loads.",
+          "When the instance is replaced, open connections drop and egress pauses for a few minutes. Keep managed NAT Gateways in production.",
+          "It is a server you own: patch it, monitor it, alarm on it. With one or two accounts the saving rarely justifies that work.",
+        ],
+        fields: { accounts: "Non-production accounts", zones: "Availability Zones per account", gb: "Traffic through NAT per account (GB / month)" },
+        choiceShared: "Cheapest setup here: one shared NAT instance per account.",
+        choicePerZone: "Cheapest setup here: one NAT instance per zone (high traffic).",
+      },
     ],
   },
   fr: {
@@ -129,7 +152,8 @@ export const CLOUD_COSTS = {
     leadCopy:
       "Testez vos chiffres ci-dessous, ou laissez-nous trouver ces fuites dans votre compte AWS : audit en deux semaines, économies priorisées.",
     leadJump: "Aller à",
-    jump: { "s3-nat": "S3 via NAT", "cross-az": "Trafic inter-zones", "spot-ebs": "Spot pour le batch", dynamodb: "DynamoDB : clé chaude" },
+    jump: { "s3-nat": "S3 via NAT", "cross-az": "Trafic inter-zones", "spot-ebs": "Spot pour le batch", dynamodb: "DynamoDB : clé chaude", "nat-instance": "NAT en dev et staging" },
+    moreLabel: "Guide complet, exemple chiffré et pièges",
     scenarioCta: "Vérifier mon compte AWS",
     stickyCta: "Demander un audit cloud",
     scenarios: [
@@ -209,6 +233,28 @@ export const CLOUD_COSTS = {
         ],
         fields: { writes: "Pic d'écritures par seconde", size: "Taille d'un élément (Ko)", factor: "Facteur de surdimensionnement par défaut (×)", hours: "Heures par mois à cette capacité" },
         shardsLabel: "Nombre minimum de shards",
+      },
+      {
+        id: "nat-instance",
+        page: "/cloud-costs/nat-instance",
+        title: "Des NAT Gateways dans chaque compte de dev et de staging",
+        problem:
+          "Les landing zones copient souvent le réseau de production dans chaque compte : une NAT Gateway par zone de disponibilité, « par parité ». Chacune est facturée à l'heure, au Go traité et pour son adresse IPv4 publique, même dans un compte de dev qui fait passer quelques centaines de gigaoctets par mois.",
+        default: "Une NAT Gateway (avec son adresse IPv4 publique) dans chaque zone de chaque compte hors production.",
+        optimised: "Une instance NAT t4g.nano par compte (8 Go gp3, une IPv4 publique), dans un groupe Auto Scaling d'une instance. Aucun frais de traitement au Go ; le trafic des autres zones paie le transfert inter-zones. Au-delà d'environ 1,2 To par mois, une instance par zone revient moins cher : le calculateur retient la moins chère des deux.",
+        how: [
+          "Un module Terraform à deux variantes : NAT Gateways managées pour la production, instance NAT (image ARM fck-nat ou Amazon Linux 2023 avec masquerading) hors production.",
+          "Contrôle source/destination désactivé, interface réseau et Elastic IP fixes rattachées au démarrage, pour que les tables de routage privées restent valides après un remplacement.",
+          "Des gateway endpoints S3 et DynamoDB dans le même VPC, et une vérification dans Cost Explorer que NatGateway-Hours et NatGateway-Bytes tombent à zéro.",
+        ],
+        tradeoffs: [
+          "Une t4g.nano a 0,032 Gbit/s de bande passante réseau de base (5 Gbit/s en rafale) et 0,5 Gio de mémoire : suffisant pour du trafic de dev, pas pour de gros chargements de données.",
+          "Quand l'instance est remplacée, les connexions ouvertes tombent et la sortie s'interrompt quelques minutes. Gardez les NAT Gateways managées en production.",
+          "C'est un serveur à vous : à patcher, surveiller et alerter. Avec un ou deux comptes, l'économie justifie rarement ce travail.",
+        ],
+        fields: { accounts: "Comptes hors production", zones: "Zones de disponibilité par compte", gb: "Trafic via NAT par compte (Go / mois)" },
+        choiceShared: "Configuration la moins chère ici : une instance NAT partagée par compte.",
+        choicePerZone: "Configuration la moins chère ici : une instance NAT par zone (trafic élevé).",
       },
     ],
   },

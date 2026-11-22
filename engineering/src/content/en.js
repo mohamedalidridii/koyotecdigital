@@ -1,6 +1,7 @@
 // English copy: same keys as fr.js.
 import enCloud from "./cloud.en";
 import enFounder from "./founder.en";
+import enNatInstance from "./natInstance.en";
 
 const en = {
   lang: "en",
@@ -24,6 +25,7 @@ const en = {
       "cloud/consultant-aws-france": "AWS Cloud Consultant for France, nearshore | Koyotec",
       medalydridi: "Med Ali Dridi, founder and AI/cloud strategist | Koyotec",
       "cloud-costs": "AWS cost scenarios: NAT, cross-AZ, Spot | Koyotec",
+      "cloud-costs/nat-instance": "NAT Gateway vs NAT instance: real cost by AWS Region",
       architecture: "Cloud reference architecture in 3D | Koyotec",
     },
     descriptions: {
@@ -44,7 +46,9 @@ const en = {
       architecture:
         "Explore a complete cloud platform in 3D: network, CI/CD, Kubernetes, data and observability. See how Koyotec Engineering builds every layer.",
       "cloud-costs":
-        "Four AWS defaults that inflate cloud bills, priced for Paris, Frankfurt, the UAE and Bahrain, with calculators and the optimised design for each.",
+        "Five AWS defaults that inflate cloud bills, priced for Paris, Frankfurt, the UAE and Bahrain, with calculators and the optimised design for each.",
+      "cloud-costs/nat-instance":
+        "NAT Gateways in dev and staging accounts vs a t4g.nano NAT instance: verified prices for 5 AWS Regions, a worked example, a calculator and the gotchas.",
       nearshore:
         "A nearshore DevOps and cloud team in Tunis for companies worldwide: Europe, the Gulf, Asia, Africa. Start with a fixed-price two-week DevOps & Cloud audit.",
       "cloud":
@@ -107,6 +111,7 @@ const en = {
     "/cloud/migration-cloud-tunisie": "Cloud migration",
     "/cloud/consultant-aws-france": "Cloud France",
     "/cloud-costs": "Cloud costs",
+    "/cloud-costs/nat-instance": "NAT instance",
     "/contact": "Let’s talk",
   },
   preloader: "Loading",
@@ -170,8 +175,13 @@ const en = {
     },
     "cloud-costs": {
       title: "Cloud costs",
-      subtitle: "four expensive defaults",
-      description: "Four AWS architecture defaults that inflate the bill, priced with real list prices for your Region, and how we fix each one.",
+      subtitle: "five expensive defaults",
+      description: "Five AWS architecture defaults that inflate the bill, priced with real list prices for your Region, and how we fix each one.",
+    },
+    "cloud-costs/nat-instance": {
+      title: "NAT Gateway",
+      subtitle: "vs NAT instance",
+      description: "What NAT Gateways cost in every dev and staging account, what a small NAT instance costs instead, and when not to switch. Prices for five AWS Regions.",
     },
     nearshore: {
       title: "Nearshore",
@@ -1988,6 +1998,7 @@ const en = {
   },
   ...enCloud,
   ...enFounder,
+  ...enNatInstance,
 };
 
 export default en;

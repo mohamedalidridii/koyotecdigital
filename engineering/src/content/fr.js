@@ -2,6 +2,7 @@
 // Contact details follow content/site.json of the main site.
 import frCloud from "./cloud.fr";
 import frFounder from "./founder.fr";
+import frNatInstance from "./natInstance.fr";
 
 const fr = {
   lang: "fr",
@@ -25,6 +26,7 @@ const fr = {
       "cloud/consultant-aws-france": "Consultant cloud AWS en France, nearshore | Koyotec",
       medalydridi: "Med Ali Dridi, fondateur et stratège cloud & IA | Koyotec",
       "cloud-costs": "Coûts AWS : NAT, inter-zones, Spot | Koyotec",
+      "cloud-costs/nat-instance": "NAT Gateway ou instance NAT : le vrai coût par Région AWS",
       architecture: "Architecture cloud de référence en 3D | Koyotec",
     },
     descriptions: {
@@ -45,7 +47,9 @@ const fr = {
       architecture:
         "Explorez en 3D une plateforme cloud complète : réseau, CI/CD, Kubernetes, données et observabilité. Voyez comment Koyotec Engineering construit chaque couche.",
       "cloud-costs":
-        "Quatre réglages AWS par défaut qui gonflent la facture, chiffrés pour Paris, Francfort, les Émirats et Bahreïn, avec un calculateur et la solution optimisée.",
+        "Cinq réglages AWS par défaut qui gonflent la facture, chiffrés pour Paris, Francfort, les Émirats et Bahreïn, avec un calculateur et la solution optimisée.",
+      "cloud-costs/nat-instance":
+        "NAT Gateways en dev et staging ou instance NAT t4g.nano : prix vérifiés pour 5 Régions AWS, exemple chiffré, calculateur et pièges à éviter.",
       nearshore:
         "Une équipe DevOps et cloud nearshore à Tunis, pour des entreprises partout dans le monde : Europe, Golfe, Asie, Afrique. Audit de deux semaines à prix fixe.",
       "cloud":
@@ -109,6 +113,7 @@ const fr = {
     "/cloud/migration-cloud-tunisie": "Migration cloud",
     "/cloud/consultant-aws-france": "Cloud France",
     "/cloud-costs": "Coûts cloud",
+    "/cloud-costs/nat-instance": "Instance NAT",
     "/contact": "Parlons-en",
   },
   preloader: "Chargement",
@@ -172,8 +177,13 @@ const fr = {
     },
     "cloud-costs": {
       title: "Coûts cloud",
-      subtitle: "quatre réglages qui coûtent cher",
-      description: "Quatre réglages AWS par défaut qui gonflent la facture, chiffrés avec les vrais prix de votre Région, et comment nous corrigeons chacun.",
+      subtitle: "cinq réglages qui coûtent cher",
+      description: "Cinq réglages AWS par défaut qui gonflent la facture, chiffrés avec les vrais prix de votre Région, et comment nous corrigeons chacun.",
+    },
+    "cloud-costs/nat-instance": {
+      title: "NAT Gateway",
+      subtitle: "ou instance NAT",
+      description: "Ce que coûtent les NAT Gateways dans chaque compte de dev et de staging, ce que coûte une petite instance NAT, et quand ne pas changer. Prix pour cinq Régions AWS.",
     },
     nearshore: {
       title: "DevOps & Cloud",
@@ -1990,6 +2000,7 @@ const fr = {
   },
   ...frCloud,
   ...frFounder,
+  ...frNatInstance,
 };
 
 export default fr;

@@ -47,7 +47,7 @@ const cloudFr = {
       ],
       proofLinksTitle: "Découvrez notre travail en détail",
       proofLinks: [
-        { route: "/cloud-costs", label: "Calculateur de coûts AWS", copy: "Quatre réglages qui gonflent une facture AWS, chiffrés avec les vrais prix." },
+        { route: "/cloud-costs", label: "Calculateur de coûts AWS", copy: "Cinq réglages qui gonflent une facture AWS, chiffrés avec les vrais prix." },
         { route: "/architecture", label: "Plateforme cloud en 3D", copy: "Explorez, couche par couche, une infrastructure comme celles que nous construisons." },
         { route: "/devops", label: "Études de cas DevOps", copy: "Autoscaling, CI/CD, astreinte : contexte, architecture et résultats." },
       ],

@@ -46,7 +46,7 @@ const AI_CASES = [
   "vlm-document-extraction", "text-to-sql-agent", "legacy-modernization", "soc-triage-agent", "supply-chain-radar",
 ];
 const DEVOPS_CASES = ["oncall-copilot", "predictive-autoscaling", "iac-security-review", "self-healing-ci", "idp-scaffolder"];
-const ENGINEERING_ROUTES = ["", "expertise", "cloud", "cloud/consultant-aws-tunisie", "cloud/migration-cloud-tunisie", "cloud/consultant-aws-france", "medalydridi", "systems", "ai", ...AI_CASES.map((s) => `ai/${s}`), "devops", ...DEVOPS_CASES.map((s) => `devops/${s}`), "work", "studio", "engagements", "nearshore", "cloud-costs", "architecture", "contact"];
+const ENGINEERING_ROUTES = ["", "expertise", "cloud", "cloud/consultant-aws-tunisie", "cloud/migration-cloud-tunisie", "cloud/consultant-aws-france", "medalydridi", "systems", "ai", ...AI_CASES.map((s) => `ai/${s}`), "devops", ...DEVOPS_CASES.map((s) => `devops/${s}`), "work", "studio", "engagements", "nearshore", "cloud-costs", "cloud-costs/nat-instance", "architecture", "contact"];
 const full = (k) => (k === "engineering" || k === "architecture" ? " data-barba-prevent" : "");
 
 // ---------- escaping and light markup ----------

@@ -8,7 +8,7 @@ import { FiArrowRight } from "react-icons/fi";
 
 import { useLang } from "@/lib/useLang";
 import { CLOUD_COSTS } from "@/content/cloudCosts";
-import { PRICES, PRICES_CHECKED, REGIONS, SOURCES } from "@/content/cloudPrices";
+import { PRICES, PRICES_CHECKED, NAT_PRICES_CHECKED, REGIONS, SOURCES, natInstanceCosts } from "@/content/cloudPrices";
 
 const track = (name, data) => {
   try {
@@ -23,10 +23,22 @@ const DEFAULTS = {
   "cross-az": { gb: 500000, zones: 3, local: 80 },
   "spot-ebs": { instances: 100, hours: 730, spot: 90 },
   dynamodb: { writes: 20000, size: 1, factor: 2, hours: 730 },
+  "nat-instance": { accounts: 10, zones: 3, gb: 500 },
 };
 
 // monthly cost before / after for each scenario, from the inputs and the Region's prices
-function compute(id, v, p) {
+function compute(id, v, p, s) {
+  if (id === "nat-instance") {
+    // per account: N NAT Gateways vs the cheaper of one shared t4g.nano or one per zone
+    const accounts = Math.max(0, Math.round(v.accounts));
+    const n = natInstanceCosts(p, { zones: v.zones, gb: v.gb });
+    return {
+      before: accounts * n.gateways,
+      after: accounts * n.best,
+      price: `NAT Gateway $${p.natHour}/h + $${p.natGb}/GB · t4g.nano $${p.nanoHour}/h · IPv4 $${p.ipv4Hour}/h · gp3 $${p.gp3Gb}/GB-mo`,
+      choice: n.sharedIsBest ? s.choiceShared : s.choicePerZone,
+    };
+  }
   if (id === "s3-nat") {
     const before = v.gb * p.natGb;
     return { before, after: 0, price: `$${p.natGb} / GB (NAT Gateway)` };
@@ -55,7 +67,7 @@ function Scenario({ s, region, c, fmt, index, contact }) {
   const [v, setV] = useState(DEFAULTS[s.id]);
   const used = useRef(false);
   const p = PRICES[region];
-  const r = useMemo(() => compute(s.id, v, p), [s.id, v, p]);
+  const r = useMemo(() => compute(s.id, v, p, s), [s, v, p]);
   const saved = Math.max(0, r.before - r.after);
 
   const onField = (k) => (e) => {
@@ -110,6 +122,12 @@ function Scenario({ s, region, c, fmt, index, contact }) {
               {s.shardsLabel}: <strong>{r.shards}</strong>
             </p>
           ) : null}
+          {r.choice ? <p className={styles.shards}>{r.choice}</p> : null}
+          {s.more ? (
+            <Link className={styles.shards} href={s.more.href} data-umami-event="cost-more" data-umami-event-place={s.id}>
+              {s.more.label} →
+            </Link>
+          ) : null}
           <Link
             className={styles.resultCta}
             href={contact}
@@ -137,9 +155,16 @@ function Scenario({ s, region, c, fmt, index, contact }) {
   );
 }
 
-export default function CloudCosts() {
+// `only`: render a single scenario (dedicated page) without the jump links, renumbered from 01
+export default function CloudCosts({ only } = {}) {
   const { lang, href } = useLang();
-  const c = CLOUD_COSTS[lang];
+  const all = CLOUD_COSTS[lang];
+  const scenarios = only ? all.scenarios.filter((s) => s.id === only) : all.scenarios;
+  // on the hub, a scenario with its own page links to it; on that page the link would point to itself
+  const c = { ...all, scenarios: scenarios.map((s) => (only || !s.page ? s : { ...s, more: { href: href(s.page), label: all.moreLabel } })) };
+  const checked = c.scenarios.some((s) => s.id === "nat-instance")
+    ? only ? NAT_PRICES_CHECKED : `${PRICES_CHECKED} / ${NAT_PRICES_CHECKED}`
+    : PRICES_CHECKED;
   const [region, setRegion] = useState(REGIONS[0].id);
   const leadRef = useRef(null);
   const auditRef = useRef(null);
@@ -180,14 +205,16 @@ export default function CloudCosts() {
             <span>{c.stickyCta}</span>
             <FiArrowRight aria-hidden="true" />
           </Link>
-          <nav className={styles.jump} aria-label={c.leadJump}>
-            <span className="mono sm">{c.leadJump}</span>
-            {c.scenarios.map((s, i) => (
-              <a key={s.id} href={`#${s.id}`}>
-                {String(i + 1).padStart(2, "0")} · {c.jump[s.id]}
-              </a>
-            ))}
-          </nav>
+          {only ? null : (
+            <nav className={styles.jump} aria-label={c.leadJump}>
+              <span className="mono sm">{c.leadJump}</span>
+              {c.scenarios.map((s, i) => (
+                <a key={s.id} href={`#${s.id}`}>
+                  {String(i + 1).padStart(2, "0")} · {c.jump[s.id]}
+                </a>
+              ))}
+            </nav>
+          )}
         </div>
 
         <div className={styles.toolbar}>
@@ -225,7 +252,7 @@ export default function CloudCosts() {
         </div>
 
         <div className={styles.footnotes}>
-          <p>{c.disclaimer.replace("{date}", PRICES_CHECKED)}</p>
+          <p>{c.disclaimer.replace("{date}", checked)}</p>
           <p className="mono sm">{c.sourcesTitle}</p>
           <ul>
             {SOURCES.map((s) => (

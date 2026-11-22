@@ -45,7 +45,7 @@ const cloudEn = {
       ],
       proofLinksTitle: "See our work in detail",
       proofLinks: [
-        { route: "/cloud-costs", label: "AWS cost calculator", copy: "Four defaults that inflate an AWS bill, priced with real Region prices." },
+        { route: "/cloud-costs", label: "AWS cost calculator", copy: "Five defaults that inflate an AWS bill, priced with real Region prices." },
         { route: "/architecture", label: "A cloud platform in 3D", copy: "Explore, layer by layer, infrastructure like the one we build." },
         { route: "/devops", label: "DevOps case studies", copy: "Autoscaling, CI/CD, on-call: context, architecture and results." },
       ],
