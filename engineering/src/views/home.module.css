@@ -26,9 +26,22 @@
   align-items: flex-end;
 }
 
+/* solid backing: the headline stays readable over the dithered photo at every size */
+.heroText {
+  max-width: 40rem;
+  padding: 1.25rem 1.5rem 1.5rem;
+  background: var(--base-200);
+}
+
 .heroTitle {
-  width: min-content;
   color: var(--base-500);
+}
+
+.heroLede {
+  margin-top: 0.9rem;
+  max-width: 34em;
+  line-height: 1.5;
+  color: var(--base-400);
 }
 
 .heroCtas {
@@ -77,8 +90,9 @@
     display: none;
   }
 
-  .heroTitle {
-    width: 100%;
+  .heroText {
+    max-width: none;
+    padding: 1rem 1.1rem 1.15rem;
   }
 
   .heroContent {

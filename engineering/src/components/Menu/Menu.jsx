@@ -39,8 +39,8 @@ const HOVER_STAGGER = 0.035;
 
 // desktop bar: these routes are always visible; WIDE_ONLY ones move into "More" on medium screens;
 // every other route lives in the "More" dropdown
-const PRIMARY = ["/expertise", "/cloud", "/nearshore", "/cloud-costs", "/devops", "/ai", "/medalydridi"];
-const WIDE_ONLY = ["/devops", "/ai"];
+const PRIMARY = ["/cloud", "/cloud-costs", "/nearshore", "/devops", "/medalydridi"];
+const WIDE_ONLY = ["/devops"];
 
 // what each desktop link previews on hover: the content of the page it leads to
 function previewItems(r, t, lang) {
@@ -437,7 +437,6 @@ function MenuPanel() {
                   {link.label}
                 </Link>
               ))}
-              <a href={t.menu.careersHref}>{t.menu.careers}</a>
               <a href={t.menu.backHref}>{t.menu.back}</a>
             </div>
           </div>
@@ -492,9 +491,6 @@ function MenuPanel() {
         <div className={styles.extra}>
           <a href={t.menu.backHref} className={`mono sm ${styles.reveal}`}>
             {t.menu.back}
-          </a>
-          <a href={t.menu.careersHref} className={`mono sm ${styles.reveal}`}>
-            {t.menu.careers}
           </a>
           <Link
             href={localize(other, route)}

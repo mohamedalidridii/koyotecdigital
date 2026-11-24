@@ -11,6 +11,7 @@ import DitherImage from "@/components/DitherImage/DitherImage";
 import Copy from "@/components/Copy";
 
 import { useLang } from "@/lib/useLang";
+import { BASE, localize } from "@/lib/i18n";
 import { CONTACT } from "@/content/shared";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -39,11 +40,14 @@ function Line({ line }) {
 }
 
 export default function ContactBanner() {
-  const { contact: c } = useLang().t;
+  const { t, lang } = useLang();
+  const c = t.contact;
+  // the project form lives on the contact page only: link there (this banner is on many pages)
+  const formLink = { ...c.form, href: `${BASE}${localize(lang, c.form.route)}/#${c.form.hash}`, event: "eng-form-link" };
   const GROUPS = [
     { label: c.labels.address, lines: c.address },
     { label: c.labels.comms, lines: [CONTACT.phone, CONTACT.email] },
-    { label: c.labels.form, lines: [c.form, c.formNote] },
+    { label: c.labels.form, lines: [formLink, c.formNote] },
     { label: c.labels.social, lines: CONTACT.social },
   ];
   const sectionRef = useRef(null);

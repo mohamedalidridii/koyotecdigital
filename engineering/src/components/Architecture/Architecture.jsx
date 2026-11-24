@@ -223,7 +223,7 @@ export default function Architecture() {
             <Button variant="primary" href={href("/nearshore")} event="eng-audit-cta" eventPlace="architecture">
               {c.ctaAudit}
             </Button>
-            <Button variant="secondary" href={href("/contact")} event="eng-contact-cta" eventPlace="architecture">
+            <Button variant="secondary" href={href("/contact/#project-form")} event="eng-contact-cta" eventPlace="architecture">
               {c.ctaContact}
             </Button>
           </div>

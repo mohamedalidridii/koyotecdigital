@@ -187,7 +187,7 @@ export default function CloudHero({ pageKey }) {
               <p className={styles.lead}>{page.lead}</p>
             </Copy>
             <div className={styles.ctas}>
-              <Button variant="primary" href={href("/contact")} event="cloud-cta" eventPlace={`${pageKey}-hero-audit`}>
+              <Button variant="primary" href={href("/contact/?need=cloud#project-form")} event="cloud-cta" eventPlace={`${pageKey}-hero-audit`}>
                 {common.ctaAudit}
               </Button>
               <Button variant="secondary" href={whatsapp} event="whatsapp" eventPlace={`${pageKey}-hero`}>

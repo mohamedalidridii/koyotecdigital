@@ -84,7 +84,8 @@ function LinkTransitions() {
 
       // capture phase: Next's Link sees defaultPrevented and leaves the navigation to us
       event.preventDefault();
-      navigate(path.slice(BASE.length) || "/", pathname);
+      // keep ?query and #hash: links like /contact/?need=audit#project-form pre-select the form topic
+      navigate(`${path.slice(BASE.length) || "/"}${link.search}${link.hash}`, pathname);
     };
 
     document.addEventListener("click", onClick, true);

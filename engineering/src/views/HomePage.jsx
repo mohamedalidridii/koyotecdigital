@@ -17,9 +17,9 @@ import SectionHeader from "@/components/SectionHeader";
 import Button from "@/components/Button";
 import FocusAreas from "@/components/FocusAreas";
 import CloudCallout from "@/components/CloudCallout";
+import AuditCta from "@/components/AuditCta";
 import Marquee from "@/components/Marquee";
 import ProcessSteps from "@/components/ProcessSteps";
-import OpenPositions from "@/components/OpenPositions";
 import StatementBanner from "@/components/StatementBanner";
 
 import {
@@ -150,13 +150,18 @@ export default function Home() {
           </Copy>
         </div>
         <div className={`container ${styles.heroContent}`}>
-          <Copy animateOnScroll={false} delay={wait + 0.75}>
-            <h1 className={styles.heroTitle}>{t.home.title}</h1>
-          </Copy>
+          <div className={styles.heroText}>
+            <Copy animateOnScroll={false} delay={wait + 0.75}>
+              <h1 className={styles.heroTitle}>{t.home.title}</h1>
+            </Copy>
+            <Copy animateOnScroll={false} delay={wait + 0.9}>
+              <p className={styles.heroLede}>{t.home.lede}</p>
+            </Copy>
+          </div>
           <div ref={ctasRef} className={styles.heroCtas}>
             <Button
               variant="primary"
-              href={href("/contact")}
+              href={href("/contact/?need=cloud#project-form")}
               className={styles.ctaPrimary}
               event="eng-contact-cta"
               eventPlace="home-hero"
@@ -165,8 +170,10 @@ export default function Home() {
             </Button>
             <Button
               variant="secondary"
-              href={href("/expertise")}
+              href={href("/nearshore")}
               className={styles.ctaSecondary}
+              event="eng-audit-cta"
+              eventPlace="home-hero"
             >
               {t.home.ctaSecondary}
             </Button>
@@ -200,7 +207,7 @@ export default function Home() {
 
       <ProcessSteps />
 
-      <OpenPositions />
+      <AuditCta place="home-steps" compact />
 
       <StatementBanner />
     </>

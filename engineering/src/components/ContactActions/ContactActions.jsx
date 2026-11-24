@@ -2,8 +2,9 @@
 
 import styles from "./ContactActions.module.css";
 
-import { useEffect, useRef, useState } from "react";
-import { FiArrowRight, FiArrowDown, FiMail } from "react-icons/fi";
+import { Suspense, useEffect, useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { FiArrowRight, FiMail } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 
 import { useLang } from "@/lib/useLang";
@@ -42,12 +43,26 @@ function validate(name, value, e) {
 
 const REQUIRED = ["name", "email", "message"];
 
+// ?need=… on links to this page pre-selects the topic (index into contactForm.needs, same order in fr/en)
+const NEED_KEYS = { iiot: 0, energy: 1, maintenance: 2, ai: 3, cloud: 4, devops: 4, kubernetes: 5, audit: 6, security: 7, data: 8 };
+
+// reads ?need=… (useSearchParams must sit under a Suspense boundary in a prerendered page)
+function NeedFromUrl({ needs, onNeed }) {
+  const key = useSearchParams().get("need");
+  useEffect(() => {
+    const i = key ? NEED_KEYS[key.toLowerCase()] : undefined;
+    if (i !== undefined && needs[i]) onNeed(needs[i]);
+  }, [key, needs, onNeed]);
+  return null;
+}
+
 export default function ContactActions() {
   const { t, lang } = useLang();
   const c = t.contactForm;
   const [status, setStatus] = useState("idle"); // idle | sending | sent | error
   const [values, setValues] = useState({ name: "", email: "", message: "" });
   const [touched, setTouched] = useState({});
+  const [need, setNeed] = useState("");
   const started = useRef(false);
   const lastField = useRef("");
   const finished = useRef(false); // sent, or abandonment already reported
@@ -60,6 +75,10 @@ export default function ContactActions() {
   };
   const valuesRef = useRef(values);
   valuesRef.current = values;
+  const langRef = useRef(lang);
+  langRef.current = lang;
+
+
 
   // analytics: started but left without sending -> last field touched and how many required fields were filled
   useEffect(() => {
@@ -67,14 +86,14 @@ export default function ContactActions() {
       if (!started.current || finished.current) return;
       finished.current = true;
       const filled = ["name", "email", "message"].filter((n) => String(valuesRef.current[n] || "").trim()).length;
-      track("eng-form-abandon", { field: lastField.current || "none", filled: `${filled}/3`, lang });
+      track("eng-form-abandon", { field: lastField.current || "none", filled: `${filled}/3`, lang: langRef.current });
     };
     window.addEventListener("pagehide", report);
     return () => {
       window.removeEventListener("pagehide", report);
       report(); // leaving the page inside the site (client navigation)
     };
-  }, [lang]);
+  }, []); // only on real unmount: a language change must not count as an abandon
   const waHref = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(c.waText)}`;
 
   const errors = Object.fromEntries(REQUIRED.map((n) => [n, validate(n, values[n], c.errors)]));
@@ -85,12 +104,6 @@ export default function ContactActions() {
   const onBlur = (e) => {
     const n = e.target.name;
     setTouched((s) => (s[n] ? s : { ...s, [n]: true }));
-  };
-
-  const scrollToForm = (e) => {
-    e.preventDefault();
-    document.getElementById("project-form")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    track("eng-form-open", { place: "contact-top" });
   };
 
   async function onSubmit(e) {
@@ -158,43 +171,10 @@ export default function ContactActions() {
 
   return (
     <section className={styles.actions} aria-label={c.ariaLabel}>
+      <Suspense fallback={null}>
+        <NeedFromUrl needs={c.needs} onNeed={setNeed} />
+      </Suspense>
       <div className="container">
-        <div className={styles.buttons}>
-          <a
-            className={`${styles.btn} ${styles.wa}`}
-            href={waHref}
-            target="_blank"
-            rel="noreferrer"
-            data-umami-event="whatsapp"
-            data-umami-event-place="engineering-contact"
-          >
-            <span className={styles.btnText}>
-              <span className={styles.btnLabel}>WhatsApp</span>
-              <span className={styles.btnNote}>{c.waNote}</span>
-            </span>
-            <FaWhatsapp aria-hidden="true" />
-          </a>
-          <a
-            className={`${styles.btn} ${styles.mail}`}
-            href={CONTACT.email.href}
-            data-umami-event="email"
-            data-umami-event-place="engineering-contact"
-          >
-            <span className={styles.btnText}>
-              <span className={styles.btnLabel}>{c.emailLabel}</span>
-              <span className={styles.btnNote}>{CONTACT.email.text}</span>
-            </span>
-            <FiMail aria-hidden="true" />
-          </a>
-          <a className={`${styles.btn} ${styles.formBtn}`} href="#project-form" onClick={scrollToForm}>
-            <span className={styles.btnText}>
-              <span className={styles.btnLabel}>{c.formLabel}</span>
-              <span className={styles.btnNote}>{c.formNote}</span>
-            </span>
-            <FiArrowDown aria-hidden="true" />
-          </a>
-        </div>
-
         <div id="project-form" className={styles.formWrap}>
           <div className={styles.formIntro}>
             <p className="mono sm">{c.kicker}</p>
@@ -225,7 +205,7 @@ export default function ContactActions() {
               </label>
               <label className={styles.field}>
                 <span>{c.need}</span>
-                <select name="need" defaultValue="">
+                <select name="need" value={need} onChange={(e) => setNeed(e.target.value)}>
                   <option value="" disabled>
                     {c.needPlaceholder}
                   </option>
@@ -265,6 +245,36 @@ export default function ContactActions() {
             </form>
           )}
         </div>
+        <p className={`mono sm ${styles.orLabel}`}>{c.orLabel}</p>
+        <div className={styles.buttons}>
+          <a
+            className={`${styles.btn} ${styles.wa}`}
+            href={waHref}
+            target="_blank"
+            rel="noreferrer"
+            data-umami-event="whatsapp"
+            data-umami-event-place="engineering-contact"
+          >
+            <span className={styles.btnText}>
+              <span className={styles.btnLabel}>WhatsApp</span>
+              <span className={styles.btnNote}>{c.waNote}</span>
+            </span>
+            <FaWhatsapp aria-hidden="true" />
+          </a>
+          <a
+            className={`${styles.btn} ${styles.mail}`}
+            href={CONTACT.email.href}
+            data-umami-event="email"
+            data-umami-event-place="engineering-contact"
+          >
+            <span className={styles.btnText}>
+              <span className={styles.btnLabel}>{c.emailLabel}</span>
+              <span className={styles.btnNote}>{CONTACT.email.text}</span>
+            </span>
+            <FiMail aria-hidden="true" />
+          </a>
+        </div>
+
       </div>
     </section>
   );

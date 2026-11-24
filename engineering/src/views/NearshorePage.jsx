@@ -4,6 +4,7 @@ import FocusAreas from "@/components/FocusAreas";
 import FAQ from "@/components/FAQ";
 import ContactBanner from "@/components/ContactBanner";
 import CloudCallout from "@/components/CloudCallout";
+import AuditCta from "@/components/AuditCta";
 
 import { DICTS } from "@/lib/i18n";
 
@@ -12,11 +13,15 @@ export default function NearshorePage({ lang }) {
   const page = DICTS[lang].pages.nearshore;
   return (
     <>
-      <PageHeader {...page} icon="TerminalIcon" />
+      <PageHeader {...page} icon="TerminalIcon" compact />
+
+      <AuditCta place="nearshore-top" />
 
       <ResearchStatement k="nearshoreStatement" />
 
       <FocusAreas items="nearshoreAudit" />
+
+      <AuditCta place="nearshore-steps" compact />
 
       <CloudCallout />
 

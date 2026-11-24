@@ -68,18 +68,18 @@ const fr = {
   brand: { name: "Koyotec", line: ["Engineering", "Tunis"], partner: "Partenaire AWS enregistré" },
   nav: [
     { route: "/", label: "Accueil" },
-    { route: "/expertise", label: "Expertise" },
     { route: "/cloud", label: "Cloud" },
-    { route: "/nearshore", label: "Nearshore" },
     { route: "/cloud-costs", label: "Coûts cloud" },
+    { route: "/nearshore", label: "Audit 2 semaines" },
     { route: "/devops", label: "Cas DevOps" },
     { route: "/ai", label: "Cas IA" },
+    { route: "/medalydridi", label: "Le fondateur" },
+    { route: "/expertise", label: "Expertise" },
     { route: "/systems", label: "Systèmes" },
     { route: "/engagements", label: "Engagements" },
     { route: "/work", label: "Blueprints" },
     { route: "/architecture", label: "Architecture" },
     { route: "/studio", label: "Le studio" },
-    { route: "/medalydridi", label: "Le fondateur" },
   ],
   navContact: { title: "Parlons-en", code: "Contact" },
   menu: {
@@ -121,9 +121,10 @@ const fr = {
 
   home: {
     header: ["IA · Cloud · DevOps · Sécurité · Data", "Tunis, Tunisie"],
-    title: "Des systèmes qui tiennent.",
-    ctaPrimary: "Démarrer un projet",
-    ctaSecondary: "Notre expertise",
+    title: "Cloud, DevOps et IA, conçus pour tenir.",
+    lede: "Une équipe d’ingénieurs à Tunis, pour des entreprises partout dans le monde : un audit de deux semaines à prix fixe, puis la mise en production avec vous.",
+    ctaPrimary: "Demander l’audit",
+    ctaSecondary: "L’audit en 2 semaines",
     aboutHeader: ["Qui nous sommes", "Le pôle technique"],
     about:
       "Koyotec Engineering est le pôle technique de Koyotec. Nous concevons, déployons et sécurisons les systèmes qui font tourner une entreprise : modèles d’IA, infrastructures cloud, chaînes de livraison, données et tableaux de bord.",
@@ -186,8 +187,8 @@ const fr = {
       description: "Ce que coûtent les NAT Gateways dans chaque compte de dev et de staging, ce que coûte une petite instance NAT, et quand ne pas changer. Prix pour cinq Régions AWS.",
     },
     nearshore: {
-      title: "DevOps & Cloud",
-      subtitle: "nearshore",
+      title: "Audit DevOps & cloud",
+      subtitle: "nearshore, en 2 semaines",
       description: "Une équipe DevOps et cloud à Tunis, pour des entreprises partout dans le monde. On commence par un audit de deux semaines, à prix fixe.",
     },
     contact: {
@@ -288,6 +289,21 @@ const fr = {
         ],
       },
     ],
+  },
+
+  auditCta: {
+    kicker: "L’offre · Audit de 2 semaines",
+    title: "Un audit cloud & DevOps en deux semaines, à prix fixe.",
+    points: [
+      "Revue de votre cloud, de vos pipelines CI/CD, de la sécurité, des coûts et de la supervision, en accès lecture seule.",
+      "Un rapport priorisé : risques, gains rapides, économies estimées et feuille de route sur 90 jours.",
+      "Une restitution à votre équipe. Le rapport vous appartient, sans engagement pour la suite.",
+      "Prix fixe, annoncé avant de commencer : devis sous 24 h ouvrées.",
+    ],
+    cta: "Demander l’audit",
+    wa: "Ou écrire sur WhatsApp",
+    waText: "Bonjour KOYOTEC Engineering, je souhaite un devis pour l’audit cloud & DevOps de deux semaines.",
+    note: "Réponse sous 24 h ouvrées · données dans votre Région cloud",
   },
 
   nearshoreStatement: {
@@ -1892,12 +1908,13 @@ const fr = {
     copy: "Décrivez votre contexte, même en deux lignes. Nous revenons vers vous avec des questions précises, puis une proposition.",
     labels: { address: "Adresse", comms: "Contact", form: "Formulaire", social: "Réseaux" },
     address: ["Ennasr", "Tunis", "Tunisie"],
-    form: { text: "Formulaire projet", href: "#project-form" },
+    form: { text: "Formulaire projet", route: "/contact", hash: "project-form" },
     formNote: "Réponse sous 24 h ouvrées",
   },
 
   contactForm: {
     ariaLabel: "Options de contact",
+    orLabel: "Ou, plus rapide :",
     waText: "Bonjour KOYOTEC Engineering, je souhaite échanger sur un projet d'ingénierie.",
     waNote: "Réponse la plus rapide",
     emailLabel: "E-mail",

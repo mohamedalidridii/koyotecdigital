@@ -170,7 +170,7 @@ export default function CloudCosts({ only } = {}) {
   const auditRef = useRef(null);
   const [pastLead, setPastLead] = useState(false);
   const [auditVisible, setAuditVisible] = useState(false);
-  const contact = href("/contact");
+  const contact = href("/contact/?need=audit#project-form");
   const stickyOn = pastLead && !auditVisible;
 
   // sticky audit bar (mobile only, via CSS): shown once the top CTA has scrolled away,
@@ -244,7 +244,7 @@ export default function CloudCosts({ only } = {}) {
               <span>{c.ctaAudit}</span>
               <FiArrowRight aria-hidden="true" />
             </Link>
-            <Link className={styles.ctaSecondary} href={href("/nearshore")} data-umami-event="cost-nearshore-cta">
+            <Link className={styles.ctaSecondary} href={href("/nearshore")} data-umami-event="cost-nearshore-cta" data-umami-event-place="bottom">
               <span>{c.ctaTalk}</span>
               <FiArrowRight aria-hidden="true" />
             </Link>

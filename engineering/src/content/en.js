@@ -67,18 +67,18 @@ const en = {
   brand: { name: "Koyotec", line: ["Engineering", "Tunis"], partner: "Registered AWS Partner" },
   nav: [
     { route: "/", label: "Home" },
-    { route: "/expertise", label: "Expertise" },
     { route: "/cloud", label: "Cloud" },
-    { route: "/nearshore", label: "Nearshore" },
     { route: "/cloud-costs", label: "Cloud costs" },
+    { route: "/nearshore", label: "2-week audit" },
     { route: "/devops", label: "DevOps cases" },
     { route: "/ai", label: "AI cases" },
+    { route: "/medalydridi", label: "The founder" },
+    { route: "/expertise", label: "Expertise" },
     { route: "/systems", label: "Systems" },
     { route: "/engagements", label: "Engagements" },
     { route: "/work", label: "Blueprints" },
     { route: "/architecture", label: "Architecture" },
     { route: "/studio", label: "The studio" },
-    { route: "/medalydridi", label: "The founder" },
   ],
   navContact: { title: "Let’s talk", code: "Contact" },
   menu: {
@@ -119,9 +119,10 @@ const en = {
 
   home: {
     header: ["AI · Cloud · DevOps · Security · Data", "Tunis, Tunisia"],
-    title: "Systems that hold.",
-    ctaPrimary: "Start a project",
-    ctaSecondary: "Our expertise",
+    title: "Cloud, DevOps and AI, built to hold.",
+    lede: "An engineering team in Tunis for companies worldwide: a fixed-price two-week audit, then we take it to production with you.",
+    ctaPrimary: "Request the audit",
+    ctaSecondary: "The 2-week audit",
     aboutHeader: ["Who we are", "The technical arm"],
     about:
       "Koyotec Engineering is the technical arm of Koyotec. We design, ship and secure the systems a business runs on: AI models, cloud infrastructure, delivery pipelines, data and dashboards.",
@@ -184,8 +185,8 @@ const en = {
       description: "What NAT Gateways cost in every dev and staging account, what a small NAT instance costs instead, and when not to switch. Prices for five AWS Regions.",
     },
     nearshore: {
-      title: "Nearshore",
-      subtitle: "DevOps & Cloud",
+      title: "DevOps & cloud audit",
+      subtitle: "nearshore, in 2 weeks",
       description: "A DevOps and cloud team in Tunis, for companies worldwide. We start with a fixed-price, two-week audit.",
     },
     contact: {
@@ -286,6 +287,21 @@ const en = {
         ],
       },
     ],
+  },
+
+  auditCta: {
+    kicker: "The offer · 2-week audit",
+    title: "A cloud & DevOps audit in two weeks, at a fixed price.",
+    points: [
+      "A review of your cloud, CI/CD pipelines, security, costs and monitoring, with read-only access.",
+      "A prioritised report: risks, quick wins, estimated savings and a 90-day roadmap.",
+      "A walkthrough with your team. The report is yours, with no commitment afterwards.",
+      "Fixed price, agreed before we start: quote within 24 business hours.",
+    ],
+    cta: "Request the audit",
+    wa: "Or message us on WhatsApp",
+    waText: "Hello KOYOTEC Engineering, I would like a quote for the two-week cloud & DevOps audit.",
+    note: "Reply within 24 business hours · data stays in your cloud Region",
   },
 
   nearshoreStatement: {
@@ -1890,12 +1906,13 @@ const en = {
     copy: "Describe your context, even in two lines. We come back with precise questions, then a proposal.",
     labels: { address: "Address", comms: "Contact", form: "Form", social: "Social" },
     address: ["Ennasr", "Tunis", "Tunisia"],
-    form: { text: "Project form", href: "#project-form" },
+    form: { text: "Project form", route: "/contact", hash: "project-form" },
     formNote: "Reply within 24 business hours",
   },
 
   contactForm: {
     ariaLabel: "Contact options",
+    orLabel: "Or, faster:",
     waText: "Hello KOYOTEC Engineering, I'd like to discuss an engineering project.",
     waNote: "Fastest reply",
     emailLabel: "Email",
