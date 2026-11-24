@@ -252,8 +252,10 @@ ${G.analytics?.id ? `    <script defer src="${esc(G.analytics.src)}" data-websit
     const text = site[lang].ui.wa_text + (topic ? `${lang === "fr" ? " : " : ": "}${topic}` : "") + ".";
     return `https://wa.me/${G.whatsapp}?text=${encodeURIComponent(text)}`;
   };
-  // analytics event attributes (Umami reads data-umami-event on click)
-  const ev = (name, place = "") => ` data-umami-event="${name}"${place ? ` data-umami-event-place="${place}"` : ""}`;
+  // analytics event attributes, sent on click by bindTrackedClicks() (scripts/sections/common.js).
+  // Not Umami's data-umami-event: its tracker cancels the click and only navigates once its request is
+  // answered, which turns every tracked link into a full reload and holds it while the server is slow.
+  const ev = (name, place = "") => ` data-track="${name}"${place ? ` data-track-place="${place}"` : ""}`;
   const WA_OUT = ' target="_blank" rel="noopener" data-barba-prevent';
   const WA_ICON = '<svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>';
 
@@ -262,10 +264,6 @@ ${G.analytics?.id ? `    <script defer src="${esc(G.analytics.src)}" data-websit
     const ui = site[lang].ui;
     return `  <a class="skip-link" href="#main">${SKIP[lang]}</a>
   <a class="wa-float" href="${esc(waUrl(lang))}"${WA_OUT} aria-label="${esc(ui.wa_label)}"${ev("whatsapp", "float")}>${WA_ICON}<span class="wa-float-label">${esc(ui.wa_label)}</span></a>
-  <nav class="m-bar" aria-label="${esc(ui.nav_cta)}">
-    <a class="m-bar-quote" href="${PATHS.contact[idx(lang)]}"${ev("quote-cta", "sticky")}>${esc(ui.nav_cta)}</a>
-    <a class="m-bar-wa" href="${esc(waUrl(lang))}"${WA_OUT}${ev("whatsapp", "sticky")}>${WA_ICON}<span>${esc(ui.wa_short)}</span></a>
-  </nav>
   <canvas class="gl" id="gl" aria-hidden="true"></canvas>
   <div class="gl-fallback" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
@@ -290,6 +288,15 @@ ${G.analytics?.id ? `    <script defer src="${esc(G.analytics.src)}" data-websit
       <p class="pl-words"><span class="pl-words-strip">${site[lang].home.cards.map(([n]) => `<span>${esc(n)}</span>`).join("")}</span></p>
     </div>
   </div>`;
+  }
+
+  // mobile sticky bar (css/sections.css): last in the body, so keyboard and screen-reader users meet the page first
+  function mBar(lang) {
+    const ui = site[lang].ui;
+    return `  <nav class="m-bar" aria-label="${esc(ui.mbar_label)}">
+    <a class="m-bar-quote" href="${PATHS.contact[idx(lang)]}"${ev("quote-cta", "sticky")}>${esc(ui.nav_cta)}</a>
+    <a class="m-bar-wa" href="${esc(waUrl(lang))}"${WA_OUT}${ev("whatsapp", "sticky")}>${WA_ICON}<span>${esc(ui.wa_short)}</span></a>
+  </nav>`;
   }
 
   function nav(lang, page, switchTo) {
@@ -417,6 +424,7 @@ ${main}
 ${footer(lang, pageKey)}
   </div>
   </div>
+${mBar(lang)}
 
   <script type="module" src="/scripts/main.js"></script>
 </body>
@@ -680,7 +688,7 @@ ${ctaSection(lang, { h: s.cta_h, button: s.cta })}`;
     const own = PATHS[key][i];
     const body = l.sections.map(([h, t]) => `          <h2>${esc(h)}</h2>\n          ${bodyHtml(t)}`).join("\n");
     const pieces = l.examples.map((slug) => art.find((p) => p.slug === slug)).filter(Boolean);
-    const examples = pieces.map((p, n) => `            <li data-line><a class="svc-row" href="/art-de-la-difference/${p.slug}/" target="_blank" rel="noopener" data-barba-prevent data-umami-event="concept-open" data-umami-event-project="${esc(p.slug)}" data-umami-event-place="service-examples" data-cursor="${c.enter}"><span class="svc-num">${pad(n + 1)}</span><span class="svc-name">${esc(p.client)}</span><span class="svc-desc">${esc(p[lang].sector)} · ${esc(p[lang].line)}</span></a></li>`).join("\n");
+    const examples = pieces.map((p, n) => `            <li data-line><a class="svc-row" href="/art-de-la-difference/${p.slug}/" target="_blank" rel="noopener" data-barba-prevent data-track="concept-open" data-track-project="${esc(p.slug)}" data-track-place="service-examples" data-cursor="${c.enter}"><span class="svc-num">${pad(n + 1)}</span><span class="svc-name">${esc(p.client)}</span><span class="svc-desc">${esc(p[lang].sector)} · ${esc(p[lang].line)}</span></a></li>`).join("\n");
     const others = Object.keys(LANDINGS).filter((k) => k !== key && site[lang][k]).map((k) => [PATHS[k][i], site[lang][k].label]);
     const posts = l.posts.map((id) => blog[lang].find((a) => a.id === id)).filter(Boolean).map((a) => [artPath(lang, a), a.title]);
     const related = [...others, ...posts, [PATHS.services[i], ui.nav.services], [PATHS.art[i], ui.nav.art]]
@@ -861,6 +869,8 @@ ${ctaSection(lang, { h: f.cta_h, button: f.cta })}`;
     const types = h.cards.map(([a]) => `<label class="chip"><input type="checkbox" name="type" value="${esc(a)}" /><span>${esc(a)}</span></label>`).join("")
       + `<label class="chip chip-art"><input type="checkbox" name="type" value="${esc(c.f_art)}" /><span><i class="chip-dot" aria-hidden="true"></i>${esc(c.f_art)}</span></label>`
       + `<label class="chip"><input type="checkbox" name="type" value="${esc(c.f_other)}" data-other /><span>${esc(c.f_other)}</span></label>`;
+    // the form comes before the address block in the DOM, so keyboard and screen-reader users reach it first;
+    // css/pages.css keeps the address in the left column on wide screens
     const main = `      <section class="contact page-hero" data-gl="orbit" data-gl-dim="0.25">
         <div class="shell">
           <p class="lockup-brand">${stamp("Hello", c.drop)} <span>${esc(c.love)}</span></p>
@@ -870,11 +880,6 @@ ${ctaSection(lang, { h: f.cta_h, button: f.cta })}`;
       </section>
       <section class="contact-body">
         <div class="shell contact-grid">
-          <div class="contact-info">
-            ${addressLockup(lang, "address")}
-            <a class="wa-btn" href="${esc(waUrl(lang))}"${WA_OUT}${ev("whatsapp", "contact")}>${WA_ICON}<span>${esc(site[lang].ui.wa_label)}</span></a>
-            <p class="contact-social"><a href="${esc(G.instagram)}" target="_blank" rel="noopener noreferrer">Instagram</a>, <a href="${esc(G.youtube)}" target="_blank" rel="noopener noreferrer">YouTube</a>, <a href="${esc(G.maps)}" target="_blank" rel="noopener noreferrer">Google Maps</a></p>
-          </div>
           <form class="contact-form" action="${esc(G.formEndpoint)}" method="post" data-endpoint="${esc(G.formEndpoint)}" data-lang="${lang}" data-email="${esc(G.email)}" data-wa="${esc(waUrl(lang))}" data-done="${esc(c.f_done)}" data-error="${esc(c.f_error)}" data-sending="${esc(c.f_sending)}">
             <h2 class="form-h">${esc(c.form_h)}</h2>
             <label class="field" data-line><span>${esc(c.f_name)}</span><input name="name" autocomplete="name" required /></label>
@@ -889,6 +894,11 @@ ${ctaSection(lang, { h: f.cta_h, button: f.cta })}`;
             </div>
             <p class="form-done" role="status" aria-live="polite"></p>
           </form>
+          <div class="contact-info">
+            ${addressLockup(lang, "address")}
+            <a class="wa-btn" href="${esc(waUrl(lang))}"${WA_OUT}${ev("whatsapp", "contact")}>${WA_ICON}<span>${esc(site[lang].ui.wa_label)}</span></a>
+            <p class="contact-social"><a href="${esc(G.instagram)}" target="_blank" rel="noopener noreferrer">Instagram</a>, <a href="${esc(G.youtube)}" target="_blank" rel="noopener noreferrer">YouTube</a>, <a href="${esc(G.maps)}" target="_blank" rel="noopener noreferrer">Google Maps</a></p>
+          </div>
         </div>
       </section>
 
@@ -1026,7 +1036,7 @@ ${ctaSection(lang, { kicker: c.cta_kicker, h: c.cta_kicker, giant: c.cta_giant, 
                 <span class="art-sector">${esc(t.sector)} · ${esc(p.year)}</span>
                 <span class="art-line">${esc(t.line)}</span>
               </a>
-${hasCase(lang, p) ? `              <a class="art-case-link" href="${casePath(lang, p)}" data-barba-prevent data-umami-event="case-open" data-umami-event-project="${esc(p.slug)}">${esc(a.case_link)} →</a>
+${hasCase(lang, p) ? `              <a class="art-case-link" href="${casePath(lang, p)}" data-barba-prevent data-track="case-open" data-track-project="${esc(p.slug)}">${esc(a.case_link)} →</a>
 ` : ""}            </li>`;
     }).join("\n");
     const filters = [["all", a.all], ["entreprise", a.business], ["personal", a.personal]]
@@ -1271,9 +1281,9 @@ ${rows}
     const body = a.sections.map(([h, c]) => `          <h2>${esc(h)}</h2>\n          ${bodyHtml(c)}`).join("\n")
       + (a.faq ? `\n          <h2>${esc(a.faq_h || "FAQ")}</h2>\n` + a.faq.map(([q, r]) => `          <h3 class="article-q">${esc(q)}</h3>\n          ${bodyHtml(r)}`).join("\n") : "");
     // analytics: which articles send readers to Engineering (pilots, contact)
-    const artEv = ` data-umami-event="article-to-engineering" data-umami-event-article="${esc(a.slug)}"`;
+    const artEv = ` data-track="article-to-engineering" data-track-article="${esc(a.slug)}"`;
     const bodyTracked = body.replace(/<a href="(\/engineering[^"]*)"/g, (_, h) => `<a href="${h}"${artEv}`);
-    const ctaEv = (href) => ` data-umami-event="article-cta" data-umami-event-article="${esc(a.slug)}" data-umami-event-href="${esc(href)}"`;
+    const ctaEv = (href) => ` data-track="article-cta" data-track-article="${esc(a.slug)}" data-track-href="${esc(href)}"`;
     const modified = a.updated || a.date;
     const ld = graph(
       {

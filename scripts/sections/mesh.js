@@ -8,18 +8,27 @@ import { $, fine, reduced } from "../core/env.js";
 
 const pad = (n) => String(n).padStart(2, "0");
 
-// one masked span per character, so a word can roll out and the next roll in
+// one masked span per character, so a word can roll out and the next roll in. Characters are grouped per
+// word with real spaces in between, so a long title (the page H1) wraps between words, never inside one.
 function chars(el, text) {
   el.textContent = "";
-  return [...text].map((ch) => {
-    const mask = document.createElement("span");
-    mask.className = "mesh-ch";
-    const inner = document.createElement("span");
-    inner.textContent = ch === " " ? " " : ch;
-    mask.append(inner);
-    el.append(mask);
-    return inner;
+  const out = [];
+  text.split(" ").forEach((word, w) => {
+    if (w) el.append(" ");
+    const group = document.createElement("span");
+    group.className = "mesh-word";
+    for (const ch of word) {
+      const mask = document.createElement("span");
+      mask.className = "mesh-ch";
+      const inner = document.createElement("span");
+      inner.textContent = ch;
+      mask.append(inner);
+      group.append(mask);
+      out.push(inner);
+    }
+    el.append(group);
   });
+  return out;
 }
 
 export function meshStage(scope, { ready = Promise.resolve() } = {}) {

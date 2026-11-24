@@ -97,6 +97,17 @@
   color: var(--accent);
   font-style: italic;
 }
+/* the H1 is a sentence ("Projets : sites web et identités visuelles"): smaller than the project names it rolls
+   into, and it wraps between words (mesh.js groups its characters per word) instead of running off the screen */
+.mesh-title {
+  font-size: clamp(2.6rem, 6.2vw, 7.5rem);
+  white-space: normal;
+  text-wrap: balance;
+}
+.mesh-word {
+  display: inline-block;
+  white-space: nowrap;
+}
 .mesh-ch {
   display: inline-block;
   overflow: hidden;

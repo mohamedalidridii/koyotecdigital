@@ -11,7 +11,7 @@ import { initRouter } from "./core/router.js";
 import { autoSplits, drawLines } from "./core/reveal.js";
 import { homeHero, pageHero } from "./sections/intro.js";
 import { serviceHover, statement, rows } from "./sections/home.js";
-import { faq, cta, footer, contactForm, article, scrollDepth, engagedTime, trackContactCopy } from "./sections/common.js";
+import { faq, cta, footer, contactForm, article, scrollDepth, engagedTime, trackContactCopy, bindTrackedClicks } from "./sections/common.js";
 import { artTheme, artHero, artExpo, artViewer, artTeaser, staticLetters } from "./sections/art.js";
 import { careersForm, careersPoles, careersTeaser } from "./sections/careers.js";
 import { engineeringHero } from "./sections/engHero.js";
@@ -82,6 +82,7 @@ function unmount(container) {
 }
 
 function start() {
+  bindTrackedClicks(); // first: analytics clicks keep working even if the motion layer fails to boot
   // the WhatsApp button (outside the page, like the cursor) joins after the preloader, once the
   // visitor has scrolled a little: heroes keep their own calls to action free of it
   preloaderDone.then(() => {

@@ -790,6 +790,21 @@ html.is-art .wa-float {
   body {
     padding-bottom: calc(4.2rem + env(safe-area-inset-bottom, 0px));
   }
+  /* keyboard focus and in-page jumps stop above the bar, never under it (WCAG 2.4.11) */
+  html {
+    scroll-padding-bottom: calc(4.2rem + env(safe-area-inset-bottom, 0px));
+  }
+  /* the contact page is the quote form itself: the bar's button would point to the page you are on */
+  body:has(.page[data-barba-namespace="contact"]) .m-bar {
+    display: none;
+  }
+  body:has(.page[data-barba-namespace="contact"]) {
+    padding-bottom: 0;
+  }
+  /* while a field is being filled the on-screen keyboard is up: the bar would sit on the field */
+  body:has(:is(input:not([type="checkbox"], [type="radio"]), textarea, select):focus) .m-bar {
+    display: none;
+  }
 }
 
 .wa-btn {

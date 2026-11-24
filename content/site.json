@@ -60,6 +60,7 @@
       "close": "Fermer",
       "wa_label": "Discuter sur WhatsApp",
       "wa_short": "WhatsApp",
+      "mbar_label": "Contact rapide",
       "wa_text": "Bonjour KOYOTEC, je souhaite un devis",
       "hero_note": "Devis gratuit et détaillé sous 24 h"
     },
@@ -1256,7 +1257,7 @@
       "title": "Projets : l’index en maillage des concepts – KOYOTEC",
       "desc": "Explorez les concepts web de KOYOTEC dans un maillage 3D interactif : survolez un nœud pour découvrir chaque projet, cliquez pour l’ouvrir.",
       "kicker": "Index",
-      "h1": "Projets : sites web et identités visuelles",
+      "h1": "Projets : sites web et identités visuelles",
       "idle": "Survolez un nœud",
       "hint": "Glissez pour faire tourner · survolez un nœud · cliquez pour ouvrir",
       "hint_touch": "Glissez pour faire tourner · touchez un nœud",
@@ -1297,6 +1298,7 @@
       "close": "Close",
       "wa_label": "Chat on WhatsApp",
       "wa_short": "WhatsApp",
+      "mbar_label": "Quick contact",
       "wa_text": "Hello KOYOTEC, I'd like a quote",
       "hero_note": "Free, detailed quote within 24 h"
     },

@@ -134,6 +134,15 @@ a.al-line:hover {
   gap: clamp(3rem, 6vw, 7rem);
   align-items: start;
 }
+/* the form comes first in the DOM (keyboard and screen-reader order); on wide screens the address stays on the left */
+.contact-grid > .contact-info {
+  grid-column: 1;
+  grid-row: 1;
+}
+.contact-grid > .contact-form {
+  grid-column: 2;
+  grid-row: 1;
+}
 .contact-info .address-lockup {
   font-size: clamp(2rem, 4.4vw, 5rem);
 }
@@ -313,9 +322,11 @@ a.al-line:hover {
   .contact-grid {
     grid-template-columns: 1fr;
   }
-  /* one column: the form comes before the address block, so the quote is reachable right after the title */
-  .contact-form {
-    order: -1;
+  /* one column: DOM order, so the form comes right after the title and the address block follows */
+  .contact-grid > .contact-info,
+  .contact-grid > .contact-form {
+    grid-column: auto;
+    grid-row: auto;
   }
 }
 @media (max-width: 600px) {

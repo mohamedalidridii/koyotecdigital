@@ -236,13 +236,13 @@ export function artViewer(scope) {
     open.href = card.getAttribute("href");
     // analytics: which concepts get opened, and from where
     window.umami?.track("concept-open", { project: card.dataset.slug, place });
-    open.dataset.umamiEvent = "concept-new-tab";
-    open.dataset.umamiEventProject = card.dataset.slug;
+    open.dataset.track = "concept-new-tab";
+    open.dataset.trackProject = card.dataset.slug;
     if (story) {
       story.hidden = !card.dataset.case;
       story.href = card.dataset.case || "#";
-      story.dataset.umamiEvent = "case-open";
-      story.dataset.umamiEventProject = card.dataset.slug;
+      story.dataset.track = "case-open";
+      story.dataset.trackProject = card.dataset.slug;
     }
     num.textContent = `${dialog.dataset.labelPiece} ${pad(i + 1)}/${total}`;
     client.textContent = card.querySelector(".art-client").textContent;

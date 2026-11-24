@@ -69,7 +69,7 @@ export function footer(scope) {
   });
 }
 
-// analytics must never break the form
+// analytics must never break the page
 const track = (name, data) => {
   try {
     window.umami?.track(name, data);
@@ -77,6 +77,28 @@ const track = (name, data) => {
     /* ignore */
   }
 };
+
+// clicks on elements with data-track="event" (+ data-track-place="…" and other data-track-* fields) send that
+// event and leave the click alone: barba transitions and links keep working at full speed. The tracker's own
+// data-umami-event is avoided on purpose: it cancels the click and sets location.href once its request is
+// answered (a full reload, held while the analytics server is slow). umami.track() sends with fetch keepalive,
+// so the event survives a navigation that unloads the page. Bound once, outside the barba container.
+let tracking = false;
+export function bindTrackedClicks() {
+  if (tracking) return;
+  tracking = true;
+  document.addEventListener(
+    "click",
+    (e) => {
+      const el = e.target instanceof Element ? e.target.closest("[data-track]") : null;
+      if (!el) return;
+      const data = {};
+      for (const { name, value } of el.attributes) if (name.startsWith("data-track-")) data[name.slice(11)] = value;
+      track(el.getAttribute("data-track"), Object.keys(data).length ? data : undefined);
+    },
+    true,
+  );
+}
 
 // posts the request to the mail API on the VPS; if it fails, offers WhatsApp and a pre-filled e-mail
 // (the visitor chooses: nothing opens on its own)
@@ -163,12 +185,13 @@ export function contactForm(scope) {
       mail.href = `mailto:${form.dataset.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       mail.textContent = form.dataset.email;
       const wa = document.createElement("a");
-      wa.href = form.dataset.wa;
+      // the typed request goes into the WhatsApp message too (the error text says it is ready on both)
+      wa.href = `${form.dataset.wa.split("?")[0]}?text=${encodeURIComponent(`${subject}\n\n${body}`.slice(0, 1500))}`;
       wa.target = "_blank";
       wa.rel = "noopener";
       wa.textContent = "WhatsApp";
-      wa.dataset.umamiEvent = "whatsapp";
-      wa.dataset.umamiEventPlace = "form-error";
+      wa.dataset.track = "whatsapp";
+      wa.dataset.trackPlace = "form-error";
       done.append(" ", wa, " · ", mail);
     } finally {
       btn.disabled = false;
