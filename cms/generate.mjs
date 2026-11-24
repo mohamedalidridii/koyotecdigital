@@ -211,7 +211,7 @@ ${altFr ? `    <link rel="alternate" hreflang="fr" href="${esc(SITE + altFr)}" /
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="${theme}" />
     <meta name="author" content="${esc(G.name)}" />
-    <script>(function(d){var e=d.documentElement;e.classList.replace("no-js","js");if(matchMedia("(prefers-reduced-motion: reduce)").matches)e.classList.add("is-reduced");try{if(sessionStorage.getItem("koy-pre"))e.classList.add("pre-seen")}catch(_){}})(document)</script>
+    <script>(function(d){var e=d.documentElement;e.classList.replace("no-js","js");if(matchMedia("(prefers-reduced-motion: reduce)").matches)e.classList.add("is-reduced");var h=location.pathname;if(h!=="/"&&h!=="/index.html"&&h!=="/en"&&h!=="/en/")e.classList.add("pre-seen");try{if(sessionStorage.getItem("koy-pre"))e.classList.add("pre-seen")}catch(_){}})(document)</script>
     <link rel="preload" href="/fonts/instrument-serif-400.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/geist-variable.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/css/main.css" />
@@ -262,6 +262,10 @@ ${G.analytics?.id ? `    <script defer src="${esc(G.analytics.src)}" data-websit
     const ui = site[lang].ui;
     return `  <a class="skip-link" href="#main">${SKIP[lang]}</a>
   <a class="wa-float" href="${esc(waUrl(lang))}"${WA_OUT} aria-label="${esc(ui.wa_label)}"${ev("whatsapp", "float")}>${WA_ICON}<span class="wa-float-label">${esc(ui.wa_label)}</span></a>
+  <nav class="m-bar" aria-label="${esc(ui.nav_cta)}">
+    <a class="m-bar-quote" href="${PATHS.contact[idx(lang)]}"${ev("quote-cta", "sticky")}>${esc(ui.nav_cta)}</a>
+    <a class="m-bar-wa" href="${esc(waUrl(lang))}"${WA_OUT}${ev("whatsapp", "sticky")}>${WA_ICON}<span>${esc(ui.wa_short)}</span></a>
+  </nav>
   <canvas class="gl" id="gl" aria-hidden="true"></canvas>
   <div class="gl-fallback" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
@@ -294,12 +298,12 @@ ${G.analytics?.id ? `    <script defer src="${esc(G.analytics.src)}" data-websit
     const sw = switchTo || PATHS[page][idx(other)];
     const cur = (k) => (k === page ? ' aria-current="page"' : "");
     // top bar: the brand already links home, so the bar lists the sections, then the showcase as a pill
-    const links = ["services", "mesh", "engineering", "architecture", "blog", "contact"]
+    const links = ["services", "mesh", "engineering", "blog", "contact"]
       .map((k) => `<li><a href="${PATHS[k][i]}"${full(k)}${cur(k)}>${esc(ui.nav[k])}</a></li>`)
       .join("");
     const artPill = `<a class="nav-art" href="${PATHS.art[i]}"${cur("art")}><i class="nav-art-dot" aria-hidden="true"></i>${esc(ui.nav.art)}</a>`;
     // full-screen menu: every page as a big serif line; the showcase gets its own card below the list
-    const items = ["home", "services", "mesh", "engineering", "architecture", "blog", "contact", "careers"]
+    const items = ["home", "services", "mesh", "engineering", "blog", "contact", "careers"]
       .map((k, n) => `        <li><a href="${PATHS[k][i]}"${full(k)}${cur(k)}><span class="menu-idx">(${pad(n + 1)})</span><span class="menu-name">${esc(ui.nav[k])}</span></a></li>`)
       .join("\n");
     const h = site[lang].home;
@@ -580,9 +584,10 @@ ${poles}
           <div class="hero-aside">
             <p class="hero-sub">${esc(h.sub)}</p>
             <div class="hero-links">
-              ${link(PATHS.contact[i], h.cta_primary)}
-              ${link(PATHS.services[i], h.cta_secondary)}
+              ${link(PATHS.contact[i], h.cta_primary, ev("quote-cta", "hero"))}
+              ${link(PATHS.services[i], h.cta_secondary, ev("services-cta", "hero"))}
             </div>
+            <p class="hero-note">${esc(h.hero_note)}</p>
           </div>
         </div>
 ${engineeringPanel(lang)}
@@ -650,7 +655,8 @@ ${ctaSection(lang, { kicker: h.cta_sub, h: h.cta_h, giant: h.cta_giant, button: 
           <h1 class="lockup-h1 page-title" data-split>${midGlyphs(s.h1, GLYPH.star, GLYPH.arrow)}</h1>
           <div class="page-hero-foot" data-line>
             <p class="hero-sub">${esc(s.sub)}</p>
-            ${link(PATHS.contact[i], s.cta)}
+            ${link(PATHS.contact[i], s.cta, ev("quote-cta", "hero"))}
+            <p class="hero-note">${esc(s.hero_note)}</p>
           </div>
         </div>
       </section>
@@ -694,7 +700,8 @@ ${ctaSection(lang, { h: s.cta_h, button: s.cta })}`;
           <h1 class="lockup-h1 page-title" data-split>${midGlyphs(l.h1, GLYPH.star, GLYPH.pin)}</h1>
           <div class="page-hero-foot" data-line>
             <p class="hero-sub">${esc(l.sub)}</p>
-            ${link(PATHS.contact[i], l.cta)}
+            ${link(PATHS.contact[i], l.cta, ev("quote-cta", "hero"))}
+            <p class="hero-note">${esc(l.hero_note || ui.hero_note)}</p>
           </div>
         </div>
       </section>
@@ -868,7 +875,7 @@ ${ctaSection(lang, { h: f.cta_h, button: f.cta })}`;
             <a class="wa-btn" href="${esc(waUrl(lang))}"${WA_OUT}${ev("whatsapp", "contact")}>${WA_ICON}<span>${esc(site[lang].ui.wa_label)}</span></a>
             <p class="contact-social"><a href="${esc(G.instagram)}" target="_blank" rel="noopener noreferrer">Instagram</a>, <a href="${esc(G.youtube)}" target="_blank" rel="noopener noreferrer">YouTube</a>, <a href="${esc(G.maps)}" target="_blank" rel="noopener noreferrer">Google Maps</a></p>
           </div>
-          <form class="contact-form" action="${esc(G.formEndpoint)}" method="post" data-endpoint="${esc(G.formEndpoint)}" data-lang="${lang}" data-email="${esc(G.email)}" data-done="${esc(c.f_done)}" data-error="${esc(c.f_error)}" data-sending="${esc(c.f_sending)}">
+          <form class="contact-form" action="${esc(G.formEndpoint)}" method="post" data-endpoint="${esc(G.formEndpoint)}" data-lang="${lang}" data-email="${esc(G.email)}" data-wa="${esc(waUrl(lang))}" data-done="${esc(c.f_done)}" data-error="${esc(c.f_error)}" data-sending="${esc(c.f_sending)}">
             <h2 class="form-h">${esc(c.form_h)}</h2>
             <label class="field" data-line><span>${esc(c.f_name)}</span><input name="name" autocomplete="name" required /></label>
             <label class="field" data-line><span>${esc(c.f_email)}</span><input name="email" type="email" autocomplete="email" required /></label>

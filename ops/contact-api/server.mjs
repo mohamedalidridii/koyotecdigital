@@ -141,7 +141,9 @@ const server = http.createServer(async (req, res) => {
 
   if (!name || !EMAIL.test(email) || !message) return send(res, 400, { error: "invalid fields" }, origin);
 
-  const subject = `${lang === "en" ? "New website request" : "Nouvelle demande du site"} — ${name}`;
+  // tag the lead by funnel: the Engineering form sends types like "Engineering: Cloud & DevOps"
+  const funnel = types.some((t) => t.startsWith("Engineering")) ? "[Engineering]" : "[Agence]";
+  const subject = `${funnel} ${lang === "en" ? "New website request" : "Nouvelle demande du site"} — ${name}`;
   const text = `${message}\n\n${types.length ? `→ ${types.join(", ")}${other ? ` (${other})` : ""}\n` : ""}${name} · ${email}\n\n(${lang.toUpperCase()} form, IP ${ip})`;
 
   try {

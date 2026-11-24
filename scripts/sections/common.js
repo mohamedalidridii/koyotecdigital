@@ -69,7 +69,18 @@ export function footer(scope) {
   });
 }
 
-// posts the request to the mail API on the VPS; falls back to the visitor's mail app if it fails
+// analytics must never break the form
+const track = (name, data) => {
+  try {
+    window.umami?.track(name, data);
+  } catch {
+    /* ignore */
+  }
+};
+
+// posts the request to the mail API on the VPS; if it fails, offers WhatsApp and a pre-filled e-mail
+// (the visitor chooses: nothing opens on its own)
+// analytics: quote-start (first focus), quote-invalid, quote-sent, quote-error, quote-abandon (left after starting)
 export function contactForm(scope) {
   const form = scope.querySelector(".contact-form");
   if (!form) return;
@@ -83,6 +94,30 @@ export function contactForm(scope) {
   };
   otherChip.addEventListener("change", toggleOther);
   const btn = form.querySelector(".send");
+  const lang = form.dataset.lang;
+  let started = false;
+  let finished = false;
+  const onStart = () => {
+    if (started) return;
+    started = true;
+    track("quote-start", { lang });
+  };
+  form.addEventListener("focusin", onStart);
+  // the browser blocks submit on empty required fields before our handler runs: listen to "invalid"
+  let invalidReported = 0;
+  const onInvalid = (e) => {
+    if (Date.now() - invalidReported < 500) return; // one event per submit attempt
+    invalidReported = Date.now();
+    track("quote-invalid", { field: e.target.name || "unknown", lang });
+  };
+  form.addEventListener("invalid", onInvalid, true);
+  const reportAbandon = () => {
+    if (!started || finished) return;
+    finished = true;
+    const filled = ["name", "email", "message"].filter((n) => String(form.elements[n]?.value || "").trim()).length;
+    track("quote-abandon", { filled: `${filled}/3`, lang });
+  };
+  window.addEventListener("pagehide", reportAbandon);
   const say = (text, failed = false) => {
     done.textContent = text;
     done.classList.toggle("is-error", failed);
@@ -90,7 +125,7 @@ export function contactForm(scope) {
   };
   const submit = async (e) => {
     e.preventDefault();
-    if (!form.reportValidity()) return;
+    if (!form.reportValidity()) return; // "invalid" events are tracked by onInvalid
     const data = new FormData(form);
     const payload = {
       name: data.get("name"),
@@ -112,7 +147,8 @@ export function contactForm(scope) {
       });
       if (!res.ok) throw new Error(res.status);
       // conversion for the analytics (Umami); absent until the tracker is configured
-      window.umami?.track("quote-sent", { type: payload.type.join(", ") || "none", lang: payload.lang });
+      finished = true;
+      track("quote-sent", { type: payload.type.join(", ") || "none", lang: payload.lang });
       form.reset();
       toggleOther();
       say(form.dataset.done);
@@ -121,13 +157,29 @@ export function contactForm(scope) {
       const subject = `${payload.subject} — ${payload.name}`;
       const body = `${payload.message}\n\n${types ? `→ ${types}${payload.other ? ` (${payload.other})` : ""}\n` : ""}${payload.name} · ${payload.email}`;
       say(form.dataset.error, true);
-      window.location.href = `mailto:${form.dataset.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      track("quote-error", { lang });
+      // two ways to still reach us, without losing what was typed
+      const mail = document.createElement("a");
+      mail.href = `mailto:${form.dataset.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      mail.textContent = form.dataset.email;
+      const wa = document.createElement("a");
+      wa.href = form.dataset.wa;
+      wa.target = "_blank";
+      wa.rel = "noopener";
+      wa.textContent = "WhatsApp";
+      wa.dataset.umamiEvent = "whatsapp";
+      wa.dataset.umamiEventPlace = "form-error";
+      done.append(" ", wa, " · ", mail);
     } finally {
       btn.disabled = false;
     }
   };
   form.addEventListener("submit", submit);
   return () => {
+    reportAbandon(); // leaving the page inside the site (barba navigation)
+    window.removeEventListener("pagehide", reportAbandon);
+    form.removeEventListener("focusin", onStart);
+    form.removeEventListener("invalid", onInvalid, true);
     form.removeEventListener("submit", submit);
     otherChip.removeEventListener("change", toggleOther);
   };

@@ -60,7 +60,8 @@
       "close": "Fermer",
       "wa_label": "Discuter sur WhatsApp",
       "wa_short": "WhatsApp",
-      "wa_text": "Bonjour KOYOTEC, je souhaite un devis"
+      "wa_text": "Bonjour KOYOTEC, je souhaite un devis",
+      "hero_note": "Devis gratuit et détaillé sous 24 h"
     },
     "home": {
       "title": "Agence Web à Tunis : Création de Site Internet – KOYOTEC",
@@ -260,7 +261,8 @@
         "engineering": "Postuler côté Engineering",
         "cta": "Voir la page carrières"
       },
-      "keywords": "agence web Tunis, création site web Tunisie, identité visuelle, branding, stratégie digitale, ingénierie cloud, consultant AWS Tunisie, migration cloud, DevOps, intelligence artificielle, Koyotec Engineering, KOYOTEC"
+      "keywords": "agence web Tunis, création site web Tunisie, identité visuelle, branding, stratégie digitale, ingénierie cloud, consultant AWS Tunisie, migration cloud, DevOps, intelligence artificielle, Koyotec Engineering, KOYOTEC",
+      "hero_note": "Sites web à partir de 800 DT · devis gratuit sous 24 h"
     },
     "services": {
       "title": "Services : Site Web, Branding & SEO à Tunis – KOYOTEC",
@@ -310,7 +312,8 @@
         ]
       ],
       "cta_h": "Un projet de site web ou de branding à Tunis ?",
-      "cta": "Demander un devis gratuit"
+      "cta": "Demander un devis gratuit",
+      "hero_note": "Sites web à partir de 800 DT · devis gratuit sous 24 h"
     },
     "contact": {
       "title": "Devis Site Web Gratuit à Tunis | Contact – KOYOTEC",
@@ -335,7 +338,7 @@
       "f_send": "Envoyer la demande",
       "f_note": "Réponse et devis gratuit sous 24 h",
       "f_done": "Merci, votre message est bien parti. Nous vous répondons sous 24 h.",
-      "f_error": "L'envoi a échoué : votre messagerie s'ouvre avec la demande prête à envoyer.",
+      "f_error": "L'envoi a échoué. Écrivez-nous directement, votre message est prêt :",
       "f_sending": "Envoi en cours…",
       "process_h": "Comment se passe votre devis",
       "process": [
@@ -530,7 +533,8 @@
         "article-1",
         "article-2"
       ],
-      "cta_h": "Parlons de votre futur site web"
+      "cta_h": "Parlons de votre futur site web",
+      "hero_note": "Sites web à partir de 800 DT · devis gratuit sous 24 h"
     },
     "lp_branding": {
       "title": "Création de Logo et Identité Visuelle à Tunis – KOYOTEC",
@@ -1252,7 +1256,7 @@
       "title": "Projets : l’index en maillage des concepts – KOYOTEC",
       "desc": "Explorez les concepts web de KOYOTEC dans un maillage 3D interactif : survolez un nœud pour découvrir chaque projet, cliquez pour l’ouvrir.",
       "kicker": "Index",
-      "h1": "Maillage",
+      "h1": "Projets : sites web et identités visuelles",
       "idle": "Survolez un nœud",
       "hint": "Glissez pour faire tourner · survolez un nœud · cliquez pour ouvrir",
       "hint_touch": "Glissez pour faire tourner · touchez un nœud",
@@ -1293,7 +1297,8 @@
       "close": "Close",
       "wa_label": "Chat on WhatsApp",
       "wa_short": "WhatsApp",
-      "wa_text": "Hello KOYOTEC, I'd like a quote"
+      "wa_text": "Hello KOYOTEC, I'd like a quote",
+      "hero_note": "Free, detailed quote within 24 h"
     },
     "home": {
       "title": "Web Design & Branding Agency in Tunis, Tunisia – KOYOTEC",
@@ -1493,7 +1498,8 @@
         "engineering": "Apply to Engineering",
         "cta": "See the careers page"
       },
-      "keywords": "web design agency Tunis, website design Tunisia, brand identity, branding, digital strategy, cloud engineering, AWS consultant Tunisia, cloud migration, DevOps, artificial intelligence, Koyotec Engineering, KOYOTEC"
+      "keywords": "web design agency Tunis, website design Tunisia, brand identity, branding, digital strategy, cloud engineering, AWS consultant Tunisia, cloud migration, DevOps, artificial intelligence, Koyotec Engineering, KOYOTEC",
+      "hero_note": "Websites from 800 TND · free quote within 24 h"
     },
     "services": {
       "title": "Services: Web Design, Branding & SEO in Tunis – KOYOTEC",
@@ -1543,7 +1549,8 @@
         ]
       ],
       "cta_h": "A web or branding project in Tunis?",
-      "cta": "Get a free quote"
+      "cta": "Get a free quote",
+      "hero_note": "Websites from 800 TND · free quote within 24 h"
     },
     "contact": {
       "title": "Free Website Design Quote in Tunis | Contact – KOYOTEC",
@@ -1568,7 +1575,7 @@
       "f_send": "Send request",
       "f_note": "Reply and free quote within 24 hours",
       "f_done": "Thank you, your message has been sent. We reply within 24 hours.",
-      "f_error": "Sending failed: your email app opens with the request ready to send.",
+      "f_error": "Sending failed. Reach us directly, your message is ready:",
       "f_sending": "Sending…",
       "process_h": "How your quote works",
       "process": [
@@ -1763,7 +1770,8 @@
         "article-1",
         "article-2"
       ],
-      "cta_h": "Let's talk about your new website"
+      "cta_h": "Let's talk about your new website",
+      "hero_note": "Websites from 800 TND · free quote within 24 h"
     },
     "lp_branding": {
       "title": "Logo and Brand Identity Design in Tunisia – KOYOTEC",
@@ -2485,7 +2493,7 @@
       "title": "Projects: the KOYOTEC concept index as a mesh",
       "desc": "Explore KOYOTEC’s web concepts in an interactive 3D mesh: hover a node to discover each project, click to open it.",
       "kicker": "Index",
-      "h1": "The mesh",
+      "h1": "Projects: websites and brand identities",
       "idle": "Hover a node",
       "hint": "Drag to rotate · hover a node · click to open",
       "hint_touch": "Drag to rotate · tap a node",

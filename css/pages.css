@@ -23,6 +23,17 @@
   padding: 1rem 0;
   font-size: 1rem;
 }
+/* price / reply-time line under the hero CTA (LIFT: value + urgency next to the action) */
+.hero-note {
+  flex-basis: 100%;
+  margin: 0;
+  font-size: 0.875rem;
+  letter-spacing: 0.01em;
+  opacity: 0.68;
+}
+.hero-aside .hero-note {
+  margin-top: 1rem;
+}
 .page-hero-foot::after {
   top: 0;
   bottom: auto;
@@ -301,6 +312,10 @@ a.al-line:hover {
 @media (max-width: 900px) {
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+  /* one column: the form comes before the address block, so the quote is reachable right after the title */
+  .contact-form {
+    order: -1;
   }
 }
 @media (max-width: 600px) {

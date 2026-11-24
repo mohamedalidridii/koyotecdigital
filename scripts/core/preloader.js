@@ -17,7 +17,9 @@ export const preloaderDone = new Promise((r) => (markDone = r));
 
 export function runPreloader() {
   const pre = document.querySelector(".preloader");
-  // the full mark plays once per session; later full loads go straight to the page intro
+  // the full mark plays once per session and only when the visit starts on the home page:
+  // landing pages, contact, blog and case studies open straight on their content ("pre-seen" is set
+  // in the <head> by cms/generate.mjs before first paint)
   if (pre && document.documentElement.classList.contains("pre-seen")) pre.remove();
   if (!pre || !pre.isConnected) {
     markDone();
