@@ -70,7 +70,7 @@
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
   gap: 3rem;
   margin-top: 1rem;
-  scroll-margin-top: 2rem;
+  scroll-margin-top: 10.5rem; /* links to #project-form land below the fixed header, kicker (chosen topic) in view */
 }
 
 .formIntro {

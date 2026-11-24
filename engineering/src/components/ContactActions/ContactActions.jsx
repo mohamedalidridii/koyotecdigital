@@ -8,12 +8,32 @@ import { FiArrowRight, FiMail } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 
 import { useLang } from "@/lib/useLang";
+import { splitPath } from "@/lib/i18n";
 import { CONTACT } from "@/content/shared";
 
 // The contact form API (ops/contact-api on the KOYOTEC VPS) accepts requests from www.koyotec.digital.
 const API = "https://api.koyotec.digital/contact";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const MIN_MESSAGE = 10;
+
+// what was typed survives a language switch (/contact and /en/contact are two pages): one draft per tab,
+// kept only while the visitor moves between the two languages of this form
+const DRAFT_KEY = "koy-eng-contact-draft";
+const readDraft = () => {
+  try {
+    return JSON.parse(sessionStorage.getItem(DRAFT_KEY) || "null");
+  } catch {
+    return null;
+  }
+};
+const writeDraft = (draft) => {
+  try {
+    if (draft) sessionStorage.setItem(DRAFT_KEY, JSON.stringify(draft));
+    else sessionStorage.removeItem(DRAFT_KEY);
+  } catch {
+    /* storage blocked: the draft is simply not kept */
+  }
+};
 
 const track = (name, data) => {
   try {
@@ -43,8 +63,9 @@ function validate(name, value, e) {
 
 const REQUIRED = ["name", "email", "message"];
 
-// ?need=… on links to this page pre-selects the topic (index into contactForm.needs, same order in fr/en)
-const NEED_KEYS = { iiot: 0, energy: 1, maintenance: 2, ai: 3, cloud: 4, devops: 4, kubernetes: 5, audit: 6, security: 7, data: 8 };
+// ?need=… on links to this page pre-selects the topic (index into contactForm.needs, same order in fr/en).
+// devops-audit = the 2-week DevOps & cloud audit (the offer); audit = the cloud cost audit (cost pages).
+const NEED_KEYS = { "devops-audit": 0, iiot: 1, energy: 2, maintenance: 3, ai: 4, cloud: 5, devops: 5, kubernetes: 6, audit: 7, security: 8, data: 9 };
 
 // reads ?need=… (useSearchParams must sit under a Suspense boundary in a prerendered page)
 function NeedFromUrl({ needs, onNeed }) {
@@ -63,6 +84,7 @@ export default function ContactActions() {
   const [values, setValues] = useState({ name: "", email: "", message: "" });
   const [touched, setTouched] = useState({});
   const [need, setNeed] = useState("");
+  const [company, setCompany] = useState("");
   const started = useRef(false);
   const lastField = useRef("");
   const finished = useRef(false); // sent, or abandonment already reported
@@ -78,8 +100,6 @@ export default function ContactActions() {
   const langRef = useRef(lang);
   langRef.current = lang;
 
-
-
   // analytics: started but left without sending -> last field touched and how many required fields were filled
   useEffect(() => {
     const report = () => {
@@ -87,13 +107,34 @@ export default function ContactActions() {
       finished.current = true;
       const filled = ["name", "email", "message"].filter((n) => String(valuesRef.current[n] || "").trim()).length;
       track("eng-form-abandon", { field: lastField.current || "none", filled: `${filled}/3`, lang: langRef.current });
+      writeDraft(null);
     };
     window.addEventListener("pagehide", report);
     return () => {
       window.removeEventListener("pagehide", report);
+      // a language switch lands on this same form in the other language: the draft carries on, no abandon
+      if (splitPath(window.location.pathname).route === "/contact") return;
       report(); // leaving the page inside the site (client navigation)
     };
-  }, []); // only on real unmount: a language change must not count as an abandon
+  }, []);
+
+  // restore the draft left by the other language's page (a ?need= in the URL wins over its topic)
+  useEffect(() => {
+    const d = readDraft();
+    if (!d) return;
+    setValues((v) => ({ ...v, ...d.values }));
+    setCompany(d.company || "");
+    if (d.needIndex >= 0 && !new URLSearchParams(window.location.search).get("need")) setNeed(c.needs[d.needIndex] || "");
+    started.current = true; // eng-form-start was already sent on the other page
+    lastField.current = d.field || "";
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // keep the draft current once the form is started (the topic is stored by position: labels differ per language)
+  useEffect(() => {
+    if (!started.current || finished.current) return;
+    writeDraft({ values, company, needIndex: c.needs.indexOf(need), field: lastField.current });
+  }, [values, company, need, c.needs]);
   const waHref = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(c.waText)}`;
 
   const errors = Object.fromEntries(REQUIRED.map((n) => [n, validate(n, values[n], c.errors)]));
@@ -114,7 +155,7 @@ export default function ContactActions() {
     if (firstBad) {
       setTouched({ name: true, email: true, message: true });
       form.querySelector(`[name="${firstBad}"]`)?.focus();
-      track("eng-form-invalid", { field: firstBad });
+      track("eng-form-invalid", { field: firstBad, lang });
       return;
     }
     const f = new FormData(form);
@@ -137,6 +178,7 @@ export default function ContactActions() {
       });
       if (!r.ok) throw new Error(String(r.status));
       finished.current = true;
+      writeDraft(null);
       setStatus("sent");
       track("eng-form-sent", { need: need || "unspecified", lang });
     } catch {
@@ -177,7 +219,8 @@ export default function ContactActions() {
       <div className="container">
         <div id="project-form" className={styles.formWrap}>
           <div className={styles.formIntro}>
-            <p className="mono sm">{c.kicker}</p>
+            {/* the chosen topic is echoed here, so a visitor who clicked "Request the audit" sees it at once */}
+            <p className="mono sm">{need ? `${c.kicker} · ${need}` : c.kicker}</p>
             <h3 className={styles.formTitle}>{c.title}</h3>
             <p className={styles.formCopy}>{c.copy}</p>
           </div>
@@ -196,7 +239,7 @@ export default function ContactActions() {
               </label>
               <label className={styles.field}>
                 <span>{c.company}</span>
-                <input name="company" type="text" maxLength={120} autoComplete="organization" />
+                <input name="company" type="text" maxLength={120} autoComplete="organization" value={company} onChange={(e) => setCompany(e.target.value)} />
               </label>
               <label className={styles.field}>
                 <span>{c.email} *</span>
@@ -236,7 +279,7 @@ export default function ContactActions() {
               {status === "error" ? (
                 <p className={`${styles.full} ${styles.error}`} role="alert">
                   {c.error}{" "}
-                  <a href={waHref} target="_blank" rel="noreferrer" data-umami-event="whatsapp" data-umami-event-place="engineering-form-error">
+                  <a href={waHref} target="_blank" rel="noreferrer" data-track="whatsapp" data-track-place="engineering-form-error">
                     WhatsApp
                   </a>{" "}
                   · <a href={CONTACT.email.href}>{CONTACT.email.text}</a>
@@ -252,8 +295,8 @@ export default function ContactActions() {
             href={waHref}
             target="_blank"
             rel="noreferrer"
-            data-umami-event="whatsapp"
-            data-umami-event-place="engineering-contact"
+            data-track="whatsapp"
+            data-track-place="engineering-contact"
           >
             <span className={styles.btnText}>
               <span className={styles.btnLabel}>WhatsApp</span>
@@ -264,8 +307,8 @@ export default function ContactActions() {
           <a
             className={`${styles.btn} ${styles.mail}`}
             href={CONTACT.email.href}
-            data-umami-event="email"
-            data-umami-event-place="engineering-contact"
+            data-track="email"
+            data-track-place="engineering-contact"
           >
             <span className={styles.btnText}>
               <span className={styles.btnLabel}>{c.emailLabel}</span>

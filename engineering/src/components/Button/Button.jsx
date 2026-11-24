@@ -110,8 +110,8 @@ export default function Button({
       ref={rootRef}
       href={href}
       className={classNames}
-      data-umami-event={event}
-      data-umami-event-place={event ? eventPlace : undefined}
+      data-track={event}
+      data-track-place={event ? eventPlace : undefined}
     >
       <span ref={labelRef} className={styles.label}>
         {children}

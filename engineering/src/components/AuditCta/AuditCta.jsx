@@ -36,10 +36,10 @@ export default function AuditCta({ place = "nearshore", compact = false }) {
           )}
         </div>
         <div className={styles.actions}>
-          <Button variant="primary" href={href("/contact/?need=cloud#project-form")} event="eng-audit-cta" eventPlace={place}>
+          <Button variant="primary" href={href("/contact/?need=devops-audit#project-form")} event="eng-audit-cta" eventPlace={place}>
             {c.cta}
           </Button>
-          <a className={styles.wa} href={wa} target="_blank" rel="noreferrer" data-umami-event="whatsapp" data-umami-event-place={`engineering-${place}`}>
+          <a className={styles.wa} href={wa} target="_blank" rel="noreferrer" data-track="whatsapp" data-track-place={`engineering-${place}`}>
             <FaWhatsapp aria-hidden="true" /> {c.wa} <FiArrowRight aria-hidden="true" />
           </a>
           <p className={`mono sm ${styles.note}`}>{c.note}</p>

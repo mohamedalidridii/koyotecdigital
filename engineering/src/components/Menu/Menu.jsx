@@ -444,14 +444,14 @@ function MenuPanel() {
             href={localize(other, route)}
             hrefLang={other}
             lang={other}
-            data-umami-event="lang-switch"
-            data-umami-event-to={other}
+            data-track="lang-switch"
+            data-track-to={other}
             aria-label={t.menu.switchName}
             className={`${styles.deskLink} ${styles.lang}`}
           >
             {t.menu.switchLabel}
           </Link>
-          <Link href={href("/contact")} className={styles.deskCta} data-umami-event="nav-contact">
+          <Link href={href("/contact")} className={styles.deskCta} data-track="nav-contact">
             {t.navContact.title} <FiArrowRight aria-hidden="true" />
           </Link>
         </nav>
@@ -496,8 +496,8 @@ function MenuPanel() {
             href={localize(other, route)}
             hrefLang={other}
             lang={other}
-            data-umami-event="lang-switch"
-            data-umami-event-to={other}
+            data-track="lang-switch"
+            data-track-to={other}
             aria-label={t.menu.switchName}
             className={`mono sm ${styles.reveal}`}
           >

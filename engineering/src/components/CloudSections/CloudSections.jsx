@@ -157,7 +157,7 @@ export function Founder() {
               <li key={fact}>{fact}</li>
             ))}
           </ul>
-          <Link href={href("/medalydridi")} className={styles.founderLink} data-umami-event="cloud-founder" data-umami-event-place="engineering">
+          <Link href={href("/medalydridi")} className={styles.founderLink} data-track="cloud-founder" data-track-place="engineering">
             {f.link} <span aria-hidden="true">↗</span>
           </Link>
         </div>

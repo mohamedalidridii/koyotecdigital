@@ -109,6 +109,24 @@ const umamiTrack = (name, data) => {
   }
 };
 
+// analytics: clicks on elements with data-track="event" (+ data-track-place="…" and other data-track-* fields)
+// send that event and leave the click alone, so page transitions keep working. Umami's own data-umami-event is
+// avoided on purpose: its tracker cancels the click and sets location.href once its request is answered (a full
+// page load, held while the analytics server is slow). umami.track() sends with fetch keepalive.
+function useTrackedClicks() {
+  useEffect(() => {
+    const onClick = (e) => {
+      const el = e.target instanceof Element ? e.target.closest("[data-track]") : null;
+      if (!el) return;
+      const data = {};
+      for (const { name, value } of el.attributes) if (name.startsWith("data-track-")) data[name.slice(11)] = value;
+      umamiTrack(el.getAttribute("data-track"), Object.keys(data).length ? data : undefined);
+    };
+    document.addEventListener("click", onClick, true);
+    return () => document.removeEventListener("click", onClick, true);
+  }, []);
+}
+
 // analytics: real reading time per page view (30 s, 2 min), counted only while the tab is visible
 function useEngagedTime(pathname) {
   useEffect(() => {
@@ -186,6 +204,7 @@ export default function ClientLayout({ children }) {
   useEngagedTime(currentPath);
   useSectionViews(currentPath);
   useContactCopy();
+  useTrackedClicks();
 
   useEffect(() => {
     const handleResize = () =>

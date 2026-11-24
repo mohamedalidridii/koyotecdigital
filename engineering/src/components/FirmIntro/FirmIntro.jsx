@@ -24,7 +24,7 @@ export default function FirmIntro() {
           {t.firmIntro.founder ? (
             <p className={styles.founder}>
               {t.firmIntro.founder[0]}{" "}
-              <a href={t.firmIntro.founderHref} data-umami-event="founder-link" data-umami-event-place="studio">
+              <a href={t.firmIntro.founderHref} data-track="founder-link" data-track-place="studio">
                 {t.firmIntro.founder[1]}
               </a>{" "}
               {t.firmIntro.founder[2]}

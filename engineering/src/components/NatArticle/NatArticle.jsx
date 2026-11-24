@@ -145,7 +145,7 @@ export default function NatArticle() {
           <Copy>
             <h2 className={styles.h2}>{a.calcTitle}</h2>
           </Copy>
-          <Link className={styles.back} href={href("/cloud-costs")} data-umami-event="cost-more" data-umami-event-place="nat-back">
+          <Link className={styles.back} href={href("/cloud-costs")} data-track="cost-more" data-track-place="nat-back">
             ← {a.backLabel}
           </Link>
         </div>

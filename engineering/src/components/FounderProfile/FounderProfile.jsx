@@ -172,7 +172,7 @@ export default function FounderProfile() {
           <ul className={styles.profiles}>
             {f.profiles.items.map((p, i) => (
               <li key={p.href}>
-                <a href={p.href} target="_blank" rel="noreferrer me" data-umami-event="founder-profile" data-umami-event-place={p.label}>
+                <a href={p.href} target="_blank" rel="noreferrer me" data-track="founder-profile" data-track-place={p.label}>
                   <span className={styles.profileNo}>{String(i + 1).padStart(2, "0")}</span>
                   <span className={styles.profileLabel}>{p.label}</span>
                   <span className={styles.profileHandle}>{p.handle}</span>

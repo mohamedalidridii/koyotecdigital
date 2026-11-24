@@ -161,9 +161,9 @@ export default function Home() {
           <div ref={ctasRef} className={styles.heroCtas}>
             <Button
               variant="primary"
-              href={href("/contact/?need=cloud#project-form")}
+              href={href("/contact/?need=devops-audit#project-form")}
               className={styles.ctaPrimary}
-              event="eng-contact-cta"
+              event="eng-audit-cta"
               eventPlace="home-hero"
             >
               {t.home.ctaPrimary}
@@ -172,7 +172,7 @@ export default function Home() {
               variant="secondary"
               href={href("/nearshore")}
               className={styles.ctaSecondary}
-              event="eng-audit-cta"
+              event="eng-offer-view"
               eventPlace="home-hero"
             >
               {t.home.ctaSecondary}

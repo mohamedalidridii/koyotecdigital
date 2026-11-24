@@ -124,16 +124,16 @@ function Scenario({ s, region, c, fmt, index, contact }) {
           ) : null}
           {r.choice ? <p className={styles.shards}>{r.choice}</p> : null}
           {s.more ? (
-            <Link className={styles.shards} href={s.more.href} data-umami-event="cost-more" data-umami-event-place={s.id}>
+            <Link className={styles.shards} href={s.more.href} data-track="cost-more" data-track-place={s.id}>
               {s.more.label} →
             </Link>
           ) : null}
           <Link
             className={styles.resultCta}
             href={contact}
-            data-umami-event="cost-audit-cta"
-            data-umami-event-place={s.id}
-            data-umami-event-region={region}
+            data-track="cost-audit-cta"
+            data-track-place={s.id}
+            data-track-region={region}
           >
             <span>{c.scenarioCta}</span>
             <FiArrowRight aria-hidden="true" />
@@ -201,7 +201,7 @@ export default function CloudCosts({ only } = {}) {
       <div className="container">
         <div className={styles.lead} ref={leadRef}>
           <p className={styles.leadCopy}>{c.leadCopy}</p>
-          <Link className={styles.leadButton} href={contact} data-umami-event="cost-audit-cta" data-umami-event-place="top" data-umami-event-region={region}>
+          <Link className={styles.leadButton} href={contact} data-track="cost-audit-cta" data-track-place="top" data-track-region={region}>
             <span>{c.stickyCta}</span>
             <FiArrowRight aria-hidden="true" />
           </Link>
@@ -240,11 +240,11 @@ export default function CloudCosts({ only } = {}) {
           <h3>{c.ctaTitle}</h3>
           <p>{c.ctaCopy}</p>
           <div className={styles.ctaButtons}>
-            <Link className={styles.ctaPrimary} href={contact} data-umami-event="cost-audit-cta" data-umami-event-place="bottom" data-umami-event-region={region}>
+            <Link className={styles.ctaPrimary} href={contact} data-track="cost-audit-cta" data-track-place="bottom" data-track-region={region}>
               <span>{c.ctaAudit}</span>
               <FiArrowRight aria-hidden="true" />
             </Link>
-            <Link className={styles.ctaSecondary} href={href("/nearshore")} data-umami-event="cost-nearshore-cta" data-umami-event-place="bottom">
+            <Link className={styles.ctaSecondary} href={href("/nearshore")} data-track="cost-nearshore-cta" data-track-place="bottom">
               <span>{c.ctaTalk}</span>
               <FiArrowRight aria-hidden="true" />
             </Link>
@@ -271,9 +271,9 @@ export default function CloudCosts({ only } = {}) {
         href={contact}
         aria-hidden={stickyOn ? undefined : "true"}
         tabIndex={stickyOn ? undefined : -1}
-        data-umami-event="cost-audit-cta"
-        data-umami-event-place="sticky"
-        data-umami-event-region={region}
+        data-track="cost-audit-cta"
+        data-track-place="sticky"
+        data-track-region={region}
       >
         <span>{c.stickyCta}</span>
         <FiArrowRight aria-hidden="true" />

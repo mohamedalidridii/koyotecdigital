@@ -1929,6 +1929,7 @@ const fr = {
     need: "Votre besoin",
     needPlaceholder: "Choisissez un sujet",
     needs: [
+      "Audit DevOps & cloud (2 semaines)",
       "Données industrielles / TRS / SCADA",
       "Suivi énergétique",
       "Maintenance prédictive",

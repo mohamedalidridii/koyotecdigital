@@ -9,6 +9,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 import Copy from "@/components/Copy";
+import Button from "@/components/Button";
 
 import { useLang } from "@/lib/useLang";
 
@@ -55,6 +56,7 @@ export default function PageHeader({
   description,
   icon = "WorkspaceIcon",
   compact = false, // shorter header, so what follows (e.g. contact buttons) shows on the first screen
+  cta = null, // { href, label, event, place }: an action under the description, so a phone shows one in the first screen
 }) {
   const sectionRef = useRef(null);
   const iconRef = useRef(null);
@@ -92,8 +94,12 @@ export default function PageHeader({
           <Copy animateOnScroll={false} delay={HEADING_DELAY}>
             <h1 className={styles.heading}>
               <span>{title}</span>
+              {/* the space keeps the two parts apart in the text (crawlers, copy-paste); the flex layout ignores it */}
               {subtitle ? (
-                <span className={styles.subtitle}>{subtitle}</span>
+                <>
+                  {" "}
+                  <span className={styles.subtitle}>{subtitle}</span>
+                </>
               ) : null}
             </h1>
           </Copy>
@@ -109,7 +115,20 @@ export default function PageHeader({
                 <HeaderIcon icon={icon} />
               </span>
             </button>
-            {description ? (
+            {cta ? (
+              <div className={styles.metaEnd}>
+                {description ? (
+                  <Copy animateOnScroll={false} delay={META_DELAY}>
+                    <h6 className={styles.copy}>{description}</h6>
+                  </Copy>
+                ) : null}
+                <div className={styles.cta}>
+                  <Button variant="dark" href={cta.href} event={cta.event} eventPlace={cta.place}>
+                    {cta.label}
+                  </Button>
+                </div>
+              </div>
+            ) : description ? (
               <Copy animateOnScroll={false} delay={META_DELAY}>
                 <h6 className={styles.copy}>{description}</h6>
               </Copy>

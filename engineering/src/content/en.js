@@ -1927,6 +1927,7 @@ const en = {
     need: "Your need",
     needPlaceholder: "Choose a topic",
     needs: [
+      "DevOps & cloud audit (2 weeks)",
       "Industrial data / OEE / SCADA",
       "Energy monitoring",
       "Predictive maintenance",

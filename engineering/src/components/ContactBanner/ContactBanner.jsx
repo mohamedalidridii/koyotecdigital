@@ -27,8 +27,8 @@ function Line({ line }) {
     <p>
       <a
         href={line.href}
-        data-umami-event={line.event}
-        data-umami-event-place={line.event ? "engineering" : undefined}
+        data-track={line.event}
+        data-track-place={line.event ? "engineering" : undefined}
         {...(line.external
           ? { target: "_blank", rel: "noreferrer" }
           : undefined)}
