@@ -83,6 +83,39 @@ const track = (name, data) => {
 // data-umami-event is avoided on purpose: it cancels the click and sets location.href once its request is
 // answered (a full reload, held while the analytics server is slow). umami.track() sends with fetch keepalive,
 // so the event survives a navigation that unloads the page. Bound once, outside the barba container.
+
+// funnel-click: every click that leads toward a conversation, whatever the link and whether or not it
+// carries its own data-track: contact page, WhatsApp, e-mail, phone, the audit offer. One event name, so
+// "how many people wanted to talk" is one number, with where it happened (nav, menu, footer, sticky bar,
+// or the section) and where it goes. It only sends the event: the click itself is left alone.
+function funnelTarget(a) {
+  const href = a.getAttribute("href") || "";
+  if (/^https?:\/\/(wa\.me|api\.whatsapp\.com)/i.test(href)) return "whatsapp";
+  if (/^mailto:/i.test(href)) return "email";
+  if (/^tel:/i.test(href)) return "phone";
+  let u;
+  try {
+    u = new URL(href, window.location.href);
+  } catch {
+    return null;
+  }
+  if (u.origin !== window.location.origin) return null;
+  if (/[?&]need=/.test(u.search) || /\/nearshore\/?$/.test(u.pathname)) return "audit";
+  if (/\/contact(\.html)?\/?$/.test(u.pathname)) return "contact";
+  return null;
+}
+
+function funnelPlace(a) {
+  if (a.closest(".m-bar")) return "sticky";
+  if (a.closest(".wa-float")) return "float";
+  if (a.closest(".menu")) return "menu";
+  if (a.closest("footer, .footer")) return "footer";
+  if (a.closest("header, .nav-main, .nav")) return "nav";
+  const sec = a.closest("section, article");
+  if (sec) return sec.id || String(sec.className || "").split(" ")[0] || sec.tagName.toLowerCase();
+  return "page";
+}
+
 let tracking = false;
 export function bindTrackedClicks() {
   if (tracking) return;
@@ -90,7 +123,11 @@ export function bindTrackedClicks() {
   document.addEventListener(
     "click",
     (e) => {
-      const el = e.target instanceof Element ? e.target.closest("[data-track]") : null;
+      const target = e.target instanceof Element ? e.target : null;
+      const a = target?.closest("a[href]");
+      const to = a ? funnelTarget(a) : null;
+      if (to) track("funnel-click", { to, place: funnelPlace(a), page: window.location.pathname, own: a.closest("[data-track]") ? "yes" : "no" });
+      const el = target?.closest("[data-track]");
       if (!el) return;
       const data = {};
       for (const { name, value } of el.attributes) if (name.startsWith("data-track-")) data[name.slice(11)] = value;
@@ -125,6 +162,17 @@ export function contactForm(scope) {
     track("quote-start", { lang });
   };
   form.addEventListener("focusin", onStart);
+  // form seen: half of it on screen once per page view. Seen vs started tells whether visitors miss the
+  // form or see it and stop
+  const seen = new IntersectionObserver(
+    ([entry]) => {
+      if (!entry.isIntersecting) return;
+      seen.disconnect();
+      track("quote-form-view", { lang });
+    },
+    { threshold: 0.5 },
+  );
+  seen.observe(form);
   // the browser blocks submit on empty required fields before our handler runs: listen to "invalid"
   let invalidReported = 0;
   const onInvalid = (e) => {
@@ -202,6 +250,7 @@ export function contactForm(scope) {
     reportAbandon(); // leaving the page inside the site (barba navigation)
     window.removeEventListener("pagehide", reportAbandon);
     form.removeEventListener("focusin", onStart);
+    seen.disconnect();
     form.removeEventListener("invalid", onInvalid, true);
     form.removeEventListener("submit", submit);
     otherChip.removeEventListener("change", toggleOther);

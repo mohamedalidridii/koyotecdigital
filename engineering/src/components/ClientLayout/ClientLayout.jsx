@@ -113,10 +113,51 @@ const umamiTrack = (name, data) => {
 // send that event and leave the click alone, so page transitions keep working. Umami's own data-umami-event is
 // avoided on purpose: its tracker cancels the click and sets location.href once its request is answered (a full
 // page load, held while the analytics server is slow). umami.track() sends with fetch keepalive.
+
+// funnel-click: every click that leads toward a conversation, whatever the link and whether or not it
+// carries its own data-track: contact page, WhatsApp, e-mail, phone, the audit offer. One event name, so
+// "how many people wanted to talk" is one number, with where it happened (nav, menu, footer, sticky bar,
+// or the section) and where it goes. It only sends the event: the click itself is left alone.
+function funnelTarget(a) {
+  const href = a.getAttribute("href") || "";
+  if (/^https?:\/\/(wa\.me|api\.whatsapp\.com)/i.test(href)) return "whatsapp";
+  if (/^mailto:/i.test(href)) return "email";
+  if (/^tel:/i.test(href)) return "phone";
+  let u;
+  try {
+    u = new URL(href, window.location.href);
+  } catch {
+    return null;
+  }
+  if (u.origin !== window.location.origin) return null;
+  if (/[?&]need=/.test(u.search) || /\/nearshore\/?$/.test(u.pathname)) return "audit";
+  if (/\/contact(\.html)?\/?$/.test(u.pathname)) return "contact";
+  return null;
+}
+
+// CSS module classes look like "Menu-module__hash__deskLink": the component name says where the link is
+function funnelPlace(a) {
+  const inside = (name) => a.closest(`[class*="${name}-module__"]`);
+  if (inside("Menu")) return "menu";
+  if (a.closest("footer") || inside("Footer")) return "footer";
+  if (a.closest("nav")) return "nav";
+  const sec = a.closest("section, article, header");
+  if (sec) {
+    if (sec.dataset.umamiSection) return sec.dataset.umamiSection;
+    const mod = String(sec.className || "").match(/([A-Za-z0-9]+)-module__[^_\s]+__([A-Za-z0-9]+)/);
+    return mod ? `${mod[1]}.${mod[2]}` : sec.tagName.toLowerCase();
+  }
+  return "page";
+}
+
 function useTrackedClicks() {
   useEffect(() => {
     const onClick = (e) => {
-      const el = e.target instanceof Element ? e.target.closest("[data-track]") : null;
+      const target = e.target instanceof Element ? e.target : null;
+      const a = target?.closest("a[href]");
+      const to = a ? funnelTarget(a) : null;
+      if (to) umamiTrack("funnel-click", { to, place: funnelPlace(a), page: window.location.pathname, own: a.closest("[data-track]") ? "yes" : "no" });
+      const el = target?.closest("[data-track]");
       if (!el) return;
       const data = {};
       for (const { name, value } of el.attributes) if (name.startsWith("data-track-")) data[name.slice(11)] = value;

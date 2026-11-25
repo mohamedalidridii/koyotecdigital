@@ -95,6 +95,25 @@ export default function ContactActions() {
     started.current = true;
     track("eng-form-start", { lang });
   };
+  // form seen: half of it on screen, once per page view. Seen vs started tells whether visitors miss the
+  // form or see it and stop; "need" is the topic the visitor arrived with (?need=), if any
+  const formRef = useRef(null);
+  const viewed = useRef(false);
+  useEffect(() => {
+    const form = formRef.current;
+    if (!form || viewed.current) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting || viewed.current) return;
+        viewed.current = true;
+        io.disconnect();
+        track("eng-form-view", { lang: langRef.current, need: new URLSearchParams(window.location.search).get("need") || "none" });
+      },
+      { threshold: 0.5 },
+    );
+    io.observe(form);
+    return () => io.disconnect();
+  }, [status]);
   const valuesRef = useRef(values);
   valuesRef.current = values;
   const langRef = useRef(lang);
@@ -231,7 +250,7 @@ export default function ContactActions() {
               <p>{c.sentCopy}</p>
             </div>
           ) : (
-            <form className={styles.form} onSubmit={onSubmit} onFocus={onStart} noValidate>
+            <form ref={formRef} className={styles.form} onSubmit={onSubmit} onFocus={onStart} noValidate>
               <label className={styles.field}>
                 <span>{c.name} *</span>
                 <input type="text" maxLength={120} autoComplete="name" {...field("name")} />
