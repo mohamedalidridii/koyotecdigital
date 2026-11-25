@@ -10,6 +10,7 @@ import { scroll } from "../core/scroll.js";
 
 const HERO_IMAGE = "/engineering/images/home/hero.jpg";
 export const HANDOFF_KEY = "koy-handoff";
+const HANDOFF_OFF = true;
 
 export function engineeringHero(scope, { ready = Promise.resolve() } = {}) {
   const panel = scope.querySelector(".hero-eng");
@@ -67,7 +68,9 @@ export function engineeringHero(scope, { ready = Promise.resolve() } = {}) {
   // 3. the photo fades in over the matching mesh building
   // 4. that last frame is handed to the Engineering home, which takes over without a cut
   const onClick = (e) => {
-    if (reduced || !mesh || leaving) return; // plain link
+    // 2026-11 redesign: the Engineering site no longer opens on the dithered building, so the
+    // hand-off animation (about 4 s before the page even starts loading) is off: a plain, instant link
+    if (HANDOFF_OFF || reduced || !mesh || leaving) return; // plain link
     if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     e.preventDefault();
     leaving = true;

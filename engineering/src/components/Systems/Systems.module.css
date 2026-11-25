@@ -23,7 +23,7 @@
 .indexRow[data-theme="devops"] {
   --bg: #f3f1ec;
   --fg: #0d0d0d;
-  --accent: #10a35a;
+  --accent: #0b7a43; /* deep enough for green text on paper (4.8:1) */
 }
 .chapter[data-theme="cloud"],
 .indexRow[data-theme="cloud"] {
@@ -34,14 +34,15 @@
   --accent: #79d0ff;
   --chip: rgba(121, 208, 255, 0.1);
 }
+/* black on pure red is 4.9:1: on this chapter nothing is dimmed or tinted, or it would drop under 4.5:1 */
 .chapter[data-theme="security"],
 .indexRow[data-theme="security"] {
   --bg: #ff0000;
   --fg: #0d0d0d;
-  --dim: rgba(13, 13, 13, 0.68);
+  --dim: #0d0d0d;
   --line: rgba(13, 13, 13, 0.28);
   --accent: #0d0d0d;
-  --chip: rgba(13, 13, 13, 0.1);
+  --chip: transparent;
 }
 .chapter[data-theme="data"],
 .indexRow[data-theme="data"] {
@@ -275,7 +276,8 @@
   gap: 0.75rem;
   padding: 1rem 0 1.1rem;
   border-bottom: 1px solid var(--line);
-  opacity: 0.35;
+  /* every step stays fully readable (WCAG AA); the accent bar under the active step shows progress */
+  opacity: 1;
   transition: opacity 0.5s;
 }
 .step::after {
@@ -294,7 +296,13 @@
   opacity: 1;
 }
 .step[data-done] {
-  opacity: 0.6;
+  opacity: 1;
+}
+.step[data-active] .stepNum {
+  color: var(--accent);
+}
+[data-theme="security"] .step {
+  opacity: 1;
 }
 .stepNum {
   padding-top: 0.25rem;

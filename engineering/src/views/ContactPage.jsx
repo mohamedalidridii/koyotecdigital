@@ -9,7 +9,7 @@ export default function ContactPage({ lang }) {
   const page = DICTS[lang].pages.contact;
   return (
     <>
-      <PageHeader {...page} icon="SendIcon" compact />
+      <PageHeader {...page} reassure={DICTS[lang].contact.formNote} compact />
 
       <ContactActions />
 

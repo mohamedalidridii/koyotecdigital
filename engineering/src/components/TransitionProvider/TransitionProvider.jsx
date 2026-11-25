@@ -10,7 +10,6 @@ import gsap from "gsap";
 import { CustomEase } from "gsap/CustomEase";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import { markPreloaderSeen, releasePreloaderVisit } from "@/lib/preloader";
 import { BASE } from "@/lib/i18n";
 
 gsap.registerPlugin(ScrollTrigger, CustomEase);
@@ -21,7 +20,10 @@ if (typeof window !== "undefined") {
 
 
 const FULL = "inset(0px 0px 0px 0px)";
-const LOADER_DELAY = 180; // ms: the logo only shows if the next page takes a moment to arrive
+const LOADER_DELAY = 220; // ms: the logo only shows if the next page takes a moment to arrive
+// a page change must not keep the visitor waiting: cover + reveal stay under ~0.55 s in total
+const COVER = 0.26;
+const REVEAL = 0.28;
 
 // the navbar's box as a clip-path, so the white layer grows out of it and folds back into it;
 // when the bar is scrolled away, the layer starts from the top edge of the screen
@@ -77,7 +79,7 @@ function LinkTransitions() {
       if (trim(path) === trim(window.location.pathname)) {
         if (link.hash) return;
         event.preventDefault();
-        if (lenis) lenis.scrollTo(0, { duration: 1.2 });
+        if (lenis) lenis.scrollTo(0, { duration: 0.8 });
         else window.scrollTo({ top: 0, behavior: "smooth" });
         return;
       }
@@ -124,7 +126,7 @@ export default function TransitionProvider({ children }) {
     const overlay = overlayRef.current;
     timelineRef.current?.kill();
     showLoader(false);
-    if (overlay) gsap.to(overlay, { "--clip": fromNavbar(), duration: 0.7, ease: "hop", onComplete: hide });
+    if (overlay) gsap.to(overlay, { "--clip": fromNavbar(), duration: REVEAL, ease: "hop", onComplete: hide });
     lenisRef.current?.start();
   };
 
@@ -139,9 +141,6 @@ export default function TransitionProvider({ children }) {
   return (
     <TransitionRouter
       leave={(next) => {
-        markPreloaderSeen();
-        releasePreloaderVisit();
-
         const overlay = overlayRef.current;
         if (!overlay) {
           next();
@@ -163,7 +162,7 @@ export default function TransitionProvider({ children }) {
             next();
           },
         });
-        tl.to(overlay, { "--clip": FULL, duration: 0.75, ease: "hop" }, 0);
+        tl.to(overlay, { "--clip": FULL, duration: COVER, ease: "power2.in" }, 0);
         timelineRef.current = tl;
       }}
       enter={(next) => {
@@ -190,9 +189,8 @@ export default function TransitionProvider({ children }) {
           // the new page is ready: the layer folds back up into the navbar
           timelineRef.current = gsap.to(overlay, {
             "--clip": fromNavbar(),
-            duration: 0.75,
-            delay: 0.1,
-            ease: "hop",
+            duration: REVEAL,
+            ease: "power2.out",
             onComplete: finish,
           });
         };

@@ -1,9 +1,47 @@
+/* KOYOTEC Engineering: Swiss red + mono. Text never sits on a picture or an animation; red is the brand
+   field and the signal colour, deep enough (#d50000) for WCAG AA everywhere: white text on it 5.5:1,
+   red text on paper 4.9:1. On black, red text uses the lighter --red-on-dark (5:1). */
 :root {
   --base-100: #ffffff;
   --base-200: #f3f1ec;
-  --base-300: #ff0000;
+  --base-300: #d50000;
+  --red-on-dark: #ff5a50;
   --base-400: #0d0d0d;
   --base-500: #000;
+  --muted: #4a4a4a; /* 7.8:1 on paper */
+  --line: rgba(0, 0, 0, 0.14);
+  --line-strong: rgba(0, 0, 0, 0.32);
+  --on-red-dim: #ffffff; /* secondary text on the red stays full white: anything dimmer falls under 4.5:1 */
+  --gutter: clamp(1rem, 2.2vw, 1.5rem);
+  --header-h: calc(var(--gutter) / 2 + 60px); /* space the fixed bar takes: its gap (half the gutter) + 60px */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 1100px) {
+  :root {
+    --header-h: calc(var(--gutter) / 2 + 68px);
+  }
+}
+
+/* width-matched fallbacks for the two web fonts, so lines wrap the same before and after the swap (no
+   layout shift). Measured 25 Nov 2026: Google Sans Flex = 0.892 x DejaVu Sans; DejaVu Sans averages
+   1.15 x Arial, so Google Sans Flex = 1.02 x Arial. Google Sans Code has the usual 0.6em monospace advance. */
+@font-face {
+  font-family: "GSF Fallback";
+  src: local("Arial"), local("ArialMT"), local("Helvetica"), local("Helvetica Neue");
+  size-adjust: 102%;
+}
+
+@font-face {
+  font-family: "GSF Fallback Linux";
+  src: local("DejaVu Sans"), local("DejaVuSans");
+  size-adjust: 89.2%;
+}
+
+@font-face {
+  font-family: "GSC Fallback";
+  src: local("Courier New"), local("CourierNewPSMT"), local("Menlo"), local("DejaVu Sans Mono");
+  size-adjust: 100%;
 }
 
 * {
@@ -23,24 +61,33 @@ input, textarea, select {
   user-select: text;
 }
 
-html:not(.lenis) {
-  overflow: hidden;
-}
-
 body {
   font-family: var(--font-google-sans-flex), Arial, Helvetica, sans-serif;
   background-color: var(--base-200);
   color: var(--base-500);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-::-webkit-scrollbar {
-  display: none;
+/* a thin, visible scrollbar: people see how long the page is */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.35) transparent;
 }
 
 img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--base-300);
+  outline-offset: 3px;
 }
 
 h1,
@@ -50,18 +97,24 @@ h4,
 h5,
 h6 {
   font-weight: 450;
-  letter-spacing: -2%;
-  line-height: 1;
+  letter-spacing: -0.025em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+p,
+li {
+  text-wrap: pretty;
 }
 
 h1,
 .h1 {
-  font-size: clamp(48px, 0.06 * calc(100 * var(--vw, 1vw)), 120px);
+  font-size: clamp(42px, 0.056 * calc(100 * var(--vw, 1vw)), 112px);
 }
 
 .h1 {
   font-weight: 450;
-  letter-spacing: -2%;
+  letter-spacing: -0.025em;
   line-height: 1;
 }
 
@@ -79,29 +132,30 @@ h1,
 }
 
 h2 {
-  font-size: clamp(42px, 0.055 * calc(100 * var(--vw, 1vw)), 100px);
+  font-size: clamp(36px, 0.05 * calc(100 * var(--vw, 1vw)), 92px);
 }
 
 h3 {
-  font-size: clamp(36px, 0.05 * calc(100 * var(--vw, 1vw)), 80px);
+  font-size: clamp(30px, 0.042 * calc(100 * var(--vw, 1vw)), 72px);
 }
 
 h4 {
-  font-size: clamp(32px, 0.045 * calc(100 * var(--vw, 1vw)), 68px);
+  font-size: clamp(27px, 0.036 * calc(100 * var(--vw, 1vw)), 60px);
 }
 
 h5 {
-  font-size: clamp(28px, 0.04 * calc(100 * var(--vw, 1vw)), 60px);
+  font-size: clamp(24px, 0.032 * calc(100 * var(--vw, 1vw)), 52px);
 }
 
 h6 {
-  font-size: clamp(24px, 0.035 * calc(100 * var(--vw, 1vw)), 54px);
+  font-size: clamp(21px, 0.028 * calc(100 * var(--vw, 1vw)), 44px);
 }
 
 p {
   font-size: 1.125rem;
   font-weight: 400;
-  letter-spacing: -2%;
+  letter-spacing: -0.01em;
+  line-height: 1.5;
 }
 
 p.sm {
@@ -116,11 +170,14 @@ p.lg {
   font-size: 1.35rem;
 }
 
-p.mono {
+p.mono,
+.mono {
   text-transform: uppercase;
   font-family: var(--font-google-sans-code), monospace;
   font-size: 0.9rem;
   font-weight: 450;
+  letter-spacing: 0.02em;
+  line-height: 1.35;
 }
 
 p.mono.sm {
@@ -141,25 +198,21 @@ p.mono.lg {
   width: 100%;
   max-width: 2000px;
   margin-inline: auto;
-  padding: 1.5rem;
-}
-
-/* the frame handed over by koyotec.digital (see lib/handoff.js), over everything until the hero is ready */
-html.koy-handoff::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 2147483000;
-  background: #0d0d0d var(--koy-handoff) center / 100% 100% no-repeat;
-  image-rendering: pixelated;
-  pointer-events: none;
-  transition: opacity 0.9s ease;
-}
-html.koy-handoff-out::after {
-  opacity: 0;
+  padding: var(--gutter);
 }
 
 /* the cloud pages (views/CloudPage.jsx) sit on pure white, for maximum readability */
 body:has([data-theme="white"]) {
   background-color: var(--base-100);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

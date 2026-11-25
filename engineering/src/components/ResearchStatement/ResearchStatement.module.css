@@ -1,74 +1,73 @@
 .researchStatement {
   position: relative;
   width: 100%;
-  min-height: 100svh;
-  display: flex;
   background-color: var(--base-200);
   color: var(--base-500);
 }
 
 .inner {
-  display: flex;
-  width: 100%;
-  min-height: 100svh;
-  padding-block: 12rem;
+  padding-top: clamp(5rem, 9vw, 8rem);
+  padding-bottom: clamp(3.5rem, 7vw, 6rem);
 }
 
 .cols {
   display: grid;
-  flex: 1;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem 6rem;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: clamp(2rem, 4vw, 3.5rem);
   align-items: start;
 }
 
 .statement {
-  max-width: 16em;
+  grid-column: 1 / span 7;
+  max-width: 20ch;
+  font-size: clamp(1.9rem, 1rem + 2.6vw, 3.8rem);
+  line-height: 1.06;
+  letter-spacing: -0.03em;
 }
 
+/* the aside's children join the page grid: the copy beside the statement, the figures in one row below */
 .aside {
-  display: flex;
-  flex-direction: column;
-  gap: 4.5rem;
+  display: contents;
 }
 
 .copy {
-  max-width: 22em;
+  grid-column: 9 / -1;
+  align-self: end;
+  font-size: 1.1rem;
+  line-height: 1.55;
+  color: var(--muted);
 }
 
 .stats {
-  display: flex;
-  flex-direction: column;
-  gap: 1.75rem;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  border-top: 1px solid var(--line-strong);
 }
 
 .stat {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.6rem;
+  padding-top: 1rem;
 }
 
-@media (max-width: 768px) {
-  .researchStatement,
-  .inner {
-    min-height: 0;
-  }
+.stat h2 {
+  font-size: clamp(2.2rem, 1.2rem + 2.6vw, 4.2rem);
+  line-height: 1;
+  white-space: nowrap;
+}
 
-  .inner {
-    padding-block: 8rem;
-  }
-
-  .cols {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-
+@media (max-width: 999px) {
   .statement,
   .copy {
-    max-width: none;
+    grid-column: 1 / -1;
   }
 
-  .aside {
-    gap: 3rem;
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 1.5rem;
   }
 }

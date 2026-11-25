@@ -17,7 +17,7 @@
   align-items: center;
   gap: 0.6rem;
   margin-bottom: 1.25rem;
-  color: var(--base-300);
+  color: var(--red-on-dark);
 }
 
 .kicker i {
@@ -51,7 +51,7 @@
 }
 
 .cta span {
-  color: var(--base-300);
+  color: var(--red-on-dark);
 }
 
 .list {
@@ -76,7 +76,7 @@
 
 .list a:hover {
   padding-left: 1rem;
-  color: var(--base-300);
+  color: var(--red-on-dark);
 }
 
 .itemTitle {
@@ -86,7 +86,7 @@
 
 .itemSub {
   font-size: 0.95rem;
-  opacity: 0.6;
+  opacity: 0.72;
 }
 
 @media (max-width: 1000px) {

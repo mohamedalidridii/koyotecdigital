@@ -41,6 +41,7 @@ export const CLOUD_COSTS = {
     moreLabel: "Full guide, worked example and gotchas",
     scenarioCta: "Check my AWS account for this",
     stickyCta: "Request a cloud cost audit",
+    heroJump: "The five settings on this page",
     scenarios: [
       {
         id: "s3-nat",
@@ -184,6 +185,7 @@ export const CLOUD_COSTS = {
     moreLabel: "Guide complet, exemple chiffré et pièges",
     scenarioCta: "Vérifier mon compte AWS",
     stickyCta: "Demander un audit cloud",
+    heroJump: "Les cinq réglages de cette page",
     scenarios: [
       {
         id: "s3-nat",

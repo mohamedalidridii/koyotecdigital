@@ -1,87 +1,106 @@
 .contactBanner {
-  position: relative;
   width: 100%;
-  height: 150svh;
-  overflow: hidden;
-}
-
-.bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-.wrap {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-}
-
-.panel {
-  width: 100%;
-  max-width: 44rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4rem;
-  padding: 5.5rem 4rem;
   background-color: var(--base-300);
   color: var(--base-100);
-  clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: 3rem;
+  padding-top: clamp(3.5rem, 8vw, 7rem);
+  padding-bottom: clamp(3.5rem, 8vw, 7rem);
 }
 
 .intro {
+  grid-column: 1 / span 7;
   display: flex;
   flex-direction: column;
-  gap: 1.75rem;
+  align-items: flex-start;
 }
 
-.intro p {
-  max-width: 22em;
-  opacity: 0.8;
-  line-height: 1.55;
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.kicker i {
+  width: 10px;
+  height: 10px;
+  background: currentColor;
+}
+
+.title {
+  font-size: clamp(2.6rem, 1rem + 5vw, 6.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+.copy {
+  max-width: 34ch;
+  margin-top: 1.5rem;
+  font-size: clamp(1.1rem, 0.5rem + 0.9vw, 1.35rem);
+  line-height: 1.45;
+}
+
+.action {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+  margin-top: 2rem;
 }
 
 .meta {
+  grid-column: 9 / -1;
+  align-self: end;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3.5rem 3rem;
-  width: 100%;
+  gap: 2rem;
 }
 
 .group {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 0.6rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.label {
+  color: var(--on-red-dim);
 }
 
 .lines {
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  gap: 0.35rem;
 }
 
-.group p.mono {
-  opacity: 0.8;
+.lines p {
+  font-size: 1.1rem;
 }
 
-.panel a {
+.lines a {
   color: inherit;
   text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
 }
 
-@media (max-width: 768px) {
-  .panel {
-    gap: 2.75rem;
-    padding: 4rem 1.75rem;
+.lines a:hover,
+.lines a:focus-visible {
+  border-bottom-color: currentColor;
+}
+
+@media (max-width: 999px) {
+  .intro,
+  .meta {
+    grid-column: 1 / -1;
   }
 
   .meta {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
   }
 }

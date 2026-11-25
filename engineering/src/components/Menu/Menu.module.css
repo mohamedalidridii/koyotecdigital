@@ -313,7 +313,6 @@
 
 @media (min-width: 1100px) {
   .menu {
-    --bar-h: 112px;
     --pad: 1rem;
     width: calc(100vw - 2 * var(--gap));
   }
@@ -593,5 +592,60 @@
   }
   .brandText {
     display: none;
+  }
+}
+
+/* ---------- 2026-11 redesign: one compact bar, so the first screen belongs to the page (LIFT clarity) ----------
+   gap + inner padding = the page gutter, so the logo starts on the same edge as every text below it */
+.menu {
+  --gap: calc(var(--gutter) / 2);
+  --bar-h: 60px;
+  --pad: calc(var(--gutter) / 2);
+  --col1: 30px;
+  --col-gap: 0.8rem;
+  top: var(--gap);
+  left: var(--gap);
+}
+
+.bar {
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.brandGroup {
+  align-items: center;
+}
+
+.logoCol {
+  height: auto;
+  justify-content: center;
+}
+
+.brandText {
+  height: auto;
+  justify-content: center;
+  gap: 0.1rem;
+}
+
+.brandText p {
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+.brandPlace {
+  color: var(--muted);
+}
+
+.toggle {
+  width: 64px;
+}
+
+@media (min-width: 1100px) {
+  .menu {
+    --bar-h: 68px;
+    --col1: 34px;
+  }
+
+  .deskCta {
+    padding: 0.8rem 1.1rem;
   }
 }

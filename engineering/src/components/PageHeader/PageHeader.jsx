@@ -2,139 +2,95 @@
 
 import styles from "./PageHeader.module.css";
 
-import { isValidElement, useRef } from "react";
-import dynamic from "next/dynamic";
-import { useLenis } from "lenis/react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+import Link from "next/link";
+import { FiArrowRight } from "react-icons/fi";
 
-import Copy from "@/components/Copy";
 import Button from "@/components/Button";
+import SourceKicker from "@/components/SourceKicker";
 
-import { useLang } from "@/lib/useLang";
-
-gsap.registerPlugin(useGSAP);
-
-const ICON_PROPS = { size: 80, texture: "dither", animate: true };
-const HEADING_DELAY = 1;
-const COPY_DURATION = 0.75;
-const META_DELAY = 0.5 + COPY_DURATION;
-
-const iconCache = new Map();
-
-function ditherIcon(name) {
-  let Icon = iconCache.get(name);
-  if (!Icon) {
-    Icon = dynamic(
-      () =>
-        import("@unlocalhosted/dither-icons").then(
-          (mod) => mod[name] ?? mod.WorkspaceIcon,
-        ),
-      {
-        ssr: false,
-        loading: () => <span className={styles.iconSlot} aria-hidden="true" />,
-      },
-    );
-    iconCache.set(name, Icon);
-  }
-  return Icon;
-}
-
-function HeaderIcon({ icon }) {
-  if (isValidElement(icon)) return icon;
-  if (typeof icon === "string" || icon == null) {
-    const Icon = ditherIcon(icon || "WorkspaceIcon");
-    return <Icon {...ICON_PROPS} />;
-  }
-  const Icon = icon;
-  return <Icon {...ICON_PROPS} />;
-}
-
+// The first screen of every Engineering page, built on the LIFT model:
+// kicker (relevance) · H1 (the value) · one-line lede (benefit vs cost) · one primary action + one text
+// link (clarity) · reassurance (anxiety) · proof row. An explanatory visual sits in its own column,
+// never behind the text. The H1 text is unchanged from the previous design (title + " " + subtitle).
 export default function PageHeader({
   title,
   subtitle,
   description,
-  icon = "WorkspaceIcon",
-  compact = false, // shorter header, so what follows (e.g. contact buttons) shows on the first screen
-  cta = null, // { href, label, event, place }: an action under the description, so a phone shows one in the first screen
+  kicker = null,
+  cta = null, // { href, label, event, place }
+  secondary = null, // { href, label, event, place }: a quieter text link
+  reassure = null, // e.g. "Fixed price · reply within 24 business hours"
+  proof = null, // short facts shown as a row under the hero
+  aside = null, // an explanatory visual or a spec list, in its own column
+  tone = "red", // "red" | "paper" | "dark"
+  compact = false,
 }) {
-  const sectionRef = useRef(null);
-  const iconRef = useRef(null);
-  const lenis = useLenis();
-  const { t } = useLang();
-
-  const scrollNext = () => {
-    const next = sectionRef.current?.nextElementSibling;
-    if (!next) return;
-    if (lenis) lenis.scrollTo(next);
-    else next.scrollIntoView({ behavior: "smooth" });
-  };
-
-  useGSAP(
-    () => {
-      const iconEl = iconRef.current;
-      if (!iconEl) return;
-
-      gsap.set(iconEl, { scale: 0, transformOrigin: "center", force3D: false });
-      gsap.to(iconEl, {
-        scale: 1,
-        duration: 0.5,
-        delay: META_DELAY,
-        ease: "power3.out",
-        force3D: false,
-      });
-    },
-    { scope: sectionRef, dependencies: [] },
-  );
-
+  const onRed = tone === "red";
   return (
-    <section ref={sectionRef} className={`${styles.pageHeader}${compact ? ` ${styles.compact}` : ""}`}>
-      <div className={`container ${styles.container}`}>
-        <div className={styles.inner}>
-          <Copy animateOnScroll={false} delay={HEADING_DELAY}>
-            <h1 className={styles.heading}>
-              <span>{title}</span>
-              {/* the space keeps the two parts apart in the text (crawlers, copy-paste); the flex layout ignores it */}
-              {subtitle ? (
-                <>
-                  {" "}
-                  <span className={styles.subtitle}>{subtitle}</span>
-                </>
-              ) : null}
-            </h1>
-          </Copy>
-
-          <div className={styles.meta}>
-            <button
-              type="button"
-              className={`di-trigger ${styles.scrollBtn}`}
-              onClick={scrollNext}
-              aria-label={t.scrollToContent}
-            >
-              <span ref={iconRef} className={styles.iconWrap}>
-                <HeaderIcon icon={icon} />
-              </span>
-            </button>
-            {cta ? (
-              <div className={styles.metaEnd}>
-                {description ? (
-                  <Copy animateOnScroll={false} delay={META_DELAY}>
-                    <h6 className={styles.copy}>{description}</h6>
-                  </Copy>
-                ) : null}
-                <div className={styles.cta}>
-                  <Button variant="dark" href={cta.href} event={cta.event} eventPlace={cta.place}>
-                    {cta.label}
-                  </Button>
-                </div>
-              </div>
-            ) : description ? (
-              <Copy animateOnScroll={false} delay={META_DELAY}>
-                <h6 className={styles.copy}>{description}</h6>
-              </Copy>
+    <section
+      className={`${styles.pageHeader} ${styles[tone] || ""}${compact ? ` ${styles.compact}` : ""}${aside ? ` ${styles.withAside}` : ""}`}
+      data-umami-section="pageHeader"
+    >
+      <div className={`container ${styles.grid}`}>
+        <div className={styles.main}>
+          {kicker ? (
+            <p className={`mono sm ${styles.kicker}`}>
+              <i aria-hidden="true" />
+              {kicker}
+            </p>
+          ) : null}
+          <SourceKicker className={`mono sm ${styles.source}`} />
+          <h1 className={styles.heading} data-focus="">
+            <span>{title}</span>
+            {/* the space keeps the two parts apart in the text (crawlers, copy-paste); the layout ignores it */}
+            {subtitle ? (
+              <>
+                {" "}
+                <span className={styles.subtitle}>{subtitle}</span>
+              </>
             ) : null}
-          </div>
+          </h1>
+          {description ? <p className={styles.lede}>{description}</p> : null}
+          {cta || secondary ? (
+            <div className={styles.actions}>
+              {cta ? (
+                <Button variant={onRed ? "light" : "primary"} href={cta.href} event={cta.event} eventPlace={cta.place} focus className={styles.cta}>
+                  {cta.label}
+                </Button>
+              ) : null}
+              {secondary && secondary.external ? (
+                <a
+                  href={secondary.href}
+                  className={styles.secondary}
+                  target="_blank"
+                  rel="noreferrer"
+                  data-track={secondary.event}
+                  data-track-place={secondary.event ? secondary.place : undefined}
+                >
+                  {secondary.label} <FiArrowRight aria-hidden="true" />
+                </a>
+              ) : secondary ? (
+                <Link
+                  href={secondary.href}
+                  className={styles.secondary}
+                  data-track={secondary.event}
+                  data-track-place={secondary.event ? secondary.place : undefined}
+                >
+                  {secondary.label} <FiArrowRight aria-hidden="true" />
+                </Link>
+              ) : null}
+            </div>
+          ) : null}
+          {reassure ? <p className={`mono sm ${styles.reassure}`}>{reassure}</p> : null}
         </div>
+        {aside ? <div className={styles.aside}>{aside}</div> : null}
+        {proof?.length ? (
+          <ul className={`mono sm ${styles.proof}`}>
+            {proof.map((p) => (
+              <li key={p}>{p}</li>
+            ))}
+          </ul>
+        ) : null}
       </div>
     </section>
   );

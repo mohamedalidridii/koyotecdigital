@@ -2,16 +2,13 @@
 
 import "lenis/dist/lenis.css";
 
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ReactLenis, useLenis } from "lenis/react";
 import { usePathname } from "next/navigation";
 
 import TransitionProvider from "@/components/TransitionProvider";
-
-import { shouldShowPreloader } from "@/lib/preloader";
-import { splitPath } from "@/lib/i18n";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -28,15 +25,16 @@ const LENIS_SHARED = {
   wheelMultiplier: 1,
   orientation: "vertical",
   smoothWheel: true,
-  syncTouch: true,
+  syncTouch: false,
 };
 
+// phones keep their own native scrolling (momentum, overscroll, accessibility settings): Lenis only
+// smooths the mouse wheel
 const LENIS_MOBILE = {
   ...LENIS_SHARED,
-  duration: 0.8,
-  smoothTouch: true,
-  touchMultiplier: 1.5,
-  lerp: 0.09,
+  syncTouch: false,
+  smoothTouch: false,
+  lerp: 0.1,
 };
 
 const LENIS_DESKTOP = {
@@ -55,19 +53,6 @@ function LenisScrollTriggerBridge() {
   return null;
 }
 
-function LenisGate() {
-  const pathname = usePathname();
-  const lenis = useLenis();
-
-  useLayoutEffect(() => {
-    if (!lenis) return;
-
-    lenis.stop();
-    if (splitPath(pathname).route !== "/" || !shouldShowPreloader()) lenis.start();
-  }, [lenis, pathname]);
-
-  return null;
-}
 
 // analytics: how far visitors scroll each Engineering page (25 / 50 / 75 / 100%), once per page view.
 // Same event as the koyotec.digital articles ("scroll-depth" with page + depth).
@@ -262,7 +247,6 @@ export default function ClientLayout({ children }) {
   return (
     <ReactLenis root options={lenisOptions}>
       <LenisScrollTriggerBridge />
-      <LenisGate />
       <TransitionProvider>{children}</TransitionProvider>
     </ReactLenis>
   );

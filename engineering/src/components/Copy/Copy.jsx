@@ -12,9 +12,9 @@ gsap.registerPlugin(SplitText, ScrollTrigger, useGSAP);
 
 const TEXT_SELECTOR = "h1,h2,h3,h4,h5,h6,p,a,li,label,blockquote,figcaption";
 
-const SLIDE_DURATION = 0.75;
+const SLIDE_DURATION = 0.6;
 const SLIDE_EASE = "power3.out";
-const SLIDE_STAGGER = 0.1;
+const SLIDE_STAGGER = 0.06;
 const SLIDE_START = "top 80%";
 
 const FLICKER_DURATION = 0.05;
@@ -109,6 +109,18 @@ export default function Copy({
     () => {
       const root = containerRef.current;
       if (!root) return;
+
+      // LIFT clarity: what is on screen when the page opens is shown at once, never hidden behind an
+      // animation (and never hidden at all without JavaScript: there is no CSS that hides it).
+      // Only text further down the page slides in as it arrives.
+      const probe = root.hasAttribute("data-copy-wrapper") ? root.firstElementChild || root : root;
+      const box = probe.getBoundingClientRect();
+      const onScreen = box.top < window.innerHeight * 0.92 && box.bottom > 0;
+      const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+      if (reduce || !animateOnScroll || onScreen) {
+        setReady(root, variant, true);
+        return;
+      }
 
       let active = true;
       let played = false;

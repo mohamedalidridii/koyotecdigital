@@ -53,12 +53,11 @@
 .btnNote {
   font-family: var(--font-google-sans-code), monospace;
   font-size: 0.75rem;
-  opacity: 0.8;
   word-break: break-word;
 }
 
 .wa {
-  background-color: #128c4a;
+  background-color: #0f7a40;
 }
 
 .mail {
@@ -254,7 +253,7 @@
 }
 
 .hintOk {
-  color: #128c4a;
+  color: #0f7a40;
 }
 
 .field input.invalid,
@@ -265,5 +264,5 @@
 
 .field input.valid,
 .field textarea.valid {
-  border-color: #128c4a;
+  border-color: #0f7a40;
 }

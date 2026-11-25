@@ -5,7 +5,8 @@ import FAQ from "@/components/FAQ";
 import ContactBanner from "@/components/ContactBanner";
 import JsonLd from "@/components/JsonLd";
 
-import { DICTS } from "@/lib/i18n";
+import { DICTS, localize } from "@/lib/i18n";
+import { CLOUD_COSTS } from "@/content/cloudCosts";
 import { ORG_ID, pageUrl } from "@/lib/schema";
 import { NAT_PRICES_CHECKED } from "@/content/cloudPrices";
 
@@ -33,7 +34,13 @@ export default function NatInstancePage({ lang }) {
   return (
     <>
       <JsonLd data={schema} />
-      <PageHeader {...page} icon="ChartIcon" compact />
+      <PageHeader
+        {...page}
+        kicker={CLOUD_COSTS[lang].kicker}
+        cta={{ href: localize(lang, "/contact/?need=audit#project-form"), label: CLOUD_COSTS[lang].stickyCta, event: "cost-audit-cta", place: "nat-hero" }}
+        reassure={t.auditCta.note}
+        compact
+      />
 
       <NatArticle />
 

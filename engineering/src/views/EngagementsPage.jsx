@@ -1,24 +1,23 @@
 import PageHeader from "@/components/PageHeader";
-import StatementBanner from "@/components/StatementBanner";
 import FocusAreas from "@/components/FocusAreas";
 import PartnersSection from "@/components/PartnersSection";
+import AuditCta from "@/components/AuditCta";
 
-import { DICTS } from "@/lib/i18n";
+import { DICTS, localize } from "@/lib/i18n";
 
 export default function EngagementsPage({ lang }) {
-  const page = DICTS[lang].pages.engagements;
+  const t = DICTS[lang];
+  const page = t.pages.engagements;
+  const cta = { href: localize(lang, "/contact/?need=devops-audit#project-form"), label: t.auditCta.cta, event: "eng-audit-cta", place: "engagements-hero" };
   return (
     <>
-      <PageHeader {...page} icon="UserIcon" />
+      <PageHeader {...page} cta={cta} reassure={t.auditCta.note} />
 
-      <StatementBanner
-        showContent={false}
-        src="/images/partnerships/banner.webp"
-      />
-
-      <FocusAreas items="engagements" />
+      <FocusAreas items="engagements" offset={2} />
 
       <PartnersSection />
+
+      <AuditCta place="engagements" />
     </>
   );
 }

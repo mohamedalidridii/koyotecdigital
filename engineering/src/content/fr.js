@@ -125,6 +125,10 @@ const fr = {
     lede: "Une équipe d’ingénieurs à Tunis, pour des entreprises partout dans le monde : un audit de deux semaines à prix fixe, puis la mise en production avec vous.",
     ctaPrimary: "Demander l’audit",
     ctaSecondary: "L’audit en 2 semaines",
+    // facts already published on the site (cloud and founder pages): proof next to the main action
+    proof: ["Partenaire AWS enregistré", "50+ projets livrés depuis 2022", "Fondé par un double ingénieur (informatique, électromécanique)", "Français · anglais · arabe"],
+    casesHeader: ["Ce que nous construisons", "Études de cas"],
+    casesTitle: "Des systèmes concrets, du besoin à la production.",
     aboutHeader: ["Qui nous sommes", "Le pôle technique"],
     about:
       "Koyotec Engineering est le pôle technique de Koyotec. Nous concevons, déployons et sécurisons les systèmes qui font tourner une entreprise : modèles d’IA, infrastructures cloud, chaînes de livraison, données et tableaux de bord.",

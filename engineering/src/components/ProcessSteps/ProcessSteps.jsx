@@ -2,10 +2,6 @@
 
 import styles from "./ProcessSteps.module.css";
 
-import { useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
 import Link from "next/link";
 import { FiArrowRight } from "react-icons/fi";
 
@@ -14,128 +10,42 @@ import SectionFooter from "@/components/SectionFooter";
 
 import { useLang } from "@/lib/useLang";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
-
-const SCALE_STEP = 0.1;
-const SHIFT_VMIN = -2;
-
+// How a need becomes a system in production: four steps on one line (they used to stack and shrink
+// while pinned). The last step leads to the engagement models.
 export default function ProcessSteps() {
-  const sectionRef = useRef(null);
   const { t, href } = useLang();
   const CARDS = t.process.steps.map((copy, i) => ({
     index: String(i + 1).padStart(2, "0"),
     copy,
   }));
-
-  useGSAP(
-    () => {
-      const section = sectionRef.current;
-      const cards = gsap.utils.toArray(
-        section.querySelectorAll(`.${styles.step}`),
-      );
-      const faces = gsap.utils.toArray(
-        section.querySelectorAll(`.${styles.face}`),
-      );
-      const last = cards[cards.length - 1];
-      const stick = () => getComputedStyle(cards[0]).top;
-
-      if (faces.length) {
-        gsap.set(faces, { y: 300, opacity: 0 });
-        gsap.to(faces, {
-          y: 0,
-          opacity: 1,
-          duration: 0.75,
-          stagger: 0.25,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 75%",
-            toggleActions: "play none none none",
-          },
-        });
-      }
-
-      cards.forEach((card, index) => {
-        const steps = cards.length - 1 - index;
-        if (steps < 1) return;
-
-        const shift = () =>
-          steps *
-          SHIFT_VMIN *
-          (Math.min(window.innerWidth, window.innerHeight) / 100);
-
-        gsap.to(card, {
-          scale: 1 - SCALE_STEP * steps,
-          y: shift,
-          ease: "none",
-          scrollTrigger: {
-            trigger: card,
-            start: () => `top ${stick()}`,
-            endTrigger: last,
-            end: () => `top ${stick()}`,
-            scrub: true,
-            invalidateOnRefresh: true,
-          },
-        });
-
-        gsap.to(card.querySelector("p"), {
-          color: "#9a9892",
-          ease: "none",
-          scrollTrigger: {
-            trigger: card,
-            start: () => `top ${stick()}`,
-            endTrigger: last,
-            end: () => `top ${stick()}`,
-            scrub: true,
-          },
-        });
-      });
-    },
-    { scope: sectionRef },
-  );
+  const last = String(CARDS.length + 1).padStart(2, "0");
 
   return (
-    <section className={styles.processSteps} ref={sectionRef}>
+    <section className={styles.processSteps} data-umami-section="processSteps">
       <div className={`container ${styles.inner}`}>
-        <div className={styles.list}>
-          {CARDS.map(({ index, copy }, i) => (
-            <article
-              key={index}
-              className={styles.step}
-              style={{ zIndex: i + 1 }}
-            >
-              <div className={styles.face}>
-                <p className="lg">{copy}</p>
-                <h6 className={styles.index}>{index}</h6>
-              </div>
-            </article>
-          ))}
-          <Link
-            href={href("/engagements")}
-            className={`${styles.step} ${styles.cta}`}
-            style={{ zIndex: CARDS.length + 1 }}
-          >
-            <div className={styles.face}>
-              <p className="lg">{t.process.cta}</p>
-              <span className={styles.arrow} aria-hidden="true">
-                <FiArrowRight />
-              </span>
-            </div>
-          </Link>
-        </div>
-        <Copy start="top 75%" trigger={`.${styles.processSteps}`}>
-          <h5 className={styles.headline}>
-            {t.process.headline}
-          </h5>
+        <Copy>
+          <h2 className={styles.headline}>{t.process.headline}</h2>
         </Copy>
+        <ol className={styles.list}>
+          {CARDS.map(({ index, copy }) => (
+            <li key={index} className={styles.step}>
+              <span className={`mono sm ${styles.index}`}>{index}</span>
+              <span className={styles.dot} aria-hidden="true" />
+              <p className={styles.copy}>{copy}</p>
+            </li>
+          ))}
+          <li className={`${styles.step} ${styles.last}`}>
+            <span className={`mono sm ${styles.index}`}>{last}</span>
+            <span className={styles.dot} aria-hidden="true" />
+            <Link href={href("/engagements")} className={styles.cta}>
+              {t.process.cta} <FiArrowRight aria-hidden="true" />
+            </Link>
+          </li>
+        </ol>
       </div>
 
       <Copy variant="flicker">
-        <SectionFooter
-          bullet
-          left={t.process.footer[0]}
-          right={t.process.footer[1]}
-        />
+        <SectionFooter bullet left={t.process.footer[0]} right={t.process.footer[1]} />
       </Copy>
     </section>
   );

@@ -123,6 +123,10 @@ const en = {
     lede: "An engineering team in Tunis for companies worldwide: a fixed-price two-week audit, then we take it to production with you.",
     ctaPrimary: "Request the audit",
     ctaSecondary: "The 2-week audit",
+    // facts already published on the site (cloud and founder pages): proof next to the main action
+    proof: ["Registered AWS Partner", "50+ projects delivered since 2022", "Founded by a dual engineer (computing, electromechanics)", "French · English · Arabic"],
+    casesHeader: ["What we build", "Case studies"],
+    casesTitle: "Concrete systems, from the need to production.",
     aboutHeader: ["Who we are", "The technical arm"],
     about:
       "Koyotec Engineering is the technical arm of Koyotec. We design, ship and secure the systems a business runs on: AI models, cloud infrastructure, delivery pipelines, data and dashboards.",

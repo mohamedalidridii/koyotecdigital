@@ -1,10 +1,15 @@
+/* one button language: a solid block, label left, arrow right; the primary action is the only filled red one */
 .button {
-  display: flex;
+  display: inline-flex;
   justify-content: space-between;
-  align-items: flex-start;
-  height: 88px;
-  padding: 12px 14px;
+  align-items: center;
+  gap: 2rem;
+  min-height: 58px;
+  padding: 0.95rem 1.15rem;
+  font-size: 1.05rem;
+  line-height: 1.2;
   text-decoration: none;
+  transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .label {
@@ -20,7 +25,12 @@
 }
 
 .arrow {
-  display: inline-block;
+  display: inline-flex;
+  transition: transform 0.25s var(--ease-out);
+}
+
+.button:hover .arrow {
+  transform: translateX(3px);
 }
 
 @media (max-width: 768px) {
@@ -34,9 +44,17 @@
   color: var(--base-100);
 }
 
+.primary:hover {
+  background-color: var(--base-400);
+}
+
 .secondary {
   background-color: var(--base-400);
   color: var(--base-100);
+}
+
+.secondary:hover {
+  background-color: var(--base-300);
 }
 
 .light {
@@ -44,7 +62,28 @@
   color: var(--base-400);
 }
 
+.light:hover {
+  background-color: var(--base-400);
+  color: var(--base-100);
+}
+
 .dark {
   background-color: var(--base-500);
   color: var(--base-100);
+}
+
+.dark:hover {
+  background-color: var(--base-300);
+}
+
+.outline {
+  background-color: transparent;
+  color: inherit;
+  box-shadow: inset 0 0 0 1px currentColor;
+}
+
+.outline:hover {
+  background-color: var(--base-400);
+  color: var(--base-100);
+  box-shadow: none;
 }

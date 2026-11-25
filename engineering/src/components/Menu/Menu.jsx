@@ -2,7 +2,7 @@
 
 import styles from "./Menu.module.css";
 
-import { useRef, useState, useEffect, useLayoutEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { FiArrowRight } from "react-icons/fi";
@@ -14,17 +14,10 @@ import { useLenis } from "lenis/react";
 import Logo from "@/components/Logo";
 
 import { useLang } from "@/lib/useLang";
-import { isHandoff } from "@/lib/handoff";
 import { localize } from "@/lib/i18n";
 import { CLOUD_PAGES } from "@/lib/cloudPages";
 import { CLOUD_COSTS } from "@/content/cloudCosts";
 
-import {
-  HOME_COPY_BASE_DELAY,
-  PRELOADER_COPY_BASE_DELAY,
-  introWait,
-  shouldShowPreloader,
-} from "@/lib/preloader";
 
 gsap.registerPlugin(useGSAP, SplitText);
 
@@ -81,40 +74,11 @@ function MenuPanel() {
   const isOpenRef = useRef(false);
   const pathname = usePathname();
   const lenis = useLenis();
-  const { t, lang, route, href, isHome } = useLang();
+  const { t, lang, route, href } = useLang();
   const NAV_LINKS = t.nav.map((link) => ({ ...link, href: href(link.route) }));
   const other = lang === "en" ? "fr" : "en";
-  const playIntro = isHome && shouldShowPreloader();
-  const introDelay = playIntro ? introWait() + 0.75 : 0;
 
   isOpenRef.current = isOpen;
-
-  useLayoutEffect(() => {
-    const menu = menuRef.current;
-    if (!menu) return;
-
-    // arriving from the koyotec.digital panel: the menu slides in once the hero shows
-    const fromHandoff = isHandoff();
-    if (!playIntro && !fromHandoff) {
-      gsap.set(menu, { clearProps: "transform,translate,rotate,scale,transition" });
-      menu.removeAttribute("data-nav-intro");
-      return;
-    }
-
-    gsap.set(menu, { y: -250, transition: "none" });
-    menu.removeAttribute("data-nav-intro");
-    gsap.to(menu, {
-      y: 0,
-      duration: fromHandoff ? 0.9 : 0.75,
-      delay: fromHandoff ? 1.15 : introDelay,
-      ease: "power3.out",
-      onComplete: () => {
-        gsap.set(menu, {
-          clearProps: "transform,translate,rotate,scale,transition",
-        });
-      },
-    });
-  }, [playIntro, introDelay]);
 
   useGSAP(
     () => {
@@ -356,7 +320,6 @@ function MenuPanel() {
       ref={menuRef}
       data-site-menu
       data-open={isOpen}
-      {...(playIntro ? { "data-nav-intro": "" } : {})}
     >
       <div className={styles.bar}>
         <div className={styles.brandGroup}>
@@ -369,15 +332,12 @@ function MenuPanel() {
             >
               <Logo />
             </Link>
-            <p className={`mono ${styles.partner}`}>{t.brand.partner}</p>
           </div>
           <div className={styles.brandText}>
-            <p className="mono sm">{t.brand.name}</p>
             <p className="mono sm">
-              {t.brand.line[0]}
-              <br />
-              {t.brand.line[1]}
+              {t.brand.name} {t.brand.line[0]}
             </p>
+            <p className={`mono sm ${styles.brandPlace}`}>{t.brand.line[1]}</p>
           </div>
         </div>
 

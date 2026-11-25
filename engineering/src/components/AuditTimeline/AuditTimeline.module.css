@@ -1,0 +1,167 @@
+.timeline {
+  --fg: var(--base-500);
+  --dim: var(--muted);
+  --rule: var(--line-strong);
+  --accent: var(--base-300);
+  --panel: var(--base-100);
+  color: var(--fg);
+  background: var(--panel);
+  padding: clamp(1.1rem, 2vw, 1.6rem);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.red {
+  --fg: var(--base-100);
+  --dim: var(--on-red-dim);
+  --rule: rgba(255, 255, 255, 0.5);
+  --accent: var(--base-100);
+  --panel: transparent;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+}
+
+.dark {
+  --fg: var(--base-100);
+  --dim: rgba(255, 255, 255, 0.75);
+  --rule: rgba(255, 255, 255, 0.35);
+  --panel: #161616;
+  box-shadow: none;
+}
+
+.title {
+  margin-bottom: 1.4rem;
+  color: var(--dim);
+}
+
+.steps {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  list-style: none;
+}
+
+/* the line that joins the three dots, drawn once: number row 20px + 8px gap, then the 12px dot */
+.steps::before {
+  content: "";
+  position: absolute;
+  top: 33px;
+  left: 6px;
+  right: 6px;
+  height: 2px;
+  background: var(--accent);
+  transform-origin: left;
+  transform: scaleX(1);
+  transition: transform 1.1s var(--ease-out);
+}
+
+.timeline[data-drawn="false"] .steps::before {
+  transform: scaleX(0);
+}
+
+.step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.no {
+  display: block;
+  height: 20px;
+  line-height: 20px;
+  margin-bottom: calc(8px - 0.3rem);
+  color: var(--dim);
+}
+
+.dot {
+  position: relative;
+  z-index: 1;
+  width: 12px;
+  height: 12px;
+  margin-bottom: 0.6rem;
+  background: var(--panel, var(--base-100));
+  border: 2px solid var(--accent);
+  transition: background-color 0.3s ease calc(0.35s * var(--i) + 0.2s);
+}
+
+.red .dot {
+  background: var(--base-300);
+}
+
+.timeline[data-drawn="true"] .dot {
+  background: var(--accent);
+}
+
+.when {
+  color: var(--dim);
+}
+
+.what {
+  font-size: clamp(1rem, 0.6rem + 0.6vw, 1.2rem);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.copy {
+  margin-top: 0.4rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--dim);
+}
+
+.out {
+  margin-top: 1.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+}
+
+.outLabel {
+  color: var(--dim);
+  margin-bottom: 0.35rem;
+}
+
+.outText {
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.full .steps {
+  gap: clamp(1rem, 3vw, 3rem);
+}
+
+.full .what {
+  font-size: clamp(1.3rem, 0.8rem + 1vw, 1.8rem);
+}
+
+@media (max-width: 640px) {
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
+    padding-left: 1.6rem;
+  }
+
+  .steps::before {
+    top: 6px;
+    bottom: 6px;
+    left: 5px;
+    right: auto;
+    width: 2px;
+    height: auto;
+    transform-origin: top;
+  }
+
+  .timeline[data-drawn="false"] .steps::before {
+    transform: scaleY(0);
+  }
+
+  .no {
+    display: none;
+  }
+
+  .dot {
+    position: absolute;
+    left: -1.6rem;
+    top: 0.2rem;
+    margin: 0;
+  }
+}

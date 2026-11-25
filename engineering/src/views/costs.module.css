@@ -1,0 +1,28 @@
+/* the five settings, as an index of the page, in the hero's own column */
+.index {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.index ol {
+  list-style: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.index li a {
+  display: grid;
+  grid-template-columns: 2.4rem minmax(0, 1fr);
+  align-items: baseline;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+  color: inherit;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: padding-left 0.25s var(--ease-out);
+}
+
+.index li a:hover,
+.index li a:focus-visible {
+  padding-left: 0.4rem;
+}

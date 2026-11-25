@@ -4,7 +4,6 @@ import styles from "./StatementBanner.module.css";
 
 import { Fragment } from "react";
 
-import DitherImage from "@/components/DitherImage/DitherImage";
 import Copy from "@/components/Copy";
 
 import { useLang } from "@/lib/useLang";
@@ -20,43 +19,31 @@ function BannerCopy({ copy, className }) {
   if (!lines.length) return null;
   return (
     <Copy>
-      <h6
-        className={`${className}${lines.length > 1 ? ` ${styles.multiline}` : ""}`}
-      >
+      <p className={className}>
         {lines.map((line, i) => (
           <Fragment key={i}>
             {i > 0 ? <br /> : null}
             {line}
           </Fragment>
         ))}
-      </h6>
+      </p>
     </Copy>
   );
 }
 
-export default function StatementBanner({
-  showContent = true,
-  src = "/images/home/statement.webp",
-  copyTopLeft,
-  copyBottomRight,
-}) {
+// A statement in large type on a plain band. The full-screen photo it used to sit on is gone: it
+// explained nothing. A banner without words (showContent={false}) now renders nothing at all.
+export default function StatementBanner({ showContent = true, copyTopLeft, copyBottomRight }) {
   const { t } = useLang();
+  if (!showContent) return null;
   copyTopLeft ??= t.statement.topLeft;
   copyBottomRight ??= t.statement.bottomRight;
   return (
     <section className={styles.statementBanner}>
-      <div className={styles.bg}>
-        <DitherImage src={src} alt="" />
+      <div className={`container ${styles.content}`}>
+        <BannerCopy copy={copyTopLeft} className={styles.title} />
+        <BannerCopy copy={copyBottomRight} className={styles.copy} />
       </div>
-      {showContent ? (
-        <div className={`container ${styles.content}`}>
-          <BannerCopy copy={copyTopLeft} className={styles.title} />
-          <BannerCopy
-            copy={copyBottomRight}
-            className={styles.copy}
-          />
-        </div>
-      ) : null}
     </section>
   );
 }

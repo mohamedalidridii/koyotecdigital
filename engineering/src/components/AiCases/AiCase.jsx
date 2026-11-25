@@ -79,22 +79,7 @@ export default function AiCase({ slug, collection = "aiCases", base = "/ai" }) {
   useGSAP(
     () => {
       const root = rootRef.current;
-      // the hero lines rise in, then the key figures follow
-      gsap.from(root.querySelectorAll("[data-rise]"), {
-        yPercent: 110,
-        duration: 1.3,
-        ease: "power4.out",
-        stagger: 0.08,
-        delay: 0.35,
-      });
-      gsap.from(root.querySelectorAll(`.${styles.heroMetric}`), {
-        autoAlpha: 0,
-        y: 30,
-        duration: 1,
-        ease: "power3.out",
-        stagger: 0.1,
-        delay: 0.8,
-      });
+      // the title and key figures are on screen at once (LIFT clarity); only results further down fade in
       root.querySelectorAll(`.${styles.result}`).forEach((el, i) => {
         gsap.from(el, {
           autoAlpha: 0,

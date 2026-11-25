@@ -1,6 +1,8 @@
+/* positioned, with room at the top for its SectionHeader label (it used to escape to the top of the page) */
 .article {
+  position: relative;
   width: 100%;
-  padding: 0 0 3rem;
+  padding: clamp(4.5rem, 7vw, 6.5rem) 0 3rem;
   background: var(--base-100);
   color: var(--base-500);
 }

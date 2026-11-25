@@ -2,7 +2,7 @@
 
 import styles from "./AuditCta.module.css";
 
-import { FiArrowRight, FiCheck } from "react-icons/fi";
+import { FiArrowRight } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 
 import Button from "@/components/Button";
@@ -16,7 +16,7 @@ export default function AuditCta({ place = "nearshore", compact = false }) {
   const c = t.auditCta;
   const wa = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(c.waText)}`;
   return (
-    <section className={`${styles.band}${compact ? ` ${styles.compact}` : ""}`} aria-label={c.title}>
+    <section className={`${styles.band}${compact ? ` ${styles.compact}` : ""}`} aria-label={c.title} data-umami-section="auditCta">
       <div className={`container ${styles.inner}`}>
         <div className={styles.text}>
           <p className={`mono sm ${styles.kicker}`}>
@@ -26,9 +26,11 @@ export default function AuditCta({ place = "nearshore", compact = false }) {
           <h2 className={styles.title}>{c.title}</h2>
           {compact ? null : (
             <ul className={styles.points}>
-              {c.points.map((p) => (
+              {c.points.map((p, i) => (
                 <li key={p}>
-                  <FiCheck aria-hidden="true" />
+                  <span className="mono sm" aria-hidden="true">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
                   <span>{p}</span>
                 </li>
               ))}

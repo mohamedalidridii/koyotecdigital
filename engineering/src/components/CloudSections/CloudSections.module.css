@@ -174,7 +174,7 @@
 }
 
 .process li:first-child p {
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--base-100);
 }
 
 .process li p {
@@ -440,4 +440,10 @@
 /* the stage photo is landscape: keep the speaker in the frame of the portrait card */
 .photoStage {
   object-position: 62% center;
+}
+
+/* 2026-11 redesign: red text on the black block uses the lighter red (5:1), the brand red is 3.5:1 there */
+.dark .index,
+.dark .kicker {
+  color: var(--red-on-dark);
 }

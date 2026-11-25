@@ -159,7 +159,10 @@
   }
 }
 
+/* positioned, with room at the top: its SectionHeader label sits there (it used to escape to the top of the page) */
 .section {
+  position: relative;
+  padding-top: clamp(4.5rem, 7vw, 6.5rem);
   padding-bottom: clamp(4rem, 9vw, 9rem);
   background: var(--base-100);
 }
@@ -240,7 +243,6 @@
 .jobNo {
   font-family: var(--font-google-sans-code), monospace;
   font-size: 0.8rem;
-  opacity: 0.7;
   margin-bottom: auto;
   padding-bottom: 3rem;
 }
@@ -249,7 +251,6 @@
   font-size: 1.1rem;
   line-height: 1.55;
   max-width: 30em;
-  opacity: 0.85;
 }
 
 .jobs article ul {
@@ -432,4 +433,41 @@
 
 .talks {
   margin-top: clamp(2rem, 4vw, 3.5rem);
+}
+
+/* 2026-11 redesign: on wide screens the text and the photo sit side by side, never one over the other */
+@media (min-width: 1001px) {
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    align-items: center;
+  }
+
+  .heroText {
+    position: relative;
+    inset: auto;
+    grid-column: 1;
+    grid-row: 1;
+    padding-top: calc(var(--header-h) + 3rem);
+    padding-bottom: 3rem;
+  }
+
+  .stage {
+    grid-column: 2;
+    grid-row: 1;
+    padding-top: var(--header-h);
+  }
+
+  .veil {
+    display: none;
+  }
+
+  .name {
+    text-shadow: none;
+  }
+
+  .stageImg {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
 }

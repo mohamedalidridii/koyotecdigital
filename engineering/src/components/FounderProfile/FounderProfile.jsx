@@ -29,21 +29,7 @@ export default function FounderProfile() {
   const heroRef = useRef(null);
   const storyHref = lang === "en" ? "https://www.koyotec.digital/en/medalydridi" : "https://www.koyotec.digital/medalydridi";
 
-  useGSAP(
-    () => {
-      gsap.from(`.${styles.kicker}, .${styles.roles} li, .${styles.ctas}`, {
-        autoAlpha: 0,
-        y: 16,
-        duration: 0.8,
-        delay: 1.1,
-        stagger: 0.08,
-        ease: "power3.out",
-      });
-      gsap.from(`.${styles.stageImg}`, { autoAlpha: 0, scale: 1.03, duration: 1.6, delay: 0.1, ease: "power3.out" });
-    },
-    { scope: heroRef },
-  );
-
+  // the name, roles and actions are on screen at once (they used to fade in after a second)
   return (
     <>
       <section ref={heroRef} className={styles.hero}>

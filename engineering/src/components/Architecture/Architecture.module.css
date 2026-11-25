@@ -450,3 +450,15 @@
     animation: none;
   }
 }
+
+/* 2026-11 redesign: the page title sits on its own solid panel, never on the 3D stack */
+.intro {
+  padding: 1.25rem 1.5rem 1.4rem;
+  background: var(--base-200);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.title {
+  font-size: clamp(56px, 8vw, 132px);
+  line-height: 0.9;
+}

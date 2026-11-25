@@ -2,192 +2,56 @@
 
 import styles from "./home.module.css";
 
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import CustomEase from "gsap/CustomEase";
-import { useLenis } from "lenis/react";
+import Link from "next/link";
+import { FiArrowRight } from "react-icons/fi";
 
 import { useLang } from "@/lib/useLang";
 
-import Preloader from "@/components/Preloader";
-import DitherImage from "@/components/DitherImage/DitherImage";
+import PageHeader from "@/components/PageHeader";
+import AuditTimeline from "@/components/AuditTimeline";
 import Copy from "@/components/Copy";
 import SectionHeader from "@/components/SectionHeader";
-import Button from "@/components/Button";
 import FocusAreas from "@/components/FocusAreas";
 import CloudCallout from "@/components/CloudCallout";
 import AuditCta from "@/components/AuditCta";
-import Marquee from "@/components/Marquee";
 import ProcessSteps from "@/components/ProcessSteps";
-import StatementBanner from "@/components/StatementBanner";
 
-import {
-  HOME_COPY_BASE_DELAY,
-  PRELOADER_COPY_BASE_DELAY,
-  PRELOADER_EASE,
-  PRELOADER_HERO_SCALE_DURATION,
-  introWait,
-  markPreloaderSeen,
-  shouldShowPreloader,
-} from "@/lib/preloader";
-import { endHandoff, isHandoff } from "@/lib/handoff";
-
-gsap.registerPlugin(useGSAP, CustomEase);
-
-if (typeof window !== "undefined") {
-  CustomEase.create("preloaderHop", PRELOADER_EASE);
-}
+// LIFT page structure: value + one action + proof in the first screen (the audit timeline explains the
+// offer beside it), then who we are, what we build, how we work, and the offer sheet.
+const FEATURED = [
+  ["aiCases", "/ai", "maintenance-ai-assistant"],
+  ["aiCases", "/ai", "rag-document-assistant"],
+  ["aiCases", "/ai", "text-to-sql-agent"],
+  ["devopsCases", "/devops", "self-healing-ci"],
+  ["devopsCases", "/devops", "predictive-autoscaling"],
+  ["devopsCases", "/devops", "oncall-copilot"],
+];
 
 export default function Home() {
-  const heroRef = useRef(null);
-  const ctasRef = useRef(null);
-  const lenis = useLenis();
   const { t, href } = useLang();
-  // the static HTML is built with the preloader; arriving from the koyotec.digital panel, the
-  // hero is already on screen (the borrowed frame), so the preloader is dropped right after
-  // hydration, before the first client paint
-  const [handoff, setHandoff] = useState(false);
-  const showPreloader = shouldShowPreloader() && !handoff;
-  const lenisRef = useRef(lenis);
-  lenisRef.current = lenis;
-
-  useLayoutEffect(() => {
-    if (!isHandoff()) return;
-    markPreloaderSeen();
-    setHandoff(true);
-  }, []);
-
-  useEffect(() => {
-    if (!handoff) return;
-    const stop = endHandoff(0.75);
-    const t = setTimeout(() => lenisRef.current?.start(), 900);
-    return () => {
-      stop();
-      clearTimeout(t);
-    };
-  }, [handoff]);
-  const wait = showPreloader ? introWait() : 0;
-
-  useEffect(() => {
-    return () => {
-      markPreloaderSeen();
-    };
-  }, []);
-
-  const expandHero = () => {
-    const hero = heroRef.current;
-    if (!hero) return Promise.resolve();
-
-    hero.removeAttribute("data-hero-intro");
-
-    return new Promise((resolve) => {
-      gsap.fromTo(
-        hero,
-        {
-          scale: 0,
-          rotation: -20,
-          autoAlpha: 1,
-          transformOrigin: "center center",
-          force3D: true,
-        },
-        {
-          scale: 1,
-          rotation: 0,
-          duration: PRELOADER_HERO_SCALE_DURATION,
-          ease: "preloaderHop",
-          force3D: true,
-          overwrite: true,
-          onComplete: () => {
-            gsap.delayedCall(0.35, () => {
-              lenis?.start();
-            });
-            resolve();
-          },
-        },
-      );
-    });
-  };
-
-  useGSAP(
-    () => {
-      const btns = gsap.utils.toArray(ctasRef.current?.children);
-      if (!btns.length) return;
-
-      gsap.set(btns, { y: 300 });
-
-      gsap.to(btns, {
-        y: 0,
-        duration: 0.75,
-        delay: wait + 0.75,
-        stagger: 0.25,
-        ease: "power3.out",
-      });
-    },
-    { scope: ctasRef, dependencies: [wait] },
-  );
+  const navLabel = (route) => t.nav.find((l) => l.route === route)?.label || route;
+  const featured = FEATURED.map(([col, base, slug]) => {
+    const c = t[col].cases.find((x) => x.slug === slug);
+    return c ? { ...c, to: `${base}/${slug}`, kind: col === "aiCases" ? "IA" : "DevOps" } : null;
+  }).filter(Boolean);
 
   return (
     <>
-      {showPreloader ? <Preloader onExpand={expandHero} /> : null}
-
-      <section
-        ref={heroRef}
-        className={styles.hero}
-        data-hero-intro={showPreloader ? "" : undefined}
-      >
-        <div className={styles.heroBg}>
-          <DitherImage src="/images/home/hero.webp" alt="" priority />
-        </div>
-        <div className={styles.heroHeader}>
-          <Copy variant="flicker" animateOnScroll={false} delay={wait + 1}>
-            <SectionHeader
-              variant="v2"
-              bullet
-              left={t.home.header[0]}
-              right={t.home.header[1]}
-            />
-          </Copy>
-        </div>
-        <div className={`container ${styles.heroContent}`}>
-          <div className={styles.heroText}>
-            <Copy animateOnScroll={false} delay={wait + 0.75}>
-              <h1 className={styles.heroTitle}>{t.home.title}</h1>
-            </Copy>
-            <Copy animateOnScroll={false} delay={wait + 0.9}>
-              <p className={styles.heroLede}>{t.home.lede}</p>
-            </Copy>
-          </div>
-          <div ref={ctasRef} className={styles.heroCtas}>
-            <Button
-              variant="primary"
-              href={href("/contact/?need=devops-audit#project-form")}
-              className={styles.ctaPrimary}
-              event="eng-audit-cta"
-              eventPlace="home-hero"
-            >
-              {t.home.ctaPrimary}
-            </Button>
-            <Button
-              variant="secondary"
-              href={href("/nearshore")}
-              className={styles.ctaSecondary}
-              event="eng-offer-view"
-              eventPlace="home-hero"
-            >
-              {t.home.ctaSecondary}
-            </Button>
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        tone="paper"
+        kicker={t.home.header[0]}
+        title={t.home.title}
+        description={t.home.lede}
+        cta={{ href: href("/contact/?need=devops-audit#project-form"), label: t.home.ctaPrimary, event: "eng-audit-cta", place: "home-hero" }}
+        secondary={{ href: href("/nearshore"), label: t.home.ctaSecondary, event: "eng-offer-view", place: "home-hero" }}
+        reassure={t.auditCta.note}
+        proof={t.home.proof}
+        aside={<AuditTimeline tone="paper" />}
+      />
 
       <section className={styles.about}>
         <Copy variant="flicker">
-          <SectionHeader
-            bullet
-            left={t.home.aboutHeader[0]}
-            right={t.home.aboutHeader[1]}
-          />
+          <SectionHeader bullet left={t.home.aboutHeader[0]} right={t.home.aboutHeader[1]} />
         </Copy>
         <div className={`container ${styles.aboutCols}`}>
           <div className={styles.aboutCol} />
@@ -203,13 +67,44 @@ export default function Home() {
 
       <CloudCallout />
 
-      <Marquee />
+      <section className={styles.cases} data-umami-section="cases">
+        <Copy variant="flicker">
+          <SectionHeader bullet left={t.home.casesHeader[0]} right={t.home.casesHeader[1]} />
+        </Copy>
+        <div className={`container ${styles.casesInner}`}>
+          <h2 className={styles.casesTitle}>{t.home.casesTitle}</h2>
+          <ol className={styles.caseGrid}>
+            {featured.map((c) => (
+              <li key={c.slug}>
+                <Link href={href(c.to)} className={styles.caseCard}>
+                  <span className={`mono sm ${styles.caseKind}`}>
+                    {c.kind} · {c.sector}
+                  </span>
+                  <span className={styles.caseTitle}>{c.short}</span>
+                  <span className={`mono sm ${styles.caseRead}`}>
+                    {t.aiCases.labels.read} <FiArrowRight aria-hidden="true" />
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ol>
+          <div className={styles.casesFoot}>
+            <p className={`mono sm ${styles.casesNote}`}>{t.aiCases.note}</p>
+            <div className={styles.casesLinks}>
+              <Link href={href("/ai")} className={styles.casesAll}>
+                {navLabel("/ai")} · {t.aiCases.cases.length} <FiArrowRight aria-hidden="true" />
+              </Link>
+              <Link href={href("/devops")} className={styles.casesAll}>
+                {navLabel("/devops")} · {t.devopsCases.cases.length} <FiArrowRight aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <ProcessSteps />
 
-      <AuditCta place="home-steps" compact />
-
-      <StatementBanner />
+      <AuditCta place="home-steps" />
     </>
   );
 }
