@@ -20,6 +20,20 @@ export const CLOUD_COSTS = {
     ctaCopy: "In two weeks, we audit your AWS account (network, compute, storage, data) and hand you a prioritised list of savings with the effort each one takes.",
     ctaAudit: "Request a cloud cost audit",
     ctaTalk: "Talk to an engineer",
+    // what this page is, in plain words, right after the hero: many visitors arrive from a social post without context
+    about: {
+      kicker: "About this page",
+      title: "Why is our AWS bill so high? Five answers, with the numbers.",
+      text: "For teams running on Amazon Web Services (AWS) whose monthly bill is higher than expected. The cause is often not traffic but settings AWS leaves on by default. Here are five we find in almost every account, each priced with AWS's public prices: the default setup, a better one, and what you save per month and per year.",
+      stepsTitle: "How to use it",
+      steps: [
+        "Pick your AWS Region: prices differ from one Region to another.",
+        "Compare the default and the optimised setup, side by side.",
+        "Enter your own figures to see your savings.",
+      ],
+      note: "Not technical? Cloud bills often grow because of defaults, not because of your business.",
+      noteCta: "Have us check your real account: 2-week audit",
+    },
     leadCopy:
       "Try your own figures below, or let us find these leaks in your account: a two-week audit that ends with a prioritised list of savings.",
     leadJump: "Jump to",
@@ -149,6 +163,20 @@ export const CLOUD_COSTS = {
     ctaCopy: "En deux semaines, nous auditons votre compte AWS (réseau, calcul, stockage, données) et vous remettons une liste priorisée d'économies, avec l'effort que chacune demande.",
     ctaAudit: "Demander un audit des coûts cloud",
     ctaTalk: "Parler à un ingénieur",
+    // ce qu'est cette page, en mots simples, juste après le titre : beaucoup de visiteurs arrivent d'un post sans contexte
+    about: {
+      kicker: "À propos de cette page",
+      title: "Pourquoi notre facture AWS est-elle si élevée ? Cinq réponses, chiffrées.",
+      text: "Pour les équipes dont les applications tournent sur Amazon Web Services (AWS) et dont la facture mensuelle est plus élevée que prévu. La cause n'est souvent pas le trafic, mais des réglages qu'AWS laisse activés par défaut. En voici cinq, que nous retrouvons dans presque chaque compte, chiffrés avec les prix publics d'AWS : la configuration par défaut, une meilleure, et ce que vous économisez par mois et par an.",
+      stepsTitle: "Comment l'utiliser",
+      steps: [
+        "Choisissez votre Région AWS : les prix changent d'une Région à l'autre.",
+        "Comparez la configuration par défaut et la configuration optimisée, côte à côte.",
+        "Saisissez vos propres chiffres pour voir vos économies.",
+      ],
+      note: "Pas technique ? Une facture cloud grossit souvent à cause de réglages par défaut, pas à cause de votre activité.",
+      noteCta: "Faites vérifier votre vrai compte : audit de 2 semaines",
+    },
     leadCopy:
       "Testez vos chiffres ci-dessous, ou laissez-nous trouver ces fuites dans votre compte AWS : audit en deux semaines, économies priorisées.",
     leadJump: "Aller à",

@@ -2,7 +2,7 @@
 
 import styles from "./AiCases.module.css";
 
-import { Fragment, useRef } from "react";
+import { Fragment, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import gsap from "gsap";
@@ -55,6 +55,26 @@ export default function AiCase({ slug, collection = "aiCases", base = "/ai" }) {
   const rootRef = useRef(null);
   // the contact form opens on this topic (ContactActions NEED_KEYS), and the click says which case sold it
   const contactHref = href(`/contact/?need=${collection === "devopsCases" ? "devops" : "ai"}#project-form`);
+
+  // "someone opened a project": one event per case view, so Umami can show it as a goal. The tracker
+  // script may still be loading on a direct visit, so wait for it (up to 10 s) instead of dropping it.
+  useEffect(() => {
+    let tries = 0;
+    let timer = 0;
+    const send = () => {
+      try {
+        if (window.umami?.track) {
+          window.umami.track("eng-case-open", { case: slug, kind: collection === "devopsCases" ? "devops" : "ai", lang });
+          return;
+        }
+      } catch {
+        return; // analytics must never break the page
+      }
+      if (++tries < 40) timer = window.setTimeout(send, 250);
+    };
+    send();
+    return () => window.clearTimeout(timer);
+  }, [slug, collection, lang]);
 
   useGSAP(
     () => {

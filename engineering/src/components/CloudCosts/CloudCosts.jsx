@@ -199,6 +199,33 @@ export default function CloudCosts({ only } = {}) {
   return (
     <section className={styles.cloudCosts} data-umami-section="cost-scenarios">
       <div className="container">
+        {/* what this page is, before any number: many visitors land here from a social post without context */}
+        {only || !c.about ? null : (
+          <div className={styles.about} data-umami-section="cost-about">
+            <div className={styles.aboutHead}>
+              <p className="mono sm">{c.about.kicker}</p>
+              <h2 className={styles.aboutTitle}>{c.about.title}</h2>
+            </div>
+            <div className={styles.aboutBody}>
+              <p className={styles.aboutText}>{c.about.text}</p>
+              <p className="mono sm">{c.about.stepsTitle}</p>
+              <ol className={styles.aboutSteps}>
+                {c.about.steps.map((step, i) => (
+                  <li key={i}>
+                    <span className="mono sm">{String(i + 1).padStart(2, "0")}</span>
+                    <span>{step}</span>
+                  </li>
+                ))}
+              </ol>
+              <p className={styles.aboutNote}>
+                {c.about.note}{" "}
+                <Link href={contact} data-track="cost-audit-cta" data-track-place="about" data-track-region={region}>
+                  {c.about.noteCta} →
+                </Link>
+              </p>
+            </div>
+          </div>
+        )}
         <div className={styles.lead} ref={leadRef}>
           <p className={styles.leadCopy}>{c.leadCopy}</p>
           <Link className={styles.leadButton} href={contact} data-track="cost-audit-cta" data-track-place="top" data-track-region={region}>
