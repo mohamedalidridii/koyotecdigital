@@ -10,6 +10,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
 import Copy from "@/components/Copy";
+import Button from "@/components/Button";
 import Stage from "@/components/Systems/Stage";
 import Emblem from "./Emblem";
 
@@ -52,6 +53,8 @@ export default function AiCase({ slug, collection = "aiCases", base = "/ai" }) {
   const c = a.cases[index];
   const next = a.cases[(index + 1) % a.cases.length];
   const rootRef = useRef(null);
+  // the contact form opens on this topic (ContactActions NEED_KEYS), and the click says which case sold it
+  const contactHref = href(`/contact/?need=${collection === "devopsCases" ? "devops" : "ai"}#project-form`);
 
   useGSAP(
     () => {
@@ -133,7 +136,7 @@ export default function AiCase({ slug, collection = "aiCases", base = "/ai" }) {
               <span className={styles.dot} aria-hidden="true" />
               {c.short}
             </p>
-            <h1 className={styles.heroTitle}>
+            <h1 className={styles.heroTitle} data-focus>
               {/* each word rises out of its own mask; the space stays outside the mask so it is kept */}
               {c.title.split(" ").map((w, i) => (
                 <Fragment key={i}>
@@ -145,6 +148,12 @@ export default function AiCase({ slug, collection = "aiCases", base = "/ai" }) {
             </h1>
           </div>
           <Emblem slug={c.slug} className={styles.heroEmblem} />
+        </div>
+        {/* the first screen is often all a visitor reads: the next step sits right under the title */}
+        <div className={styles.heroCta}>
+          <Button variant="primary" href={contactHref} event="eng-contact-cta" eventPlace="case-hero" track={{ case: c.slug }} focus>
+            {L.ctaTop}
+          </Button>
         </div>
         <div className={styles.heroFoot}>
           <div className={styles.summary}>
@@ -261,7 +270,7 @@ export default function AiCase({ slug, collection = "aiCases", base = "/ai" }) {
             </div>
           </div>
         </div>
-        <Link href={href("/contact")} className={styles.cta}>
+        <Link href={contactHref} className={styles.cta} data-track="eng-contact-cta" data-track-place="case-end" data-track-case={c.slug}>
           <span>{L.cta}</span>
           <span aria-hidden="true">→</span>
         </Link>

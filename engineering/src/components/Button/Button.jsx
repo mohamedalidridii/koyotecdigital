@@ -22,6 +22,8 @@ export default function Button({
   showArrow = true,
   event, // analytics (Umami) event name sent on click
   eventPlace,
+  focus = false, // part of the main message: the effects open around it and lead the eye to it
+  track = null, // extra analytics data: { case: "slug" } becomes data-track-case="slug"
 }) {
   const rootRef = useRef(null);
   const labelRef = useRef(null);
@@ -112,6 +114,8 @@ export default function Button({
       className={classNames}
       data-track={event}
       data-track-place={event ? eventPlace : undefined}
+      data-focus={focus ? "" : undefined}
+      {...(event && track ? Object.fromEntries(Object.entries(track).map(([k, v]) => [`data-track-${k}`, v])) : {})}
     >
       <span ref={labelRef} className={styles.label}>
         {children}
