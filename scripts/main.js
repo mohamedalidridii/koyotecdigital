@@ -1,55 +1,47 @@
 // Single entry for every page. Core systems start once; page modules mount into the Barba
 // container and are torn down with it, so navigation never leaks triggers or listeners.
+// 2026-11 redesign (LIFT): no particle stage, custom cursor, preloader or hero intro. What is on
+// screen when a page opens is shown at once; only content further down reveals as it arrives.
 import { gsap, ScrollTrigger } from "./core/gsap.js";
-import { $, reduced } from "./core/env.js";
+import { reduced } from "./core/env.js";
 import { initScroll, scroll } from "./core/scroll.js";
-import { bootGL, bindScenes, resetScenes, sceneAtViewport } from "./core/gl.js";
-import { initCursor, magnetic } from "./core/cursor.js";
 import { initNav } from "./core/nav.js";
-import { runPreloader, preloaderDone } from "./core/preloader.js";
 import { initRouter } from "./core/router.js";
 import { autoSplits, drawLines } from "./core/reveal.js";
-import { homeHero, pageHero } from "./sections/intro.js";
 import { serviceHover, statement, rows } from "./sections/home.js";
 import { faq, cta, footer, contactForm, article, scrollDepth, engagedTime, trackContactCopy, bindTrackedClicks } from "./sections/common.js";
-import { artTheme, artHero, artExpo, artViewer, artTeaser, staticLetters } from "./sections/art.js";
-import { careersForm, careersPoles, careersTeaser } from "./sections/careers.js";
-import { engineeringHero } from "./sections/engHero.js";
-import { meshStage } from "./sections/mesh.js";
-import { founderTheme, founderHero, founderManifesto, founderCounters, founderReel, founderMarquee, founderChapters, founderStage } from "./sections/founder.js";
+import { artTheme, artHero, artExpo, artViewer, staticLetters } from "./sections/art.js";
+import { careersForm, careersPoles } from "./sections/careers.js";
+import { founderTheme, founderHero, founderManifesto, founderCounters, founderReel, founderChapters, founderStage } from "./sections/founder.js";
 
 // motion modules per Barba namespace (nav, form and FAQ run everywhere, even with reduced motion)
 const PAGES = {
-  home: [homeHero, serviceHover, artTeaser, careersTeaser, statement, rows, cta],
-  services: [pageHero, rows, cta],
-  contact: [pageHero, rows],
-  careers: [pageHero, careersPoles, rows, cta],
-  blog: [pageHero, rows],
-  article: [pageHero, article],
-  art: [artHero, artExpo, cta],
-  mesh: [cta],
-  founder: [founderHero, founderManifesto, founderCounters, founderReel, founderMarquee, founderChapters, founderStage, cta],
+  home: [serviceHover, statement, rows],
+  services: [serviceHover, rows],
+  contact: [rows],
+  careers: [careersPoles, rows],
+  blog: [rows],
+  article: [article],
+  art: [artHero, artExpo],
+  mesh: [],
+  founder: [founderHero, founderManifesto, founderCounters, founderReel, founderChapters, founderStage],
 };
 // per-page systems that run even with reduced motion
-const ALWAYS = { services: [scrollDepth], article: [scrollDepth], home: [staticLetters, engineeringHero], art: [artTheme, artViewer, staticLetters], mesh: [artTheme, meshStage], founder: [founderTheme], careers: [careersForm] };
+const ALWAYS = { services: [scrollDepth], article: [scrollDepth], home: [staticLetters], art: [artTheme, artViewer, staticLetters], mesh: [], founder: [founderTheme], careers: [careersForm] };
 
 let ctx = null;
 let cleanups = [];
 
-function mount(container, { ready = Promise.resolve() } = {}) {
+function mount(container) {
   const ns = container.dataset.barbaNamespace;
+  const ready = Promise.resolve();
   scroll.add(container);
 
   ctx = gsap.context(() => {
     cleanups = [initNav(container), faq(container), contactForm(container), engagedTime(), ...(ALWAYS[ns] || []).map((fn) => fn(container, { ready }))];
-    if (!reduced) {
-      cleanups.push(magnetic(container));
-      (PAGES[ns] || [pageHero]).forEach((fn) => cleanups.push(fn(container, { ready })));
-    }
-    bindScenes($("[data-gl]", container));
+    if (!reduced) (PAGES[ns] || []).forEach((fn) => cleanups.push(fn(container, { ready })));
   }, container);
 
-  sceneAtViewport(container);
   ScrollTrigger.refresh();
 
   // below-the-fold reveals are not visible yet: prepare them once the main thread is idle
@@ -61,14 +53,12 @@ function mount(container, { ready = Promise.resolve() } = {}) {
         autoSplits(container);
         drawLines(container);
         footer(container);
+        cta(container);
       });
       ScrollTrigger.refresh();
     };
-    // and never during the preloader, whose animation must not stutter
-    preloaderDone.then(() => {
-      if ("requestIdleCallback" in window) requestIdleCallback(later, { timeout: 900 });
-      else setTimeout(later, 200);
-    });
+    if ("requestIdleCallback" in window) requestIdleCallback(later, { timeout: 900 });
+    else setTimeout(later, 200);
   }
 }
 
@@ -77,36 +67,29 @@ function unmount(container) {
   cleanups = [];
   ctx?.revert();
   ctx = null;
-  resetScenes();
   scroll.remove(container);
 }
 
 function start() {
   bindTrackedClicks(); // first: analytics clicks keep working even if the motion layer fails to boot
-  // the WhatsApp button (outside the page, like the cursor) joins after the preloader, once the
-  // visitor has scrolled a little: heroes keep their own calls to action free of it
-  preloaderDone.then(() => {
-    const wa = document.querySelector(".wa-float");
-    if (!wa) return;
+  // the WhatsApp button joins once the visitor has scrolled a little: heroes keep their own actions free of it
+  const wa = document.querySelector(".wa-float");
+  if (wa) {
     const check = () => wa.classList.toggle("is-in", window.scrollY > window.innerHeight * 0.3);
     check();
     window.addEventListener("scroll", check, { passive: true });
-  });
+  }
   trackContactCopy();
   initScroll();
-  bootGL({ after: preloaderDone });
-  initCursor();
   const container = document.querySelector('[data-barba="container"]');
-  mount(container, { ready: runPreloader() });
+  mount(container);
   if (!reduced) initRouter({ mount, unmount });
   window.addEventListener("load", () => ScrollTrigger.refresh());
 }
 
-// never leave the page hidden behind an overlay if something throws during boot
 try {
   start();
 } catch (err) {
   console.error("Motion layer disabled:", err);
   ctx?.revert();
-  document.querySelectorAll(".preloader, .curtain").forEach((el) => el.remove());
 }

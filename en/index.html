@@ -26,7 +26,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="#f3f1ec" />
     <meta name="author" content="KOYOTEC" />
-    <script>(function(d){var e=d.documentElement;e.classList.replace("no-js","js");if(matchMedia("(prefers-reduced-motion: reduce)").matches)e.classList.add("is-reduced");var h=location.pathname;if(h!=="/"&&h!=="/index.html"&&h!=="/en"&&h!=="/en/")e.classList.add("pre-seen");try{if(sessionStorage.getItem("koy-pre"))e.classList.add("pre-seen")}catch(_){}})(document)</script>
+    <script>(function(d){var e=d.documentElement;e.classList.replace("no-js","js");if(matchMedia("(prefers-reduced-motion: reduce)").matches)e.classList.add("is-reduced")})(document)</script>
     <link rel="preload" href="/fonts/instrument-serif-400.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/geist-variable.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/css/main.css" />
@@ -37,39 +37,15 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <a class="wa-float" href="https://wa.me/21652405699?text=Hello%20KOYOTEC%2C%20I'd%20like%20a%20quote." target="_blank" rel="noopener" data-barba-prevent aria-label="Chat on WhatsApp" data-track="whatsapp" data-track-place="float"><svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg><span class="wa-float-label">Chat on WhatsApp</span></a>
-  <canvas class="gl" id="gl" aria-hidden="true"></canvas>
-  <div class="gl-fallback" aria-hidden="true"></div>
-  <div class="grain" aria-hidden="true"></div>
-  <div class="cursor" aria-hidden="true"><span class="cursor-dot"></span><span class="cursor-label"></span></div>
-  <div class="curtain" aria-hidden="true"><div class="curtain-panel"></div><p class="curtain-label"></p></div>
-  <div class="preloader" aria-hidden="true">
-    <svg class="pl-svg" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <clipPath id="pl-clip"><rect width="250" height="194.5"/></clipPath>
-        <mask id="pl-hole" maskUnits="userSpaceOnUse">
-          <rect class="pl-fill" fill="#fff"/>
-          <g class="pl-cut" opacity="0"><g class="pl-strokes" clip-path="url(#pl-clip)" stroke="#000"><path pathLength="1" d="M220.5 10C175.75 9.25 132.75 31 92 90.25L19.66 206"/><path pathLength="1" d="M79 1.5V72.5M80 112V206"/><path pathLength="1" d="M142.1 106L233.1 206"/><path class="logo-bar" pathLength="1" d="M1 104H246"/></g></g>
-        </mask>
-      </defs>
-      <rect class="pl-paper pl-fill" mask="url(#pl-hole)"/>
-      <g class="pl-ink"><g class="pl-strokes" clip-path="url(#pl-clip)"><path pathLength="1" d="M220.5 10C175.75 9.25 132.75 31 92 90.25L19.66 206"/><path pathLength="1" d="M79 1.5V72.5M80 112V206"/><path pathLength="1" d="M142.1 106L233.1 206"/><path class="logo-bar" pathLength="1" d="M1 104H246"/></g></g>
-    </svg>
-    <span class="pl-dot"></span>
-    <p class="pl-top"><span>KOYOTEC&reg;</span><span>36.8652 / 10.1714</span></p>
-    <div class="pl-bottom">
-      <p class="pl-odo"><span class="odo-col"><span class="odo-strip"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="odo-col"><span class="odo-strip"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="odo-col"><span class="odo-strip"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span></span></span><span class="odo-pct">%</span></p>
-      <p class="pl-words"><span class="pl-words-strip"><span>Website design &amp; development</span><span>Brand identity &amp; logo</span><span>SEO</span><span>UI/UX design</span><span>Online store</span><span>Digital strategy</span></span></p>
-    </div>
-  </div>
   <div data-barba="wrapper">
   <div class="page" data-barba="container" data-barba-namespace="home">
     <header class="site-nav">
       <a class="brand" href="/en/" aria-label="KOYOTEC — Home"><svg class="logo-mark" viewBox="0 0 250 195" aria-hidden="true" focusable="false"><defs><clipPath id="kb-nav"><rect width="250" height="194.5"/></clipPath></defs><g class="logo-strokes" clip-path="url(#kb-nav)"><path pathLength="1" d="M220.5 10C175.75 9.25 132.75 31 92 90.25L19.66 206"/><path pathLength="1" d="M79 1.5V72.5M80 112V206"/><path pathLength="1" d="M142.1 106L233.1 206"/><path class="logo-bar" pathLength="1" d="M1 104H246"/></g><rect class="logo-dot" x="232" y="2" width="18" height="18"/></svg><span class="brand-name">KOYOTEC<sup>&reg;</sup></span></a>
-      <nav class="nav-main" aria-label="Menu"><ul class="nav-links"><li><a href="/en/services">Services</a></li><li><a href="/en/projects">Projects</a></li><li><a href="/engineering/en/" data-barba-prevent>Engineering</a></li><li><a href="/en/blog">Blog</a></li><li><a href="/en/contact">Contact</a></li></ul><a class="nav-art" href="/en/art-of-difference"><i class="nav-art-dot" aria-hidden="true"></i>The art of difference</a></nav>
+      <nav class="nav-main" aria-label="Menu"><ul class="nav-links"><li><a href="/en/services">Services</a></li><li><a href="/en/projects">Projects</a></li><li><a href="/engineering/en/" data-barba-prevent>Engineering</a></li><li><a href="/en/blog">Blog</a></li><li><a href="/en/contact">Contact</a></li></ul></nav>
       <div class="nav-right">
         <a class="lang" href="/" hreflang="fr" lang="fr">FR</a>
-        <a class="nav-founder" href="/en/medalydridi" data-magnetic aria-label="Mohamed Ali Dridi · Meet the founder"><img src="/founder/avatar.webp" alt="Mohamed Ali Dridi" width="28" height="28" /><span class="nav-founder-label" aria-hidden="true"><span>Med Ali</span><span>Meet the founder →</span></span><i class="nav-founder-dot" aria-hidden="true"></i></a>
-        <a class="nav-cta" href="/en/contact" data-magnetic data-track="quote-cta" data-track-place="nav"><span>Free quote</span><svg class="g g-arrow" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M8 32 32 8M14 8h18v18"/></svg></a>
+        <a class="nav-founder" href="/en/medalydridi" aria-label="Mohamed Ali Dridi · Meet the founder"><img src="/founder/avatar.webp" alt="Mohamed Ali Dridi" width="28" height="28" /><span class="nav-founder-label" aria-hidden="true"><span>Med Ali</span><span>Meet the founder →</span></span><i class="nav-founder-dot" aria-hidden="true"></i></a>
+        <a class="nav-cta" href="/en/contact" data-track="quote-cta" data-track-place="nav"><span>Free quote</span><svg class="g g-arrow" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M8 32 32 8M14 8h18v18"/></svg></a>
         <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-btn-label" data-open="Menu" data-close="Close">Menu</span></button>
       </div>
     </header>
@@ -105,133 +81,81 @@
     </div>
 
     <main id="main">
-      <section class="hero" data-gl="dunes" data-cursor="Click">
-        <div class="hero-float shell" aria-hidden="true">
-          <p class="float-a" data-scroll data-scroll-speed="0.15">Digital agency · Web &amp; branding</p>
-          <p class="float-b" data-scroll data-scroll-speed="0.3">Tunis, Tunisia</p>
-          <p class="float-c" data-scroll data-scroll-speed="0.08">36.8652° N<br />10.1714° E</p>
+      <section class="home-doors">
+        <div class="shell doors-head">
+          <p class="lift-kicker"><i aria-hidden="true"></i>KOYOTEC · Digital agency in Tunis</p>
+          <h1 class="doors-h1" data-focus>Web design and branding, cloud, DevOps and AI</h1>
         </div>
-        <div class="hero-foot shell">
-          <div class="lockup">
-            <p class="lockup-brand"><span class="stamp" aria-hidden="true"><span>Web</span><span>Brand<br />SEO</span></span> <span>KOYOTEC<sup>&reg;</sup></span></p>
-            <h1 class="lockup-h1" data-split>Web design and branding&nbsp;<svg class="g g-star" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M20 2v36M2 20h36M7.3 7.3l25.4 25.4M32.7 7.3 7.3 32.7"/></svg> agency in Tunis&nbsp;<svg class="g g-moon" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="17"/><path class="fill" d="M20 3a17 17 0 0 1 0 34 11 17 0 0 0 0-34z"/></svg></h1>
-          </div>
-          <div class="hero-aside">
-            <p class="hero-sub">We design your website, logo and brand identity, from first sketch to launch. Free quote.</p>
-            <div class="hero-links">
-              <a class="tlink" href="/en/contact" data-track="quote-cta" data-track-place="hero"><span class="tlink-label">Get a free quote</span><span class="tlink-arrow" aria-hidden="true">→</span></a>
-              <a class="tlink" href="/en/services" data-track="services-cta" data-track-place="hero"><span class="tlink-label">See our services</span><span class="tlink-arrow" aria-hidden="true">→</span></a>
-            </div>
-            <p class="hero-note">Websites from 800 TND · free quote within 24 h</p>
-          </div>
+        <div class="shell doors">
+          <article class="door door-web" aria-labelledby="door-web-h">
+            <p class="lift-kicker"><i aria-hidden="true"></i>Digital agency · Tunis</p>
+            <h2 class="door-h" id="door-web-h">Websites &amp; branding</h2>
+            <p class="door-lede">We design your website, logo and brand identity, from first sketch to launch. Free quote.</p>
+            <div class="lift-actions"><a class="btn-ink" href="/en/contact" data-track="quote-cta" data-track-place="hero" data-focus><span>Get a free quote</span><span class="btn-arrow" aria-hidden="true">→</span></a><a class="tlink" href="/en/services" data-track="services-cta" data-track-place="hero"><span class="tlink-label">See our services</span><span class="tlink-arrow" aria-hidden="true">→</span></a></div>
+            <p class="lift-note">Websites from 800 TND · free quote within 24 h</p>
+          </article>
+          <article class="door door-eng" aria-labelledby="door-eng-h">
+            <p class="lift-kicker"><i aria-hidden="true"></i>KOYOTEC Engineering · worldwide</p>
+            <h2 class="door-h" id="door-eng-h">Cloud, DevOps and AI</h2>
+            <p class="door-lede">AI, cloud, DevOps, cybersecurity, data and industrial IoT for companies in Europe, the Gulf and Africa: we design, deploy and secure the systems your business runs on.</p>
+            <div class="lift-actions"><a class="btn-ink btn-light" href="/engineering/en/contact/?need=devops-audit#project-form" data-track="eng-audit-cta" data-track-place="home-door" data-barba-prevent data-focus><span>Request the audit</span><span class="btn-arrow" aria-hidden="true">→</span></a><a class="tlink" href="/engineering/en/" data-track="home-door" data-track-to="engineering" data-barba-prevent><span class="tlink-label">Explore Engineering</span><span class="tlink-arrow" aria-hidden="true">→</span></a></div>
+            <p class="lift-note">Fixed-price 2-week audit · reply within 24 business hours</p>
+          </article>
         </div>
-        <a class="hero-eng" href="/engineering/en/" data-barba-prevent data-cursor="Enter">
-          <canvas class="hero-eng-gl" aria-hidden="true"></canvas>
-          <span class="hero-eng-top">
-            <span class="hero-eng-kicker">Our technical arm</span>
-            <span class="hero-eng-idx" aria-hidden="true">(02)</span>
-          </span>
-          <span class="hero-eng-body">
-            <span class="hero-eng-name">KOYOTEC Engineering</span>
-            <span class="hero-eng-lead">AI, cloud, DevOps, cybersecurity, data and industrial IoT for companies in Europe, the Gulf and Africa: we design, deploy and secure the systems your business runs on.</span>
-            <span class="hero-eng-items"><span style="--i:0">AI</span><span style="--i:1">Cloud</span><span style="--i:2">DevOps</span><span style="--i:3">Security</span><span style="--i:4">Data</span></span>
-            <span class="hero-eng-cta"><span>Explore Engineering</span><svg class="g g-arrow" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M8 32 32 8M14 8h18v18"/></svg></span>
-          </span>
-        </a>
-
-        <p class="scroll-cue" aria-hidden="true">Scroll ↓</p>
+        <div class="shell">
+          <ul class="lift-proof"><li>50+ projects delivered since 2022</li><li>38 startups supported</li><li>French · Arabic · English</li></ul>
+        </div>
       </section>
 
-      <section class="services-home" id="services" data-gl="constellation" data-gl-dim="0.22">
+      <section class="services-home" id="services">
         <div class="shell">
           <div class="label-row" data-line><span>Services (06)</span><span class="label-lead">Everything you need for a professional online presence, from a single agency.</span></div>
           <h2 class="visually-hidden">What we do</h2>
           <ol class="svc-list">
-            <li data-line><a class="svc-row" href="/en/web-design-tunisia" data-shape="browser" data-cursor="View"><span class="svc-num">01</span><span class="svc-name">Website design &amp; development</span><span class="svc-desc">Custom showcase and business websites, fast and mobile-friendly.</span></a></li>
-            <li data-line><a class="svc-row" href="/en/logo-brand-identity-design" data-shape="glyph" data-cursor="View"><span class="svc-num">02</span><span class="svc-name">Brand identity &amp; logo</span><span class="svc-desc">A consistent logo, colors, typography and brand guidelines.</span></a></li>
-            <li data-line><a class="svc-row" href="/en/seo-agency-tunisia" data-shape="signal" data-cursor="View"><span class="svc-num">03</span><span class="svc-name">SEO</span><span class="svc-desc">Structure, content and speed optimized to show up on Google.</span></a></li>
-            <li data-line><a class="svc-row" href="/en/services" data-shape="grid" data-cursor="View"><span class="svc-num">04</span><span class="svc-name">UI/UX design</span><span class="svc-desc">Clear interfaces that guide visitors to take action.</span></a></li>
-            <li data-line><a class="svc-row" href="/en/ecommerce-website-tunisia" data-shape="bag" data-cursor="View"><span class="svc-num">05</span><span class="svc-name">Online store</span><span class="svc-desc">Sell your products online with a store that is easy to manage.</span></a></li>
-            <li data-line><a class="svc-row" href="/en/services" data-shape="compass" data-cursor="View"><span class="svc-num">06</span><span class="svc-name">Digital strategy</span><span class="svc-desc">A clear plan to bring in customers consistently.</span></a></li>
+            <li data-line><a class="svc-row" href="/en/web-design-tunisia"><span class="svc-num">01</span><span class="svc-name">Website design &amp; development</span><span class="svc-desc">Custom showcase and business websites, fast and mobile-friendly.</span></a></li>
+            <li data-line><a class="svc-row" href="/en/logo-brand-identity-design"><span class="svc-num">02</span><span class="svc-name">Brand identity &amp; logo</span><span class="svc-desc">A consistent logo, colors, typography and brand guidelines.</span></a></li>
+            <li data-line><a class="svc-row" href="/en/seo-agency-tunisia"><span class="svc-num">03</span><span class="svc-name">SEO</span><span class="svc-desc">Structure, content and speed optimized to show up on Google.</span></a></li>
+            <li data-line><a class="svc-row" href="/en/services"><span class="svc-num">04</span><span class="svc-name">UI/UX design</span><span class="svc-desc">Clear interfaces that guide visitors to take action.</span></a></li>
+            <li data-line><a class="svc-row" href="/en/ecommerce-website-tunisia"><span class="svc-num">05</span><span class="svc-name">Online store</span><span class="svc-desc">Sell your products online with a store that is easy to manage.</span></a></li>
+            <li data-line><a class="svc-row" href="/en/services"><span class="svc-num">06</span><span class="svc-name">Digital strategy</span><span class="svc-desc">A clear plan to bring in customers consistently.</span></a></li>
           </ol>
           <p class="svc-more"><a class="tlink" href="/en/services"><span class="tlink-label">Learn more</span><span class="tlink-arrow" aria-hidden="true">→</span></a></p>
         </div>
       </section>
 
-      <section class="services-home eng-teaser" id="engineering" data-gl="constellation" data-gl-dim="0.22">
+      <section class="services-home eng-teaser" id="engineering">
         <div class="shell">
           <div class="label-row" data-line><span>Koyotec Engineering (05)</span><span class="label-lead">Our technical arm designs, ships and secures the systems your business runs on.</span></div>
           <h2 class="eng-teaser-title" data-split>The engineering behind the website</h2>
           <ol class="svc-list">
-            <li data-line><a class="svc-row" href="/engineering/en/expertise/" data-barba-prevent data-shape="signal" data-cursor="Enter"><span class="svc-num">01</span><span class="svc-name">Artificial intelligence</span><span class="svc-desc">LLM assistants and RAG over your documents, automation and predictive models.</span></a></li>
-            <li data-line><a class="svc-row" href="/engineering/en/expertise/" data-barba-prevent data-shape="grid" data-cursor="Enter"><span class="svc-num">02</span><span class="svc-name">Cloud</span><span class="svc-desc">Migration and AWS, Azure or GCP architectures, with costs under control.</span></a></li>
-            <li data-line><a class="svc-row" href="/engineering/en/expertise/" data-barba-prevent data-shape="bag" data-cursor="Enter"><span class="svc-num">03</span><span class="svc-name">DevOps</span><span class="svc-desc">CI/CD, Kubernetes, infrastructure as code and monitoring.</span></a></li>
-            <li data-line><a class="svc-row" href="/engineering/en/expertise/" data-barba-prevent data-shape="compass" data-cursor="Enter"><span class="svc-num">04</span><span class="svc-name">Cybersecurity</span><span class="svc-desc">Audits, penetration tests, hardening and access management.</span></a></li>
-            <li data-line><a class="svc-row" href="/engineering/en/expertise/" data-barba-prevent data-shape="browser" data-cursor="Enter"><span class="svc-num">05</span><span class="svc-name">Business intelligence</span><span class="svc-desc">Data warehouses, ETL and Power BI or Metabase dashboards.</span></a></li>
+            <li data-line><a class="svc-row" href="/engineering/en/expertise/" data-barba-prevent><span class="svc-num">01</span><span class="svc-name">Artificial intelligence</span><span class="svc-desc">LLM assistants and RAG over your documents, automation and predictive models.</span></a></li>
+            <li data-line><a class="svc-row" href="/engineering/en/expertise/" data-barba-prevent><span class="svc-num">02</span><span class="svc-name">Cloud</span><span class="svc-desc">Migration and AWS, Azure or GCP architectures, with costs under control.</span></a></li>
+            <li data-line><a class="svc-row" href="/engineering/en/expertise/" data-barba-prevent><span class="svc-num">03</span><span class="svc-name">DevOps</span><span class="svc-desc">CI/CD, Kubernetes, infrastructure as code and monitoring.</span></a></li>
+            <li data-line><a class="svc-row" href="/engineering/en/expertise/" data-barba-prevent><span class="svc-num">04</span><span class="svc-name">Cybersecurity</span><span class="svc-desc">Audits, penetration tests, hardening and access management.</span></a></li>
+            <li data-line><a class="svc-row" href="/engineering/en/expertise/" data-barba-prevent><span class="svc-num">05</span><span class="svc-name">Business intelligence</span><span class="svc-desc">Data warehouses, ETL and Power BI or Metabase dashboards.</span></a></li>
           </ol>
           <p class="svc-more"><a class="tlink" href="/engineering/en/" data-barba-prevent><span class="tlink-label">Discover Koyotec Engineering</span><span class="tlink-arrow" aria-hidden="true">→</span></a></p>
         </div>
       </section>
 
-      <section class="art-teaser" id="art" data-gl="constellation" data-gl-dim="0.35">
-        <div class="art-teaser-in shell">
-          <p class="art-teaser-kicker"><span class="stamp" aria-hidden="true"><span>Concepts</span><span>31</span></span> <a href="/en/art-of-difference">The art of difference</a></p>
-          <h2 class="art-teaser-title"><span class="art-teaser-a">The art of</span> <span class="art-word" aria-label="difference"><span aria-hidden="true"><span class="art-l">d</span><span class="art-l">i</span><span class="art-l">f</span><span class="art-l">f</span><span class="art-l">e</span><span class="art-l">r</span><span class="art-l">e</span><span class="art-l">n</span><span class="art-l">c</span><span class="art-l">e</span></span></span></h2>
-          <div class="art-stack">
-            <a class="art-chip" href="/en/art-of-difference" style="--accent:#7fa65a" data-cursor="Enter">
-              <img src="/art/previews/selma-haddad.webp" alt="Dr. Selma Haddad, Dietitian" width="1440" height="900" loading="lazy" decoding="async" />
-              <video muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/selma-haddad.webm" data-mp4="/art/previews/selma-haddad.mp4"></video>
-              <span class="art-chip-name">Dr. Selma Haddad</span>
-            </a>
-            <a class="art-chip" href="/en/art-of-difference" style="--accent:#c9a45c" data-cursor="Enter">
-              <img src="/art/previews/maison-aurele.webp" alt="Maison Aurèle, Haute couture" width="1440" height="900" loading="lazy" decoding="async" />
-              <video muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/maison-aurele.webm" data-mp4="/art/previews/maison-aurele.mp4"></video>
-              <span class="art-chip-name">Maison Aurèle</span>
-            </a>
-            <a class="art-chip" href="/en/art-of-difference" style="--accent:#e4572e" data-cursor="Enter">
-              <img src="/art/previews/nour-el-kamel.webp" alt="Nour El Kamel, Speaker &amp; media" width="1440" height="900" loading="lazy" decoding="async" />
-              <video muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/nour-el-kamel.webm" data-mp4="/art/previews/nour-el-kamel.mp4"></video>
-              <span class="art-chip-name">Nour El Kamel</span>
-            </a>
-            <a class="art-chip" href="/en/art-of-difference" style="--accent:#d7ff3a" data-cursor="Enter">
-              <img src="/art/previews/ghoula-games.webp" alt="Ghoula Games, Game studio" width="1440" height="900" loading="lazy" decoding="async" />
-              <video muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/ghoula-games.webm" data-mp4="/art/previews/ghoula-games.mp4"></video>
-              <span class="art-chip-name">Ghoula Games</span>
-            </a>
-            <a class="art-chip" href="/en/art-of-difference" style="--accent:#e9e1d3" data-cursor="Enter">
-              <img src="/art/previews/table-yasmina.webp" alt="Table Yasmina, Restaurant" width="1440" height="900" loading="lazy" decoding="async" />
-              <video muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/table-yasmina.webm" data-mp4="/art/previews/table-yasmina.mp4"></video>
-              <span class="art-chip-name">Table Yasmina</span>
-            </a>
-            <a class="art-chip" href="/en/art-of-difference" style="--accent:#ff5c8a" data-cursor="Enter">
-              <img src="/art/previews/studio-kif-kif.webp" alt="Studio Kif-Kif, Illustration studio" width="1440" height="900" loading="lazy" decoding="async" />
-              <video muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/studio-kif-kif.webm" data-mp4="/art/previews/studio-kif-kif.mp4"></video>
-              <span class="art-chip-name">Studio Kif-Kif</span>
-            </a>
-            <a class="art-chip" href="/en/art-of-difference" style="--accent:#8fb3ff" data-cursor="Enter">
-              <img src="/art/previews/ciel-de-douz.webp" alt="Ciel de Douz, Astro-tourism" width="1440" height="900" loading="lazy" decoding="async" />
-              <video muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/ciel-de-douz.webm" data-mp4="/art/previews/ciel-de-douz.mp4"></video>
-              <span class="art-chip-name">Ciel de Douz</span>
-            </a>
-            <a class="art-chip" href="/en/art-of-difference" style="--accent:#bfc6ff" data-cursor="Enter">
-              <img src="/art/previews/forme-nouvelle.webp" alt="Forme Nouvelle, Art gallery" width="1440" height="900" loading="lazy" decoding="async" />
-              <video muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/forme-nouvelle.webm" data-mp4="/art/previews/forme-nouvelle.mp4"></video>
-              <span class="art-chip-name">Forme Nouvelle</span>
-            </a>
+      <section class="home-work" id="work" aria-labelledby="work-h">
+        <div class="shell">
+          <div class="label-row" data-line><span>Concepts (31)</span><span class="label-lead">Website and identity concepts by KOYOTEC: one brand, one brief, one direction.</span></div>
+          <h2 class="work-h" id="work-h">What we design</h2>
+          <div class="work-grid">
+            <figure class="lift-work"><a href="/en/art-of-difference/case/selma-haddad" data-track="concept-open" data-track-place="home-work" data-track-project="selma-haddad"><img src="/art/previews/selma-haddad.webp" alt="Dr. Selma Haddad, Dietitian" width="1440" height="900" decoding="async" loading="lazy" /></a><figcaption><span class="lift-work-tag">Concept</span> Dr. Selma Haddad · Dietitian</figcaption></figure>
+            <figure class="lift-work"><a href="/en/art-of-difference/case/maison-aurele" data-track="concept-open" data-track-place="home-work" data-track-project="maison-aurele"><img src="/art/previews/maison-aurele.webp" alt="Maison Aurèle, Haute couture" width="1440" height="900" decoding="async" loading="lazy" /></a><figcaption><span class="lift-work-tag">Concept</span> Maison Aurèle · Haute couture</figcaption></figure>
+            <figure class="lift-work"><a href="/en/art-of-difference/case/nour-el-kamel" data-track="concept-open" data-track-place="home-work" data-track-project="nour-el-kamel"><img src="/art/previews/nour-el-kamel.webp" alt="Nour El Kamel, Speaker &amp; media" width="1440" height="900" decoding="async" loading="lazy" /></a><figcaption><span class="lift-work-tag">Concept</span> Nour El Kamel · Speaker &amp; media</figcaption></figure>
+            <figure class="lift-work"><a href="/en/art-of-difference/case/ghoula-games" data-track="concept-open" data-track-place="home-work" data-track-project="ghoula-games"><img src="/art/previews/ghoula-games.webp" alt="Ghoula Games, Game studio" width="1440" height="900" decoding="async" loading="lazy" /></a><figcaption><span class="lift-work-tag">Concept</span> Ghoula Games · Game studio</figcaption></figure>
           </div>
-          <div class="art-teaser-foot">
-            <p class="art-teaser-count" aria-hidden="true"><span class="art-teaser-n">01</span><i>/31</i> pieces</p>
-            <p class="art-teaser-lead">Thirty brands, thirty identities that look nothing alike. The same starting point, completely different endings.</p>
-            <a class="art-teaser-cta" href="/en/art-of-difference" data-cursor="Enter"><span class="cta-word">Enter the exhibition</span> <svg class="g g-arrow" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M8 32 32 8M14 8h18v18"/></svg></a>
-          </div>
+          <p class="svc-more"><a class="tlink" href="/en/projects"><span class="tlink-label">Projects</span><span class="tlink-arrow" aria-hidden="true">→</span></a></p>
         </div>
-        <div class="art-marquee" aria-hidden="true"><div class="art-marquee-track"><span>Yasmine Belkadi</span><i>✳</i><span>Dr. Selma Haddad</span><i>✳</i><span>Ligne Inox</span><i>✳</i><span>Maison Aurèle</span><i>✳</i><span>Atelier Terrah</span><i>✳</i><span>Nour El Kamel</span><i>✳</i><span>Ferrana Mines</span><i>✳</i><span>Ghoula Games</span><i>✳</i><span>Adam Rekik</span><i>✳</i><span>Table Yasmina</span><i>✳</i><span>Sable Noir Films</span><i>✳</i><span>Studio Kif-Kif</span><i>✳</i><span>Ciel de Douz</span><i>✳</i><span>Inès Morel</span><i>✳</i><span>Studio Bruit Poli</span><i>✳</i><span>Sakina Studio</span><i>✳</i><span>Karim Souissi</span><i>✳</i><span>Nūr Objects</span><i>✳</i><span>Studio Zéro Douze</span><i>✳</i><span>Ombre &amp; Lumière</span><i>✳</i><span>Acier Carthage</span><i>✳</i><span>Maison Zéphyr</span><i>✳</i><span>Rivage Immobilier</span><i>✳</i><span>Leïla Gharbi</span><i>✳</i><span>Dix-Sept Collective</span><i>✳</i><span>Forme Nouvelle</span><i>✳</i><span>Sami Mabrouk</span><i>✳</i><span>Perpetua Sneakers</span><i>✳</i><span>Escale Voyages</span><i>✳</i><span>Glacier Bambalouni</span><i>✳</i><span>Dar Zitouna</span><i>✳</i><span>Yasmine Belkadi</span><i>✳</i><span>Dr. Selma Haddad</span><i>✳</i><span>Ligne Inox</span><i>✳</i><span>Maison Aurèle</span><i>✳</i><span>Atelier Terrah</span><i>✳</i><span>Nour El Kamel</span><i>✳</i><span>Ferrana Mines</span><i>✳</i><span>Ghoula Games</span><i>✳</i><span>Adam Rekik</span><i>✳</i><span>Table Yasmina</span><i>✳</i><span>Sable Noir Films</span><i>✳</i><span>Studio Kif-Kif</span><i>✳</i><span>Ciel de Douz</span><i>✳</i><span>Inès Morel</span><i>✳</i><span>Studio Bruit Poli</span><i>✳</i><span>Sakina Studio</span><i>✳</i><span>Karim Souissi</span><i>✳</i><span>Nūr Objects</span><i>✳</i><span>Studio Zéro Douze</span><i>✳</i><span>Ombre &amp; Lumière</span><i>✳</i><span>Acier Carthage</span><i>✳</i><span>Maison Zéphyr</span><i>✳</i><span>Rivage Immobilier</span><i>✳</i><span>Leïla Gharbi</span><i>✳</i><span>Dix-Sept Collective</span><i>✳</i><span>Forme Nouvelle</span><i>✳</i><span>Sami Mabrouk</span><i>✳</i><span>Perpetua Sneakers</span><i>✳</i><span>Escale Voyages</span><i>✳</i><span>Glacier Bambalouni</span><i>✳</i><span>Dar Zitouna</span><i>✳</i></div></div>
       </section>
 
-      <section class="statement" id="why" data-gl="dunes" data-gl-dim="0.3">
+      <section class="statement" id="why">
         <div class="shell">
           <h2 class="visually-hidden">Why choose KOYOTEC</h2>
-          <p class="statement-text" data-words><span class="stamp" aria-hidden="true"><span>KYT</span><span>Why us</span></span> KOYOTEC is a digital agency based in Tunis. We build fast, custom <span class="highlight">websites</span>, memorable <span class="highlight">brand identities</span> and digital strategies that bring in real customers. <svg class="g g-howl" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M2 20c3-9 6-9 9 0s6 9 9 0 6-9 9 0 6 9 9 0"/></svg></p>
+          <p class="statement-text">KOYOTEC is a digital agency based in Tunis. We build fast, custom <span class="highlight">websites</span>, memorable <span class="highlight">brand identities</span> and digital strategies that bring in real customers.</p>
           <div class="statement-foot">
             <div class="statement-copy"><p>Whether you are launching a business or modernizing your online presence, we handle the whole project: logo, brand guidelines, interface design, development and launch.</p><p>Every site we deliver is built for Google from day one: clear structure, fast pages, polished mobile experience and content optimized for search engines (SEO).</p><p>Our team works from Ennasr, Tunis, with Tunisian and international companies, in French, Arabic and English.</p></div>
             <ul class="link-list">
@@ -258,20 +182,7 @@
         </div>
       </section>
 
-      <section class="careers-teaser" id="careers" data-gl="constellation" data-gl-dim="0.3">
-        <div class="ct-marquee" aria-hidden="true"><div class="ct-marquee-track"><span>Join the pack</span><i>✳</i><span>Join the pack</span><i>✳</i><span>Join the pack</span><i>✳</i><span>Join the pack</span><i>✳</i><span>Join the pack</span><i>✳</i><span>Join the pack</span><i>✳</i><span>Join the pack</span><i>✳</i><span>Join the pack</span><i>✳</i></div></div>
-        <div class="shell">
-          <div class="label-row" data-line><span>Careers (02)</span><span class="label-lead">Developers, designers, cloud or data engineers: send us a spontaneous application, we read every single one.</span></div>
-          <h2 class="ct-title" data-split>We’re hiring, on the Digital and the Engineering side</h2>
-          <ol class="ct-list">
-            <li data-line><a class="ct-pole" href="/en/careers?pole=digital#postuler" data-pole-shape="browser" data-cursor="Write"><span class="svc-num">01</span><span class="ct-name">Digital</span><span class="ct-disc">Web development · UI/UX design · Branding · SEO · E-commerce · Digital strategy</span><span class="ct-go">Apply to Digital <svg class="g g-arrow" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M8 32 32 8M14 8h18v18"/></svg></span></a></li>
-            <li data-line><a class="ct-pole" href="/en/careers?pole=engineering#postuler" data-pole-shape="chip" data-cursor="Write"><span class="svc-num">02</span><span class="ct-name">Engineering</span><span class="ct-disc">Artificial intelligence · Cloud · DevOps · Cybersecurity · Business intelligence</span><span class="ct-go">Apply to Engineering <svg class="g g-arrow" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M8 32 32 8M14 8h18v18"/></svg></span></a></li>
-          </ol>
-          <p class="svc-more"><a class="tlink" href="/en/careers"><span class="tlink-label">See the careers page</span><span class="tlink-arrow" aria-hidden="true">→</span></a></p>
-        </div>
-      </section>
-
-      <section class="table-sec" id="process" data-gl="constellation" data-gl-dim="0.5">
+      <section class="table-sec" id="process">
         <div class="shell">
           <div class="sec-head" data-line><h2 class="sec-title" id="process-h" data-split>How we work</h2><span class="sec-count" aria-hidden="true">(04)</span></div>
           <ol class="rows">
@@ -283,7 +194,7 @@
         </div>
       </section>
 
-      <section class="table-sec faq" id="faq" data-gl="constellation" data-gl-dim="0.3">
+      <section class="table-sec faq" id="faq">
         <div class="shell">
           <div class="sec-head" data-line><h2 class="sec-title" id="faq-h" data-split>Frequently asked questions</h2><span class="sec-count" aria-hidden="true">(05)</span></div>
           <div class="faq-list">
@@ -296,12 +207,15 @@
         </div>
       </section>
 
-      <section class="cta" id="contact-cta" data-gl="orbit" data-gl-dim="0.45">
+      <section class="cta home-pick" id="contact-cta" aria-labelledby="pick-h">
         <div class="shell">
           <p class="cta-kicker">Free quote within 24 hours.</p>
-          <a class="cta-giant" href="/en/contact" data-cursor="Write" data-track="quote-cta" data-track-place="cta-giant"><span class="cta-word">Let's talk →</span></a>
+          <h2 class="pick-h" id="pick-h">Where do we start?</h2>
+          <ul class="pick-list">
+            <li><a class="pick-row" href="/en/contact" data-track="quote-cta" data-track-place="home-pick"><span class="pick-label">A website, a logo or SEO</span><span class="pick-go" aria-hidden="true">→</span></a></li>
+            <li><a class="pick-row pick-eng" href="/engineering/en/contact/" data-track="eng-contact-cta" data-track-place="home-pick" data-barba-prevent><span class="pick-label">Cloud, DevOps or AI</span><span class="pick-go" aria-hidden="true">→</span></a></li>
+          </ul>
           <div class="cta-links">
-            <a class="tlink" href="/en/contact" data-track="quote-cta" data-track-place="cta"><span class="tlink-label">Request your free quote</span><span class="tlink-arrow" aria-hidden="true">→</span></a>
             <a class="tlink" href="https://wa.me/21652405699?text=Hello%20KOYOTEC%2C%20I'd%20like%20a%20quote." target="_blank" rel="noopener" data-barba-prevent data-track="whatsapp" data-track-place="cta"><span class="tlink-label">Chat on WhatsApp</span><span class="tlink-arrow" aria-hidden="true">→</span></a>
             <a class="tlink" href="tel:+21652405699" data-track="phone" data-track-place="cta"><span class="tlink-label">+216 52 405 699</span><span class="tlink-arrow" aria-hidden="true">→</span></a>
           </div>

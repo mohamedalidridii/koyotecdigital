@@ -25,7 +25,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="#0d0d0d" />
     <meta name="author" content="KOYOTEC" />
-    <script>(function(d){var e=d.documentElement;e.classList.replace("no-js","js");if(matchMedia("(prefers-reduced-motion: reduce)").matches)e.classList.add("is-reduced");var h=location.pathname;if(h!=="/"&&h!=="/index.html"&&h!=="/en"&&h!=="/en/")e.classList.add("pre-seen");try{if(sessionStorage.getItem("koy-pre"))e.classList.add("pre-seen")}catch(_){}})(document)</script>
+    <script>(function(d){var e=d.documentElement;e.classList.replace("no-js","js");if(matchMedia("(prefers-reduced-motion: reduce)").matches)e.classList.add("is-reduced")})(document)</script>
     <link rel="preload" href="/fonts/instrument-serif-400.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/geist-variable.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/css/main.css" />
@@ -36,39 +36,15 @@
 <body>
   <a class="skip-link" href="#main">Aller au contenu</a>
   <a class="wa-float" href="https://wa.me/21652405699?text=Bonjour%20KOYOTEC%2C%20je%20souhaite%20un%20devis." target="_blank" rel="noopener" data-barba-prevent aria-label="Discuter sur WhatsApp" data-track="whatsapp" data-track-place="float"><svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg><span class="wa-float-label">Discuter sur WhatsApp</span></a>
-  <canvas class="gl" id="gl" aria-hidden="true"></canvas>
-  <div class="gl-fallback" aria-hidden="true"></div>
-  <div class="grain" aria-hidden="true"></div>
-  <div class="cursor" aria-hidden="true"><span class="cursor-dot"></span><span class="cursor-label"></span></div>
-  <div class="curtain" aria-hidden="true"><div class="curtain-panel"></div><p class="curtain-label"></p></div>
-  <div class="preloader" aria-hidden="true">
-    <svg class="pl-svg" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <clipPath id="pl-clip"><rect width="250" height="194.5"/></clipPath>
-        <mask id="pl-hole" maskUnits="userSpaceOnUse">
-          <rect class="pl-fill" fill="#fff"/>
-          <g class="pl-cut" opacity="0"><g class="pl-strokes" clip-path="url(#pl-clip)" stroke="#000"><path pathLength="1" d="M220.5 10C175.75 9.25 132.75 31 92 90.25L19.66 206"/><path pathLength="1" d="M79 1.5V72.5M80 112V206"/><path pathLength="1" d="M142.1 106L233.1 206"/><path class="logo-bar" pathLength="1" d="M1 104H246"/></g></g>
-        </mask>
-      </defs>
-      <rect class="pl-paper pl-fill" mask="url(#pl-hole)"/>
-      <g class="pl-ink"><g class="pl-strokes" clip-path="url(#pl-clip)"><path pathLength="1" d="M220.5 10C175.75 9.25 132.75 31 92 90.25L19.66 206"/><path pathLength="1" d="M79 1.5V72.5M80 112V206"/><path pathLength="1" d="M142.1 106L233.1 206"/><path class="logo-bar" pathLength="1" d="M1 104H246"/></g></g>
-    </svg>
-    <span class="pl-dot"></span>
-    <p class="pl-top"><span>KOYOTEC&reg;</span><span>36.8652 / 10.1714</span></p>
-    <div class="pl-bottom">
-      <p class="pl-odo"><span class="odo-col"><span class="odo-strip"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="odo-col"><span class="odo-strip"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="odo-col"><span class="odo-strip"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span></span></span><span class="odo-pct">%</span></p>
-      <p class="pl-words"><span class="pl-words-strip"><span>Création de site web</span><span>Identité visuelle &amp; logo</span><span>Référencement SEO</span><span>Design UI/UX</span><span>Boutique en ligne</span><span>Stratégie digitale</span></span></p>
-    </div>
-  </div>
   <div data-barba="wrapper">
   <div class="page" data-barba="container" data-barba-namespace="art">
     <header class="site-nav">
       <a class="brand" href="/" aria-label="KOYOTEC — Accueil"><svg class="logo-mark" viewBox="0 0 250 195" aria-hidden="true" focusable="false"><defs><clipPath id="kb-nav"><rect width="250" height="194.5"/></clipPath></defs><g class="logo-strokes" clip-path="url(#kb-nav)"><path pathLength="1" d="M220.5 10C175.75 9.25 132.75 31 92 90.25L19.66 206"/><path pathLength="1" d="M79 1.5V72.5M80 112V206"/><path pathLength="1" d="M142.1 106L233.1 206"/><path class="logo-bar" pathLength="1" d="M1 104H246"/></g><rect class="logo-dot" x="232" y="2" width="18" height="18"/></svg><span class="brand-name">KOYOTEC<sup>&reg;</sup></span></a>
-      <nav class="nav-main" aria-label="Menu"><ul class="nav-links"><li><a href="/services">Services</a></li><li><a href="/projets">Projets</a></li><li><a href="/engineering/" data-barba-prevent>Ingénierie</a></li><li><a href="/blog">Blog</a></li><li><a href="/contact">Contact</a></li></ul><a class="nav-art" href="/art-de-la-difference" aria-current="page"><i class="nav-art-dot" aria-hidden="true"></i>L’art de la différence</a></nav>
+      <nav class="nav-main" aria-label="Menu"><ul class="nav-links"><li><a href="/services">Services</a></li><li><a href="/projets">Projets</a></li><li><a href="/engineering/" data-barba-prevent>Ingénierie</a></li><li><a href="/blog">Blog</a></li><li><a href="/contact">Contact</a></li></ul></nav>
       <div class="nav-right">
         <a class="lang" href="/en/art-of-difference" hreflang="en" lang="en">EN</a>
-        <a class="nav-founder" href="/medalydridi" data-magnetic aria-label="Mohamed Ali Dridi · Rencontrer le fondateur"><img src="/founder/avatar.webp" alt="Mohamed Ali Dridi" width="28" height="28" /><span class="nav-founder-label" aria-hidden="true"><span>Med Ali</span><span>Rencontrer le fondateur →</span></span><i class="nav-founder-dot" aria-hidden="true"></i></a>
-        <a class="nav-cta" href="/contact" data-magnetic data-track="quote-cta" data-track-place="nav"><span>Devis gratuit</span><svg class="g g-arrow" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M8 32 32 8M14 8h18v18"/></svg></a>
+        <a class="nav-founder" href="/medalydridi" aria-label="Mohamed Ali Dridi · Rencontrer le fondateur"><img src="/founder/avatar.webp" alt="Mohamed Ali Dridi" width="28" height="28" /><span class="nav-founder-label" aria-hidden="true"><span>Med Ali</span><span>Rencontrer le fondateur →</span></span><i class="nav-founder-dot" aria-hidden="true"></i></a>
+        <a class="nav-cta" href="/contact" data-track="quote-cta" data-track-place="nav"><span>Devis gratuit</span><svg class="g g-arrow" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M8 32 32 8M14 8h18v18"/></svg></a>
         <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-btn-label" data-open="Menu" data-close="Fermer">Menu</span></button>
       </div>
     </header>
@@ -104,7 +80,7 @@
     </div>
 
     <main id="main">
-      <section class="art-hero" data-gl="off">
+      <section class="art-hero">
         <div class="shell">
           <p class="lockup-brand art-brand"><span class="stamp" aria-hidden="true"><span>Concepts</span><span>31</span></span> <span>Concepts &amp; études réalisés par KOYOTEC.</span></p>
           <h1 class="art-title"><span class="art-title-a">L’art de la</span> <span class="art-word" aria-label="différence"><span aria-hidden="true"><span class="art-l">d</span><span class="art-l">i</span><span class="art-l">f</span><span class="art-l">f</span><span class="art-l">é</span><span class="art-l">r</span><span class="art-l">e</span><span class="art-l">n</span><span class="art-l">c</span><span class="art-l">e</span></span></span></h1>
@@ -116,7 +92,7 @@
         <p class="scroll-cue art-cue" aria-hidden="true">Faites défiler l’exposition →</p>
       </section>
 
-      <section class="art-expo" aria-label="L’art de la différence" data-gl="off">
+      <section class="art-expo" aria-label="L’art de la différence">
         <div class="art-bar shell">
           <div class="art-filters" role="group" aria-label="Concepts"><button class="art-filter" type="button" data-filter="all" aria-pressed="true">Tous <sup>31</sup></button><button class="art-filter" type="button" data-filter="entreprise" aria-pressed="false">Entreprises <sup>23</sup></button><button class="art-filter" type="button" data-filter="personal" aria-pressed="false">Personal branding <sup>08</sup></button></div>
           <a class="art-mesh-link" href="/projets"><i class="nav-art-dot" aria-hidden="true"></i>Vue en maillage 3D →</a>
@@ -125,7 +101,7 @@
         <div class="art-stage">
           <ol class="art-track">
             <li class="art-piece" data-kind="personal" style="--accent:#e8a33d">
-              <a class="art-card" href="/art-de-la-difference/yasmine-belkadi/" target="_blank" rel="noopener" data-barba-prevent data-slug="yasmine-belkadi" data-case="/art-de-la-difference/etude/yasmine-belkadi" data-cursor="Entrer">
+              <a class="art-card" href="/art-de-la-difference/yasmine-belkadi/" target="_blank" rel="noopener" data-barba-prevent data-slug="yasmine-belkadi" data-case="/art-de-la-difference/etude/yasmine-belkadi">
                 <span class="art-frame">
                   <img class="art-poster" src="/art/previews/yasmine-belkadi.webp" alt="Pièce 01 : Yasmine Belkadi, Nutritionniste" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/yasmine-belkadi.webm" data-mp4="/art/previews/yasmine-belkadi.mp4"></video>
@@ -138,7 +114,7 @@
               <a class="art-case-link" href="/art-de-la-difference/etude/yasmine-belkadi" data-barba-prevent data-track="case-open" data-track-project="yasmine-belkadi">Lire l'étude de cas →</a>
             </li>
             <li class="art-piece" data-kind="personal" style="--accent:#7fa65a">
-              <a class="art-card" href="/art-de-la-difference/selma-haddad/" target="_blank" rel="noopener" data-barba-prevent data-slug="selma-haddad" data-case="/art-de-la-difference/etude/selma-haddad" data-cursor="Entrer">
+              <a class="art-card" href="/art-de-la-difference/selma-haddad/" target="_blank" rel="noopener" data-barba-prevent data-slug="selma-haddad" data-case="/art-de-la-difference/etude/selma-haddad">
                 <span class="art-frame">
                   <img class="art-poster" src="/art/previews/selma-haddad.webp" alt="Pièce 02 : Dr. Selma Haddad, Diététicienne" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/selma-haddad.webm" data-mp4="/art/previews/selma-haddad.mp4"></video>
@@ -151,7 +127,7 @@
               <a class="art-case-link" href="/art-de-la-difference/etude/selma-haddad" data-barba-prevent data-track="case-open" data-track-project="selma-haddad">Lire l'étude de cas →</a>
             </li>
             <li class="art-piece" data-kind="entreprise" style="--accent:#e2231a">
-              <a class="art-card" href="/art-de-la-difference/ligne-inox/" target="_blank" rel="noopener" data-barba-prevent data-slug="ligne-inox" data-case="/art-de-la-difference/etude/ligne-inox" data-cursor="Entrer">
+              <a class="art-card" href="/art-de-la-difference/ligne-inox/" target="_blank" rel="noopener" data-barba-prevent data-slug="ligne-inox" data-case="/art-de-la-difference/etude/ligne-inox">
                 <span class="art-frame">
                   <img class="art-poster" src="/art/previews/ligne-inox.webp" alt="Pièce 03 : Ligne Inox, Bureau d’études cuisines &amp; buanderies" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/ligne-inox.webm" data-mp4="/art/previews/ligne-inox.mp4"></video>
@@ -164,7 +140,7 @@
               <a class="art-case-link" href="/art-de-la-difference/etude/ligne-inox" data-barba-prevent data-track="case-open" data-track-project="ligne-inox">Lire l'étude de cas →</a>
             </li>
             <li class="art-piece" data-kind="entreprise" style="--accent:#c9a45c">
-              <a class="art-card" href="/art-de-la-difference/maison-aurele/" target="_blank" rel="noopener" data-barba-prevent data-slug="maison-aurele" data-case="/art-de-la-difference/etude/maison-aurele" data-cursor="Entrer">
+              <a class="art-card" href="/art-de-la-difference/maison-aurele/" target="_blank" rel="noopener" data-barba-prevent data-slug="maison-aurele" data-case="/art-de-la-difference/etude/maison-aurele">
                 <span class="art-frame">
                   <img class="art-poster" src="/art/previews/maison-aurele.webp" alt="Pièce 04 : Maison Aurèle, Haute couture" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/maison-aurele.webm" data-mp4="/art/previews/maison-aurele.mp4"></video>
@@ -177,7 +153,7 @@
               <a class="art-case-link" href="/art-de-la-difference/etude/maison-aurele" data-barba-prevent data-track="case-open" data-track-project="maison-aurele">Lire l'étude de cas →</a>
             </li>
             <li class="art-piece" data-kind="entreprise" style="--accent:#b08a63">
-              <a class="art-card" href="/art-de-la-difference/atelier-terrah/" target="_blank" rel="noopener" data-barba-prevent data-slug="atelier-terrah" data-case="/art-de-la-difference/etude/atelier-terrah" data-cursor="Entrer">
+              <a class="art-card" href="/art-de-la-difference/atelier-terrah/" target="_blank" rel="noopener" data-barba-prevent data-slug="atelier-terrah" data-case="/art-de-la-difference/etude/atelier-terrah">
                 <span class="art-frame">
                   <img class="art-poster" src="/art/previews/atelier-terrah.webp" alt="Pièce 05 : Atelier Terrah, Architecture d'intérieur" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/atelier-terrah.webm" data-mp4="/art/previews/atelier-terrah.mp4"></video>
@@ -190,7 +166,7 @@
               <a class="art-case-link" href="/art-de-la-difference/etude/atelier-terrah" data-barba-prevent data-track="case-open" data-track-project="atelier-terrah">Lire l'étude de cas →</a>
             </li>
             <li class="art-piece" data-kind="personal" style="--accent:#e4572e">
-              <a class="art-card" href="/art-de-la-difference/nour-el-kamel/" target="_blank" rel="noopener" data-barba-prevent data-slug="nour-el-kamel" data-case="/art-de-la-difference/etude/nour-el-kamel" data-cursor="Entrer">
+              <a class="art-card" href="/art-de-la-difference/nour-el-kamel/" target="_blank" rel="noopener" data-barba-prevent data-slug="nour-el-kamel" data-case="/art-de-la-difference/etude/nour-el-kamel">
                 <span class="art-frame">
                   <img class="art-poster" src="/art/previews/nour-el-kamel.webp" alt="Pièce 06 : Nour El Kamel, Speaker &amp; média" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/nour-el-kamel.webm" data-mp4="/art/previews/nour-el-kamel.mp4"></video>
@@ -203,7 +179,7 @@
               <a class="art-case-link" href="/art-de-la-difference/etude/nour-el-kamel" data-barba-prevent data-track="case-open" data-track-project="nour-el-kamel">Lire l'étude de cas →</a>
             </li>
             <li class="art-piece" data-kind="entreprise" style="--accent:#d36b2c">
-              <a class="art-card" href="/art-de-la-difference/ferrana-mines/" target="_blank" rel="noopener" data-barba-prevent data-slug="ferrana-mines" data-case="/art-de-la-difference/etude/ferrana-mines" data-cursor="Entrer">
+              <a class="art-card" href="/art-de-la-difference/ferrana-mines/" target="_blank" rel="noopener" data-barba-prevent data-slug="ferrana-mines" data-case="/art-de-la-difference/etude/ferrana-mines">
                 <span class="art-frame">
                   <img class="art-poster" src="/art/previews/ferrana-mines.webp" alt="Pièce 07 : Ferrana Mines, Mines &amp; métaux" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/ferrana-mines.webm" data-mp4="/art/previews/ferrana-mines.mp4"></video>
@@ -216,7 +192,7 @@
               <a class="art-case-link" href="/art-de-la-difference/etude/ferrana-mines" data-barba-prevent data-track="case-open" data-track-project="ferrana-mines">Lire l'étude de cas →</a>
             </li>
             <li class="art-piece" data-kind="entreprise" style="--accent:#d7ff3a">
-              <a class="art-card" href="/art-de-la-difference/ghoula-games/" target="_blank" rel="noopener" data-barba-prevent data-slug="ghoula-games" data-case="/art-de-la-difference/etude/ghoula-games" data-cursor="Entrer">
+              <a class="art-card" href="/art-de-la-difference/ghoula-games/" target="_blank" rel="noopener" data-barba-prevent data-slug="ghoula-games" data-case="/art-de-la-difference/etude/ghoula-games">
                 <span class="art-frame">
                   <img class="art-poster" src="/art/previews/ghoula-games.webp" alt="Pièce 08 : Ghoula Games, Studio de jeux vidéo" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/ghoula-games.webm" data-mp4="/art/previews/ghoula-games.mp4"></video>
@@ -229,7 +205,7 @@
               <a class="art-case-link" href="/art-de-la-difference/etude/ghoula-games" data-barba-prevent data-track="case-open" data-track-project="ghoula-games">Lire l'étude de cas →</a>
             </li>
             <li class="art-piece" data-kind="personal" style="--accent:#f2f2f2">
-              <a class="art-card" href="/art-de-la-difference/adam-rekik/" target="_blank" rel="noopener" data-barba-prevent data-slug="adam-rekik" data-case="/art-de-la-difference/etude/adam-rekik" data-cursor="Entrer">
+              <a class="art-card" href="/art-de-la-difference/adam-rekik/" target="_blank" rel="noopener" data-barba-prevent data-slug="adam-rekik" data-case="/art-de-la-difference/etude/adam-rekik">
                 <span class="art-frame">
                   <img class="art-poster" src="/art/previews/adam-rekik.webp" alt="Pièce 09 : Adam Rekik, Designer indépendant" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/adam-rekik.webm" data-mp4="/art/previews/adam-rekik.mp4"></video>
@@ -242,7 +218,7 @@
               <a class="art-case-link" href="/art-de-la-difference/etude/adam-rekik" data-barba-prevent data-track="case-open" data-track-project="adam-rekik">Lire l'étude de cas →</a>
             </li>
             <li class="art-piece" data-kind="entreprise" style="--accent:#e9e1d3">
-              <a class="art-card" href="/art-de-la-difference/table-yasmina/" target="_blank" rel="noopener" data-barba-prevent data-slug="table-yasmina" data-case="/art-de-la-difference/etude/table-yasmina" data-cursor="Entrer">
+              <a class="art-card" href="/art-de-la-difference/table-yasmina/" target="_blank" rel="noopener" data-barba-prevent data-slug="table-yasmina" data-case="/art-de-la-difference/etude/table-yasmina">
                 <span class="art-frame">
                   <img class="art-poster" src="/art/previews/table-yasmina.webp" alt="Pièce 10 : Table Yasmina, Restaurant" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/table-yasmina.webm" data-mp4="/art/previews/table-yasmina.mp4"></video>
@@ -255,7 +231,7 @@
               <a class="art-case-link" href="/art-de-la-difference/etude/table-yasmina" data-barba-prevent data-track="case-open" data-track-project="table-yasmina">Lire l'étude de cas →</a>
             </li>
             <li class="art-piece" data-kind="entreprise" style="--accent:#ff3b1f">
-              <a class="art-card" href="/art-de-la-difference/sable-noir-films/" target="_blank" rel="noopener" data-barba-prevent data-slug="sable-noir-films" data-case="/art-de-la-difference/etude/sable-noir-films" data-cursor="Entrer">
+              <a class="art-card" href="/art-de-la-difference/sable-noir-films/" target="_blank" rel="noopener" data-barba-prevent data-slug="sable-noir-films" data-case="/art-de-la-difference/etude/sable-noir-films">
                 <span class="art-frame">
                   <img class="art-poster" src="/art/previews/sable-noir-films.webp" alt="Pièce 11 : Sable Noir Films, Production audiovisuelle" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/sable-noir-films.webm" data-mp4="/art/previews/sable-noir-films.mp4"></video>
@@ -268,7 +244,7 @@
               <a class="art-case-link" href="/art-de-la-difference/etude/sable-noir-films" data-barba-prevent data-track="case-open" data-track-project="sable-noir-films">Lire l'étude de cas →</a>
             </li>
             <li class="art-piece" data-kind="entreprise" style="--accent:#ff5c8a">
-              <a class="art-card" href="/art-de-la-difference/studio-kif-kif/" target="_blank" rel="noopener" data-barba-prevent data-slug="studio-kif-kif" data-case="/art-de-la-difference/etude/studio-kif-kif" data-cursor="Entrer">
+              <a class="art-card" href="/art-de-la-difference/studio-kif-kif/" target="_blank" rel="noopener" data-barba-prevent data-slug="studio-kif-kif" data-case="/art-de-la-difference/etude/studio-kif-kif">
                 <span class="art-frame">
                   <img class="art-poster" src="/art/previews/studio-kif-kif.webp" alt="Pièce 12 : Studio Kif-Kif, Studio d'illustration" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/studio-kif-kif.webm" data-mp4="/art/previews/studio-kif-kif.mp4"></video>
@@ -281,7 +257,7 @@
               <a class="art-case-link" href="/art-de-la-difference/etude/studio-kif-kif" data-barba-prevent data-track="case-open" data-track-project="studio-kif-kif">Lire l'étude de cas →</a>
             </li>
             <li class="art-piece" data-kind="entreprise" style="--accent:#8fb3ff">
-              <a class="art-card" href="/art-de-la-difference/ciel-de-douz/" target="_blank" rel="noopener" data-barba-prevent data-slug="ciel-de-douz" data-case="/art-de-la-difference/etude/ciel-de-douz" data-cursor="Entrer">
+              <a class="art-card" href="/art-de-la-difference/ciel-de-douz/" target="_blank" rel="noopener" data-barba-prevent data-slug="ciel-de-douz" data-case="/art-de-la-difference/etude/ciel-de-douz">
                 <span class="art-frame">
                   <img class="art-poster" src="/art/previews/ciel-de-douz.webp" alt="Pièce 13 : Ciel de Douz, Astrotourisme" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/ciel-de-douz.webm" data-mp4="/art/previews/ciel-de-douz.mp4"></video>
@@ -294,7 +270,7 @@
               <a class="art-case-link" href="/art-de-la-difference/etude/ciel-de-douz" data-barba-prevent data-track="case-open" data-track-project="ciel-de-douz">Lire l'étude de cas →</a>
             </li>
             <li class="art-piece" data-kind="personal" style="--accent:#ffd23f">
-              <a class="art-card" href="/art-de-la-difference/ines-morel/" target="_blank" rel="noopener" data-barba-prevent data-slug="ines-morel" data-case="/art-de-la-difference/etude/ines-morel" data-cursor="Entrer">
+              <a class="art-card" href="/art-de-la-difference/ines-morel/" target="_blank" rel="noopener" data-barba-prevent data-slug="ines-morel" data-case="/art-de-la-difference/etude/ines-morel">
                 <span class="art-frame">
                   <img class="art-poster" src="/art/previews/ines-morel.webp" alt="Pièce 14 : Inès Morel, Directrice artistique" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/ines-morel.webm" data-mp4="/art/previews/ines-morel.mp4"></video>
@@ -307,7 +283,7 @@
               <a class="art-case-link" href="/art-de-la-difference/etude/ines-morel" data-barba-prevent data-track="case-open" data-track-project="ines-morel">Lire l'étude de cas →</a>
             </li>
             <li class="art-piece" data-kind="entreprise" style="--accent:#9c7bff">
-              <a class="art-card" href="/art-de-la-difference/bruit-poli/" target="_blank" rel="noopener" data-barba-prevent data-slug="bruit-poli" data-case="/art-de-la-difference/etude/bruit-poli" data-cursor="Entrer">
+              <a class="art-card" href="/art-de-la-difference/bruit-poli/" target="_blank" rel="noopener" data-barba-prevent data-slug="bruit-poli" data-case="/art-de-la-difference/etude/bruit-poli">
                 <span class="art-frame">
                   <img class="art-poster" src="/art/previews/bruit-poli.webp" alt="Pièce 15 : Studio Bruit Poli, Studio créatif" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/bruit-poli.webm" data-mp4="/art/previews/bruit-poli.mp4"></video>
@@ -320,7 +296,7 @@
               <a class="art-case-link" href="/art-de-la-difference/etude/bruit-poli" data-barba-prevent data-track="case-open" data-track-project="bruit-poli">Lire l'étude de cas →</a>
             </li>
             <li class="art-piece" data-kind="entreprise" style="--accent:#c2c8b4">
-              <a class="art-card" href="/art-de-la-difference/sakina-studio/" target="_blank" rel="noopener" data-barba-prevent data-slug="sakina-studio" data-case="/art-de-la-difference/etude/sakina-studio" data-cursor="Entrer">
+              <a class="art-card" href="/art-de-la-difference/sakina-studio/" target="_blank" rel="noopener" data-barba-prevent data-slug="sakina-studio" data-case="/art-de-la-difference/etude/sakina-studio">
                 <span class="art-frame">
                   <img class="art-poster" src="/art/previews/sakina-studio.webp" alt="Pièce 16 : Sakina Studio, Studio digital" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/sakina-studio.webm" data-mp4="/art/previews/sakina-studio.mp4"></video>
@@ -333,7 +309,7 @@
               <a class="art-case-link" href="/art-de-la-difference/etude/sakina-studio" data-barba-prevent data-track="case-open" data-track-project="sakina-studio">Lire l'étude de cas →</a>
             </li>
             <li class="art-piece" data-kind="personal" style="--accent:#ff2a00">
-              <a class="art-card" href="/art-de-la-difference/karim-souissi/" target="_blank" rel="noopener" data-barba-prevent data-slug="karim-souissi" data-case="/art-de-la-difference/etude/karim-souissi" data-cursor="Entrer">
+              <a class="art-card" href="/art-de-la-difference/karim-souissi/" target="_blank" rel="noopener" data-barba-prevent data-slug="karim-souissi" data-case="/art-de-la-difference/etude/karim-souissi">
                 <span class="art-frame">
                   <img class="art-poster" src="/art/previews/karim-souissi.webp" alt="Pièce 17 : Karim Souissi, Designer graphique" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/karim-souissi.webm" data-mp4="/art/previews/karim-souissi.mp4"></video>
@@ -346,7 +322,7 @@
               <a class="art-case-link" href="/art-de-la-difference/etude/karim-souissi" data-barba-prevent data-track="case-open" data-track-project="karim-souissi">Lire l'étude de cas →</a>
             </li>
             <li class="art-piece" data-kind="entreprise" style="--accent:#d9d4c7">
-              <a class="art-card" href="/art-de-la-difference/nur-objects/" target="_blank" rel="noopener" data-barba-prevent data-slug="nur-objects" data-case="/art-de-la-difference/etude/nur-objects" data-cursor="Entrer">
+              <a class="art-card" href="/art-de-la-difference/nur-objects/" target="_blank" rel="noopener" data-barba-prevent data-slug="nur-objects" data-case="/art-de-la-difference/etude/nur-objects">
                 <span class="art-frame">
                   <img class="art-poster" src="/art/previews/nur-objects.webp" alt="Pièce 18 : Nūr Objects, Boutique d'objets" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/nur-objects.webm" data-mp4="/art/previews/nur-objects.mp4"></video>
@@ -359,7 +335,7 @@
               <a class="art-case-link" href="/art-de-la-difference/etude/nur-objects" data-barba-prevent data-track="case-open" data-track-project="nur-objects">Lire l'étude de cas →</a>
             </li>
             <li class="art-piece" data-kind="entreprise" style="--accent:#00d1b2">
-              <a class="art-card" href="/art-de-la-difference/zero-douze/" target="_blank" rel="noopener" data-barba-prevent data-slug="zero-douze" data-case="/art-de-la-difference/etude/zero-douze" data-cursor="Entrer">
+              <a class="art-card" href="/art-de-la-difference/zero-douze/" target="_blank" rel="noopener" data-barba-prevent data-slug="zero-douze" data-case="/art-de-la-difference/etude/zero-douze">
                 <span class="art-frame">
                   <img class="art-poster" src="/art/previews/zero-douze.webp" alt="Pièce 19 : Studio Zéro Douze, Agence créative" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/zero-douze.webm" data-mp4="/art/previews/zero-douze.mp4"></video>
@@ -372,7 +348,7 @@
               <a class="art-case-link" href="/art-de-la-difference/etude/zero-douze" data-barba-prevent data-track="case-open" data-track-project="zero-douze">Lire l'étude de cas →</a>
             </li>
             <li class="art-piece" data-kind="entreprise" style="--accent:#f5e6c8">
-              <a class="art-card" href="/art-de-la-difference/ombre-et-lumiere/" target="_blank" rel="noopener" data-barba-prevent data-slug="ombre-et-lumiere" data-case="/art-de-la-difference/etude/ombre-et-lumiere" data-cursor="Entrer">
+              <a class="art-card" href="/art-de-la-difference/ombre-et-lumiere/" target="_blank" rel="noopener" data-barba-prevent data-slug="ombre-et-lumiere" data-case="/art-de-la-difference/etude/ombre-et-lumiere">
                 <span class="art-frame">
                   <img class="art-poster" src="/art/previews/ombre-et-lumiere.webp" alt="Pièce 20 : Ombre &amp; Lumière, Collectif photo" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/ombre-et-lumiere.webm" data-mp4="/art/previews/ombre-et-lumiere.mp4"></video>
@@ -385,7 +361,7 @@
               <a class="art-case-link" href="/art-de-la-difference/etude/ombre-et-lumiere" data-barba-prevent data-track="case-open" data-track-project="ombre-et-lumiere">Lire l'étude de cas →</a>
             </li>
             <li class="art-piece" data-kind="entreprise" style="--accent:#a3a9b0">
-              <a class="art-card" href="/art-de-la-difference/acier-carthage/" target="_blank" rel="noopener" data-barba-prevent data-slug="acier-carthage" data-case="/art-de-la-difference/etude/acier-carthage" data-cursor="Entrer">
+              <a class="art-card" href="/art-de-la-difference/acier-carthage/" target="_blank" rel="noopener" data-barba-prevent data-slug="acier-carthage" data-case="/art-de-la-difference/etude/acier-carthage">
                 <span class="art-frame">
                   <img class="art-poster" src="/art/previews/acier-carthage.webp" alt="Pièce 21 : Acier Carthage, Design industriel" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/acier-carthage.webm" data-mp4="/art/previews/acier-carthage.mp4"></video>
@@ -398,7 +374,7 @@
               <a class="art-case-link" href="/art-de-la-difference/etude/acier-carthage" data-barba-prevent data-track="case-open" data-track-project="acier-carthage">Lire l'étude de cas →</a>
             </li>
             <li class="art-piece" data-kind="entreprise" style="--accent:#e0d6c2">
-              <a class="art-card" href="/art-de-la-difference/maison-zephyr/" target="_blank" rel="noopener" data-barba-prevent data-slug="maison-zephyr" data-case="/art-de-la-difference/etude/maison-zephyr" data-cursor="Entrer">
+              <a class="art-card" href="/art-de-la-difference/maison-zephyr/" target="_blank" rel="noopener" data-barba-prevent data-slug="maison-zephyr" data-case="/art-de-la-difference/etude/maison-zephyr">
                 <span class="art-frame">
                   <img class="art-poster" src="/art/previews/maison-zephyr.webp" alt="Pièce 22 : Maison Zéphyr, Mode" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/maison-zephyr.webm" data-mp4="/art/previews/maison-zephyr.mp4"></video>
@@ -411,7 +387,7 @@
               <a class="art-case-link" href="/art-de-la-difference/etude/maison-zephyr" data-barba-prevent data-track="case-open" data-track-project="maison-zephyr">Lire l'étude de cas →</a>
             </li>
             <li class="art-piece" data-kind="entreprise" style="--accent:#c6a77a">
-              <a class="art-card" href="/art-de-la-difference/rivage-immobilier/" target="_blank" rel="noopener" data-barba-prevent data-slug="rivage-immobilier" data-case="/art-de-la-difference/etude/rivage-immobilier" data-cursor="Entrer">
+              <a class="art-card" href="/art-de-la-difference/rivage-immobilier/" target="_blank" rel="noopener" data-barba-prevent data-slug="rivage-immobilier" data-case="/art-de-la-difference/etude/rivage-immobilier">
                 <span class="art-frame">
                   <img class="art-poster" src="/art/previews/rivage-immobilier.webp" alt="Pièce 23 : Rivage Immobilier, Immobilier de prestige" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/rivage-immobilier.webm" data-mp4="/art/previews/rivage-immobilier.mp4"></video>
@@ -424,7 +400,7 @@
               <a class="art-case-link" href="/art-de-la-difference/etude/rivage-immobilier" data-barba-prevent data-track="case-open" data-track-project="rivage-immobilier">Lire l'étude de cas →</a>
             </li>
             <li class="art-piece" data-kind="personal" style="--accent:#e3c9a8">
-              <a class="art-card" href="/art-de-la-difference/leila-gharbi/" target="_blank" rel="noopener" data-barba-prevent data-slug="leila-gharbi" data-case="/art-de-la-difference/etude/leila-gharbi" data-cursor="Entrer">
+              <a class="art-card" href="/art-de-la-difference/leila-gharbi/" target="_blank" rel="noopener" data-barba-prevent data-slug="leila-gharbi" data-case="/art-de-la-difference/etude/leila-gharbi">
                 <span class="art-frame">
                   <img class="art-poster" src="/art/previews/leila-gharbi.webp" alt="Pièce 24 : Leïla Gharbi, Architecte" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/leila-gharbi.webm" data-mp4="/art/previews/leila-gharbi.mp4"></video>
@@ -437,7 +413,7 @@
               <a class="art-case-link" href="/art-de-la-difference/etude/leila-gharbi" data-barba-prevent data-track="case-open" data-track-project="leila-gharbi">Lire l'étude de cas →</a>
             </li>
             <li class="art-piece" data-kind="entreprise" style="--accent:#ff4d00">
-              <a class="art-card" href="/art-de-la-difference/dix-sept-collective/" target="_blank" rel="noopener" data-barba-prevent data-slug="dix-sept-collective" data-case="/art-de-la-difference/etude/dix-sept-collective" data-cursor="Entrer">
+              <a class="art-card" href="/art-de-la-difference/dix-sept-collective/" target="_blank" rel="noopener" data-barba-prevent data-slug="dix-sept-collective" data-case="/art-de-la-difference/etude/dix-sept-collective">
                 <span class="art-frame">
                   <img class="art-poster" src="/art/previews/dix-sept-collective.webp" alt="Pièce 25 : Dix-Sept Collective, Collectif créatif" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/dix-sept-collective.webm" data-mp4="/art/previews/dix-sept-collective.mp4"></video>
@@ -450,7 +426,7 @@
               <a class="art-case-link" href="/art-de-la-difference/etude/dix-sept-collective" data-barba-prevent data-track="case-open" data-track-project="dix-sept-collective">Lire l'étude de cas →</a>
             </li>
             <li class="art-piece" data-kind="entreprise" style="--accent:#bfc6ff">
-              <a class="art-card" href="/art-de-la-difference/forme-nouvelle/" target="_blank" rel="noopener" data-barba-prevent data-slug="forme-nouvelle" data-case="/art-de-la-difference/etude/forme-nouvelle" data-cursor="Entrer">
+              <a class="art-card" href="/art-de-la-difference/forme-nouvelle/" target="_blank" rel="noopener" data-barba-prevent data-slug="forme-nouvelle" data-case="/art-de-la-difference/etude/forme-nouvelle">
                 <span class="art-frame">
                   <img class="art-poster" src="/art/previews/forme-nouvelle.webp" alt="Pièce 26 : Forme Nouvelle, Galerie d'art" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/forme-nouvelle.webm" data-mp4="/art/previews/forme-nouvelle.mp4"></video>
@@ -463,7 +439,7 @@
               <a class="art-case-link" href="/art-de-la-difference/etude/forme-nouvelle" data-barba-prevent data-track="case-open" data-track-project="forme-nouvelle">Lire l'étude de cas →</a>
             </li>
             <li class="art-piece" data-kind="personal" style="--accent:#ffffff">
-              <a class="art-card" href="/art-de-la-difference/sami-mabrouk/" target="_blank" rel="noopener" data-barba-prevent data-slug="sami-mabrouk" data-case="/art-de-la-difference/etude/sami-mabrouk" data-cursor="Entrer">
+              <a class="art-card" href="/art-de-la-difference/sami-mabrouk/" target="_blank" rel="noopener" data-barba-prevent data-slug="sami-mabrouk" data-case="/art-de-la-difference/etude/sami-mabrouk">
                 <span class="art-frame">
                   <img class="art-poster" src="/art/previews/sami-mabrouk.webp" alt="Pièce 27 : Sami Mabrouk, Photographe" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/sami-mabrouk.webm" data-mp4="/art/previews/sami-mabrouk.mp4"></video>
@@ -476,7 +452,7 @@
               <a class="art-case-link" href="/art-de-la-difference/etude/sami-mabrouk" data-barba-prevent data-track="case-open" data-track-project="sami-mabrouk">Lire l'étude de cas →</a>
             </li>
             <li class="art-piece" data-kind="entreprise" style="--accent:#ff3d3d">
-              <a class="art-card" href="/art-de-la-difference/perpetua-sneakers/" target="_blank" rel="noopener" data-barba-prevent data-slug="perpetua-sneakers" data-case="/art-de-la-difference/etude/perpetua-sneakers" data-cursor="Entrer">
+              <a class="art-card" href="/art-de-la-difference/perpetua-sneakers/" target="_blank" rel="noopener" data-barba-prevent data-slug="perpetua-sneakers" data-case="/art-de-la-difference/etude/perpetua-sneakers">
                 <span class="art-frame">
                   <img class="art-poster" src="/art/previews/perpetua-sneakers.webp" alt="Pièce 28 : Perpetua Sneakers, Streetwear" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/perpetua-sneakers.webm" data-mp4="/art/previews/perpetua-sneakers.mp4"></video>
@@ -489,7 +465,7 @@
               <a class="art-case-link" href="/art-de-la-difference/etude/perpetua-sneakers" data-barba-prevent data-track="case-open" data-track-project="perpetua-sneakers">Lire l'étude de cas →</a>
             </li>
             <li class="art-piece" data-kind="entreprise" style="--accent:#4fc3d9">
-              <a class="art-card" href="/art-de-la-difference/escale-voyages/" target="_blank" rel="noopener" data-barba-prevent data-slug="escale-voyages" data-case="/art-de-la-difference/etude/escale-voyages" data-cursor="Entrer">
+              <a class="art-card" href="/art-de-la-difference/escale-voyages/" target="_blank" rel="noopener" data-barba-prevent data-slug="escale-voyages" data-case="/art-de-la-difference/etude/escale-voyages">
                 <span class="art-frame">
                   <img class="art-poster" src="/art/previews/escale-voyages.webp" alt="Pièce 29 : Escale Voyages, Agence de voyage" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/escale-voyages.webm" data-mp4="/art/previews/escale-voyages.mp4"></video>
@@ -502,7 +478,7 @@
               <a class="art-case-link" href="/art-de-la-difference/etude/escale-voyages" data-barba-prevent data-track="case-open" data-track-project="escale-voyages">Lire l'étude de cas →</a>
             </li>
             <li class="art-piece" data-kind="entreprise" style="--accent:#ff8ac2">
-              <a class="art-card" href="/art-de-la-difference/glacier-bambalouni/" target="_blank" rel="noopener" data-barba-prevent data-slug="glacier-bambalouni" data-case="/art-de-la-difference/etude/glacier-bambalouni" data-cursor="Entrer">
+              <a class="art-card" href="/art-de-la-difference/glacier-bambalouni/" target="_blank" rel="noopener" data-barba-prevent data-slug="glacier-bambalouni" data-case="/art-de-la-difference/etude/glacier-bambalouni">
                 <span class="art-frame">
                   <img class="art-poster" src="/art/previews/glacier-bambalouni.webp" alt="Pièce 30 : Glacier Bambalouni, Glacier artisanal" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/glacier-bambalouni.webm" data-mp4="/art/previews/glacier-bambalouni.mp4"></video>
@@ -515,7 +491,7 @@
               <a class="art-case-link" href="/art-de-la-difference/etude/glacier-bambalouni" data-barba-prevent data-track="case-open" data-track-project="glacier-bambalouni">Lire l'étude de cas →</a>
             </li>
             <li class="art-piece" data-kind="entreprise" style="--accent:#f0e442">
-              <a class="art-card" href="/art-de-la-difference/dar-zitouna/" target="_blank" rel="noopener" data-barba-prevent data-slug="dar-zitouna" data-case="/art-de-la-difference/etude/dar-zitouna" data-cursor="Entrer">
+              <a class="art-card" href="/art-de-la-difference/dar-zitouna/" target="_blank" rel="noopener" data-barba-prevent data-slug="dar-zitouna" data-case="/art-de-la-difference/etude/dar-zitouna">
                 <span class="art-frame">
                   <img class="art-poster" src="/art/previews/dar-zitouna.webp" alt="Pièce 31 : Dar Zitouna, Maison d'hôtes" width="1440" height="900" loading="lazy" decoding="async" />
                   <video class="art-video" muted loop playsinline preload="none" aria-hidden="true" data-webm="/art/previews/dar-zitouna.webm" data-mp4="/art/previews/dar-zitouna.mp4"></video>
@@ -545,10 +521,10 @@
         <div class="art-viewer-screen"><iframe title="L’art de la différence" loading="lazy" referrerpolicy="same-origin"></iframe></div>
       </dialog>
 
-      <section class="cta" id="contact-cta" data-gl="orbit" data-gl-dim="0.45">
+      <section class="cta" id="contact-cta">
         <div class="shell">
           <p class="cta-kicker">Votre marque mérite sa propre différence.</p>
-          <a class="cta-giant" href="/contact" data-cursor="Écrire" data-track="quote-cta" data-track-place="cta-giant"><span class="cta-word">Votre marque mérite sa propre différence.</span></a>
+          <a class="cta-giant" href="/contact" data-track="quote-cta" data-track-place="cta-giant"><span class="cta-word">Votre marque mérite sa propre différence.</span></a>
           <div class="cta-links">
             <a class="tlink" href="/contact" data-track="quote-cta" data-track-place="cta"><span class="tlink-label">Demander un devis gratuit</span><span class="tlink-arrow" aria-hidden="true">→</span></a>
             <a class="tlink" href="https://wa.me/21652405699?text=Bonjour%20KOYOTEC%2C%20je%20souhaite%20un%20devis." target="_blank" rel="noopener" data-barba-prevent data-track="whatsapp" data-track-place="cta"><span class="tlink-label">Discuter sur WhatsApp</span><span class="tlink-arrow" aria-hidden="true">→</span></a>

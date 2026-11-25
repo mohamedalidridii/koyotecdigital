@@ -211,7 +211,7 @@ ${altFr ? `    <link rel="alternate" hreflang="fr" href="${esc(SITE + altFr)}" /
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="${theme}" />
     <meta name="author" content="${esc(G.name)}" />
-    <script>(function(d){var e=d.documentElement;e.classList.replace("no-js","js");if(matchMedia("(prefers-reduced-motion: reduce)").matches)e.classList.add("is-reduced");var h=location.pathname;if(h!=="/"&&h!=="/index.html"&&h!=="/en"&&h!=="/en/")e.classList.add("pre-seen");try{if(sessionStorage.getItem("koy-pre"))e.classList.add("pre-seen")}catch(_){}})(document)</script>
+    <script>(function(d){var e=d.documentElement;e.classList.replace("no-js","js");if(matchMedia("(prefers-reduced-motion: reduce)").matches)e.classList.add("is-reduced")})(document)</script>
     <link rel="preload" href="/fonts/instrument-serif-400.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/geist-variable.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/css/main.css" />
@@ -247,6 +247,37 @@ ${G.analytics?.id ? `    <script defer src="${esc(G.analytics.src)}" data-websit
   const link = (href, label, extra = "") =>
     `<a class="tlink" href="${esc(href)}"${extra}><span class="tlink-label">${esc(label)}</span><span class="tlink-arrow" aria-hidden="true">→</span></a>`;
 
+  // ---------- 2026-11 redesign (LIFT): the first screen of a page ----------
+  // kicker (relevance) · H1 (the value; its text is unchanged) · one-line lede · one solid button + one text
+  // link (clarity) · price and reply line (urgency, anxiety) · proof facts · a real piece of work in its own
+  // column, never behind the text
+  const btn = (href, label, extra = "", cls = "btn-ink") =>
+    `<a class="${cls}" href="${esc(href)}"${extra}><span>${esc(label)}</span><span class="btn-arrow" aria-hidden="true">→</span></a>`;
+  const workFigure = (lang, p, place = "hero") => {
+    if (!p) return "";
+    const own = hasCase(lang, p) ? casePath(lang, p) : `/art-de-la-difference/${p.slug}/`;
+    const out = hasCase(lang, p) ? "" : ' target="_blank" rel="noopener" data-barba-prevent';
+    // in a hero the picture is often the largest element of the first screen (LCP): fetch it early
+    const prio = place === "hero" ? ' fetchpriority="high"' : ' loading="lazy"';
+    return `<figure class="lift-work"><a href="${own}"${out}${ev("concept-open", place)} data-track-project="${esc(p.slug)}"><img src="/art/previews/${p.slug}.webp" alt="${esc(`${p.client}, ${p[lang].sector}`)}" width="1440" height="900" decoding="async"${prio} /></a><figcaption><span class="lift-work-tag">${esc(site[lang].ui.concept)}</span> ${esc(p.client)} · ${esc(p[lang].sector)}</figcaption></figure>`;
+  };
+  const piece = (slug) => art.find((p) => p.slug === slug);
+  // the concept shown beside each service hero: a first screen that shows the kind of work at a glance
+  const HERO_PIECE = { services: "selma-haddad", lp_web: "rivage-immobilier", lp_branding: "maison-aurele", lp_seo: "dar-zitouna", lp_ecommerce: "perpetua-sneakers" };
+  const liftHero = ({ kicker, h1, sub, cta, secondary, note, proof = [], visual = "", cls = "" }) => `      <section class="page-hero lift${cls ? " " + cls : ""}">
+        <div class="shell lift-grid">
+          <div class="lift-main">
+            <p class="lift-kicker"><i aria-hidden="true"></i>${esc(kicker)}</p>
+            <h1 class="lift-h1" data-focus>${esc(h1)}</h1>
+            ${sub ? `<p class="lift-lede">${esc(sub)}</p>` : ""}
+            ${cta || secondary ? `<div class="lift-actions">${cta ? btn(cta[0], cta[1], (cta[2] || "") + " data-focus") : ""}${secondary ? link(secondary[0], secondary[1], secondary[2] || "") : ""}</div>` : ""}
+            ${note ? `<p class="lift-note">${esc(note)}</p>` : ""}
+          </div>${visual ? `
+          <div class="lift-visual">${visual}</div>` : ""}${proof.length ? `
+          <ul class="lift-proof">${proof.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
+        </div>
+      </section>`;
+
   // WhatsApp click-to-chat, prefilled; `topic` names the service the visitor is reading about
   const waUrl = (lang, topic = "") => {
     const text = site[lang].ui.wa_text + (topic ? `${lang === "fr" ? " : " : ": "}${topic}` : "") + ".";
@@ -259,35 +290,12 @@ ${G.analytics?.id ? `    <script defer src="${esc(G.analytics.src)}" data-websit
   const WA_OUT = ' target="_blank" rel="noopener" data-barba-prevent';
   const WA_ICON = '<svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>';
 
-  // persistent chrome that lives outside the swapped page: WebGL stage, cursor, transition curtain, preloader
+  // persistent chrome that lives outside the swapped page. 2026-11 redesign (LIFT): no WebGL stage, grain,
+  // custom cursor, transition curtain or preloader any more; only the skip link and the WhatsApp button.
   function chrome(lang) {
     const ui = site[lang].ui;
     return `  <a class="skip-link" href="#main">${SKIP[lang]}</a>
-  <a class="wa-float" href="${esc(waUrl(lang))}"${WA_OUT} aria-label="${esc(ui.wa_label)}"${ev("whatsapp", "float")}>${WA_ICON}<span class="wa-float-label">${esc(ui.wa_label)}</span></a>
-  <canvas class="gl" id="gl" aria-hidden="true"></canvas>
-  <div class="gl-fallback" aria-hidden="true"></div>
-  <div class="grain" aria-hidden="true"></div>
-  <div class="cursor" aria-hidden="true"><span class="cursor-dot"></span><span class="cursor-label"></span></div>
-  <div class="curtain" aria-hidden="true"><div class="curtain-panel"></div><p class="curtain-label"></p></div>
-  <div class="preloader" aria-hidden="true">
-    <svg class="pl-svg" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <clipPath id="pl-clip"><rect width="250" height="194.5"/></clipPath>
-        <mask id="pl-hole" maskUnits="userSpaceOnUse">
-          <rect class="pl-fill" fill="#fff"/>
-          <g class="pl-cut" opacity="0"><g class="pl-strokes" clip-path="url(#pl-clip)" stroke="#000">${logoPaths()}</g></g>
-        </mask>
-      </defs>
-      <rect class="pl-paper pl-fill" mask="url(#pl-hole)"/>
-      <g class="pl-ink"><g class="pl-strokes" clip-path="url(#pl-clip)">${logoPaths()}</g></g>
-    </svg>
-    <span class="pl-dot"></span>
-    <p class="pl-top"><span>${esc(G.name)}&reg;</span><span>${esc(G.latitude)} / ${esc(G.longitude)}</span></p>
-    <div class="pl-bottom">
-      <p class="pl-odo">${[0, 1, 2].map((c) => `<span class="odo-col"><span class="odo-strip">${[...Array(c === 2 ? 11 : 10).keys()].map((d) => `<span>${d % 10}</span>`).join("")}</span></span>`).join("")}<span class="odo-pct">%</span></p>
-      <p class="pl-words"><span class="pl-words-strip">${site[lang].home.cards.map(([n]) => `<span>${esc(n)}</span>`).join("")}</span></p>
-    </div>
-  </div>`;
+  <a class="wa-float" href="${esc(waUrl(lang))}"${WA_OUT} aria-label="${esc(ui.wa_label)}"${ev("whatsapp", "float")}>${WA_ICON}<span class="wa-float-label">${esc(ui.wa_label)}</span></a>`;
   }
 
   // mobile sticky bar (css/sections.css): last in the body, so keyboard and screen-reader users meet the page first
@@ -308,7 +316,6 @@ ${G.analytics?.id ? `    <script defer src="${esc(G.analytics.src)}" data-websit
     const links = ["services", "mesh", "engineering", "blog", "contact"]
       .map((k) => `<li><a href="${PATHS[k][i]}"${full(k)}${cur(k)}>${esc(ui.nav[k])}</a></li>`)
       .join("");
-    const artPill = `<a class="nav-art" href="${PATHS.art[i]}"${cur("art")}><i class="nav-art-dot" aria-hidden="true"></i>${esc(ui.nav.art)}</a>`;
     // full-screen menu: every page as a big serif line; the showcase gets its own card below the list
     const items = ["home", "services", "mesh", "engineering", "blog", "contact", "careers"]
       .map((k, n) => `        <li><a href="${PATHS[k][i]}"${full(k)}${cur(k)}><span class="menu-idx">(${pad(n + 1)})</span><span class="menu-name">${esc(ui.nav[k])}</span></a></li>`)
@@ -323,7 +330,7 @@ ${G.analytics?.id ? `    <script defer src="${esc(G.analytics.src)}" data-websit
       </a>`;
     return `    <header class="site-nav">
       <a class="brand" href="${PATHS.home[i]}" aria-label="${esc(G.name)} — ${esc(ui.nav.home)}">${logo("nav")}<span class="brand-name">${esc(G.name)}<sup>&reg;</sup></span></a>
-      <nav class="nav-main" aria-label="${esc(ui.menu)}"><ul class="nav-links">${links}</ul>${artPill}</nav>
+      <nav class="nav-main" aria-label="${esc(ui.menu)}"><ul class="nav-links">${links}</ul></nav>
       <div class="nav-right">
         <a class="lang" href="${esc(sw)}" hreflang="${other}" lang="${other}">${other.toUpperCase()}</a>
         <a class="nav-founder" href="${PATHS.founder[i]}" data-magnetic${page === "founder" ? ' aria-current="page"' : ""} aria-label="${esc(site[lang].founder.h1)} · ${esc(site[lang].founder.chip_hover)}"><img src="/founder/avatar.webp" alt="${esc(site[lang].founder.h1)}" width="28" height="28" /><span class="nav-founder-label" aria-hidden="true"><span>${esc(site[lang].founder.chip)}</span><span>${esc(site[lang].founder.chip_hover)} →</span></span><i class="nav-founder-dot" aria-hidden="true"></i></a>
@@ -408,7 +415,18 @@ ${Object.keys(LANDINGS).filter((k) => t[k]).map((k) => `            <a href="${P
   }
 
   // full page: chrome + barba container (nav, main, footer) + single module entry
-  function page({ head, lang, ns, pageKey, switchTo, main }) {
+  // 2026-11 redesign: hooks that only fed the WebGL stage, the custom cursor and the parallax are dropped
+  // from the output (data-gl, data-cursor, data-shape, data-magnetic, data-scroll…): nothing reads them now
+  const stripFx = (html) =>
+    html
+      .replace(/ data-(?:gl|gl-dim|cursor|cursor-enter|shape|pole-shape|scroll-speed)="[^"]*"/g, "")
+      .replace(/ data-(?:magnetic|scroll)(?=[\s>])/g, "");
+
+  function page(args) {
+    return stripFx(pageHtml(args));
+  }
+
+  function pageHtml({ head, lang, ns, pageKey, switchTo, main }) {
     return `${head}
 
 <body>
@@ -575,34 +593,44 @@ ${poles}
 `;
   }
 
+  // the home page: two doors (LIFT relevance: 46 of 111 home visits went on to Engineering, 13 to the
+  // website offer), each with its value, one action and its reassurance line; then what we do, real work,
+  // why us, the method, the FAQ and a closing choice between the two
   function home(lang) {
-    const h = site[lang].home; const i = idx(lang); const c = CURSOR[lang];
+    const h = site[lang].home; const d = h.doors; const i = idx(lang);
+    const e = h.engineering.hero;
+    const engHome = PATHS.engineering[i];
+    const engAudit = `${engHome}contact/?need=devops-audit#project-form`;
+    const engContact = `${engHome}contact/`;
+    const work = art.filter((p) => p.featured).slice(0, 4);
     const pillars = h.points.map(([a, b], n) => `            <li data-line><span class="pillar-num">(${pad(n + 1)})</span><h3>${esc(a)}</h3><p>${esc(b)}</p></li>`).join("\n");
-    const main = `      <section class="hero" data-gl="dunes" data-cursor="${c.howl}">
-        <div class="hero-float shell" aria-hidden="true">
-          <p class="float-a" data-scroll data-scroll-speed="0.15">${esc(h.hero_meta[0] || "")}</p>
-          <p class="float-b" data-scroll data-scroll-speed="0.3">${esc(h.hero_meta[1] || "")}</p>
-          <p class="float-c" data-scroll data-scroll-speed="0.08">${esc(G.latitude)}° N<br />${esc(G.longitude)}° E</p>
+    const main = `      <section class="home-doors">
+        <div class="shell doors-head">
+          <p class="lift-kicker"><i aria-hidden="true"></i>${esc(h.eyebrow)}</p>
+          <h1 class="doors-h1" data-focus>${esc(d.h1)}</h1>
         </div>
-        <div class="hero-foot shell">
-          <div class="lockup">
-            <p class="lockup-brand">${stamp("Web", "Brand", "SEO")} <span>${esc(G.name)}<sup>&reg;</sup></span></p>
-            <h1 class="lockup-h1" data-split>${midGlyphs(h.h1, GLYPH.star, GLYPH.moon)}</h1>
-          </div>
-          <div class="hero-aside">
-            <p class="hero-sub">${esc(h.sub)}</p>
-            <div class="hero-links">
-              ${link(PATHS.contact[i], h.cta_primary, ev("quote-cta", "hero"))}
-              ${link(PATHS.services[i], h.cta_secondary, ev("services-cta", "hero"))}
-            </div>
-            <p class="hero-note">${esc(h.hero_note)}</p>
-          </div>
+        <div class="shell doors">
+          <article class="door door-web" aria-labelledby="door-web-h">
+            <p class="lift-kicker"><i aria-hidden="true"></i>${esc(d.web.kicker)}</p>
+            <h2 class="door-h" id="door-web-h">${esc(d.web.h)}</h2>
+            <p class="door-lede">${esc(h.sub)}</p>
+            <div class="lift-actions">${btn(PATHS.contact[i], h.cta_primary, ev("quote-cta", "hero") + " data-focus")}${link(PATHS.services[i], h.cta_secondary, ev("services-cta", "hero"))}</div>
+            <p class="lift-note">${esc(d.web.note)}</p>
+          </article>
+          <article class="door door-eng" aria-labelledby="door-eng-h">
+            <p class="lift-kicker"><i aria-hidden="true"></i>${esc(d.eng.kicker)}</p>
+            <h2 class="door-h" id="door-eng-h">${esc(d.eng.h)}</h2>
+            <p class="door-lede">${esc(e.lead)}</p>
+            <div class="lift-actions">${btn(engAudit, d.eng.cta, ev("eng-audit-cta", "home-door") + " data-barba-prevent data-focus", "btn-ink btn-light")}${link(engHome, e.cta, ev("home-door") + ' data-track-to="engineering" data-barba-prevent')}</div>
+            <p class="lift-note">${esc(d.eng.note)}</p>
+          </article>
         </div>
-${engineeringPanel(lang)}
-        <p class="scroll-cue" aria-hidden="true">${esc(h.scroll_hint)} ↓</p>
+        <div class="shell">
+          <ul class="lift-proof">${d.proof.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
+        </div>
       </section>
 
-      <section class="services-home" id="services" data-gl="constellation" data-gl-dim="0.22">
+      <section class="services-home" id="services">
         <div class="shell">
           <div class="label-row" data-line><span>${esc(h.services_kicker)} (${pad(h.cards.length)})</span><span class="label-lead">${esc(h.services_lead)}</span></div>
           <h2 class="visually-hidden">${esc(h.services_outline)} ${esc(h.services_bold)}</h2>
@@ -612,12 +640,21 @@ ${serviceList(lang, h.cards, PATHS.services[i], h.cards.length, h.cards_more)}
 
 ${engineeringTeaser(lang)}
 
-${artTeaser(lang)}
+      <section class="home-work" id="work" aria-labelledby="work-h">
+        <div class="shell">
+          <div class="label-row" data-line><span>${esc(h.art_kicker)} (${pad(art.length)})</span><span class="label-lead">${esc(d.work_lead)}</span></div>
+          <h2 class="work-h" id="work-h">${esc(d.work_h)}</h2>
+          <div class="work-grid">
+${work.map((p) => `            ${workFigure(lang, p, "home-work")}`).join("\n")}
+          </div>
+          <p class="svc-more">${link(PATHS.mesh[i], site[lang].ui.nav.mesh)}</p>
+        </div>
+      </section>
 
-      <section class="statement" id="why" data-gl="dunes" data-gl-dim="0.3">
+      <section class="statement" id="why">
         <div class="shell">
           <h2 class="visually-hidden">${esc(h.why_h)}</h2>
-          <p class="statement-text" data-words>${stamp("KYT", h.why_kicker)} ${inline(h.lead)} ${GLYPH.howl}</p>
+          <p class="statement-text">${inline(h.lead)}</p>
           <div class="statement-foot">
             <div class="statement-copy">${h.about.map((x) => `<p>${esc(x)}</p>`).join("")}</div>
             <ul class="link-list">
@@ -637,13 +674,25 @@ ${h.facts.map(([k, v]) => `              <div data-line><dt>${esc(k)}</dt><dd>${
         </div>
       </section>
 
-${careersTeaser(lang)}
-
 ${processSection(lang, h.process_h, h.process)}
 
 ${faqSection(h.faq_h, h.faq)}
 
-${ctaSection(lang, { kicker: h.cta_sub, h: h.cta_h, giant: h.cta_giant, button: h.cta_btn })}`;
+      <section class="cta home-pick" id="contact-cta" aria-labelledby="pick-h">
+        <div class="shell">
+          <p class="cta-kicker">${esc(h.cta_sub)}</p>
+          <h2 class="pick-h" id="pick-h">${esc(d.pick_h)}</h2>
+          <ul class="pick-list">
+            <li><a class="pick-row" href="${PATHS.contact[i]}"${ev("quote-cta", "home-pick")}><span class="pick-label">${esc(d.pick_web)}</span><span class="pick-go" aria-hidden="true">→</span></a></li>
+            <li><a class="pick-row pick-eng" href="${engContact}"${ev("eng-contact-cta", "home-pick")} data-barba-prevent><span class="pick-label">${esc(d.pick_eng)}</span><span class="pick-go" aria-hidden="true">→</span></a></li>
+          </ul>
+          <div class="cta-links">
+            ${link(waUrl(lang), site[lang].ui.wa_label, WA_OUT + ev("whatsapp", "cta"))}
+            ${link("tel:" + G.phone, G.phoneDisplay, ev("phone", "cta"))}
+          </div>
+          <h2 class="visually-hidden">${esc(h.cta_h)}</h2>
+        </div>
+      </section>`;
     return page({ head: pageHead(lang, "home"), lang, ns: "home", pageKey: "home", main });
   }
 
@@ -657,17 +706,16 @@ ${ctaSection(lang, { kicker: h.cta_sub, h: h.cta_h, giant: h.cta_giant, button: 
             <div class="svc-block-text"><p>${esc(b)}</p>${own ? `<p class="svc-block-more">${link(own, site[lang].home.cards_more)}</p>` : ""}</div>
           </article>`;
     }).join("\n");
-    const main = `      <section class="page-hero" data-gl="constellation" data-gl-dim="0.5">
-        <div class="shell">
-          <p class="lockup-brand">${stamp("Web", "Brand", "SEO")} <span>${esc(site[lang].ui.nav.services)}</span></p>
-          <h1 class="lockup-h1 page-title" data-split>${midGlyphs(s.h1, GLYPH.star, GLYPH.arrow)}</h1>
-          <div class="page-hero-foot" data-line>
-            <p class="hero-sub">${esc(s.sub)}</p>
-            ${link(PATHS.contact[i], s.cta, ev("quote-cta", "hero"))}
-            <p class="hero-note">${esc(s.hero_note)}</p>
-          </div>
-        </div>
-      </section>
+    const main = `${liftHero({
+      kicker: `${site[lang].ui.nav.services} · Web · Branding · SEO`,
+      h1: s.h1,
+      sub: s.sub,
+      cta: [PATHS.contact[i], s.cta, ev("quote-cta", "hero")],
+      secondary: [PATHS.mesh[i], site[lang].ui.nav.mesh],
+      note: s.hero_note,
+      proof: site[lang].home.doors.proof,
+      visual: workFigure(lang, piece(HERO_PIECE.services)),
+    })}
 
       <section class="svc-detail" aria-labelledby="svc-h">
         <div class="shell">
@@ -702,17 +750,16 @@ ${ctaSection(lang, { h: s.cta_h, button: s.cta })}`;
       faqLd(l.faq),
       crumbs([ui.nav.home, url("home", lang)], [ui.nav.services, url("services", lang)], [l.label, SITE + own]),
     );
-    const main = `      <section class="page-hero" data-gl="constellation" data-gl-dim="0.5">
-        <div class="shell">
-          <p class="lockup-brand">${stamp("Web", "Brand", "SEO")} <span>${esc(l.label)}</span></p>
-          <h1 class="lockup-h1 page-title" data-split>${midGlyphs(l.h1, GLYPH.star, GLYPH.pin)}</h1>
-          <div class="page-hero-foot" data-line>
-            <p class="hero-sub">${esc(l.sub)}</p>
-            ${link(PATHS.contact[i], l.cta, ev("quote-cta", "hero"))}
-            <p class="hero-note">${esc(l.hero_note || ui.hero_note)}</p>
-          </div>
-        </div>
-      </section>
+    const main = `${liftHero({
+      kicker: l.label,
+      h1: l.h1,
+      sub: l.sub,
+      cta: [PATHS.contact[i], l.cta, ev("quote-cta", "hero")],
+      secondary: ["#examples", l.examples_h],
+      note: l.hero_note || ui.hero_note,
+      proof: site[lang].home.doors.proof,
+      visual: workFigure(lang, piece(HERO_PIECE[key]) || pieces[0]),
+    })}
 
       <section class="landing-copy" data-gl="off">
         <div class="article-body">
@@ -871,13 +918,7 @@ ${ctaSection(lang, { h: f.cta_h, button: f.cta })}`;
       + `<label class="chip"><input type="checkbox" name="type" value="${esc(c.f_other)}" data-other /><span>${esc(c.f_other)}</span></label>`;
     // the form comes before the address block in the DOM, so keyboard and screen-reader users reach it first;
     // css/pages.css keeps the address in the left column on wide screens
-    const main = `      <section class="contact page-hero" data-gl="orbit" data-gl-dim="0.25">
-        <div class="shell">
-          <p class="lockup-brand">${stamp("Hello", c.drop)} <span>${esc(c.love)}</span></p>
-          <h1 class="lockup-h1 page-title" data-split>${midGlyphs(c.h1, GLYPH.howl, GLYPH.pin)}</h1>
-          <div class="page-hero-foot" data-line><p class="hero-sub">${esc(c.sub)}</p></div>
-        </div>
-      </section>
+    const main = `${liftHero({ kicker: c.love, h1: c.h1, sub: c.sub, note: c.f_note, cls: "contact" })}
       <section class="contact-body">
         <div class="shell contact-grid">
           <form class="contact-form" action="${esc(G.formEndpoint)}" method="post" data-endpoint="${esc(G.formEndpoint)}" data-lang="${lang}" data-email="${esc(G.email)}" data-wa="${esc(waUrl(lang))}" data-done="${esc(c.f_done)}" data-error="${esc(c.f_error)}" data-sending="${esc(c.f_sending)}">
@@ -931,7 +972,7 @@ ${faqSection(c.faq_h, c.faq)}`;
     const main = `      <section class="careers page-hero" data-gl="orbit" data-gl-dim="0.25">
         <div class="shell">
           <p class="lockup-brand">${stamp("Join", c.drop)} <span>${esc(c.love)}</span></p>
-          <h1 class="lockup-h1 page-title" data-split>${midGlyphs(c.h1, GLYPH.howl, GLYPH.star)}</h1>
+          <h1 class="lockup-h1 page-title" data-split>${esc(c.h1)}</h1>
           <div class="page-hero-foot" data-line><p class="hero-sub">${esc(c.sub)}</p>${link("#postuler", c.form_h, ' data-pick-pole=""')}</div>
         </div>
       </section>
@@ -1098,27 +1139,17 @@ ${ctaSection(lang, { h: a.cta_h, button: a.cta })}`;
   // the index as a mesh: every showcase piece is a node on a living WebGL surface
   // (scripts/webgl/projectMesh.js); hovering a node names it, clicking opens it.
   // The same pieces are listed below as plain links, for keyboards, crawlers and no-WebGL.
+  // projects: every concept as a real preview on a grid (it used to be a 3D mesh to hover), each opening
+  // its case study or the live concept
   function meshPage(lang) {
-    const m = site[lang].mesh; const a = site[lang].art; const i = idx(lang); const c = CURSOR[lang];
-    const n = pad(art.length);
-    const items = art.map((p, k) => {
+    const m = site[lang].mesh; const a = site[lang].art; const i = idx(lang);
+    const d = site[lang].home.doors;
+    const grid = art.map((p, k) => {
       const t = p[lang];
-      const live = `/art-de-la-difference/${p.slug}/`;
       const cs = hasCase(lang, p) ? casePath(lang, p) : "";
-      return `            <li class="mesh-item" data-kind="${esc(p.kind)}" style="--accent:${esc(p.accent)}">
-              <a class="mesh-link" href="${cs || live}"${cs ? "" : ' target="_blank" rel="noopener"'} data-barba-prevent data-i="${k}" data-slug="${esc(p.slug)}" data-client="${esc(p.client)}" data-sector="${esc(t.sector)}" data-year="${esc(p.year)}" data-kind="${esc(p.kind)}" data-kind-label="${esc(a["kind_" + p.kind])}" data-accent="${esc(p.accent)}" data-tagline="${esc(t.line)}" data-go="${esc(cs ? m.open_case : m.open_live)}">
-                <span class="mesh-item-num">${pad(k + 1)}</span>
-                <span class="mesh-item-client">${esc(p.client)}</span>
-                <span class="mesh-item-sector">${esc(t.sector)}</span>
-                <span class="mesh-item-kind">${esc(a["kind_" + p.kind])}</span>
-                <span class="mesh-item-year">${esc(p.year)}</span>
-                <span class="mesh-item-go" aria-hidden="true">${cs ? "→" : "↗"}</span>
-              </a>
-            </li>`;
+      const own = cs || `/art-de-la-difference/${p.slug}/`;
+      return `            <figure class="lift-work" data-kind="${esc(p.kind)}"><a href="${own}"${cs ? "" : ' target="_blank" rel="noopener" data-barba-prevent'}${ev("concept-open", "projects")} data-track-project="${esc(p.slug)}"><img src="/art/previews/${p.slug}.webp" alt="${esc(`${p.client}, ${t.sector}`)}" width="1440" height="900" decoding="async"${k > 3 ? ' loading="lazy"' : ""} /></a><figcaption><span class="lift-work-tag">${pad(k + 1)} · ${esc(a["kind_" + p.kind])}</span> ${esc(p.client)} · ${esc(t.sector)} <span class="lift-work-go">${esc(cs ? m.open_case : m.open_live)} ${cs ? "→" : "↗"}</span></figcaption></figure>`;
     }).join("\n");
-    const filters = [["all", a.all], ["entreprise", a.business], ["personal", a.personal]]
-      .map(([k, label], j) => `<button class="art-filter mesh-filter" type="button" data-filter="${k}" aria-pressed="${j === 0}">${esc(label)} <sup>${pad(k === "all" ? art.length : art.filter((p) => p.kind === k).length)}</sup></button>`)
-      .join("");
     const ld = graph(
       org(lang),
       {
@@ -1127,48 +1158,25 @@ ${ctaSection(lang, { h: a.cta_h, button: a.cta })}`;
       },
       crumbs([site[lang].ui.nav.home, url("home", lang)], [a.h1, url("art", lang)], [m.h1, url("mesh", lang)]),
     );
-    const main = `      <section class="mesh-stage" aria-label="${esc(m.h1)}" data-gl="off">
-        <canvas class="mesh-gl" aria-hidden="true" data-cursor-enter="${esc(c.enter)}"></canvas>
-        <div class="mesh-ui shell">
-          <div class="mesh-top">
-            <p class="lockup-brand mesh-brand">${stamp(m.kicker, n)} <span>${esc(a.note)}</span></p>
-            <p class="mesh-hint" data-touch="${esc(m.hint_touch)}">${esc(m.hint)}</p>
-          </div>
-          <div class="mesh-bottom">
-            <div class="mesh-head">
-              <p class="mesh-meta"><span class="mesh-num">— / ${n}</span><span class="mesh-sector" data-touch="${esc(m.idle_touch)}">${esc(m.idle)}</span></p>
-              <div class="mesh-titles">
-                <h1 class="mesh-title">${esc(m.h1)}</h1>
-                <p class="mesh-name" aria-hidden="true"></p>
-              </div>
-            </div>
-            <div class="mesh-controls">
-              <div class="art-filters mesh-filters" role="group" aria-label="${esc(m.kicker)}">${filters}</div>
-              <a class="mesh-to-art" href="${PATHS.art[i]}">${esc(m.to_art)} →</a>
-            </div>
-          </div>
-        </div>
-        <div class="mesh-card" aria-hidden="true">
-          <span class="mesh-card-frame"><img class="mesh-card-img" alt="" width="1440" height="900" decoding="async" /><video class="mesh-card-video" muted loop playsinline preload="none"></video></span>
-          <span class="mesh-card-cap"><span class="mesh-card-line"></span><span class="mesh-card-go"></span></span>
-        </div>
-        <p class="mesh-nogl">${esc(m.no_gl)}</p>
-      </section>
+    const main = `${liftHero({
+      kicker: `${a.note} ${pad(art.length)}`,
+      h1: m.h1,
+      sub: d.work_lead,
+      cta: [PATHS.contact[i], a.cta, ev("quote-cta", "hero")],
+      secondary: [PATHS.art[i], m.to_art],
+    })}
 
-      <section class="mesh-index" id="index" aria-labelledby="mesh-index-h">
+      <section class="work-index" id="index" aria-labelledby="mesh-index-h">
         <div class="shell">
-          <div class="mesh-index-head">
-            <h2 class="mesh-index-h" id="mesh-index-h">${esc(m.index_h)} <sup>${n}</sup></h2>
-            <p class="mesh-index-lead">${esc(m.index_lead)}</p>
+          <h2 class="visually-hidden" id="mesh-index-h">${esc(m.index_h)}</h2>
+          <div class="work-grid work-grid-all">
+${grid}
           </div>
-          <ol class="mesh-list">
-${items}
-          </ol>
         </div>
       </section>
 
 ${ctaSection(lang, { h: a.cta_h, button: a.cta })}`;
-    const head = headTag({ lang, title: m.title, desc: m.desc, canon: PATHS.mesh[i], altFr: PATHS.mesh[0], altEn: PATHS.mesh[1], ld, theme: "#0d0d0d", htmlClass: "is-art" });
+    const head = headTag({ lang, title: m.title, desc: m.desc, canon: PATHS.mesh[i], altFr: PATHS.mesh[0], altEn: PATHS.mesh[1], ld });
     return page({ head, lang, ns: "mesh", pageKey: "mesh", main });
   }
 
@@ -1255,7 +1263,7 @@ ${spec}
     const main = `      <section class="page-hero blog-head" data-gl="off">
         <div class="shell">
           <p class="lockup-brand">${stamp("Blog", b.kicker)} <span>${esc(b.by)}</span></p>
-          <h1 class="lockup-h1 page-title" data-split>${midGlyphs(b.h1, GLYPH.star, GLYPH.moon)}</h1>
+          <h1 class="lockup-h1 page-title" data-split>${esc(b.h1)}</h1>
           <div class="page-hero-foot" data-line><p class="hero-sub">${esc(b.lead)}</p><span class="sec-count" aria-hidden="true">(${pad(list.length)})</span></div>
         </div>
       </section>

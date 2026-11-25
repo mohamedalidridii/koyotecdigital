@@ -13,53 +13,11 @@ export function founderTheme() {
   return () => document.documentElement.classList.remove("is-founder");
 }
 
-export function founderHero(scope, { ready }) {
+export function founderHero(scope) {
+  // 2026-11 redesign (LIFT): the name, portrait and roles are on screen at once. The letter-by-letter
+  // reveal, the endless role ticker and the portrait that followed the pointer are gone.
   const hero = scope.querySelector(".fh");
   if (!hero) return;
-  const off = [];
-  const name = hero.querySelector(".fh-name");
-  const portrait = hero.querySelector(".fh-portrait");
-  const img = portrait.querySelector("img");
-  const small = $(".fh-kicker, .fh-aside, .fh-meta span", hero);
-
-  const split = SplitText.create(name, { type: "chars", mask: "chars" });
-  gsap.set(split.chars, { yPercent: 110 });
-  gsap.set(portrait, { clipPath: "inset(100% 0% 0% 0%)" });
-  gsap.set(img, { scale: 1.08 });
-  gsap.set(small, { autoAlpha: 0, y: 16 });
-
-  const tl = gsap.timeline({ paused: true })
-    .to(portrait, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.6, ease: "koy.io" }, 0)
-    .to(img, { scale: 1, duration: 2.2 }, 0)
-    .to(split.chars, { yPercent: 0, duration: 1.4, stagger: 0.035 }, 0.35)
-    .to(small, { autoAlpha: 1, y: 0, duration: 1, stagger: 0.08, clearProps: "transform" }, 0.9);
-  ready.then(() => tl.play());
-
-  // the role ticker rolls through its lines forever
-  const track = hero.querySelector(".fh-ticker-track");
-  const lines = track ? track.children.length : 0;
-  if (lines > 1) {
-    const roll = gsap.timeline({ repeat: -1, delay: 2 });
-    for (let n = 1; n < lines; n++) roll.to(track, { yPercent: (-100 * n) / lines, duration: 0.8, ease: "koy.io" }, `+=1.6`);
-    roll.to(track, { yPercent: 0, duration: 0.8, ease: "koy.io" }, "+=1.6");
-  }
-
-  // the portrait floats against the pointer
-  if (fine) {
-    const x = gsap.quickTo(portrait, "x", { duration: 1.2, ease: "power3" });
-    const y = gsap.quickTo(portrait, "y", { duration: 1.2, ease: "power3" });
-    const move = (e) => {
-      x((e.clientX / window.innerWidth - 0.5) * -30);
-      y((e.clientY / window.innerHeight - 0.5) * -24);
-    };
-    window.addEventListener("pointermove", move);
-    off.push(() => window.removeEventListener("pointermove", move));
-  }
-
-  // scrolling away: the name lifts faster than the portrait
-  gsap.to(name, { yPercent: -60, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: true } });
-  gsap.to(portrait, { yPercent: 18, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: true } });
-  return () => off.forEach((fn) => fn());
 }
 
 // one sentence, every word lighting up as it scrolls through

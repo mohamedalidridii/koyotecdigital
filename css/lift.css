@@ -1,0 +1,470 @@
+/* 2026-11 redesign (LIFT): the first screen of every agency page, the home doors, real work, proof.
+   Editorial look kept (paper, ink, Instrument Serif); text never sits on a picture or an animation;
+   one solid ink button per screen; red only in the logo and in the Engineering door (its own look). */
+
+:root {
+  --eng-red: #d50000; /* the Engineering site's red: white text on it 5.5:1 */
+  --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+/* ---------- buttons ---------- */
+.btn-ink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.25rem;
+  min-height: 3.4rem;
+  padding: 0.9rem 1.35rem 0.9rem 1.5rem;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 1.02rem;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: background-color 0.3s var(--ease-out), color 0.3s var(--ease-out);
+}
+.btn-ink .btn-arrow {
+  transition: transform 0.4s var(--ease-out);
+}
+.btn-ink:hover {
+  background: #000;
+}
+.btn-ink:hover .btn-arrow {
+  transform: translateX(0.3em);
+}
+.btn-light {
+  background: #fff;
+  color: var(--ink);
+}
+.btn-light:hover {
+  background: var(--ink);
+  color: #fff;
+}
+
+/* ---------- the LIFT hero ---------- */
+.page-hero.lift {
+  display: block;
+  min-height: 0;
+  padding: calc(var(--nav-h) + clamp(3rem, 9vh, 6.5rem)) 0 clamp(2rem, 5vh, 3.5rem);
+}
+.lift-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  align-items: end;
+}
+.lift-main {
+  grid-column: 1 / span 7;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.lift-grid:not(:has(.lift-visual)) .lift-main {
+  grid-column: 1 / span 10;
+}
+.lift-kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 1.25rem;
+  font-size: var(--fs-small);
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+.lift-kicker i {
+  flex-shrink: 0;
+  width: 0.55rem;
+  height: 0.55rem;
+  background: currentColor;
+}
+.lift-h1 {
+  max-width: 14ch;
+  margin: 0;
+  font-family: var(--f-serif);
+  font-weight: 400;
+  font-size: clamp(3rem, 6.9vw, 8.2rem);
+  line-height: 0.93;
+  letter-spacing: -0.012em;
+  text-wrap: balance;
+}
+.lift-lede {
+  max-width: 40ch;
+  margin: clamp(1.25rem, 2.6vh, 2rem) 0 0;
+  font-size: clamp(1.1rem, 0.95rem + 0.45vw, 1.38rem);
+  line-height: 1.45;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+.lift-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.75rem;
+  margin-top: clamp(1.5rem, 3vh, 2.25rem);
+}
+.lift-note {
+  margin: 1rem 0 0;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
+.lift-visual {
+  grid-column: 9 / -1;
+  align-self: end;
+}
+.lift-proof {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0;
+  margin: clamp(2rem, 5vh, 3.25rem) 0 0;
+  padding: 1rem 0 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+  font-size: 0.92rem;
+}
+.lift-proof li {
+  padding-right: 1.5rem;
+  margin-right: 1.5rem;
+  border-right: 1px solid var(--line);
+}
+.lift-proof li:last-child {
+  border-right: 0;
+}
+
+/* ---------- a real piece of work: picture in its own frame, caption under it ---------- */
+.lift-work {
+  margin: 0;
+}
+.lift-work a {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--paper-2);
+}
+.lift-work img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease-out);
+}
+.lift-work a:hover img {
+  transform: scale(1.025);
+}
+.lift-work figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--ink);
+}
+.lift-work-tag {
+  display: inline-block;
+  margin-right: 0.35rem;
+  padding: 0.05rem 0.4rem;
+  border: 1px solid var(--ink);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.lift-work-go {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--ink-dim);
+}
+
+/* ---------- home: two doors ---------- */
+.home-doors {
+  padding: calc(var(--nav-h) + clamp(2.5rem, 7vh, 5rem)) 0 clamp(2rem, 5vh, 3.5rem);
+}
+.doors-head {
+  margin-bottom: clamp(1.5rem, 4vh, 2.5rem);
+}
+.doors-h1 {
+  max-width: 24ch;
+  margin: 0;
+  font-family: var(--f-serif);
+  font-weight: 400;
+  font-size: clamp(2.2rem, 4.4vw, 4.8rem);
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.doors {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gutter);
+}
+.door {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: clamp(23rem, 50vh, 32rem);
+  padding: clamp(1.5rem, 3vw, 2.75rem);
+}
+.door .lift-actions {
+  margin-top: auto;
+  padding-top: clamp(1.5rem, 3vh, 2.25rem);
+}
+.door-web {
+  background: var(--paper-2);
+  color: var(--ink);
+}
+.door-eng {
+  background: var(--eng-red);
+  color: #fff;
+}
+.door-eng .lift-kicker {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #fff;
+}
+.door-h {
+  margin: 0;
+  font-family: var(--f-serif);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 4.6vw, 5.2rem);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+}
+.door-eng .door-h {
+  font-family: var(--f-sans);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+}
+.door-lede {
+  max-width: 38ch;
+  margin: 1.1rem 0 0;
+  font-size: 1.08rem;
+  line-height: 1.5;
+}
+.door-eng .tlink,
+.door-eng .lift-note {
+  color: #fff;
+}
+.door-eng .lift-note {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* ---------- home: real work, then the closing choice ---------- */
+.home-work,
+.work-index {
+  padding-block: clamp(5rem, 12vh, 9rem) clamp(3rem, 8vh, 5rem);
+}
+.work-index {
+  padding-top: clamp(1rem, 3vh, 2rem);
+}
+.work-h {
+  margin: 1rem 0 clamp(1.5rem, 4vh, 2.5rem);
+  font-family: var(--f-serif);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 5vw, 5.5rem);
+  line-height: 0.95;
+}
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2vw, 2rem) var(--gutter);
+}
+.work-grid-all {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.home-pick.cta {
+  display: block;
+  min-height: 0;
+  padding-block: clamp(5rem, 12vh, 9rem);
+  text-align: left;
+}
+.pick-h {
+  margin: 0.75rem 0 clamp(1.5rem, 4vh, 2.5rem);
+  font-family: var(--f-serif);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 6vw, 7rem);
+  line-height: 0.92;
+}
+.pick-list {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+.pick-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: clamp(1rem, 2.5vh, 1.6rem) 0;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--f-serif);
+  font-size: clamp(1.7rem, 3.4vw, 3.6rem);
+  line-height: 1.05;
+  color: var(--ink);
+  text-decoration: none;
+  transition: padding-left 0.5s var(--ease-out);
+}
+.pick-row:hover {
+  padding-left: 0.6rem;
+}
+.pick-eng {
+  color: var(--eng-red);
+}
+.home-pick .cta-links {
+  justify-content: flex-start;
+}
+
+/* ---------- small screens ---------- */
+@media (max-width: 999px) {
+  .lift-main,
+  .lift-grid:not(:has(.lift-visual)) .lift-main,
+  .lift-visual {
+    grid-column: 1 / -1;
+  }
+  .lift-visual {
+    margin-top: 2rem;
+  }
+  .work-grid,
+  .work-grid-all {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 760px) {
+  .page-hero.lift {
+    padding-top: calc(var(--nav-h) + 2rem);
+  }
+  .lift-h1 {
+    font-size: clamp(2.6rem, 11vw, 3.6rem);
+  }
+  .lift-actions {
+    width: 100%;
+  }
+  .lift-actions .btn-ink {
+    width: 100%;
+  }
+  .lift-proof {
+    flex-direction: column;
+  }
+  .lift-proof li {
+    padding-right: 0;
+    margin-right: 0;
+    border-right: 0;
+  }
+  .home-doors {
+    padding-top: calc(var(--nav-h) + 1.5rem);
+  }
+  .doors {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  .door {
+    min-height: 0;
+    padding: 1.25rem;
+  }
+  .door .lift-actions {
+    padding-top: 1.25rem;
+  }
+  .door-h {
+    font-size: clamp(2.2rem, 10vw, 3rem);
+  }
+  .door-lede {
+    font-size: 1rem;
+  }
+  .work-grid,
+  .work-grid-all {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* phones: both doors fit the first screen; the H2 and the price/offer line carry each door */
+@media (max-width: 760px) {
+  .door-lede {
+    display: none;
+  }
+}
+
+/* contact page: the form is the main message; the address lockup beside it is set smaller */
+@media (min-width: 761px) {
+  .contact-info .address-lockup {
+    font-size: clamp(1.4rem, 2.2vw, 2.3rem);
+  }
+}
+
+/* ---------- service lists on the page grid (they were centred, with the descriptions hidden until hover) ---------- */
+.svc-row {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  align-items: baseline;
+  padding-block: clamp(0.9rem, 2vh, 1.3rem);
+}
+.svc-num {
+  grid-column: 1;
+  align-self: baseline;
+  padding-top: 0;
+}
+.svc-name {
+  grid-column: 2 / span 6;
+  font-size: clamp(2rem, 3.8vw, 4.4rem);
+  text-align: left;
+}
+.svc-desc {
+  grid-column: 8 / -1;
+  max-height: none;
+  overflow: visible;
+  opacity: 1;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--ink-dim);
+}
+.svc-row:hover .svc-desc,
+.svc-row:focus-visible .svc-desc {
+  max-height: none;
+  color: var(--ink);
+}
+@media (hover: hover) {
+  .svc-list:hover .svc-row:not(:hover) {
+    opacity: 1; /* no dimming of the other rows: every line stays readable */
+  }
+}
+.svc-more {
+  justify-content: flex-start;
+}
+@media (hover: none), (max-width: 900px) {
+  .svc-row {
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    column-gap: 0.75rem;
+  }
+  .svc-num {
+    grid-column: 1;
+  }
+  .svc-name,
+  .svc-desc {
+    grid-column: 2;
+  }
+  .svc-name {
+    font-size: clamp(1.9rem, 8vw, 2.6rem);
+  }
+}
+
+/* ---------- founder page: the name stays beside the portrait, never on it ---------- */
+@media (min-width: 961px) {
+  .fh-name {
+    max-width: calc(100% - min(36vw, 62svh) - clamp(1rem, 8vw, 9rem) - 2rem);
+    font-size: clamp(3.4rem, 8.4vw, 10rem);
+    line-height: 0.88;
+    mix-blend-mode: normal;
+  }
+  .fh-foot {
+    max-width: calc(100% - min(36vw, 62svh) - clamp(1rem, 8vw, 9rem) - 1rem);
+  }
+}
+
+/* the language switch was at 55% opacity (4.2:1): 80% keeps it quieter than the links and above 4.5:1 */
+.lang {
+  opacity: 0.8;
+}

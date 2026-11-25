@@ -62,7 +62,8 @@
       "wa_short": "WhatsApp",
       "mbar_label": "Contact rapide",
       "wa_text": "Bonjour KOYOTEC, je souhaite un devis",
-      "hero_note": "Devis gratuit et détaillé sous 24 h"
+      "hero_note": "Devis gratuit et détaillé sous 24 h",
+      "concept": "Concept"
     },
     "home": {
       "title": "Agence Web à Tunis : Création de Site Internet – KOYOTEC",
@@ -263,7 +264,31 @@
         "cta": "Voir la page carrières"
       },
       "keywords": "agence web Tunis, création site web Tunisie, identité visuelle, branding, stratégie digitale, ingénierie cloud, consultant AWS Tunisie, migration cloud, DevOps, intelligence artificielle, Koyotec Engineering, KOYOTEC",
-      "hero_note": "Sites web à partir de 800 DT · devis gratuit sous 24 h"
+      "hero_note": "Sites web à partir de 800 DT · devis gratuit sous 24 h",
+      "doors": {
+        "h1": "Création de site web et branding, cloud, DevOps et IA",
+        "web": {
+          "kicker": "Agence digitale · Tunis",
+          "h": "Sites web & branding",
+          "note": "Sites web à partir de 800 DT · devis gratuit sous 24 h"
+        },
+        "eng": {
+          "kicker": "KOYOTEC Engineering · partout dans le monde",
+          "h": "Cloud, DevOps et IA",
+          "note": "Audit de 2 semaines à prix fixe · réponse sous 24 h ouvrées",
+          "cta": "Demander l’audit"
+        },
+        "proof": [
+          "50+ projets livrés depuis 2022",
+          "38 startups accompagnées",
+          "Français · arabe · anglais"
+        ],
+        "work_h": "Ce que nous concevons",
+        "work_lead": "Des concepts de sites et d’identités imaginés par KOYOTEC : une marque, un brief, une direction.",
+        "pick_h": "Par où commencer ?",
+        "pick_web": "Un site web, un logo ou du référencement",
+        "pick_eng": "Du cloud, du DevOps ou de l’IA"
+      }
     },
     "services": {
       "title": "Services : Site Web, Branding & SEO à Tunis – KOYOTEC",
@@ -1254,8 +1279,8 @@
       "cta_giant": "Parlons-en"
     },
     "mesh": {
-      "title": "Projets : l’index en maillage des concepts – KOYOTEC",
-      "desc": "Explorez les concepts web de KOYOTEC dans un maillage 3D interactif : survolez un nœud pour découvrir chaque projet, cliquez pour l’ouvrir.",
+      "title": "Projets : concepts de sites web et d’identités – KOYOTEC",
+      "desc": "Les concepts de sites web et d’identités visuelles de KOYOTEC, en images : une marque, un brief, une direction. Ouvrez chaque projet ou son étude de cas.",
       "kicker": "Index",
       "h1": "Projets : sites web et identités visuelles",
       "idle": "Survolez un nœud",
@@ -1300,7 +1325,8 @@
       "wa_short": "WhatsApp",
       "mbar_label": "Quick contact",
       "wa_text": "Hello KOYOTEC, I'd like a quote",
-      "hero_note": "Free, detailed quote within 24 h"
+      "hero_note": "Free, detailed quote within 24 h",
+      "concept": "Concept"
     },
     "home": {
       "title": "Web Design & Branding Agency in Tunis, Tunisia – KOYOTEC",
@@ -1501,7 +1527,31 @@
         "cta": "See the careers page"
       },
       "keywords": "web design agency Tunis, website design Tunisia, brand identity, branding, digital strategy, cloud engineering, AWS consultant Tunisia, cloud migration, DevOps, artificial intelligence, Koyotec Engineering, KOYOTEC",
-      "hero_note": "Websites from 800 TND · free quote within 24 h"
+      "hero_note": "Websites from 800 TND · free quote within 24 h",
+      "doors": {
+        "h1": "Web design and branding, cloud, DevOps and AI",
+        "web": {
+          "kicker": "Digital agency · Tunis",
+          "h": "Websites & branding",
+          "note": "Websites from 800 TND · free quote within 24 h"
+        },
+        "eng": {
+          "kicker": "KOYOTEC Engineering · worldwide",
+          "h": "Cloud, DevOps and AI",
+          "note": "Fixed-price 2-week audit · reply within 24 business hours",
+          "cta": "Request the audit"
+        },
+        "proof": [
+          "50+ projects delivered since 2022",
+          "38 startups supported",
+          "French · Arabic · English"
+        ],
+        "work_h": "What we design",
+        "work_lead": "Website and identity concepts by KOYOTEC: one brand, one brief, one direction.",
+        "pick_h": "Where do we start?",
+        "pick_web": "A website, a logo or SEO",
+        "pick_eng": "Cloud, DevOps or AI"
+      }
     },
     "services": {
       "title": "Services: Web Design, Branding & SEO in Tunis – KOYOTEC",
@@ -2492,8 +2542,8 @@
       "cta_giant": "Let’s talk"
     },
     "mesh": {
-      "title": "Projects: the KOYOTEC concept index as a mesh",
-      "desc": "Explore KOYOTEC’s web concepts in an interactive 3D mesh: hover a node to discover each project, click to open it.",
+      "title": "Projects: website and brand identity concepts – KOYOTEC",
+      "desc": "KOYOTEC’s website and brand identity concepts, as a visual index: one brand, one brief, one direction. Open each project or its case study.",
       "kicker": "Index",
       "h1": "Projects: websites and brand identities",
       "idle": "Hover a node",

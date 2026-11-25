@@ -25,7 +25,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="#f3f1ec" />
     <meta name="author" content="KOYOTEC" />
-    <script>(function(d){var e=d.documentElement;e.classList.replace("no-js","js");if(matchMedia("(prefers-reduced-motion: reduce)").matches)e.classList.add("is-reduced");var h=location.pathname;if(h!=="/"&&h!=="/index.html"&&h!=="/en"&&h!=="/en/")e.classList.add("pre-seen");try{if(sessionStorage.getItem("koy-pre"))e.classList.add("pre-seen")}catch(_){}})(document)</script>
+    <script>(function(d){var e=d.documentElement;e.classList.replace("no-js","js");if(matchMedia("(prefers-reduced-motion: reduce)").matches)e.classList.add("is-reduced")})(document)</script>
     <link rel="preload" href="/fonts/instrument-serif-400.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/geist-variable.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/css/main.css" />
@@ -36,39 +36,15 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <a class="wa-float" href="https://wa.me/21652405699?text=Hello%20KOYOTEC%2C%20I'd%20like%20a%20quote." target="_blank" rel="noopener" data-barba-prevent aria-label="Chat on WhatsApp" data-track="whatsapp" data-track-place="float"><svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg><span class="wa-float-label">Chat on WhatsApp</span></a>
-  <canvas class="gl" id="gl" aria-hidden="true"></canvas>
-  <div class="gl-fallback" aria-hidden="true"></div>
-  <div class="grain" aria-hidden="true"></div>
-  <div class="cursor" aria-hidden="true"><span class="cursor-dot"></span><span class="cursor-label"></span></div>
-  <div class="curtain" aria-hidden="true"><div class="curtain-panel"></div><p class="curtain-label"></p></div>
-  <div class="preloader" aria-hidden="true">
-    <svg class="pl-svg" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <clipPath id="pl-clip"><rect width="250" height="194.5"/></clipPath>
-        <mask id="pl-hole" maskUnits="userSpaceOnUse">
-          <rect class="pl-fill" fill="#fff"/>
-          <g class="pl-cut" opacity="0"><g class="pl-strokes" clip-path="url(#pl-clip)" stroke="#000"><path pathLength="1" d="M220.5 10C175.75 9.25 132.75 31 92 90.25L19.66 206"/><path pathLength="1" d="M79 1.5V72.5M80 112V206"/><path pathLength="1" d="M142.1 106L233.1 206"/><path class="logo-bar" pathLength="1" d="M1 104H246"/></g></g>
-        </mask>
-      </defs>
-      <rect class="pl-paper pl-fill" mask="url(#pl-hole)"/>
-      <g class="pl-ink"><g class="pl-strokes" clip-path="url(#pl-clip)"><path pathLength="1" d="M220.5 10C175.75 9.25 132.75 31 92 90.25L19.66 206"/><path pathLength="1" d="M79 1.5V72.5M80 112V206"/><path pathLength="1" d="M142.1 106L233.1 206"/><path class="logo-bar" pathLength="1" d="M1 104H246"/></g></g>
-    </svg>
-    <span class="pl-dot"></span>
-    <p class="pl-top"><span>KOYOTEC&reg;</span><span>36.8652 / 10.1714</span></p>
-    <div class="pl-bottom">
-      <p class="pl-odo"><span class="odo-col"><span class="odo-strip"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="odo-col"><span class="odo-strip"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="odo-col"><span class="odo-strip"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span></span></span><span class="odo-pct">%</span></p>
-      <p class="pl-words"><span class="pl-words-strip"><span>Website design &amp; development</span><span>Brand identity &amp; logo</span><span>SEO</span><span>UI/UX design</span><span>Online store</span><span>Digital strategy</span></span></p>
-    </div>
-  </div>
   <div data-barba="wrapper">
   <div class="page" data-barba="container" data-barba-namespace="careers">
     <header class="site-nav">
       <a class="brand" href="/en/" aria-label="KOYOTEC — Home"><svg class="logo-mark" viewBox="0 0 250 195" aria-hidden="true" focusable="false"><defs><clipPath id="kb-nav"><rect width="250" height="194.5"/></clipPath></defs><g class="logo-strokes" clip-path="url(#kb-nav)"><path pathLength="1" d="M220.5 10C175.75 9.25 132.75 31 92 90.25L19.66 206"/><path pathLength="1" d="M79 1.5V72.5M80 112V206"/><path pathLength="1" d="M142.1 106L233.1 206"/><path class="logo-bar" pathLength="1" d="M1 104H246"/></g><rect class="logo-dot" x="232" y="2" width="18" height="18"/></svg><span class="brand-name">KOYOTEC<sup>&reg;</sup></span></a>
-      <nav class="nav-main" aria-label="Menu"><ul class="nav-links"><li><a href="/en/services">Services</a></li><li><a href="/en/projects">Projects</a></li><li><a href="/engineering/en/" data-barba-prevent>Engineering</a></li><li><a href="/en/blog">Blog</a></li><li><a href="/en/contact">Contact</a></li></ul><a class="nav-art" href="/en/art-of-difference"><i class="nav-art-dot" aria-hidden="true"></i>The art of difference</a></nav>
+      <nav class="nav-main" aria-label="Menu"><ul class="nav-links"><li><a href="/en/services">Services</a></li><li><a href="/en/projects">Projects</a></li><li><a href="/engineering/en/" data-barba-prevent>Engineering</a></li><li><a href="/en/blog">Blog</a></li><li><a href="/en/contact">Contact</a></li></ul></nav>
       <div class="nav-right">
         <a class="lang" href="/carrieres" hreflang="fr" lang="fr">FR</a>
-        <a class="nav-founder" href="/en/medalydridi" data-magnetic aria-label="Mohamed Ali Dridi · Meet the founder"><img src="/founder/avatar.webp" alt="Mohamed Ali Dridi" width="28" height="28" /><span class="nav-founder-label" aria-hidden="true"><span>Med Ali</span><span>Meet the founder →</span></span><i class="nav-founder-dot" aria-hidden="true"></i></a>
-        <a class="nav-cta" href="/en/contact" data-magnetic data-track="quote-cta" data-track-place="nav"><span>Free quote</span><svg class="g g-arrow" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M8 32 32 8M14 8h18v18"/></svg></a>
+        <a class="nav-founder" href="/en/medalydridi" aria-label="Mohamed Ali Dridi · Meet the founder"><img src="/founder/avatar.webp" alt="Mohamed Ali Dridi" width="28" height="28" /><span class="nav-founder-label" aria-hidden="true"><span>Med Ali</span><span>Meet the founder →</span></span><i class="nav-founder-dot" aria-hidden="true"></i></a>
+        <a class="nav-cta" href="/en/contact" data-track="quote-cta" data-track-place="nav"><span>Free quote</span><svg class="g g-arrow" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M8 32 32 8M14 8h18v18"/></svg></a>
         <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-btn-label" data-open="Menu" data-close="Close">Menu</span></button>
       </div>
     </header>
@@ -104,19 +80,19 @@
     </div>
 
     <main id="main">
-      <section class="careers page-hero" data-gl="orbit" data-gl-dim="0.25">
+      <section class="careers page-hero">
         <div class="shell">
           <p class="lockup-brand"><span class="stamp" aria-hidden="true"><span>Join</span><span>Apply</span></span> <span>Open all year round</span></p>
-          <h1 class="lockup-h1 page-title" data-split>Join the&nbsp;<svg class="g g-howl" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M2 20c3-9 6-9 9 0s6 9 9 0 6-9 9 0 6 9 9 0"/></svg> KOYOTEC pack&nbsp;<svg class="g g-star" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M20 2v36M2 20h36M7.3 7.3l25.4 25.4M32.7 7.3 7.3 32.7"/></svg></h1>
+          <h1 class="lockup-h1 page-title" data-split>Join the KOYOTEC pack</h1>
           <div class="page-hero-foot" data-line><p class="hero-sub">Two arms, one team. No opening that fits you? Send a spontaneous application in two minutes: we read every single one and get back to you when a project is waiting for you.</p><a class="tlink" href="#postuler" data-pick-pole=""><span class="tlink-label">Your application</span><span class="tlink-arrow" aria-hidden="true">→</span></a></div>
         </div>
       </section>
 
-      <section class="poles-sec" id="poles" data-gl="constellation" data-gl-dim="0.3">
+      <section class="poles-sec" id="poles">
         <div class="shell">
           <div class="sec-head" data-line><h2 class="sec-title" id="poles-h" data-split>Two arms, one direction</h2><span class="sec-count" aria-hidden="true">(02)</span></div>
           <div class="poles">
-            <article class="pole" data-pole="digital" data-pole-shape="browser" data-line>
+            <article class="pole" data-pole="digital" data-line>
               <p class="pole-kicker"><span class="svc-num">01</span> KOYOTEC Digital</p>
               <h3 class="pole-name">Digital</h3>
               <p class="pole-pitch">Custom websites, visual identities and search for brands that want to matter online.</p>
@@ -125,9 +101,9 @@
                 <p class="pole-roles-h">Profiles we look for</p>
                 <ul><li style="--i:0">Web / front-end developer</li><li style="--i:1">UI/UX designer</li><li style="--i:2">Graphic &amp; brand designer</li><li style="--i:3">SEO &amp; content</li><li style="--i:4">E-commerce developer</li><li style="--i:5">Digital strategy &amp; social media</li></ul>
               </div>
-              <a class="pole-cta" href="#postuler" data-pick-pole="digital" data-cursor="Write"><span>Apply to Digital</span> <svg class="g g-arrow" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M8 32 32 8M14 8h18v18"/></svg></a>
+              <a class="pole-cta" href="#postuler" data-pick-pole="digital"><span>Apply to Digital</span> <svg class="g g-arrow" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M8 32 32 8M14 8h18v18"/></svg></a>
             </article>
-            <article class="pole" data-pole="engineering" data-pole-shape="chip" data-line>
+            <article class="pole" data-pole="engineering" data-line>
               <p class="pole-kicker"><span class="svc-num">02</span> KOYOTEC Engineering</p>
               <h3 class="pole-name">Engineering</h3>
               <p class="pole-pitch">Our technical arm: we design, deploy and secure the systems a business runs on.</p>
@@ -136,13 +112,13 @@
                 <p class="pole-roles-h">Profiles we look for</p>
                 <ul><li style="--i:0">DevOps engineer</li><li style="--i:1">Cloud engineer</li><li style="--i:2">AI / ML engineer</li><li style="--i:3">Data engineer / BI</li><li style="--i:4">Cybersecurity analyst</li></ul>
               </div>
-              <a class="pole-cta" href="#postuler" data-pick-pole="engineering" data-cursor="Write"><span>Apply to Engineering</span> <svg class="g g-arrow" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M8 32 32 8M14 8h18v18"/></svg></a>
+              <a class="pole-cta" href="#postuler" data-pick-pole="engineering"><span>Apply to Engineering</span> <svg class="g g-arrow" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M8 32 32 8M14 8h18v18"/></svg></a>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="table-sec" id="values" data-gl="dunes" data-gl-dim="0.25">
+      <section class="table-sec" id="values">
         <div class="shell">
           <div class="sec-head" data-line><h2 class="sec-title" id="values-h" data-split>What you’ll find here</h2><span class="sec-count" aria-hidden="true">(04)</span></div>
           <ol class="rows">
@@ -154,7 +130,7 @@
         </div>
       </section>
 
-      <section class="table-sec" id="process" data-gl="constellation" data-gl-dim="0.5">
+      <section class="table-sec" id="process">
         <div class="shell">
           <div class="sec-head" data-line><h2 class="sec-title" id="process-h" data-split>How your application works</h2><span class="sec-count" aria-hidden="true">(04)</span></div>
           <ol class="rows">
@@ -166,7 +142,7 @@
         </div>
       </section>
 
-      <section class="apply" id="postuler" data-gl="orbit" data-gl-dim="0.18">
+      <section class="apply" id="postuler">
         <div class="shell apply-grid">
           <div class="apply-aside">
             <h2 class="apply-h" data-split>Your application</h2>
@@ -191,7 +167,7 @@
             <label class="field" data-line><span>A few words about you <em>(optional)</em></span><textarea name="message" rows="3" maxlength="3000"></textarea></label>
             <div class="drop" data-line>
               <p class="drop-label">Your CV</p>
-              <label class="drop-zone" data-cursor="View">
+              <label class="drop-zone">
                 <input class="drop-input" type="file" name="cv" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required />
                 <svg class="drop-frame" aria-hidden="true" focusable="false"><rect width="100%" height="100%" rx="18" ry="18" /></svg>
                 <span class="drop-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M20 28V8M12 15l8-8 8 8M7 26v6h26v-6" /></svg></span>
@@ -206,7 +182,7 @@
             <input type="hidden" name="lang" value="en" />
             <div class="ts-slot" data-sitekey="0x4AAAAAAF3j9rSv6he1XCZW"></div>
             <div class="form-foot">
-              <button class="send apply-send" type="submit" data-cursor="Write" data-magnetic><span class="send-fill" aria-hidden="true"></span><span class="send-label">Send my application</span> <svg class="g g-arrow" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M8 32 32 8M14 8h18v18"/></svg></button>
+              <button class="send apply-send" type="submit"><span class="send-fill" aria-hidden="true"></span><span class="send-label">Send my application</span> <svg class="g g-arrow" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M8 32 32 8M14 8h18v18"/></svg></button>
               <p class="form-note">Answer within 10 working days</p>
             </div>
             <p class="form-done" role="status" aria-live="polite"></p>
@@ -221,7 +197,7 @@
         </div>
       </section>
 
-      <section class="table-sec faq" id="faq" data-gl="constellation" data-gl-dim="0.3">
+      <section class="table-sec faq" id="faq">
         <div class="shell">
           <div class="sec-head" data-line><h2 class="sec-title" id="faq-h" data-split>Hiring FAQ</h2><span class="sec-count" aria-hidden="true">(06)</span></div>
           <div class="faq-list">
@@ -235,10 +211,10 @@
         </div>
       </section>
 
-      <section class="cta" id="contact-cta" data-gl="orbit" data-gl-dim="0.45">
+      <section class="cta" id="contact-cta">
         <div class="shell">
           <p class="cta-kicker">A question before you apply?</p>
-          <a class="cta-giant" href="/en/contact" data-cursor="Write" data-track="quote-cta" data-track-place="cta-giant"><span class="cta-word">Let’s talk</span></a>
+          <a class="cta-giant" href="/en/contact" data-track="quote-cta" data-track-place="cta-giant"><span class="cta-word">Let’s talk</span></a>
           <div class="cta-links">
             <a class="tlink" href="/en/contact" data-track="quote-cta" data-track-place="cta"><span class="tlink-label">Contact</span><span class="tlink-arrow" aria-hidden="true">→</span></a>
             <a class="tlink" href="https://wa.me/21652405699?text=Hello%20KOYOTEC%2C%20I'd%20like%20a%20quote." target="_blank" rel="noopener" data-barba-prevent data-track="whatsapp" data-track-place="cta"><span class="tlink-label">Chat on WhatsApp</span><span class="tlink-arrow" aria-hidden="true">→</span></a>

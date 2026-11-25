@@ -46,28 +46,9 @@ export function serviceHover(scope) {
   };
 }
 
-// the statement inks in word by word as it is read; italic key phrases are already there
+// the statement is readable at once (its words used to start at half opacity and ink in on scroll);
+// only the smaller blocks below it slide in as they arrive
 export function statement(scope) {
-  const text = scope.querySelector("[data-words]");
-  if (!text) return;
-  SplitText.create(text, {
-    type: "words",
-    aria: "none",
-    ignore: ".stamp, .g",
-    autoSplit: true,
-    onSplit(self) {
-      return gsap.fromTo(
-        self.words.filter((w) => !w.closest(".highlight")),
-        { opacity: 0.5 },
-        {
-          opacity: 1,
-          ease: "none",
-          stagger: 0.1,
-          scrollTrigger: { trigger: text, start: "top 80%", end: "bottom 50%", scrub: true },
-        },
-      );
-    },
-  });
   batchReveal($(".statement-copy p, .link-list li, .pillars li", scope), { y: 30, stagger: 0.08 });
 }
 
