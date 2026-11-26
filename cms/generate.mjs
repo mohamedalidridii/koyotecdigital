@@ -1406,7 +1406,7 @@ ${bodyTracked}
     const e = site.en; const f = e.founder;
     const facts = [
       ...(G.founded ? [`Founded: ${G.founded}`] : []),
-      `Address: ${[G.street, G.city, G.postalCode].filter(Boolean).join(", ")} (${G.locality}), Tunisia`,
+      `Address: ${G.addressLine || [G.street, G.city, G.postalCode].filter(Boolean).join(", ")}, Tunisia`,
       `Founder: ${plain(f.h1)}, ${plain(f.role)} (${url("founder", "en")})`,
       ...f.stats.filter(([, l]) => /project|startup/i.test(l)).map(([n, l]) => `${n} ${l}`),
       "Languages: French, Arabic, English",

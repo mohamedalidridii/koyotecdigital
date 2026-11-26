@@ -1913,7 +1913,7 @@ const fr = {
     title: "Écrivez-nous",
     copy: "Décrivez votre contexte, même en deux lignes. Nous revenons vers vous avec des questions précises, puis une proposition.",
     labels: { address: "Adresse", comms: "Contact", form: "Formulaire", social: "Réseaux" },
-    address: ["Ennasr", "Tunis", "Tunisie"],
+    address: ["28 Rue Boukhara", "Ennasr, Ariana 2037", "Tunisie"],
     form: { text: "Formulaire projet", route: "/contact", hash: "project-form" },
     formNote: "Réponse sous 24 h ouvrées",
   },

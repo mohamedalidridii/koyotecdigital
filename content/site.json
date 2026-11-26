@@ -16,8 +16,9 @@
     "designrush": "https://www.designrush.com/agency/website-design-development",
     "linkedin": "https://www.linkedin.com/company/88672837",
     "facebook": "https://www.facebook.com/profile.php?id=100086642061980",
-    "locality": "Ennasr, Tunis",
-    "street": "28 Rue Boukhara",
+    "locality": "Ennasr, Ariana",
+    "addressLine": "28 Rue Boukhara, Ennasr, Ariana 2037",
+    "street": "28 Rue Boukhara, Ennasr",
     "postalCode": "2037",
     "city": "Ariana",
     "country": "TN",
@@ -51,7 +52,7 @@
       "drop": "Contactez-nous",
       "other_lang": "English",
       "touch": "Nous écrire",
-      "based": "Basés à Ennasr, Tunis, Tunisie",
+      "based": "28 Rue Boukhara, Ennasr, Ariana 2037, Tunisie",
       "rights": "Tous droits réservés",
       "nav_cta": "Devis gratuit",
       "footer_pages": "Pages",
@@ -182,7 +183,7 @@
         ],
         [
           "Adresse",
-          "28 Rue Boukhara, Ariana 2037, Tunisie"
+          "28 Rue Boukhara, Ennasr, Ariana 2037, Tunisie"
         ],
         [
           "Projets livrés",
@@ -347,7 +348,7 @@
       "h1": "Demandez votre devis de site web à Tunis",
       "sub": "Site vitrine, boutique en ligne, logo ou référencement : décrivez votre projet en deux minutes, nous vous répondons avec un devis gratuit et détaillé sous 24 h.",
       "addr": [
-        "Ennasr, Tunis",
+        "28 Rue Boukhara, Ennasr, Ariana 2037",
         "Tunisie",
         "36.8652 / 10.1714"
       ],
@@ -1314,7 +1315,7 @@
       "drop": "Drop a line",
       "other_lang": "Français",
       "touch": "Get in touch",
-      "based": "Based in Ennasr, Tunis, Tunisia",
+      "based": "28 Rue Boukhara, Ennasr, Ariana 2037, Tunisia",
       "rights": "All rights reserved",
       "nav_cta": "Free quote",
       "footer_pages": "Pages",
@@ -1445,7 +1446,7 @@
         ],
         [
           "Address",
-          "28 Rue Boukhara, Ariana 2037, Tunisia"
+          "28 Rue Boukhara, Ennasr, Ariana 2037, Tunisia"
         ],
         [
           "Projects delivered",
@@ -1610,7 +1611,7 @@
       "h1": "Get a quote for your website in Tunis",
       "sub": "Showcase site, online store, logo or SEO: describe your project in two minutes and we reply with a free, detailed quote within 24 hours.",
       "addr": [
-        "Ennasr, Tunis",
+        "28 Rue Boukhara, Ennasr, Ariana 2037",
         "Tunisia",
         "36.8652 / 10.1714"
       ],

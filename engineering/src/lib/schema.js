@@ -21,7 +21,7 @@ export const ORGANIZATION = {
       telephone: "+21652405699",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "28 Rue Boukhara",
+        streetAddress: "28 Rue Boukhara, Ennasr",
         addressLocality: "Ariana",
         postalCode: "2037",
         addressCountry: "TN",
