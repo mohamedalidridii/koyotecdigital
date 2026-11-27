@@ -14,7 +14,8 @@ import { CONTACT } from "@/content/shared";
 // The contact form API (ops/contact-api on the KOYOTEC VPS) accepts requests from www.koyotec.digital.
 const API = "https://api.koyotec.digital/contact";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-const MIN_MESSAGE = 10;
+// a send that gets no answer within this time shows the error line (with WhatsApp and e-mail) instead of hanging
+const SEND_TIMEOUT_MS = 15000;
 
 // what was typed survives a language switch (/contact and /en/contact are two pages): one draft per tab,
 // kept only while the visitor moves between the two languages of this form
@@ -55,8 +56,8 @@ function validate(name, value, e) {
     if (!EMAIL_RE.test(v)) return e.emailInvalid;
   }
   if (name === "message") {
+    // no minimum length: the topic is often pre-selected (?need=), so "audit please" is a valid request
     if (!v) return e.messageRequired;
-    if (v.length < MIN_MESSAGE) return e.messageShort;
   }
   return "";
 }
@@ -83,6 +84,12 @@ export default function ContactActions() {
   const [status, setStatus] = useState("idle"); // idle | sending | sent | error
   const [values, setValues] = useState({ name: "", email: "", message: "" });
   const [touched, setTouched] = useState({});
+  const [tried, setTried] = useState(false); // a send was refused: the line under the button lists what to fix
+  const errorRef = useRef(null);
+  // a failed send: bring the error line (with WhatsApp and e-mail) on screen, it sits below the button
+  useEffect(() => {
+    if (status === "error") errorRef.current?.scrollIntoView({ block: "center", behavior: "smooth" });
+  }, [status]);
   const [need, setNeed] = useState("");
   const [company, setCompany] = useState("");
   const started = useRef(false);
@@ -173,7 +180,13 @@ export default function ContactActions() {
     const firstBad = REQUIRED.find((n) => errors[n]);
     if (firstBad) {
       setTouched({ name: true, email: true, message: true });
-      form.querySelector(`[name="${firstBad}"]`)?.focus();
+      setTried(true);
+      const el = form.querySelector(`[name="${firstBad}"]`);
+      el?.focus({ preventScroll: true });
+      // on a phone the keyboard opens and covers the hint under the field: centre the field once it is open
+      const show = () => (el?.closest("label") || el)?.scrollIntoView({ block: "center", behavior: "smooth" });
+      show();
+      setTimeout(show, 400);
       track("eng-form-invalid", { field: firstBad, lang });
       return;
     }
@@ -189,22 +202,29 @@ export default function ContactActions() {
       website: String(f.get("website") || ""), // honeypot
     };
     setStatus("sending");
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), SEND_TIMEOUT_MS);
     try {
       const r = await fetch(API, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
+        signal: ctrl.signal,
       });
       if (!r.ok) throw new Error(String(r.status));
       finished.current = true;
       writeDraft(null);
       setStatus("sent");
       track("eng-form-sent", { need: need || "unspecified", lang });
-    } catch {
+    } catch (err) {
       setStatus("error");
-      track("eng-form-error", { lang });
+      track("eng-form-error", { lang, reason: err?.name === "AbortError" ? "timeout" : String(err?.message || "network").slice(0, 40) });
+    } finally {
+      clearTimeout(timer);
     }
   }
+
+  const badLabels = REQUIRED.filter((n) => errors[n]).map((n) => c[n]);
 
   const field = (n) => {
     const err = errorOf(n);
@@ -295,8 +315,13 @@ export default function ContactActions() {
                 </button>
                 <p className={styles.privacy}>{c.privacy}</p>
               </div>
-              {status === "error" ? (
+              {tried && badLabels.length ? (
                 <p className={`${styles.full} ${styles.error}`} role="alert">
+                  {c.errors.check} {badLabels.join(", ")}
+                </p>
+              ) : null}
+              {status === "error" ? (
+                <p ref={errorRef} className={`${styles.full} ${styles.error}`} role="alert">
                   {c.error}{" "}
                   <a href={waHref} target="_blank" rel="noreferrer" data-track="whatsapp" data-track-place="engineering-form-error">
                     WhatsApp

@@ -1961,7 +1961,7 @@ const en = {
       emailRequired: "Please enter your email address.",
       emailInvalid: "This email address is not valid (example: name@company.com).",
       messageRequired: "Please describe your project in a few words.",
-      messageShort: "A little more detail, please (at least 10 characters).",
+      check: "Please complete:",
       ok: "✓",
     },
   },

@@ -1963,7 +1963,7 @@ const fr = {
       emailRequired: "Veuillez indiquer votre adresse e-mail.",
       emailInvalid: "Cette adresse e-mail n'est pas valide (exemple : nom@entreprise.com).",
       messageRequired: "Décrivez votre projet en quelques mots.",
-      messageShort: "Un peu plus de détails, s'il vous plaît (au moins 10 caractères).",
+      check: "À compléter :",
       ok: "✓",
     },
   },
