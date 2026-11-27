@@ -1,0 +1,168 @@
+/* additions to NatArticle.module.css for the long-form guides (DevOps trends, GPU costs) */
+
+/* the lede is a sentence, not a second headline */
+.lede {
+  max-width: 26em;
+  font-size: clamp(1.45rem, 2.4vw, 2.4rem);
+  line-height: 1.15;
+}
+
+.byline {
+  margin-top: 1.25rem;
+  opacity: 0.8;
+}
+
+.bylineName {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.h3 {
+  margin-top: 1.75rem;
+  font-family: var(--font-google-sans-code), monospace;
+  font-size: 0.8rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--base-500);
+}
+
+.section {
+  scroll-margin-top: 6rem;
+}
+
+table.summary {
+  min-width: 46rem;
+}
+
+.summary tbody th a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.tag {
+  display: inline-block;
+  margin: 0.6rem 0 0 0.5rem;
+  padding: 0.15rem 0.5rem;
+  background: var(--base-400);
+  color: var(--base-100);
+  font-family: var(--font-google-sans-code), monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.section > .tag {
+  margin-left: 0;
+}
+
+/* on a phone the summary table becomes one card per change: no hidden columns, no sideways scroll */
+@media (max-width: 640px) {
+  table.summary {
+    min-width: 0;
+  }
+  table.summary thead {
+    display: none;
+  }
+  .summary,
+  .summary tbody,
+  .summary tr,
+  .summary th,
+  .summary td {
+    display: block;
+    width: 100%;
+  }
+  .summary tr {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  }
+  table.summary th,
+  table.summary td {
+    padding: 0.2rem 0;
+    border-bottom: 0;
+  }
+  table.summary tbody th {
+    font-size: 1.05rem;
+  }
+  table.summary td::before {
+    content: attr(data-label);
+    display: block;
+    margin-top: 0.6rem;
+    font-family: var(--font-google-sans-code), monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    opacity: 0.6;
+  }
+}
+
+/* the one offer: on red, white button (same treatment as the audit bands) */
+.offer {
+  margin-top: 2rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  background: #d50000;
+  color: #fff;
+  max-width: 46em;
+}
+
+.offerKicker {
+  opacity: 0.9;
+}
+
+.offerTitle {
+  margin-top: 0.6rem;
+  font-size: clamp(1.3rem, 2vw, 1.8rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.offerText {
+  margin: 0.8rem 0 1.25rem;
+  max-width: 38em;
+  line-height: 1.55;
+}
+
+.offerNote {
+  margin-top: 1rem;
+  opacity: 0.9;
+}
+
+.offerLinks {
+  margin-top: 1rem;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+.offerLinks a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.sourcesBlock {
+  margin-top: 1.75rem;
+}
+
+.sourcesLabel {
+  opacity: 0.6;
+}
+
+.sources {
+  margin-top: 0.4rem;
+  padding-left: 1.2rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #4a4a47;
+}
+
+.sources li {
+  margin-top: 0.35rem;
+}
+
+.sources a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

@@ -2,6 +2,8 @@
 import enCloud from "./cloud.en";
 import enFounder from "./founder.en";
 import enNatInstance from "./natInstance.en";
+import enDevopsTrends from "./devopsTrends.en";
+import enGpuCosts from "./gpuCosts.en";
 
 const en = {
   lang: "en",
@@ -26,6 +28,8 @@ const en = {
       medalydridi: "Med Ali Dridi, founder and AI/cloud strategist | Koyotec",
       "cloud-costs": "AWS cost scenarios: NAT, cross-AZ, Spot | Koyotec",
       "cloud-costs/nat-instance": "NAT Gateway vs NAT instance: real cost by AWS Region",
+      "cloud-costs/kubernetes-gpu": "Kubernetes GPU cost optimization: MIG, time-slicing, DRA",
+      "devops-trends-2027": "DevOps trends 2027–2028: 6 changes to plan for now",
       architecture: "Cloud reference architecture in 3D | Koyotec",
     },
     descriptions: {
@@ -35,7 +39,7 @@ const en = {
         "What we build and run: AI assistants, cloud platforms, CI/CD and observability, data platforms and industrial IoT, from the first audit to production.",
       ai: "AI case studies: RAG assistants, agents, document extraction and evaluation, each with the context, the architecture, the results and the delivery plan.",
       devops:
-        "DevOps case studies: on-call copilot, self-healing CI/CD, predictive autoscaling and developer platform, with architecture, results and timeline.",
+        "DevOps case studies: on-call copilot, self-healing CI/CD, predictive autoscaling, GPU cost optimisation and developer platform, with architecture and results.",
       work: "Solution blueprints: RAG assistant, cloud migration, CI/CD on Kubernetes, security audit and BI dashboards. Reference designs we adapt to your stack.",
       studio:
         "Meet the Koyotec Engineering studio in Tunis: how we work, what matters to us, and the engineers we are looking for to join the team.",
@@ -47,6 +51,10 @@ const en = {
         "Explore a complete cloud platform in 3D: network, CI/CD, Kubernetes, data and observability. See how Koyotec Engineering builds every layer.",
       "cloud-costs":
         "Five AWS defaults that inflate cloud bills, priced for Paris, Frankfurt, the UAE and Bahrain, with calculators and the optimised design for each.",
+      "cloud-costs/kubernetes-gpu":
+        "Cut Kubernetes GPU costs: measure idle GPUs with DCGM, share them with MIG, time-slicing or DRA, scale GPU nodes down. With an idle-cost calculator.",
+      "devops-trends-2027":
+        "DevOps trends 2027–2028 with dates and sources: Kubernetes GPU costs (DRA), workload identity, post-quantum TLS, CEL policies, eBPF, confidential computing.",
       "cloud-costs/nat-instance":
         "NAT Gateways in dev and staging accounts vs a t4g.nano NAT instance: verified prices for 5 AWS Regions, a worked example, a calculator and the gotchas.",
       nearshore:
@@ -112,6 +120,8 @@ const en = {
     "/cloud/consultant-aws-france": "Cloud France",
     "/cloud-costs": "Cloud costs",
     "/cloud-costs/nat-instance": "NAT instance",
+    "/cloud-costs/kubernetes-gpu": "GPU costs",
+    "/devops-trends-2027": "DevOps trends 2027–2028",
     "/contact": "Let’s talk",
   },
   preloader: "Loading",
@@ -182,6 +192,17 @@ const en = {
       title: "Cloud costs",
       subtitle: "five expensive defaults",
       description: "Five AWS architecture defaults that inflate the bill, priced with real list prices for your Region, and how we fix each one.",
+    },
+    "devops-trends-2027": {
+      title: "DevOps trends 2027–2028",
+      subtitle: "six changes to plan for now",
+      description: "Kubernetes GPU costs, identity for AI agents, post-quantum TLS, admission policies, eBPF runtime security and confidential computing: what changes, what breaks, and the first check for each.",
+    },
+    "cloud-costs/kubernetes-gpu": {
+      title: "Kubernetes GPU costs",
+      subtitle: "measure, share, scale down",
+      description: "How to find the GPUs you pay for but barely use, share them with MIG, time-slicing or DRA, and switch idle GPU nodes off.",
+      calcLink: "Try the idle-GPU calculator",
     },
     "cloud-costs/nat-instance": {
       title: "NAT Gateway",
@@ -566,7 +587,7 @@ const en = {
         ],
         stack: ["GitHub Actions", "GitLab CI", "Docker", "Kubernetes", "Terraform", "Prometheus", "Grafana"],
         timeline: "4 to 8 weeks",
-        more: { href: "/devops", label: "See our 5 DevOps case studies" },
+        more: { href: "/devops", label: "See our 6 DevOps case studies" },
         visual: {
           nodes: ["Commit", "Build", "Tests", "Security", "Image", "Registry", "Staging", "Production", "Monitoring"],
           logs: [
@@ -1514,7 +1535,7 @@ const en = {
     header: {
       title: "DevOps",
       subtitle: "case studies",
-      description: "Five case studies: platforms that watch, heal and ship themselves, almost.",
+      description: "Six case studies: platforms that watch, heal, ship and pay for themselves, almost.",
     },
     intro: {
       kicker: ["Case studies", "DevOps & platform"],
@@ -1542,6 +1563,8 @@ const en = {
       next: "Next case",
       all: "All DevOps case studies",
       read: "Read the case study",
+      guideLabel: "Guide",
+      guide: "Kubernetes GPU costs: the full guide",
     },
     cases: [
       {
@@ -1863,6 +1886,73 @@ const en = {
           ready: "Ready to code · 4 min",
         },
       },
+      {
+        slug: "gpu-cost-optimization",
+        client: "Selvane Vision",
+        sector: "Computer vision (SaaS)",
+        size: "120 staff, nine AI models in production",
+        short: "Kubernetes GPU cost optimisation (MIG, DRA)",
+        title: "Twenty-four GPUs paid for every hour, a quarter of them really busy",
+        summary: "Every model team had asked for whole GPUs, so the cluster ran 24 of them day and night at 23% activity. We measured what each model really needs, gave the small ones a right-sized slice, packed the rest onto fewer GPUs and let the idle nodes switch off at night.",
+        need: "gpu-cost",
+        guide: "/cloud-costs/kubernetes-gpu",
+        metrics: [
+          ["−55%", "on the GPU bill"],
+          ["24 → 14", "GPUs at peak, 6 at night"],
+          ["23% → 52%", "average GPU activity"],
+        ],
+        context: "Selvane Vision reads documents and video streams for insurers and logistics companies with nine models on Kubernetes: OCR, detection, classification, embeddings and a nightly fine-tuning job. Each team had asked for whole GPUs to be safe. The GPU bill had tripled in a year, while nvidia-smi said the cards were busy.",
+        challenges: [
+          "A pod gets whole GPUs or none: a model that needs 6 GB of memory holds a 40 GB card.",
+          "\"GPU utilisation\" looked high, but it only says a kernel was running, not how much of the chip was working.",
+          "Night and weekend traffic is a fraction of the day, yet every GPU node stayed on.",
+          "Sharing must never let one model slow down or crash another.",
+        ],
+        approach: "We collect two weeks of DCGM metrics per pod (SM activity and memory, not just GPU utilisation), group the models by real need and give each a right-sized share: MIG partitions for production models that need isolation, time-slicing for development and batch. Whole-GPU jobs move to DRA ResourceClaims that select devices by memory and type. The autoscaler drains idle GPU nodes at night, and every change is compared with the bill before and after.",
+        steps: [
+          ["Two weeks of real metrics", "SM activity and memory per pod: the 24 GPUs average 23% activity."],
+          ["Models grouped by need", "Nine models, four sizes: six of them need less than 10 GB of GPU memory."],
+          ["Right-sized slices", "MIG partitions for production models, time-slicing for development and batch."],
+          ["Claims instead of counts", "DRA ResourceClaims select devices by memory and type: pods pack onto 14 GPUs."],
+          ["Idle nodes switched off", "At night the autoscaler drains empty GPU nodes: 6 GPUs instead of 24."],
+        ],
+        results: [
+          ["−55%", "on the GPU bill, month on month"],
+          ["24 → 14", "GPUs at peak, 6 at night"],
+          ["23% → 52%", "average GPU activity (SM active)"],
+          ["< 5%", "change in p95 inference latency"],
+        ],
+        deliverables: [
+          "Two-week GPU baseline: SM activity and memory per pod (DCGM)",
+          "Sizing map: the real GPU need of each model",
+          "MIG and time-slicing configuration (NVIDIA GPU Operator)",
+          "DRA DeviceClasses and ResourceClaimTemplates for whole-GPU jobs",
+          "GPU node pools and autoscaler settings, scale-down at night",
+          "Before and after cost report",
+        ],
+        stack: ["Kubernetes", "DRA", "NVIDIA GPU Operator", "MIG", "DCGM exporter", "Prometheus", "Karpenter"],
+        timeline: "6 to 8 weeks",
+        team: "1 platform engineer, 1 ML engineer (part time)",
+        visual: {
+          pods: "Model pods",
+          gpus: "GPU nodes",
+          node: "Node",
+          activity: "GPU activity",
+          before: "Before",
+          after: "After",
+          mig: "MIG slices",
+          small: "< 10 GB",
+          claim: "ResourceClaim",
+          off: "Switched off at night",
+          models: ["OCR", "Detect", "Classify", "Embed", "Segment", "Rerank", "Blur", "Plates", "Fine-tune"],
+          kpiGpus: "GPUs at peak",
+          kpiGpusVal: "24 → 14",
+          kpiAct: "GPU activity",
+          kpiActVal: "23% → 52%",
+          kpiBill: "GPU bill",
+          kpiBillVal: "−55%",
+        },
+      },
     ],
   },
 
@@ -1943,6 +2033,7 @@ const en = {
       "Cloud cost audit",
       "Security audit",
       "Data / BI",
+      "GPU & Kubernetes cost review",
       "Other",
     ],
     message: "Message",
@@ -2023,6 +2114,8 @@ const en = {
   ...enCloud,
   ...enFounder,
   ...enNatInstance,
+  ...enDevopsTrends,
+  ...enGpuCosts,
 };
 
 export default en;

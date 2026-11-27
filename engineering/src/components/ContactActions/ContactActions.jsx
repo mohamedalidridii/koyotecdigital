@@ -65,8 +65,10 @@ function validate(name, value, e) {
 const REQUIRED = ["name", "email", "message"];
 
 // ?need=… on links to this page pre-selects the topic (index into contactForm.needs, same order in fr/en).
-// devops-audit = the 2-week DevOps & cloud audit (the offer); audit = the cloud cost audit (cost pages).
-const NEED_KEYS = { "devops-audit": 0, iiot: 1, energy: 2, maintenance: 3, ai: 4, cloud: 5, devops: 5, kubernetes: 6, audit: 7, security: 8, data: 9 };
+// devops-audit = the 2-week DevOps & cloud audit (the offer); audit = the cloud cost audit (cost pages);
+// gpu-cost = the GPU & Kubernetes cost review (GPU guide, DevOps trends guide, GPU case). New topics go just
+// before "Other", which stays last.
+const NEED_KEYS = { "devops-audit": 0, iiot: 1, energy: 2, maintenance: 3, ai: 4, cloud: 5, devops: 5, kubernetes: 6, audit: 7, security: 8, data: 9, "gpu-cost": 10 };
 
 // reads ?need=… (useSearchParams must sit under a Suspense boundary in a prerendered page)
 function NeedFromUrl({ needs, onNeed }) {

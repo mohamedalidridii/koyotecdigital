@@ -172,6 +172,16 @@
   --accent: #ff7a1a;
   --chip: rgba(255, 122, 26, 0.12);
 }
+.case[data-theme="gpu-cost-optimization"],
+.row[data-theme="gpu-cost-optimization"],
+.next[data-theme="gpu-cost-optimization"] {
+  --bg: #0f1419;
+  --fg: #edf2ee;
+  --dim: rgba(237, 242, 238, 0.62);
+  --line: rgba(237, 242, 238, 0.15);
+  --accent: #8be06a;
+  --chip: rgba(139, 224, 106, 0.12);
+}
 .case[data-theme="idp-scaffolder"],
 .row[data-theme="idp-scaffolder"],
 .next[data-theme="idp-scaffolder"] {

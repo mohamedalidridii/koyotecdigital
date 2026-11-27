@@ -638,7 +638,8 @@
 .scaling,
 .iac,
 .ci,
-.idp {
+.idp,
+.gpu {
   isolation: isolate;
 }
 /* on-call copilot */

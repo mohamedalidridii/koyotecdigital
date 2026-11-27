@@ -40,6 +40,7 @@ const VISUALS = {
   "iac-security-review": dynamic(() => import("./visuals/IacReview"), { ssr: false }),
   "self-healing-ci": dynamic(() => import("./visuals/SelfHealingCi"), { ssr: false }),
   "idp-scaffolder": dynamic(() => import("./visuals/IdpScaffolder"), { ssr: false }),
+  "gpu-cost-optimization": dynamic(() => import("./visuals/GpuPacking"), { ssr: false }),
 };
 
 const pad = (n) => String(n).padStart(2, "0");
@@ -53,8 +54,9 @@ export default function AiCase({ slug, collection = "aiCases", base = "/ai" }) {
   const c = a.cases[index];
   const next = a.cases[(index + 1) % a.cases.length];
   const rootRef = useRef(null);
-  // the contact form opens on this topic (ContactActions NEED_KEYS), and the click says which case sold it
-  const contactHref = href(`/contact/?need=${collection === "devopsCases" ? "devops" : "ai"}#project-form`);
+  // the contact form opens on this topic (ContactActions NEED_KEYS; a case can name its own), and the click
+  // says which case sold it
+  const contactHref = href(`/contact/?need=${c?.need || (collection === "devopsCases" ? "devops" : "ai")}#project-form`);
 
   // "someone opened a project": one event per case view, so Umami can show it as a goal. The tracker
   // script may still be loading on a direct visit, so wait for it (up to 10 s) instead of dropping it.
@@ -273,6 +275,14 @@ export default function AiCase({ slug, collection = "aiCases", base = "/ai" }) {
               <p className={`mono sm ${styles.label}`}>{L.team}</p>
               <p className={styles.value}>{c.team}</p>
             </div>
+            {c.guide && L.guide ? (
+              <div>
+                <p className={`mono sm ${styles.label}`}>{L.guideLabel}</p>
+                <Link href={href(c.guide)} className={styles.value} data-track="case-guide" data-track-case={c.slug}>
+                  {L.guide} →
+                </Link>
+              </div>
+            ) : null}
           </div>
         </div>
         <Link href={contactHref} className={styles.cta} data-track="eng-contact-cta" data-track-place="case-end" data-track-case={c.slug}>
